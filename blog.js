@@ -23,14 +23,16 @@ function blogEsc(value){
   }[c]));
 }
 
-function blogHref(p){return window.ZahradaSEO?.postHref?.(p)||("prispevok.html?slug="+encodeURIComponent(p.slug))}\n\nfunction blogCountLabel(count){
+function blogHref(p){return window.ZahradaSEO?.postHref?.(p)||("prispevok.html?slug="+encodeURIComponent(p.slug))}
+
+function blogCountLabel(count){
   if(count===1)return "1 článok";
   if(count>=2&&count<=4)return `${count} články`;
   return `${count} článkov`;
 }
 
 function renderBlogCard(p){
-  return `<article class="cms-post-card is-blog" data-blog-category="${blogEsc(p.category||"Tip")}">
+  return `<article class="cms-post-card is-blog" data-blog-category="${blogEsc(p.category||"Tip")}" data-post-slug="${blogEsc(p.slug)}" data-post-type="blog">
     <a class="cms-post-image" href="${blogEsc(blogHref(p))}">
       ${p.cover_url
         ? `<img src="${blogEsc(p.cover_url)}" alt="${blogEsc(p.title)}" loading="lazy">`
