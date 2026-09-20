@@ -101,7 +101,15 @@ BA$("#bazar-admin-search")?.addEventListener("input",renderBazarAdmin);
 BA$("#bazar-admin-status")?.addEventListener("change",renderBazarAdmin);
 BA$("#bazar-admin-type")?.addEventListener("change",renderBazarAdmin);
 
-(async()=>{
-  if(!await isBazarAdmin()){location.href="index.html";return}
-  await loadBazarAdmin();
-})();
+async function startBazarAdminWhenReady(){
+  if(await isBazarAdmin())await loadBazarAdmin();
+}
+bazarAdminDb.auth.onAuthStateChange((event,session)=>{
+  if(event==="SIGNED_IN"||event==="TOKEN_REFRESHED"||event==="INITIAL_SESSION"){
+    if(session)setTimeout(startBazarAdminWhenReady,0);
+  }
+  if(event==="SIGNED_OUT"){
+    bazarAdminAds=[];bazarAdminReports=[];
+  }
+});
+startBazarAdminWhenReady();
