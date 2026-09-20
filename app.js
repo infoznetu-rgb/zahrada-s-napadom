@@ -334,7 +334,8 @@
   function bottomNav(){
     if(!isStandalone())return;
     if(document.querySelector('.app-bottom-nav'))return;
-    const path=location.pathname.split('/').pop()||'index.html';
+    const pathname=location.pathname;
+    const path=pathname.split('/').pop()||'index.html';
     const nav=document.createElement('nav');nav.className='app-bottom-nav';nav.setAttribute('aria-label','Navigácia aplikácie');
     nav.innerHTML='<a href="/moja-zahrada.html" data-app-route="home"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Domov</span></a><a href="/blog.html" data-app-route="blog"><svg viewBox="0 0 24 24"><path d="M5 4.5h10a4 4 0 0 1 4 4v11H8a3 3 0 0 1-3-3z"/><path d="M8 19.5a3 3 0 0 1 3-3h8M8 8h7M8 11.5h7"/></svg><span>Blog</span></a><a href="/#projekty" data-app-route="ideas"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5C7.3 13.5 6 12 6 9.5a6 6 0 1 1 12 0c0 2.5-1.3 4-2.5 5"/></svg><span>Nápady</span></a><a href="/moja-zahrada.html#ulozene" data-app-route="saved"><svg viewBox="0 0 24 24"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg><span>Uložené</span></a><a href="/bazar.html" data-app-route="market"><svg viewBox="0 0 24 24"><path d="M4 8h16l-1 12H5zM7 8V6a5 5 0 0 1 10 0v2"/></svg><span>Bazár</span></a>';
     document.body.appendChild(nav);
