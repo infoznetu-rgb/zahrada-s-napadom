@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="description" content="Záhrada s nápadom — nekomerčný hobby projekt o záhrade, tvorení a nápadoch od ľudí pre ľudí.">
   <meta name="theme-color" content="#f6f3e8">
+  <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
+  <link rel="alternate icon" href="app-icon.svg?v=3">
   <meta name="robots" content="index,follow">
   <title>Záhrada s nápadom — od ľudí pre ľudí</title>
-  <link rel="stylesheet" href="zahrada.css?v=6">
-  <link rel="manifest" href="zahrada.webmanifest?v=2">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>\n  <script src="cms-public.js?v=1" defer></script>\n  <script src="zahrada.js" defer></script>
+  <link rel="stylesheet" href="zahrada.css?v=7">
+  <link rel="manifest" href="zahrada.webmanifest?v=3">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="cms-public.js?v=1" defer></script>
+  <script src="zahrada.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
@@ -17,8 +21,8 @@
   <header class="site-header">
     <div class="top container">
       <a class="brand" href="#domov" aria-label="Záhrada s nápadom domov">
-        <span class="brand-mark">Z</span>
-        <span class="brand-text"><strong>ZÁHRADA</strong><small>S NÁPADOM</small></span>
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
       </a>
       <nav class="desktop-nav" aria-label="Hlavná navigácia">
         <a href="#projekty">Moje projekty</a>
@@ -92,7 +96,9 @@
         <p>Začíname skutočným projektom z mojej dielne. Postupne sem pridám ďalšie výrobky, úpravy a nápady zo záhrady.</p>
       </div>
 
-      <div id="cms-projects" class="cms-post-grid"></div>\n\n      <article id="static-project-fallback" class="project-showcase">
+      <div id="cms-projects" class="cms-post-grid"></div>
+
+      <article id="static-project-fallback" class="project-showcase">
         <div class="project-real-photo">
           <img src="assets/posts/terasova-hojdacia-lavicka/hlavna.webp" alt="Hotová kovová terasová hojdacia lavička s vankúšmi v záhrade" width="1000" height="667" loading="eager">
           <span class="photo-badge">NOVÝ PRÍSPEVOK</span>
@@ -165,7 +171,7 @@
   </main>
 
   <footer class="footer container">
-    <a class="brand small-brand" href="#domov"><span class="brand-mark">Z</span><span class="brand-text"><strong>ZÁHRADA</strong><small>S NÁPADOM</small></span></a>
+    <a class="brand small-brand" href="#domov"><img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a>
     <p>Vlastné nápady · vlastné fotografie · komunita ľudí, ktorých baví tvoriť.</p>
     <small>Nekomerčný hobby projekt · 2026</small>
   </footer>
