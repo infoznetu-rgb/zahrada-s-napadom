@@ -19,25 +19,22 @@ async function loadSiteSettings(){
 }
 
 async function loadPublishedPosts(){
-  const root=document.querySelector("#cms-projects");
-  if(!root)return;
+  const projectRoot=document.querySelector("#cms-projects");
+  const blogRoot=document.querySelector("#cms-blog-home");
+  if(!projectRoot&&!blogRoot)return;
+
   const {data,error}=await cms.from("zahrada_posts")
     .select("slug,title,excerpt,category,cover_url,published_at,content_type,tags")
     .eq("status","published")
     .order("published_at",{ascending:false})
-    .limit(40);
+    .limit(60);
+
   if(error||!data||!data.length)return;
+
   const projects=data.filter(p=>p.content_type!=="blog");
   const blogs=data.filter(p=>p.content_type==="blog");
-  const mixed=[];
-  while(projects.length||blogs.length){
-    if(projects.length)mixed.push(projects.shift());
-    if(blogs.length)mixed.push(blogs.shift());
-    if(blogs.length)mixed.push(blogs.shift());
-    if(!projects.length&&blogs.length){mixed.push(...blogs.splice(0));break}
-  }
-  const visible=mixed.slice(0,24);
-  root.innerHTML=visible.map(p=>`<article class="cms-post-card ${p.content_type==="blog"?"is-blog":"is-project"}">
+
+  const renderCard=(p)=>`<article class="cms-post-card ${p.content_type==="blog"?"is-blog":"is-project"}">
     <a class="cms-post-image" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">
       ${p.cover_url?`<img src="${cmsEsc(p.cover_url)}" alt="${cmsEsc(p.title)}" loading="lazy">`:'<div class="cms-post-placeholder">Záhrada s nápadom</div>'}
     </a>
@@ -57,9 +54,28 @@ async function loadPublishedPosts(){
         </button>
       </div>
     </div>
-  </article>`).join("");
-  const fallback=document.querySelector("#static-project-fallback");
-  if(fallback)fallback.hidden=true;
+  </article>`;
+
+  // Najnovších 6 blogov má vlastnú sekciu a neopakuje sa vo výbere pri projektoch.
+  const latestBlogs=blogs.slice(0,6);
+  const selectedBlogs=blogs.slice(6,10);
+
+  if(blogRoot){
+    blogRoot.innerHTML=latestBlogs.map(renderCard).join("");
+  }
+
+  if(projectRoot){
+    const mixed=[];
+    const count=Math.max(projects.length,selectedBlogs.length);
+    for(let i=0;i<count;i++){
+      if(projects[i])mixed.push(projects[i]);
+      if(selectedBlogs[i])mixed.push(selectedBlogs[i]);
+    }
+    projectRoot.innerHTML=mixed.slice(0,8).map(renderCard).join("");
+
+    const fallback=document.querySelector("#static-project-fallback");
+    if(fallback&&projects.length)fallback.hidden=true;
+  }
 }
 
 loadSiteSettings();
