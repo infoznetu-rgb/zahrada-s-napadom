@@ -1,28 +1,34 @@
 {
   "id": "./admin-app",
-  "name": "Správa webu · Záhrada s nápadom",
-  "short_name": "Správa webu",
-  "description": "Súkromná administrácia webu Záhrada s nápadom.",
+  "name": "ZÁHRADA ADMIN · Správa webu",
+  "short_name": "ZÁHRADA ADMIN",
+  "description": "Súkromná administračná aplikácia webu Záhrada s nápadom.",
   "lang": "sk",
   "dir": "ltr",
   "start_url": "./index.html?source=admin-pwa",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "any",
-  "background_color": "#f2f5ef",
-  "theme_color": "#1f3d28",
-  "categories": ["productivity", "business"],
+  "background_color": "#101b14",
+  "theme_color": "#101b14",
+  "categories": [
+    "productivity",
+    "business"
+  ],
   "prefer_related_applications": false,
   "icons": [
     {
-      "src": "admin-icon.svg?v=1",
+      "src": "admin-icon.svg?v=2",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "admin-icon.svg?v=1",
+      "src": "admin-icon.svg?v=2",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
@@ -33,19 +39,37 @@
       "name": "Prehľad",
       "short_name": "Prehľad",
       "url": "./index.html?source=admin-pwa#dashboard",
-      "icons": [{"src":"admin-icon.svg?v=1","sizes":"any","type":"image/svg+xml"}]
+      "icons": [
+        {
+          "src": "admin-icon.svg?v=2",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     },
     {
       "name": "Nový príspevok",
       "short_name": "Nový",
       "url": "./index.html?source=admin-pwa#new",
-      "icons": [{"src":"admin-icon.svg?v=1","sizes":"any","type":"image/svg+xml"}]
+      "icons": [
+        {
+          "src": "admin-icon.svg?v=2",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     },
     {
       "name": "Bazár",
       "short_name": "Bazár",
       "url": "./index.html?source=admin-pwa#bazar",
-      "icons": [{"src":"admin-icon.svg?v=1","sizes":"any","type":"image/svg+xml"}]
+      "icons": [
+        {
+          "src": "admin-icon.svg?v=2",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ]
 }
