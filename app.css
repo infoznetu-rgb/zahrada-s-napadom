@@ -626,3 +626,31 @@
     .app-promo-banner.is-visible{transform:none}
   }
 }
+
+
+/* Facebook shortcut in installed app */
+.app-quick-launch{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+.app-quick-launch .app-quick-facebook{
+  background:
+    radial-gradient(circle at 86% 15%,rgba(255,255,255,.2),transparent 30%),
+    linear-gradient(145deg,#4267b2,#365899);
+  color:#fff;
+  border-color:rgba(66,103,178,.25);
+}
+.app-quick-launch .app-quick-facebook .app-quick-icon,
+.app-quick-launch .app-quick-facebook small{
+  color:rgba(255,255,255,.88);
+}
+.app-quick-launch .app-quick-facebook .app-quick-icon{
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:900;
+  font-size:1.55rem;
+}
+@media(max-width:900px){
+  .app-quick-launch{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .app-quick-launch a:last-child{grid-column:auto}
+}
