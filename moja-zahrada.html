@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="application-name" content="Záhrada s nápadom">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Záhrada">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#5f965f">
+  <meta name="robots" content="noindex,follow">
+  <title>Moja záhrada | Záhrada s nápadom</title>
+  <link rel="icon" type="image/svg+xml" href="app-icon.svg?v=4">
+  <link rel="manifest" href="zahrada.webmanifest?v=5">
+  <link rel="stylesheet" href="zahrada.css?v=10">
+  <link rel="stylesheet" href="studio-2026.css?v=1">
+  <link rel="stylesheet" href="spring-2026.css?v=1">
+  <link rel="stylesheet" href="typography-2026.css?v=9">
+  <link rel="stylesheet" href="app.css?v=2">
+  <script src="zahrada.js?v=2" defer></script>
+  <script src="app.js?v=2" defer></script>
+  <script src="moja-zahrada.js?v=1" defer></script>
+</head>
+<body class="app-dashboard-page">
+  <main class="app-dashboard">
+    <section class="app-dashboard-hero">
+      <div class="app-dashboard-brand">
+        <img src="app-icon.svg?v=4" alt="">
+        <div><span>APLIKÁCIA</span><strong>Záhrada s nápadom</strong></div>
+      </div>
+      <div class="app-dashboard-copy">
+        <span class="kicker">MOJA ZÁHRADA</span>
+        <h1>Všetko, čo si chceš nechať poruke.</h1>
+        <p>Uložené články a posledné čítanie zostávajú iba v tomto zariadení. Bez účtu a bez prihlasovania.</p>
+      </div>
+      <div class="app-dashboard-stats">
+        <div><strong id="app-saved-count">0</strong><span>uložených</span></div>
+        <div><strong id="app-history-count">0</strong><span>v histórii</span></div>
+      </div>
+    </section>
+
+    <section class="app-quick-launch" aria-label="Rýchly prístup">
+      <a href="blog.html"><span class="app-quick-icon">☘</span><strong>Blog</strong><small>Tipy a návody</small></a>
+      <a href="index.html#projekty"><span class="app-quick-icon">✦</span><strong>Nápady</strong><small>Vlastné projekty</small></a>
+      <a href="bazar.html"><span class="app-quick-icon">↔</span><strong>Bazár</strong><small>Komunitná inzercia</small></a>
+    </section>
+
+    <section id="ulozene" class="app-library-section">
+      <div class="app-library-head">
+        <div><span class="kicker">NA NESKÔR</span><h2>Uložené články</h2></div>
+        <button id="clear-saved" type="button" class="app-text-button" hidden>Vymazať všetky</button>
+      </div>
+      <div id="saved-list" class="app-library-list"></div>
+      <div id="saved-empty" class="app-library-empty">
+        <strong>Zatiaľ tu nič nemáš.</strong>
+        <p>Pri článku alebo karte stlač ikonku záložky a objaví sa tu.</p>
+        <a href="blog.html">Prejsť na blog →</a>
+      </div>
+    </section>
+
+    <section class="app-library-section app-history-section">
+      <div class="app-library-head">
+        <div><span class="kicker">POSLEDNÉ ČÍTANIE</span><h2>Nedávno čítané</h2></div>
+        <button id="clear-history" type="button" class="app-text-button" hidden>Vymazať históriu</button>
+      </div>
+      <div id="history-list" class="app-library-list"></div>
+      <div id="history-empty" class="app-library-empty">
+        <strong>História je zatiaľ prázdna.</strong>
+        <p>Po otvorení článku si ho aplikácia zapamätá, aby si sa k nemu vedel vrátiť.</p>
+      </div>
+    </section>
+
+    <section class="app-privacy-note">
+      <strong>Lokálne a súkromne.</strong>
+      <p>Uložené články ani história sa neposielajú do účtu alebo na server. Ak vymažeš dáta prehliadača alebo aplikácie, tento zoznam sa vymaže.</p>
+    </section>
+  </main>
+</body>
+</html>
