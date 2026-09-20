@@ -552,3 +552,149 @@ button,
   .footer-links a{font-size:.88rem}
   .footer>small{font-size:.78rem}
 }
+
+
+/* Väčšie minimum písma + 6. položka Komunitný bazár */
+.brand-text small{font-size:.72rem}
+.desktop-nav a{font-size:.9rem}
+.mobile-nav a{font-size:.96rem}
+
+.eyebrow,
+.hero-edition,
+.hero-signature span,
+.side-card .label,
+.kicker,
+.section-index,
+.photo-badge,
+.cms-post-body .tag,
+.project-story .tag,
+.video-placeholder small,
+.community-card small{
+  font-size:.8rem;
+  line-height:1.35;
+}
+
+.hero-proof,
+.hero-proof span{
+  font-size:.84rem;
+}
+.hero-proof b{font-size:.72rem}
+
+.quick{
+  grid-template-columns:repeat(6,1fr);
+}
+.quick a span{
+  font-size:.8rem;
+}
+.quick a b{
+  font-size:1.2rem;
+  line-height:1.18;
+}
+.quick a small{
+  font-size:.86rem;
+  line-height:1.45;
+}
+.quick a:nth-child(6){
+  background:#eef3e6 !important;
+}
+
+.project-facts span,
+.project-detail-copy small,
+.project-page-main figcaption,
+.project-detail-panel figcaption,
+.post-hero figcaption,
+.post-photo figcaption,
+.contact-overline,
+.footer>small,
+.article-share-row>span,
+.share-status,
+.share-option b{
+  font-size:.84rem;
+}
+
+.form-note,
+.bazar-help,
+.bazar-message,
+.bazar-form-message{
+  font-size:.86rem !important;
+}
+
+.idea-form label,
+.bazar-filters label,
+.bazar-form-card label,
+.report-box label,
+.bazar-login label{
+  font-size:.9rem !important;
+}
+
+.idea-form .check,
+.bazar-check{
+  font-size:.88rem !important;
+}
+
+.bazar-meta,
+.bazar-card-meta,
+.detail-meta,
+.my-ad p,
+.my-ad-info p{
+  font-size:.84rem;
+}
+
+.soft-tag,
+.pill,
+.status-pill,
+.cover-mark{
+  font-size:.76rem;
+}
+
+.mini,
+.bazar-mini-btn{
+  font-size:.82rem;
+}
+
+@media(max-width:1180px){
+  .quick{grid-template-columns:repeat(3,1fr)}
+}
+
+@media(max-width:900px){
+  .quick{grid-template-columns:repeat(2,1fr)}
+  .quick a:last-child{grid-column:auto}
+}
+
+@media(max-width:620px){
+  .eyebrow,
+  .hero-edition,
+  .side-card .label,
+  .kicker,
+  .section-index,
+  .photo-badge,
+  .cms-post-body .tag,
+  .project-story .tag{
+    font-size:.78rem;
+  }
+
+  .hero-proof,
+  .hero-proof span{font-size:.82rem}
+
+  .quick a span{font-size:.78rem}
+  .quick a small{font-size:.84rem}
+
+  .idea-form label,
+  .bazar-filters label,
+  .bazar-form-card label,
+  .report-box label,
+  .bazar-login label{
+    font-size:.88rem !important;
+  }
+
+  .idea-form .check,
+  .bazar-check,
+  .form-note,
+  .bazar-help,
+  .bazar-message,
+  .bazar-form-message{
+    font-size:.86rem !important;
+  }
+
+  .footer>small{font-size:.84rem}
+}
