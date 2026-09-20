@@ -1,11 +1,11 @@
-const VERSION='25';
+const VERSION='26';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
 const PRECACHE=[
-  './','./index.html','./blog.html','./prispevok.html','./bazar.html','./inzerat.html',
+  './','./index.html','./moja-zahrada.html','./blog.html','./prispevok.html','./bazar.html','./inzerat.html',
   './zahrada.css','./studio-2026.css','./spring-2026.css','./typography-2026.css','./bazar.css','./app.css',
-  './zahrada.js','./studio-2026.js','./cms-public.js','./blog.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js',
+  './zahrada.js','./studio-2026.js','./cms-public.js','./blog.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./moja-zahrada.js',
   './zahrada.webmanifest','./offline.html','./app-icon.svg','./app-icon-maskable.svg','./brand-mark.svg',
   './assets/hero-ziva-zahrada.png','./assets/posts/terasova-hojdacia-lavicka/hlavna.webp'
 ];
