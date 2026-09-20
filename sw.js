@@ -1,4 +1,4 @@
-const CACHE='zahrada-live-v6';
+const CACHE='zahrada-live-v7';
 const ASSETS=[
   './',
   './index.html',
@@ -9,6 +9,7 @@ const ASSETS=[
   './prispevok.js',
   './zahrada.webmanifest',
   './app-icon.svg',
+  './brand-mark.svg',
   './assets/posts/terasova-hojdacia-lavicka/hlavna.webp'
 ];
 
