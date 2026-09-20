@@ -31,7 +31,7 @@
       excerpt:String(post.excerpt||'').trim(),
       cover_url:String(post.cover_url||'').trim(),
       content_type:post.content_type==='project'?'project':'blog',
-      url:String(post.url||(window.ZahradaSEO?.postHref?.(post)||('/prispevok.html?slug='+encodeURIComponent(slug))))
+      url:String(post.url||('prispevok.html?slug='+encodeURIComponent(slug)))
     };
   }
   function getSaved(){return safeRead(SAVED_KEY)}
@@ -315,8 +315,8 @@
   }
 
   function maybeShowPromoBanner(){
-    const pathname=location.pathname;\n    const path=pathname.split('/').pop()||'index.html';
-    if(pathname.endsWith('/moja-zahrada.html'))return;
+    const path=location.pathname.split('/').pop()||'index.html';
+    if(path==='moja-zahrada.html')return;
     const dismissed=Number(localStorage.getItem(PROMO_DISMISS_KEY)||0);
     if(dismissed&&Date.now()-dismissed<3*24*60*60*1000)return;
 
@@ -344,27 +344,20 @@
   }
 
   function postFromCard(card){
-    const link=card.querySelector('h3 a,.cms-post-image');
+    const link=card.querySelector('h3 a[href*="slug="],.cms-post-image[href*="slug="]');
     if(!link)return null;
     let url;
     try{url=new URL(link.getAttribute('href'),location.href)}catch(e){return null}
-    let slug=card.dataset.postSlug||url.searchParams.get('slug')||'';
-    if(!slug){
-      const segment=url.pathname.split('/').filter(Boolean).pop()||'';
-      const known=[...(window.ZahradaSEO?.STATIC_SLUGS||[])];
-      slug=known.find(s=>window.ZahradaSEO?.cleanSlug?.(s)===segment)||segment;
-    }
-    if(!slug)return null;
+    const slug=url.searchParams.get('slug');if(!slug)return null;
     const tag=card.querySelector('.tag')?.textContent||'';
-    const contentType=card.dataset.postType||(/BLOG/i.test(tag)?'blog':'project');
     return normalizePost({
       slug,
       title:card.querySelector('h3')?.textContent||'Príspevok',
       category:tag,
       excerpt:card.querySelector('.cms-post-body p')?.textContent||'',
       cover_url:card.querySelector('.cms-post-image img')?.getAttribute('src')||'',
-      content_type:contentType,
-      url:window.ZahradaSEO?.postHref?.({slug,content_type:contentType})||('/prispevok.html?slug='+encodeURIComponent(slug))
+      content_type:/BLOG/i.test(tag)?'blog':'project',
+      url:'prispevok.html?slug='+encodeURIComponent(slug)
     });
   }
 
