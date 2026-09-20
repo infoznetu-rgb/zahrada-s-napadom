@@ -88,7 +88,7 @@ function renderPostRows(container,list){
   if(!list.length){container.innerHTML='<div class="empty">Zatiaľ tu nie sú žiadne príspevky.</div>';return}
   container.innerHTML=list.map(p=>`<article class="post-row">
     ${p.cover_url?`<img class="post-thumb" src="${esc(p.cover_url)}" alt="">`:'<div class="post-thumb"></div>'}
-    <div class="post-meta"><h4>${esc(p.title)}</h4><p>${esc(p.category)} · ${formatDate(p.published_at||p.created_at)} · <span class="badge ${p.status}">${p.status==="published"?"Publikované":"Koncept"}</span></p></div>
+    <div class="post-meta"><h4>${esc(p.title)}</h4><p>${p.content_type==="blog"?"Blog":"Projekt"} · ${esc(p.category)} · ${formatDate(p.published_at||p.created_at)} · <span class="badge ${p.status}">${p.status==="published"?"Publikované":"Koncept"}</span></p></div>
     <div class="post-actions"><button class="mini-btn" data-edit-id="${p.id}">Upraviť</button>${p.status==="published"?`<a class="mini-btn" href="../prispevok.html?slug=${encodeURIComponent(p.slug)}" target="_blank" rel="noopener">Pozrieť</a>`:""}</div>
   </article>`).join("");
   container.querySelectorAll("[data-edit-id]").forEach(b=>b.addEventListener("click",()=>openEditor(b.dataset.editId)));
@@ -100,7 +100,9 @@ function openEditor(id=null){
   $("#post-id").value=currentPost?.id||"";
   $("#post-title").value=currentPost?.title||"";
   $("#post-slug").value=currentPost?.slug||"";
+  $("#post-content-type").value=currentPost?.content_type||"project";
   $("#post-category").value=currentPost?.category||"Záhrada";
+  $("#post-tags").value=Array.isArray(currentPost?.tags)?currentPost.tags.join(", "):"";
   $("#post-excerpt").value=currentPost?.excerpt||"";
   $("#post-content").value=currentPost?.content||"";
   $("#post-cover-url").value=currentPost?.cover_url||"";
@@ -154,7 +156,9 @@ async function savePost(status){
   setSave("Ukladám…");
   const payload={
     title,slug,
+    content_type:$("#post-content-type").value==="blog"?"blog":"project",
     category:$("#post-category").value.trim()||"Záhrada",
+    tags:$("#post-tags").value.split(",").map(x=>x.trim()).filter(Boolean),
     excerpt:$("#post-excerpt").value.trim(),
     content:$("#post-content").value.trim(),
     cover_url:$("#post-cover-url").value||null,
