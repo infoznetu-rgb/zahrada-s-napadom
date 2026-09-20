@@ -458,3 +458,66 @@ h1,h2,h3,h4{
 @media (prefers-reduced-motion:reduce){
   .hero-photo{transform:none!important}
 }
+
+
+/* Hero photo composition — model stays visible, copy stays on the quiet left side */
+.hero-main{
+  overflow:hidden;
+}
+.hero-photo{
+  object-fit:cover;
+  object-position:74% 50%;
+  transform:scale(1.015);
+  filter:saturate(1.06) brightness(1.04) contrast(.98);
+}
+.hero-main:hover .hero-photo{
+  transform:scale(1.035);
+  filter:saturate(1.1) brightness(1.05) contrast(.99);
+}
+.hero-art:after{
+  background:
+    linear-gradient(90deg,
+      rgba(34,72,43,.82) 0%,
+      rgba(34,72,43,.66) 24%,
+      rgba(34,72,43,.38) 43%,
+      rgba(34,72,43,.13) 58%,
+      rgba(34,72,43,.03) 72%,
+      transparent 100%),
+    linear-gradient(0deg,rgba(35,77,45,.20),transparent 44%);
+}
+.hero-shade{
+  background:linear-gradient(0deg,rgba(28,66,38,.24) 0%,transparent 36%);
+}
+.hero-copy{
+  width:min(60%,790px);
+  max-width:790px;
+  padding-right:28px;
+}
+.hero h1{
+  max-width:720px;
+}
+.hero-copy>p{
+  max-width:610px;
+}
+@media (max-width:1180px){
+  .hero-copy{width:min(64%,720px)}
+  .hero-photo{object-position:72% 50%}
+}
+@media (max-width:900px){
+  .hero-copy{
+    width:100%;
+    max-width:none;
+  }
+  .hero-photo{object-position:70% 50%}
+  .hero-art:after{
+    background:
+      linear-gradient(0deg,
+        rgba(32,73,42,.82) 0%,
+        rgba(32,73,42,.57) 45%,
+        rgba(32,73,42,.12) 78%,
+        transparent 100%);
+  }
+}
+@media (max-width:620px){
+  .hero-photo{object-position:68% 50%}
+}
