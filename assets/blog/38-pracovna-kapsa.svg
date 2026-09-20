@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+ <defs>
+  <filter id="tone" color-interpolation-filters="sRGB">
+   <feComponentTransfer>
+    <feFuncR type="linear" slope="0.94"/>
+    <feFuncG type="linear" slope="0.94"/>
+    <feFuncB type="linear" slope="0.94"/>
+   </feComponentTransfer>
+   <feColorMatrix type="saturate" values="0.78"/>
+  </filter>
+  <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0%" stop-color="rgba(0,0,0,0)"/>
+   <stop offset="100%" stop-color="rgba(35,44,36,.08)"/>
+  </linearGradient>
+ </defs>
+ <rect width="800" height="600" fill="#e8eee4"/>
+ <image href="06-naradie-stena.webp" x="-63" y="-131" width="1136" height="852" preserveAspectRatio="xMidYMid slice" filter="url(#tone)"/>
+ <rect width="800" height="600" fill="url(#shade)"/>
+</svg>
