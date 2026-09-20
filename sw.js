@@ -1,11 +1,11 @@
-const VERSION='26';
+const VERSION='27';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
 const PRECACHE=[
   './','./index.html','./moja-zahrada.html','./blog.html','./prispevok.html','./bazar.html','./inzerat.html',
   './zahrada.css','./studio-2026.css','./spring-2026.css','./typography-2026.css','./bazar.css','./app.css',
-  './zahrada.js','./studio-2026.js','./cms-public.js','./blog.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./moja-zahrada.js',
+  './zahrada.js','./studio-2026.js','./cms-public.js','./blog.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./moja-zahrada.js','./push.js',
   './zahrada.webmanifest','./offline.html','./app-icon.svg','./app-icon-maskable.svg','./brand-mark.svg',
   './assets/hero-ziva-zahrada.png','./assets/posts/terasova-hojdacia-lavicka/hlavna.webp'
 ];
@@ -72,5 +72,40 @@ self.addEventListener('fetch',event=>{
 
   event.respondWith(
     fetch(request).catch(()=>caches.match(request,{ignoreSearch:true}))
+  );
+});
+
+self.addEventListener('push',event=>{
+  let data={};
+  try{data=event.data?event.data.json():{}}catch(e){
+    data={title:'Záhrada s nápadom',body:event.data?.text?.()||'Nový obsah je dostupný.',url:'moja-zahrada.html'};
+  }
+  const title=data.title||'Záhrada s nápadom';
+  const options={
+    body:data.body||'Nový obsah je dostupný.',
+    icon:'./app-icon.svg?v=4',
+    badge:'./brand-mark.svg?v=1',
+    tag:data.tag||('zahrada-'+Date.now()),
+    data:{url:data.url||'moja-zahrada.html',type:data.type||'general'},
+    renotify:false,
+    requireInteraction:false
+  };
+  event.waitUntil(self.registration.showNotification(title,options));
+});
+
+self.addEventListener('notificationclick',event=>{
+  event.notification.close();
+  const relative=event.notification?.data?.url||'moja-zahrada.html';
+  const target=new URL(relative,self.location.href).href;
+  event.waitUntil(
+    clients.matchAll({type:'window',includeUncontrolled:true}).then(list=>{
+      for(const client of list){
+        if('focus' in client){
+          if('navigate' in client)client.navigate(target).catch(()=>{});
+          return client.focus();
+        }
+      }
+      return clients.openWindow?clients.openWindow(target):undefined;
+    })
   );
 });
