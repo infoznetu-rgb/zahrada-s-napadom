@@ -216,3 +216,339 @@ h1,h2,h3,h4{text-wrap:balance}
   .idea-form label{font-size:.82rem !important}
   .idea-form .check{font-size:.8rem !important}
 }
+
+
+/* =========================================================
+   Celowebová čitateľnosť — verejné stránky
+   Jednotné minimum pre texty, formuláre a kontrast.
+   ========================================================= */
+
+:root{
+  --readable-text:#355344;
+  --readable-muted:#587064;
+  --readable-soft:#6b7d73;
+  --readable-on-dark:rgba(255,255,255,.94);
+  --readable-on-dark-soft:rgba(255,255,255,.84);
+  --form-text:#294b38;
+  --form-label:#3f5d4a;
+  --form-placeholder:#6d7b72;
+}
+
+/* Základné texty na svetlom pozadí */
+.section-sidecopy p,
+.section-head>p,
+.cms-post-body p,
+.project-story p,
+.project-detail-copy p,
+.community-card p,
+.contact-heading>p,
+.contact-card p,
+.footer p,
+.noncommercial span,
+.post-dynamic-head>p,
+.project-page-head>p,
+.project-page-copy p,
+.project-detail-text p,
+.notes-grid p{
+  color:var(--readable-muted);
+}
+
+.section-sidecopy p,
+.section-head>p,
+.cms-post-body p,
+.project-story p,
+.project-detail-copy p,
+.community-card p,
+.contact-heading>p,
+.contact-card p,
+.footer p,
+.noncommercial span{
+  font-size:clamp(.92rem,.12vw + .9rem,1rem);
+  line-height:1.65;
+}
+
+/* Drobné informačné texty majú čitateľné minimum */
+.quick a small,
+.project-detail-copy small,
+.project-page-main figcaption,
+.project-detail-panel figcaption,
+.post-hero figcaption,
+.post-photo figcaption,
+.community-card small,
+.contact-overline,
+.footer>small,
+.article-share-row>span,
+.share-status,
+.share-option b{
+  font-size:.78rem;
+  line-height:1.45;
+}
+
+.quick a span,
+.kicker,
+.section-index,
+.photo-badge,
+.cms-post-body .tag,
+.project-story .tag{
+  font-size:.72rem;
+}
+
+.project-facts span{font-size:.75rem}
+.project-link,.side-card a{font-size:.82rem}
+
+/* Tmavé a zelené plochy — vždy svetlý text */
+.studio-dark-section .section-head h2,
+.studio-dark-section .kicker,
+.studio-dark-section .section-index,
+.studio-dark-section .section-sidecopy p,
+.video-card h3,
+.video-card p,
+.submit-copy,
+.submit-copy p,
+.submit-copy li,
+.submit-copy .kicker,
+.submit-grid h2,
+.accent-card h2,
+.accent-card p,
+.accent-card a,
+.project-contact-box h2,
+.project-contact-box p,
+.project-contact-box .kicker{
+  color:var(--readable-on-dark);
+}
+
+.studio-dark-section .section-sidecopy p,
+.video-card p,
+.project-contact-box p{
+  color:var(--readable-on-dark-soft);
+}
+
+.video-card p{font-size:.9rem;line-height:1.6}
+.video-card h3{font-size:1.6rem;line-height:1.12}
+.studio-dark-section .section-sidecopy p{font-size:.92rem}
+
+/* Kontakt a spodná časť stránky */
+.contact-card strong{
+  font-size:1.35rem;
+  line-height:1.2;
+}
+.contact-card p{font-size:.95rem}
+.contact-overline{
+  color:#587263;
+  font-weight:800;
+}
+.noncommercial strong{
+  font-size:.96rem;
+  line-height:1.45;
+}
+.noncommercial span{font-size:.92rem}
+.footer-links a{font-size:.9rem}
+.footer>small{color:#667a6d}
+
+/* Všetky verejné formuláre */
+.idea-form label,
+.bazar-filters label,
+.bazar-form-card label,
+.report-box label,
+.bazar-login label{
+  color:var(--form-label) !important;
+  font-size:.85rem !important;
+  line-height:1.4;
+  font-weight:760 !important;
+}
+
+.idea-form input,
+.idea-form textarea,
+.idea-form select,
+.bazar-filters input,
+.bazar-filters select,
+.bazar-form-card input,
+.bazar-form-card textarea,
+.bazar-form-card select,
+.report-box input,
+.report-box textarea,
+.report-box select,
+.bazar-login input{
+  color:var(--form-text) !important;
+  font-family:inherit;
+  font-size:1rem !important;
+  line-height:1.5;
+}
+
+.idea-form input::placeholder,
+.idea-form textarea::placeholder,
+.bazar-filters input::placeholder,
+.bazar-form-card input::placeholder,
+.bazar-form-card textarea::placeholder,
+.report-box input::placeholder,
+.report-box textarea::placeholder,
+.bazar-login input::placeholder{
+  color:var(--form-placeholder) !important;
+  opacity:1;
+}
+
+.idea-form .check,
+.bazar-check{
+  color:#4e6a59 !important;
+  font-size:.84rem !important;
+  line-height:1.5;
+  font-weight:560 !important;
+}
+
+.idea-form .check input,
+.bazar-check input{
+  width:18px;
+  height:18px;
+  flex:0 0 auto;
+}
+
+.idea-form .upload,
+.bazar-upload{
+  color:#356846 !important;
+  font-size:.86rem !important;
+  line-height:1.5;
+}
+
+.form-note,
+.bazar-help,
+.bazar-message,
+.bazar-form-message{
+  color:#667b6e !important;
+  font-size:.82rem !important;
+  line-height:1.55;
+}
+
+.bazar-message.error,
+.bazar-form-message.error{color:#963c36 !important}
+.bazar-message.ok,
+.bazar-form-message.ok{color:#2f6d42 !important}
+
+button,
+.btn,
+.bazar-mini-btn,
+.mini,
+.contact-link{
+  font-family:inherit;
+  font-size:.88rem;
+  line-height:1.35;
+}
+
+/* Bazár — zoznam, účet, pravidlá a detail */
+.bazar-hero-copy>p{
+  color:var(--readable-muted);
+  font-size:1rem;
+  line-height:1.65;
+}
+.bazar-principles span{
+  color:var(--readable-muted);
+  font-size:.82rem;
+  line-height:1.5;
+}
+.bazar-notice p{
+  color:var(--readable-muted);
+  font-size:.9rem;
+  line-height:1.6;
+}
+.bazar-card p{
+  color:var(--readable-muted);
+  font-size:.9rem;
+  line-height:1.58;
+}
+.bazar-meta,
+.bazar-card-meta,
+.detail-meta{
+  color:#687d70;
+  font-size:.78rem;
+  line-height:1.5;
+}
+.soft-tag,
+.pill,
+.status-pill,
+.cover-mark{
+  font-size:.68rem;
+  line-height:1.25;
+}
+.bazar-card-link{font-size:.82rem}
+.bazar-form-card h3{font-size:1.25rem;line-height:1.2}
+.my-ad p,
+.my-ad-info p{
+  color:#65796c;
+  font-size:.78rem;
+  line-height:1.45;
+}
+.my-ad-info h3{font-size:1rem;line-height:1.25}
+.mini,
+.bazar-mini-btn{font-size:.76rem}
+.rules-grid p,
+.privacy-note p{
+  color:var(--readable-muted);
+  font-size:.88rem;
+  line-height:1.6;
+}
+.detail-description{
+  color:#465f50;
+  font-size:.98rem;
+  line-height:1.72;
+}
+.contact-link{font-size:.82rem}
+
+/* Zdieľanie a pomocné dialógy */
+.share-panel-head h2{font-size:1.55rem;line-height:1.15}
+.share-option b{font-size:.8rem}
+.share-status{font-size:.82rem}
+.article-share-row>span{font-size:.82rem}
+
+/* Článok */
+.post-intro p,
+.post-rich-text p{
+  color:#425f4e;
+  font-size:1rem;
+  line-height:1.78;
+}
+.post-intro h2{
+  font-size:clamp(2rem,3.2vw,3.2rem);
+  line-height:1.04;
+}
+
+/* Mobil: žiadne mikropísmo vo formulároch ani pomocných textoch */
+@media(max-width:620px){
+  .idea-form label,
+  .bazar-filters label,
+  .bazar-form-card label,
+  .report-box label,
+  .bazar-login label{
+    font-size:.84rem !important;
+  }
+
+  .idea-form input,
+  .idea-form textarea,
+  .idea-form select,
+  .bazar-filters input,
+  .bazar-filters select,
+  .bazar-form-card input,
+  .bazar-form-card textarea,
+  .bazar-form-card select,
+  .report-box input,
+  .report-box textarea,
+  .report-box select,
+  .bazar-login input{
+    font-size:1rem !important;
+  }
+
+  .idea-form .check,
+  .bazar-check{
+    font-size:.82rem !important;
+  }
+
+  .form-note,
+  .bazar-help,
+  .bazar-message,
+  .bazar-form-message,
+  .rules-grid p,
+  .privacy-note p{
+    font-size:.82rem !important;
+  }
+
+  .footer-links a{font-size:.88rem}
+  .footer>small{font-size:.78rem}
+}
