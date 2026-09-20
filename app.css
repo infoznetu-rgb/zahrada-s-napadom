@@ -1,0 +1,32 @@
+/* PWA / app experience */
+:root{--app-green:#5f965f;--app-ink:#294b38;--app-paper:#fffdf7;--app-line:rgba(43,75,56,.14)}
+.app-install-prompt{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:1200;display:flex;align-items:center;gap:12px;max-width:min(410px,calc(100vw - 36px));padding:11px 12px 11px 15px;border:1px solid var(--app-line);border-radius:22px;background:rgba(255,253,247,.94);box-shadow:0 18px 55px rgba(31,69,45,.2);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.app-install-prompt[hidden]{display:none}
+.app-install-prompt img{width:44px;height:44px;flex:0 0 auto;border-radius:13px}
+.app-install-copy{min-width:0;display:flex;flex-direction:column;gap:2px}
+.app-install-copy strong{font-size:.92rem;line-height:1.2;color:var(--app-ink)}
+.app-install-copy span{font-size:.76rem;line-height:1.35;color:#607466}
+.app-install-action{appearance:none;border:0;border-radius:999px;background:var(--app-green);color:#fff;padding:10px 13px;font:inherit;font-size:.78rem;font-weight:800;white-space:nowrap;cursor:pointer}
+.app-install-close{appearance:none;border:0;background:transparent;color:#708076;width:30px;height:30px;border-radius:50%;font-size:1.15rem;cursor:pointer}
+.app-sheet{position:fixed;inset:0;z-index:1300;display:grid;align-items:end}
+.app-sheet[hidden]{display:none}
+.app-sheet-backdrop{position:absolute;inset:0;border:0;background:rgba(20,39,29,.38);backdrop-filter:blur(4px)}
+.app-sheet-panel{position:relative;width:min(560px,100%);margin:0 auto;padding:26px 22px calc(26px + env(safe-area-inset-bottom));box-sizing:border-box;border-radius:30px 30px 0 0;background:#fffdf7;box-shadow:0 -20px 70px rgba(22,54,37,.2)}
+.app-sheet-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.app-sheet-head h2{margin:5px 0 0;font-family:Georgia,serif;font-size:2rem;line-height:1;color:var(--app-ink)}
+.app-sheet-close{border:1px solid var(--app-line);background:#f3f5eb;color:var(--app-ink);width:40px;height:40px;border-radius:50%;font-size:1.35rem;cursor:pointer}
+.app-sheet-steps{display:grid;gap:12px;margin-top:22px}
+.app-sheet-step{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;padding:14px;border-radius:18px;background:#f3f6eb}
+.app-sheet-step b{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#5f965f;color:#fff;font-size:.82rem}
+.app-sheet-step p{margin:3px 0 0;color:#496554;font-size:.9rem;line-height:1.5}
+.app-toast{position:fixed;left:50%;bottom:max(24px,calc(16px + env(safe-area-inset-bottom)));z-index:1400;transform:translate(-50%,18px);opacity:0;pointer-events:none;padding:11px 16px;border-radius:999px;background:#294b38;color:#fff;font-size:.82rem;font-weight:700;box-shadow:0 12px 35px rgba(24,52,35,.24);transition:.22s ease}
+.app-toast.is-visible{transform:translate(-50%,0);opacity:1}
+.app-bottom-nav{display:none}
+@media(display-mode:standalone){
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+  .app-bottom-nav{position:fixed;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));z-index:1100;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:7px;border:1px solid rgba(43,75,56,.13);border-radius:24px;background:rgba(255,253,247,.92);box-shadow:0 18px 50px rgba(31,69,45,.18);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  .app-bottom-nav a{display:flex;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:50px;border-radius:17px;color:#63776a;text-decoration:none;font-size:.69rem;font-weight:800}
+  .app-bottom-nav a svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}
+  .app-bottom-nav a.is-active{background:#e8f1df;color:#315b3e}
+  .app-install-prompt{display:none!important}
+}
+@media(max-width:620px){.app-install-prompt{left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));max-width:none}.app-install-copy span{display:none}}
