@@ -1,4 +1,4 @@
-const CACHE='zahrada-live-v20';
+const CACHE='zahrada-live-v21';
 const ASSETS=[
   './',
   './index.html',
@@ -10,6 +10,8 @@ const ASSETS=[
   './zahrada.js',
   './studio-2026.js',
   './cms-public.js',
+  './blog.html',
+  './blog.js',
   './prispevok.html',
   './prispevok.js',
   './bazar.html',
