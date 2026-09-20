@@ -1178,3 +1178,79 @@ button,
     height:560px;
   }
 }
+
+
+/* Facebook links across public site */
+.desktop-nav .nav-facebook{
+  width:34px;
+  height:34px;
+  min-width:34px;
+  padding:0!important;
+  display:inline-grid;
+  place-items:center;
+  border-radius:50%;
+  background:#4267b2;
+  color:#fff!important;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:900;
+  text-decoration:none;
+}
+.desktop-nav .nav-facebook:hover{
+  background:#365899;
+  transform:translateY(-1px);
+}
+.desktop-nav .nav-facebook>span:first-child{
+  font-size:1rem;
+  line-height:1;
+}
+.desktop-nav .nav-facebook-text{display:none}
+
+.mobile-nav .mobile-facebook{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#31523d;
+}
+.mobile-nav .mobile-facebook>span{
+  width:26px;
+  height:26px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#4267b2;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:900;
+  line-height:1;
+}
+
+.footer-facebook-link{
+  display:inline-flex!important;
+  align-items:center;
+  gap:7px;
+  color:#31523d!important;
+  font-weight:800;
+  text-decoration:none;
+}
+.footer-facebook-link>span{
+  width:24px;
+  height:24px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#4267b2;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:900;
+  font-size:.82rem;
+  line-height:1;
+}
+.footer-facebook-standalone{
+  width:max-content;
+  max-width:100%;
+  margin-top:4px;
+}
+
+@media(max-width:900px){
+  .desktop-nav .nav-facebook{display:none}
+}
