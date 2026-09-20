@@ -300,3 +300,34 @@
     min-height:560px!important;
   }
 }
+
+
+/* Compact Facebook card: profile, cover and follower count without slow timeline */
+#facebook .facebook-window-live{
+  min-height:280px!important;
+  height:auto!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+
+#facebook .facebook-page-iframe{
+  width:100%!important;
+  max-width:500px!important;
+  height:280px!important;
+  min-height:280px!important;
+  max-height:280px!important;
+  margin:0 auto!important;
+}
+
+@media(max-width:560px){
+  #facebook .facebook-window-live{
+    min-height:260px!important;
+  }
+  #facebook .facebook-page-iframe{
+    height:260px!important;
+    min-height:260px!important;
+    max-height:260px!important;
+  }
+}
