@@ -35,7 +35,17 @@ async function loadPublishedPosts(){
       <span class="tag">${cmsEsc(p.category||"Nápad")}</span>
       <h3><a href="prispevok.html?slug=${encodeURIComponent(p.slug)}">${cmsEsc(p.title)}</a></h3>
       <p>${cmsEsc(p.excerpt||"")}</p>
-      <a class="project-link" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">Pozrieť príspevok →</a>
+      <div class="cms-card-actions">
+        <a class="project-link" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">Pozrieť príspevok →</a>
+        <button class="card-share-btn" type="button"
+          data-share-card
+          data-share-url="prispevok.html?slug=${encodeURIComponent(p.slug)}"
+          data-share-title="${cmsEsc(p.title)}"
+          aria-label="Zdieľať príspevok ${cmsEsc(p.title)}"
+          title="Zdieľať príspevok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="M8.2 10.9 15.8 6.1M8.2 13.1l7.6 4.8"></path></svg>
+        </button>
+      </div>
     </div>
   </article>`).join("");
   const fallback=document.querySelector("#static-project-fallback");
