@@ -282,3 +282,56 @@ a{color:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}
 @media(max-width:900px){.cms-post-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.cms-post-grid,.dynamic-gallery{grid-template-columns:1fr}}
 \n.small-brand .brand-mark{width:48px;height:48px}\n
+
+/* Zdieľanie */
+.site-share-trigger{
+  display:inline-flex;align-items:center;gap:8px;border:1px solid #cad8c8;background:#fffdf8;
+  color:var(--green-dark);border-radius:999px;padding:9px 12px;font-weight:850;cursor:pointer;
+  box-shadow:0 7px 18px rgba(48,75,52,.06);transition:.2s
+}
+.site-share-trigger:hover{background:var(--green-soft);border-color:#a8bea6;transform:translateY(-1px)}
+.site-share-trigger svg,.native-share-btn svg,.mini-share.more svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.9}
+.share-open{overflow:hidden}
+.share-modal[hidden]{display:none!important}
+.share-modal{position:fixed;inset:0;z-index:9999;display:grid;place-items:end center;padding:18px}
+.share-backdrop{position:absolute;inset:0;border:0;background:rgba(25,39,28,.46);backdrop-filter:blur(5px);cursor:default}
+.share-panel{position:relative;width:min(560px,100%);background:#fffdf8;border:1px solid #d5dfd2;border-radius:26px;padding:24px;
+  box-shadow:0 26px 80px rgba(31,54,35,.26);animation:shareUp .2s ease-out}
+@keyframes shareUp{from{transform:translateY(18px);opacity:0}to{transform:translateY(0);opacity:1}}
+.share-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.share-panel-head h2{margin:5px 0 0;font-size:1.65rem;letter-spacing:-.04em;color:#294632}
+.share-close{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;color:#536656;font-size:1.6rem;line-height:1;cursor:pointer}
+.share-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.share-option{border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px 8px;display:grid;justify-items:center;gap:8px;cursor:pointer;color:#324a37}
+.share-option:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(50,75,53,.09)}
+.share-option span{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:950;font-size:.9rem}
+.share-option b{font-size:.75rem}
+.share-option.facebook span{background:#1877f2}.share-option.whatsapp span{background:#25d366}.share-option.xnet span{background:#111}
+.share-option.linkedin span{background:#0a66c2}.share-option.email span{background:#8b7350}.share-option.copy span{background:var(--green)}
+.native-share-btn{width:100%;margin-top:12px;border:0;border-radius:14px;background:var(--green);color:#fff;padding:13px 16px;
+  display:flex;align-items:center;justify-content:center;gap:9px;font-weight:900;cursor:pointer}
+.share-status{min-height:20px;text-align:center;color:var(--green);font-size:.78rem;margin:10px 0 0}
+.article-share-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.article-share-row>span{font-size:.78rem;font-weight:850;color:#607264;margin-right:2px}
+.mini-share{width:38px;height:38px;border:0;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:950;cursor:pointer;transition:.18s}
+.mini-share:hover{transform:translateY(-2px);box-shadow:0 9px 18px rgba(42,62,45,.16)}
+.mini-share.facebook{background:#1877f2}.mini-share.whatsapp{background:#25d366}.mini-share.xnet{background:#111}.mini-share.linkedin{background:#0a66c2}.mini-share.more{background:var(--green)}
+.card-share-btn{width:38px;height:38px;border:1px solid #c8d6c5;border-radius:50%;background:#f7fbf5;color:var(--green-dark);cursor:pointer;
+  display:grid;place-items:center;margin-left:auto;flex:none;transition:.18s}
+.card-share-btn:hover{background:var(--green-soft);transform:translateY(-1px)}
+.card-share-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.9}
+.cms-card-actions{display:flex;align-items:center;gap:10px;margin-top:14px}
+.cms-card-actions .project-link{margin-right:auto}
+@media(max-width:900px){
+  .site-share-trigger span{display:none}
+  .site-share-trigger{width:42px;height:42px;padding:0;justify-content:center;margin-left:auto}
+  .top .menu{margin-left:0}
+}
+@media(max-width:600px){
+  .share-modal{padding:10px}
+  .share-panel{border-radius:22px;padding:20px 16px}
+  .share-options{grid-template-columns:repeat(3,1fr);gap:8px}
+  .share-option{padding:12px 4px}
+  .share-option span{width:38px;height:38px}
+  .article-share-row>span{width:100%}
+}
