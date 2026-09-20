@@ -269,3 +269,34 @@
     height:560px!important;
   }
 }
+
+
+/* Live Facebook Page Plugin */
+#facebook .facebook-window-live{
+  min-height:620px!important;
+  padding:0!important;
+  background:#fff!important;
+}
+
+#facebook .facebook-page-iframe{
+  display:block!important;
+  width:100%!important;
+  max-width:500px!important;
+  height:620px!important;
+  min-height:620px!important;
+  margin:0 auto!important;
+  border:0!important;
+  background:#fff!important;
+}
+
+@media(max-width:560px){
+  #facebook .facebook-window-live{
+    min-height:560px!important;
+  }
+  #facebook .facebook-page-iframe{
+    width:100%!important;
+    max-width:100%!important;
+    height:560px!important;
+    min-height:560px!important;
+  }
+}
