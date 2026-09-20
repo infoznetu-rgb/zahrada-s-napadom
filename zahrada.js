@@ -160,7 +160,3 @@ document.addEventListener('click',e=>{
 
 addHeaderShare();
 addArticleShare();
-
-if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-}
