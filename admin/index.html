@@ -10,7 +10,7 @@
   <title>Správa webu | Záhrada s nápadom</title>
   <link rel="stylesheet" href="admin.css?v=3">\n  <link rel="stylesheet" href="bazar.css?v=1">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=2" defer></script>\n  <script src="bazar.js?v=3" defer></script>
+  <script src="admin.js?v=4" defer></script>\n  <script src="bazar.js?v=3" defer></script>
 </head>
 <body>
   <main>
@@ -85,7 +85,16 @@
               <label>Názov príspevku<input id="post-title" type="text" required placeholder="Napr. Vyvýšený záhon z dosiek"></label>
               <div class="two-cols">
                 <label>Slug / adresa<input id="post-slug" type="text" required placeholder="vyvyseny-zahon"></label>
+                <label>Typ obsahu
+                  <select id="post-content-type">
+                    <option value="project">Vlastný projekt</option>
+                    <option value="blog">Blog</option>
+                  </select>
+                </label>
+              </div>
+              <div class="two-cols">
                 <label>Kategória<input id="post-category" type="text" value="Záhrada" placeholder="Záhrada"></label>
+                <label>Tagy<input id="post-tags" type="text" placeholder="mulčovanie, voda, záhon"></label>
               </div>
               <label>Krátky úvod<textarea id="post-excerpt" rows="3" placeholder="Krátky text, ktorý sa zobrazí na titulke."></textarea></label>
               <label>Text príspevku<textarea id="post-content" rows="14" placeholder="Napíš celý príbeh, postup alebo poznámky. Odseky oddeľ prázdnym riadkom."></textarea></label>
