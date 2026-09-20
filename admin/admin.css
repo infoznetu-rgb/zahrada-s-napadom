@@ -123,3 +123,34 @@
   .admin-bottom-nav{display:none}
   body{padding-bottom:0}
 }
+
+
+/* Strong visual distinction for admin app */
+.admin-standalone body,
+@media(display-mode:standalone){
+  body{background:#edf1ec}
+}
+@media(display-mode:standalone){
+  .admin-topbar{
+    background:rgba(16,27,20,.96);
+    border-bottom-color:rgba(255,255,255,.08);
+    color:#fff;
+  }
+  .admin-topbar strong{color:#fff;letter-spacing:.04em}
+  .admin-topbar small{color:rgba(255,255,255,.72)}
+  .admin-topbar .icon-btn{
+    background:#1d3224;
+    border-color:#36523e;
+    color:#fff;
+  }
+  .admin-bottom-nav{
+    background:rgba(16,27,20,.96);
+    border-color:#294132;
+  }
+  .admin-bottom-nav button{color:#b8c8bd}
+  .admin-bottom-nav button.active{background:#2a4d35;color:#fff}
+  .admin-bottom-nav .admin-bottom-new{
+    background:linear-gradient(135deg,#ffca58,#e8842f);
+    color:#14221a;
+  }
+}
