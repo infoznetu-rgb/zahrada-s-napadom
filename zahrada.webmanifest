@@ -1,25 +1,57 @@
 {
+  "id": "./",
   "name": "Záhrada s nápadom",
   "short_name": "Záhrada",
-  "description": "Nekomerčný hobby projekt o záhrade, tvorení a nápadoch od ľudí pre ľudí.",
+  "description": "Záhrada, dielňa, praktické hobby nápady, blog a komunitný bazár v jednej aplikácii.",
   "lang": "sk",
-  "start_url": "./",
+  "dir": "ltr",
+  "start_url": "./index.html?source=pwa",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f6f3e8",
-  "theme_color": "#f6f3e8",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#f6f5ea",
+  "theme_color": "#5f965f",
+  "categories": ["lifestyle", "education", "utilities"],
+  "prefer_related_applications": false,
   "icons": [
     {
-      "src": "app-icon.svg?v=3",
-      "sizes": "192x192",
+      "src": "app-icon.svg?v=4",
+      "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "app-icon.svg?v=3",
-      "sizes": "512x512",
+      "src": "app-icon-maskable.svg?v=1",
+      "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "Blog",
+      "short_name": "Blog",
+      "description": "Najnovšie tipy a hobby nápady",
+      "url": "./blog.html?source=pwa",
+      "icons": [{"src":"app-icon.svg?v=4","sizes":"any","type":"image/svg+xml"}]
+    },
+    {
+      "name": "Nápady",
+      "short_name": "Nápady",
+      "description": "Vlastné projekty a vybrané tipy",
+      "url": "./index.html?source=pwa#projekty",
+      "icons": [{"src":"app-icon.svg?v=4","sizes":"any","type":"image/svg+xml"}]
+    },
+    {
+      "name": "Komunitný bazár",
+      "short_name": "Bazár",
+      "description": "Bezplatná komunitná inzercia",
+      "url": "./bazar.html?source=pwa",
+      "icons": [{"src":"app-icon.svg?v=4","sizes":"any","type":"image/svg+xml"}]
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
 }
