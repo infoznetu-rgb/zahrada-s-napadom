@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#f6f3e8">
   <meta name="robots" content="index,follow">
   <title>Záhrada s nápadom — od ľudí pre ľudí</title>
-  <link rel="stylesheet" href="zahrada.css?v=5">
+  <link rel="stylesheet" href="zahrada.css?v=6">
   <link rel="manifest" href="zahrada.webmanifest?v=2">
-  <script src="zahrada.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>\n  <script src="cms-public.js?v=1" defer></script>\n  <script src="zahrada.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
@@ -49,9 +49,9 @@
         </div>
         <div class="hero-shade"></div>
         <div class="hero-copy">
-          <span class="eyebrow">NEKOMERČNÝ HOBBY PROJEKT</span>
-          <h1>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</h1>
-          <p>Ukazujem, čo si doma a v záhrade vyrábam, prerábam a skúšam. Bez predaja. Bez reklám. Len vlastné nápady, skúsenosti a inšpirácia.</p>
+          <span id="cms-hero-eyebrow" class="eyebrow">NEKOMERČNÝ HOBBY PROJEKT</span>
+          <h1 id="cms-hero-title">Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</h1>
+          <p id="cms-hero-text">Ukazujem, čo si doma a v záhrade vyrábam, prerábam a skúšam. Bez predaja. Bez reklám. Len vlastné nápady, skúsenosti a inšpirácia.</p>
           <div class="hero-actions">
             <a class="btn primary" href="#projekty">Pozrieť moje nápady</a>
             <a class="btn ghost" href="#posli">Pochváľ sa aj ty</a>
@@ -92,7 +92,7 @@
         <p>Začíname skutočným projektom z mojej dielne. Postupne sem pridám ďalšie výrobky, úpravy a nápady zo záhrady.</p>
       </div>
 
-      <article id="lavicka" class="project-showcase">
+      <div id="cms-projects" class="cms-post-grid"></div>\n\n      <article id="static-project-fallback" class="project-showcase">
         <div class="project-real-photo">
           <img src="assets/posts/terasova-hojdacia-lavicka/hlavna.webp" alt="Hotová kovová terasová hojdacia lavička s vankúšmi v záhrade" width="1000" height="667" loading="eager">
           <span class="photo-badge">NOVÝ PRÍSPEVOK</span>
@@ -109,7 +109,7 @@
             <span>pohodlné sedenie</span>
           </div>
           <div class="project-actions">
-            <a class="btn primary" href="projekty/hojdacia-lavicka.html">Pozrieť príspevok</a>
+            <a class="btn primary" href="prispevok.html?slug=terasova-hojdacia-lavicka">Pozrieť príspevok</a>
             <a class="project-link" href="#kontakt">Opýtať sa na tento nápad →</a>
           </div>
         </div>
@@ -157,8 +157,8 @@
     </div></section>
 
     <section id="kontakt" class="section container contact">
-      <div><span class="kicker">KONTAKT</span><h2>Chceš sa niečo opýtať?</h2><p>Ak ťa zaujal môj postup alebo potrebuješ poradiť s podobným nápadom, môžeš mi napísať. Ide o hobby projekt — nič tu nepredávam.</p></div>
-      <div class="contact-card"><strong>Napíš mi</strong><p>Kontakt pre otázky a rady doplníme pred spustením novej verzie.</p><a class="btn ghost" href="https://www.facebook.com/objektiv24" rel="noopener noreferrer">Facebook projektu</a></div>
+      <div><span class="kicker">KONTAKT</span><h2 id="cms-contact-title">Chceš sa niečo opýtať?</h2><p id="cms-contact-text">Ak ťa zaujal môj postup alebo potrebuješ poradiť s podobným nápadom, môžeš mi napísať. Ide o hobby projekt — nič tu nepredávam.</p></div>
+      <div class="contact-card"><strong>Napíš mi</strong><p>Kontakt pre otázky a rady doplníme pred spustením novej verzie.</p><a id="cms-contact-facebook" class="btn ghost" href="https://www.facebook.com/objektiv24" rel="noopener noreferrer">Facebook projektu</a></div>
     </section>
 
     <section class="noncommercial"><div class="container"><strong>Záhrada s nápadom je súkromný nekomerčný hobby projekt.</strong><span>Nič nepredávam, neposkytujem platené služby a na stránke nie je platená inzercia.</span></div></section>
