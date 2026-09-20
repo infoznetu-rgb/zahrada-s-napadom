@@ -281,7 +281,7 @@ a{color:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}
 
 @media(max-width:900px){.cms-post-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.cms-post-grid,.dynamic-gallery{grid-template-columns:1fr}}
-\n.small-brand .brand-mark{width:48px;height:48px}\n
+
 
 /* Zdieľanie */
 .site-share-trigger{
@@ -322,6 +322,7 @@ a{color:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}
 .card-share-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.9}
 .cms-card-actions{display:flex;align-items:center;gap:10px;margin-top:14px}
 .cms-card-actions .project-link{margin-right:auto}
+@media(max-width:1050px){.site-share-trigger{margin-left:auto}.top .menu{margin-left:0}}
 @media(max-width:900px){
   .site-share-trigger span{display:none}
   .site-share-trigger{width:42px;height:42px;padding:0;justify-content:center;margin-left:auto}
