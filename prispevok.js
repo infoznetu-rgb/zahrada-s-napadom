@@ -38,6 +38,16 @@ async function loadPost(){
   if(!images.length)gallery.hidden=true;
   document.querySelector("#post-loading").hidden=true;
   document.querySelector("#post-content").hidden=false;
+
+  window.dispatchEvent(new CustomEvent("zahrada:article-loaded",{detail:{
+    slug:data.slug,
+    title:data.title,
+    category:data.category||"Nápad",
+    excerpt:data.excerpt||"",
+    cover_url:data.cover_url||"",
+    content_type:isBlog?"blog":"project",
+    url:"prispevok.html?slug="+encodeURIComponent(data.slug)
+  }}));
 }
 function showError(text){
   const loading=document.querySelector("#post-loading");
