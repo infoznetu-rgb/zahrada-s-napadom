@@ -1,15 +1,25 @@
 {
-  "name":"Záhrada s nápadom",
-  "short_name":"Záhrada",
-  "description":"Nekomerčný hobby projekt o záhrade, tvorení a nápadoch od ľudí pre ľudí.",
-  "lang":"sk",
-  "start_url":"./",
-  "scope":"./",
-  "display":"standalone",
-  "background_color":"#f6f3e8",
-  "theme_color":"#f6f3e8",
-  "icons":[
-    {"src":"app-icon.svg?v=2","sizes":"192x192","type":"image/svg+xml","purpose":"any"},
-    {"src":"app-icon.svg?v=2","sizes":"512x512","type":"image/svg+xml","purpose":"any maskable"}
+  "name": "Záhrada s nápadom",
+  "short_name": "Záhrada",
+  "description": "Nekomerčný hobby projekt o záhrade, tvorení a nápadoch od ľudí pre ľudí.",
+  "lang": "sk",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f3e8",
+  "theme_color": "#f6f3e8",
+  "icons": [
+    {
+      "src": "app-icon.svg?v=3",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "app-icon.svg?v=3",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
   ]
-}
+}\n
