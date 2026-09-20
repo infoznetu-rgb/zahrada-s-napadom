@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="zahrada.css?v=10">
   <link rel="stylesheet" href="studio-2026.css?v=1">
   <link rel="stylesheet" href="spring-2026.css?v=1">
-  <link rel="stylesheet" href="typography-2026.css?v=7">
+  <link rel="stylesheet" href="typography-2026.css?v=9">
   <link rel="manifest" href="zahrada.webmanifest?v=3">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="blog.js?v=1" defer></script>
+  <script src="blog.js?v=2" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="studio-2026.js?v=1" defer></script>
 </head>
@@ -52,9 +52,23 @@
       <h1>Vychytávky a hobby nápady, ktoré sa dajú naozaj použiť.</h1>
       <p>Praktické tipy, jednoduché riešenia a inšpirácie pre záhradu, dom a dielňu. Blog dopĺňa vlastné projekty o témy, ktoré môžu pomôcť aj vtedy, keď práve nevzniká nový výrobok.</p>
     </section>
+    <section class="container blog-filter-section" aria-label="Filtrovanie blogu">
+      <div class="blog-filter-head">
+        <div>
+          <span class="kicker">VYBER SI TÉMU</span>
+          <h2>Čo ťa dnes zaujíma?</h2>
+        </div>
+        <p id="blog-filter-summary" class="blog-filter-summary" aria-live="polite">Načítavam články…</p>
+      </div>
+      <div id="blog-category-filters" class="blog-category-filters" role="group" aria-label="Kategórie blogu"></div>
+    </section>
+
     <section class="section container blog-list-section">
       <div id="cms-blog-list" class="cms-post-grid"></div>
-      <div id="blog-empty" class="bazar-status" hidden>Zatiaľ tu nie sú žiadne blogové články.</div>
+      <div id="blog-empty" class="blog-empty-state" hidden>
+        <strong>V tejto kategórii zatiaľ nič nie je.</strong>
+        <span>Skús inú tému alebo zobraz všetky články.</span>
+      </div>
     </section>
   </main>
 
