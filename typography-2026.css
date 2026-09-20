@@ -140,3 +140,79 @@ h1,h2,h3,h4{text-wrap:balance}
   .post-dynamic-head h1,.project-page-head h1{font-size:clamp(2.2rem,9vw,3.1rem)}
   .bazar-hero h1{font-size:clamp(2.1rem,9vw,2.85rem)}
 }
+
+
+/* Formulár „Pochváľ sa“ — silnejší kontrast a pohodlné čítanie */
+.submit-copy .kicker{
+  color:#fff2bd !important;
+  font-size:.76rem;
+}
+.submit-copy>p{
+  color:rgba(255,255,255,.94) !important;
+  font-size:1rem !important;
+  line-height:1.68 !important;
+  font-weight:500;
+}
+.submit-copy ul{
+  color:rgba(255,255,255,.96) !important;
+  font-size:.9rem !important;
+  line-height:1.85 !important;
+}
+.submit-copy li{
+  margin:.2rem 0;
+}
+
+.idea-form{
+  color:#294b38;
+}
+.form-head span{
+  color:#607466 !important;
+  font-size:.7rem !important;
+}
+.form-head strong{
+  color:#254633;
+  font-size:1.55rem;
+  line-height:1.1;
+}
+.idea-form label{
+  color:#3e5c49 !important;
+  font-size:.84rem !important;
+  font-weight:750 !important;
+  line-height:1.4;
+}
+.idea-form input,
+.idea-form textarea{
+  color:#294b38 !important;
+  font-size:.95rem !important;
+  line-height:1.5;
+}
+.idea-form input::placeholder,
+.idea-form textarea::placeholder{
+  color:#6c796f;
+  opacity:1;
+}
+.idea-form .upload{
+  color:#356846 !important;
+  font-size:.86rem !important;
+}
+.idea-form .check{
+  color:#526e5b !important;
+  font-size:.82rem !important;
+  line-height:1.5;
+  font-weight:560 !important;
+}
+.idea-form .btn{
+  font-size:.9rem;
+}
+.form-note{
+  color:#73877a !important;
+  font-size:.8rem !important;
+  line-height:1.5;
+}
+
+@media(max-width:620px){
+  .submit-copy>p{font-size:.98rem !important}
+  .submit-copy ul{font-size:.88rem !important}
+  .idea-form label{font-size:.82rem !important}
+  .idea-form .check{font-size:.8rem !important}
+}
