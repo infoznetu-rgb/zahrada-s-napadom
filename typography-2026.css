@@ -698,3 +698,57 @@ button,
 
   .footer>small{font-size:.84rem}
 }
+
+
+/* Blogové karty a archív */
+.cms-post-card.is-blog{
+  background:linear-gradient(145deg,rgba(255,253,247,.96),rgba(239,246,231,.96));
+}
+.cms-post-card.is-blog .tag{
+  background:#6c9d5f;
+}
+.cms-post-card.is-blog .cms-post-placeholder{
+  background:
+    radial-gradient(circle at 78% 24%,rgba(244,232,173,.42),transparent 26%),
+    linear-gradient(145deg,#dfeccf,#9fc58a);
+  color:#244a33;
+}
+.blog-hero{
+  padding-top:70px;
+  padding-bottom:34px;
+}
+.blog-hero h1{
+  margin:14px 0 18px;
+  font-family:var(--studio-serif);
+  font-size:clamp(2.7rem,4.5vw,5rem);
+  line-height:1;
+  letter-spacing:-.045em;
+  color:var(--spring-ink);
+}
+.blog-hero p{
+  max-width:760px;
+  color:var(--readable-muted);
+  font-size:1rem;
+  line-height:1.7;
+}
+.blog-list-section{
+  padding-top:28px;
+}
+.blog-page .cms-post-grid{
+  padding-bottom:90px;
+}
+.blog-page .cms-post-card:first-child,
+.blog-page .cms-post-card:nth-child(4n+4){
+  grid-column:span 4;
+}
+@media(max-width:900px){
+  .blog-page .cms-post-card,
+  .blog-page .cms-post-card:first-child,
+  .blog-page .cms-post-card:nth-child(4n+4){grid-column:span 6}
+}
+@media(max-width:620px){
+  .blog-hero{padding-top:40px}
+  .blog-page .cms-post-card,
+  .blog-page .cms-post-card:first-child,
+  .blog-page .cms-post-card:nth-child(4n+4){grid-column:1/-1}
+}
