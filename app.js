@@ -5,6 +5,9 @@
   const isIOS=()=>/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   let deferredPrompt=null;
   let toastTimer=null;
+  const PUSH_API='https://bkyappgttwjxakkwycub.supabase.co/functions/v1/push-subscribe';
+  const PUSH_PREF_KEY='zahrada-push-prefs-v1';
+  const PROMO_DISMISS_KEY='zahrada-app-promo-dismissed-v1';
 
   const BOOKMARK_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg>';
 
@@ -112,6 +115,209 @@
     sheet.hidden=false;
   }
 
+
+  async function requestInstall(){
+    if(isStandalone()){
+      toast('Aplikáciu už máš nainštalovanú.');
+      return true;
+    }
+    if(deferredPrompt){
+      deferredPrompt.prompt();
+      const choice=await deferredPrompt.userChoice.catch(()=>null);
+      if(choice?.outcome==='accepted'){
+        deferredPrompt=null;
+        toast('Aplikácia sa inštaluje.');
+        updatePromoBanner();
+        return true;
+      }
+      return false;
+    }
+    if(isIOS()){
+      showIOSSheet();
+      return false;
+    }
+    toast('Inštaláciu otvor cez ponuku prehliadača.');
+    return false;
+  }
+
+  function pushSupported(){
+    return 'serviceWorker' in navigator&&'PushManager' in window&&'Notification' in window;
+  }
+
+  function b64ToUint8Array(base64String){
+    const padding='='.repeat((4-base64String.length%4)%4);
+    const base64=(base64String+padding).replace(/-/g,'+').replace(/_/g,'/');
+    const raw=atob(base64);
+    return Uint8Array.from([...raw].map(c=>c.charCodeAt(0)));
+  }
+
+  async function pushApi(body){
+    const response=await fetch(PUSH_API,body?{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    }:{method:'GET'});
+    if(!response.ok)throw new Error('push_api_'+response.status);
+    return response.json();
+  }
+
+  async function getPushSubscription(){
+    if(!pushSupported())return null;
+    const reg=await navigator.serviceWorker.ready;
+    return reg.pushManager.getSubscription();
+  }
+
+  async function requestNotifications(){
+    if(!pushSupported()){
+      toast('Toto zariadenie nepodporuje webové upozornenia.');
+      return false;
+    }
+    if(Notification.permission==='denied'){
+      toast('Upozornenia sú zablokované v nastavení zariadenia.');
+      return false;
+    }
+    try{
+      const permission=Notification.permission==='granted'
+        ?'granted'
+        :await Notification.requestPermission();
+      if(permission!=='granted'){
+        updatePromoBanner();
+        return false;
+      }
+
+      const {publicKey}=await pushApi();
+      if(!publicKey)throw new Error('missing_vapid');
+
+      const reg=await navigator.serviceWorker.ready;
+      let sub=await reg.pushManager.getSubscription();
+      if(!sub){
+        sub=await reg.pushManager.subscribe({
+          userVisibleOnly:true,
+          applicationServerKey:b64ToUint8Array(publicKey)
+        });
+      }
+
+      const preferences={blog:true,bazar:true};
+      localStorage.setItem(PUSH_PREF_KEY,JSON.stringify(preferences));
+      await pushApi({
+        action:'subscribe',
+        subscription:sub.toJSON(),
+        preferences
+      });
+      toast('Upozornenia sú zapnuté.');
+      updatePromoBanner();
+      return true;
+    }catch(error){
+      console.error(error);
+      toast('Upozornenia sa nepodarilo zapnúť.');
+      return false;
+    }
+  }
+
+  function createPromoPhone(){
+    return `
+      <div class="promo-phone" aria-hidden="true">
+        <div class="promo-phone-speaker"></div>
+        <div class="promo-phone-screen">
+          <div class="promo-phone-brand">
+            <img src="brand-mark.svg?v=1" alt="">
+            <b>Záhrada<br><span>s nápadom</span></b>
+          </div>
+          <div class="promo-phone-label">Dnes pre teba</div>
+          <div class="promo-phone-card">
+            <div class="promo-phone-photo"><span>✿</span></div>
+            <strong>Praktické tipy zo záhrady</strong>
+            <small>Nové články každý týždeň</small>
+          </div>
+          <div class="promo-phone-icons">
+            <span>☘<small>Blog</small></span>
+            <span>✦<small>Nápady</small></span>
+            <span>↔<small>Bazár</small></span>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function promoBanner(){
+    if(document.querySelector('.app-promo-banner'))return document.querySelector('.app-promo-banner');
+    const banner=document.createElement('aside');
+    banner.className='app-promo-banner';
+    banner.setAttribute('aria-label','Aplikácia Záhrada s nápadom');
+    banner.innerHTML=`
+      <button class="app-promo-close" type="button" aria-label="Zavrieť">×</button>
+      <div class="app-promo-logo"><img src="brand-mark.svg?v=1" alt=""><span>NAŠA APLIKÁCIA</span></div>
+      <div class="app-promo-copy">
+        <h2>Maj Záhradu vždy po ruke.</h2>
+        <p>Nainštaluj si aplikáciu a zapni upozornenia na nové blogy a komunitný bazár.</p>
+        <div class="app-promo-actions">
+          <button class="app-promo-primary" type="button" data-promo-install>
+            <span aria-hidden="true">↓</span> Nainštalovať aplikáciu
+          </button>
+          <button class="app-promo-secondary" type="button" data-promo-notify>
+            <span aria-hidden="true">♢</span> Zapnúť upozornenia
+          </button>
+        </div>
+        <small class="app-promo-note">Bez reklám · nastavenia môžeš kedykoľvek zmeniť</small>
+      </div>
+      <div class="app-promo-visual">${createPromoPhone()}</div>`;
+    document.body.appendChild(banner);
+
+    banner.querySelector('.app-promo-close').addEventListener('click',()=>{
+      banner.classList.remove('is-visible');
+      localStorage.setItem(PROMO_DISMISS_KEY,String(Date.now()));
+      setTimeout(()=>banner.remove(),500);
+    });
+    banner.querySelector('[data-promo-install]').addEventListener('click',requestInstall);
+    banner.querySelector('[data-promo-notify]').addEventListener('click',requestNotifications);
+    return banner;
+  }
+
+  async function updatePromoBanner(){
+    const banner=document.querySelector('.app-promo-banner');
+    if(!banner)return;
+
+    const installBtn=banner.querySelector('[data-promo-install]');
+    const notifyBtn=banner.querySelector('[data-promo-notify]');
+    const installed=isStandalone();
+    let subscribed=false;
+    try{subscribed=!!(await getPushSubscription())&&Notification.permission==='granted'}catch(e){}
+
+    const installAvailable=!installed&&(!!deferredPrompt||isIOS());
+    installBtn.hidden=!installAvailable;
+
+    if(!pushSupported()||subscribed){
+      notifyBtn.hidden=true;
+    }else{
+      notifyBtn.hidden=false;
+      notifyBtn.disabled=Notification.permission==='denied';
+      notifyBtn.innerHTML=Notification.permission==='denied'
+        ?'<span aria-hidden="true">×</span> Upozornenia sú blokované'
+        :'<span aria-hidden="true">♢</span> Zapnúť upozornenia';
+    }
+
+    if(installed&&subscribed){
+      banner.classList.remove('is-visible');
+      setTimeout(()=>banner.remove(),450);
+    }
+  }
+
+  function maybeShowPromoBanner(){
+    const path=location.pathname.split('/').pop()||'index.html';
+    if(path==='moja-zahrada.html')return;
+    const dismissed=Number(localStorage.getItem(PROMO_DISMISS_KEY)||0);
+    if(dismissed&&Date.now()-dismissed<3*24*60*60*1000)return;
+
+    setTimeout(async()=>{
+      let subscribed=false;
+      try{subscribed=!!(await getPushSubscription())&&Notification.permission==='granted'}catch(e){}
+      if(isStandalone()&&subscribed)return;
+
+      const banner=promoBanner();
+      await updatePromoBanner();
+      requestAnimationFrame(()=>requestAnimationFrame(()=>banner.classList.add('is-visible')));
+    },4200);
+  }
+
   function bottomNav(){
     if(!isStandalone())return;
     if(document.querySelector('.app-bottom-nav'))return;
@@ -205,8 +411,8 @@
   if(document.body)observer.observe(document.body,{childList:true,subtree:true});
   enhanceCards();
 
-  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;showInstallPrompt()});
-  window.addEventListener('appinstalled',()=>{deferredPrompt=null;document.querySelector('.app-install-prompt')?.setAttribute('hidden','');toast('Aplikácia je nainštalovaná.')});
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;updatePromoBanner()});
+  window.addEventListener('appinstalled',()=>{deferredPrompt=null;document.querySelector('.app-install-prompt')?.setAttribute('hidden','');toast('Aplikácia je nainštalovaná.');updatePromoBanner()});
   window.addEventListener('online',()=>toast('Pripojenie je obnovené.'));
   window.addEventListener('offline',()=>toast('Si offline. Zobrazujem dostupný obsah.'));
 
@@ -220,10 +426,11 @@
   }
 
   window.ZahradaApp={
-    getSaved,getHistory,isSaved,savePost,removeSaved,toggleSaved,addHistory,clearHistory,clearSaved,toast,normalizePost
+    getSaved,getHistory,isSaved,savePost,removeSaved,toggleSaved,addHistory,clearHistory,clearSaved,
+    toast,normalizePost,requestInstall,requestNotifications,getPushSubscription
   };
 
   document.documentElement.classList.toggle('pwa-standalone',isStandalone());
   bottomNav();
-  showInstallPrompt();
+  maybeShowPromoBanner();
 })();
