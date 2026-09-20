@@ -126,7 +126,7 @@
 
 
 /* Strong visual distinction for admin app */
-.admin-standalone body,
+html.admin-standalone body{background:#edf1ec}
 @media(display-mode:standalone){
   body{background:#edf1ec}
 }
