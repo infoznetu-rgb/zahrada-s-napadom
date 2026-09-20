@@ -752,3 +752,93 @@ button,
   .blog-page .cms-post-card:first-child,
   .blog-page .cms-post-card:nth-child(4n+4){grid-column:1/-1}
 }
+
+
+/* Homepage — samostatný výber najnovších blogov */
+.home-blog-section{
+  position:relative;
+  margin-top:18px;
+  padding-top:72px;
+  padding-bottom:78px;
+}
+.home-blog-section:before{
+  content:"";
+  position:absolute;
+  inset:20px -24px 18px;
+  z-index:-1;
+  border-radius:38px;
+  background:linear-gradient(145deg,rgba(238,246,229,.72),rgba(251,248,240,.5));
+  border:1px solid rgba(82,123,83,.1);
+}
+.home-blog-grid .cms-post-card,
+.home-blog-grid .cms-post-card:nth-child(1),
+.home-blog-grid .cms-post-card:nth-child(4n+4),
+.home-blog-grid .cms-post-card:only-child{
+  grid-column:span 4;
+  display:block;
+  min-height:0;
+}
+.home-blog-grid .cms-post-image,
+.home-blog-grid .cms-post-card:only-child .cms-post-image{
+  min-height:270px;
+  aspect-ratio:4/3;
+}
+.home-blog-grid .cms-post-body,
+.home-blog-grid .cms-post-card:only-child .cms-post-body{
+  padding:24px;
+}
+.home-blog-grid .cms-post-body h3{
+  font-size:clamp(1.45rem,1.75vw,2rem);
+  line-height:1.08;
+  letter-spacing:-.035em;
+}
+.home-blog-grid .cms-post-body p{
+  font-size:.94rem;
+  line-height:1.6;
+}
+.home-blog-more{
+  display:flex;
+  justify-content:center;
+  margin-top:30px;
+}
+.home-blog-more .btn{
+  min-width:220px;
+  justify-content:center;
+}
+
+@media(max-width:900px){
+  .home-blog-section{
+    padding-top:58px;
+    padding-bottom:64px;
+  }
+  .home-blog-grid .cms-post-card,
+  .home-blog-grid .cms-post-card:nth-child(1),
+  .home-blog-grid .cms-post-card:nth-child(4n+4),
+  .home-blog-grid .cms-post-card:only-child{
+    grid-column:span 6;
+  }
+}
+
+@media(max-width:620px){
+  .home-blog-section{
+    padding-top:44px;
+    padding-bottom:52px;
+  }
+  .home-blog-section:before{
+    inset:12px -10px 10px;
+    border-radius:26px;
+  }
+  .home-blog-grid .cms-post-card,
+  .home-blog-grid .cms-post-card:nth-child(1),
+  .home-blog-grid .cms-post-card:nth-child(4n+4),
+  .home-blog-grid .cms-post-card:only-child{
+    grid-column:1/-1;
+  }
+  .home-blog-grid .cms-post-image,
+  .home-blog-grid .cms-post-card:only-child .cms-post-image{
+    min-height:235px;
+  }
+  .home-blog-grid .cms-post-body h3{
+    font-size:1.55rem;
+  }
+}
