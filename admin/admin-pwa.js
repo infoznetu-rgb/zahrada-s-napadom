@@ -49,10 +49,22 @@
     nav.innerHTML='<button type="button" data-view="dashboard" data-admin-tab="dashboard"><span>⌂</span><b>Prehľad</b></button><button type="button" data-view="posts" data-admin-tab="posts"><span>▤</span><b>Príspevky</b></button><button type="button" data-new-post="1" data-admin-tab="new" class="admin-bottom-new"><span>＋</span><b>Nový</b></button><button type="button" data-view="bazar" data-admin-tab="bazar"><span>↔</span><b>Bazár</b></button><button type="button" data-view="settings" data-admin-tab="settings"><span>⚙</span><b>Texty</b></button>';
     document.body.appendChild(nav);
 
+    const setActive=(name)=>{
+      nav.querySelectorAll('[data-admin-tab]').forEach(x=>x.classList.toggle('active',x.dataset.adminTab===name));
+    };
+    setActive('dashboard');
+
     nav.addEventListener('click',event=>{
       const btn=event.target.closest('[data-admin-tab]');
       if(!btn)return;
-      nav.querySelectorAll('[data-admin-tab]').forEach(x=>x.classList.toggle('active',x===btn));
+      setActive(btn.dataset.adminTab);
+    });
+
+    document.addEventListener('click',event=>{
+      const view=event.target.closest('[data-view]');
+      const fresh=event.target.closest('[data-new-post]');
+      if(fresh){setActive('new');return}
+      if(view&&['dashboard','posts','bazar','settings'].includes(view.dataset.view))setActive(view.dataset.view);
     });
 
     const adminApp=document.querySelector('#admin-app');
