@@ -6,9 +6,9 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#eef4e9">
   <title>Správa webu | Záhrada s nápadom</title>
-  <link rel="stylesheet" href="admin.css?v=1">
+  <link rel="stylesheet" href="admin.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=1" defer></script>
+  <script src="admin.js?v=2" defer></script>
 </head>
 <body>
   <main>
@@ -25,16 +25,6 @@
           <button class="btn primary" type="submit">Prihlásiť sa</button>
         </form>
 
-        <details class="setup-box">
-          <summary>Prvé nastavenie administrácie</summary>
-          <p>Pri prvom spustení si vytvoríš jediný administrátorský účet pomocou jednorazového aktivačného kódu.</p>
-          <form id="setup-form" class="stack">
-            <label>E-mail<input id="setup-email" type="email" autocomplete="email" required></label>
-            <label>Nové heslo<input id="setup-password" type="password" minlength="12" autocomplete="new-password" required><small>Minimálne 12 znakov.</small></label>
-            <label>Aktivačný kód<input id="setup-code" type="text" autocomplete="off" required></label>
-            <button class="btn secondary" type="submit">Aktivovať môj účet</button>
-          </form>
-        </details>
         <p id="auth-message" class="message" role="status"></p>
       </div>
     </section>
