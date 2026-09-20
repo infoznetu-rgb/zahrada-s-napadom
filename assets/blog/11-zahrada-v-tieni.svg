@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <filter id="tone" color-interpolation-filters="sRGB">
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0.88"/>
+        <feFuncG type="linear" slope="0.88"/>
+        <feFuncB type="linear" slope="0.88"/>
+      </feComponentTransfer>
+      <feColorMatrix type="saturate" values="0.86"/>
+    </filter>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="100%" stop-color="rgba(20,58,36,.12)"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#dfe8d8"/>
+  <image href="09-strkova-cesticka.webp" x="-16.999999999999943" y="-38.99999999999994" width="903.9999999999999" height="677.9999999999999" preserveAspectRatio="xMidYMid slice" filter="url(#tone)"/>
+  <rect width="800" height="600" fill="url(#shade)"/>
+</svg>

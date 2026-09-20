@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <filter id="tone" color-interpolation-filters="sRGB">
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1"/>
+        <feFuncG type="linear" slope="1"/>
+        <feFuncB type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feColorMatrix type="saturate" values="0.92"/>
+    </filter>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="100%" stop-color="rgba(100,70,35,.06)"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#dfe8d8"/>
+  <image href="05-presadzanie.webp" x="-115" y="-55" width="960" height="720" preserveAspectRatio="xMidYMid slice" filter="url(#tone)"/>
+  <rect width="800" height="600" fill="url(#shade)"/>
+</svg>
