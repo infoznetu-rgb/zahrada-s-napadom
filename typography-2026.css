@@ -975,3 +975,206 @@ button,
     font-size:.9rem;
   }
 }
+
+
+/* Facebook connection panel */
+.facebook-connect{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(360px,1.1fr);
+  gap:28px;
+  align-items:center;
+  padding-top:54px;
+  padding-bottom:54px;
+}
+.facebook-connect-copy{
+  max-width:620px;
+}
+.facebook-connect-copy h2{
+  margin:10px 0 14px;
+  font-family:var(--studio-serif);
+  font-size:clamp(2.2rem,4vw,4.2rem);
+  line-height:.98;
+  letter-spacing:-.045em;
+  color:var(--spring-ink);
+}
+.facebook-connect-copy>p{
+  margin:0;
+  max-width:560px;
+  color:#607466;
+  font-size:1rem;
+  line-height:1.68;
+}
+.facebook-connect-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+.facebook-connect-copy>small{
+  display:block;
+  margin-top:12px;
+  color:#78887d;
+  font-size:.75rem;
+}
+.facebook-page-link{
+  background:#4267b2!important;
+  border-color:#4267b2!important;
+}
+.facebook-load-btn:disabled{
+  opacity:.65;
+  cursor:default;
+}
+.facebook-window{
+  overflow:hidden;
+  min-height:430px;
+  border:1px solid rgba(42,73,52,.12);
+  border-radius:30px;
+  background:#fffdf7;
+  box-shadow:0 22px 58px rgba(42,73,52,.09);
+}
+.facebook-window-top{
+  min-height:88px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:13px;
+  padding:16px 18px;
+  border-bottom:1px solid rgba(42,73,52,.1);
+  background:
+    radial-gradient(circle at 85% 10%,rgba(66,103,178,.08),transparent 35%),
+    #fbfcf7;
+}
+.facebook-page-avatar{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:17px;
+  background:#edf3e5;
+}
+.facebook-page-avatar img{
+  width:43px;
+  height:43px;
+  object-fit:contain;
+}
+.facebook-page-meta{
+  min-width:0;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  column-gap:7px;
+}
+.facebook-page-meta strong{
+  overflow:hidden;
+  color:#294b38;
+  font-size:.98rem;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.facebook-page-meta small{
+  grid-column:2;
+  color:#7b8b80;
+  font-size:.72rem;
+}
+.facebook-badge{
+  grid-row:1/3;
+  display:grid;
+  place-items:center;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:#4267b2;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  font-size:1rem;
+  font-weight:900;
+}
+.facebook-window-top>a{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(42,73,52,.12);
+  border-radius:50%;
+  color:#315b3e;
+  text-decoration:none;
+}
+.facebook-frame-wrap{
+  min-height:342px;
+  display:grid;
+  place-items:center;
+  background:
+    linear-gradient(rgba(250,252,247,.94),rgba(250,252,247,.94)),
+    radial-gradient(circle at 20% 20%,#dce9d5,transparent 35%);
+}
+.facebook-frame-wrap.is-loaded{
+  min-height:620px;
+  display:block;
+  background:#fff;
+}
+.facebook-frame-wrap iframe{
+  display:block;
+  width:100%;
+  max-width:100%;
+  min-height:620px;
+}
+.facebook-placeholder{
+  max-width:360px;
+  padding:32px;
+  text-align:center;
+  color:#687b6f;
+}
+.facebook-placeholder-icon{
+  width:58px;
+  height:58px;
+  margin:0 auto 14px;
+  display:grid;
+  place-items:center;
+  border-radius:18px;
+  background:#4267b2;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  font-size:2rem;
+  font-weight:900;
+}
+.facebook-placeholder strong{
+  display:block;
+  color:#294b38;
+  font-family:var(--studio-serif);
+  font-size:1.45rem;
+}
+.facebook-placeholder p{
+  margin:8px 0 0;
+  font-size:.86rem;
+  line-height:1.55;
+}
+
+@media(max-width:860px){
+  .facebook-connect{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+}
+@media(max-width:560px){
+  .facebook-connect{
+    padding-top:38px;
+    padding-bottom:38px;
+  }
+  .facebook-window{
+    min-height:390px;
+    border-radius:24px;
+  }
+  .facebook-connect-actions{
+    flex-direction:column;
+  }
+  .facebook-connect-actions .btn{
+    width:100%;
+    justify-content:center;
+  }
+  .facebook-frame-wrap.is-loaded,
+  .facebook-frame-wrap iframe{
+    min-height:560px;
+    height:560px;
+  }
+}
