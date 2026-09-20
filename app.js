@@ -136,8 +136,21 @@
       showIOSSheet();
       return false;
     }
-    toast('Inštaláciu otvor cez ponuku prehliadača.');
+    showInstallHelp();
     return false;
+  }
+
+  function showInstallHelp(){
+    let sheet=document.querySelector('.app-install-help');
+    if(!sheet){
+      sheet=document.createElement('div');
+      sheet.className='app-sheet app-install-help';
+      sheet.hidden=true;
+      sheet.innerHTML='<button class="app-sheet-backdrop" type="button" aria-label="Zavrieť"></button><section class="app-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="install-help-title"><div class="app-sheet-head"><div><span class="kicker">INŠTALÁCIA APLIKÁCIE</span><h2 id="install-help-title">Ako nainštalovať Záhradu</h2></div><button class="app-sheet-close" type="button" aria-label="Zavrieť">×</button></div><div class="app-sheet-steps"><div class="app-sheet-step"><b>1</b><p>Ak si v <strong>Inkognito / anonymnom režime</strong>, otvor stránku v normálnom okne prehliadača. V anonymnom režime sa aplikácia nedá nainštalovať.</p></div><div class="app-sheet-step"><b>2</b><p>V Chrome hľadaj ikonu <strong>inštalácie vpravo v adresnom riadku</strong>, prípadne otvor menu <strong>⋮</strong> a vyber možnosť na inštaláciu aplikácie.</p></div><div class="app-sheet-step"><b>3</b><p>Na iPhone/iPade otvor v Safari <strong>Zdieľať → Pridať na plochu</strong>.</p></div></div></section>';
+      document.body.appendChild(sheet);
+      sheet.querySelectorAll('.app-sheet-close,.app-sheet-backdrop').forEach(x=>x.addEventListener('click',()=>sheet.hidden=true));
+    }
+    sheet.hidden=false;
   }
 
   function pushSupported(){
@@ -282,7 +295,7 @@
     let subscribed=false;
     try{subscribed=!!(await getPushSubscription())&&Notification.permission==='granted'}catch(e){}
 
-    const installAvailable=!installed&&(!!deferredPrompt||isIOS());
+    const installAvailable=!installed;
     installBtn.hidden=!installAvailable;
 
     if(!pushSupported()||subscribed){
