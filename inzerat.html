@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#f6f3e8">
+  <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
+  <title>Inzerát | Bazár | Záhrada s nápadom</title>
+  <link rel="stylesheet" href="zahrada.css?v=8">
+  <link rel="stylesheet" href="bazar.css?v=2">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="inzerat.js?v=1" defer></script>
+  <script src="zahrada.js?v=2" defer></script>
+</head>
+<body class="bazar-page">
+  <a class="skip" href="#obsah">Preskočiť na obsah</a>
+  <header class="site-header">
+    <div class="top container">
+      <a class="brand" href="index.html" aria-label="Záhrada s nápadom domov">
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hlavná navigácia">
+        <a href="index.html#projekty">Moje projekty</a>
+        <a href="index.html#komunita">Nápady komunity</a>
+        <a class="active-nav" href="bazar.html">Bazár</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia">
+      <a href="index.html#projekty">Moje projekty</a>
+      <a href="index.html#komunita">Nápady komunity</a>
+      <a class="active-nav" href="bazar.html">Bazár</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="obsah" class="container bazar-detail-shell">
+    <a class="back-link" href="bazar.html">← Späť do bazára</a>
+    <div id="ad-detail-status" class="bazar-status">Načítavam inzerát…</div>
+
+    <article id="ad-detail" class="detail-grid" hidden>
+      <div class="detail-media">
+        <div id="ad-main-image" class="main-image"></div>
+        <div id="ad-thumbs" class="thumbs"></div>
+      </div>
+      <div class="bazar-detail">
+        <div class="bazar-card-top"><span id="ad-type" class="tag"></span><span id="ad-category" class="soft-tag"></span></div>
+        <h1 id="ad-title"></h1>
+        <div id="ad-price" class="detail-price"></div>
+        <p id="ad-meta" class="detail-meta"></p>
+        <p id="ad-description" class="detail-description"></p>
+
+        <div class="contact-box">
+          <span class="kicker">KONTAKT NA INZERENTA</span>
+          <h3 id="ad-contact-name">Inzerent</h3>
+          <div id="ad-contact-links" class="contact-links"></div>
+          <p class="bazar-help">Dohoda, platba aj odovzdanie prebiehajú priamo medzi vami. Záhrada s nápadom nie je stranou obchodu.</p>
+        </div>
+
+        <div class="detail-actions">
+          <button id="ad-share" class="btn ghost" type="button" data-share-card>Zdieľať</button>
+          <button id="report-open" class="btn ghost" type="button">Nahlásiť inzerát</button>
+        </div>
+      </div>
+    </article>
+
+    <section id="report-box" class="report-box" hidden>
+      <span class="kicker">NAHLÁSENIE</span>
+      <h2>Je s inzerátom problém?</h2>
+      <p class="bazar-help">Nahlásenie dostane správca webu. Použi ho najmä pri firemnej ponuke, spame, nebezpečnom obsahu alebo neaktuálnom inzeráte.</p>
+      <form id="report-form">
+        <label>Dôvod
+          <select id="report-reason" required>
+            <option value="commercial">Komerčná / firemná ponuka</option>
+            <option value="spam">Spam alebo opakovaný predaj</option>
+            <option value="prohibited">Zakázaný alebo nebezpečný obsah</option>
+            <option value="misleading">Zavádzajúci obsah</option>
+            <option value="sold">Inzerát je zrejme neaktuálny</option>
+            <option value="other">Iné</option>
+          </select>
+        </label>
+        <label>Poznámka<textarea id="report-detail" rows="4" maxlength="1200" placeholder="Voliteľne stručne vysvetli problém."></textarea></label>
+        <div class="hero-actions">
+          <button class="btn primary" type="submit">Odoslať nahlásenie</button>
+          <button id="report-cancel" class="btn ghost" type="button">Zrušiť</button>
+        </div>
+        <p id="report-message" class="bazar-form-message" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <section class="noncommercial"><div class="container"><strong>Bezplatný hobby bazár pre súkromné osoby.</strong><span>Web nesprostredkuje platbu, neberie províziu a neponúka platené zvýraznenie.</span></div></section>
+
+  <footer class="footer container">
+    <a class="brand small-brand" href="index.html"><img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a>
+    <p>Komunitný bazár · od ľudí pre ľudí.</p>
+    <small>Nekomerčný hobby projekt · 2026</small>
+  </footer>
+</body>
+</html>
