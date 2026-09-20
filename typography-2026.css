@@ -1,0 +1,142 @@
+/* Záhrada s nápadom — vyvážená typografia
+   Posledná vrstva štýlov: drží titulky čitateľné bez zbytočne veľkých rozmerov. */
+
+:root{
+  --type-hero:clamp(2.75rem,3.6vw,4.25rem);
+  --type-section:clamp(2.35rem,3.35vw,4rem);
+  --type-card:clamp(1.55rem,1.75vw,2rem);
+}
+
+html{
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{line-height:1.62}
+p,li,input,textarea,select,button{line-height:1.55}
+h1,h2,h3,h4{text-wrap:balance}
+
+/* Hlavný titulok na titulke */
+.hero h1{
+  font-size:var(--type-hero);
+  line-height:1.02;
+  letter-spacing:-.045em;
+  max-width:15ch;
+}
+.hero-copy>p{
+  font-size:clamp(.98rem,.25vw + .9rem,1.08rem);
+  line-height:1.6;
+  max-width:610px;
+}
+
+/* Menšie texty nech nie sú príliš drobné */
+.desktop-nav a{font-size:.82rem}
+.mobile-nav a{font-size:.92rem}
+.eyebrow,.hero-edition,.hero-signature span,
+.side-card .label,.kicker,.section-index,
+.photo-badge,.cms-post-body .tag,.project-story .tag{
+  font-size:.7rem;
+}
+.btn{font-size:.86rem}
+.hero-proof{font-size:.76rem}
+.quick a span{font-size:.69rem}
+.quick a small{font-size:.75rem}
+
+/* Pravé karty */
+.side-card h2{
+  font-size:var(--type-card);
+  line-height:1.08;
+  letter-spacing:-.038em;
+}
+.side-card p{font-size:.9rem;line-height:1.6}
+.compact p{font-size:.8rem}
+
+/* Nadpisy hlavných sekcií */
+.section-head h2,
+.submit-grid h2,
+.contact h2,
+.contact-heading h2{
+  font-size:var(--type-section);
+  line-height:1.04;
+  letter-spacing:-.04em;
+}
+.section-sidecopy p,.section-head>p{font-size:.9rem;line-height:1.62}
+
+/* Karty a projekty */
+.cms-post-body h3{
+  font-size:clamp(1.6rem,2.05vw,2.7rem);
+  line-height:1.05;
+}
+.cms-post-body p{font-size:.9rem}
+.project-story h3{
+  font-size:clamp(2rem,2.8vw,3.35rem);
+  line-height:1.04;
+}
+.project-story p,.project-detail-copy p{font-size:.92rem}
+.project-story .lead{font-size:1rem}
+.project-detail-copy h4{
+  font-size:clamp(1.85rem,2.4vw,2.9rem);
+  line-height:1.05;
+}
+
+/* Články */
+.post-dynamic-head h1,
+.project-page-head h1{
+  font-size:clamp(2.6rem,4vw,4.5rem);
+  line-height:1.02;
+  letter-spacing:-.045em;
+}
+.post-rich-text{font-size:1rem;line-height:1.75}
+
+/* Bazár */
+.bazar-hero h1{
+  font-size:clamp(2.4rem,3.6vw,3.8rem);
+  line-height:1.03;
+  letter-spacing:-.04em;
+}
+.bazar-detail h1{
+  font-size:clamp(2rem,3vw,3.15rem);
+  line-height:1.04;
+}
+.bazar-card h3{font-size:1.28rem;line-height:1.14}
+.bazar-card p{font-size:.9rem}
+
+/* Tablet */
+@media(max-width:1180px){
+  :root{
+    --type-hero:clamp(2.55rem,4.1vw,3.4rem);
+    --type-section:clamp(2.25rem,4vw,3.45rem);
+  }
+  .hero h1{max-width:15ch}
+}
+
+/* Mobil */
+@media(max-width:900px){
+  :root{
+    --type-hero:clamp(2.35rem,6.8vw,3rem);
+    --type-section:clamp(2.15rem,6.8vw,3rem);
+  }
+  .hero h1{
+    max-width:14ch;
+    line-height:1.04;
+  }
+  .hero-copy>p{font-size:.98rem}
+  .side-card h2{font-size:clamp(1.55rem,5vw,1.9rem)}
+}
+
+/* Malé telefóny */
+@media(max-width:620px){
+  :root{
+    --type-hero:clamp(2.15rem,8vw,2.65rem);
+    --type-section:clamp(2rem,8vw,2.65rem);
+  }
+  .hero h1{
+    max-width:100%;
+    line-height:1.06;
+    letter-spacing:-.035em;
+  }
+  .project-story h3{font-size:clamp(1.9rem,8.5vw,2.6rem)}
+  .project-detail-copy h4{font-size:clamp(1.7rem,7.5vw,2.3rem)}
+  .post-dynamic-head h1,.project-page-head h1{font-size:clamp(2.2rem,9vw,3.1rem)}
+  .bazar-hero h1{font-size:clamp(2.1rem,9vw,2.85rem)}
+}
