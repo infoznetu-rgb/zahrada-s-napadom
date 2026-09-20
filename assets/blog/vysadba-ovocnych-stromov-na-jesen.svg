@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Správna jesenná výsadba ovocného stromu</title>
+<desc id="d">Odborná ilustrácia ovocného stromu v záhrade so znázornením koreňového nábehu na úrovni pôdy, miesta očkovania nad pôdou, oporného kolíka, mulča a rozprestretých koreňov.</desc>
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#eef6e7"/><stop offset="1" stop-color="#f8f1db"/></linearGradient>
+<linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#806043"/><stop offset="1" stop-color="#4e3929"/></linearGradient>
+<style>
+text{font-family:Arial,sans-serif;fill:#29452f}.label{font-size:34px;font-weight:700}.small{font-size:27px}.line{stroke:#315b3a;stroke-width:6;fill:none}.thin{stroke:#315b3a;stroke-width:4;fill:none}.root{stroke:#6a4a31;stroke-width:18;fill:none;stroke-linecap:round}.branch{stroke:#5c4430;stroke-width:25;fill:none;stroke-linecap:round}.leaf{fill:#9aab45}.leaf2{fill:#cf9b37}
+</style>
+</defs>
+<rect width="1600" height="1000" fill="url(#sky)"/>
+<circle cx="1380" cy="160" r="90" fill="#e8c86a" opacity=".55"/>
+<path d="M0 515 C220 475 420 525 630 495 S1050 520 1600 485 V1000 H0Z" fill="#7d9c54"/>
+<rect x="0" y="610" width="1600" height="390" fill="url(#soil)"/>
+<path d="M0 610 H1600" stroke="#4d6e42" stroke-width="14"/>
+<!-- hole -->
+<ellipse cx="820" cy="670" rx="365" ry="105" fill="#433326"/>
+<ellipse cx="820" cy="665" rx="300" ry="70" fill="#674c36"/>
+<!-- roots -->
+<path class="root" d="M805 615 C730 665 650 700 565 735"/>
+<path class="root" d="M815 620 C760 710 735 760 700 820"/>
+<path class="root" d="M825 620 C860 710 905 770 965 820"/>
+<path class="root" d="M830 620 C915 660 1010 705 1080 750"/>
+<path class="root" d="M815 625 C805 730 810 800 820 865"/>
+<!-- trunk and branches -->
+<path class="branch" d="M818 625 C817 500 820 390 817 250"/>
+<path class="branch" d="M818 380 C750 330 690 300 630 280"/>
+<path class="branch" d="M818 345 C885 300 940 265 1015 245"/>
+<path class="branch" d="M817 300 C790 250 770 215 760 175"/>
+<path class="branch" d="M820 300 C855 250 875 215 890 170"/>
+<!-- canopy leaves -->
+<g opacity=".95">
+<circle class="leaf" cx="635" cy="265" r="65"/><circle class="leaf2" cx="700" cy="235" r="55"/>
+<circle class="leaf" cx="760" cy="190" r="65"/><circle class="leaf2" cx="825" cy="180" r="63"/>
+<circle class="leaf" cx="895" cy="185" r="65"/><circle class="leaf2" cx="965" cy="225" r="60"/>
+<circle class="leaf" cx="1020" cy="250" r="55"/><circle class="leaf" cx="720" cy="320" r="55"/>
+<circle class="leaf2" cx="915" cy="310" r="58"/>
+</g>
+<!-- graft union -->
+<ellipse cx="818" cy="455" rx="31" ry="18" fill="#b68459" stroke="#5c4430" stroke-width="7"/>
+<!-- stake -->
+<rect x="1120" y="300" width="28" height="405" rx="12" fill="#ad8753"/>
+<path d="M1135 455 C1045 450 970 465 848 490" class="thin"/>
+<rect x="930" y="457" width="85" height="18" rx="9" fill="#65784b"/>
+<!-- mulch -->
+<path d="M535 610 C640 565 1010 565 1100 612 C1020 650 625 653 535 610Z" fill="#b18452" opacity=".95"/>
+<ellipse cx="820" cy="610" rx="85" ry="30" fill="#795236"/>
+<!-- labels -->
+<text x="90" y="100" class="label">Správna jesenná výsadba ovocného stromu</text>
+<text x="90" y="150" class="small">Kľúčové body, ktoré rozhodujú o dobrom zakorenení</text>
+<path class="line" d="M470 430 H700 L785 465"/>
+<text x="95" y="410" class="label">Miesto očkovania</text>
+<text x="95" y="450" class="small">zostáva nad úrovňou pôdy</text>
+<path class="line" d="M300 585 H650 L735 605"/>
+<text x="95" y="555" class="label">Koreňový nábeh</text>
+<text x="95" y="595" class="small">má byť približne na úrovni pôdy</text>
+<path class="line" d="M1190 430 H1140"/>
+<text x="1205" y="420" class="label">Oporný kolík</text>
+<text x="1205" y="460" class="small">stabilizuje korene, nie korunu</text>
+<path class="line" d="M1170 600 H1080 L1035 610"/>
+<text x="1190" y="585" class="label">Mulč</text>
+<text x="1190" y="625" class="small">neprisúvať ku kmeňu</text>
+<path class="line" d="M1120 820 H1030 L965 785"/>
+<text x="1140" y="805" class="label">Korene rozprestrieť</text>
+<text x="1140" y="845" class="small">bez zalomenia nahor</text>
+<text x="90" y="930" class="small">Záhrada s nápadom · odborná ilustračná schéma</text>
+</svg>
