@@ -251,7 +251,7 @@
         <p>Nainštaluj si aplikáciu a zapni upozornenia na nové blogy a komunitný bazár.</p>
         <div class="app-promo-actions">
           <button class="app-promo-primary" type="button" data-promo-install>
-            <span aria-hidden="true">↓</span> Nainštalovať aplikáciu
+            <span aria-hidden="true">↓</span> Stiahnuť aplikáciu
           </button>
           <button class="app-promo-secondary" type="button" data-promo-notify>
             <span aria-hidden="true">♢</span> Zapnúť upozornenia
