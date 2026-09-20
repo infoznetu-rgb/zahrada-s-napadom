@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <filter id="tone" color-interpolation-filters="sRGB">
+      <feComponentTransfer><feFuncR type="linear" slope="1.01"/><feFuncG type="linear" slope=".96"/><feFuncB type="linear" slope=".90"/></feComponentTransfer>
+      <feColorMatrix type="saturate" values=".92"/>
+    </filter>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#3c2a13" stop-opacity=".12"/></linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#e7eadb"/>
+  <image href="12-listovka.webp" x="0" y="-100" width="1600" height="1200" preserveAspectRatio="xMidYMid slice" filter="url(#tone)"/>
+  <rect width="1600" height="1000" fill="url(#shade)"/>
+</svg>
