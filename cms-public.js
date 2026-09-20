@@ -1,0 +1,46 @@
+const CMS_URL="https://bkyappgttwjxakkwycub.supabase.co";
+const CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
+const cms=window.supabase.createClient(CMS_URL,CMS_KEY);
+
+function cmsEsc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
+
+async function loadSiteSettings(){
+  const {data,error}=await cms.from("zahrada_site_settings").select("key,value");
+  if(error||!data)return;
+  const map=Object.fromEntries(data.map(x=>[x.key,x.value]));
+  const hero=map.hero||{};
+  if(hero.eyebrow&&document.querySelector("#cms-hero-eyebrow"))document.querySelector("#cms-hero-eyebrow").textContent=hero.eyebrow;
+  if(hero.title&&document.querySelector("#cms-hero-title"))document.querySelector("#cms-hero-title").textContent=hero.title;
+  if(hero.text&&document.querySelector("#cms-hero-text"))document.querySelector("#cms-hero-text").textContent=hero.text;
+  const contact=map.contact||{};
+  if(contact.title&&document.querySelector("#cms-contact-title"))document.querySelector("#cms-contact-title").textContent=contact.title;
+  if(contact.text&&document.querySelector("#cms-contact-text"))document.querySelector("#cms-contact-text").textContent=contact.text;
+  if(contact.facebook&&document.querySelector("#cms-contact-facebook"))document.querySelector("#cms-contact-facebook").href=contact.facebook;
+}
+
+async function loadPublishedPosts(){
+  const root=document.querySelector("#cms-projects");
+  if(!root)return;
+  const {data,error}=await cms.from("zahrada_posts")
+    .select("slug,title,excerpt,category,cover_url,published_at")
+    .eq("status","published")
+    .order("published_at",{ascending:false})
+    .limit(24);
+  if(error||!data||!data.length)return;
+  root.innerHTML=data.map(p=>`<article class="cms-post-card">
+    <a class="cms-post-image" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">
+      ${p.cover_url?`<img src="${cmsEsc(p.cover_url)}" alt="${cmsEsc(p.title)}" loading="lazy">`:'<div class="cms-post-placeholder">Záhrada s nápadom</div>'}
+    </a>
+    <div class="cms-post-body">
+      <span class="tag">${cmsEsc(p.category||"Nápad")}</span>
+      <h3><a href="prispevok.html?slug=${encodeURIComponent(p.slug)}">${cmsEsc(p.title)}</a></h3>
+      <p>${cmsEsc(p.excerpt||"")}</p>
+      <a class="project-link" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">Pozrieť príspevok →</a>
+    </div>
+  </article>`).join("");
+  const fallback=document.querySelector("#static-project-fallback");
+  if(fallback)fallback.hidden=true;
+}
+
+loadSiteSettings();
+loadPublishedPosts();
