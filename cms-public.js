@@ -22,21 +22,31 @@ async function loadPublishedPosts(){
   const root=document.querySelector("#cms-projects");
   if(!root)return;
   const {data,error}=await cms.from("zahrada_posts")
-    .select("slug,title,excerpt,category,cover_url,published_at")
+    .select("slug,title,excerpt,category,cover_url,published_at,content_type,tags")
     .eq("status","published")
     .order("published_at",{ascending:false})
-    .limit(24);
+    .limit(40);
   if(error||!data||!data.length)return;
-  root.innerHTML=data.map(p=>`<article class="cms-post-card">
+  const projects=data.filter(p=>p.content_type!=="blog");
+  const blogs=data.filter(p=>p.content_type==="blog");
+  const mixed=[];
+  while(projects.length||blogs.length){
+    if(projects.length)mixed.push(projects.shift());
+    if(blogs.length)mixed.push(blogs.shift());
+    if(blogs.length)mixed.push(blogs.shift());
+    if(!projects.length&&blogs.length){mixed.push(...blogs.splice(0));break}
+  }
+  const visible=mixed.slice(0,24);
+  root.innerHTML=visible.map(p=>`<article class="cms-post-card ${p.content_type==="blog"?"is-blog":"is-project"}">
     <a class="cms-post-image" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">
       ${p.cover_url?`<img src="${cmsEsc(p.cover_url)}" alt="${cmsEsc(p.title)}" loading="lazy">`:'<div class="cms-post-placeholder">Záhrada s nápadom</div>'}
     </a>
     <div class="cms-post-body">
-      <span class="tag">${cmsEsc(p.category||"Nápad")}</span>
+      <span class="tag">${p.content_type==="blog"?"BLOG · ":""}${cmsEsc(p.category||"Nápad")}</span>
       <h3><a href="prispevok.html?slug=${encodeURIComponent(p.slug)}">${cmsEsc(p.title)}</a></h3>
       <p>${cmsEsc(p.excerpt||"")}</p>
       <div class="cms-card-actions">
-        <a class="project-link" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">Pozrieť príspevok →</a>
+        <a class="project-link" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">${p.content_type==="blog"?"Čítať blog":"Pozrieť projekt"} →</a>
         <button class="card-share-btn" type="button"
           data-share-card
           data-share-url="prispevok.html?slug=${encodeURIComponent(p.slug)}"
