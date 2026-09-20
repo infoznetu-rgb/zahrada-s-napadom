@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#eef4e9">
+  <title>Správa webu | Záhrada s nápadom</title>
+  <link rel="stylesheet" href="admin.css?v=1">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js?v=1" defer></script>
+</head>
+<body>
+  <main>
+    <section id="auth-screen" class="auth-shell">
+      <div class="auth-card">
+        <a class="admin-brand" href="../index.html"><span>Z</span><b>Záhrada s nápadom</b></a>
+        <p class="eyebrow">SÚKROMNÁ SPRÁVA WEBU</p>
+        <h1>Prihlásenie</h1>
+        <p class="muted">Táto časť je určená iba pre správcu stránky.</p>
+
+        <form id="login-form" class="stack">
+          <label>E-mail<input id="login-email" type="email" autocomplete="username" required></label>
+          <label>Heslo<input id="login-password" type="password" autocomplete="current-password" required></label>
+          <button class="btn primary" type="submit">Prihlásiť sa</button>
+        </form>
+
+        <details class="setup-box">
+          <summary>Prvé nastavenie administrácie</summary>
+          <p>Pri prvom spustení si vytvoríš jediný administrátorský účet pomocou jednorazového aktivačného kódu.</p>
+          <form id="setup-form" class="stack">
+            <label>E-mail<input id="setup-email" type="email" autocomplete="email" required></label>
+            <label>Nové heslo<input id="setup-password" type="password" minlength="12" autocomplete="new-password" required><small>Minimálne 12 znakov.</small></label>
+            <label>Aktivačný kód<input id="setup-code" type="text" autocomplete="off" required></label>
+            <button class="btn secondary" type="submit">Aktivovať môj účet</button>
+          </form>
+        </details>
+        <p id="auth-message" class="message" role="status"></p>
+      </div>
+    </section>
+
+    <section id="admin-app" class="admin-app" hidden>
+      <aside class="sidebar">
+        <a class="admin-brand" href="../index.html"><span>Z</span><b>Záhrada s nápadom</b></a>
+        <nav>
+          <button class="nav-btn active" data-view="dashboard">Prehľad</button>
+          <button class="nav-btn" data-view="posts">Príspevky</button>
+          <button class="nav-btn" data-view="editor" data-new-post="1">+ Nový príspevok</button>
+          <button class="nav-btn" data-view="settings">Texty stránky</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <a href="../index.html" target="_blank" rel="noopener">Otvoriť web ↗</a>
+          <button id="logout-btn" class="link-btn">Odhlásiť sa</button>
+        </div>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <button id="sidebar-toggle" class="icon-btn" type="button" aria-label="Menu">☰</button>
+          <div><strong>Správa webu</strong><small id="admin-email"></small></div>
+          <span id="save-state" class="save-state">Pripravené</span>
+        </header>
+
+        <section id="view-dashboard" class="view active">
+          <div class="view-head"><div><p class="eyebrow">PREHĽAD</p><h2>Tvoj web na jednom mieste</h2></div><button class="btn primary" data-new-post="1">+ Nový príspevok</button></div>
+          <div class="stats">
+            <article><span>Publikované</span><strong id="stat-published">0</strong></article>
+            <article><span>Koncepty</span><strong id="stat-drafts">0</strong></article>
+            <article><span>Spolu</span><strong id="stat-total">0</strong></article>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>Posledné príspevky</h3><button class="text-btn" data-view="posts">Zobraziť všetky</button></div>
+            <div id="recent-posts" class="post-list"></div>
+          </div>
+        </section>
+
+        <section id="view-posts" class="view">
+          <div class="view-head"><div><p class="eyebrow">OBSAH</p><h2>Príspevky</h2></div><button class="btn primary" data-new-post="1">+ Nový príspevok</button></div>
+          <div class="panel">
+            <div class="toolbar">
+              <input id="post-search" type="search" placeholder="Hľadať príspevok…">
+              <select id="post-filter"><option value="all">Všetky</option><option value="published">Publikované</option><option value="draft">Koncepty</option></select>
+            </div>
+            <div id="posts-list" class="post-list"></div>
+          </div>
+        </section>
+
+        <section id="view-editor" class="view">
+          <div class="view-head"><div><p class="eyebrow">EDITOR</p><h2 id="editor-title">Nový príspevok</h2></div><button id="editor-cancel" class="btn ghost" type="button">Späť</button></div>
+          <form id="post-form" class="editor-grid">
+            <div class="panel editor-main">
+              <input id="post-id" type="hidden">
+              <label>Názov príspevku<input id="post-title" type="text" required placeholder="Napr. Vyvýšený záhon z dosiek"></label>
+              <div class="two-cols">
+                <label>Slug / adresa<input id="post-slug" type="text" required placeholder="vyvyseny-zahon"></label>
+                <label>Kategória<input id="post-category" type="text" value="Záhrada" placeholder="Záhrada"></label>
+              </div>
+              <label>Krátky úvod<textarea id="post-excerpt" rows="3" placeholder="Krátky text, ktorý sa zobrazí na titulke."></textarea></label>
+              <label>Text príspevku<textarea id="post-content" rows="14" placeholder="Napíš celý príbeh, postup alebo poznámky. Odseky oddeľ prázdnym riadkom."></textarea></label>
+            </div>
+
+            <aside class="editor-side">
+              <div class="panel">
+                <h3>Hlavná fotografia</h3>
+                <div id="cover-preview" class="cover-preview"><span>Zatiaľ bez fotografie</span></div>
+                <input id="post-cover-url" type="hidden">
+                <label class="upload-btn">Vybrať fotografiu<input id="post-cover-file" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></label>
+              </div>
+
+              <div class="panel">
+                <h3>Galéria</h3>
+                <div id="gallery-preview" class="gallery-preview"></div>
+                <label class="upload-btn">Pridať fotografie<input id="post-gallery-files" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif"></label>
+              </div>
+
+              <div class="panel publish-box">
+                <div class="status-line"><span>Stav</span><strong id="current-status">Koncept</strong></div>
+                <button id="save-draft-btn" class="btn ghost full" type="button">Uložiť koncept</button>
+                <button id="publish-btn" class="btn primary full" type="button">Publikovať</button>
+                <button id="delete-post-btn" class="danger-btn" type="button" hidden>Vymazať príspevok</button>
+              </div>
+            </aside>
+          </form>
+        </section>
+
+        <section id="view-settings" class="view">
+          <div class="view-head"><div><p class="eyebrow">STRÁNKA</p><h2>Texty a kontakt</h2></div></div>
+          <form id="settings-form" class="settings-grid">
+            <div class="panel">
+              <h3>Úvod stránky</h3>
+              <label>Malý nadpis<input id="hero-eyebrow-input" type="text"></label>
+              <label>Hlavný nadpis<textarea id="hero-title-input" rows="3"></textarea></label>
+              <label>Úvodný text<textarea id="hero-text-input" rows="5"></textarea></label>
+            </div>
+            <div class="panel">
+              <h3>Kontakt</h3>
+              <label>Nadpis<input id="contact-title-input" type="text"></label>
+              <label>Text<textarea id="contact-text-input" rows="5"></textarea></label>
+              <label>Facebook odkaz<input id="contact-facebook-input" type="url"></label>
+            </div>
+            <div class="settings-actions"><button class="btn primary" type="submit">Uložiť texty stránky</button></div>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
