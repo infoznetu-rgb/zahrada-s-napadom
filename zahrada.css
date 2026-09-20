@@ -327,3 +327,7 @@ a{color:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}
   .share-option span{width:38px;height:38px}
   .article-share-row>span{width:100%}
 }
+
+/* Keep blog cover images consistent across web and installed PWA */
+.blog-article .post-hero{aspect-ratio:16/10;max-height:737px}
+.blog-article .post-hero img{width:100%;height:100%;object-fit:cover}
