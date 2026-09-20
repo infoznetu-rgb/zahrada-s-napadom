@@ -4,37 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="description" content="Príspevok zo Záhrady s nápadom.">
-  <meta name="theme-color" content="#f6f3e8">
+  <meta name="theme-color" content="#17352b">
   <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
   <link rel="alternate icon" href="app-icon.svg?v=3">
   <meta name="robots" content="index,follow">
   <title>Príspevok | Záhrada s nápadom</title>
-  <link rel="stylesheet" href="zahrada.css?v=8">
+  <link rel="stylesheet" href="zahrada.css?v=10">
+  <link rel="stylesheet" href="studio-2026.css?v=1">
   <link rel="manifest" href="zahrada.webmanifest?v=3">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="prispevok.js?v=1" defer></script>
   <script src="zahrada.js?v=2" defer></script>
+  <script src="studio-2026.js?v=1" defer></script>
 </head>
-<body>
+<body class="article-page">
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
   <header class="site-header">
     <div class="top container">
       <a class="brand" href="index.html" aria-label="Záhrada s nápadom domov">
-        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
       </a>
       <nav class="desktop-nav" aria-label="Hlavná navigácia">
-        <a href="index.html#projekty">Moje projekty</a>
+        <a href="index.html#projekty">Nápady</a>
         <a href="index.html#videa">Videá</a>
-        <a href="index.html#komunita">Nápady komunity</a>
-        <a href="index.html#posli">Pošli svoj nápad</a>
+        <a href="index.html#komunita">Komunita</a>
         <a href="index.html#kontakt">Kontakt</a>
+        <a class="nav-cta" href="index.html#posli">Pošli svoj nápad</a>
       </nav>
-      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav">
+        <span>Menu</span><span aria-hidden="true">☰</span>
+      </button>
     </div>
     <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia">
-      <a href="index.html#projekty">Moje projekty</a>
+      <a href="index.html#projekty">Nápady</a>
       <a href="index.html#videa">Videá</a>
-      <a href="index.html#komunita">Nápady komunity</a>
+      <a href="index.html#komunita">Komunita</a>
       <a href="index.html#posli">Pošli svoj nápad</a>
       <a href="index.html#kontakt">Kontakt</a>
     </nav>
@@ -42,43 +47,55 @@
 
   <main id="obsah">
     <section id="post-loading" class="project-page-head container">
-      <a class="back-link" href="index.html#projekty">← Späť na projekty</a>
-      <span class="kicker">ZÁHRADA S NÁPADOM</span>
+      <a class="back-link" href="index.html#projekty">← Späť na nápady</a>
+      <span class="kicker">ZÁHRADA S NÁPADOM · JOURNAL</span>
       <h1>Načítavam príspevok…</h1>
     </section>
 
     <article id="post-content" class="post-page container" hidden>
       <section class="project-page-head post-dynamic-head">
-        <a class="back-link" href="index.html#projekty">← Späť na projekty</a>
+        <a class="back-link" href="index.html#projekty">← Späť na nápady</a>
         <span id="post-category" class="kicker"></span>
         <h1 id="post-title"></h1>
         <p id="post-excerpt"></p>
       </section>
-
       <figure id="post-cover-wrap" class="post-hero">
         <img id="post-cover" src="" alt="">
       </figure>
-
       <div id="post-body" class="post-intro post-rich-text"></div>
       <section id="post-gallery" class="dynamic-gallery" aria-label="Galéria príspevku"></section>
-
       <div class="project-contact-box">
         <div>
           <span class="kicker">MÁŠ OTÁZKU?</span>
           <h2>Ak ťa tento nápad zaujal, pokojne sa opýtaj.</h2>
           <p>Je to hobby projekt. Nič tu nepredávam; rád však ukážem vlastný nápad a skúsenosť.</p>
         </div>
-        <a class="btn primary" href="index.html#kontakt">Prejsť na kontakt</a>
+        <a class="btn primary" href="index.html#kontakt">Prejsť na kontakt <span aria-hidden="true">↗</span></a>
       </div>
     </article>
 
-    <section class="noncommercial"><div class="container"><strong>Záhrada s nápadom je súkromný nekomerčný hobby projekt.</strong><span>Nič nepredávam, neposkytujem platené služby a na stránke nie je platená inzercia.</span></div></section>
+    <section class="noncommercial">
+      <div class="container">
+        <strong>Vytvorené pre radosť, nie pre predaj.</strong>
+        <span>Záhrada s nápadom je súkromný nekomerčný hobby projekt. Nič nepredávam, neposkytujem platené služby a na stránke nie je platená inzercia.</span>
+      </div>
+    </section>
   </main>
 
   <footer class="footer container">
-    <a class="brand small-brand" href="index.html"><img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a>
-    <p>Vlastné nápady · vlastné fotografie · komunita ľudí, ktorých baví tvoriť.</p>
-    <small>Nekomerčný hobby projekt · 2026</small>
+    <div class="footer-brand">
+      <a class="brand small-brand" href="index.html">
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#projekty">Nápady</a>
+      <a href="index.html#komunita">Komunita</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <small>© 2026 · Nekomerčný hobby projekt</small>
   </footer>
 </body>
 </html>
