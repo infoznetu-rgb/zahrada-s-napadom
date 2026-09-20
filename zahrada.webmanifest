@@ -5,14 +5,22 @@
   "description": "Záhrada, dielňa, praktické hobby nápady, blog a komunitný bazár v jednej aplikácii.",
   "lang": "sk",
   "dir": "ltr",
-  "start_url": "./index.html?source=pwa",
+  "start_url": "./moja-zahrada.html?source=pwa",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "any",
   "background_color": "#f6f5ea",
   "theme_color": "#5f965f",
-  "categories": ["lifestyle", "education", "utilities"],
+  "categories": [
+    "lifestyle",
+    "education",
+    "utilities"
+  ],
   "prefer_related_applications": false,
   "icons": [
     {
@@ -30,25 +38,56 @@
   ],
   "shortcuts": [
     {
+      "name": "Moja záhrada",
+      "short_name": "Moja záhrada",
+      "description": "Uložené články a história čítania",
+      "url": "./moja-zahrada.html?source=pwa",
+      "icons": [
+        {
+          "src": "app-icon.svg?v=4",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
       "name": "Blog",
       "short_name": "Blog",
       "description": "Najnovšie tipy a hobby nápady",
       "url": "./blog.html?source=pwa",
-      "icons": [{"src":"app-icon.svg?v=4","sizes":"any","type":"image/svg+xml"}]
+      "icons": [
+        {
+          "src": "app-icon.svg?v=4",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     },
     {
       "name": "Nápady",
       "short_name": "Nápady",
       "description": "Vlastné projekty a vybrané tipy",
       "url": "./index.html?source=pwa#projekty",
-      "icons": [{"src":"app-icon.svg?v=4","sizes":"any","type":"image/svg+xml"}]
+      "icons": [
+        {
+          "src": "app-icon.svg?v=4",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     },
     {
       "name": "Komunitný bazár",
       "short_name": "Bazár",
       "description": "Bezplatná komunitná inzercia",
       "url": "./bazar.html?source=pwa",
-      "icons": [{"src":"app-icon.svg?v=4","sizes":"any","type":"image/svg+xml"}]
+      "icons": [
+        {
+          "src": "app-icon.svg?v=4",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ],
   "launch_handler": {
