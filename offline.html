@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#5f965f">
+  <title>Offline | Záhrada s nápadom</title>
+  <link rel="icon" type="image/svg+xml" href="app-icon.svg?v=4">
+  <link rel="stylesheet" href="app.css?v=1">
+  <style>
+    body{margin:0;min-height:100svh;display:grid;place-items:center;background:#f6f5ea;color:#294b38;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .offline-card{width:min(560px,calc(100% - 32px));box-sizing:border-box;padding:38px;border-radius:32px;background:#fffdf7;border:1px solid rgba(43,75,56,.12);box-shadow:0 24px 70px rgba(43,75,56,.1)}
+    .offline-mark{width:76px;height:76px;border-radius:24px;background:#5f965f;display:grid;place-items:center;margin-bottom:24px}
+    .offline-mark img{width:54px;height:54px}
+    h1{margin:0 0 12px;font-family:Georgia,serif;font-size:clamp(2rem,7vw,3rem);line-height:1}
+    p{font-size:1rem;line-height:1.65;color:#607466}
+    .offline-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .offline-actions a,.offline-actions button{border:0;border-radius:999px;padding:13px 18px;font:inherit;font-weight:750;text-decoration:none;cursor:pointer}
+    .offline-actions button{background:#5f965f;color:#fff}.offline-actions a{background:#edf2e6;color:#294b38}
+  </style>
+</head>
+<body>
+  <main class="offline-card">
+    <div class="offline-mark"><img src="app-icon.svg?v=4" alt=""></div>
+    <h1>Momentálne si offline.</h1>
+    <p>Niektoré už navštívené stránky môžu zostať dostupné. Po obnovení pripojenia sa aplikácia automaticky vráti k aktuálnemu obsahu.</p>
+    <div class="offline-actions">
+      <button type="button" onclick="location.reload()">Skúsiť znova</button>
+      <a href="index.html">Domov</a>
+      <a href="blog.html">Blog</a>
+      <a href="bazar.html">Bazár</a>
+    </div>
+  </main>
+</body>
+</html>
