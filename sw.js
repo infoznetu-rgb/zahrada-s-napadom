@@ -1,4 +1,4 @@
-const CACHE='zahrada-live-v17';
+const CACHE='zahrada-live-v18';
 const ASSETS=[
   './',
   './index.html',
