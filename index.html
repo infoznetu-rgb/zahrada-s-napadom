@@ -3,19 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="Záhrada s nápadom — nekomerčný hobby projekt o záhrade, tvorení a nápadoch od ľudí pre ľudí.">
-  <meta name="theme-color" content="#f6f3e8">
+  <meta name="description" content="Záhrada s nápadom — nekomerčný hobby projekt o záhrade, dielni, tvorení a nápadoch od ľudí pre ľudí.">
+  <meta name="theme-color" content="#17352b">
   <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
   <link rel="alternate icon" href="app-icon.svg?v=3">
   <meta name="robots" content="index,follow">
-  <title>Záhrada s nápadom — od ľudí pre ľudí</title>
+  <title>Záhrada s nápadom — záhrada, dielňa a nápady pre radosť</title>
   <link rel="stylesheet" href="zahrada.css?v=10">
+  <link rel="stylesheet" href="studio-2026.css?v=1">
   <link rel="manifest" href="zahrada.webmanifest?v=3">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="cms-public.js?v=2" defer></script>
   <script src="zahrada.js?v=2" defer></script>
+  <script src="studio-2026.js?v=1" defer></script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
 
   <header class="site-header">
@@ -25,78 +27,97 @@
         <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
       </a>
       <nav class="desktop-nav" aria-label="Hlavná navigácia">
-        <a href="#projekty">Moje projekty</a>
+        <a href="#projekty">Nápady</a>
         <a href="#videa">Videá</a>
-        <a href="#komunita">Nápady komunity</a>
-        <a href="#posli">Pošli svoj nápad</a>
+        <a href="#komunita">Komunita</a>
         <a href="#kontakt">Kontakt</a>
+        <a class="nav-cta" href="#posli">Pošli svoj nápad</a>
       </nav>
-      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav">
+        <span>Menu</span><span aria-hidden="true">☰</span>
+      </button>
     </div>
     <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia">
-      <a href="#projekty">Moje projekty</a>
+      <a href="#projekty">Nápady</a>
       <a href="#videa">Videá</a>
-      <a href="#komunita">Nápady komunity</a>
+      <a href="#komunita">Komunita</a>
       <a href="#posli">Pošli svoj nápad</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
   </header>
 
   <main id="obsah">
-    <section id="domov" class="hero container">
+    <section id="domov" class="hero container studio-hero">
       <article class="hero-main">
         <div class="hero-art" aria-hidden="true">
-          <span class="sun"></span>
-          <span class="leaf leaf-a">⌁</span>
-          <span class="leaf leaf-b">⌁</span>
-          <span class="bench">▰</span>
+          <img class="hero-photo" src="assets/hero-modelka.webp" alt="" width="1400" height="1100" fetchpriority="high">
+          <span class="hero-orbit orbit-one"></span>
+          <span class="hero-orbit orbit-two"></span>
         </div>
         <div class="hero-shade"></div>
         <div class="hero-copy">
-          <span id="cms-hero-eyebrow" class="eyebrow">NEKOMERČNÝ HOBBY PROJEKT</span>
+          <div class="hero-topline">
+            <span id="cms-hero-eyebrow" class="eyebrow">NEKOMERČNÝ HOBBY PROJEKT</span>
+            <span class="hero-edition">EST. 2026 · SK</span>
+          </div>
           <h1 id="cms-hero-title">Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</h1>
           <p id="cms-hero-text">Ukazujem, čo si doma a v záhrade vyrábam, prerábam a skúšam. Bez vlastného predaja a bez reklám. Len vlastné nápady, skúsenosti, inšpirácia a bezplatný komunitný bazár medzi ľuďmi.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#projekty">Pozrieť moje nápady</a>
+            <a class="btn primary" href="#projekty">Objaviť nápady <span aria-hidden="true">↘</span></a>
             <a class="btn ghost" href="#posli">Pochváľ sa aj ty</a>
-            <a class="btn ghost" href="bazar.html">Komunitný bazár</a>
           </div>
+          <div class="hero-proof" aria-label="Charakter projektu">
+            <span><b>01</b> vlastné projekty</span>
+            <span><b>02</b> poctivé postupy</span>
+            <span><b>03</b> komunita bez reklám</span>
+          </div>
+        </div>
+        <div class="hero-signature" aria-hidden="true">
+          <span>TVORÍM</span><span>SKÚŠAM</span><span>ZLEPŠUJEM</span>
         </div>
       </article>
 
-      <aside class="hero-side">
-        <div class="side-card">
-          <span class="label">ČO TU NÁJDEŠ</span>
-          <h2>Od nápadu po hotovú vec</h2>
-          <p>Fotky, krátke videá, postupy, chyby aj to, čo by som nabudúce spravil inak.</p>
+      <aside class="hero-side" aria-label="O projekte">
+        <div class="side-card side-card-editorial">
+          <div class="side-card-no">01</div>
+          <span class="label">PRÍBEH PROJEKTU</span>
+          <h2>Od prvého náčrtu až po hotovú vec.</h2>
+          <p>Fotky, postupy, chyby, zlepšenia aj to, čo by som nabudúce spravil inak.</p>
+          <a href="#projekty">Pozrieť projekty <span aria-hidden="true">↗</span></a>
         </div>
         <div class="side-card accent-card">
-          <span class="label">PRE KAŽDÉHO</span>
-          <h2>Pošli svoj nápad</h2>
-          <p>Ak si niečo vyrobil, prerobil alebo vymyslel, môžeš sa pochváliť aj ostatným.</p>
-          <a href="#posli">Ako to funguje →</a>
+          <div class="side-card-no">02</div>
+          <span class="label">KOMUNITA</span>
+          <h2>Dobré nápady nemusia zostať v jednej záhrade.</h2>
+          <p>Pošli vlastný výrobok alebo zlepšenie. Zverejní sa až po schválení.</p>
+          <a href="#posli">Pridať vlastný nápad <span aria-hidden="true">↗</span></a>
         </div>
         <div class="side-card compact">
-          <span class="dot"></span>
-          <p>Obsah komunity sa zverejní až po mojom schválení.</p>
+          <span class="status-pulse" aria-hidden="true"></span>
+          <p><strong>Bez reklám a platených služieb.</strong> Projekt zostáva hobby priestorom pre tvorenie a inšpiráciu.</p>
         </div>
       </aside>
     </section>
 
     <section class="quick container" aria-label="Témy">
-      <a href="#projekty"><span>🌱</span><b>Záhrada</b><small>pestovanie a úpravy</small></a>
-      <a href="#projekty"><span>🪵</span><b>Dielňa</b><small>drevo a výroba</small></a>
-      <a href="#projekty"><span>🔧</span><b>Vylepšenia</b><small>praktické riešenia</small></a>
-      <a href="#videa"><span>🎥</span><b>Videá</b><small>pozri si postup</small></a>
-      <a href="#komunita"><span>💡</span><b>Vaše nápady</b><small>inšpirácia komunity</small></a>
+      <a href="#projekty"><span>01</span><b>Záhrada</b><small>Pestovanie a úpravy</small></a>
+      <a href="#projekty"><span>02</span><b>Dielňa</b><small>Drevo, kov a výroba</small></a>
+      <a href="#projekty"><span>03</span><b>Vylepšenia</b><small>Praktické riešenia</small></a>
+      <a href="#videa"><span>04</span><b>Videá</b><small>Postupy v pohybe</small></a>
+      <a href="#komunita"><span>05</span><b>Vaše nápady</b><small>Inšpirácia od ľudí</small></a>
     </section>
 
-    <section id="projekty" class="section container">
+    <section id="projekty" class="section container projects-section">
       <div class="section-head">
-        <div><span class="kicker">MOJE PROJEKTY</span><h2>Veci, ktoré robím pre seba a pre radosť.</h2></div>
-        <p>Začíname skutočným projektom z mojej dielne. Postupne sem pridám ďalšie výrobky, úpravy a nápady zo záhrady.</p>
+        <div>
+          <span class="kicker">VYROBENÉ · VYSKÚŠANÉ · ZDOKUMENTOVANÉ</span>
+          <h2>Nápady, ktoré nezostali len na papieri.</h2>
+        </div>
+        <div class="section-sidecopy">
+          <span class="section-index">01 / PROJEKTY</span>
+          <p>Každý projekt ukazuje cestu od nápadu cez výrobu až po výsledok — bez pozlátka a bez skrytých reklám.</p>
+        </div>
       </div>
-
       <div id="cms-projects" class="cms-post-grid"></div>
 
       <article id="static-project-fallback" class="project-showcase">
@@ -107,8 +128,8 @@
         <div class="project-story">
           <span class="tag">DIELŇA · KOV</span>
           <h3>Terasová hojdacia lavička – od zvárania po hotové sedenie</h3>
-          <p class="lead">Tento projekt vznikol ako nápad na pevné a pohodlné hojdacie sedenie na terasu. Kovovú konštrukciu som doplnil ornamentami, drevenými opierkami a vankúšmi.</p>
-          <p>V príspevku ukazujem len vybrané fotografie: hotový výsledok, samotnú konštrukciu v dielni a záber z výroby.</p>
+          <p class="lead">Pevná kovová konštrukcia, vlastné ornamenty, drevené detaily a pohodlné sedenie. Projekt, ktorý vznikol pre vlastnú terasu.</p>
+          <p>V príspevku ukazujem hotový výsledok, konštrukciu v dielni aj momenty z výroby.</p>
           <div class="project-facts" aria-label="Prvky projektu">
             <span>kovová konštrukcia</span>
             <span>ozdobné ornamenty</span>
@@ -116,8 +137,8 @@
             <span>pohodlné sedenie</span>
           </div>
           <div class="project-actions">
-            <a class="btn primary" href="prispevok.html?slug=terasova-hojdacia-lavicka">Pozrieť príspevok</a>
-            <a class="project-link" href="#kontakt">Opýtať sa na tento nápad →</a>
+            <a class="btn primary" href="prispevok.html?slug=terasova-hojdacia-lavicka">Pozrieť príbeh <span aria-hidden="true">↗</span></a>
+            <a class="project-link" href="#kontakt">Opýtať sa na nápad →</a>
           </div>
         </div>
         <div class="project-detail-photo">
@@ -125,56 +146,121 @@
         </div>
         <div class="project-detail-copy">
           <span class="kicker">OD NÁPADU K VÝSLEDKU</span>
-          <h4>Najprv konštrukcia, potom pohodlie.</h4>
-          <p>Na lavičke som chcel zachovať výrazný kovový charakter, ale zároveň z nej spraviť miesto, kde sa dá pohodlne oddychovať.</p>
-          <small>V príspevku používam iba fotografie z tejto novej série.</small>
+          <h4>Najprv konštrukcia. Potom charakter.</h4>
+          <p>Na lavičke som chcel zachovať výrazný kovový základ a zároveň z nej spraviť miesto, kde sa dá naozaj oddychovať.</p>
+          <small>Autentické fotografie z výroby a hotového projektu.</small>
         </div>
       </article>
     </section>
 
-    <section id="videa" class="section band"><div class="container">
-      <div class="section-head"><div><span class="kicker">VIDEÁ</span><h2>Ukážem radšej, ako len napíšem.</h2></div><p>Videá môžu byť nahraté priamo na web alebo prepojené z Facebooku. V návrhu zatiaľ používame iba makety.</p></div>
-      <div class="video-grid">
-        <article class="video-card"><div class="video-placeholder"><span>▶</span></div><h3>Postup krok za krokom</h3><p>Krátke video k tvojmu projektu.</p></article>
-        <article class="video-card"><div class="video-placeholder"><span>▶</span></div><h3>Pred a po</h3><p>Rýchla ukážka premeny.</p></article>
-        <article class="video-card"><div class="video-placeholder"><span>▶</span></div><h3>Tip zo záhrady</h3><p>Jedna vec, ktorá sa ti osvedčila.</p></article>
-      </div>
-    </div></section>
-
-    <section id="komunita" class="section container">
-      <div class="section-head"><div><span class="kicker">NÁPADY KOMUNITY</span><h2>Miesto, kde sa môžu pochváliť aj ostatní.</h2></div><p>Bez verejných účtov a bez automatického publikovania. Každý príspevok najprv uvidíš ty a až potom rozhodneš, či ho zverejníš.</p></div>
-      <div class="community-grid">
-        <article class="community-card"><div class="avatar">M</div><div><small>UKÁŽKOVÝ PRÍSPEVOK</small><h3>Máriov nápad zo záhrady</h3><p>Sem sa po schválení zobrazí fotografia a krátky popis od návštevníka.</p></div></article>
-        <article class="community-card"><div class="avatar">A</div><div><small>UKÁŽKOVÝ PRÍSPEVOK</small><h3>Annin vlastný výrobok</h3><p>Autor môže vystupovať menom alebo prezývkou podľa vlastného výberu.</p></div></article>
+    <section id="videa" class="section band studio-dark-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker">POHYB · DETAIL · POSTUP</span>
+            <h2>Niekedy obraz vysvetlí viac než desať odsekov.</h2>
+          </div>
+          <div class="section-sidecopy">
+            <span class="section-index">02 / VIDEÁ</span>
+            <p>Krátke ukážky výroby, premien a detailov. Bez zbytočnej omáčky — priamo k tomu, čo funguje.</p>
+          </div>
+        </div>
+        <div class="video-grid">
+          <article class="video-card"><div class="video-placeholder"><span>▶</span><small>01 · POSTUP</small></div><h3>Krok za krokom</h3><p>Od prvého rezu po hotový výsledok.</p></article>
+          <article class="video-card"><div class="video-placeholder"><span>▶</span><small>02 · PREMENA</small></div><h3>Pred a po</h3><p>Rýchly pohľad na rozdiel, ktorý spraví dobrý nápad.</p></article>
+          <article class="video-card"><div class="video-placeholder"><span>▶</span><small>03 · TIP</small></div><h3>Detail, ktorý pomôže</h3><p>Jedna praktická vec, ktorú sa oplatí vedieť.</p></article>
+        </div>
       </div>
     </section>
 
-    <section id="posli" class="section submit-band"><div class="container submit-grid">
-      <div><span class="kicker">POCHVÁĽ SA</span><h2>Máš vlastný nápad alebo výrobok?</h2><p>Pošli fotografiu a pár viet. Nič sa nezverejní automaticky. Najprv si príspevok pozriem a až potom ho môžem zaradiť medzi nápady komunity.</p><ul><li>žiadna registrácia používateľského účtu,</li><li>predaj patrí iba do bezplatného komunitného bazára pre súkromné osoby,</li><li>zverejnenie až po manuálnom schválení.</li></ul></div>
-      <form class="idea-form" id="idea-form">
-        <label>Meno alebo prezývka<input type="text" name="name" placeholder="Ako ťa máme uviesť?"></label>
-        <label>Názov nápadu<input type="text" name="title" placeholder="Napr. vyvýšený záhon zo starých dosiek"></label>
-        <label>Krátky popis<textarea name="text" rows="5" placeholder="Ako si to spravil a čo by si odporučil ostatným?"></textarea></label>
-        <label class="upload">Fotografie alebo video<input type="file" multiple accept="image/*,video/*"><span>Vybrať súbory</span></label>
-        <label class="check"><input type="checkbox" required><span>Som autorom obsahu alebo mám právo ho poslať na zverejnenie.</span></label>
-        <label class="check"><input type="checkbox" required><span>Súhlasím, aby bol po schválení môj príspevok zverejnený na Záhrade s nápadom.</span></label>
-        <button type="submit" class="btn primary">Odoslať nápad</button>
-        <small class="form-note">Toto je zatiaľ iba návrh. Formulár ešte nič neposiela.</small>
-      </form>
-    </div></section>
+    <section id="komunita" class="section container community-section">
+      <div class="section-head">
+        <div>
+          <span class="kicker">OD ĽUDÍ PRE ĽUDÍ</span>
+          <h2>Priestor pre nápady, na ktoré môže byť človek hrdý.</h2>
+        </div>
+        <div class="section-sidecopy">
+          <span class="section-index">03 / KOMUNITA</span>
+          <p>Bez verejných účtov a automatického publikovania. Každý príspevok najprv prejde kontrolou.</p>
+        </div>
+      </div>
+      <div class="community-grid">
+        <article class="community-card">
+          <div class="avatar">M</div>
+          <div><small>UKÁŽKOVÝ PRÍSPEVOK</small><h3>Máriov nápad zo záhrady</h3><p>Fotografia, stručný príbeh a praktická skúsenosť od návštevníka.</p></div>
+          <span class="community-arrow" aria-hidden="true">↗</span>
+        </article>
+        <article class="community-card">
+          <div class="avatar">A</div>
+          <div><small>UKÁŽKOVÝ PRÍSPEVOK</small><h3>Annin vlastný výrobok</h3><p>Autor môže vystupovať menom alebo prezývkou podľa vlastného výberu.</p></div>
+          <span class="community-arrow" aria-hidden="true">↗</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="posli" class="section submit-band">
+      <div class="container submit-grid">
+        <div class="submit-copy">
+          <span class="kicker">POCHVÁĽ SA</span>
+          <h2>Máš vlastný nápad? Daj mu priestor.</h2>
+          <p>Pošli fotografiu a pár viet. Nič sa nezverejní automaticky — príspevok najprv skontrolujem a až potom môže pribudnúť medzi nápady komunity.</p>
+          <ul>
+            <li>bez registrácie používateľského účtu,</li>
+            <li>bez plateného zvýrazňovania,</li>
+            <li>zverejnenie až po manuálnom schválení.</li>
+          </ul>
+        </div>
+        <form class="idea-form" id="idea-form">
+          <div class="form-head"><span>YOUR IDEA / 2026</span><strong>Pošli nápad</strong></div>
+          <label>Meno alebo prezývka<input type="text" name="name" placeholder="Ako ťa máme uviesť?"></label>
+          <label>Názov nápadu<input type="text" name="title" placeholder="Napr. vyvýšený záhon zo starých dosiek"></label>
+          <label>Krátky popis<textarea name="text" rows="5" placeholder="Ako si to spravil a čo by si odporučil ostatným?"></textarea></label>
+          <label class="upload">Fotografie alebo video<input type="file" multiple accept="image/*,video/*"><span>Vybrať súbory</span></label>
+          <label class="check"><input type="checkbox" required><span>Som autorom obsahu alebo mám právo ho poslať na zverejnenie.</span></label>
+          <label class="check"><input type="checkbox" required><span>Súhlasím, aby bol po schválení môj príspevok zverejnený na Záhrade s nápadom.</span></label>
+          <button type="submit" class="btn primary">Odoslať nápad <span aria-hidden="true">↗</span></button>
+          <small class="form-note">Formulár je zatiaľ vizuálny návrh a ešte nič neposiela.</small>
+        </form>
+      </div>
+    </section>
 
     <section id="kontakt" class="section container contact">
-      <div><span class="kicker">KONTAKT</span><h2 id="cms-contact-title">Chceš sa niečo opýtať?</h2><p id="cms-contact-text">Ak ťa zaujal môj postup alebo potrebuješ poradiť s podobným nápadom, môžeš mi napísať. Ide o hobby projekt — nič tu nepredávam.</p></div>
-      <div class="contact-card"><strong>Napíš mi</strong><p>Kontakt pre otázky a rady doplníme pred spustením novej verzie.</p><a id="cms-contact-facebook" class="btn ghost" href="https://www.facebook.com/objektiv24" rel="noopener noreferrer">Facebook projektu</a></div>
+      <div class="contact-heading">
+        <span class="kicker">04 / KONTAKT</span>
+        <h2 id="cms-contact-title">Chceš sa niečo opýtať?</h2>
+        <p id="cms-contact-text">Ak ťa zaujal môj postup alebo potrebuješ poradiť s podobným nápadom, môžeš mi napísať. Ide o hobby projekt — nič tu nepredávam.</p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-overline">ZOSTAŇME V KONTAKTE</span>
+        <strong>Napíš mi</strong>
+        <p>Otázka k projektu, vlastná skúsenosť alebo nový nápad? Ozvi sa cez Facebook projektu.</p>
+        <a id="cms-contact-facebook" class="btn ghost" href="https://www.facebook.com/objektiv24" rel="noopener noreferrer">Facebook projektu <span aria-hidden="true">↗</span></a>
+      </div>
     </section>
 
-    <section class="noncommercial"><div class="container"><strong>Záhrada s nápadom je súkromný nekomerčný hobby projekt.</strong><span>Nič ako prevádzkovateľ nepredávam, neposkytujem platené služby ani platenú inzerciu. Komunitný bazár je bezplatný a iba pre súkromné osoby.</span></div></section>
+    <section class="noncommercial">
+      <div class="container">
+        <strong>Vytvorené pre radosť, nie pre predaj.</strong>
+        <span>Záhrada s nápadom je súkromný nekomerčný hobby projekt. Nič ako prevádzkovateľ nepredávam, neposkytujem platené služby ani platenú inzerciu.</span>
+      </div>
+    </section>
   </main>
 
   <footer class="footer container">
-    <a class="brand small-brand" href="#domov"><img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a>
-    <p>Vlastné nápady · vlastné fotografie · komunita ľudí, ktorých baví tvoriť.</p>
-    <small>Nekomerčný hobby projekt · 2026</small>
+    <div class="footer-brand">
+      <a class="brand small-brand" href="#domov">
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p>
+    </div>
+    <div class="footer-links" aria-label="Pätička">
+      <a href="#projekty">Nápady</a>
+      <a href="#videa">Videá</a>
+      <a href="#komunita">Komunita</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <small>© 2026 · Nekomerčný hobby projekt</small>
   </footer>
 </body>
 </html>
