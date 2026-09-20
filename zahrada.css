@@ -83,9 +83,9 @@ a{color:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}
 .compact{display:flex;align-items:center;gap:12px;padding:17px;background:#fff8e5}
 .compact p{font-size:.82rem}.dot{width:10px;height:10px;border-radius:50%;background:var(--terracotta);box-shadow:0 0 0 5px rgba(200,117,75,.12)}
 
-.quick{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding-top:18px}
+.quick{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding-top:18px}
 .quick a{min-height:108px;border:1px solid var(--line);border-radius:20px;background:rgba(255,253,247,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;transition:.25s;box-shadow:0 8px 22px rgba(65,86,65,.055)}
-.quick a:nth-child(2){background:#fff6e8}.quick a:nth-child(3){background:#eef5e8}.quick a:nth-child(4){background:#f9efdF}.quick a:nth-child(5){background:#eef7ef}
+.quick a:nth-child(2){background:#fff6e8}.quick a:nth-child(3){background:#eef5e8}.quick a:nth-child(4){background:#f9efdF}.quick a:nth-child(5){background:#eef7ef}.quick a:nth-child(6){background:#fff8e7}
 .quick a:hover{transform:translateY(-4px);border-color:#9eb799;box-shadow:0 16px 30px rgba(65,86,65,.10)}
 .quick a span{font-size:1.65rem}.quick b{font-size:.84rem;margin-top:5px;color:#334f39}.quick small{color:#7b897e;font-size:.68rem}
 
@@ -146,7 +146,7 @@ a{color:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}
 @media(max-width:720px){
   .container{width:min(100% - 24px,var(--max))}.top{min-height:76px}.brand-mark{width:42px;height:42px}.brand-text strong{font-size:1.05rem}.brand-text small{font-size:.48rem;letter-spacing:.23em}
   .hero{padding-top:12px}.hero-main{min-height:570px;border-radius:24px}.hero-copy{padding:24px 20px}.hero h1{font-size:clamp(2.25rem,11vw,3.55rem)}.hero-copy p{font-size:.92rem}
-  .hero-side{grid-template-columns:1fr}.quick{grid-template-columns:repeat(2,1fr)}.quick a:last-child{grid-column:1/-1}
+  .hero-side{grid-template-columns:1fr}.quick{grid-template-columns:repeat(2,1fr)}
   .section{padding-top:68px;padding-bottom:68px}.section-head{display:block}.section-head>p{margin-top:16px}.section-head h2,.submit-grid h2,.contact h2{font-size:clamp(2.2rem,10vw,3.2rem)}
   .project-grid,.video-grid,.community-grid,.submit-grid,.contact{grid-template-columns:1fr}.featured .placeholder{aspect-ratio:4/3}.idea-form{padding:18px}
   .footer{grid-template-columns:1fr}.footer p{text-align:left}.mobile-nav.is-open{grid-template-columns:1fr 1fr}
