@@ -4,13 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="theme-color" content="#eef4e9">
-  <link rel="icon" type="image/svg+xml" href="../brand-mark.svg?v=1">
-  <link rel="alternate icon" href="../app-icon.svg?v=3">
+  <meta name="theme-color" content="#1f3d28">
+  <meta name="application-name" content="Správa webu">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Správa webu">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/svg+xml" href="admin-icon.svg?v=1">
+  <link rel="alternate icon" href="admin-icon.svg?v=1">
+  <link rel="manifest" href="admin.webmanifest?v=1">
   <title>Správa webu | Záhrada s nápadom</title>
-  <link rel="stylesheet" href="admin.css?v=3">\n  <link rel="stylesheet" href="bazar.css?v=1">
+  <link rel="stylesheet" href="admin.css?v=4">\n  <link rel="stylesheet" href="bazar.css?v=1">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=4" defer></script>\n  <script src="bazar.js?v=3" defer></script>
+  <script src="admin.js?v=5" defer></script>\n  <script src="bazar.js?v=3" defer></script>
+  <script src="admin-pwa.js?v=1" defer></script>
 </head>
 <body>
   <main>
@@ -28,6 +35,10 @@
         </form>
 
         <p id="auth-message" class="message" role="status"></p>
+        <button class="admin-install-btn" type="button" data-admin-install hidden>
+          <img src="admin-icon.svg?v=1" alt="">
+          <span><strong>Nainštalovať Správu webu</strong><small>Pridať ako samostatnú aplikáciu do zariadenia</small></span>
+        </button>
       </div>
     </section>
 
@@ -38,6 +49,7 @@
           <button class="nav-btn active" data-view="dashboard">Prehľad</button>
           <button class="nav-btn" data-view="posts">Príspevky</button>
           <button class="nav-btn" data-view="editor" data-new-post="1">+ Nový príspevok</button>
+          <button class="nav-btn" data-view="bazar">Komunitný bazár</button>
           <button class="nav-btn" data-view="settings">Texty stránky</button>
         </nav>
         <div class="sidebar-bottom">
@@ -50,6 +62,7 @@
         <header class="admin-topbar">
           <button id="sidebar-toggle" class="icon-btn" type="button" aria-label="Menu">☰</button>
           <div><strong>Správa webu</strong><small id="admin-email"></small></div>
+          <button class="admin-top-install" type="button" data-admin-install hidden>Nainštalovať appku</button>
           <span id="save-state" class="save-state">Pripravené</span>
         </header>
 
