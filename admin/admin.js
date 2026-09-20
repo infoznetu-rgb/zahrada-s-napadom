@@ -1,6 +1,5 @@
 const SUPABASE_URL="https://bkyappgttwjxakkwycub.supabase.co";
 const SUPABASE_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
-const BOOTSTRAP_URL=SUPABASE_URL+"/functions/v1/zahrada-bootstrap-admin";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
 let posts=[];
@@ -36,20 +35,6 @@ $("#login-form").addEventListener("submit",async(e)=>{
   const {error}=await db.auth.signInWithPassword({email:$("#login-email").value.trim(),password:$("#login-password").value});
   if(error){setMessage(authMessage,"Prihlásenie sa nepodarilo. Skontroluj e-mail a heslo.","error");return}
   await checkAdmin();
-});
-
-$("#setup-form").addEventListener("submit",async(e)=>{
-  e.preventDefault();setMessage(authMessage,"Vytváram administrátorský účet…");
-  const payload={email:$("#setup-email").value.trim(),password:$("#setup-password").value,setupCode:$("#setup-code").value.trim()};
-  try{
-    const res=await fetch(BOOTSTRAP_URL,{method:"POST",headers:{"Content-Type":"application/json","apikey":SUPABASE_KEY},body:JSON.stringify(payload)});
-    const out=await res.json();
-    if(!res.ok)throw new Error(out.error||"Aktivácia sa nepodarila.");
-    const {error}=await db.auth.signInWithPassword({email:payload.email,password:payload.password});
-    if(error)throw error;
-    setMessage(authMessage,"Účet je aktivovaný.","ok");
-    await checkAdmin();
-  }catch(err){setMessage(authMessage,err.message||"Aktivácia sa nepodarila.","error")}
 });
 
 $("#logout-btn").addEventListener("click",async()=>{await db.auth.signOut();location.reload()});
