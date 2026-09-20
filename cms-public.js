@@ -2,7 +2,7 @@ const CMS_URL="https://bkyappgttwjxakkwycub.supabase.co";
 const CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
 const cms=window.supabase.createClient(CMS_URL,CMS_KEY);
 
-function cmsEsc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
+function cmsHref(p){return window.ZahradaSEO?.postHref?.(p)||("prispevok.html?slug="+encodeURIComponent(p.slug))}\n\nfunction cmsEsc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 
 async function loadSiteSettings(){
   const {data,error}=await cms.from("zahrada_site_settings").select("key,value");
@@ -35,18 +35,18 @@ async function loadPublishedPosts(){
   const blogs=data.filter(p=>p.content_type==="blog");
 
   const renderCard=(p)=>`<article class="cms-post-card ${p.content_type==="blog"?"is-blog":"is-project"}">
-    <a class="cms-post-image" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">
+    <a class="cms-post-image" href="${cmsEsc(cmsHref(p))}">
       ${p.cover_url?`<img src="${cmsEsc(p.cover_url)}" alt="${cmsEsc(p.title)}" loading="lazy">`:'<div class="cms-post-placeholder">Záhrada s nápadom</div>'}
     </a>
     <div class="cms-post-body">
       <span class="tag">${p.content_type==="blog"?"BLOG · ":""}${cmsEsc(p.category||"Nápad")}</span>
-      <h3><a href="prispevok.html?slug=${encodeURIComponent(p.slug)}">${cmsEsc(p.title)}</a></h3>
+      <h3><a href="${cmsEsc(cmsHref(p))}">${cmsEsc(p.title)}</a></h3>
       <p>${cmsEsc(p.excerpt||"")}</p>
       <div class="cms-card-actions">
-        <a class="project-link" href="prispevok.html?slug=${encodeURIComponent(p.slug)}">${p.content_type==="blog"?"Čítať blog":"Pozrieť projekt"} →</a>
+        <a class="project-link" href="${cmsEsc(cmsHref(p))}">${p.content_type==="blog"?"Čítať blog":"Pozrieť projekt"} →</a>
         <button class="card-share-btn" type="button"
           data-share-card
-          data-share-url="prispevok.html?slug=${encodeURIComponent(p.slug)}"
+          data-share-url="${cmsEsc(cmsHref(p))}"
           data-share-title="${cmsEsc(p.title)}"
           aria-label="Zdieľať príspevok ${cmsEsc(p.title)}"
           title="Zdieľať príspevok">

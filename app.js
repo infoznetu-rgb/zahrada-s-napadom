@@ -31,7 +31,7 @@
       excerpt:String(post.excerpt||'').trim(),
       cover_url:String(post.cover_url||'').trim(),
       content_type:post.content_type==='project'?'project':'blog',
-      url:String(post.url||('prispevok.html?slug='+encodeURIComponent(slug)))
+      url:String(post.url||(window.ZahradaSEO?.postHref?.(post)||('/prispevok.html?slug='+encodeURIComponent(slug))))
     };
   }
   function getSaved(){return safeRead(SAVED_KEY)}
@@ -80,7 +80,7 @@
     el=document.createElement('aside');
     el.className='app-install-prompt';
     el.hidden=true;
-    el.innerHTML='<img src="app-icon.svg?v=4" alt=""><div class="app-install-copy"><strong>Záhrada ako aplikácia</strong><span>Uložené články, história, offline režim a rýchla navigácia.</span></div><button class="app-install-action" type="button">Nainštalovať</button><button class="app-install-close" type="button" aria-label="Zavrieť">×</button>';
+    el.innerHTML='<img src="/app-icon.svg?v=4" alt=""><div class="app-install-copy"><strong>Záhrada ako aplikácia</strong><span>Uložené články, história, offline režim a rýchla navigácia.</span></div><button class="app-install-action" type="button">Nainštalovať</button><button class="app-install-close" type="button" aria-label="Zavrieť">×</button>';
     document.body.appendChild(el);
     el.querySelector('.app-install-close').addEventListener('click',()=>{el.hidden=true;localStorage.setItem('pwa-install-dismissed',String(Date.now()))});
     el.querySelector('.app-install-action').addEventListener('click',async()=>{
@@ -233,7 +233,7 @@
         <div class="promo-phone-speaker"></div>
         <div class="promo-phone-screen">
           <div class="promo-phone-brand">
-            <img src="brand-mark.svg?v=1" alt="">
+            <img src="/brand-mark.svg?v=1" alt="">
             <b>Záhrada<br><span>s nápadom</span></b>
           </div>
           <div class="promo-phone-label">Dnes pre teba</div>
@@ -258,7 +258,7 @@
     banner.setAttribute('aria-label','Aplikácia Záhrada s nápadom');
     banner.innerHTML=`
       <button class="app-promo-close" type="button" aria-label="Zavrieť">×</button>
-      <div class="app-promo-logo"><img src="brand-mark.svg?v=1" alt=""><span>NAŠA APLIKÁCIA</span></div>
+      <div class="app-promo-logo"><img src="/brand-mark.svg?v=1" alt=""><span>NAŠA APLIKÁCIA</span></div>
       <div class="app-promo-copy">
         <h2>Maj Záhradu vždy po ruke.</h2>
         <p>Nainštaluj si aplikáciu a zapni upozornenia na nové blogy a komunitný bazár.</p>
@@ -315,8 +315,8 @@
   }
 
   function maybeShowPromoBanner(){
-    const path=location.pathname.split('/').pop()||'index.html';
-    if(path==='moja-zahrada.html')return;
+    const pathname=location.pathname;\n    const path=pathname.split('/').pop()||'index.html';
+    if(pathname.endsWith('/moja-zahrada.html'))return;
     const dismissed=Number(localStorage.getItem(PROMO_DISMISS_KEY)||0);
     if(dismissed&&Date.now()-dismissed<3*24*60*60*1000)return;
 
@@ -336,27 +336,34 @@
     if(document.querySelector('.app-bottom-nav'))return;
     const path=location.pathname.split('/').pop()||'index.html';
     const nav=document.createElement('nav');nav.className='app-bottom-nav';nav.setAttribute('aria-label','Navigácia aplikácie');
-    nav.innerHTML='<a href="moja-zahrada.html" data-app-route="home"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Domov</span></a><a href="blog.html" data-app-route="blog"><svg viewBox="0 0 24 24"><path d="M5 4.5h10a4 4 0 0 1 4 4v11H8a3 3 0 0 1-3-3z"/><path d="M8 19.5a3 3 0 0 1 3-3h8M8 8h7M8 11.5h7"/></svg><span>Blog</span></a><a href="index.html#projekty" data-app-route="ideas"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5C7.3 13.5 6 12 6 9.5a6 6 0 1 1 12 0c0 2.5-1.3 4-2.5 5"/></svg><span>Nápady</span></a><a href="moja-zahrada.html#ulozene" data-app-route="saved"><svg viewBox="0 0 24 24"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg><span>Uložené</span></a><a href="bazar.html" data-app-route="market"><svg viewBox="0 0 24 24"><path d="M4 8h16l-1 12H5zM7 8V6a5 5 0 0 1 10 0v2"/></svg><span>Bazár</span></a>';
+    nav.innerHTML='<a href="/moja-zahrada.html" data-app-route="home"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Domov</span></a><a href="/blog.html" data-app-route="blog"><svg viewBox="0 0 24 24"><path d="M5 4.5h10a4 4 0 0 1 4 4v11H8a3 3 0 0 1-3-3z"/><path d="M8 19.5a3 3 0 0 1 3-3h8M8 8h7M8 11.5h7"/></svg><span>Blog</span></a><a href="/#projekty" data-app-route="ideas"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5C7.3 13.5 6 12 6 9.5a6 6 0 1 1 12 0c0 2.5-1.3 4-2.5 5"/></svg><span>Nápady</span></a><a href="/moja-zahrada.html#ulozene" data-app-route="saved"><svg viewBox="0 0 24 24"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg><span>Uložené</span></a><a href="/bazar.html" data-app-route="market"><svg viewBox="0 0 24 24"><path d="M4 8h16l-1 12H5zM7 8V6a5 5 0 0 1 10 0v2"/></svg><span>Bazár</span></a>';
     document.body.appendChild(nav);
-    const active=path==='moja-zahrada.html'?(location.hash==='#ulozene'?'saved':'home'):path==='blog.html'||path==='prispevok.html'?'blog':path==='bazar.html'||path==='inzerat.html'?'market':'ideas';
+    const active=pathname.endsWith('/moja-zahrada.html')?(location.hash==='#ulozene'?'saved':'home'):(pathname==='/blog.html'||pathname.startsWith('/blog/')||pathname==='/prispevok.html')?'blog':(pathname==='/bazar.html'||pathname==='/inzerat.html')?'market':'ideas';
     nav.querySelector('[data-app-route="'+active+'"]')?.classList.add('is-active');
   }
 
   function postFromCard(card){
-    const link=card.querySelector('h3 a[href*="slug="],.cms-post-image[href*="slug="]');
+    const link=card.querySelector('h3 a,.cms-post-image');
     if(!link)return null;
     let url;
     try{url=new URL(link.getAttribute('href'),location.href)}catch(e){return null}
-    const slug=url.searchParams.get('slug');if(!slug)return null;
+    let slug=card.dataset.postSlug||url.searchParams.get('slug')||'';
+    if(!slug){
+      const segment=url.pathname.split('/').filter(Boolean).pop()||'';
+      const known=[...(window.ZahradaSEO?.STATIC_SLUGS||[])];
+      slug=known.find(s=>window.ZahradaSEO?.cleanSlug?.(s)===segment)||segment;
+    }
+    if(!slug)return null;
     const tag=card.querySelector('.tag')?.textContent||'';
+    const contentType=card.dataset.postType||(/BLOG/i.test(tag)?'blog':'project');
     return normalizePost({
       slug,
       title:card.querySelector('h3')?.textContent||'Príspevok',
       category:tag,
       excerpt:card.querySelector('.cms-post-body p')?.textContent||'',
       cover_url:card.querySelector('.cms-post-image img')?.getAttribute('src')||'',
-      content_type:/BLOG/i.test(tag)?'blog':'project',
-      url:'prispevok.html?slug='+encodeURIComponent(slug)
+      content_type:contentType,
+      url:window.ZahradaSEO?.postHref?.({slug,content_type:contentType})||('/prispevok.html?slug='+encodeURIComponent(slug))
     });
   }
 
@@ -432,7 +439,7 @@
   if('serviceWorker' in navigator){
     window.addEventListener('load',async()=>{
       try{
-        const reg=await navigator.serviceWorker.register('./sw.js');
+        const reg=await navigator.serviceWorker.register('/sw.js');
         if(reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'});
       }catch(e){}
     });

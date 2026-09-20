@@ -1,0 +1,371 @@
+[
+  {
+    "slug": "terasova-hojdacia-lavicka",
+    "route_slug": "terasova-hojdacia-lavicka",
+    "title": "Terasová hojdacia lavička – od zvárania po hotové sedenie",
+    "category": "Dielňa · Kov",
+    "content_type": "project",
+    "published_at": "2026-09-20",
+    "cover": "https://bkyappgttwjxakkwycub.supabase.co/storage/v1/object/public/zahrada-media/posts/terasova-hojdacia-lavicka/1789898818796-174ef065-740c-4d66-9d3e-73f412c85e38.jpeg"
+  },
+  {
+    "slug": "mulcovanie-zahonov-bez-zbytocnych-chyb",
+    "route_slug": "mulcovanie-zahonov-bez-zbytocnych-chyb",
+    "title": "Ako začať s mulčovaním záhonov bez zbytočných chýb",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-19",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-mulcovanie.webp"
+  },
+  {
+    "slug": "dazdova-voda-jednoduchy-system-zo-suda",
+    "route_slug": "dazdova-voda-jednoduchy-system-zo-suda",
+    "title": "Dažďová voda v záhrade: jednoduchý systém zo suda",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-18",
+    "cover": "https://zahradasnapadom.sk/assets/blog/02-dazdova-voda.webp"
+  },
+  {
+    "slug": "vyvyseny-zahon-co-premysliet-pred-stavbou",
+    "route_slug": "vyvyseny-zahon-co-premysliet-pred-stavbou",
+    "title": "Vyvýšený záhon: čo si premyslieť pred stavbou",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-17",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-vyvyseny-zahon.webp"
+  },
+  {
+    "slug": "kompost-bez-zapachu-rovnovaha-materialov",
+    "route_slug": "kompost-bez-zapachu-rovnovaha-materialov",
+    "title": "Kompost bez zápachu: pomáha rovnováha mokrého a suchého materiálu",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-16",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-kompost.webp"
+  },
+  {
+    "slug": "prakticky-kutik-na-presadzanie-rastlin",
+    "route_slug": "prakticky-kutik-na-presadzanie-rastlin",
+    "title": "Praktický kútik na presádzanie rastlín",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-15",
+    "cover": "https://zahradasnapadom.sk/assets/blog/05-presadzanie.webp"
+  },
+  {
+    "slug": "rucne-naradie-na-jednej-stene",
+    "route_slug": "rucne-naradie-na-jednej-stene",
+    "title": "Ako usporiadať ručné náradie na jednej stene",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-09-14",
+    "cover": "https://zahradasnapadom.sk/assets/blog/06-naradie-stena.webp"
+  },
+  {
+    "slug": "stare-drevene-debnicky-ako-ulozny-system",
+    "route_slug": "stare-drevene-debnicky-ako-ulozny-system",
+    "title": "Staré drevené debničky ako jednoduchý úložný systém",
+    "category": "Recyklácia",
+    "content_type": "blog",
+    "published_at": "2026-09-13",
+    "cover": "https://zahradasnapadom.sk/assets/blog/07-debnicky.webp"
+  },
+  {
+    "slug": "opory-pre-paradajky-z-konárov",
+    "route_slug": "opory-pre-paradajky-z-konarov",
+    "title": "Jednoduché opory pre paradajky a fazuľu z rovných konárov",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-12",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-opory-paradajky.webp"
+  },
+  {
+    "slug": "strkova-cesticka-medzi-zahonmi",
+    "route_slug": "strkova-cesticka-medzi-zahonmi",
+    "title": "Štrková cestička medzi záhonmi bez neustáleho rozsýpania",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-11",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-strkova-cesticka.webp"
+  },
+  {
+    "slug": "bylinkovy-kut-pri-kuchyni",
+    "route_slug": "bylinkovy-kut-pri-kuchyni",
+    "title": "Bylinkový kút pri kuchyni: malá vec, ktorú človek naozaj používa",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-bylinkovy-kut.webp"
+  },
+  {
+    "slug": "zahrada-v-tieni-napady-pre-menej-slnka",
+    "route_slug": "zahrada-v-tieni-napady-pre-menej-slnka",
+    "title": "Záhrada v tieni: čo robiť s miestom, kde je menej slnka",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/11-zahrada-v-tieni.webp"
+  },
+  {
+    "slug": "listovka-z-jesenneho-listia",
+    "route_slug": "listovka-z-jesenneho-listia",
+    "title": "Listovka: jednoduchý spôsob, ako využiť jesenné lístie",
+    "category": "Sezónne tipy",
+    "content_type": "blog",
+    "published_at": "2026-09-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/12-listovka.webp"
+  },
+  {
+    "slug": "oznacovanie-zahonov-na-celu-sezonu",
+    "route_slug": "oznacovanie-zahonov-na-celu-sezonu",
+    "title": "Označovanie záhonov, ktoré vydrží celú sezónu",
+    "category": "Vychytávky",
+    "content_type": "blog",
+    "published_at": "2026-09-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/13-oznacovanie-zahonov.webp"
+  },
+  {
+    "slug": "priprava-zahradneho-naradia-na-zimu",
+    "route_slug": "priprava-zahradneho-naradia-na-zimu",
+    "title": "Ako pripraviť záhradné náradie na zimu",
+    "category": "Sezónne tipy",
+    "content_type": "blog",
+    "published_at": "2026-09-06",
+    "cover": "https://zahradasnapadom.sk/assets/blog/14-naradie-na-zimu.webp"
+  },
+  {
+    "slug": "jarny-start-zahrady-bez-chaosu",
+    "route_slug": "jarny-start-zahrady-bez-chaosu",
+    "title": "Jarný štart záhrady bez chaosu: začni kontrolou, nie nákupom",
+    "category": "Sezónne tipy",
+    "content_type": "blog",
+    "published_at": "2026-09-05",
+    "cover": "https://zahradasnapadom.sk/assets/blog/15-jarny-start.webp"
+  },
+  {
+    "slug": "letne-polievanie-s-mensou-spotrebou",
+    "route_slug": "letne-polievanie-s-mensou-spotrebou",
+    "title": "Letné polievanie s menšou spotrebou vody",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/16-letne-polievanie.webp"
+  },
+  {
+    "slug": "zber-semien-z-vlastnej-zahrady",
+    "route_slug": "zber-semien-z-vlastnej-zahrady",
+    "title": "Zber semien z vlastnej záhrady: jednoduchý systém na ďalšiu sezónu",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/17-zber-semien.webp"
+  },
+  {
+    "slug": "jednoduche-sito-na-kompost",
+    "route_slug": "jednoduche-sito-na-kompost",
+    "title": "Jednoduché sito na kompost z dreveného rámu",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-09-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/18-sito-na-kompost.webp"
+  },
+  {
+    "slug": "drziak-na-zahradnu-hadicu",
+    "route_slug": "drziak-na-zahradnu-hadicu",
+    "title": "Držiak na záhradnú hadicu, ktorý udrží poriadok pri stene",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-09-01",
+    "cover": "https://zahradasnapadom.sk/assets/blog/19-drziak-na-hadicu.webp"
+  },
+  {
+    "slug": "maly-pracovny-stol-do-dielne",
+    "route_slug": "maly-pracovny-stol-do-dielne",
+    "title": "Malý pracovný stôl do dielne alebo záhradného prístrešku",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-08-31",
+    "cover": "https://zahradasnapadom.sk/assets/blog/20-pracovny-stol.webp"
+  },
+  {
+    "slug": "odrezky-dreva-v-zahrade",
+    "route_slug": "odrezky-dreva-v-zahrade",
+    "title": "Čo spraviť s krátkymi odrezkami dreva namiesto vyhodenia",
+    "category": "Recyklácia",
+    "content_type": "blog",
+    "published_at": "2026-08-30",
+    "cover": "https://zahradasnapadom.sk/assets/blog/21-odrezky-dreva.webp"
+  },
+  {
+    "slug": "kvetinace-z-vedier-a-nadob",
+    "route_slug": "kvetinace-z-vedier-a-nadob",
+    "title": "Kvetináče z vedier a starých nádob: rozhoduje odtok vody",
+    "category": "Recyklácia",
+    "content_type": "blog",
+    "published_at": "2026-08-29",
+    "cover": "https://zahradasnapadom.sk/assets/blog/22-kvetinace-z-nadob.webp"
+  },
+  {
+    "slug": "mala-nadoba-s-vodou-pre-vtaky",
+    "route_slug": "mala-nadoba-s-vodou-pre-vtaky",
+    "title": "Malá nádoba s vodou pre vtáky: jednoduchý detail do záhrady",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-08-28",
+    "cover": "https://zahradasnapadom.sk/assets/blog/23-voda-pre-vtaky.webp"
+  },
+  {
+    "slug": "jednoduchy-plan-vysadby-zahona",
+    "route_slug": "jednoduchy-plan-vysadby-zahona",
+    "title": "Ako si spraviť jednoduchý plán výsadby bez špeciálneho programu",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-08-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/24-plan-vysadby.webp"
+  },
+  {
+    "slug": "ulozny-box-na-zahradne-drobnosti",
+    "route_slug": "ulozny-box-na-zahradne-drobnosti",
+    "title": "Úložný box na rukavice, motúzy a malé záhradné pomôcky",
+    "category": "Vychytávky",
+    "content_type": "blog",
+    "published_at": "2026-08-26",
+    "cover": "https://zahradasnapadom.sk/assets/blog/25-ulozny-box.webp"
+  },
+  {
+    "slug": "stojan-na-topanky-do-zahrady",
+    "route_slug": "stojan-na-topanky-do-zahrady",
+    "title": "Jednoduchý stojan na topánky a čižmy pri vstupe do záhrady",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-08-25",
+    "cover": "https://zahradasnapadom.sk/assets/blog/26-stojan-na-topanky.webp"
+  },
+  {
+    "slug": "ochrana-dreva-v-exterieri-priprava",
+    "route_slug": "ochrana-dreva-v-exterieri-priprava",
+    "title": "Ochrana dreva v exteriéri začína ešte pred náterom",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-08-24",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-ochrana-dreva.webp"
+  },
+  {
+    "slug": "cisty-kut-na-brusenie",
+    "route_slug": "cisty-kut-na-brusenie",
+    "title": "Ako si v dielni vytvoriť jednoduchý kút na brúsenie",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-08-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/28-kut-na-brusenie.webp"
+  },
+  {
+    "slug": "ako-fotit-hobby-projekt-pre-navod",
+    "route_slug": "ako-fotit-hobby-projekt-pre-navod",
+    "title": "Čo si odfotiť pri hobby projekte, aby z neho vznikol dobrý návod",
+    "category": "Hobby",
+    "content_type": "blog",
+    "published_at": "2026-08-22",
+    "cover": "https://zahradasnapadom.sk/assets/blog/29-fotenie-projektu.webp"
+  },
+  {
+    "slug": "pat-malych-vylepseni-pre-pracu-v-zahrade",
+    "route_slug": "pat-malych-vylepseni-pre-pracu-v-zahrade",
+    "title": "Päť malých vylepšení, ktoré spríjemnia prácu v záhrade",
+    "category": "Vychytávky",
+    "content_type": "blog",
+    "published_at": "2026-08-21",
+    "cover": "https://zahradasnapadom.sk/assets/blog/30-male-vylepsenia.webp"
+  },
+  {
+    "slug": "male-pestovanie-na-balkone",
+    "route_slug": "male-pestovanie-na-balkone",
+    "title": "Malé pestovanie na balkóne: začni tromi nádobami, nie dvadsiatimi",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-08-20",
+    "cover": "https://zahradasnapadom.sk/assets/blog/31-balkonove-pestovanie.webp"
+  },
+  {
+    "slug": "jednoduchy-zberac-na-drobne-ovocie",
+    "route_slug": "jednoduchy-zberac-na-drobne-ovocie",
+    "title": "Jednoduchý košík na zber drobného ovocia a byliniek",
+    "category": "Hobby",
+    "content_type": "blog",
+    "published_at": "2026-08-19",
+    "cover": "https://zahradasnapadom.sk/assets/blog/32-zber-ovocia.webp"
+  },
+  {
+    "slug": "poriadok-v-zahradnom-domceku-za-hodinu",
+    "route_slug": "poriadok-v-zahradnom-domceku-za-hodinu",
+    "title": "Poriadok v záhradnom domčeku za hodinu: jednoduchý systém troch zón",
+    "category": "Vychytávky",
+    "content_type": "blog",
+    "published_at": "2026-08-18",
+    "cover": "https://zahradasnapadom.sk/assets/blog/33-poriadok-domcek.webp"
+  },
+  {
+    "slug": "jednoducha-zastena-pre-kompost",
+    "route_slug": "jednoducha-zastena-pre-kompost",
+    "title": "Jednoduchá zástena, ktorá schová kompost bez uzavretia vzduchu",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-08-17",
+    "cover": "https://zahradasnapadom.sk/assets/blog/34-zastena-kompost.webp"
+  },
+  {
+    "slug": "male-sedenie-v-rohu-zahrady",
+    "route_slug": "male-sedenie-v-rohu-zahrady",
+    "title": "Malé sedenie v rohu záhrady: najprv tieň a výhľad, potom nábytok",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-08-16",
+    "cover": "https://zahradasnapadom.sk/assets/blog/35-sedenie-zahrada.webp"
+  },
+  {
+    "slug": "regal-na-kvetinace-z-latiek",
+    "route_slug": "regal-na-kvetinace-z-latiek",
+    "title": "Úzky regál na prázdne kvetináče zo zvyškových lát",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-08-15",
+    "cover": "https://zahradasnapadom.sk/assets/blog/36-regal-kvetinace.webp"
+  },
+  {
+    "slug": "jednoduchy-dennik-zahrady",
+    "route_slug": "jednoduchy-dennik-zahrady",
+    "title": "Jednoduchý záhradný denník: tri poznámky, ktoré sa oplatí zapisovať",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-08-14",
+    "cover": "https://zahradasnapadom.sk/assets/blog/37-zahradny-dennik.webp"
+  },
+  {
+    "slug": "pracovny-pas-na-zahradne-drobnosti",
+    "route_slug": "pracovny-pas-na-zahradne-drobnosti",
+    "title": "Jednoduchý pracovný pás alebo kapsa na záhradné drobnosti",
+    "category": "Vychytávky",
+    "content_type": "blog",
+    "published_at": "2026-08-13",
+    "cover": "https://zahradasnapadom.sk/assets/blog/38-pracovna-kapsa.webp"
+  },
+  {
+    "slug": "ako-vyuzit-priestor-pod-pracovnym-stolom",
+    "route_slug": "ako-vyuzit-priestor-pod-pracovnym-stolom",
+    "title": "Ako využiť priestor pod pracovným stolom bez toho, aby prekážal nohám",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-08-12",
+    "cover": "https://zahradasnapadom.sk/assets/blog/39-priestor-pod-stolom.webp"
+  },
+  {
+    "slug": "zahradny-kut-na-odkladanie-dreva",
+    "route_slug": "zahradny-kut-na-odkladanie-dreva",
+    "title": "Malý krytý kút na odkladanie dreva a lát",
+    "category": "Dielňa",
+    "content_type": "blog",
+    "published_at": "2026-08-11",
+    "cover": "https://zahradasnapadom.sk/assets/blog/40-kut-na-drevo.webp"
+  }
+]
