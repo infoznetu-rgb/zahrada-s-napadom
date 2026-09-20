@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Zelené hnojenie na jeseň</title>
+<desc id="d">Praktická schéma jesenného zeleného hnojenia s výsevom na prázdny záhon, koreňmi chrániacimi pôdu a príkladmi ozimnej raže, vikvy a bôbu.</desc>
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#eef5df"/><stop offset="1" stop-color="#f4e7bd"/></linearGradient><linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#866548"/><stop offset="1" stop-color="#4d392a"/></linearGradient><style>text{font-family:Arial,sans-serif;fill:#29452f}.h{font-size:45px;font-weight:700}.s{font-size:28px}.l{stroke:#315b3a;stroke-width:5;fill:none}.root{stroke:#6b4b35;stroke-width:5;fill:none}.stem{stroke:#55773d;stroke-width:8;fill:none}.leaf{fill:#739a50}</style></defs>
+<rect width="1600" height="1000" fill="url(#sky)"/><circle cx="1390" cy="145" r="75" fill="#e8c668" opacity=".5"/>
+<rect y="580" width="1600" height="420" fill="url(#soil)"/><path d="M0 580 H1600" stroke="#597746" stroke-width="14"/>
+<text x="80" y="95" class="h">Zelené hnojenie na jeseň</text><text x="80" y="140" class="s">Prázdny záhon nemusí zostať holý cez celú zimu</text>
+<!-- sowing hand / seeds -->
+<path d="M165 360 C250 310 330 330 380 385 C325 410 270 435 190 430Z" fill="#c7966e"/><circle cx="405" cy="420" r="8" fill="#ae7b3e"/><circle cx="430" cy="440" r="8" fill="#ae7b3e"/><circle cx="455" cy="462" r="8" fill="#ae7b3e"/><circle cx="480" cy="485" r="8" fill="#ae7b3e"/>
+<text x="85" y="275" class="h">1. Vysiať</text><text x="85" y="315" class="s">na odburinený, urovnaný záhon</text>
+<!-- plants -->
+<g>
+<path class="stem" d="M650 580 C650 505 648 445 655 365"/><path class="stem" d="M745 580 C742 500 750 430 765 350"/><path class="stem" d="M850 580 C848 500 840 435 825 375"/><path class="stem" d="M950 580 C948 500 960 430 985 355"/>
+<ellipse class="leaf" cx="625" cy="445" rx="48" ry="22" transform="rotate(-25 625 445)"/><ellipse class="leaf" cx="680" cy="415" rx="48" ry="22" transform="rotate(20 680 415)"/>
+<ellipse class="leaf" cx="720" cy="450" rx="50" ry="22" transform="rotate(-20 720 450)"/><ellipse class="leaf" cx="790" cy="405" rx="50" ry="22" transform="rotate(20 790 405)"/>
+<ellipse class="leaf" cx="815" cy="465" rx="48" ry="22" transform="rotate(-20 815 465)"/><ellipse class="leaf" cx="865" cy="420" rx="48" ry="22" transform="rotate(25 865 420)"/>
+<ellipse class="leaf" cx="930" cy="445" rx="50" ry="22" transform="rotate(-25 930 445)"/><ellipse class="leaf" cx="1005" cy="400" rx="50" ry="22" transform="rotate(20 1005 400)"/>
+<!-- roots -->
+<path class="root" d="M650 580 C620 665 615 740 590 840 M650 580 C675 680 690 755 705 855 M650 590 C635 680 640 760 650 900"/>
+<path class="root" d="M750 580 C720 680 710 770 725 900 M750 580 C785 680 790 760 825 875"/>
+<path class="root" d="M850 580 C820 670 830 760 815 890 M850 580 C885 675 900 770 930 880"/>
+<path class="root" d="M955 580 C930 670 950 750 945 900 M955 580 C995 675 1020 760 1050 860"/>
+</g>
+<text x="625" y="285" class="h">2. Nechať rásť</text><text x="625" y="325" class="s">korene chránia pôdu, porast tlmí buriny</text>
+<!-- spring chop -->
+<path d="M1160 470 L1370 330" stroke="#82613e" stroke-width="24"/><path d="M1340 315 L1420 275" stroke="#4f4f4f" stroke-width="30"/><path d="M1360 340 L1440 300" stroke="#4f4f4f" stroke-width="24"/>
+<text x="1110" y="205" class="h">3. Na jar skrátiť</text><text x="1110" y="245" class="s">ideálne pred kvitnutím</text>
+<!-- callouts -->
+<rect x="70" y="705" width="430" height="205" rx="28" fill="#f7f2df" opacity=".96"/><text x="105" y="755" class="h">Vhodné na jeseň</text><text x="105" y="805" class="s">• ozimná raž</text><text x="105" y="845" class="s">• zimná vikva</text><text x="105" y="885" class="s">• ozimný bôb</text>
+<rect x="1090" y="705" width="430" height="205" rx="28" fill="#f7f2df" opacity=".96"/><text x="1125" y="755" class="h">Pozor na osevný sled</text><text x="1125" y="805" class="s">Horčica patrí medzi</text><text x="1125" y="845" class="s">kapustovité – nie pred</text><text x="1125" y="885" class="s">ďalšiu kapustovú zeleninu.</text>
+<text x="620" y="960" class="s">Záhrada s nápadom · praktická ilustračná schéma</text>
+</svg>
