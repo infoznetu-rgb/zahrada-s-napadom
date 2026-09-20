@@ -7,8 +7,14 @@ async function loadPost(){
   if(!slug){showError("Príspevok sa nenašiel.");return}
   const {data,error}=await postDb.from("zahrada_posts").select("*").eq("slug",slug).eq("status","published").maybeSingle();
   if(error||!data){showError("Príspevok sa nenašiel alebo ešte nie je zverejnený.");return}
+  const isBlog=data.content_type==="blog";
+  document.body.classList.toggle("blog-article",isBlog);
   document.title=data.title+" | Záhrada s nápadom";
-  document.querySelector("#post-category").textContent=data.category||"Nápad";
+  document.querySelector("#post-category").textContent=(isBlog?"BLOG · ":"")+(data.category||"Nápad");
+  document.querySelectorAll(".back-link").forEach(link=>{
+    link.href=isBlog?"blog.html":"index.html#projekty";
+    link.textContent=isBlog?"← Späť na blog":"← Späť na nápady";
+  });
   document.querySelector("#post-title").textContent=data.title;
   document.querySelector("#post-excerpt").textContent=data.excerpt||"";
   const coverWrap=document.querySelector("#post-cover-wrap");
