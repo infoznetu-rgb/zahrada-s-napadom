@@ -1,4 +1,4 @@
-const CACHE='zahrada-live-v8';
+const CACHE='zahrada-live-v9';
 const ASSETS=[
   './',
   './index.html',
@@ -7,6 +7,11 @@ const ASSETS=[
   './cms-public.js',
   './prispevok.html',
   './prispevok.js',
+  './bazar.html',
+  './bazar.css',
+  './bazar.js',
+  './inzerat.html',
+  './inzerat.js',
   './zahrada.webmanifest',
   './app-icon.svg',
   './brand-mark.svg',
