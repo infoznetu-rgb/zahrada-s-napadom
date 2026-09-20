@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Komunitný hobby bazár Záhrady s nápadom. Bezplatná inzercia medzi súkromnými osobami — predám, darujem, vymením alebo hľadám veci zo záhrady a dielne.">
+  <meta name="theme-color" content="#f6f3e8">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
+  <title>Komunitný bazár | Záhrada s nápadom</title>
+  <link rel="stylesheet" href="zahrada.css?v=8">
+  <link rel="stylesheet" href="bazar.css?v=2">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="bazar.js?v=1" defer></script>
+  <script src="zahrada.js?v=2" defer></script>
+</head>
+<body class="bazar-page">
+  <a class="skip" href="#obsah">Preskočiť na obsah</a>
+  <header class="site-header">
+    <div class="top container">
+      <a class="brand" href="index.html" aria-label="Záhrada s nápadom domov">
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hlavná navigácia">
+        <a href="index.html#projekty">Moje projekty</a>
+        <a href="index.html#videa">Videá</a>
+        <a href="index.html#komunita">Nápady komunity</a>
+        <a class="active-nav" href="bazar.html">Bazár</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia">
+      <a href="index.html#projekty">Moje projekty</a>
+      <a href="index.html#videa">Videá</a>
+      <a href="index.html#komunita">Nápady komunity</a>
+      <a class="active-nav" href="bazar.html">Bazár</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="obsah">
+    <section class="bazar-hero container">
+      <div class="bazar-hero-copy">
+        <span class="eyebrow">BEZPLATNÝ KOMUNITNÝ BAZÁR</span>
+        <h1>Veci nech slúžia ďalej.</h1>
+        <p>Predaj, daruj, vymeň alebo nájdi veci zo záhrady, dielne a domáceho tvorenia. Táto rubrika je iba pre súkromné osoby a je úplne bezplatná.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#inzeraty">Pozrieť inzeráty</a>
+          <a class="btn ghost" href="#pridat">Pridať inzerát</a>
+        </div>
+        <div class="bazar-notice">
+          <strong>Nie sme obchod ani sprostredkovateľ.</strong>
+          <p>Záhrada s nápadom neberie províziu, nespracúva platby a neposkytuje platené zvýraznenie. Dohoda prebieha priamo medzi ľuďmi.</p>
+        </div>
+      </div>
+      <aside class="bazar-principles" aria-label="Zásady bazára">
+        <div><strong>0 €</strong><span>za vloženie inzerátu</span></div>
+        <div><strong>Len ľudia</strong><span>žiadne firmy ani profesionálny predaj</span></div>
+        <div><strong>5</strong><span>aktívnych alebo čakajúcich inzerátov na osobu</span></div>
+        <div><strong>60 dní</strong><span>platnosť po schválení</span></div>
+      </aside>
+    </section>
+
+    <section id="inzeraty" class="section container">
+      <div class="section-head">
+        <div><span class="kicker">INZERÁTY</span><h2>Predám, darujem, vymením alebo hľadám.</h2></div>
+        <p>Verejne sa zobrazia iba inzeráty, ktoré prešli manuálnou kontrolou a stále sú platné.</p>
+      </div>
+      <div class="bazar-filters" aria-label="Filtrovanie inzerátov">
+        <label>Hľadať<input id="bazar-search" type="search" placeholder="Napr. kosačka, sadenice, drevo…"></label>
+        <label>Typ<select id="bazar-type-filter"><option value="">Všetky</option><option value="sell">Predám</option><option value="give">Darujem</option><option value="exchange">Vymením</option><option value="wanted">Hľadám</option></select></label>
+        <label>Kategória<select id="bazar-category-filter"><option value="">Všetky kategórie</option></select></label>
+        <label>Kraj<select id="bazar-region-filter"><option value="">Celé Slovensko</option></select></label>
+        <label>Zoradiť<select id="bazar-sort"><option value="newest">Najnovšie</option><option value="price_asc">Cena od najnižšej</option><option value="price_desc">Cena od najvyššej</option></select></label>
+      </div>
+      <div id="bazar-status" class="bazar-status">Načítavam inzeráty…</div>
+      <div id="bazar-list" class="bazar-grid"></div>
+    </section>
+
+    <section id="pridat" class="section bazar-submit">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="kicker">PRIDAŤ INZERÁT</span><h2>Bez registrácie heslom. Stačí e-mailový odkaz.</h2></div>
+          <p>Prihlásenie slúži iba na správu vlastných inzerátov a na ochranu bazára pred spamom.</p>
+        </div>
+
+        <div id="bazar-auth-box" class="bazar-form-card bazar-login">
+          <h3>Prihlásenie do bazára</h3>
+          <p class="bazar-help">Zadaj svoj e-mail. Pošleme ti jednorazový prihlasovací odkaz — žiadne heslo si nemusíš vytvárať.</p>
+          <form id="bazar-login-form" class="bazar-login-row">
+            <label>E-mail<input id="bazar-login-email" type="email" autocomplete="email" required placeholder="tvoj@email.sk"></label>
+            <button class="btn primary" type="submit">Poslať prihlasovací odkaz</button>
+          </form>
+          <p id="bazar-auth-message" class="bazar-form-message" role="status"></p>
+        </div>
+
+        <div id="bazar-user-area" hidden>
+          <div class="bazar-account">
+            <div><small>PRIHLÁSENÝ POUŽÍVATEĽ</small><strong id="bazar-user-email"></strong></div>
+            <button id="bazar-logout" class="btn ghost" type="button">Odhlásiť sa</button>
+          </div>
+
+          <form id="bazar-ad-form" class="bazar-form">
+            <input id="bazar-ad-id" type="hidden">
+            <div class="bazar-form-main">
+              <div class="bazar-form-card">
+                <h3 id="bazar-form-title">Nový inzerát</h3>
+                <label>Názov inzerátu<input id="ad-title" type="text" minlength="5" maxlength="120" required placeholder="Napr. darujem prebytky paradajkových sadeníc"></label>
+                <div class="bazar-two">
+                  <label>Čo chceš urobiť?
+                    <select id="ad-listing-type" required>
+                      <option value="sell">Predám</option><option value="give">Darujem</option><option value="exchange">Vymením</option><option value="wanted">Hľadám</option>
+                    </select>
+                  </label>
+                  <label>Kategória<select id="ad-category" required></select></label>
+                </div>
+                <div class="bazar-two">
+                  <label>Stav veci<select id="ad-condition"><option value="used">Použité</option><option value="unused">Nové / nepoužité</option><option value="repair">Na opravu / diely</option><option value="not_applicable">Netýka sa</option></select></label>
+                  <label>Spôsob ceny<select id="ad-price-mode"><option value="fixed">Pevná cena</option><option value="negotiable">Cena dohodou</option><option value="free">Zadarmo</option><option value="exchange">Výmena</option><option value="not_listed">Cenu neuvediem</option></select></label>
+                </div>
+                <label id="ad-price-label">Cena v €<input id="ad-price" type="number" min="0" step="0.01" placeholder="0,00"></label>
+                <label>Popis<textarea id="ad-description" rows="8" minlength="20" maxlength="5000" required placeholder="Napíš pravdivý stav, čo ponúkaš alebo hľadáš, prípadne podmienky odberu."></textarea></label>
+              </div>
+
+              <div class="bazar-form-card">
+                <h3>Lokalita a kontakt</h3>
+                <div class="bazar-two">
+                  <label>Kraj<select id="ad-region" required></select></label>
+                  <label>Mesto / obec<input id="ad-location" type="text" minlength="2" maxlength="100" required placeholder="Napr. Dubnica nad Váhom"></label>
+                </div>
+                <label>Meno alebo prezývka<input id="ad-contact-name" type="text" minlength="2" maxlength="80" required placeholder="Ako ťa majú záujemcovia osloviť?"></label>
+                <div class="bazar-two">
+                  <label>Kontaktný e-mail<input id="ad-contact-email" type="email" placeholder="voliteľné"></label>
+                  <label>Telefón<input id="ad-contact-phone" type="tel" placeholder="voliteľné"></label>
+                </div>
+                <p class="bazar-help">Uveď aspoň jeden kontakt. Kontaktné údaje sa po schválení inzerátu zobrazia verejne v jeho detaile.</p>
+              </div>
+            </div>
+
+            <aside class="bazar-form-side">
+              <div class="bazar-form-card">
+                <h3>Fotografie</h3>
+                <div id="ad-images-preview" class="bazar-images"></div>
+                <label class="bazar-upload">Vybrať fotografie<input id="ad-images" type="file" multiple accept="image/jpeg,image/png,image/webp"></label>
+                <p class="bazar-help">Najviac 6 fotografií. Pred nahraním ich prehliadač automaticky zmenší.</p>
+              </div>
+
+              <div class="bazar-form-card rules-check">
+                <h3>Potvrdenie</h3>
+                <label class="bazar-check"><input id="ad-private-confirm" type="checkbox" required><span>Som súkromná osoba. Inzerát nevkladám za firmu, živnosť ani inú podnikateľskú činnosť.</span></label>
+                <label class="bazar-check"><input id="ad-rules-confirm" type="checkbox" required><span>Neponúkam služby, hromadný profesionálny predaj ani zakázaný alebo nebezpečný tovar a súhlasím s pravidlami nižšie.</span></label>
+                <label class="bazar-check"><input id="ad-contact-confirm" type="checkbox" required><span>Súhlasím, aby sa zadané kontaktné údaje zobrazili pri schválenom inzeráte.</span></label>
+                <button id="bazar-submit-btn" class="btn primary full" type="submit">Odoslať na schválenie</button>
+                <button id="bazar-cancel-edit" class="btn ghost full" type="button" hidden>Zrušiť úpravu</button>
+                <p id="bazar-form-message" class="bazar-form-message" role="status"></p>
+              </div>
+            </aside>
+          </form>
+
+          <div class="section-head" style="margin-top:56px">
+            <div><span class="kicker">MOJE INZERÁTY</span><h2>Správa vlastných inzerátov.</h2></div>
+            <p>Úprava už zverejneného inzerátu ho pošle znova na schválenie.</p>
+          </div>
+          <div id="my-ads-list" class="my-ads"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pravidla" class="section container">
+      <div class="section-head">
+        <div><span class="kicker">PRAVIDLÁ</span><h2>Bazár má zostať susedský a nekomerčný.</h2></div>
+        <p>Krátke pravidlá chránia hobby charakter stránky aj ľudí, ktorí si medzi sebou veci odovzdávajú.</p>
+      </div>
+      <div class="rules-grid">
+        <article><span>👤</span><h3>Iba súkromné osoby</h3><p>Nie firmy, e-shopy, živnostníci ani ponuky služieb. Zakázaný je aj opakovaný alebo hromadný predaj, ktorý pôsobí ako podnikanie.</p></article>
+        <article><span>🌱</span><h3>Veci k hobby stránke</h3><p>Záhrada, pestovanie, dielňa, materiál, náradie, technika, dekorácie a domáce tvorenie. Nie všeobecný bazár všetkého.</p></article>
+        <article><span>🛡️</span><h3>Bezpečný obsah</h3><p>Nevkladaj nelegálny, nebezpečný alebo regulovaný tovar, zbrane, pyrotechniku, lieky či nebezpečné chemikálie.</p></article>
+        <article><span>🤝</span><h3>Dohoda medzi ľuďmi</h3><p>Web nie je stranou obchodu, nesprostredkuje platbu ani dopravu. Over si stav veci a dohodni sa priamo s druhou osobou.</p></article>
+      </div>
+      <div class="privacy-note">
+        <strong>Súkromie a moderovanie</strong>
+        <p>Každý nový alebo upravený inzerát sa najprv skontroluje. Na verejnej stránke sa zobrazia údaje, ktoré sám zadáš do inzerátu, vrátane zvoleného kontaktu. Neuvádzaj presnú adresu bydliska ani citlivé údaje. Nevyhovujúci alebo komerčný inzerát môže byť odmietnutý alebo odstránený.</p>
+      </div>
+    </section>
+
+    <section class="noncommercial"><div class="container"><strong>Záhrada s nápadom zostáva nekomerčný hobby projekt.</strong><span>Bazár je bezplatný, bez provízie, bez plateného zvýraznenia a iba pre súkromné osoby.</span></div></section>
+  </main>
+
+  <footer class="footer container">
+    <a class="brand small-brand" href="index.html"><img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a>
+    <p>Komunitný bazár · od ľudí pre ľudí · bez firiem a bez provízie.</p>
+    <small>Nekomerčný hobby projekt · 2026</small>
+  </footer>
+</body>
+</html>
