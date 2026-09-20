@@ -188,3 +188,73 @@
   .app-library-copy p{font-size:.77rem}
   .app-bottom-nav a{font-size:.62rem}
 }
+
+
+/* Push notification preferences */
+.app-notifications-section{margin:0 0 48px}
+.push-status{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:34px;padding:7px 12px;border-radius:999px;
+  background:#eef1e8;color:#63776a;
+  font-size:.76rem;font-weight:850;white-space:nowrap
+}
+.push-status.is-active{background:#e1efda;color:#2f6b42}
+.push-status.is-off{background:#f0eee5;color:#6e746d}
+.push-status.is-working{background:#fff4cf;color:#7b6729}
+.push-status.is-blocked,.push-status.is-error{background:#f9e3df;color:#923f38}
+.push-status.is-unsupported{background:#ecebe6;color:#777b76}
+
+.push-settings-card{
+  padding:22px;border:1px solid rgba(43,75,56,.1);
+  border-radius:28px;background:rgba(255,253,247,.84);
+  box-shadow:0 12px 34px rgba(43,75,56,.05)
+}
+.push-settings-intro{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.push-bell{
+  width:52px;height:52px;flex:0 0 auto;border-radius:17px;
+  display:grid;place-items:center;background:#e4efdb;color:#315b3e
+}
+.push-bell svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.push-settings-intro strong{display:block;font-size:1rem;color:#294b38}
+.push-settings-intro p{margin:4px 0 0;color:#64786b;font-size:.84rem;line-height:1.5}
+
+.push-options{display:grid;gap:10px;margin:18px 0}
+.push-option{
+  position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:15px 16px;border:1px solid rgba(43,75,56,.09);
+  border-radius:20px;background:#f5f7ef;cursor:pointer
+}
+.push-option span{display:flex;flex-direction:column;gap:3px}
+.push-option strong{font-size:.9rem;color:#294b38}
+.push-option small{font-size:.75rem;color:#718177;line-height:1.4}
+.push-option input{position:absolute;opacity:0;pointer-events:none}
+.push-option i{
+  position:relative;width:48px;height:28px;flex:0 0 auto;border-radius:999px;
+  background:#d5dcd2;transition:.2s ease
+}
+.push-option i:after{
+  content:"";position:absolute;top:4px;left:4px;width:20px;height:20px;border-radius:50%;
+  background:#fff;box-shadow:0 2px 8px rgba(39,67,49,.16);transition:.2s ease
+}
+.push-option input:checked+i{background:#5f965f}
+.push-option input:checked+i:after{transform:translateX(20px)}
+.push-option input:focus-visible+i{outline:3px solid rgba(95,150,95,.25);outline-offset:3px}
+.push-option input:disabled+i{opacity:.55}
+
+.push-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:18px}
+.app-primary-button,.app-secondary-button{
+  appearance:none;min-height:44px;padding:10px 16px;border-radius:999px;
+  font:inherit;font-size:.82rem;font-weight:850;cursor:pointer
+}
+.app-primary-button{border:1px solid #5f965f;background:#5f965f;color:#fff}
+.app-secondary-button{border:1px solid rgba(43,75,56,.15);background:#eef3e8;color:#315b3e}
+.app-primary-button:disabled,.app-secondary-button:disabled{opacity:.55;cursor:wait}
+.push-help{margin:12px 0 0;color:#718176;font-size:.76rem;line-height:1.5}
+
+@media(max-width:620px){
+  .push-settings-card{padding:17px;border-radius:24px}
+  .push-settings-intro{align-items:flex-start}
+  .push-actions{align-items:stretch}
+  .app-primary-button,.app-secondary-button{flex:1 1 auto}
+  .push-status{font-size:.72rem}
+}
