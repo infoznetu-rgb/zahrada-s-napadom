@@ -1,8 +1,9 @@
-const CACHE='zahrada-live-v9';
+const CACHE='zahrada-live-v10';
 const ASSETS=[
   './',
   './index.html',
   './zahrada.css',
+  './assets/hero-modelka.webp',
   './zahrada.js',
   './cms-public.js',
   './prispevok.html',
