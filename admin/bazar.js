@@ -1,6 +1,4 @@
-const BAZAR_ADMIN_URL="https://bkyappgttwjxakkwycub.supabase.co";
-const BAZAR_ADMIN_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
-const bazarAdminDb=window.supabase.createClient(BAZAR_ADMIN_URL,BAZAR_ADMIN_KEY);
+const bazarAdminDb=db;
 const BA$=s=>document.querySelector(s);
 let bazarAdminAds=[];
 let bazarAdminReports=[];
