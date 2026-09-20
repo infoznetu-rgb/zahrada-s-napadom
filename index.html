@@ -26,7 +26,6 @@
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=4" defer></script>
   <script src="studio-2026.js?v=1" defer></script>
-  <script src="facebook-widget.js?v=2" defer></script>
 </head>
 <body class="home-page">
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
@@ -261,33 +260,34 @@
     <section id="facebook" class="section container facebook-connect">
       <div class="facebook-connect-copy">
         <span class="kicker">FACEBOOK · ZÁHRADA S NÁPADOM</span>
-        <h2>Sleduj, čo pribudlo aj na Facebooku.</h2>
-        <p>Nové nápady, fotografie zo záhrady, krátke aktuality a odkazy na články nájdeš aj na našej Facebook stránke.</p>
+        <h2>Sleduj nás aj na Facebooku.</h2>
+        <p>Tu vidíš priamo našu Facebook stránku — profil, titulnú fotografiu a aktuálny obsah z Facebooku.</p>
         <div class="facebook-connect-actions">
           <a class="btn primary facebook-page-link" href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer">
-            Otvoriť Facebook <span aria-hidden="true">↗</span>
+            Sledovať na Facebooku <span aria-hidden="true">↗</span>
           </a>
-          <button id="facebook-load" class="btn ghost facebook-load-btn" type="button">Zobraziť Facebook tu</button>
         </div>
-        <small>Facebook obsah sa načíta až po tvojom kliknutí.</small>
+        <small>Údaje a počet sledovateľov v tomto paneli poskytuje priamo Facebook.</small>
       </div>
 
-      <div class="facebook-window" aria-label="Facebook stránka Záhrada s nápadom">
-        <div class="facebook-window-top">
-          <div class="facebook-page-avatar" aria-hidden="true">f</div>
-          <div class="facebook-page-meta">
-            <span class="facebook-badge">f</span>
-            <strong>Záhrada s nápadom</strong>
-            <small>@zahradasnapadom</small>
-          </div>
-          <a href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer" aria-label="Otvoriť Facebook stránku">↗</a>
-        </div>
-        <div id="facebook-frame-wrap" class="facebook-frame-wrap">
-          <div class="facebook-placeholder">
-            <div class="facebook-placeholder-icon">f</div>
-            <strong>Facebook stránka</strong>
-            <p>Klikni na „Zobraziť Facebook tu“ a načítame obsah priamo z Facebooku.</p>
-          </div>
+      <div class="facebook-window facebook-window-live" aria-label="Facebook stránka Záhrada s nápadom">
+        <iframe
+          class="facebook-page-iframe"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fzahradasnapadom&tabs=timeline&width=500&height=620&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+          title="Facebook stránka Záhrada s nápadom"
+          width="500"
+          height="620"
+          style="border:none;overflow:hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          loading="lazy">
+        </iframe>
+        <div class="facebook-embed-fallback">
+          <strong>Záhrada s nápadom na Facebooku</strong>
+          <p>Ak Facebook panel tvoj prehliadač blokuje, otvor stránku priamo na Facebooku.</p>
+          <a href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer">Otvoriť Facebook ↗</a>
         </div>
       </div>
     </section>
