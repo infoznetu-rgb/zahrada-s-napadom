@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Blog Záhrady s nápadom — praktické vychytávky, hobby nápady a tipy pre dom, dielňu a záhradu.">
+  <meta name="theme-color" content="#5f965f">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
+  <title>Blog | Záhrada s nápadom</title>
+  <link rel="stylesheet" href="zahrada.css?v=10">
+  <link rel="stylesheet" href="studio-2026.css?v=1">
+  <link rel="stylesheet" href="spring-2026.css?v=1">
+  <link rel="stylesheet" href="typography-2026.css?v=7">
+  <link rel="manifest" href="zahrada.webmanifest?v=3">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="blog.js?v=1" defer></script>
+  <script src="zahrada.js?v=2" defer></script>
+  <script src="studio-2026.js?v=1" defer></script>
+</head>
+<body class="blog-page">
+  <a class="skip" href="#obsah">Preskočiť na obsah</a>
+  <header class="site-header">
+    <div class="top container">
+      <a class="brand" href="index.html" aria-label="Záhrada s nápadom domov">
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hlavná navigácia">
+        <a href="index.html#projekty">Nápady</a>
+        <a class="active-nav" href="blog.html">Blog</a>
+        <a href="index.html#videa">Videá</a>
+        <a href="index.html#komunita">Komunita</a>
+        <a href="bazar.html">Komunitný bazár</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia">
+      <a href="index.html#projekty">Nápady</a>
+      <a class="active-nav" href="blog.html">Blog</a>
+      <a href="index.html#videa">Videá</a>
+      <a href="index.html#komunita">Komunita</a>
+      <a href="bazar.html">Komunitný bazár</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="obsah">
+    <section class="blog-hero container">
+      <span class="kicker">BLOG · DOM · DIELŇA · ZÁHRADA</span>
+      <h1>Vychytávky a hobby nápady, ktoré sa dajú naozaj použiť.</h1>
+      <p>Praktické tipy, jednoduché riešenia a inšpirácie pre záhradu, dom a dielňu. Blog dopĺňa vlastné projekty o témy, ktoré môžu pomôcť aj vtedy, keď práve nevzniká nový výrobok.</p>
+    </section>
+    <section class="section container blog-list-section">
+      <div id="cms-blog-list" class="cms-post-grid"></div>
+      <div id="blog-empty" class="bazar-status" hidden>Zatiaľ tu nie sú žiadne blogové články.</div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div class="footer-brand">
+      <a class="brand small-brand" href="index.html">
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#projekty">Nápady</a>
+      <a href="blog.html">Blog</a>
+      <a href="bazar.html">Komunitný bazár</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </div>
+    <small>© 2026 · Nekomerčný hobby projekt</small>
+  </footer>
+</body>
+</html>
