@@ -167,6 +167,38 @@ addArticleShare();
 const PUBLIC_CMS_URL="https://bkyappgttwjxakkwycub.supabase.co";
 const PUBLIC_CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
 
+async function syncGlobalSiteSettings(){
+  try{
+    const endpoint=PUBLIC_CMS_URL+"/rest/v1/zahrada_site_settings?key=in.(social,footer)&select=key,value";
+    const response=await fetch(endpoint,{headers:{apikey:PUBLIC_CMS_KEY},cache:"no-store"});
+    if(!response.ok)return;
+    const rows=await response.json();
+    const map=Object.fromEntries((Array.isArray(rows)?rows:[]).map(x=>[x.key,x.value]));
+    const social=map.social||{};
+    if(social.facebook){
+      document.querySelectorAll(".nav-facebook,.mobile-facebook,.footer-facebook-link,.facebook-page-link,#cms-contact-facebook").forEach(el=>el.href=social.facebook);
+    }
+    const footerLinks=document.querySelector(".footer-links");
+    [["instagram","Instagram"],["youtube","YouTube"]].forEach(([key,label])=>{
+      if(!footerLinks||!social[key])return;
+      let link=footerLinks.querySelector(".footer-social-"+key);
+      if(!link){
+        link=document.createElement("a");
+        link.className="footer-social-"+key;
+        link.target="_blank";link.rel="noopener noreferrer";
+        link.textContent=label;
+        footerLinks.appendChild(link);
+      }
+      link.href=social[key];
+    });
+    const footer=map.footer||{};
+    const footerText=document.querySelector(".footer-brand>p");
+    if(footerText&&footer.text)footerText.textContent=footer.text;
+    const copyright=document.querySelector(".footer>small");
+    if(copyright&&footer.copyright)copyright.textContent=footer.copyright;
+  }catch(e){}
+}
+
 function setArticleMeta(selector,value){
   const el=document.querySelector(selector);
   if(el&&value)el.setAttribute("content",value);
@@ -316,4 +348,5 @@ async function syncStaticArticleFromCms(){
   }
 }
 
+syncGlobalSiteSettings();
 syncStaticArticleFromCms();
