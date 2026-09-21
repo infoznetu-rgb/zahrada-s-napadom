@@ -273,6 +273,7 @@ async function loadSettings(){
 
   $("#contact-title-input").value=contact.title||"";
   $("#contact-text-input").value=contact.text||"";
+  $("#contact-email-input").value=contact.email||"kamgardensk@gmail.com";
   $("#contact-facebook-input").value=contact.facebook||social.facebook||"";
 
   $("#social-facebook-input").value=social.facebook||contact.facebook||"";
@@ -302,7 +303,7 @@ $("#settings-form").addEventListener("submit",async(e)=>{
   const sectionValue=(name)=>({kicker:$("#"+name+"-kicker-input").value.trim(),title:$("#"+name+"-title-input").value.trim(),text:$("#"+name+"-text-input").value.trim()});
   const home_sections={projects:sectionValue("projects"),blog:sectionValue("blog"),videos:sectionValue("videos"),community:sectionValue("community")};
   const social={facebook:$("#social-facebook-input").value.trim(),instagram:$("#social-instagram-input").value.trim(),youtube:$("#social-youtube-input").value.trim()};
-  const contact={title:$("#contact-title-input").value.trim(),text:$("#contact-text-input").value.trim(),facebook:$("#contact-facebook-input").value.trim()||social.facebook};
+  const contact={title:$("#contact-title-input").value.trim(),text:$("#contact-text-input").value.trim(),email:$("#contact-email-input").value.trim()||"kamgardensk@gmail.com",facebook:$("#contact-facebook-input").value.trim()||social.facebook};
   const footer={text:$("#footer-text-input").value.trim(),copyright:$("#footer-copyright-input").value.trim()};
   const seo={title:$("#seo-title-input").value.trim(),description:$("#seo-description-input").value.trim()};
   const visibility={};
