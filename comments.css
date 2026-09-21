@@ -1,0 +1,71 @@
+/* Public comments */
+.article-comments{
+  max-width:900px;margin:10px auto 72px;padding:30px;
+  border:1px solid rgba(43,75,56,.14);border-radius:28px;background:#fffdf7;
+  box-shadow:0 18px 50px rgba(43,75,56,.06)
+}
+.comments-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.comments-head h2{margin:5px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4vw,3rem);line-height:1;color:#294b38}
+.comments-count{flex:0 0 auto;padding:8px 11px;border-radius:999px;background:#edf3e8;color:#5c7362;font-size:.75rem;font-weight:800}
+.comments-count b{color:#315b3e}
+.comments-intro{margin:14px 0 22px;color:#607466;line-height:1.65}
+.comments-list{display:grid;gap:10px;margin:0 0 18px}
+.comments-loading,.comments-empty{padding:18px;border:1px dashed rgba(43,75,56,.17);border-radius:16px;background:#f8f9f3;color:#6c7d71;text-align:center;font-size:.86rem}
+.comment-item{padding:15px 16px;border:1px solid rgba(43,75,56,.1);border-radius:17px;background:#f8faf4}
+.comment-meta{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.comment-meta strong{color:#294b38;font-size:.88rem}
+.comment-meta time{color:#809084;font-size:.68rem}
+.comment-item p{margin:7px 0 6px!important;color:#486252!important;font-family:inherit!important;font-size:.91rem!important;line-height:1.55!important;letter-spacing:0!important}
+.comment-reply{border:0;background:transparent;color:#55795a;padding:0;font:inherit;font-size:.72rem;font-weight:850;cursor:pointer}
+.comment-form{padding-top:18px;border-top:1px solid rgba(43,75,56,.12)}
+.comment-form-grid{display:grid;grid-template-columns:190px minmax(0,1fr);gap:12px;align-items:start}
+.comment-form label{display:grid;gap:7px;color:#506758;font-size:.74rem;font-weight:850}
+.comment-form input,.comment-form textarea{
+  width:100%;box-sizing:border-box;border:1px solid rgba(43,75,56,.18);border-radius:14px;background:#fff;
+  padding:11px 12px;color:#294b38;font:inherit;font-size:.88rem;outline:0
+}
+.comment-form textarea{resize:vertical;min-height:90px}
+.comment-form input:focus,.comment-form textarea:focus{border-color:#73a06e;box-shadow:0 0 0 4px rgba(95,150,95,.1)}
+.comment-form-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:11px}
+.comment-form-actions small{color:#7b897f;font-size:.68rem}
+.comment-form-actions button{border:0;border-radius:999px;background:#5f965f;color:#fff;padding:11px 16px;font:inherit;font-size:.78rem;font-weight:850;cursor:pointer}
+.comment-form-actions button:disabled{opacity:.55;cursor:wait}
+.comment-form-status{min-height:18px;margin:8px 0 0!important;color:#517458!important;font-size:.72rem!important}
+.comment-hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+
+.idea-gallery-card,.dynamic-gallery-item,.article-page .post-hero{position:relative}
+.photo-comment-button{
+  appearance:none;position:absolute;right:12px;bottom:12px;z-index:4;
+  display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:8px 11px;
+  border:1px solid rgba(255,255,255,.7);border-radius:999px;background:rgba(255,253,247,.92);
+  color:#315b3e;box-shadow:0 8px 24px rgba(23,53,43,.18);backdrop-filter:blur(8px);
+  font:inherit;font-size:.72rem;cursor:pointer
+}
+.photo-comment-button b{font-weight:850}
+.photo-comments-open{overflow:hidden}
+.photo-comments-modal{position:fixed;inset:0;z-index:1800;display:grid;place-items:center;padding:18px}
+.photo-comments-modal[hidden]{display:none}
+.photo-comments-backdrop{position:absolute;inset:0;border:0;background:rgba(17,35,25,.55);backdrop-filter:blur(7px)}
+.photo-comments-panel{
+  position:relative;width:min(760px,100%);max-height:92svh;overflow:auto;padding:24px;
+  border:1px solid rgba(43,75,56,.14);border-radius:28px;background:#fffdf7;
+  box-shadow:0 30px 90px rgba(19,44,29,.32)
+}
+.photo-comments-close{width:42px;height:42px;flex:0 0 auto;border:1px solid rgba(43,75,56,.14);border-radius:50%;background:#eef3e8;color:#506858;font:inherit;font-size:1.35rem;cursor:pointer}
+.photo-comments-preview{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center;margin:20px 0;padding:10px;border-radius:18px;background:#f4f7ef}
+.photo-comments-preview img{width:150px;height:105px;object-fit:cover;border-radius:13px;display:block}
+.photo-comments-preview p{margin:0;color:#4e6757;font-size:.84rem;line-height:1.45}
+
+@media(max-width:620px){
+  .article-comments{margin:0 0 58px;padding:20px 14px;border-radius:23px}
+  .comments-head{align-items:flex-start}
+  .comments-count{font-size:.68rem}
+  .comment-form-grid{grid-template-columns:1fr}
+  .comment-form-actions{align-items:stretch;flex-direction:column}
+  .comment-form-actions button{width:100%}
+  .photo-comment-button{right:9px;bottom:9px}
+  .photo-comments-modal{padding:8px;align-items:end}
+  .photo-comments-panel{max-height:90svh;padding:18px 13px calc(16px + env(safe-area-inset-bottom));border-radius:25px 25px 16px 16px}
+  .photo-comments-preview{grid-template-columns:100px 1fr}
+  .photo-comments-preview img{width:100px;height:78px}
+}
