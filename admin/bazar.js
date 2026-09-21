@@ -5,7 +5,7 @@ let bazarAdminReports=[];
 const BA_TYPE={sell:"Predám",give:"Darujem",exchange:"Vymením",wanted:"Hľadám"};
 const BA_STATUS={pending:"Čaká",published:"Zverejnené",rejected:"Odmietnuté",closed:"Ukončené"};
 const BA_SELLER={private:"Súkromná osoba",business:"Firma / podnikateľ"};
-const BA_REASON={commercial:"Nevhodná reklama (staré hlásenie)",spam:"Spam / nevhodná reklama",prohibited:"Zakázaný alebo nebezpečný obsah",misleading:"Zavádzajúci obsah alebo údaje",sold:"Zrejme neaktuálny",other:"Iné"};
+const BA_REASON={commercial:"Nevhodná reklama (staré hlásenie)",spam:"Spam / nevhodná reklama",prohibited:"Zakázaný alebo nebezpečný obsah",misleading:"Zavádzajúci obsah",seller:"Nesprávne označený inzerent / firemné údaje",sold:"Zrejme neaktuálny",other:"Iné"};
 function baEsc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 function baDate(v){return v?new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date(v)):"—"}
 function baPrice(ad){if(ad.price_mode==="free")return"Zadarmo";if(ad.price_mode==="exchange")return"Výmena";if(ad.price_mode==="not_listed")return"Bez ceny";if(ad.price==null)return"Dohodou";return new Intl.NumberFormat("sk-SK",{style:"currency",currency:"EUR"}).format(Number(ad.price))+(ad.price_mode==="negotiable"?" · dohoda":"")}
