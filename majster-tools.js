@@ -108,9 +108,98 @@ function anchorGuide(){
  set('anchor-warning',load==='heavy'?'Pri ťažkom, stropnom, zábradlovom alebo inak bezpečnostne dôležitom kotvení sa riaď schválením a technickým listom konkrétnej kotvy; všeobecný radca nenahrádza statický návrh.':'Priemer vrtáka, hĺbku otvoru a skrutku vždy prispôsob konkrétnej hmoždinke a návodu výrobcu.');
 }
 
+
+function parseCutList(textValue){
+ const pieces=[];
+ const lines=String(textValue||'').split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+ for(const line of lines){
+   const clean=line.replace(/,/g,'.');
+   const m=clean.match(/^([0-9]+(?:\.[0-9]+)?)\s*(?:[x×*]\s*([0-9]+))?$/i);
+   if(!m)throw new Error('Nerozumiem riadku „'+line+'“. Použi napr. 900 x 2.');
+   const length=Number(m[1]),qty=Math.max(1,Number(m[2]||1));
+   if(!(length>0) || !Number.isFinite(length) || !Number.isInteger(qty))throw new Error('Skontroluj hodnoty v riadku „'+line+'“.');
+   for(let i=0;i<qty;i++)pieces.push(length);
+ }
+ return pieces;
+}
+
+function calcCutPlan(){
+ const form=document.getElementById('cut-plan-calculator'); if(!form)return;
+ const stock=num('cut-stock'),kerf=num('cut-kerf');
+ const output=document.getElementById('cut-plan-output'),error=document.getElementById('cut-plan-error');
+ try{
+   if(!(stock>0))throw new Error('Zadaj dĺžku skladového materiálu.');
+   const pieces=parseCutList(document.getElementById('cut-list')?.value);
+   if(!pieces.length)throw new Error('Zadaj aspoň jeden požadovaný kus.');
+   if(pieces.some(p=>p>stock))throw new Error('Aspoň jeden požadovaný kus je dlhší než skladová lata.');
+   pieces.sort((a,b)=>b-a);
+   const bins=[];
+   for(const piece of pieces){
+     let placed=false;
+     for(const bin of bins){
+       const extra=(bin.pieces.length?kerf:0)+piece;
+       if(bin.used+extra<=stock+1e-9){
+         bin.used+=extra; bin.pieces.push(piece); placed=true; break;
+       }
+     }
+     if(!placed)bins.push({used:piece,pieces:[piece]});
+   }
+   const useful=pieces.reduce((a,b)=>a+b,0);
+   const totalStock=bins.length*stock;
+   const waste=Math.max(0,totalStock-useful);
+   const utilization=totalStock?useful/totalStock*100:0;
+   set('cut-stock-count',bins.length+' ks');
+   set('cut-required',fmt(useful,0)+' mm');
+   set('cut-waste',fmt(waste,0)+' mm');
+   set('cut-utilization',fmt(utilization,1)+' %');
+   if(error)error.hidden=true;
+   if(output){
+     output.innerHTML=bins.map((bin,i)=>{
+       const cuts=bin.pieces.map(v=>fmt(v,1)+' mm').join(' + ');
+       const leftover=Math.max(0,stock-bin.used);
+       return '<div class="cut-bar"><div><small>Lata '+(i+1)+'</small><strong>'+cuts+'</strong></div><span>Zvyšok '+fmt(leftover,1)+' mm</span></div>';
+     }).join('');
+   }
+ }catch(e){
+   if(output)output.innerHTML='';
+   if(error){error.textContent=e.message||'Skontroluj zadané hodnoty.';error.hidden=false}
+   set('cut-stock-count','—');set('cut-required','—');set('cut-waste','—');set('cut-utilization','—');
+ }
+}
+
+function calcTile(){
+ const form=document.getElementById('tile-calculator'); if(!form)return;
+ const area=num('tile-area-length')*num('tile-area-width');
+ const tileArea=(num('tile-width')/100)*(num('tile-length')/100);
+ const reserve=num('tile-reserve');
+ const pack=Math.floor(num('tile-pack'));
+ const base=tileArea>0?Math.ceil(area/tileArea):0;
+ const total=Math.ceil(base*(1+reserve/100));
+ const buyArea=total*tileArea;
+ set('tile-area',fmt(area)+' m²');
+ set('tile-pieces-base',base+' ks');
+ set('tile-pieces-total',total+' ks');
+ set('tile-buy-area',fmt(buyArea)+' m²');
+ set('tile-packs',pack>0?Math.ceil(total/pack)+' bal.':'zadaj balenie');
+}
+
+function calcRightAngle(){
+ const form=document.getElementById('right-angle-calculator'); if(!form)return;
+ const a=num('angle-side-a'),b=num('angle-side-b'),scale=num('angle-scale');
+ const diagonal=Math.sqrt(a*a+b*b);
+ set('angle-diagonal',fmt(diagonal,3)+' m');
+ set('angle-ratio',fmt(a,2)+' : '+fmt(b,2));
+ set('angle-3',fmt(scale*3,3)+' m');
+ set('angle-4',fmt(scale*4,3)+' m');
+ set('angle-5',fmt(scale*5,3)+' m');
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
  const p=document.getElementById('paint-calculator'); if(p){p.addEventListener('input',calcPaint);p.addEventListener('change',calcPaint);p.addEventListener('submit',e=>{e.preventDefault();calcPaint()});calcPaint()}
  const c=document.getElementById('concrete-calculator'); if(c){c.addEventListener('input',calcConcrete);c.addEventListener('change',calcConcrete);c.addEventListener('submit',e=>{e.preventDefault();calcConcrete()});calcConcrete()}
  const a=document.getElementById('anchor-guide'); if(a){a.addEventListener('change',anchorGuide);a.addEventListener('submit',e=>{e.preventDefault();anchorGuide()});anchorGuide()}
+ const cut=document.getElementById('cut-plan-calculator'); if(cut){cut.addEventListener('input',calcCutPlan);cut.addEventListener('submit',e=>{e.preventDefault();calcCutPlan()});calcCutPlan()}
+ const tile=document.getElementById('tile-calculator'); if(tile){tile.addEventListener('input',calcTile);tile.addEventListener('submit',e=>{e.preventDefault();calcTile()});calcTile()}
+ const angle=document.getElementById('right-angle-calculator'); if(angle){angle.addEventListener('input',calcRightAngle);angle.addEventListener('submit',e=>{e.preventDefault();calcRightAngle()});calcRightAngle()}
 });
 })();
