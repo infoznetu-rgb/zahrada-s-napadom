@@ -254,6 +254,158 @@ function calcWoodCoating(){
  set('coat-rounded',fmt(Math.ceil(liters*4)/4,2)+' l');
 }
 
+
+function calcRain(){
+ const form=document.getElementById('rain-calculator'); if(!form)return;
+ const area=num('rain-area'),mm=num('rain-mm'),eff=Math.min(100,num('rain-efficiency')),tank=Math.max(1,num('rain-tank'));
+ const gross=area*mm;
+ const net=gross*(eff/100);
+ set('rain-gross',fmt(gross,0)+' l');
+ set('rain-net',fmt(net,0)+' l');
+ set('rain-fill',fmt(net/tank*100,1)+' %');
+ set('rain-tanks',fmt(net/tank,2)+'×');
+}
+
+function calcSoil(){
+ const form=document.getElementById('soil-calculator'); if(!form)return;
+ const l=num('soil-length'),w=num('soil-width'),depth=num('soil-depth')/100;
+ const compostShare=Math.min(100,num('soil-compost')),reserve=num('soil-reserve'),bag=Math.max(1,num('soil-bag'));
+ const area=l*w;
+ const total=area*depth*(1+reserve/100);
+ const liters=total*1000;
+ const compost=liters*(compostShare/100);
+ const earth=liters-compost;
+ set('soil-area',fmt(area)+' m²');
+ set('soil-total',fmt(total,3)+' m³');
+ set('soil-liters',fmt(liters,0)+' l');
+ set('soil-earth',fmt(earth,0)+' l');
+ set('soil-compost-liters',fmt(compost,0)+' l');
+ set('soil-bags',Math.ceil(liters/bag)+' ks');
+}
+
+const unitGroups={
+ length:{
+   mm:{label:'milimeter (mm)',factor:.001},cm:{label:'centimeter (cm)',factor:.01},m:{label:'meter (m)',factor:1},km:{label:'kilometer (km)',factor:1000},
+   in:{label:'palec (in)',factor:.0254},ft:{label:'stopa (ft)',factor:.3048}
+ },
+ area:{
+   mm2:{label:'mm²',factor:1e-6},cm2:{label:'cm²',factor:1e-4},m2:{label:'m²',factor:1},ha:{label:'hektár (ha)',factor:10000},
+   in2:{label:'in²',factor:.00064516},ft2:{label:'ft²',factor:.09290304}
+ },
+ volume:{
+   ml:{label:'mililiter (ml)',factor:.001},l:{label:'liter (l)',factor:1},m3:{label:'m³',factor:1000},cm3:{label:'cm³',factor:.001},
+   in3:{label:'in³',factor:.016387064},ft3:{label:'ft³',factor:28.316846592},gal:{label:'US galón',factor:3.785411784}
+ },
+ mass:{
+   g:{label:'gram (g)',factor:.001},kg:{label:'kilogram (kg)',factor:1},t:{label:'tona (t)',factor:1000},
+   oz:{label:'unca (oz)',factor:.028349523125},lb:{label:'libra (lb)',factor:.45359237}
+ }
+};
+function populateUnitOptions(reset=true){
+ const cat=document.getElementById('unit-category')?.value||'length';
+ const from=document.getElementById('unit-from'),to=document.getElementById('unit-to');
+ if(!from||!to)return;
+ const entries=Object.entries(unitGroups[cat]||unitGroups.length);
+ const oldFrom=from.value,oldTo=to.value;
+ from.innerHTML='';to.innerHTML='';
+ entries.forEach(([key,val])=>{
+   const a=document.createElement('option');a.value=key;a.textContent=val.label;from.appendChild(a);
+   const b=document.createElement('option');b.value=key;b.textContent=val.label;to.appendChild(b);
+ });
+ if(!reset && unitGroups[cat]?.[oldFrom])from.value=oldFrom;
+ if(!reset && unitGroups[cat]?.[oldTo])to.value=oldTo;
+ if(reset){
+   if(cat==='length'){from.value='mm';to.value='cm'}
+   else if(cat==='area'){from.value='m2';to.value='ft2'}
+   else if(cat==='volume'){from.value='l';to.value='m3'}
+   else if(cat==='mass'){from.value='kg';to.value='lb'}
+ }
+ calcUnit();
+}
+function calcUnit(){
+ const form=document.getElementById('unit-converter'); if(!form)return;
+ const cat=document.getElementById('unit-category')?.value||'length';
+ const from=document.getElementById('unit-from')?.value;
+ const to=document.getElementById('unit-to')?.value;
+ const value=Number(document.getElementById('unit-value')?.value||0);
+ const group=unitGroups[cat];
+ if(!group?.[from]||!group?.[to])return;
+ const base=value*group[from].factor;
+ const result=base/group[to].factor;
+ const smart=Math.abs(result)>=1000?fmt(result,2):Math.abs(result)>=1?fmt(result,4):fmt(result,6);
+ const fromLabel=group[from].label.match(/\(([^)]+)\)/)?.[1]||group[from].label;
+ const toLabel=group[to].label.match(/\(([^)]+)\)/)?.[1]||group[to].label;
+ set('unit-result',smart+' '+toLabel);
+ set('unit-formula',fmt(value,6)+' '+fromLabel+' = '+smart+' '+toLabel);
+}
+
+const plannerStorageKey='zahrada_project_planner_v1';
+let plannerState={title:'',items:[]};
+function plannerLoad(){
+ try{
+   const saved=JSON.parse(localStorage.getItem(plannerStorageKey)||'null');
+   if(saved&&typeof saved==='object'&&Array.isArray(saved.items))plannerState=saved;
+ }catch(e){}
+ if(!plannerState.items.length)plannerState.items=[{name:'',qty:'',unit:'ks',note:''}];
+}
+function plannerRead(){
+ const title=document.getElementById('planner-title');
+ plannerState.title=title?.value||'';
+ plannerState.items=[...document.querySelectorAll('#planner-items tr')].map(row=>({
+   name:row.querySelector('[data-field="name"]')?.value||'',
+   qty:row.querySelector('[data-field="qty"]')?.value||'',
+   unit:row.querySelector('[data-field="unit"]')?.value||'',
+   note:row.querySelector('[data-field="note"]')?.value||''
+ }));
+}
+function plannerSave(){
+ plannerRead();
+ try{localStorage.setItem(plannerStorageKey,JSON.stringify(plannerState));set('planner-status','Uložené v tomto zariadení.')}catch(e){set('planner-status','Nepodarilo sa uložiť lokálne.')}
+}
+function plannerInput(field,value,type='text'){
+ const input=document.createElement('input');input.type=type;input.value=value||'';input.dataset.field=field;
+ if(type==='number'){input.step='any';input.min='0'}
+ input.addEventListener('input',plannerSave);return input;
+}
+function plannerRender(){
+ const body=document.getElementById('planner-items');if(!body)return;
+ body.innerHTML='';
+ plannerState.items.forEach((item,index)=>{
+   const tr=document.createElement('tr');
+   const tdName=document.createElement('td');tdName.appendChild(plannerInput('name',item.name));
+   const tdQty=document.createElement('td');tdQty.appendChild(plannerInput('qty',item.qty,'number'));
+   const tdUnit=document.createElement('td');tdUnit.appendChild(plannerInput('unit',item.unit||'ks'));
+   const tdNote=document.createElement('td');tdNote.appendChild(plannerInput('note',item.note));
+   const tdRemove=document.createElement('td');const btn=document.createElement('button');btn.type='button';btn.className='planner-remove';btn.setAttribute('aria-label','Odstrániť položku');btn.textContent='×';
+   btn.addEventListener('click',()=>{plannerRead();plannerState.items.splice(index,1);if(!plannerState.items.length)plannerState.items.push({name:'',qty:'',unit:'ks',note:''});plannerRender();plannerPersistOnly()});
+   tdRemove.appendChild(btn);tr.append(tdName,tdQty,tdUnit,tdNote,tdRemove);body.appendChild(tr);
+ });
+}
+function plannerPersistOnly(){try{localStorage.setItem(plannerStorageKey,JSON.stringify(plannerState));set('planner-status','Uložené v tomto zariadení.')}catch(e){}}
+async function plannerCopy(){
+ plannerRead();
+ const lines=[plannerState.title.trim()||'Projektový zoznam'];
+ const useful=plannerState.items.filter(i=>i.name.trim()||i.qty||i.note.trim());
+ useful.forEach((i,idx)=>lines.push((idx+1)+'. '+(i.name.trim()||'Položka')+(i.qty?' — '+i.qty+' '+(i.unit||''):'')+(i.note.trim()?' — '+i.note.trim():'')));
+ const txt=lines.join('\n');
+ try{
+   if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(txt);
+   else{
+     const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
+   }
+   set('planner-status','Zoznam je skopírovaný do schránky.');
+ }catch(e){set('planner-status','Kopírovanie sa nepodarilo. Označ položky ručne.')}
+}
+function initPlanner(){
+ const body=document.getElementById('planner-items');if(!body)return;
+ plannerLoad();
+ const title=document.getElementById('planner-title');if(title){title.value=plannerState.title||'';title.addEventListener('input',plannerSave)}
+ plannerRender();
+ document.getElementById('planner-add')?.addEventListener('click',()=>{plannerRead();plannerState.items.push({name:'',qty:'',unit:'ks',note:''});plannerRender();plannerPersistOnly()});
+ document.getElementById('planner-copy')?.addEventListener('click',plannerCopy);
+ document.getElementById('planner-clear')?.addEventListener('click',()=>{if(confirm('Naozaj vymazať celý uložený plán?')){plannerState={title:'',items:[{name:'',qty:'',unit:'ks',note:''}]};if(title)title.value='';plannerRender();plannerPersistOnly();set('planner-status','Plán bol vymazaný.')}});
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
  const p=document.getElementById('paint-calculator'); if(p){p.addEventListener('input',calcPaint);p.addEventListener('change',calcPaint);p.addEventListener('submit',e=>{e.preventDefault();calcPaint()});calcPaint()}
  const c=document.getElementById('concrete-calculator'); if(c){c.addEventListener('input',calcConcrete);c.addEventListener('change',calcConcrete);c.addEventListener('submit',e=>{e.preventDefault();calcConcrete()});calcConcrete()}
@@ -266,5 +418,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  const slope=document.getElementById('slope-calculator'); if(slope){slope.addEventListener('input',calcSlope);slope.addEventListener('submit',e=>{e.preventDefault();calcSlope()});calcSlope()}
  const slopeTarget=document.getElementById('slope-target-calculator'); if(slopeTarget){slopeTarget.addEventListener('input',calcSlopeTarget);slopeTarget.addEventListener('submit',e=>{e.preventDefault();calcSlopeTarget()});calcSlopeTarget()}
  const coating=document.getElementById('wood-coating-calculator'); if(coating){coating.addEventListener('input',calcWoodCoating);coating.addEventListener('change',calcWoodCoating);coating.addEventListener('submit',e=>{e.preventDefault();calcWoodCoating()});calcWoodCoating()}
+ const rain=document.getElementById('rain-calculator'); if(rain){rain.addEventListener('input',calcRain);rain.addEventListener('submit',e=>{e.preventDefault();calcRain()});calcRain()}
+ const soil=document.getElementById('soil-calculator'); if(soil){soil.addEventListener('input',calcSoil);soil.addEventListener('submit',e=>{e.preventDefault();calcSoil()});calcSoil()}
+ const unit=document.getElementById('unit-converter'); if(unit){document.getElementById('unit-category')?.addEventListener('change',()=>populateUnitOptions(true));unit.addEventListener('input',calcUnit);unit.addEventListener('change',calcUnit);populateUnitOptions(true)}
+ initPlanner();
 });
 })();
