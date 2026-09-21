@@ -45,8 +45,8 @@ $("#logout-btn").addEventListener("click",async()=>{await db.auth.signOut();loca
 db.auth.onAuthStateChange((event)=>{if(event==="SIGNED_OUT")showAuth()});
 
 function activateView(name){
-  $(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+name));
-  $(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
+  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+name));
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
   document.querySelector(".sidebar").classList.remove("open");
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
 }
