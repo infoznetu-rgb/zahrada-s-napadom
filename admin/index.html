@@ -14,10 +14,10 @@
   <link rel="alternate icon" href="admin-icon.svg?v=2">
   <link rel="manifest" href="admin.webmanifest?v=2">
   <title>ZÁHRADA ADMIN | Správa webu</title>
-  <link rel="stylesheet" href="admin.css?v=6">
+  <link rel="stylesheet" href="admin.css?v=7">
   <link rel="stylesheet" href="bazar.css?v=1">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=9" defer></script>
+  <script src="admin.js?v=10" defer></script>
   <script src="bazar.js?v=3" defer></script>
   <script src="admin-pwa.js?v=3" defer></script>
 </head>
@@ -52,6 +52,7 @@
           <button class="nav-btn" data-view="posts">Príspevky</button>
           <button class="nav-btn" data-view="editor" data-new-post="1">+ Nový príspevok</button>
           <button class="nav-btn" data-view="videos">Videá</button>
+          <button class="nav-btn" data-view="gallery">Galéria</button>
           <button class="nav-btn" data-view="settings">Upraviť stránku</button>
           <button class="nav-btn" data-view="media">Médiá</button>
           <button class="nav-btn" data-view="bazar">Komunitný bazár</button>
@@ -214,6 +215,24 @@
           </div>
         </section>
 
+        <section id="view-gallery" class="view">
+          <div class="view-head">
+            <div><p class="eyebrow">GALÉRIA</p><h2>Fotogaléria v Nápadoch</h2></div>
+            <a class="btn ghost" href="../index.html#projekty" target="_blank" rel="noopener">Pozrieť Nápady ↗</a>
+          </div>
+          <div class="panel editor-main">
+            <div class="two-cols">
+              <label>Nadpis galérie<input id="home-gallery-title" type="text" placeholder="Galéria nápadov"></label>
+              <label>Krátky podnadpis<input id="home-gallery-kicker" type="text" placeholder="DETAILY · VÝROBA · VÝSLEDOK"></label>
+            </div>
+            <label>Popis galérie<textarea id="home-gallery-text" rows="3" placeholder="Fotografie z výroby, hotových výrobkov a ďalších nápadov."></textarea></label>
+            <label class="upload-btn">Pridať fotografie<input id="home-gallery-files" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif"></label>
+            <small>Po nahraní môžeš ku každej fotografii doplniť názov a popis a meniť ich poradie.</small>
+            <div id="home-gallery-list" class="admin-gallery-list"></div>
+            <div class="settings-actions"><button id="home-gallery-save" class="btn primary" type="button">Uložiť galériu</button></div>
+          </div>
+        </section>
+
         <section id="view-settings" class="view">
           <div class="view-head">
             <div><p class="eyebrow">STRÁNKA</p><h2>Upraviť stránku</h2></div>
@@ -290,6 +309,7 @@
                 <label class="toggle-row"><input id="visible-projects" type="checkbox"><span>Vlastné projekty</span></label>
                 <label class="toggle-row"><input id="visible-blog" type="checkbox"><span>Blog</span></label>
                 <label class="toggle-row"><input id="visible-videos" type="checkbox"><span>Videá</span></label>
+                <label class="toggle-row"><input id="visible-gallery" type="checkbox"><span>Galéria nápadov</span></label>
                 <label class="toggle-row"><input id="visible-community" type="checkbox"><span>Komunita</span></label>
                 <label class="toggle-row"><input id="visible-facebook" type="checkbox"><span>Facebook panel</span></label>
                 <label class="toggle-row"><input id="visible-contact" type="checkbox"><span>Kontakt</span></label>
