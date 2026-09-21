@@ -6,18 +6,13 @@
 <script>
 (function(){
   var p=location.pathname.replace(/\/+/g,'/');
-  var blog=p.match(/^\/blog\/([^/]+)(?:\/.*)?$/);
+  var blog=p.match(/^\/blog\/([^/]+)\/?$/);
   if(blog){
-    location.replace('/prispevok.html?slug='+encodeURIComponent(blog[1]));
+    location.replace('https://zahradasnapadom.sk/blog/'+blog[1]+'/index.html');
     return;
   }
   if(/^\/assets\/blog\//.test(p)){
-    location.replace('/assets/blog/fallback-cover.svg');
-    return;
-  }
-  var idea=p.match(/^\/napady\/([^/]+)(?:\/.*)?$/);
-  if(idea){
-    location.replace('/napady/'+idea[1]+'/index.html');
+    location.replace('https://zahradasnapadom.sk/assets/blog/fallback-cover.svg');
     return;
   }
 })();
