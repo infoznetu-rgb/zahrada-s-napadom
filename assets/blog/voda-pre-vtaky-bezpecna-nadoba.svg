@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Bezpečná nádoba s vodou pre vtáky</title>
+<desc id="d">Praktická schéma plytkej nádoby s vodou do približne piatich centimetrov, kameňom na státie, otvoreným okolím a pravidelnou výmenou vody.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#eef5e9"/><stop offset="1" stop-color="#efe4c8"/></linearGradient>
+<style>text{font-family:Arial,sans-serif;fill:#29452f}.h{font-size:62px;font-weight:700}.s{font-size:31px}.lab{font-size:34px;font-weight:700}.line{stroke:#315b3a;stroke-width:5;fill:none}.water{fill:#9bc9dc}.stone{fill:#8f8b7b}.bird{fill:#455e4a}</style>
+</defs>
+<rect width="1600" height="1000" fill="url(#bg)"/>
+<circle cx="1360" cy="155" r="95" fill="#e8c86b" opacity=".55"/>
+<text x="90" y="105" class="h">Voda pre vtáky v záhrade</text>
+<text x="90" y="160" class="s">Plytká, čistá a bezpečne umiestnená nádoba je dôležitejšia než dekorácia.</text>
+
+<!-- ground -->
+<path d="M0 760 C350 710 650 790 950 740 S1300 700 1600 750 V1000 H0Z" fill="#7d9a5f"/>
+
+<!-- birdbath bowl -->
+<ellipse cx="730" cy="610" rx="410" ry="110" fill="#6f6a5c"/>
+<ellipse cx="730" cy="585" rx="370" ry="82" fill="#d8d2bd"/>
+<ellipse cx="730" cy="590" rx="330" ry="62" class="water"/>
+<ellipse cx="730" cy="585" rx="280" ry="44" fill="#b9dce8" opacity=".9"/>
+<!-- stone -->
+<ellipse cx="650" cy="585" rx="75" ry="28" class="stone"/>
+<!-- water depth marker -->
+<path d="M1110 555 V615" class="line"/>
+<path d="M1095 555 H1125 M1095 615 H1125" class="line"/>
+<text x="1140" y="590" class="lab">max. ~5 cm</text>
+
+<!-- stylized bird -->
+<ellipse cx="770" cy="485" rx="62" ry="42" class="bird"/>
+<circle cx="820" cy="455" r="30" class="bird"/>
+<polygon points="848,455 895,470 850,480" fill="#c89043"/>
+<path d="M745 515 L725 560 M790 520 L795 560" stroke="#455e4a" stroke-width="9" stroke-linecap="round"/>
+<circle cx="831" cy="446" r="5" fill="#111"/>
+
+<!-- labels -->
+<path d="M350 385 H525 L610 555" class="line"/>
+<text x="90" y="360" class="lab">Plytká nádoba</text>
+<text x="90" y="400" class="s">pozvoľný okraj a stabilný podklad</text>
+
+<path d="M305 545 H480 L610 585" class="line"/>
+<text x="90" y="520" class="lab">Kameň alebo drsný povrch</text>
+<text x="90" y="560" class="s">bezpečné miesto na státie</text>
+
+<path d="M1190 710 H1070 L930 630" class="line"/>
+<text x="1190" y="690" class="lab">Otvorené okolie</text>
+<text x="1180" y="730" class="s">dobrý rozhľad pred mačkami</text>
+
+<text x="90" y="890" class="lab">Údržba</text>
+<text x="90" y="935" class="s">čerstvá voda každý deň · kúpeľ vyčistiť aspoň raz týždenne</text>
+<text x="90" y="980" class="s">Záhrada s nápadom · praktická ilustračná schéma</text>
+</svg>
