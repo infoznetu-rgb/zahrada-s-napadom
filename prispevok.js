@@ -36,6 +36,22 @@ async function loadPost(){
     fig.appendChild(img);gallery.appendChild(fig);
   });
   if(!images.length)gallery.hidden=true;
+
+  const videosWrap=document.querySelector("#post-videos");
+  if(videosWrap){
+    const videos=Array.isArray(data.videos)?data.videos:[];
+    videosWrap.innerHTML="";
+    videos.forEach((url,i)=>{
+      const figure=document.createElement("figure");
+      figure.className="post-video-item";
+      const video=document.createElement("video");
+      video.src=url;video.controls=true;video.preload="metadata";video.playsInline=true;
+      video.setAttribute("aria-label",data.title+" – video "+(i+1));
+      figure.appendChild(video);videosWrap.appendChild(figure);
+    });
+    videosWrap.hidden=!videos.length;
+  }
+
   document.querySelector("#post-loading").hidden=true;
   document.querySelector("#post-content").hidden=false;
 
