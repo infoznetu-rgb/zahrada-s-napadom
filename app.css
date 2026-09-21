@@ -825,3 +825,9 @@
 }
 @keyframes contestMenuPulse{70%{box-shadow:0 0 0 7px rgba(217,166,45,0)}100%{box-shadow:0 0 0 0 rgba(217,166,45,0)}}
 @media(prefers-reduced-motion:reduce){.contest-menu-link:after{animation:none}}
+
+.app-quick-contest{
+  background:linear-gradient(145deg,#fff8dc,#e8f2df)!important;
+  border-color:rgba(188,145,45,.2)!important;
+}
+.app-quick-contest .app-quick-icon{color:#b28224}
