@@ -1,9 +1,9 @@
-const VERSION='56';
+const VERSION='57';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
 const PRECACHE=[
-  './','./index.html','./moja-zahrada.html','./blog.html','./pomocky.html','./kalkulacka-farby.html','./kalkulacka-betonu.html','./hmozdinky-vrtaky.html','./rezaci-plan-dreva.html','./kalkulacka-dlazby.html','./pravy-uhol.html','./kalkulacka-strku.html','./kalkulacka-mulcu.html','./kalkulacka-sklonu.html','./kalkulacka-lazury.html','./kalkulacka-dazdovej-vody.html','./kalkulacka-zeminy-kompostu.html','./prevodnik-jednotiek.html','./projektovy-planovac.html','./kalendar.html','./kalkulacka-vyvyseny-zahon.html','./prispevok.html','./bazar.html','./inzerat.html',
+  './','./index.html','./moja-zahrada.html','./blog.html','./pomocky.html','./kalkulacka-farby.html','./kalkulacka-betonu.html','./hmozdinky-vrtaky.html','./rezaci-plan-dreva.html','./kalkulacka-dlazby.html','./pravy-uhol.html','./kalkulacka-strku.html','./kalkulacka-mulcu.html','./kalkulacka-sklonu.html','./kalkulacka-lazury.html','./kalkulacka-dazdovej-vody.html','./kalkulacka-zeminy-kompostu.html','./prevodnik-jednotiek.html','./projektovy-planovac.html','./kalkulacka-zavlahy.html','./kalkulacka-travnikoveho-osiva.html','./kalkulacka-plotovych-lat.html','./kalkulacka-terasovych-dosiek.html','./kalendar.html','./kalkulacka-vyvyseny-zahon.html','./prispevok.html','./bazar.html','./inzerat.html',
   './zahrada.css','./studio-2026.css','./spring-2026.css','./growth-2026.css','./typography-2026.css','./bazar.css','./app.css','./facebook-widget.css',
   './zahrada.js','./studio-2026.js','./garden-tools.js','./majster-tools.js','./cms-public.js','./blog.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./moja-zahrada.js','./push.js','./facebook-widget.js',
   './zahrada.webmanifest','./offline.html','./app-icon.svg','./app-icon-maskable.svg','./brand-mark.svg',
