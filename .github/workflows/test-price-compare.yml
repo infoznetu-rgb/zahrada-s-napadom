@@ -9,18 +9,19 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect Google search HTML
+      - name: Inspect Bing indexed Heureka snippets
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --silent --show-error -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36'             'https://www.google.com/search?hl=sk&gl=sk&num=20&q=dreveny%20kvetinac%20cena%20EUR'             -o google.html
+          Q='site%3Aheureka.sk%20%22dreveny%20kvetinac%22%20%22%E2%82%AC%22'
+          curl --fail --silent --show-error -A 'Mozilla/5.0'             "https://www.bing.com/search?cc=sk&setlang=sk&count=30&q=$Q"             -o bing.html
           python - <<'PY'
           import re, html
-          s=open('google.html',encoding='utf-8',errors='ignore').read()
-          print('bytes=',len(s))
-          for pat in ['€','EUR','46,90','79,90','Heureka','kvetináč','kvetinac']:
+          s=open('bing.html',encoding='utf-8',errors='ignore').read()
+          print('bytes=',len(s),'b_algo=',len(re.findall(r'b_algo',s)))
+          for pat in ['€','&euro;','46,90','79,90','heureka.sk','kvetináč','kvetinac']:
               inds=[m.start() for m in re.finditer(re.escape(pat),s,re.I)]
               print('PATTERN',pat,'COUNT',len(inds))
-              for i in inds[:4]:
-                  print(html.unescape(re.sub(r'\s+',' ',s[max(0,i-280):i+650]))[:980])
+              for i in inds[:5]:
+                  print(html.unescape(re.sub(r'\s+',' ',s[max(0,i-350):i+700]))[:1050])
           PY
