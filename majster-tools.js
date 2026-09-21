@@ -283,6 +283,65 @@ function calcSoil(){
  set('soil-bags',Math.ceil(liters/bag)+' ks');
 }
 
+
+function calcIrrigation(){
+ const form=document.getElementById('irrigation-calculator'); if(!form)return;
+ const area=num('irrigation-area'),dose=num('irrigation-dose'),frequency=num('irrigation-frequency');
+ const flow=num('irrigation-flow'),tank=Math.max(1,num('irrigation-tank'));
+ const once=area*dose,week=once*frequency;
+ set('irrigation-once',fmt(once,0)+' l');
+ set('irrigation-week',fmt(week,0)+' l');
+ set('irrigation-mm',fmt(dose,1)+' mm');
+ set('irrigation-time',flow>0?fmt(once/flow,1)+' min':'zadaj prietok');
+ set('irrigation-tank-runs',once>0?fmt(tank/once,2)+' zálievky':'—');
+}
+
+function calcLawnSeed(){
+ const form=document.getElementById('lawn-seed-calculator'); if(!form)return;
+ const area=num('lawn-seed-area'),rate=num('lawn-seed-rate'),reserve=num('lawn-seed-reserve');
+ const pack=Math.max(.001,num('lawn-seed-pack'));
+ const baseG=area*rate,totalG=baseG*(1+reserve/100),totalKg=totalG/1000;
+ set('lawn-seed-base',fmt(baseG/1000,2)+' kg');
+ set('lawn-seed-total',fmt(totalKg,2)+' kg');
+ set('lawn-seed-grams',fmt(totalG,0)+' g');
+ set('lawn-seed-packs',Math.ceil(totalKg/pack)+' ks');
+ set('lawn-seed-coverage',rate>0?fmt(pack*1000/rate,1)+' m²':'—');
+}
+
+function calcFence(){
+ const form=document.getElementById('fence-calculator'); if(!form)return;
+ const lengthM=num('fence-length'),lengthMm=lengthM*1000;
+ const slatW=Math.max(1,num('fence-slat-width')),gap=num('fence-gap');
+ const height=num('fence-slat-height'),rails=Math.max(0,Math.round(num('fence-rails')));
+ const reserve=num('fence-reserve');
+ let count=Math.max(1,Math.floor((lengthMm+gap)/(slatW+gap)));
+ while(count>1 && count*slatW>lengthMm)count--;
+ const actualGap=count>1?Math.max(0,(lengthMm-count*slatW)/(count-1)):0;
+ const buy=Math.ceil(count*(1+reserve/100));
+ set('fence-slats',count+' ks');
+ set('fence-buy',buy+' ks');
+ set('fence-gap-actual',count>1?fmt(actualGap,1)+' mm':'bez medzery');
+ set('fence-slat-meters',fmt(count*height,1)+' m');
+ set('fence-rail-meters',fmt(lengthM*rails,1)+' m');
+}
+
+function calcDeck(){
+ const form=document.getElementById('deck-calculator'); if(!form)return;
+ const length=num('deck-length'),widthM=num('deck-width'),widthMm=widthM*1000;
+ const boardW=Math.max(1,num('deck-board-width')),gap=num('deck-gap');
+ const stock=Math.max(.001,num('deck-stock-length')),reserve=num('deck-reserve');
+ let rows=Math.max(1,Math.floor((widthMm+gap)/(boardW+gap)));
+ while(rows>1 && rows*boardW>widthMm)rows--;
+ const actualGap=rows>1?Math.max(0,(widthMm-rows*boardW)/(rows-1)):0;
+ const linear=rows*length,total=linear*(1+reserve/100);
+ set('deck-area',fmt(length*widthM,2)+' m²');
+ set('deck-rows',rows+'');
+ set('deck-linear',fmt(linear,1)+' m');
+ set('deck-linear-total',fmt(total,1)+' m');
+ set('deck-pieces',Math.ceil(total/stock)+' ks');
+ set('deck-gap-actual',rows>1?fmt(actualGap,1)+' mm':'bez medzery');
+}
+
 const unitGroups={
  length:{
    mm:{label:'milimeter (mm)',factor:.001},cm:{label:'centimeter (cm)',factor:.01},m:{label:'meter (m)',factor:1},km:{label:'kilometer (km)',factor:1000},
@@ -420,6 +479,11 @@ document.addEventListener('DOMContentLoaded',()=>{
  const coating=document.getElementById('wood-coating-calculator'); if(coating){coating.addEventListener('input',calcWoodCoating);coating.addEventListener('change',calcWoodCoating);coating.addEventListener('submit',e=>{e.preventDefault();calcWoodCoating()});calcWoodCoating()}
  const rain=document.getElementById('rain-calculator'); if(rain){rain.addEventListener('input',calcRain);rain.addEventListener('submit',e=>{e.preventDefault();calcRain()});calcRain()}
  const soil=document.getElementById('soil-calculator'); if(soil){soil.addEventListener('input',calcSoil);soil.addEventListener('submit',e=>{e.preventDefault();calcSoil()});calcSoil()}
+
+ const irrigation=document.getElementById('irrigation-calculator'); if(irrigation){irrigation.addEventListener('input',calcIrrigation);irrigation.addEventListener('submit',e=>{e.preventDefault();calcIrrigation()});calcIrrigation()}
+ const lawnSeed=document.getElementById('lawn-seed-calculator'); if(lawnSeed){lawnSeed.addEventListener('input',calcLawnSeed);lawnSeed.addEventListener('submit',e=>{e.preventDefault();calcLawnSeed()});calcLawnSeed()}
+ const fence=document.getElementById('fence-calculator'); if(fence){fence.addEventListener('input',calcFence);fence.addEventListener('submit',e=>{e.preventDefault();calcFence()});calcFence()}
+ const deck=document.getElementById('deck-calculator'); if(deck){deck.addEventListener('input',calcDeck);deck.addEventListener('submit',e=>{e.preventDefault();calcDeck()});calcDeck()}
  const unit=document.getElementById('unit-converter'); if(unit){document.getElementById('unit-category')?.addEventListener('change',()=>populateUnitOptions(true));unit.addEventListener('input',calcUnit);unit.addEventListener('change',calcUnit);populateUnitOptions(true)}
  initPlanner();
 });
