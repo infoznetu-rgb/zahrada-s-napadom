@@ -766,13 +766,13 @@
     if(!document.querySelector('link[data-comments-css]')){
       const link=document.createElement('link');
       link.rel='stylesheet';
-      link.href='/comments.css?v=1';
+      link.href='/comments.css?v=2';
       link.dataset.commentsCss='1';
       document.head.appendChild(link);
     }
     if(!document.querySelector('script[data-comments-js]')){
       const script=document.createElement('script');
-      script.src='/comments.js?v=1';
+      script.src='/comments.js?v=2';
       script.defer=true;
       script.dataset.commentsJs='1';
       document.head.appendChild(script);
