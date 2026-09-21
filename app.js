@@ -762,6 +762,25 @@
     });
   }
 
+  function loadCommentsFeature(){
+    if(!document.querySelector('link[data-comments-css]')){
+      const link=document.createElement('link');
+      link.rel='stylesheet';
+      link.href='/comments.css?v=1';
+      link.dataset.commentsCss='1';
+      document.head.appendChild(link);
+    }
+    if(!document.querySelector('script[data-comments-js]')){
+      const script=document.createElement('script');
+      script.src='/comments.js?v=1';
+      script.defer=true;
+      script.dataset.commentsJs='1';
+      document.head.appendChild(script);
+    }
+  }
+
+  loadCommentsFeature();
+
   window.ZahradaApp={
     getSaved,getHistory,isSaved,savePost,removeSaved,toggleSaved,addHistory,clearHistory,clearSaved,
     toast,normalizePost,requestInstall,requestNotifications,getPushSubscription,openSearch,closeSearch,trackEvent
