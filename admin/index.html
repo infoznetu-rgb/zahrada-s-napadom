@@ -14,10 +14,10 @@
   <link rel="alternate icon" href="admin-icon.svg?v=2">
   <link rel="manifest" href="admin.webmanifest?v=2">
   <title>ZÁHRADA ADMIN | Správa webu</title>
-  <link rel="stylesheet" href="admin.css?v=8">
+  <link rel="stylesheet" href="admin.css?v=9">
   <link rel="stylesheet" href="bazar.css?v=1">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=11" defer></script>
+  <script src="admin.js?v=12" defer></script>
   <script src="bazar.js?v=3" defer></script>
   <script src="admin-pwa.js?v=3" defer></script>
 </head>
@@ -54,6 +54,7 @@
           <button class="nav-btn" data-view="editor" data-new-post="1">+ Nový príspevok</button>
           <button class="nav-btn" data-view="videos">Videá</button>
           <button class="nav-btn" data-view="gallery">Galéria</button>
+          <button class="nav-btn" data-view="comments">Komentáre</button>
           <button class="nav-btn" data-view="settings">Upraviť stránku</button>
           <button class="nav-btn" data-view="media">Médiá</button>
           <button class="nav-btn" data-view="bazar">Komunitný bazár</button>
@@ -201,6 +202,31 @@
               </div>
             </aside>
           </form>
+        </section>
+
+        <section id="view-comments" class="view">
+          <div class="view-head">
+            <div><p class="eyebrow">KOMUNITA</p><h2>Komentáre</h2></div>
+            <button id="comments-refresh" class="btn ghost" type="button">Obnoviť</button>
+          </div>
+          <div class="comments-admin-stats">
+            <article><span>Spolu</span><strong id="comments-stat-all">0</strong></article>
+            <article><span>K článkom</span><strong id="comments-stat-posts">0</strong></article>
+            <article><span>K fotkám</span><strong id="comments-stat-photos">0</strong></article>
+          </div>
+          <div class="panel">
+            <div class="toolbar comments-admin-toolbar">
+              <input id="comments-search" type="search" placeholder="Hľadať meno, text alebo článok…">
+              <select id="comments-type">
+                <option value="">Všetky komentáre</option>
+                <option value="post">Články a projekty</option>
+                <option value="photo">Fotografie</option>
+              </select>
+            </div>
+            <div id="comments-admin-list" class="comments-admin-list">
+              <div class="empty">Komentáre sa načítajú po otvorení tejto sekcie.</div>
+            </div>
+          </div>
         </section>
 
         <section id="view-bazar" class="view">
