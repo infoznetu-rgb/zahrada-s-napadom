@@ -1,4 +1,4 @@
-const VERSION='75';
+const VERSION='76';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
