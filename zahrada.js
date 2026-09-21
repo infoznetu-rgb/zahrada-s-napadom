@@ -189,7 +189,7 @@ async function syncStaticArticleFromCms(){
   const slug=String(page.dataset.slug||"").trim();
   if(!slug)return;
 
-  const select="slug,title,excerpt,content,category,cover_url,gallery,status,published_at,updated_at,content_type";
+  const select="slug,title,excerpt,content,category,cover_url,gallery,videos,status,published_at,updated_at,content_type";
   const endpoint=PUBLIC_CMS_URL+"/rest/v1/zahrada_posts?slug=eq."+encodeURIComponent(slug)+"&status=eq.published&select="+encodeURIComponent(select)+"&limit=1";
 
   try{
@@ -257,6 +257,28 @@ async function syncStaticArticleFromCms(){
         gallery.appendChild(fig);
       });
       gallery.hidden=!images.length;
+    }
+
+    const videos=Array.isArray(data.videos)?data.videos:[];
+    let videosWrap=document.querySelector("#post-videos");
+    if(videos.length&&!videosWrap){
+      videosWrap=document.createElement("section");
+      videosWrap.id="post-videos";
+      videosWrap.className="post-videos";
+      videosWrap.setAttribute("aria-label","Videá príspevku");
+      gallery?.insertAdjacentElement("afterend",videosWrap);
+    }
+    if(videosWrap){
+      videosWrap.innerHTML="";
+      videos.forEach((url,i)=>{
+        const figure=document.createElement("figure");
+        figure.className="post-video-item";
+        const video=document.createElement("video");
+        video.src=String(url||"");video.controls=true;video.preload="metadata";video.playsInline=true;
+        video.setAttribute("aria-label",(title||"Príspevok")+" – video "+(i+1));
+        figure.appendChild(video);videosWrap.appendChild(figure);
+      });
+      videosWrap.hidden=!videos.length;
     }
 
     document.querySelectorAll('script[type="application/ld+json"]').forEach(script=>{
