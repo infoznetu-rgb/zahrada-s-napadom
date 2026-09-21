@@ -194,6 +194,66 @@ function calcRightAngle(){
  set('angle-5',fmt(scale*5,3)+' m');
 }
 
+
+function calcGravel(){
+ const form=document.getElementById('gravel-calculator'); if(!form)return;
+ const l=num('gravel-length'),w=num('gravel-width'),depth=num('gravel-depth')/100;
+ const reserve=num('gravel-reserve'),density=num('gravel-density');
+ const area=l*w,volume=area*depth,total=volume*(1+reserve/100),liters=total*1000,kg=total*density;
+ set('gravel-area',fmt(area)+' m²');
+ set('gravel-volume',fmt(volume,3)+' m³');
+ set('gravel-total',fmt(total,3)+' m³');
+ set('gravel-liters',fmt(liters,0)+' l');
+ set('gravel-kg',fmt(kg,0)+' kg');
+ set('gravel-tonnes',fmt(kg/1000,2)+' t');
+}
+
+function calcMulch(){
+ const form=document.getElementById('mulch-calculator'); if(!form)return;
+ const l=num('mulch-length'),w=num('mulch-width'),depth=num('mulch-depth')/100;
+ const reserve=num('mulch-reserve'),bag=Math.max(1,num('mulch-bag'));
+ const area=l*w,volume=area*depth,total=volume*(1+reserve/100),liters=total*1000;
+ set('mulch-area',fmt(area)+' m²');
+ set('mulch-volume',fmt(volume,3)+' m³');
+ set('mulch-total',fmt(total,3)+' m³');
+ set('mulch-liters',fmt(liters,0)+' l');
+ set('mulch-bags',Math.ceil(liters/bag)+' ks');
+}
+
+function calcSlope(){
+ const form=document.getElementById('slope-calculator'); if(!form)return;
+ const riseCm=num('slope-rise'),runM=num('slope-run');
+ const riseM=riseCm/100;
+ const percent=runM>0?riseM/runM*100:0;
+ const degrees=Math.atan2(riseM,runM)*180/Math.PI;
+ const ratio=riseM>0?runM/riseM:Infinity;
+ set('slope-percent',fmt(percent,2)+' %');
+ set('slope-degrees',fmt(degrees,2)+'°');
+ set('slope-ratio',Number.isFinite(ratio)?'1 : '+fmt(ratio,2):'rovina');
+ set('slope-per-meter',fmt(percent,2)+' cm/m');
+}
+function calcSlopeTarget(){
+ const form=document.getElementById('slope-target-calculator'); if(!form)return;
+ const run=num('slope-target-run'),percent=num('slope-target-percent');
+ set('slope-target-rise',fmt(run*percent,2)+' cm');
+}
+
+function calcWoodCoating(){
+ const form=document.getElementById('wood-coating-calculator'); if(!form)return;
+ const length=num('coat-length'),width=num('coat-width')/100,count=Math.max(1,Math.round(num('coat-count')||1));
+ const sides=Math.max(1,Number(document.getElementById('coat-sides')?.value||1));
+ const edges=num('coat-edges'),coats=Math.max(1,num('coat-coats')||1),coverage=Math.max(.1,num('coat-coverage')||10),reserve=num('coat-reserve');
+ const base=length*width*count*sides;
+ const area=base*(1+edges/100);
+ const layerArea=area*coats;
+ const liters=layerArea/coverage*(1+reserve/100);
+ set('coat-base-area',fmt(base)+' m²');
+ set('coat-area',fmt(area)+' m²');
+ set('coat-layer-area',fmt(layerArea)+' m²');
+ set('coat-liters',fmt(liters,2)+' l');
+ set('coat-rounded',fmt(Math.ceil(liters*4)/4,2)+' l');
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
  const p=document.getElementById('paint-calculator'); if(p){p.addEventListener('input',calcPaint);p.addEventListener('change',calcPaint);p.addEventListener('submit',e=>{e.preventDefault();calcPaint()});calcPaint()}
  const c=document.getElementById('concrete-calculator'); if(c){c.addEventListener('input',calcConcrete);c.addEventListener('change',calcConcrete);c.addEventListener('submit',e=>{e.preventDefault();calcConcrete()});calcConcrete()}
@@ -201,5 +261,10 @@ document.addEventListener('DOMContentLoaded',()=>{
  const cut=document.getElementById('cut-plan-calculator'); if(cut){cut.addEventListener('input',calcCutPlan);cut.addEventListener('submit',e=>{e.preventDefault();calcCutPlan()});calcCutPlan()}
  const tile=document.getElementById('tile-calculator'); if(tile){tile.addEventListener('input',calcTile);tile.addEventListener('submit',e=>{e.preventDefault();calcTile()});calcTile()}
  const angle=document.getElementById('right-angle-calculator'); if(angle){angle.addEventListener('input',calcRightAngle);angle.addEventListener('submit',e=>{e.preventDefault();calcRightAngle()});calcRightAngle()}
+ const gravel=document.getElementById('gravel-calculator'); if(gravel){gravel.addEventListener('input',calcGravel);gravel.addEventListener('submit',e=>{e.preventDefault();calcGravel()});calcGravel()}
+ const mulch=document.getElementById('mulch-calculator'); if(mulch){mulch.addEventListener('input',calcMulch);mulch.addEventListener('submit',e=>{e.preventDefault();calcMulch()});calcMulch()}
+ const slope=document.getElementById('slope-calculator'); if(slope){slope.addEventListener('input',calcSlope);slope.addEventListener('submit',e=>{e.preventDefault();calcSlope()});calcSlope()}
+ const slopeTarget=document.getElementById('slope-target-calculator'); if(slopeTarget){slopeTarget.addEventListener('input',calcSlopeTarget);slopeTarget.addEventListener('submit',e=>{e.preventDefault();calcSlopeTarget()});calcSlopeTarget()}
+ const coating=document.getElementById('wood-coating-calculator'); if(coating){coating.addEventListener('input',calcWoodCoating);coating.addEventListener('change',calcWoodCoating);coating.addEventListener('submit',e=>{e.preventDefault();calcWoodCoating()});calcWoodCoating()}
 });
 })();
