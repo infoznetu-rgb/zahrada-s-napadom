@@ -4,7 +4,8 @@ let bazarAdminAds=[];
 let bazarAdminReports=[];
 const BA_TYPE={sell:"Predám",give:"Darujem",exchange:"Vymením",wanted:"Hľadám"};
 const BA_STATUS={pending:"Čaká",published:"Zverejnené",rejected:"Odmietnuté",closed:"Ukončené"};
-const BA_REASON={commercial:"Komerčná / firemná ponuka",spam:"Spam / opakovaný predaj",prohibited:"Zakázaný alebo nebezpečný obsah",misleading:"Zavádzajúci obsah",sold:"Zrejme neaktuálny",other:"Iné"};
+const BA_SELLER={private:"Súkromná osoba",business:"Firma / podnikateľ"};
+const BA_REASON={commercial:"Nevhodná reklama (staré hlásenie)",spam:"Spam / nevhodná reklama",prohibited:"Zakázaný alebo nebezpečný obsah",misleading:"Zavádzajúci obsah alebo údaje",sold:"Zrejme neaktuálny",other:"Iné"};
 function baEsc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 function baDate(v){return v?new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date(v)):"—"}
 function baPrice(ad){if(ad.price_mode==="free")return"Zadarmo";if(ad.price_mode==="exchange")return"Výmena";if(ad.price_mode==="not_listed")return"Bez ceny";if(ad.price==null)return"Dohodou";return new Intl.NumberFormat("sk-SK",{style:"currency",currency:"EUR"}).format(Number(ad.price))+(ad.price_mode==="negotiable"?" · dohoda":"")}
@@ -31,10 +32,10 @@ function renderBazarStats(){
 }
 function renderBazarAdmin(){
   renderBazarStats();
-  const q=(BA$("#bazar-admin-search")?.value||"").trim().toLocaleLowerCase("sk"), status=BA$("#bazar-admin-status")?.value||"", type=BA$("#bazar-admin-type")?.value||"";
+  const q=(BA$("#bazar-admin-search")?.value||"").trim().toLocaleLowerCase("sk"), status=BA$("#bazar-admin-status")?.value||"", type=BA$("#bazar-admin-type")?.value||"", seller=BA$("#bazar-admin-seller")?.value||"";
   const list=bazarAdminAds.filter(a=>{
-    const hay=`${a.title||""} ${a.description||""} ${a.location||""} ${a.contact_name||""} ${a.contact_email||""} ${a.contact_phone||""}`.toLocaleLowerCase("sk");
-    return(!q||hay.includes(q))&&(!status||a.status===status)&&(!type||a.listing_type===type);
+    const hay=`${a.title||""} ${a.description||""} ${a.location||""} ${a.contact_name||""} ${a.contact_email||""} ${a.contact_phone||""} ${a.business_name||""} ${a.business_ico||""}`.toLocaleLowerCase("sk");
+    return(!q||hay.includes(q))&&(!status||a.status===status)&&(!type||a.listing_type===type)&&(!seller||a.seller_type===seller);
   });
   const root=BA$("#bazar-admin-list");if(!root)return;
   if(!list.length){root.innerHTML='<div class="bazar-admin-empty">Pre tento filter tu nie sú žiadne inzeráty.</div>';return}
@@ -43,8 +44,8 @@ function renderBazarAdmin(){
     return `<article class="bazar-admin-row">
       ${image?`<img class="bazar-admin-thumb" src="${baEsc(image)}" alt="">`:'<div class="bazar-admin-thumb"></div>'}
       <div class="bazar-admin-copy">
-        <div class="bazar-admin-tags"><span class="bazar-admin-tag ${baEsc(ad.status)}">${baEsc(BA_STATUS[ad.status]||ad.status)}${expired?" · po platnosti":""}</span><span class="bazar-admin-tag">${baEsc(BA_TYPE[ad.listing_type]||ad.listing_type)}</span><span class="bazar-admin-tag">${baEsc(ad.category)}</span></div>
-        <h4>${baEsc(ad.title)}</h4><p>${baEsc(baPrice(ad))} · ${baEsc(ad.location)}, ${baEsc(ad.region)} · ${baEsc(ad.contact_name)}${ad.contact_email?` · ${baEsc(ad.contact_email)}`:""}${ad.contact_phone?` · ${baEsc(ad.contact_phone)}`:""}</p>
+        <div class="bazar-admin-tags"><span class="bazar-admin-tag ${baEsc(ad.status)}">${baEsc(BA_STATUS[ad.status]||ad.status)}${expired?" · po platnosti":""}</span><span class="bazar-admin-tag">${baEsc(BA_TYPE[ad.listing_type]||ad.listing_type)}</span><span class="bazar-admin-tag">${baEsc(ad.category)}</span><span class="bazar-admin-tag seller-${baEsc(ad.seller_type||"private")}">${baEsc(BA_SELLER[ad.seller_type]||"Súkromná osoba")}</span></div>
+        <h4>${baEsc(ad.title)}</h4>${ad.seller_type==="business"?`<p><strong>${baEsc(ad.business_name||"Firma")}</strong> · IČO ${baEsc(ad.business_ico||"—")}</p>`:""}<p>${baEsc(baPrice(ad))} · ${baEsc(ad.location)}, ${baEsc(ad.region)} · ${baEsc(ad.contact_name)}${ad.contact_email?` · ${baEsc(ad.contact_email)}`:""}${ad.contact_phone?` · ${baEsc(ad.contact_phone)}`:""}</p>
         <p>Vložené ${baEsc(baDate(ad.created_at))}${ad.published_at?` · zverejnené ${baEsc(baDate(ad.published_at))}`:""}${ad.expires_at?` · do ${baEsc(baDate(ad.expires_at))}`:""}</p>
         ${ad.moderation_note?`<p class="admin-note">Poznámka: ${baEsc(ad.moderation_note)}</p>`:""}
       </div>
@@ -77,7 +78,7 @@ async function approveBazarAd(id){
   if(error){alert("Inzerát sa nepodarilo schváliť: "+error.message);return}await loadBazarAdmin();
 }
 async function rejectBazarAd(id){
-  const reason=prompt("Dôvod odmietnutia, ktorý uvidí inzerent:","Tento inzerát nezodpovedá pravidlám nekomerčného hobby bazára.");if(reason===null)return;
+  const reason=prompt("Dôvod odmietnutia, ktorý uvidí inzerent:","Tento inzerát nezodpovedá pravidlám komunitného bazára.");if(reason===null)return;
   const {error}=await bazarAdminDb.from("zahrada_bazar_ads").update({status:"rejected",moderation_note:reason.trim()||"Inzerát nezodpovedá pravidlám bazára.",moderated_at:new Date().toISOString(),published_at:null,expires_at:null}).eq("id",id);
   if(error){alert("Inzerát sa nepodarilo odmietnuť: "+error.message);return}await loadBazarAdmin();
 }
@@ -98,6 +99,7 @@ async function resolveBazarReport(id){
 BA$("#bazar-admin-search")?.addEventListener("input",renderBazarAdmin);
 BA$("#bazar-admin-status")?.addEventListener("change",renderBazarAdmin);
 BA$("#bazar-admin-type")?.addEventListener("change",renderBazarAdmin);
+BA$("#bazar-admin-seller")?.addEventListener("change",renderBazarAdmin);
 
 async function startBazarAdminWhenReady(){
   if(await isBazarAdmin())await loadBazarAdmin();
