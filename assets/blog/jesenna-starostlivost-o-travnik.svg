@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Jesenná starostlivosť o trávnik</title>
+<desc id="d">Ilustrácia jesenného trávnika s lístím, hrabľami a kosačkou v záhrade.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#eef4e6"/><stop offset="1" stop-color="#f8efd8"/></linearGradient>
+  <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7d9f59"/><stop offset="1" stop-color="#58733f"/></linearGradient>
+</defs>
+<rect width="1600" height="1000" fill="url(#sky)"/>
+<circle cx="1310" cy="170" r="105" fill="#e8c872" opacity=".55"/>
+<path d="M0 420 C260 370 450 430 700 395 S1180 420 1600 365 V1000 H0Z" fill="url(#grass)"/>
+<path d="M0 610 C280 575 470 650 760 605 S1200 650 1600 590" stroke="#b98a45" stroke-width="10" opacity=".3" fill="none"/>
+<g fill="#c98a3d" opacity=".95">
+  <ellipse cx="260" cy="700" rx="42" ry="18" transform="rotate(22 260 700)"/>
+  <ellipse cx="430" cy="785" rx="48" ry="20" transform="rotate(-18 430 785)"/>
+  <ellipse cx="650" cy="690" rx="40" ry="17" transform="rotate(31 650 690)"/>
+  <ellipse cx="920" cy="820" rx="50" ry="21" transform="rotate(-25 920 820)"/>
+  <ellipse cx="1180" cy="700" rx="45" ry="19" transform="rotate(17 1180 700)"/>
+  <ellipse cx="1380" cy="810" rx="52" ry="22" transform="rotate(-15 1380 810)"/>
+</g>
+<g stroke="#674b31" stroke-linecap="round">
+  <path d="M1090 300 L1270 690" stroke-width="22"/>
+  <path d="M1270 690 L1325 850" stroke-width="16"/>
+  <path d="M1270 690 L1215 850" stroke-width="16"/>
+  <path d="M1270 690 L1285 870" stroke-width="16"/>
+  <path d="M1270 690 L1160 830" stroke-width="16"/>
+</g>
+<g transform="translate(350 560)">
+  <rect x="0" y="40" width="285" height="165" rx="28" fill="#4d6d46"/>
+  <rect x="50" y="0" width="180" height="85" rx="20" fill="#658657"/>
+  <circle cx="55" cy="225" r="44" fill="#2f3a2f"/>
+  <circle cx="235" cy="225" r="44" fill="#2f3a2f"/>
+  <path d="M250 80 L345 10" stroke="#4d6d46" stroke-width="18" stroke-linecap="round"/>
+</g>
+<text x="100" y="135" font-family="Georgia,serif" font-size="76" font-weight="700" fill="#244333">Jesenná starostlivosť o trávnik</text>
+<text x="100" y="205" font-family="Arial,sans-serif" font-size="32" fill="#587061">Kosenie · lístie · vertikutácia · prevzdušnenie · dosievanie</text>
+<text x="100" y="925" font-family="Arial,sans-serif" font-size="28" fill="#f7f2e6">Záhrada s nápadom</text>
+</svg>
