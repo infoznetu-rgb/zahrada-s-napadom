@@ -249,13 +249,13 @@
   }
 
   function decoratePhotos(root=document){
-    root.querySelectorAll?.('.idea-gallery-card,.dynamic-gallery-item,.article-page .post-hero').forEach(decoratePhoto);
+    root.querySelectorAll?.('.idea-gallery-card,.post-page figure,.project-page figure').forEach(decoratePhoto);
   }
 
   const observer=new MutationObserver(records=>{
     records.forEach(record=>record.addedNodes.forEach(node=>{
       if(node.nodeType!==1)return;
-      if(node.matches?.('.idea-gallery-card,.dynamic-gallery-item,.article-page .post-hero'))decoratePhoto(node);
+      if(node.matches?.('.idea-gallery-card,.post-page figure,.project-page figure'))decoratePhoto(node);
       decoratePhotos(node);
     }));
   });
