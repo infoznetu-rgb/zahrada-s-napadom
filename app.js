@@ -8,8 +8,130 @@
   const PUSH_API='https://bkyappgttwjxakkwycub.supabase.co/functions/v1/push-subscribe';
   const PUSH_PREF_KEY='zahrada-push-prefs-v1';
   const PROMO_DISMISS_KEY='zahrada-app-promo-dismissed-v1';
+  const ANALYTICS_URL='https://bkyappgttwjxakkwycub.supabase.co/rest/v1/site_events';
+  const ANALYTICS_KEY='sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4';
+  const VISITOR_KEY='zahrada-visitor-v1';
+  const ANALYTICS_SESSION_PREFIX='zahrada-analytics:';
+  let currentArticleSlug='';
+
 
   const BOOKMARK_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg>';
+  function visitorId(){
+    try{
+      let id=localStorage.getItem(VISITOR_KEY);
+      if(!id){
+        id=(crypto.randomUUID?.()||('v-'+Date.now()+'-'+Math.random().toString(36).slice(2)));
+        localStorage.setItem(VISITOR_KEY,id);
+      }
+      return id;
+    }catch(e){
+      window.__zahradaVisitor=window.__zahradaVisitor||(crypto.randomUUID?.()||('s-'+Date.now()+'-'+Math.random().toString(36).slice(2)));
+      return window.__zahradaVisitor;
+    }
+  }
+
+  function analyticsOnce(key){
+    try{
+      const k=ANALYTICS_SESSION_PREFIX+key;
+      if(sessionStorage.getItem(k))return false;
+      sessionStorage.setItem(k,'1');
+      return true;
+    }catch(e){return true}
+  }
+
+  function trackEvent(eventType,{label='',articleSlug='',onceKey=''}={}){
+    if(onceKey&&!analyticsOnce(onceKey))return;
+    const payload={
+      path:(location.pathname+location.search).slice(0,500),
+      article_slug:(articleSlug||currentArticleSlug||'').slice(0,160)||null,
+      referrer:(document.referrer||'').slice(0,1000)||null,
+      visitor_id:visitorId().slice(0,80),
+      event_type:eventType,
+      event_label:String(label||'').slice(0,500)||null
+    };
+    fetch(ANALYTICS_URL,{
+      method:'POST',
+      headers:{
+        apikey:ANALYTICS_KEY,
+        'Content-Type':'application/json',
+        Prefer:'return=minimal'
+      },
+      body:JSON.stringify(payload),
+      keepalive:true
+    }).catch(()=>{});
+  }
+
+  function setupArticleReading(post){
+    const slug=String(post?.slug||currentArticleSlug||'').trim();
+    if(!slug)return;
+    const title=String(post?.title||document.querySelector('#post-title,h1')?.textContent||slug).trim();
+    const thresholds=[25,50,75,100];
+    const fired=new Set();
+    const check=()=>{
+      const article=document.querySelector('#post-content:not([hidden]),.post-page,.article-page main article');
+      if(!article)return;
+      const rect=article.getBoundingClientRect();
+      const top=rect.top+window.scrollY;
+      const height=Math.max(article.scrollHeight||rect.height,1);
+      const viewBottom=window.scrollY+window.innerHeight;
+      const pct=Math.max(0,Math.min(100,((viewBottom-top)/height)*100));
+      thresholds.forEach(t=>{
+        if(pct>=t&&!fired.has(t)){
+          fired.add(t);
+          trackEvent('read_'+t,{articleSlug:slug,label:title,onceKey:'read:'+slug+':'+t});
+        }
+      });
+    };
+    window.addEventListener('scroll',check,{passive:true});
+    window.addEventListener('resize',check,{passive:true});
+    setTimeout(check,700);
+    setTimeout(()=>{
+      if(document.visibilityState==='visible'){
+        trackEvent('engaged_30s',{articleSlug:slug,label:title,onceKey:'engaged30:'+slug});
+      }
+    },30000);
+  }
+
+  function videoLabel(video){
+    return String(
+      video.closest('.cms-video-card')?.querySelector('h3')?.textContent||
+      video.getAttribute('aria-label')||
+      video.closest('.post-video-item')?.getAttribute('aria-label')||
+      video.currentSrc?.split('/').pop()||
+      'Video'
+    ).trim().slice(0,500);
+  }
+
+  function wireVideoAnalytics(video){
+    if(video.dataset.analyticsReady==='1')return;
+    video.dataset.analyticsReady='1';
+    const state={played:false,q25:false,q50:false,q75:false,complete:false};
+    video.addEventListener('play',()=>{
+      if(state.played)return;
+      state.played=true;
+      trackEvent('video_play',{label:videoLabel(video),onceKey:'video-play:'+video.currentSrc});
+    });
+    video.addEventListener('timeupdate',()=>{
+      if(!Number.isFinite(video.duration)||video.duration<=0)return;
+      const pct=(video.currentTime/video.duration)*100;
+      [[25,'q25','video_25'],[50,'q50','video_50'],[75,'q75','video_75']].forEach(([at,key,type])=>{
+        if(pct>=at&&!state[key]){
+          state[key]=true;
+          trackEvent(type,{label:videoLabel(video),onceKey:type+':'+video.currentSrc});
+        }
+      });
+    });
+    video.addEventListener('ended',()=>{
+      if(state.complete)return;
+      state.complete=true;
+      trackEvent('video_complete',{label:videoLabel(video),onceKey:'video-complete:'+video.currentSrc});
+    });
+  }
+
+  function wireAnalyticsMedia(root=document){
+    root.querySelectorAll?.('video').forEach(wireVideoAnalytics);
+  }
+
 
   function safeRead(key){
     try{
@@ -82,8 +204,9 @@
     el.hidden=true;
     el.innerHTML='<img src="/app-icon.svg?v=4" alt=""><div class="app-install-copy"><strong>Záhrada ako aplikácia</strong><span>Uložené články, história, offline režim a rýchla navigácia.</span></div><button class="app-install-action" type="button">Nainštalovať</button><button class="app-install-close" type="button" aria-label="Zavrieť">×</button>';
     document.body.appendChild(el);
-    el.querySelector('.app-install-close').addEventListener('click',()=>{el.hidden=true;localStorage.setItem('pwa-install-dismissed',String(Date.now()))});
+    el.querySelector('.app-install-close').addEventListener('click',()=>{trackEvent('install_dismissed',{label:'install_prompt'});el.hidden=true;localStorage.setItem('pwa-install-dismissed',String(Date.now()))});
     el.querySelector('.app-install-action').addEventListener('click',async()=>{
+      trackEvent('install_clicked',{label:'install_prompt'});
       if(deferredPrompt){
         deferredPrompt.prompt();
         const choice=await deferredPrompt.userChoice.catch(()=>null);
@@ -101,7 +224,7 @@
     const dismissed=Number(localStorage.getItem('pwa-install-dismissed')||0);
     if(dismissed&&Date.now()-dismissed<7*24*60*60*1000)return;
     const el=installPrompt();
-    if(deferredPrompt||isIOS())setTimeout(()=>{el.hidden=false},1400);
+    if(deferredPrompt||isIOS())setTimeout(()=>{el.hidden=false;trackEvent('install_offer_shown',{label:'install_prompt',onceKey:'install-offer:prompt'})},1400);
   }
 
   function showIOSSheet(){
@@ -117,6 +240,7 @@
 
 
   async function requestInstall(){
+    trackEvent('install_clicked',{label:'promo_banner'});
     if(isStandalone()){
       toast('Aplikáciu už máš nainštalovanú.');
       return true;
@@ -276,6 +400,7 @@
     document.body.appendChild(banner);
 
     banner.querySelector('.app-promo-close').addEventListener('click',()=>{
+      trackEvent('install_dismissed',{label:'promo_banner'});
       banner.classList.remove('is-visible');
       localStorage.setItem(PROMO_DISMISS_KEY,String(Date.now()));
       setTimeout(()=>banner.remove(),500);
@@ -327,7 +452,7 @@
 
       const banner=promoBanner();
       await updatePromoBanner();
-      requestAnimationFrame(()=>requestAnimationFrame(()=>banner.classList.add('is-visible')));
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{banner.classList.add('is-visible');trackEvent('install_offer_shown',{label:'promo_banner',onceKey:'install-offer:promo'})}));
     },4200);
   }
 
@@ -432,6 +557,9 @@
 
   window.addEventListener('zahrada:article-loaded',event=>{
     const post=normalizePost(event.detail);if(!post)return;
+    currentArticleSlug=post.slug;
+    trackEvent('article_open',{articleSlug:post.slug,label:post.title,onceKey:'article-open:'+post.slug});
+    setupArticleReading(post);
     addArticleSaveButton(post);
     setTimeout(()=>addHistory(post),3500);
   });
@@ -443,14 +571,16 @@
       if(node.matches?.('.cms-post-card'))enhanceCard(node);
       repairBrokenImages(node);
       enhanceCards(node);
+      wireAnalyticsMedia(node);
     }
   });
   if(document.body)observer.observe(document.body,{childList:true,subtree:true});
   repairBrokenImages();
   enhanceCards();
+  wireAnalyticsMedia();
 
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;updatePromoBanner()});
-  window.addEventListener('appinstalled',()=>{deferredPrompt=null;document.querySelector('.app-install-prompt')?.setAttribute('hidden','');toast('Aplikácia je nainštalovaná.');updatePromoBanner()});
+  window.addEventListener('appinstalled',()=>{trackEvent('app_installed',{label:'pwa'});deferredPrompt=null;document.querySelector('.app-install-prompt')?.setAttribute('hidden','');toast('Aplikácia je nainštalovaná.');updatePromoBanner()});
   window.addEventListener('online',()=>toast('Pripojenie je obnovené.'));
   window.addEventListener('offline',()=>toast('Si offline. Zobrazujem dostupný obsah.'));
 
@@ -471,6 +601,18 @@
   document.documentElement.classList.toggle('pwa-standalone',isStandalone());
   bottomNav();
   maybeShowPromoBanner();
+  trackEvent('page_view',{label:document.title,onceKey:'page-view:'+location.pathname+location.search});
+
+  document.addEventListener('click',event=>{
+    const photo=event.target.closest?.('.idea-gallery-card img,.dynamic-gallery-item img');
+    if(photo){
+      const label=photo.getAttribute('alt')||photo.closest('figure')?.querySelector('figcaption strong')?.textContent||'Fotografia';
+      trackEvent('photo_open',{label});
+    }
+    const share=event.target.closest?.('[data-share-card],.share-button,.share-btn,[data-share]');
+    if(share)trackEvent('share_click',{label:share.getAttribute('data-share-title')||document.title});
+  },true);
+
   // legacy-blog-route-guard
   document.addEventListener('click',event=>{
     const link=event.target.closest?.('a[href]');
