@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kalkulačka dažďovej vody zo strechy: zadaj plochu strechy, úhrn dažďa, účinnosť zberu a objem nádrže a vypočítaj zachytiteľné litre vody.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="theme-color" content="#5f965f">
+<link rel="canonical" href="https://zahradasnapadom.sk/kalkulacka-dazdovej-vody.html"><link rel="icon" type="image/svg+xml" href="/brand-mark.svg?v=1">
+<title>Kalkulačka dažďovej vody zo strechy | Záhrada s nápadom</title>
+<meta property="og:type" content="website"><meta property="og:locale" content="sk_SK"><meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="Kalkulačka dažďovej vody zo strechy"><meta property="og:description" content="Koľko litrov vody môžeš zachytiť zo strechy pri konkrétnom daždi?"><meta property="og:url" content="https://zahradasnapadom.sk/kalkulacka-dazdovej-vody.html"><meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Kalkulačka dažďovej vody zo strechy","url":"https://zahradasnapadom.sk/kalkulacka-dazdovej-vody.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"sk-SK"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domov","item":"https://zahradasnapadom.sk/"},{"@type":"ListItem","position":2,"name":"Pomôcky","item":"https://zahradasnapadom.sk/pomocky.html"},{"@type":"ListItem","position":3,"name":"Dažďová voda","item":"https://zahradasnapadom.sk/kalkulacka-dazdovej-vody.html"}]}]}</script>
+<link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1"><link rel="stylesheet" href="/spring-2026.css?v=1"><link rel="stylesheet" href="/growth-2026.css?v=5"><link rel="stylesheet" href="/typography-2026.css?v=11"><link rel="stylesheet" href="/app.css?v=4">
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=13" defer></script><script src="/majster-tools.js?v=4" defer></script>
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="site-header"><div class="top container"><a class="brand" href="/" aria-label="Záhrada s nápadom domov"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/temy/zahrada.html">Záhrada</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/temy/zahrada.html">Záhrada</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav></header>
+<main id="obsah">
+<section class="container utility-hero"><a class="utility-back" href="/pomocky.html">← Všetky pomôcky</a><span class="kicker">ZÁHRADA · VODA · STRECHA</span><h1>Koľko dažďovej vody vieš zachytiť zo strechy?</h1><p>Jeden milimeter dažďa na jednom štvorcovom metri predstavuje približne jeden liter vody. Kalkulačka zohľadní plochu strechy, úhrn dažďa, účinnosť zberu a veľkosť nádoby.</p></section>
+<section class="container tool-shell">
+<div class="tool-copy"><span class="kicker">JEDNODUCHÝ PRINCÍP</span><h2>Plocha × dážď = litre.</h2><p>Ak na 50 m² strechu spadne 10 mm dažďa, teoreticky ide o 500 litrov vody. V praxi sa časť stratí na povrchu strechy, v žľaboch, filtroch alebo prepadom, preto je v kalkulačke samostatné percento účinnosti.</p><p>Plochu zadávaj ako pôdorysnú zbernú plochu, z ktorej voda skutočne odteká do daného zvodu.</p><div class="tool-note">Výpočet je orientačný. Skutočné množstvo závisí od typu strechy, vetra, intenzity dažďa, čistoty žľabov, filtra a toho, či nádoba už pred dažďom obsahuje vodu.</div></div>
+<form id="rain-calculator" class="calculator-card">
+<span class="kicker">VÝPOČET</span><h2>Strecha a dážď</h2>
+<div class="calculator-grid">
+<label>Zberná plocha strechy (m²)<input id="rain-area" type="number" min="0.1" step="0.1" value="50" inputmode="decimal"></label>
+<label>Úhrn dažďa (mm)<input id="rain-mm" type="number" min="0" step="0.1" value="10" inputmode="decimal"></label>
+<label>Účinnosť zberu (%)<input id="rain-efficiency" type="number" min="0" max="100" step="1" value="90" inputmode="numeric"></label>
+<label>Objem nádoby / nádrže (l)<input id="rain-tank" type="number" min="1" step="10" value="500" inputmode="numeric"></label>
+</div>
+<div class="calculator-actions"><button class="btn primary" type="submit">Prepočítať</button></div>
+<div class="calculator-result" aria-live="polite">
+<div class="result-box"><small>Teoreticky zo strechy</small><strong id="rain-gross">500 l</strong></div>
+<div class="result-box"><small>Odhad zachytenej vody</small><strong id="rain-net">450 l</strong></div>
+<div class="result-box"><small>Naplnenie nádoby</small><strong id="rain-fill">90 %</strong></div>
+<div class="result-box"><small>Plné nádoby tohto objemu</small><strong id="rain-tanks">0,9×</strong></div>
+</div>
+</form></section>
+<section class="container tool-section"><div class="section-head"><div><span class="kicker">ČASTÉ OTÁZKY</span><h2>Čo najviac mení výsledok?</h2></div></div><div class="faq-stack">
+<details open><summary>Prečo je predvolená účinnosť 90 %?</summary><p>Je to iba praktický orientačný východiskový bod. Časť vody zostane na streche alebo sa stratí v systéme. Pri konkrétnej streche si účinnosť môžeš upraviť.</p></details>
+<details><summary>Mám použiť plochu šikmej strechy?</summary><p>Pre jednoduchý zrážkový výpočet sa pracuje so zbernou plochou v pôdoryse, teda s plochou, na ktorú dážď dopadá zhora a ktorá odvádza vodu do sledovaného zvodu.</p></details>
+<details><summary>Ako vybrať veľkosť nádrže?</summary><p>Jedna dažďová udalosť je iba časť rozhodovania. Dôležité je aj to, ako často prší, koľko vody spotrebuješ medzi dažďami a koľko priestoru máš. Kalkulačka ukazuje, akú časť konkrétnej nádoby by daný dážď teoreticky naplnil.</p></details>
+</div></section>
+<section class="container"><span class="kicker">SÚVISIACE</span><div class="utility-links"><a href="/blog/dazdova-voda-jednoduchy-system-zo-suda/">Jednoduchý systém zo suda →</a><a href="/kalkulacka-mulcu.html">Kalkulačka mulču →</a><a href="/pomocky.html">Všetky pomôcky →</a></div></section>
+</main>
+<footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/zahrada.html">Záhrada</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
+</body></html>
