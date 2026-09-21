@@ -26,7 +26,7 @@
   <link rel="manifest" href="zahrada.webmanifest?v=5">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="seo.js?v=11" defer></script>
-  <script src="cms-public.js?v=14" defer></script>
+  <script src="cms-public.js?v=15" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=13" defer></script>
   <script src="studio-2026.js?v=1" defer></script>
@@ -179,12 +179,12 @@
     <section id="projekty" class="section container projects-section">
       <div class="section-head">
         <div>
-          <span class="kicker">VLASTNÉ PROJEKTY · VYBRANÉ TIPY</span>
-          <h2>To, čo vzniklo u mňa, dopĺňajú praktické nápady z blogu.</h2>
+          <span id="cms-projects-kicker" class="kicker">VLASTNÉ PROJEKTY · VYBRANÉ TIPY</span>
+          <h2 id="cms-projects-title">To, čo vzniklo u mňa, dopĺňajú praktické nápady z blogu.</h2>
         </div>
         <div class="section-sidecopy">
           <span class="section-index">01 / PROJEKTY</span>
-          <p>Vlastné realizácie zostávajú v centre pozornosti a medzi nimi sa objavia vybrané blogové tipy pre záhradu, dom a dielňu.</p>
+          <p id="cms-projects-text">Vlastné realizácie zostávajú v centre pozornosti a medzi nimi sa objavia vybrané blogové tipy pre záhradu, dom a dielňu.</p>
         </div>
       </div>
       <div id="cms-projects" class="cms-post-grid"></div>
@@ -225,12 +225,12 @@
     <section id="blog-home" class="section container home-blog-section">
       <div class="section-head">
         <div>
-          <span class="kicker">ČERSTVÉ Z BLOGU</span>
-          <h2>Najnovšie tipy pre záhradu, dom a dielňu.</h2>
+          <span id="cms-blog-kicker" class="kicker">ČERSTVÉ Z BLOGU</span>
+          <h2 id="cms-blog-title">Najnovšie tipy pre záhradu, dom a dielňu.</h2>
         </div>
         <div class="section-sidecopy">
           <span class="section-index">02 / BLOG</span>
-          <p>Praktické vychytávky, sezónne rady a hobby nápady. Na titulke ukazujem iba najnovší výber, celý archív nájdeš v samostatnom blogu.</p>
+          <p id="cms-blog-text">Praktické vychytávky, sezónne rady a hobby nápady. Na titulke ukazujem iba najnovší výber, celý archív nájdeš v samostatnom blogu.</p>
         </div>
       </div>
       <div id="cms-blog-home" class="cms-post-grid home-blog-grid"></div>
@@ -243,15 +243,15 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="kicker">POHYB · DETAIL · POSTUP</span>
-            <h2>Niekedy obraz vysvetlí viac než desať odsekov.</h2>
+            <span id="cms-videos-kicker" class="kicker">POHYB · DETAIL · POSTUP</span>
+            <h2 id="cms-videos-title">Niekedy obraz vysvetlí viac než desať odsekov.</h2>
           </div>
           <div class="section-sidecopy">
             <span class="section-index">03 / VIDEÁ</span>
-            <p>Krátke ukážky výroby, premien a detailov. Bez zbytočnej omáčky — priamo k tomu, čo funguje.</p>
+            <p id="cms-videos-text">Krátke ukážky výroby, premien a detailov. Bez zbytočnej omáčky — priamo k tomu, čo funguje.</p>
           </div>
         </div>
-        <div class="video-grid">
+        <div id="cms-video-grid" class="video-grid">
           <article class="video-card"><div class="video-placeholder"><span>▶</span><small>01 · POSTUP</small></div><h3>Krok za krokom</h3><p>Od prvého rezu po hotový výsledok.</p></article>
           <article class="video-card"><div class="video-placeholder"><span>▶</span><small>02 · PREMENA</small></div><h3>Pred a po</h3><p>Rýchly pohľad na rozdiel, ktorý spraví dobrý nápad.</p></article>
           <article class="video-card"><div class="video-placeholder"><span>▶</span><small>03 · TIP</small></div><h3>Detail, ktorý pomôže</h3><p>Jedna praktická vec, ktorú sa oplatí vedieť.</p></article>
@@ -262,12 +262,12 @@
     <section id="komunita" class="section container community-section">
       <div class="section-head">
         <div>
-          <span class="kicker">OD ĽUDÍ PRE ĽUDÍ</span>
-          <h2>Priestor pre nápady, na ktoré môže byť človek hrdý.</h2>
+          <span id="cms-community-kicker" class="kicker">OD ĽUDÍ PRE ĽUDÍ</span>
+          <h2 id="cms-community-title">Priestor pre nápady, na ktoré môže byť človek hrdý.</h2>
         </div>
         <div class="section-sidecopy">
           <span class="section-index">04 / KOMUNITA</span>
-          <p>Bez verejných účtov a automatického publikovania. Každý príspevok najprv prejde kontrolou.</p>
+          <p id="cms-community-text">Bez verejných účtov a automatického publikovania. Každý príspevok najprv prejde kontrolou.</p>
         </div>
       </div>
       <div class="community-grid">
@@ -368,7 +368,7 @@
         <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
         <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
       </a>
-      <p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p>
+      <p id="cms-footer-text">Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p>
     </div>
     <div class="footer-links" aria-label="Pätička">
       <a href="#projekty">Nápady</a>
@@ -378,7 +378,7 @@
       <a href="#kontakt">Kontakt</a>
           <a class="footer-facebook-link" href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">f</span> Facebook</a>
     </div>
-    <small>© 2026 · Nekomerčný hobby projekt</small>
+    <small id="cms-footer-copyright">© 2026 · Nekomerčný hobby projekt</small>
   </footer>
 </body>
 </html>
