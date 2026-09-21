@@ -240,11 +240,11 @@
 
 
   async function requestInstall(){
-    trackEvent('install_clicked',{label:'promo_banner'});
     if(isStandalone()){
       toast('Aplikáciu už máš nainštalovanú.');
       return true;
     }
+    trackEvent('install_clicked',{label:'promo_banner'});
     if(deferredPrompt){
       deferredPrompt.prompt();
       const choice=await deferredPrompt.userChoice.catch(()=>null);
