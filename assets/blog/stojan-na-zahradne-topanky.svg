@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Stojan na záhradné topánky a čižmy</title>
+<desc id="d">Praktická schéma otvoreného dreveného stojana s latkovými policami, vysokou zónou pre čižmy, odkvapkávacou táckou a voľným priechodom pri dverách.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f3f6ea"/><stop offset="1" stop-color="#eadfc7"/></linearGradient>
+<style>text{font-family:Arial,sans-serif;fill:#29452f}.h{font-size:62px;font-weight:700}.s{font-size:30px}.lab{font-size:33px;font-weight:700}.line{stroke:#315b3a;stroke-width:5;fill:none}.wood{fill:#a77950;stroke:#68472f;stroke-width:7}.boot{fill:#55685a}.shoe{fill:#6d7869}.tray{fill:#8b8f85}</style>
+</defs>
+<rect width="1600" height="1000" fill="url(#bg)"/>
+<text x="85" y="105" class="h">Stojan na záhradné topánky a čižmy</text>
+<text x="85" y="160" class="s">Otvorená konštrukcia, odkvapkanie a voľný priechod pri vstupe.</text>
+
+<!-- floor and doorway -->
+<rect x="0" y="780" width="1600" height="220" fill="#c8b995"/>
+<rect x="1180" y="250" width="300" height="530" fill="#d5cab0" stroke="#857b68" stroke-width="10"/>
+<rect x="1230" y="310" width="200" height="470" fill="#f2eee2"/>
+<path d="M1190 780 H1490" stroke="#857b68" stroke-width="14"/>
+
+<!-- rack frame -->
+<rect x="300" y="280" width="38" height="500" class="wood"/>
+<rect x="880" y="280" width="38" height="500" class="wood"/>
+<rect x="300" y="300" width="618" height="34" class="wood"/>
+
+<!-- slatted shelves -->
+<g class="wood">
+<rect x="330" y="515" width="540" height="26" rx="8"/>
+<rect x="330" y="557" width="540" height="26" rx="8"/>
+<rect x="330" y="690" width="540" height="26" rx="8"/>
+<rect x="330" y="732" width="540" height="26" rx="8"/>
+</g>
+
+<!-- shoes -->
+<path d="M405 470 h120 l50 32 v26 H390 q-20 0-20-18 z" class="shoe"/>
+<path d="M610 470 h120 l50 32 v26 H595 q-20 0-20-18 z" class="shoe"/>
+
+<!-- boots -->
+<path d="M420 665 v-235 h105 v165 q0 35 45 55 v30 H430 q-10 0-10-15z" class="boot"/>
+<path d="M650 665 v-235 h105 v165 q0 35 45 55 v30 H660 q-10 0-10-15z" class="boot"/>
+
+<!-- tray -->
+<rect x="335" y="785" width="530" height="45" rx="10" class="tray"/>
+<path d="M350 795 H850" stroke="#d7dbd3" stroke-width="5" stroke-dasharray="18 14"/>
+
+<!-- passage zone -->
+<path d="M990 650 H1135" stroke="#7c9d72" stroke-width="90" opacity=".35"/>
+<path d="M990 650 H1135" stroke="#315b3a" stroke-width="5" stroke-dasharray="15 14"/>
+<polygon points="1135,650 1110,637 1110,663" fill="#315b3a"/>
+
+<!-- labels -->
+<path d="M150 390 H300" class="line"/>
+<text x="85" y="365" class="lab">Otvorený rám</text>
+<text x="85" y="405" class="s">vzduch sa dostane medzi obuv</text>
+
+<path d="M160 600 H335" class="line"/>
+<text x="85" y="575" class="lab">Latkové police</text>
+<text x="85" y="615" class="s">voda a blato neostanú na plnej doske</text>
+
+<path d="M200 845 H420" class="line"/>
+<text x="85" y="825" class="lab">Vyberateľná tácka</text>
+<text x="85" y="865" class="s">jednoduché umytie po daždi</text>
+
+<path d="M1230 560 H1135" class="line"/>
+<text x="1205" y="530" class="lab">Voľný priechod</text>
+<text x="1180" y="570" class="s">mimo línie dverí</text>
+
+<text x="85" y="935" class="s">Praktické rozmery: hĺbka police približne 30–40 cm · vysoká zóna pre čižmy približne 45–55 cm</text>
+<text x="85" y="975" class="s">Záhrada s nápadom · dielenská ilustračná schéma</text>
+</svg>
