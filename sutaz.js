@@ -59,13 +59,25 @@
       if(error)throw error;
       if(!data?.ok)return;
       $('#contest-entry-count').textContent=String(data.entries_count||0);
-      if(data.image_url){
-        const img=$('#contest-prize-image');
-        const visual=document.querySelector('.contest-prize-visual');
-        if(img&&visual){
+      const img=$('#contest-prize-image');
+      const visual=document.querySelector('.contest-prize-visual');
+      if(visual&&img){
+        if(data.image_url){
+          const showPhoto=()=>{
+            img.hidden=false;
+            visual.classList.add('has-photo');
+            visual.classList.remove('is-loading-photo');
+          };
+          img.addEventListener('load',showPhoto,{once:true});
+          img.addEventListener('error',()=>{
+            img.hidden=true;
+            visual.classList.remove('has-photo','is-loading-photo');
+          },{once:true});
           img.src=data.image_url;
-          img.hidden=false;
-          visual.classList.add('has-photo');
+          if(img.complete&&img.naturalWidth)showPhoto();
+        }else{
+          img.hidden=true;
+          visual.classList.remove('has-photo','is-loading-photo');
         }
       }
       renderWinners(data.winners||[],Date.now()>=END.getTime());
