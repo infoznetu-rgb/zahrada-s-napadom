@@ -86,7 +86,18 @@
   }
 
   if('serviceWorker' in navigator){
-    window.addEventListener('load',()=>navigator.serviceWorker.register('./admin-sw.js',{scope:'./'}).catch(()=>{}));
+    let reloading=false;
+    navigator.serviceWorker.addEventListener('controllerchange',()=>{
+      if(reloading)return;
+      reloading=true;
+      location.reload();
+    });
+    window.addEventListener('load',async()=>{
+      try{
+        const reg=await navigator.serviceWorker.register('./admin-sw.js?v=5',{scope:'./',updateViaCache:'none'});
+        reg.update().catch(()=>{});
+      }catch(e){}
+    });
   }
 
   if(isIOS()&&!isStandalone())setInstallVisible(true);
