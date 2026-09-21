@@ -9,19 +9,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect Bing search HTML
+      - name: Inspect Google search HTML
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --silent --show-error -A 'Mozilla/5.0'             'https://www.bing.com/search?cc=sk&setlang=sk&count=20&q=dreveny%20kvetinac%20cena'             -o bing.html
+          curl --fail --silent --show-error -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36'             'https://www.google.com/search?hl=sk&gl=sk&num=20&q=dreveny%20kvetinac%20cena%20EUR'             -o google.html
           python - <<'PY'
           import re, html
-          s=open('bing.html',encoding='utf-8',errors='ignore').read()
+          s=open('google.html',encoding='utf-8',errors='ignore').read()
           print('bytes=',len(s))
-          print('b_algo=',len(re.findall(r'b_algo',s)))
-          for pat in ['€','&euro;','EUR','Price','price','Kvetin','kvetin']:
+          for pat in ['€','EUR','46,90','79,90','Heureka','kvetináč','kvetinac']:
               inds=[m.start() for m in re.finditer(re.escape(pat),s,re.I)]
               print('PATTERN',pat,'COUNT',len(inds))
-              for i in inds[:3]:
-                  print(html.unescape(re.sub(r'\s+',' ',s[max(0,i-300):i+600]))[:950])
+              for i in inds[:4]:
+                  print(html.unescape(re.sub(r'\s+',' ',s[max(0,i-280):i+650]))[:980])
           PY
