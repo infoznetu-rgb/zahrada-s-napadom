@@ -69,3 +69,12 @@
   .photo-comments-preview{grid-template-columns:100px 1fr}
   .photo-comments-preview img{width:100px;height:78px}
 }
+.comment-body-label{grid-column:1/-1}
+.comment-optional{font-weight:650;color:#839087}
+.comment-admin-replies{display:grid;gap:8px;margin-top:12px;padding-left:18px;border-left:3px solid #cfe0c9}
+.comment-admin-reply{padding:12px 13px;border-radius:14px;background:#eef5e9;border:1px solid rgba(43,75,56,.08)}
+.comment-admin-badge{display:inline-flex;margin-left:5px;padding:2px 6px;border-radius:999px;background:#5f965f;color:#fff;font-size:.58rem;vertical-align:middle}
+@media(max-width:620px){
+  .comment-body-label{grid-column:auto}
+  .comment-admin-replies{padding-left:10px}
+}
