@@ -789,3 +789,18 @@
   .app-search-launch form{padding-left:13px}
   .app-search-launch button{padding:0 13px}
 }
+
+
+/* Blog search */
+.blog-search-box{
+  display:flex;align-items:center;gap:10px;max-width:760px;margin:18px 0 14px;padding:0 13px 0 16px;
+  border:2px solid rgba(95,150,95,.2);border-radius:18px;background:#fffdf7;box-shadow:0 8px 24px rgba(43,75,56,.04)
+}
+.blog-search-box:focus-within{border-color:#6f9e68;box-shadow:0 0 0 4px rgba(95,150,95,.1)}
+.blog-search-box>span{color:#5a735f;font-size:1.35rem;line-height:1}
+.blog-search-box input{min-width:0;flex:1;min-height:54px;border:0;outline:0;background:transparent;color:#294b38;font:inherit;font-size:.96rem}
+.blog-search-box button{width:34px;height:34px;border:0;border-radius:50%;background:#edf2e8;color:#607365;font-size:1.15rem;cursor:pointer}
+@media(max-width:620px){
+  .blog-search-box{margin-top:14px;border-radius:16px}
+  .blog-search-box input{font-size:.9rem}
+}
