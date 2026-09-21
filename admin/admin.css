@@ -236,3 +236,29 @@ html.admin-standalone body{background:#edf1ec}
 @media(max-width:1100px){.analytics-summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.analytics-grid{grid-template-columns:1fr}.analytics-wide{grid-column:auto}.analytics-summary{grid-template-columns:1fr 1fr}.analytics-range{align-items:stretch}.analytics-range label{flex:1}}
 @media(max-width:480px){.analytics-summary{grid-template-columns:1fr}.analytics-stat strong{font-size:1.55rem}}
+
+.comments-admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.comments-admin-stats article{padding:20px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px rgba(50,68,52,.05)}
+.comments-admin-stats span{display:block;color:var(--muted);font-size:.76rem}
+.comments-admin-stats strong{display:block;margin-top:4px;color:var(--green2);font-size:1.85rem}
+.comments-admin-toolbar input{max-width:none;flex:1}
+.comments-admin-toolbar select{max-width:220px}
+.comments-admin-list{display:grid;gap:12px}
+.admin-comment-card{padding:16px;border:1px solid var(--line);border-radius:16px;background:#fbfcf9}
+.admin-comment-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.admin-comment-top>div{display:flex;align-items:center;gap:9px;min-width:0;flex-wrap:wrap}
+.admin-comment-top strong{color:#294632;font-size:.9rem}
+.admin-comment-top time{flex:0 0 auto;color:var(--muted);font-size:.7rem}
+.admin-comment-body{margin:12px 0;padding:12px 14px;border-radius:12px;background:#fff;color:#405346;line-height:1.55;white-space:pre-wrap}
+.admin-comment-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:.75rem}
+.admin-comment-foot>div{display:flex;gap:7px;align-items:center}
+.admin-comment-foot a{text-decoration:none;color:var(--green2)}
+.danger-mini{color:var(--danger)!important;border-color:#e6c7c4!important;background:#fff8f7!important}
+@media(max-width:700px){
+  .comments-admin-stats{grid-template-columns:1fr 1fr 1fr}
+  .admin-comment-top,.admin-comment-foot{align-items:flex-start;flex-direction:column}
+  .admin-comment-foot>div{width:100%;flex-wrap:wrap}
+}
+@media(max-width:520px){
+  .comments-admin-stats{grid-template-columns:1fr}
+}
