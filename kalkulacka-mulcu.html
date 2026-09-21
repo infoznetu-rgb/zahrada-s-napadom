@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kalkulačka mulču a kôry: vypočítaj plochu, objem, litre a počet vriec podľa rozmerov záhona, hrúbky vrstvy, rezervy a objemu jedného vreca.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="theme-color" content="#5f965f">
+<link rel="canonical" href="https://zahradasnapadom.sk/kalkulacka-mulcu.html"><link rel="icon" type="image/svg+xml" href="/brand-mark.svg?v=1">
+<title>Kalkulačka mulču a kôry | Záhrada s nápadom</title>
+<meta property="og:type" content="website"><meta property="og:locale" content="sk_SK"><meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="Kalkulačka mulču a kôry"><meta property="og:description" content="Koľko litrov a vriec mulču potrebuješ na záhon?"><meta property="og:url" content="https://zahradasnapadom.sk/kalkulacka-mulcu.html"><meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Kalkulačka mulču a kôry","url":"https://zahradasnapadom.sk/kalkulacka-mulcu.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"sk-SK"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domov","item":"https://zahradasnapadom.sk/"},{"@type":"ListItem","position":2,"name":"Pomôcky","item":"https://zahradasnapadom.sk/pomocky.html"},{"@type":"ListItem","position":3,"name":"Kalkulačka mulču","item":"https://zahradasnapadom.sk/kalkulacka-mulcu.html"}]}]}</script>
+<link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1"><link rel="stylesheet" href="/spring-2026.css?v=1"><link rel="stylesheet" href="/growth-2026.css?v=4"><link rel="stylesheet" href="/typography-2026.css?v=11"><link rel="stylesheet" href="/app.css?v=4">
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=13" defer></script><script src="/majster-tools.js?v=3" defer></script>
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="site-header"><div class="top container"><a class="brand" href="/" aria-label="Záhrada s nápadom domov"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/temy/zahrada.html">Záhrada</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/temy/zahrada.html">Záhrada</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav></header>
+<main id="obsah">
+<section class="container utility-hero"><a class="utility-back" href="/pomocky.html">← Všetky pomôcky</a><span class="kicker">ZÁHRADA · MULČ · KÔRA</span><h1>Koľko mulču alebo kôry potrebuješ?</h1><p>Vypočítaj si objem pre záhon alebo inú plochu. Výsledok dostaneš v m³, litroch a po zadaní objemu vreca aj v počte balení.</p></section>
+<section class="container tool-shell">
+<div class="tool-copy"><span class="kicker">PRAKTICKÝ VÝPOČET</span><h2>Hrúbka vrstvy robí najväčší rozdiel.</h2><p>Objem mulču je plocha krát hrúbka vrstvy. Pri väčšej ploche aj jeden centimeter navyše výrazne zvyšuje celkové množstvo.</p><p>Pri kôre a organickom mulči počítaj s tým, že materiál časom sadne a rozkladá sa. Preto sa môže hodiť malá rezerva na dorovnanie.</p><div class="tool-note">Kalkulačka rieši iba množstvo. Vhodná hrúbka závisí od druhu mulča, rastlín, pôdy a účelu použitia.</div></div>
+<form id="mulch-calculator" class="calculator-card">
+<span class="kicker">VÝPOČET</span><h2>Rozmery plochy</h2>
+<div class="calculator-grid">
+<label>Dĺžka (m)<input id="mulch-length" type="number" min="0.1" step="0.01" value="5" inputmode="decimal"></label>
+<label>Šírka (m)<input id="mulch-width" type="number" min="0.1" step="0.01" value="2" inputmode="decimal"></label>
+<label>Hrúbka vrstvy (cm)<input id="mulch-depth" type="number" min="0.1" step="0.5" value="5" inputmode="decimal"></label>
+<label>Rezerva (%)<input id="mulch-reserve" type="number" min="0" max="50" step="1" value="5" inputmode="numeric"></label>
+<label>Objem jedného vreca (l)<input id="mulch-bag" type="number" min="1" step="1" value="70" inputmode="numeric"></label>
+</div>
+<div class="calculator-actions"><button class="btn primary" type="submit">Prepočítať</button></div>
+<div class="calculator-result" aria-live="polite">
+<div class="result-box"><small>Plocha</small><strong id="mulch-area">10 m²</strong></div>
+<div class="result-box"><small>Čistý objem</small><strong id="mulch-volume">0,5 m³</strong></div>
+<div class="result-box"><small>Objem s rezervou</small><strong id="mulch-total">0,53 m³</strong></div>
+<div class="result-box"><small>V litroch</small><strong id="mulch-liters">525 l</strong></div>
+<div class="result-box"><small>Počet vriec</small><strong id="mulch-bags">8 ks</strong></div>
+</div>
+<p class="calculator-foot">Počet vriec sa vždy zaokrúhľuje nahor na celé balenia.</p>
+</form></section>
+<section class="container"><span class="kicker">SÚVISIACE</span><div class="utility-links"><a href="/blog/mulcovanie-zahonov-bez-zbytocnych-chyb/">Ako mulčovať bez zbytočných chýb →</a><a href="/kalkulacka-strku.html">Kalkulačka štrku →</a><a href="/pomocky.html">Všetky pomôcky →</a></div></section>
+</main>
+<footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/zahrada.html">Záhrada</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
+</body></html>
