@@ -87,3 +87,21 @@
   .contest-prize-visual.has-photo{padding:12px 12px 50px}
   .contest-prize-image{max-height:420px}
 }
+
+.contest-prize-visual.is-loading-photo .support-illustration,
+.contest-prize-visual.is-loading-photo .contest-prize-image{
+  display:none!important;
+}
+.contest-prize-visual.is-loading-photo::before{
+  content:"Načítavam fotografiu výhry…";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  color:#748176;
+  font-size:.78rem;
+  text-align:center;
+  background:linear-gradient(145deg,#eef5e8,#fffaf0);
+}
+.contest-prize-visual.is-loading-photo .contest-photo-note{opacity:0}
