@@ -15,10 +15,10 @@
   <link rel="manifest" href="admin.webmanifest?v=2">
   <title>ZÁHRADA ADMIN | Správa webu</title>
   <link rel="stylesheet" href="admin.css?v=10">
-  <link rel="stylesheet" href="bazar.css?v=1">
+  <link rel="stylesheet" href="bazar.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="admin.js?v=14" defer></script>
-  <script src="bazar.js?v=3" defer></script>
+  <script src="bazar.js?v=4" defer></script>
   <script src="admin-pwa.js?v=3" defer></script>
 </head>
 <body>
@@ -260,6 +260,11 @@
                 <option value="exchange">Vymením</option>
                 <option value="wanted">Hľadám</option>
               </select>
+              <select id="bazar-admin-seller">
+                <option value="">Všetci inzerenti</option>
+                <option value="private">Súkromné osoby</option>
+                <option value="business">Firmy / podnikatelia</option>
+              </select>
             </div>
             <div id="bazar-admin-list" class="bazar-admin-list">
               <div class="bazar-admin-empty">Bazár sa načíta po prihlásení správcu.</div>
@@ -267,7 +272,7 @@
           </div>
 
           <div class="panel" style="margin-top:18px">
-            <div class="panel-head"><h3>Nahlásenia od návštevníkov</h3><span class="muted">Firemné ponuky, spam a nevhodný obsah.</span></div>
+            <div class="panel-head"><h3>Nahlásenia od návštevníkov</h3><span class="muted">Spam, zavádzajúce ponuky, nebezpečný alebo neaktuálny obsah.</span></div>
             <div id="bazar-report-list" class="bazar-report-list">
               <div class="bazar-admin-empty">Zatiaľ bez nahlásení.</div>
             </div>
