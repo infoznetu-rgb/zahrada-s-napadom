@@ -37,6 +37,12 @@ async function loadSiteSettings(){
   const contact=map.contact||{};
   setText("#cms-contact-title",contact.title);
   setText("#cms-contact-text",contact.text);
+  const contactEmail=contact.email||"kamgardensk@gmail.com";
+  const emailLink=document.querySelector("#cms-contact-email");
+  if(emailLink){
+    emailLink.href="mailto:"+contactEmail+"?subject="+encodeURIComponent("[Záhrada s nápadom] Správa zo stránky");
+    emailLink.textContent="Napísať e-mail ↗";
+  }
 
   const social=map.social||{};
   const facebook=social.facebook||contact.facebook||"";
