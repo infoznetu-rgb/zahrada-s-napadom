@@ -170,6 +170,27 @@
     document.body.classList.remove('global-search-open');
   }
 
+  function addContestMenuLink(){
+    const end=new Date('2026-10-05T20:00:00+02:00').getTime();
+    const now=Date.now();
+    const ended=now>=end;
+    const days=ended?0:Math.max(1,Math.ceil((end-now)/86400000));
+    const label=ended?'🎁 Výhercovia':'🎁 Súťaž · '+days+'d';
+    document.querySelectorAll('.desktop-nav,.mobile-nav').forEach(nav=>{
+      let link=nav.querySelector('a[href$="sutaz.html"],a[href="/sutaz.html"]');
+      if(!link){
+        link=document.createElement('a');
+        link.href='/sutaz.html';
+        const contact=[...nav.querySelectorAll('a')].find(a=>/kontakt/i.test(a.textContent||''));
+        if(contact)nav.insertBefore(link,contact); else nav.appendChild(link);
+      }
+      link.classList.add('contest-menu-link');
+      if(location.pathname.endsWith('/sutaz.html'))link.classList.add('active-nav');
+      link.textContent=label;
+      link.title=ended?'Pozrieť výhercov súťaže':'Súťaž končí 5. 10. 2026 o 20:00';
+    });
+  }
+
   function addGlobalSearchButton(){
     const top=document.querySelector('.site-header .top');
     if(!top||top.querySelector('.site-search-trigger'))return;
@@ -747,6 +768,7 @@
   enhanceCards();
   wireAnalyticsMedia();
   addGlobalSearchButton();
+  addContestMenuLink();
 
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;updatePromoBanner()});
   window.addEventListener('appinstalled',()=>{trackEvent('app_installed',{label:'pwa'});deferredPrompt=null;document.querySelector('.app-install-prompt')?.setAttribute('hidden','');toast('Aplikácia je nainštalovaná.');updatePromoBanner()});
