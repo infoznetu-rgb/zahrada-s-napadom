@@ -471,4 +471,17 @@
   document.documentElement.classList.toggle('pwa-standalone',isStandalone());
   bottomNav();
   maybeShowPromoBanner();
+  // legacy-blog-route-guard
+  document.addEventListener('click',event=>{
+    const link=event.target.closest?.('a[href]');
+    if(!link)return;
+    let url;
+    try{url=new URL(link.getAttribute('href'),location.href)}catch(e){return}
+    if(url.origin!==location.origin)return;
+    const m=url.pathname.match(/^\/blog\/([^/]+)(?:\/index\.html)?\/?$/);
+    if(!m)return;
+    event.preventDefault();
+    location.href='/clanok-'+m[1]+'.html'+url.search+url.hash;
+  },true);
+
 })();
