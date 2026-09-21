@@ -17,14 +17,75 @@ async function loadSiteSettings(){
   const {data,error}=await cms.from("zahrada_site_settings").select("key,value");
   if(error||!data)return;
   const map=Object.fromEntries(data.map(x=>[x.key,x.value]));
+
+  const setText=(selector,value)=>{const el=document.querySelector(selector);if(el&&value)el.textContent=value};
+  const setMeta=(selector,value)=>{const el=document.querySelector(selector);if(el&&value)el.setAttribute("content",value)};
+
   const hero=map.hero||{};
-  if(hero.eyebrow&&document.querySelector("#cms-hero-eyebrow"))document.querySelector("#cms-hero-eyebrow").textContent=hero.eyebrow;
-  if(hero.title&&document.querySelector("#cms-hero-title"))document.querySelector("#cms-hero-title").textContent=hero.title;
-  if(hero.text&&document.querySelector("#cms-hero-text"))document.querySelector("#cms-hero-text").textContent=hero.text;
+  setText("#cms-hero-eyebrow",hero.eyebrow);
+  setText("#cms-hero-title",hero.title);
+  setText("#cms-hero-text",hero.text);
+
+  const sections=map.home_sections||{};
+  ["projects","blog","videos","community"].forEach(name=>{
+    const section=sections[name]||{};
+    setText("#cms-"+name+"-kicker",section.kicker);
+    setText("#cms-"+name+"-title",section.title);
+    setText("#cms-"+name+"-text",section.text);
+  });
+
   const contact=map.contact||{};
-  if(contact.title&&document.querySelector("#cms-contact-title"))document.querySelector("#cms-contact-title").textContent=contact.title;
-  if(contact.text&&document.querySelector("#cms-contact-text"))document.querySelector("#cms-contact-text").textContent=contact.text;
-  if(contact.facebook&&document.querySelector("#cms-contact-facebook"))document.querySelector("#cms-contact-facebook").href=contact.facebook;
+  setText("#cms-contact-title",contact.title);
+  setText("#cms-contact-text",contact.text);
+
+  const social=map.social||{};
+  const facebook=social.facebook||contact.facebook||"";
+  if(facebook){
+    document.querySelectorAll(".nav-facebook,.mobile-facebook,.footer-facebook-link,.facebook-page-link,#cms-contact-facebook").forEach(el=>el.href=facebook);
+    const iframe=document.querySelector(".facebook-page-iframe");
+    if(iframe)iframe.src="https://www.facebook.com/plugins/page.php?href="+encodeURIComponent(facebook)+"&width=500&height=280&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true";
+  }
+
+  const footer=map.footer||{};
+  setText("#cms-footer-text",footer.text);
+  setText("#cms-footer-copyright",footer.copyright);
+
+  const seo=map.seo||{};
+  if(seo.title){
+    document.title=seo.title;
+    setMeta('meta[property="og:title"]',seo.title);
+  }
+  if(seo.description){
+    setMeta('meta[name="description"]',seo.description);
+    setMeta('meta[property="og:description"]',seo.description);
+  }
+
+  const visible=map.visibility||{};
+  const sectionMap={
+    season:"#teraz-v-zahrade",
+    maker:".maker-home",
+    projects:"#projekty",
+    blog:"#blog-home",
+    videos:"#videa",
+    community:"#komunita",
+    facebook:"#facebook",
+    contact:"#kontakt"
+  };
+  Object.entries(sectionMap).forEach(([key,selector])=>{
+    const el=document.querySelector(selector);
+    if(el&&visible[key]===false)el.hidden=true;
+  });
+
+  const videos=Array.isArray(map.home_videos?.items)?map.home_videos.items:[];
+  const videoRoot=document.querySelector("#cms-video-grid");
+  if(videoRoot&&videos.length){
+    videoRoot.innerHTML=videos.map((v,i)=>`<article class="video-card cms-video-card">
+      <video controls preload="metadata" playsinline src="${cmsEsc(v.url||"")}" aria-label="${cmsEsc(v.title||"Video")}"></video>
+      <small class="cms-video-no">${String(i+1).padStart(2,"0")} · VIDEO</small>
+      <h3>${cmsEsc(v.title||"Video")}</h3>
+      <p>${cmsEsc(v.description||"")}</p>
+    </article>`).join("");
+  }
 }
 
 async function loadPublishedPosts(){
