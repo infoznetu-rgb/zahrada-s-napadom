@@ -130,14 +130,19 @@
         button.disabled=false;
       }
     });
-    root.addEventListener('click',event=>{
-      const reply=event.target.closest('[data-reply-name]');
-      if(!reply)return;
-      const textarea=form.elements.body;
-      const prefix='@'+reply.dataset.replyName+' ';
-      if(!textarea.value.startsWith(prefix))textarea.value=prefix+textarea.value;
-      textarea.focus();
-    });
+    if(root.dataset.commentReplyReady!=='1'){
+      root.dataset.commentReplyReady='1';
+      root.addEventListener('click',event=>{
+        const reply=event.target.closest('[data-reply-name]');
+        if(!reply)return;
+        const activeForm=root.querySelector('.comment-form');
+        const textarea=activeForm?.elements?.body;
+        if(!textarea)return;
+        const prefix='@'+reply.dataset.replyName+' ';
+        if(!textarea.value.startsWith(prefix))textarea.value=prefix+textarea.value;
+        textarea.focus();
+      });
+    }
   }
 
   async function renderThread(root,target){
