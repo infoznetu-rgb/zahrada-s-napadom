@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="zahrada.css?v=10">
   <link rel="stylesheet" href="studio-2026.css?v=1">
   <link rel="stylesheet" href="spring-2026.css?v=1">
+  <link rel="stylesheet" href="growth-2026.css?v=1">
   <link rel="stylesheet" href="typography-2026.css?v=11">
   <link rel="stylesheet" href="app.css?v=4">
   <link rel="stylesheet" href="facebook-widget.css?v=4">
@@ -26,6 +27,7 @@
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=13" defer></script>
   <script src="studio-2026.js?v=1" defer></script>
+  <script src="garden-tools.js?v=1" defer></script>
 </head>
 <body class="home-page">
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
@@ -116,14 +118,28 @@
       </aside>
     </section>
 
-    <section class="quick container" aria-label="Témy">
-      <a href="#projekty"><span>01</span><b>Záhrada</b><small>Pestovanie a úpravy</small></a>
-      <a href="#projekty"><span>02</span><b>Dielňa</b><small>Drevo, kov a výroba</small></a>
-      <a href="#projekty"><span>03</span><b>Vylepšenia</b><small>Praktické riešenia</small></a>
-      <a href="#videa"><span>04</span><b>Videá</b><small>Postupy v pohybe</small></a>
-      <a href="#komunita"><span>05</span><b>Vaše nápady</b><small>Inšpirácia od ľudí</small></a>
-      <a href="bazar.html"><span>06</span><b>Komunitný bazár</b><small>Bezplatná inzercia medzi ľuďmi</small></a>
+    <section class="quick container" aria-label="Témy a pomôcky">
+      <a href="/temy/zahrada.html"><span>01</span><b>Záhrada</b><small>Pestovanie a úpravy</small></a>
+      <a href="/temy/dielna.html"><span>02</span><b>Dielňa</b><small>Drevo, kov a výroba</small></a>
+      <a href="/temy/dom-a-zahrada.html"><span>03</span><b>Dom a záhrada</b><small>Praktické riešenia</small></a>
+      <a href="/kalendar.html"><span>04</span><b>Kalendár</b><small>Čo robiť tento mesiac</small></a>
+      <a href="/kalkulacka-vyvyseny-zahon.html"><span>05</span><b>Kalkulačka záhona</b><small>Objem zeminy a vrstiev</small></a>
+      <a href="/bazar.html"><span>06</span><b>Komunitný bazár</b><small>Bezplatná inzercia medzi ľuďmi</small></a>
     </section>
+    <section id="teraz-v-zahrade" class="section container season-now" aria-labelledby="season-title">
+      <div class="season-now-head">
+        <div><span id="season-kicker" class="kicker">TERAZ V ZÁHRADE · SEPTEMBER</span><h2 id="season-title">Čo sa oplatí spraviť práve teraz.</h2></div>
+        <div class="season-now-intro"><p id="season-intro">September je stále čas zberu, ale zároveň sa začína príprava pôdy a výsadby na ďalšiu sezónu.</p><small>Termíny sa líšia podľa polohy, nadmorskej výšky a aktuálneho počasia.</small></div>
+      </div>
+      <div id="season-cards" class="season-grid">
+        <article class="season-card"><span>01</span><h3>Zber a priebežné upratovanie</h3><p>Zbieraj dozrievajúcu úrodu a odstraňuj choré či poškodené zvyšky rastlín.</p><a href="/blog/jesenne-prace-v-zahrade-pred-zimou/">Jesenný zoznam prác →</a></article>
+        <article class="season-card"><span>02</span><h3>Ešte môžeš siať</h3><p>Podľa lokálnych podmienok sa dajú využiť voľné záhony napríklad na reďkovku, rukolu alebo špenát.</p><a href="/temy/zahrada.html">Ďalšie záhradné témy →</a></article>
+        <article class="season-card"><span>03</span><h3>Priprav pôdu</h3><p>Vyčisti uvoľnené záhony, jemne prekypri pôdu a podľa jej stavu pridaj vyzretý kompost.</p><a href="/blog/kompost-bez-zapachu-rovnovaha-materialov/">Ako pracovať s kompostom →</a></article>
+        <article class="season-card"><span>04</span><h3>Mysli na jesennú výsadbu</h3><p>Priprav miesto pre ovocné stromčeky a cesnak; konkrétny termín prispôsob teplote pôdy a počasiu.</p><a href="/blog/vysadba-ovocnych-stromov-na-jesen/">Výsadba ovocných stromov →</a></article>
+      </div>
+      <div class="season-actions"><a id="season-calendar-link" class="btn primary" href="/kalendar.html#september">Záhradný kalendár <span aria-hidden="true">↗</span></a><a class="btn ghost" href="/kalkulacka-vyvyseny-zahon.html">Kalkulačka vyvýšeného záhona</a></div>
+    </section>
+
 
     <section id="projekty" class="section container projects-section">
       <div class="section-head">
