@@ -59,6 +59,15 @@
       if(error)throw error;
       if(!data?.ok)return;
       $('#contest-entry-count').textContent=String(data.entries_count||0);
+      if(data.image_url){
+        const img=$('#contest-prize-image');
+        const visual=document.querySelector('.contest-prize-visual');
+        if(img&&visual){
+          img.src=data.image_url;
+          img.hidden=false;
+          visual.classList.add('has-photo');
+        }
+      }
       renderWinners(data.winners||[],Date.now()>=END.getTime());
     }catch(error){
       console.error(error);
