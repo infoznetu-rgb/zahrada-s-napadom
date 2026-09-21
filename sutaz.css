@@ -61,7 +61,29 @@
 @media(max-width:650px){.contest-hero{padding-top:16px}.contest-hero-copy{padding:27px 19px;border-radius:24px}.contest-countdown-card{padding:22px 16px;min-height:0}.contest-countdown strong{font-size:1.35rem}.contest-prize{padding-bottom:48px}.contest-entry-section,.contest-winners,.contest-rules-section{padding-top:52px;padding-bottom:52px}.contest-entry-layout{grid-template-columns:minmax(0,1fr)}.contest-social-card{grid-template-columns:38px 1fr}.contest-social-card a{grid-column:2}.contest-winners-box,.contest-rules-grid{grid-template-columns:1fr}.contest-prize-visual{min-height:300px}.support-illustration{transform:scale(.82)}}
 @media(prefers-reduced-motion:reduce){.contest-live-pill i{animation:none}}
 
-.contest-prize-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.contest-prize-visual.has-photo{
+  min-height:0;
+  padding:16px 16px 54px;
+  background:#fffdf7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.contest-prize-image{
+  position:relative;
+  inset:auto;
+  width:100%;
+  height:auto;
+  max-height:520px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  border-radius:18px;
+}
 .contest-prize-image[hidden]{display:none!important}
 .contest-prize-visual.has-photo .support-illustration{display:none}
-.contest-prize-visual.has-photo .contest-photo-note{background:rgba(255,253,247,.92)}
+.contest-prize-visual.has-photo .contest-photo-note{background:rgba(255,253,247,.94)}
+@media(max-width:650px){
+  .contest-prize-visual.has-photo{padding:12px 12px 50px}
+  .contest-prize-image{max-height:420px}
+}
