@@ -262,3 +262,20 @@ html.admin-standalone body{background:#edf1ec}
 @media(max-width:520px){
   .comments-admin-stats{grid-template-columns:1fr}
 }
+
+.admin-comment-author{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 12px;color:var(--muted);font-size:.75rem}
+.admin-comment-author a{color:var(--green);font-weight:800;text-decoration:none}
+.admin-comment-replies{display:grid;gap:8px;margin:12px 0;padding-left:14px;border-left:3px solid #d3e2d0}
+.admin-comment-reply{padding:12px;border:1px solid #d7e3d3;border-radius:13px;background:#f2f7ef}
+.admin-comment-reply>div{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.admin-comment-reply strong{color:var(--green2);font-size:.8rem}
+.admin-comment-reply time{color:var(--muted);font-size:.68rem}
+.admin-comment-reply p{margin:8px 0 10px;color:#405346;white-space:pre-wrap;line-height:1.5}
+.admin-comment-reply-box{display:grid;gap:9px;margin:12px 0;padding:12px;border:1px solid #cbdac8;border-radius:14px;background:#f8fbf6}
+.admin-comment-reply-box[hidden]{display:none!important}
+.admin-comment-reply-box textarea{min-height:88px}
+.admin-comment-reply-box>div{display:flex;justify-content:flex-end;gap:8px}
+@media(max-width:600px){
+  .admin-comment-reply-box>div{align-items:stretch;flex-direction:column}
+  .admin-comment-reply-box .btn,.admin-comment-reply-box .mini-btn{width:100%}
+}
