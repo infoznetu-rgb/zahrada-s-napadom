@@ -30,7 +30,7 @@
     const q='?target_type=eq.'+encodeURIComponent(type)
       +'&target_id=eq.'+encodeURIComponent(id)
       +'&status=eq.published'
-      +'&select=id,author_name,body,created_at'
+      +'&select=id,author_name,body,created_at,parent_id,is_admin'
       +'&order=created_at.asc';
     const res=await fetch(ENDPOINT+q,{headers:{apikey:KEY},cache:'no-store'});
     if(!res.ok)throw new Error('comments_'+res.status);
@@ -40,11 +40,20 @@
 
   function commentListHtml(items){
     if(!items.length)return '<div class="comments-empty">Zatiaľ bez komentárov. Môžeš byť prvý.</div>';
-    return items.map(item=>`<article class="comment-item">
-      <div class="comment-meta"><strong>${esc(item.author_name)}</strong><time>${esc(dateLabel(item.created_at))}</time></div>
-      <p>${esc(item.body).replace(/\n/g,'<br>')}</p>
-      <button type="button" class="comment-reply" data-reply-name="${esc(item.author_name)}">Odpovedať</button>
-    </article>`).join('');
+    const roots=items.filter(item=>!item.parent_id&&!item.is_admin);
+    const replies=items.filter(item=>item.parent_id);
+    return roots.map(item=>{
+      const children=replies.filter(reply=>reply.parent_id===item.id);
+      return `<article class="comment-item">
+        <div class="comment-meta"><strong>${esc(item.author_name)}</strong><time>${esc(dateLabel(item.created_at))}</time></div>
+        <p>${esc(item.body).replace(/\n/g,'<br>')}</p>
+        ${children.length?`<div class="comment-admin-replies">${children.map(reply=>`
+          <div class="comment-admin-reply">
+            <div class="comment-meta"><strong>Záhrada s nápadom <span class="comment-admin-badge">autor</span></strong><time>${esc(dateLabel(reply.created_at))}</time></div>
+            <p>${esc(reply.body).replace(/\n/g,'<br>')}</p>
+          </div>`).join('')}</div>`:''}
+      </article>`;
+    }).join('');
   }
 
   async function insertComment(target,payload){
@@ -53,21 +62,20 @@
     try{last=Number(localStorage.getItem(LAST_KEY)||0)}catch(e){}
     if(now-last<COOLDOWN)throw new Error('cooldown');
 
-    const res=await fetch(ENDPOINT,{
+    const res=await fetch(BASE+'/rest/v1/rpc/zahrada_submit_comment',{
       method:'POST',
       headers:{
         apikey:KEY,
-        'Content-Type':'application/json',
-        Prefer:'return=representation'
+        'Content-Type':'application/json'
       },
       body:JSON.stringify({
-        target_type:target.type,
-        target_id:target.id,
-        target_label:String(target.label||'').slice(0,240),
-        page_path:(location.pathname+location.search).slice(0,500),
-        author_name:payload.name.trim().slice(0,60),
-        body:payload.body.trim().slice(0,1200),
-        status:'published'
+        p_target_type:target.type,
+        p_target_id:target.id,
+        p_target_label:String(target.label||'').slice(0,240),
+        p_page_path:(location.pathname+location.search).slice(0,500),
+        p_author_name:payload.name.trim().slice(0,60),
+        p_body:payload.body.trim().slice(0,1200),
+        p_email:payload.email?.trim()||null
       })
     });
     if(!res.ok){
@@ -78,8 +86,7 @@
       localStorage.setItem(LAST_KEY,String(now));
       localStorage.setItem(NAME_KEY,payload.name.trim().slice(0,60));
     }catch(e){}
-    const data=await res.json().catch(()=>[]);
-    return Array.isArray(data)?data[0]:null;
+    return res.json().catch(()=>null);
   }
 
   function formHtml(targetId){
@@ -90,13 +97,16 @@
         <label>Meno alebo prezývka
           <input name="author" maxlength="60" required autocomplete="name" value="${esc(saved)}" placeholder="Ako ťa máme uviesť?">
         </label>
+        <label>E-mail <span class="comment-optional">(nepovinný)</span>
+          <input name="email" type="email" maxlength="254" autocomplete="email" placeholder="Ak chceš, aby som sa ti vedel ozvať">
+        </label>
         <label class="comment-body-label">Komentár
           <textarea name="body" rows="3" minlength="2" maxlength="1200" required placeholder="Čo sa ti páči? Čo by si spravil inak?"></textarea>
         </label>
       </div>
       <label class="comment-hp" aria-hidden="true">Web<input name="website" tabindex="-1" autocomplete="off"></label>
       <div class="comment-form-actions">
-        <small>Bez registrácie. Nevkladaj osobné alebo citlivé údaje.</small>
+        <small>E-mail sa nezverejňuje a nie je povinný. Odpoveď autora sa zobrazí priamo pod komentárom.</small>
         <button type="submit">Pridať komentár</button>
       </div>
       <p class="comment-form-status" role="status"></p>
@@ -112,13 +122,14 @@
       const status=form.querySelector('.comment-form-status');
       const button=form.querySelector('button[type="submit"]');
       const name=form.elements.author.value.trim();
+      const email=form.elements.email?.value.trim()||'';
       const body=form.elements.body.value.trim();
       if(form.elements.website.value)return;
       if(name.length<1||body.length<2)return;
       button.disabled=true;
       status.textContent='Odosielam…';
       try{
-        await insertComment(target,{name,body});
+        await insertComment(target,{name,email,body});
         form.elements.body.value='';
         status.textContent='Komentár bol pridaný.';
         await refresh();
@@ -130,19 +141,6 @@
         button.disabled=false;
       }
     });
-    if(root.dataset.commentReplyReady!=='1'){
-      root.dataset.commentReplyReady='1';
-      root.addEventListener('click',event=>{
-        const reply=event.target.closest('[data-reply-name]');
-        if(!reply)return;
-        const activeForm=root.querySelector('.comment-form');
-        const textarea=activeForm?.elements?.body;
-        if(!textarea)return;
-        const prefix='@'+reply.dataset.replyName+' ';
-        if(!textarea.value.startsWith(prefix))textarea.value=prefix+textarea.value;
-        textarea.focus();
-      });
-    }
   }
 
   async function renderThread(root,target){
@@ -254,13 +252,13 @@
   }
 
   function decoratePhotos(root=document){
-    root.querySelectorAll?.('.idea-gallery-card,.post-page figure,.project-page figure').forEach(decoratePhoto);
+    root.querySelectorAll?.('.idea-gallery-card').forEach(decoratePhoto);
   }
 
   const observer=new MutationObserver(records=>{
     records.forEach(record=>record.addedNodes.forEach(node=>{
       if(node.nodeType!==1)return;
-      if(node.matches?.('.idea-gallery-card,.post-page figure,.project-page figure'))decoratePhoto(node);
+      if(node.matches?.('.idea-gallery-card'))decoratePhoto(node);
       decoratePhotos(node);
     }));
   });
