@@ -14,6 +14,9 @@ let analyticsLoaded=false;
 let commentsLoaded=false;
 let comments=[];
 let commentContacts={};
+let contestLoaded=false;
+let contestRecord=null;
+let contestEntries=[];
 
 const $=(s)=>document.querySelector(s);
 const $$=(s)=>[...document.querySelectorAll(s)];
@@ -56,6 +59,7 @@ function activateView(name){
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
   if(name==="analytics"&&!analyticsLoaded)loadAnalytics();
   if(name==="comments"&&!commentsLoaded)loadComments();
+  if(name==="contest"&&!contestLoaded)loadContestAdmin();
 }
 document.addEventListener("click",(e)=>{
   const newBtn=e.target.closest("[data-new-post]");
@@ -682,6 +686,134 @@ async function deleteComment(id){
 $("#comments-search")?.addEventListener("input",renderComments);
 $("#comments-type")?.addEventListener("change",renderComments);
 $("#comments-refresh")?.addEventListener("click",()=>{commentsLoaded=false;loadComments()});
+
+async function loadContestAdmin(){
+  const box=$("#contest-admin-entries");
+  if(box)box.innerHTML='<div class="empty">Načítavam účastníkov…</div>';
+  setSave("Načítavam súťaž…");
+  const [contestRes,entriesRes]=await Promise.all([
+    db.from("zahrada_contests").select("*").eq("contest_key","opory-2026").single(),
+    db.from("zahrada_contest_entries").select("*").eq("contest_key","opory-2026").order("created_at",{ascending:false})
+  ]);
+  if(contestRes.error||entriesRes.error){
+    console.error(contestRes.error||entriesRes.error);
+    if(box)box.innerHTML='<div class="empty">Súťaž sa nepodarilo načítať.</div>';
+    setSave("Chyba súťaže");
+    return;
+  }
+  contestRecord=contestRes.data;
+  contestEntries=entriesRes.data||[];
+  contestLoaded=true;
+  renderContestAdmin();
+  setSave("Súťaž načítaná");
+}
+
+function renderContestAdmin(){
+  if(!contestRecord)return;
+  const winners=contestEntries.filter(x=>x.winner_rank).sort((a,b)=>a.winner_rank-b.winner_rank);
+  $("#contest-admin-count").textContent=String(contestEntries.length);
+  $("#contest-admin-winner-count").textContent=winners.length+" / "+String(contestRecord.winner_count||3);
+  const end=new Date(contestRecord.end_at);
+  $("#contest-admin-end").textContent=new Intl.DateTimeFormat("sk-SK",{day:"numeric",month:"numeric"}).format(end);
+
+  const photo=$("#contest-admin-photo");
+  if(photo){
+    photo.innerHTML=contestRecord.image_url
+      ? `<img src="${esc(contestRecord.image_url)}" alt="Fotografia súťažnej opory">`
+      : '<span>Zatiaľ bez fotografie</span>';
+  }
+
+  const ended=Date.now()>=end.getTime();
+  const status=$("#contest-admin-status");
+  const draw=$("#contest-draw-btn");
+  const redraw=$("#contest-redraw-btn");
+  if(contestRecord.drawn_at){
+    status.textContent="Výhercovia sú zverejnení.";
+    draw.hidden=true;
+    redraw.hidden=false;
+  }else if(ended){
+    status.textContent="Súťaž skončila – pripravené na žrebovanie.";
+    draw.hidden=false;
+    draw.disabled=false;
+    redraw.hidden=true;
+  }else{
+    const left=Math.max(1,Math.ceil((end.getTime()-Date.now())/86400000));
+    status.textContent="Súťaž prebieha · zostáva približne "+left+" dní.";
+    draw.hidden=false;
+    draw.disabled=true;
+    redraw.hidden=true;
+  }
+
+  const winBox=$("#contest-admin-winners");
+  winBox.innerHTML=winners.length
+    ? winners.map(w=>`<article><span>#${w.winner_rank}</span><div><strong>${esc(w.display_name)}</strong><a href="mailto:${esc(w.email)}">${esc(w.email)}</a><p>${esc(w.answer)}</p></div></article>`).join("")
+    : '<div class="empty compact">Výhercovia ešte neboli vyžrebovaní.</div>';
+
+  renderContestEntries();
+}
+
+function renderContestEntries(){
+  const box=$("#contest-admin-entries");
+  if(!box)return;
+  const q=($("#contest-admin-search")?.value||"").trim().toLowerCase();
+  const list=contestEntries.filter(e=>!q||[e.display_name,e.email,e.answer].some(v=>String(v||"").toLowerCase().includes(q)));
+  if(!list.length){box.innerHTML='<div class="empty">Žiadni účastníci pre tento filter.</div>';return}
+  box.innerHTML=list.map(e=>`<article class="contest-admin-entry">
+    <div class="contest-admin-entry-main">
+      <div><strong>${esc(e.display_name)}</strong>${e.winner_rank?`<span class="badge published">Výherca #${e.winner_rank}</span>`:""}</div>
+      <a href="mailto:${esc(e.email)}">${esc(e.email)}</a>
+      <p>${esc(e.answer)}</p>
+      <small>${esc(new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}).format(new Date(e.created_at)))}</small>
+    </div>
+    <button class="mini-btn danger-mini" type="button" data-contest-delete="${esc(e.id)}">Vymazať</button>
+  </article>`).join("");
+  box.querySelectorAll("[data-contest-delete]").forEach(btn=>btn.addEventListener("click",()=>deleteContestEntry(btn.dataset.contestDelete)));
+}
+
+async function deleteContestEntry(id){
+  const item=contestEntries.find(x=>x.id===id);
+  if(!item||!confirm("Naozaj chceš odstrániť túto účasť zo súťaže?"))return;
+  const {error}=await db.from("zahrada_contest_entries").delete().eq("id",id);
+  if(error){alert("Účasť sa nepodarilo vymazať: "+error.message);return}
+  contestEntries=contestEntries.filter(x=>x.id!==id);
+  renderContestAdmin();
+}
+
+async function drawContestWinners(redraw=false){
+  if(redraw&&!confirm("Naozaj chceš zrušiť aktuálnych výhercov a vyžrebovať nových?"))return;
+  if(!redraw&&!confirm("Vyžrebovať náhodne troch výhercov a ihneď ich zverejniť na stránke?"))return;
+  setSave("Žrebujem výhercov…");
+  const {data,error}=await db.rpc("zahrada_draw_contest_winners",{p_contest_key:"opory-2026",p_redraw:redraw});
+  if(error){alert("Žrebovanie sa nepodarilo: "+error.message);setSave("Chyba žrebovania");return}
+  contestLoaded=false;
+  await loadContestAdmin();
+  setSave("Výhercovia zverejnení");
+}
+
+$("#contest-draw-btn")?.addEventListener("click",()=>drawContestWinners(false));
+$("#contest-redraw-btn")?.addEventListener("click",()=>drawContestWinners(true));
+$("#contest-refresh")?.addEventListener("click",()=>{contestLoaded=false;loadContestAdmin()});
+$("#contest-admin-search")?.addEventListener("input",renderContestEntries);
+$("#contest-admin-photo-file")?.addEventListener("change",async event=>{
+  const file=event.target.files?.[0];if(!file)return;
+  const message=$("#contest-admin-photo-message");
+  message.textContent="Nahrávam fotografiu…";
+  try{
+    const url=await uploadMedia(file,"contest");
+    const {error}=await db.from("zahrada_contests").update({image_url:url}).eq("contest_key","opory-2026");
+    if(error)throw error;
+    contestRecord.image_url=url;
+    renderContestAdmin();
+    message.textContent="Fotografia bola uložená.";
+    message.className="message ok";
+  }catch(error){
+    console.error(error);
+    message.textContent="Fotografiu sa nepodarilo nahrať.";
+    message.className="message error";
+  }finally{
+    event.target.value="";
+  }
+});
 
 async function listMediaFolder(prefix,depth=0){
   const {data,error}=await db.storage.from("zahrada-media").list(prefix,{limit:100,sortBy:{column:"created_at",order:"desc"}});
