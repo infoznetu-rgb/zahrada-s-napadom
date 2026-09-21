@@ -67,6 +67,7 @@ async function loadSiteSettings(){
     projects:"#projekty",
     blog:"#blog-home",
     videos:"#videa",
+    gallery:"#idea-gallery",
     community:"#komunita",
     facebook:"#facebook",
     contact:"#kontakt"
@@ -75,6 +76,27 @@ async function loadSiteSettings(){
     const el=document.querySelector(selector);
     if(el&&visible[key]===false)el.hidden=true;
   });
+
+  const gallerySettings=map.home_gallery||{};
+  const galleryItems=Array.isArray(gallerySettings.items)?gallerySettings.items:[];
+  const gallerySection=document.querySelector("#idea-gallery");
+  const galleryRoot=document.querySelector("#cms-idea-gallery-grid");
+  setText("#cms-gallery-kicker",gallerySettings.kicker);
+  setText("#idea-gallery-title",gallerySettings.title);
+  setText("#cms-gallery-text",gallerySettings.text);
+  if(gallerySection&&galleryRoot){
+    if(galleryItems.length&&visible.gallery!==false){
+      galleryRoot.innerHTML=galleryItems.map((item,i)=>`<figure class="idea-gallery-card">
+        <a href="${cmsEsc(item.url||"")}" target="_blank" rel="noopener" aria-label="Otvoriť fotografiu ${i+1}">
+          <img src="${cmsEsc(item.url||"")}" alt="${cmsEsc(item.title||item.caption||("Fotografia "+(i+1)))}" loading="lazy" decoding="async">
+        </a>
+        ${(item.title||item.caption)?`<figcaption>${item.title?`<strong>${cmsEsc(item.title)}</strong>`:""}${item.caption?`<span>${cmsEsc(item.caption)}</span>`:""}</figcaption>`:""}
+      </figure>`).join("");
+      gallerySection.hidden=false;
+    }else{
+      gallerySection.hidden=true;
+    }
+  }
 
   const videos=Array.isArray(map.home_videos?.items)?map.home_videos.items:[];
   const videoRoot=document.querySelector("#cms-video-grid");
