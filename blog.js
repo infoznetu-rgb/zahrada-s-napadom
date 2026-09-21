@@ -35,7 +35,7 @@ function renderBlogCard(p){
   return `<article class="cms-post-card is-blog" data-blog-category="${blogEsc(p.category||"Tip")}" data-post-slug="${blogEsc(p.slug)}" data-post-type="blog">
     <a class="cms-post-image" href="${blogEsc(blogHref(p))}">
       ${p.cover_url
-        ? `<img src="${blogEsc(p.cover_url)}" alt="${blogEsc(p.title)}" loading="lazy" onerror="this.onerror=null;this.src='/assets/blog/fallback-cover.svg'">`
+        ? `<img src="${blogEsc(blogCoverUrl(p.cover_url))}" alt="${blogEsc(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/blog/fallback-cover.svg'">`
         : `<div class="cms-post-placeholder">BLOG · ${blogEsc(p.category||"Tip")}</div>`}
     </a>
     <div class="cms-post-body">
