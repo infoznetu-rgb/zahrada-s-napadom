@@ -10,6 +10,9 @@
   const historyCount=document.querySelector('#app-history-count');
   const clearSaved=document.querySelector('#clear-saved');
   const clearHistory=document.querySelector('#clear-history');
+  const appSearchForm=document.querySelector('#app-search-form');
+  const appSearchInput=document.querySelector('#app-search-input');
+
 
   function esc(value){
     return String(value??'').replace(/[&<>"']/g,c=>({
@@ -65,6 +68,12 @@
       });
     });
   }
+
+  appSearchForm?.addEventListener('submit',event=>{
+    event.preventDefault();
+    const query=appSearchInput?.value.trim()||'';
+    app.openSearch?.(query);
+  });
 
   clearSaved?.addEventListener('click',()=>{
     if(confirm('Vymazať všetky uložené články v tomto zariadení?'))app.clearSaved();
