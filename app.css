@@ -804,3 +804,24 @@
   .blog-search-box{margin-top:14px;border-radius:16px}
   .blog-search-box input{font-size:.9rem}
 }
+
+/* Active contest menu */
+.contest-menu-link{
+  position:relative;
+  border:1px solid rgba(171,128,36,.24)!important;
+  background:linear-gradient(135deg,#fff6d6,#edf5e6)!important;
+  color:#315b3e!important;
+  font-weight:900!important;
+  white-space:nowrap;
+}
+.contest-menu-link:after{
+  content:"";
+  position:absolute;
+  right:7px;top:6px;
+  width:6px;height:6px;border-radius:50%;
+  background:#d9a62d;
+  box-shadow:0 0 0 0 rgba(217,166,45,.45);
+  animation:contestMenuPulse 1.8s infinite;
+}
+@keyframes contestMenuPulse{70%{box-shadow:0 0 0 7px rgba(217,166,45,0)}100%{box-shadow:0 0 0 0 rgba(217,166,45,0)}}
+@media(prefers-reduced-motion:reduce){.contest-menu-link:after{animation:none}}
