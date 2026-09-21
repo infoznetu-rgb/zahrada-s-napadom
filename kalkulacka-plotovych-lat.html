@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kalkulačka plotových lát: dĺžka plota, šírka laty, medzera, výška, rezerva, počet lát a orientačná dĺžka priečnikov.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="theme-color" content="#5f965f">
+<link rel="canonical" href="https://zahradasnapadom.sk/kalkulacka-plotovych-lat.html"><link rel="icon" type="image/svg+xml" href="/brand-mark.svg?v=1">
+<title>Kalkulačka plotových lát a medzier | Záhrada s nápadom</title>
+<meta property="og:type" content="website"><meta property="og:locale" content="sk_SK"><meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="Kalkulačka plotových lát a medzier"><meta property="og:description" content="Odhadni počet lát na pole plota a skontroluj výslednú medzeru."><meta property="og:url" content="https://zahradasnapadom.sk/kalkulacka-plotovych-lat.html"><meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Kalkulačka plotových lát a medzier","url":"https://zahradasnapadom.sk/kalkulacka-plotovych-lat.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"sk-SK"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domov","item":"https://zahradasnapadom.sk/"},{"@type":"ListItem","position":2,"name":"Pomôcky","item":"https://zahradasnapadom.sk/pomocky.html"},{"@type":"ListItem","position":3,"name":"Plotové laty","item":"https://zahradasnapadom.sk/kalkulacka-plotovych-lat.html"}]}]}</script>
+<link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1"><link rel="stylesheet" href="/spring-2026.css?v=1"><link rel="stylesheet" href="/growth-2026.css?v=5"><link rel="stylesheet" href="/typography-2026.css?v=11"><link rel="stylesheet" href="/app.css?v=4">
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=13" defer></script><script src="/majster-tools.js?v=5" defer></script>
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="site-header"><div class="top container"><a class="brand" href="/" aria-label="Záhrada s nápadom domov"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/temy/zahrada.html">Záhrada</a><a href="/temy/dielna.html">Dielňa</a><a href="/pomocky.html">Pomôcky</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/temy/zahrada.html">Záhrada</a><a href="/temy/dielna.html">Dielňa</a><a href="/pomocky.html">Pomôcky</a></nav></header>
+<main id="obsah">
+<section class="container utility-hero"><a class="utility-back" href="/pomocky.html">← Všetky pomôcky</a><span class="kicker">DIELŇA · ZÁHRADA · PLOT</span><h1>Koľko plotových lát potrebuješ?</h1><p>Zadaj čistú dĺžku poľa plota, šírku jednej laty a želanú medzeru. Kalkulačka navrhne počet lát, vypočíta rovnomernú medzeru a pridá rezervu na nákup.</p></section>
+<section class="container tool-shell">
+<div class="tool-copy"><span class="kicker">ROVNOMERNÉ ROZLOŽENIE</span><h2>Najprv počet, potom presná medzera.</h2><p>Kalkulačka počíta s rovnakou šírkou všetkých lát a s tým, že prvá a posledná lata ležia na okrajoch zadaného poľa. Z dostupnej dĺžky preto po určení počtu rozdelí zvyšok rovnomerne medzi medzery.</p><p>Rezerva navyšuje iba počet kusov na nákup. Samotné rozloženie plota sa počíta z čistého počtu lát.</p><div class="tool-note">Pri reálnom plote zohľadni stĺpiky, dilatáciu materiálu, krivosť dreva, povrchovú úpravu a konštrukčný návrh. Táto kalkulačka rieši iba rozloženie lát v poli.</div></div>
+<form id="fence-calculator" class="calculator-card">
+<span class="kicker">VÝPOČET</span><h2>Dĺžka, lata a medzera</h2>
+<div class="calculator-grid">
+<label>Dĺžka poľa plota (m)<input id="fence-length" type="number" min="0.1" step="0.01" value="5" inputmode="decimal"></label>
+<label>Šírka laty (mm)<input id="fence-slat-width" type="number" min="1" step="1" value="90" inputmode="numeric"></label>
+<label>Želaná medzera (mm)<input id="fence-gap" type="number" min="0" step="1" value="20" inputmode="numeric"></label>
+<label>Výška jednej laty (m)<input id="fence-slat-height" type="number" min="0.1" step="0.01" value="1.5" inputmode="decimal"></label>
+<label>Počet priečnikov<input id="fence-rails" type="number" min="0" step="1" value="2" inputmode="numeric"></label>
+<label>Rezerva lát (%)<input id="fence-reserve" type="number" min="0" max="50" step="1" value="10" inputmode="numeric"></label>
+</div>
+<div class="calculator-actions"><button class="btn primary" type="submit">Prepočítať</button></div>
+<div class="calculator-result" aria-live="polite">
+<div class="result-box"><small>Laty v poli</small><strong id="fence-slats">45 ks</strong></div>
+<div class="result-box"><small>Odporúčaný nákup s rezervou</small><strong id="fence-buy">50 ks</strong></div>
+<div class="result-box"><small>Rovnomerná medzera</small><strong id="fence-gap-actual">21,6 mm</strong></div>
+<div class="result-box"><small>Bežné metre lát</small><strong id="fence-slat-meters">67,5 m</strong></div>
+<div class="result-box"><small>Priečniky spolu</small><strong id="fence-rail-meters">10 m</strong></div>
+</div>
+</form></section>
+<section class="container tool-section"><div class="section-head"><div><span class="kicker">ČASTÉ OTÁZKY</span><h2>Čo kalkulačka predpokladá?</h2></div></div><div class="faq-stack">
+<details open><summary>Prečo sa výsledná medzera môže mierne líšiť?</summary><p>Počet lát musí byť celé číslo. Kalkulačka preto zvolí počet blízky zadanej medzere a zostávajúci priestor rozdelí rovnomerne medzi všetky medzery.</p></details>
+<details><summary>Počíta sa medzera aj pri krajoch?</summary><p>Nie. Model predpokladá, že prvá a posledná lata definujú kraj poľa a medzery sú iba medzi latami. Ak chceš bočné odsadenie, odpočítaj ho od čistej dĺžky poľa.</p></details>
+<details><summary>Na čo slúži rezerva?</summary><p>Na chybný rez, poškodený alebo krivý kus a triedenie dreva. Percento si uprav podľa kvality materiálu a zložitosti projektu.</p></details>
+<details><summary>Počíta kalkulačka aj stĺpiky?</summary><p>Nie. Stĺpiky a ich rozstup závisia od konštrukcie, zaťaženia vetrom, materiálu a spôsobu kotvenia.</p></details>
+</div></section>
+<section class="container"><span class="kicker">SÚVISIACE</span><div class="utility-links"><a href="/kalkulacka-lazury.html">Koľko lazúry →</a><a href="/projektovy-planovac.html">Projektový plánovač →</a><a href="/pomocky.html">Všetky pomôcky →</a></div></section>
+</main>
+<footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/dielna.html">Dielňa</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
+</body></html>
