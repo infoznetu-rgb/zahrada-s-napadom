@@ -13,6 +13,7 @@ let mediaLoaded=false;
 let analyticsLoaded=false;
 let commentsLoaded=false;
 let comments=[];
+let commentContacts={};
 
 const $=(s)=>document.querySelector(s);
 const $$=(s)=>[...document.querySelectorAll(s)];
@@ -539,17 +540,18 @@ async function loadComments(){
   const box=$("#comments-admin-list");
   if(box)box.innerHTML='<div class="empty">Načítavam komentáre…</div>';
   setSave("Načítavam komentáre…");
-  const {data,error}=await db.from("zahrada_comments")
-    .select("*")
-    .order("created_at",{ascending:false})
-    .limit(500);
-  if(error){
-    console.error(error);
+  const [commentsRes,contactsRes]=await Promise.all([
+    db.from("zahrada_comments").select("*").order("created_at",{ascending:false}).limit(500),
+    db.from("zahrada_comment_contacts").select("comment_id,email")
+  ]);
+  if(commentsRes.error){
+    console.error(commentsRes.error);
     if(box)box.innerHTML='<div class="empty">Komentáre sa nepodarilo načítať.</div>';
     setSave("Chyba komentárov");
     return;
   }
-  comments=data||[];
+  comments=commentsRes.data||[];
+  commentContacts=Object.fromEntries((contactsRes.data||[]).map(x=>[x.comment_id,x.email]));
   commentsLoaded=true;
   renderComments();
   setSave("Komentáre načítané");
@@ -560,15 +562,16 @@ function renderComments(){
   if(!box)return;
   const q=($("#comments-search")?.value||"").trim().toLowerCase();
   const type=$("#comments-type")?.value||"";
+  const roots=comments.filter(x=>!x.parent_id&&!x.is_admin);
 
-  $("#comments-stat-all").textContent=String(comments.length);
-  $("#comments-stat-posts").textContent=String(comments.filter(x=>x.target_type==="post").length);
-  $("#comments-stat-photos").textContent=String(comments.filter(x=>x.target_type==="photo").length);
+  $("#comments-stat-all").textContent=String(roots.length);
+  $("#comments-stat-posts").textContent=String(roots.filter(x=>x.target_type==="post").length);
+  $("#comments-stat-photos").textContent=String(roots.filter(x=>x.target_type==="photo").length);
 
-  const filtered=comments.filter(item=>{
+  const filtered=roots.filter(item=>{
     if(type&&item.target_type!==type)return false;
     if(!q)return true;
-    return [item.author_name,item.body,item.target_label,item.page_path].some(v=>String(v||"").toLowerCase().includes(q));
+    return [item.author_name,item.body,item.target_label,item.page_path,commentContacts[item.id]].some(v=>String(v||"").toLowerCase().includes(q));
   });
 
   if(!filtered.length){
@@ -576,25 +579,87 @@ function renderComments(){
     return;
   }
 
-  box.innerHTML=filtered.map(item=>`<article class="admin-comment-card" data-comment-id="${esc(item.id)}">
-    <div class="admin-comment-top">
-      <div>
-        <span class="badge ${item.target_type==="photo"?"draft":"published"}">${item.target_type==="photo"?"Fotografia":"Článok / projekt"}</span>
-        <strong>${esc(item.target_label||item.target_id||"Komentár")}</strong>
+  box.innerHTML=filtered.map(item=>{
+    const replies=comments.filter(x=>x.parent_id===item.id&&x.is_admin);
+    const email=commentContacts[item.id]||"";
+    return `<article class="admin-comment-card" data-comment-id="${esc(item.id)}">
+      <div class="admin-comment-top">
+        <div>
+          <span class="badge ${item.target_type==="photo"?"draft":"published"}">${item.target_type==="photo"?"Fotografia":"Článok / projekt"}</span>
+          <strong>${esc(item.target_label||item.target_id||"Komentár")}</strong>
+        </div>
+        <time>${esc(formatDate(item.created_at))}</time>
       </div>
-      <time>${esc(formatDate(item.created_at))}</time>
-    </div>
-    <p class="admin-comment-body">${esc(item.body)}</p>
-    <div class="admin-comment-foot">
-      <span>Od: <strong>${esc(item.author_name||"Návštevník")}</strong></span>
-      <div>
-        ${item.page_path?`<a class="mini-btn" href="${esc(item.page_path)}" target="_blank" rel="noopener">Otvoriť ↗</a>`:""}
-        <button class="mini-btn danger-mini" type="button" data-delete-comment="${esc(item.id)}">Vymazať</button>
+      <p class="admin-comment-body">${esc(item.body)}</p>
+      <div class="admin-comment-author">
+        <span>Od: <strong>${esc(item.author_name||"Návštevník")}</strong></span>
+        ${email?`<a href="mailto:${esc(email)}">${esc(email)}</a>`:'<small>E-mail nezadaný</small>'}
       </div>
-    </div>
-  </article>`).join("");
+      ${replies.length?`<div class="admin-comment-replies">${replies.map(reply=>`
+        <div class="admin-comment-reply">
+          <div><strong>Tvoja odpoveď</strong><time>${esc(formatDate(reply.created_at))}</time></div>
+          <p>${esc(reply.body)}</p>
+          <button class="mini-btn danger-mini" type="button" data-delete-comment="${esc(reply.id)}">Vymazať odpoveď</button>
+        </div>`).join("")}</div>`:""}
+      <div class="admin-comment-reply-box" hidden>
+        <textarea rows="3" maxlength="1200" placeholder="Napíš odpoveď návštevníkovi…"></textarea>
+        <div><button class="mini-btn" type="button" data-cancel-reply>Zrušiť</button><button class="btn primary" type="button" data-send-reply>Odoslať odpoveď</button></div>
+      </div>
+      <div class="admin-comment-foot">
+        <span>${item.page_path?esc(item.page_path):""}</span>
+        <div>
+          <button class="mini-btn" type="button" data-reply-comment>Odpovedať</button>
+          ${item.page_path?`<a class="mini-btn" href="${esc(item.page_path)}" target="_blank" rel="noopener">Otvoriť ↗</a>`:""}
+          <button class="mini-btn danger-mini" type="button" data-delete-comment="${esc(item.id)}">Vymazať</button>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
 
   box.querySelectorAll("[data-delete-comment]").forEach(btn=>btn.addEventListener("click",()=>deleteComment(btn.dataset.deleteComment)));
+  box.querySelectorAll("[data-reply-comment]").forEach(btn=>btn.addEventListener("click",()=>{
+    const card=btn.closest(".admin-comment-card");
+    const replyBox=card?.querySelector(".admin-comment-reply-box");
+    if(replyBox){replyBox.hidden=false;replyBox.querySelector("textarea")?.focus()}
+  }));
+  box.querySelectorAll("[data-cancel-reply]").forEach(btn=>btn.addEventListener("click",()=>{
+    const replyBox=btn.closest(".admin-comment-reply-box");
+    if(replyBox){replyBox.hidden=true;replyBox.querySelector("textarea").value=""}
+  }));
+  box.querySelectorAll("[data-send-reply]").forEach(btn=>btn.addEventListener("click",async()=>{
+    const card=btn.closest(".admin-comment-card");
+    const id=card?.dataset.commentId;
+    const textarea=card?.querySelector(".admin-comment-reply-box textarea");
+    const body=textarea?.value.trim()||"";
+    if(!id||body.length<2)return;
+    await sendCommentReply(id,body);
+  }));
+}
+
+async function sendCommentReply(parentId,body){
+  const parent=comments.find(x=>x.id===parentId);
+  if(!parent)return;
+  setSave("Odosielam odpoveď…");
+  const row={
+    target_type:parent.target_type,
+    target_id:parent.target_id,
+    target_label:parent.target_label||"",
+    page_path:parent.page_path||"",
+    author_name:"Záhrada s nápadom",
+    body:body.slice(0,1200),
+    status:"published",
+    parent_id:parent.id,
+    is_admin:true
+  };
+  const {data,error}=await db.from("zahrada_comments").insert(row).select("*").single();
+  if(error){
+    alert("Odpoveď sa nepodarilo odoslať: "+error.message);
+    setSave("Chyba");
+    return;
+  }
+  comments.unshift(data);
+  renderComments();
+  setSave("Odpoveď zverejnená");
 }
 
 async function deleteComment(id){
