@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kalkulačka ceny výrobku pre hobby tvorcov a domácich majstrov: materiál, práca, balenie, doprava, ostatné náklady, orientačná predajná cena a porovnanie podobných cien na internete.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="theme-color" content="#5f965f">
+<link rel="canonical" href="https://zahradasnapadom.sk/kalkulacka-ceny-vyrobku.html"><link rel="icon" type="image/svg+xml" href="/brand-mark.svg?v=1">
+<title>Kalkulačka ceny výrobku | Materiál, práca a trhové porovnanie</title>
+<meta property="og:type" content="website"><meta property="og:locale" content="sk_SK"><meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="Kalkulačka ceny výrobku"><meta property="og:description" content="Spočítaj materiál, svoju prácu, balenie a dopravu. Potom si orientačne porovnaj ceny podobných výrobkov na internete."><meta property="og:url" content="https://zahradasnapadom.sk/kalkulacka-ceny-vyrobku.html"><meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Kalkulačka ceny výrobku","url":"https://zahradasnapadom.sk/kalkulacka-ceny-vyrobku.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"sk-SK"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domov","item":"https://zahradasnapadom.sk/"},{"@type":"ListItem","position":2,"name":"Pomôcky","item":"https://zahradasnapadom.sk/pomocky.html"},{"@type":"ListItem","position":3,"name":"Kalkulačka ceny výrobku","item":"https://zahradasnapadom.sk/kalkulacka-ceny-vyrobku.html"}]}]}</script>
+<link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1"><link rel="stylesheet" href="/spring-2026.css?v=1"><link rel="stylesheet" href="/growth-2026.css?v=5"><link rel="stylesheet" href="/typography-2026.css?v=11"><link rel="stylesheet" href="/app.css?v=6">
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=13" defer></script><script src="/cena-vyrobku.js?v=1" defer></script>
+<style>
+.price-page{--pc-green:#315b3e;--pc-soft:#eef4e7;--pc-card:#fffdf7;--pc-line:rgba(43,75,56,.14)}
+.price-intro-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:18px;align-items:stretch;margin-bottom:34px}
+.price-simple-note{padding:22px;border-radius:25px;background:#e8f1df;border:1px solid var(--pc-line)}
+.price-simple-note strong{display:block;font-family:Georgia,serif;font-size:1.35rem;color:#294b38;margin-bottom:7px}.price-simple-note p{margin:0;color:#58705f;line-height:1.6}
+.price-shell{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:18px;align-items:start}
+.price-card{background:var(--pc-card);border:1px solid var(--pc-line);border-radius:28px;padding:22px;box-shadow:0 12px 34px rgba(43,75,56,.05)}
+.price-step{display:flex;gap:13px;align-items:flex-start;margin-bottom:18px}.price-step-no{display:grid;place-items:center;flex:0 0 auto;width:42px;height:42px;border-radius:14px;background:#dcebd2;color:#315b3e;font-weight:900}.price-step h2{margin:0 0 4px;font-family:Georgia,serif;color:#294b38;font-size:1.55rem}.price-step p{margin:0;color:#6a7d70;font-size:.85rem;line-height:1.5}
+.price-product-name{display:block;margin-bottom:16px}.price-product-name span,.price-field span{display:block;margin-bottom:6px;color:#405f4b;font-size:.8rem;font-weight:850}.price-product-name input,.price-field input,.price-field select,.material-row input{width:100%;box-sizing:border-box;min-height:46px;border:1px solid rgba(43,75,56,.18);border-radius:13px;background:#fff;color:#294b38;padding:10px 12px;font:inherit;font-size:1rem}
+.material-list{display:grid;gap:9px}.material-row{display:grid;grid-template-columns:minmax(0,1.8fr) 88px 116px 96px 42px;gap:8px;align-items:center}.material-row .material-total{font-weight:900;color:#315b3e;text-align:right}.material-remove{width:40px;height:40px;border-radius:50%;border:1px solid var(--pc-line);background:#f4f5ed;color:#6d796f;font-size:1.1rem;cursor:pointer}.material-head{display:grid;grid-template-columns:minmax(0,1.8fr) 88px 116px 96px 42px;gap:8px;margin-bottom:6px;color:#718176;font-size:.68rem;font-weight:850;text-transform:uppercase;letter-spacing:.04em}.price-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.price-field small{display:block;margin-top:5px;color:#7b887f;font-size:.72rem;line-height:1.35}
+.price-subtotal{margin-top:16px;padding:14px 16px;border-radius:18px;background:#f1f5eb;display:flex;align-items:center;justify-content:space-between;gap:14px}.price-subtotal span{color:#607466;font-size:.8rem}.price-subtotal strong{font-size:1.3rem;color:#294b38}
+.price-advanced{margin-top:16px;border:1px solid var(--pc-line);border-radius:18px;overflow:hidden}.price-advanced summary{padding:14px 16px;cursor:pointer;font-weight:850;color:#315b3e;background:#f5f6ef}.price-advanced>div{padding:15px}
+.price-result-card{position:sticky;top:90px}.price-result-hero{padding:22px;border-radius:24px;background:linear-gradient(145deg,#315b3e,#244731);color:#fff}.price-result-hero small{display:block;font-size:.74rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.78}.price-result-hero strong{display:block;margin-top:7px;font-family:Georgia,serif;font-size:clamp(2.7rem,6vw,4.5rem);line-height:.95}.price-result-hero p{margin:10px 0 0;font-size:.82rem;line-height:1.5;opacity:.86}
+.price-breakdown{display:grid;gap:8px;margin-top:14px}.price-breakdown div{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:16px;background:#f5f6ef}.price-breakdown span{color:#66786c;font-size:.8rem}.price-breakdown strong{color:#294b38}
+.price-result-secondary{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}.price-result-secondary div{padding:14px;border:1px solid var(--pc-line);border-radius:17px;background:#fff}.price-result-secondary small{display:block;color:#728178;font-size:.7rem}.price-result-secondary strong{display:block;margin-top:5px;color:#315b3e;font-size:1.25rem}
+.price-warning{margin-top:12px;padding:12px 14px;border-radius:16px;background:#fff3d8;color:#725b22;font-size:.78rem;line-height:1.5}
+.market-section{margin-top:42px}.market-shell{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:18px;align-items:start}.market-search-card{padding:22px;border-radius:27px;background:#e8f1df;border:1px solid var(--pc-line)}.market-search-card h2{margin:6px 0 8px;font-family:Georgia,serif;color:#294b38}.market-search-card p{color:#5e7464;line-height:1.55}.market-search-card input{width:100%;min-height:48px;box-sizing:border-box;border:1px solid rgba(43,75,56,.2);border-radius:14px;padding:10px 12px;background:#fff;font:inherit;font-size:1rem}.market-help{margin-top:10px;font-size:.74rem!important;color:#738077!important}
+.market-results{min-height:180px}.market-empty{padding:26px;border:1px dashed rgba(43,75,56,.22);border-radius:24px;color:#66796c;background:rgba(255,253,247,.6)}.market-empty strong{display:block;color:#294b38;margin-bottom:5px}.market-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px}.market-stats div{padding:14px;border-radius:18px;background:#fffdf7;border:1px solid var(--pc-line)}.market-stats small{display:block;color:#75847a;font-size:.68rem;text-transform:uppercase;font-weight:850}.market-stats strong{display:block;margin-top:4px;color:#294b38;font-size:1.3rem}.market-compare-note{margin-bottom:12px;padding:13px 15px;border-radius:16px;background:#eef4e7;color:#405f4b;font-size:.82rem;line-height:1.5}
+.market-list{display:grid;gap:9px}.market-item{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:11px;align-items:start;padding:14px;border:1px solid var(--pc-line);border-radius:18px;background:#fffdf7}.market-item input{margin-top:5px;width:18px;height:18px}.market-item h3{margin:0;font-size:.95rem;line-height:1.25}.market-item h3 a{color:#294b38;text-decoration:none}.market-item p{margin:5px 0 0;color:#748078;font-size:.74rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.market-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}.market-meta span{padding:4px 7px;border-radius:999px;background:#f0f3ea;color:#62766a;font-size:.66rem;font-weight:800}.market-price{white-space:nowrap;color:#315b3e;font-size:1.15rem;font-weight:900}.market-status{margin-top:10px;color:#6f7f75;font-size:.76rem;line-height:1.45}.price-faq{margin-top:42px}
+@media(max-width:900px){.price-shell,.market-shell,.price-intro-grid{grid-template-columns:1fr}.price-result-card{position:static}.material-row,.material-head{grid-template-columns:minmax(0,1.4fr) 75px 100px 84px 40px}}
+@media(max-width:620px){.price-card{padding:16px;border-radius:23px}.price-grid{grid-template-columns:1fr}.material-head{display:none}.material-row{grid-template-columns:minmax(0,1fr) 78px 40px;padding:10px;border:1px solid var(--pc-line);border-radius:16px;background:#fafaf4}.material-row input:first-child{grid-column:1/-1}.material-row .material-price{grid-column:1}.material-row .material-total{grid-column:2;text-align:center}.material-row .material-remove{grid-column:3;grid-row:2}.market-stats{grid-template-columns:1fr 1fr}.market-stats div:nth-child(2){grid-column:1/-1;grid-row:1}.market-item{grid-template-columns:24px minmax(0,1fr)}.market-price{grid-column:2;margin-top:3px}.price-result-secondary{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="price-page">
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="site-header"><div class="top container"><a class="brand" href="/" aria-label="Záhrada s nápadom domov"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/temy/dielna.html">Dielňa</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/temy/dielna.html">Dielňa</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav></header>
+
+<main id="obsah">
+<section class="container utility-hero"><a class="utility-back" href="/pomocky.html">← Všetky pomôcky</a><span class="kicker">DIELŇA · CENA VÝROBKU</span><h1>Koľko si pýtať za výrobok, aby si nerobil zadarmo?</h1><p>Zapíš materiál, čas, balenie, dopravu a drobné náklady. Kalkulačka ti ukáže, koľko ťa výrobok reálne stojí, a navrhne orientačnú cenu. Potom si ju môžeš porovnať s podobnými ponukami na internete.</p></section>
+
+<section class="container price-intro-grid">
+<div class="price-simple-note"><strong>Jednoduché pravidlo</strong><p>Najprv zaplať materiál a všetky výdavky. Potom započítaj svoju prácu. Až na konci pridaj rezervu, aby ti pri nečakanej drobnosti nezmizol celý zárobok.</p></div>
+<div class="price-simple-note"><strong>Nie je to cenník ani znalecký posudok</strong><p>Výsledok je pomôcka pre vlastný odhad. Dane, odvody alebo DPH kalkulačka automaticky nerieši. Ak ich potrebuješ zohľadniť, zapíš ich medzi ostatné náklady.</p></div>
+</section>
+
+<section class="container price-shell">
+<div>
+  <div class="price-card">
+    <div class="price-step"><span class="price-step-no">1</span><div><h2>Čo si na výrobok minul?</h2><p>Pridaj každý materiál zvlášť. Množstvo × cena za jednotku sa spočíta samo.</p></div></div>
+    <label class="price-product-name"><span>Názov výrobku</span><input id="price-product-name" type="text" maxlength="120" placeholder="Napr. kovová hojdacia lavička 150 cm"></label>
+    <div class="material-head"><span>Materiál</span><span>Množstvo</span><span>€/jednotka</span><span>Spolu</span><span></span></div>
+    <div id="material-list" class="material-list"></div>
+    <div class="price-actions"><button id="material-add" class="btn ghost" type="button">+ Pridať materiál</button></div>
+    <div class="price-subtotal"><span>Materiál spolu</span><strong id="material-sum">0 €</strong></div>
+  </div>
+
+  <div class="price-card" style="margin-top:14px">
+    <div class="price-step"><span class="price-step-no">2</span><div><h2>Koľko stojí tvoj čas?</h2><p>Hodiny si započítaj aj vtedy, keď to vyrábaš doma. Inak kalkulačka ukáže iba cenu materiálu.</p></div></div>
+    <div class="price-grid">
+      <label class="price-field"><span>Odpracované hodiny</span><input id="work-hours" type="number" min="0" max="10000" step="0.25" inputmode="decimal" placeholder="napr. 6"></label>
+      <label class="price-field"><span>Koľko si rátaš za hodinu (€)</span><input id="hour-rate" type="number" min="0" max="10000" step="0.50" inputmode="decimal" placeholder="napr. 12"><small>Je to hodnota tvojej práce, nie povinná trhová sadzba.</small></label>
+    </div>
+    <div class="price-subtotal"><span>Tvoja práca spolu</span><strong id="labor-sum">0 €</strong></div>
+  </div>
+
+  <div class="price-card" style="margin-top:14px">
+    <div class="price-step"><span class="price-step-no">3</span><div><h2>Balenie, doprava a drobnosti</h2><p>Sem patria peniaze, ktoré ľahko zabudneš: krabica, fólia, cesta, brúsny papier, elektródy alebo elektrina.</p></div></div>
+    <div class="price-grid">
+      <label class="price-field"><span>Balenie (€)</span><input id="cost-packaging" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+      <label class="price-field"><span>Doprava, ktorú platíš ty (€)</span><input id="cost-shipping" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+      <label class="price-field"><span>Spotrebný materiál / energia (€)</span><input id="cost-overhead" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+      <label class="price-field"><span>Iné náklady (€)</span><input id="cost-other" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
+    </div>
+
+    <details class="price-advanced">
+      <summary>Rozšírené nastavenia ceny</summary>
+      <div class="price-grid">
+        <label class="price-field"><span>Rezerva na odpad materiálu (%)</span><input id="material-reserve" type="number" min="0" max="100" step="1" value="10"><small>Priráta sa iba k materiálu. Napr. odrezky, poškodený kus alebo zvyšok farby.</small></label>
+        <label class="price-field"><span>Rezerva / prirážka nad náklady (%)</span><input id="profit-markup" type="number" min="0" max="500" step="1" value="15"><small>Prednastavených 15 % je iba pracovný príklad. Zmeň si ho podľa seba.</small></label>
+        <label class="price-field"><span>Poplatok za predaj alebo platbu (%)</span><input id="sale-fee" type="number" min="0" max="80" step="0.1" value="0"><small>Ak si platforma alebo platba strhne percentá z predajnej ceny.</small></label>
+      </div>
+    </details>
+  </div>
+</div>
+
+<aside class="price-card price-result-card" aria-live="polite">
+  <span class="kicker">VÝSLEDOK</span>
+  <div class="price-result-hero">
+    <small>Orientačná predajná cena</small>
+    <strong id="price-recommended">0 €</strong>
+    <p id="price-result-copy">Vyplň materiál a čas. Výsledok sa prepočítava automaticky.</p>
+  </div>
+  <div class="price-breakdown">
+    <div><span>Materiál s rezervou</span><strong id="result-material">0 €</strong></div>
+    <div><span>Tvoja práca</span><strong id="result-labor">0 €</strong></div>
+    <div><span>Balenie + doprava + ostatné</span><strong id="result-other">0 €</strong></div>
+    <div><span>Základ výrobku</span><strong id="result-base">0 €</strong></div>
+  </div>
+  <div class="price-result-secondary">
+    <div><small>Peniaze z vrecka</small><strong id="result-cash">0 €</strong></div>
+    <div><small>Cena s väčšou rezervou</small><strong id="result-safe">0 €</strong></div>
+  </div>
+  <div id="price-warning" class="price-warning">Ak necháš hodinovú sadzbu na 0 €, tvoja práca nebude v cene započítaná.</div>
+  <div class="price-actions">
+    <button id="price-copy" class="btn primary" type="button">Kopírovať prehľad</button>
+    <button id="price-reset" class="btn ghost" type="button">Začať znova</button>
+  </div>
+  <p id="price-save-status" class="calculator-foot">Posledná kalkulácia sa ukladá iba v tomto zariadení.</p>
+</aside>
+</section>
+
+<section class="container market-section" aria-labelledby="market-title">
+  <div class="section-head"><div><span class="kicker">ORIENTÁCIA NA TRHU</span><h2 id="market-title">Za koľko sa predávajú podobné výrobky?</h2></div></div>
+  <div class="market-shell">
+    <div class="market-search-card">
+      <span class="kicker">4. KROK</span><h2>Porovnaj sa s internetom</h2>
+      <p>Napíš čo najpresnejší názov. Pomôžu rozmery, materiál alebo použitie — napríklad „kovová hojdacia lavička 150 cm“ namiesto iba „lavička“.</p>
+      <label class="price-field"><span>Čo mám hľadať?</span><input id="market-query" type="text" maxlength="120" placeholder="Názov podobného výrobku"></label>
+      <div class="price-actions"><button id="market-search" class="btn primary" type="button">Nájsť podobné ceny</button></div>
+      <p class="market-help">Vyhľadávanie je orientačné. Výrobky sa môžu líšiť rozmerom, materiálom, kvalitou aj dopravou. Vždy otvor zdroj a cenu si over.</p>
+    </div>
+    <div id="market-results" class="market-results">
+      <div class="market-empty"><strong>Zatiaľ nič nehľadám.</strong><span>Najprv si spočítaj vlastnú cenu a potom vyhľadaj podobný výrobok.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="container tool-section price-faq"><div class="section-head"><div><span class="kicker">ABY TO BOLO JASNÉ</span><h2>Čo znamenajú jednotlivé čísla?</h2></div></div><div class="faq-stack">
+<details open><summary>Čo je „základ výrobku“?</summary><p>Materiál vrátane zvolenej rezervy, tvoja práca, balenie, doprava a ostatné náklady. Je to suma, pri ktorej už počítaš aj hodnotu svojho času.</p></details>
+<details><summary>Prečo je navrhovaná cena vyššia?</summary><p>K základnej sume sa pridá tebou zvolená rezerva alebo prirážka. Ak zadáš poplatok za predaj, kalkulačka cenu dopočíta tak, aby tento poplatok nezjedol plánovanú sumu.</p></details>
+<details><summary>Je internetové porovnanie presný cenník?</summary><p>Nie. Zachytáva verejne dostupné ceny z výsledkov vyhľadávania a podobnosť podľa slov v názve a popise. Preto môžeš každý nesúvisiaci výsledok odškrtnúť. Rozhodujúce je vždy otvorenie konkrétnej ponuky.</p></details>
+<details><summary>Počíta kalkulačka dane alebo odvody?</summary><p>Nie. Je to praktická hobby pomôcka na náklady a orientačnú cenu, nie účtovné alebo daňové poradenstvo.</p></details>
+</div></section>
+
+<section class="container"><span class="kicker">SÚVISIACE POMÔCKY</span><div class="utility-links"><a href="/projektovy-planovac.html">Projektový plánovač →</a><a href="/rezaci-plan-dreva.html">Rezací plán dreva →</a><a href="/prevodnik-jednotiek.html">Prevodník jednotiek →</a></div></section>
+</main>
+<footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/dielna.html">Dielňa</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
+</body></html>
