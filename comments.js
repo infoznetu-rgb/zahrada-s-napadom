@@ -151,7 +151,7 @@
     try{
       const items=await fetchComments(target.type,target.id);
       list.innerHTML=commentListHtml(items);
-      if(count)count.textContent=String(items.length);
+      if(count)count.textContent=String(items.filter(item=>!item.parent_id&&!item.is_admin).length);
     }catch(e){
       list.innerHTML='<div class="comments-empty">Komentáre sa momentálne nepodarilo načítať.</div>';
     }
