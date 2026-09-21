@@ -2,6 +2,13 @@ const CMS_URL="https://bkyappgttwjxakkwycub.supabase.co";
 const CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
 const cms=window.supabase.createClient(CMS_URL,CMS_KEY);
 
+function cmsCoverUrl(value){
+  const url=String(value||"");
+  return /^\/assets\/blog\/(?:0[1-9]|[12][0-9]|3[0-9]|40)-.*\.svg$/i.test(url)
+    ? url.replace(/\.svg$/i,".webp")
+    : url;
+}
+
 function cmsHref(p){return window.ZahradaSEO?.postHref?.(p)||("prispevok.html?slug="+encodeURIComponent(p.slug))}
 
 function cmsEsc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
@@ -38,7 +45,7 @@ async function loadPublishedPosts(){
 
   const renderCard=(p)=>`<article class="cms-post-card ${p.content_type==="blog"?"is-blog":"is-project"}" data-post-slug="${cmsEsc(p.slug)}" data-post-type="${p.content_type==="blog"?"blog":"project"}">
     <a class="cms-post-image" href="${cmsEsc(cmsHref(p))}">
-      ${p.cover_url?`<img src="${cmsEsc(p.cover_url)}" alt="${cmsEsc(p.title)}" loading="lazy" onerror="this.onerror=null;this.src='/assets/blog/fallback-cover.svg'">`:'<div class="cms-post-placeholder">Záhrada s nápadom</div>'}
+      ${p.cover_url?`<img src="${cmsEsc(cmsCoverUrl(p.cover_url))}" alt="${cmsEsc(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/blog/fallback-cover.svg'">`:'<div class="cms-post-placeholder">Záhrada s nápadom</div>'}
     </a>
     <div class="cms-post-body">
       <span class="tag">${p.content_type==="blog"?"BLOG · ":""}${cmsEsc(p.category||"Nápad")}</span>
