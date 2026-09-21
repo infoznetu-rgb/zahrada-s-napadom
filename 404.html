@@ -6,15 +6,9 @@
 <script>
 (function(){
   var p=location.pathname.replace(/\/+/g,'/');
-  var blog=p.match(/^\/blog\/([^/]+)\/?$/);
-  if(blog){
-    location.replace('https://zahradasnapadom.sk/blog/'+blog[1]+'/index.html');
-    return;
-  }
-  if(/^\/assets\/blog\//.test(p)){
-    location.replace('https://zahradasnapadom.sk/assets/blog/fallback-cover.svg');
-    return;
-  }
+  var blog=p.match(/^\/blog\/([^/]+)(?:\/.*)?$/);
+  if(blog){ location.replace('/clanok-'+blog[1]+'.html'); return; }
+  if(/^\/assets\/blog\//.test(p)){ location.replace('/assets/blog/fallback-cover.svg'); return; }
 })();
 </script>
 </head><body><main class="box"><h1>Stránka sa nenašla</h1><p>Skús sa vrátiť na blog alebo na domovskú stránku.</p><p><a href="/blog.html">Prejsť na blog</a> · <a href="/">Domov</a></p></main></body></html>
