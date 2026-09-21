@@ -9,16 +9,19 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect public reader output
+      - name: Inspect Bing search HTML
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --silent --show-error             'https://r.jina.ai/https://www.heureka.sk/?h%5Bfraze%5D=dreveny%20kvetinac'             -o reader.txt
+          curl --fail --silent --show-error -A 'Mozilla/5.0'             'https://www.bing.com/search?cc=sk&setlang=sk&count=20&q=dreveny%20kvetinac%20cena'             -o bing.html
           python - <<'PY'
-          s=open('reader.txt',encoding='utf-8',errors='ignore').read()
+          import re, html
+          s=open('bing.html',encoding='utf-8',errors='ignore').read()
           print('bytes=',len(s))
-          for pat in ['ROJAPLAST','46,90','79,90','€','Drevený kvetináč']:
-              i=s.find(pat)
-              print('PATTERN',pat,'INDEX',i)
-              if i>=0: print(s[max(0,i-250):i+700].replace('\n',' ')[:950])
+          print('b_algo=',len(re.findall(r'b_algo',s)))
+          for pat in ['€','&euro;','EUR','Price','price','Kvetin','kvetin']:
+              inds=[m.start() for m in re.finditer(re.escape(pat),s,re.I)]
+              print('PATTERN',pat,'COUNT',len(inds))
+              for i in inds[:3]:
+                  print(html.unescape(re.sub(r'\s+',' ',s[max(0,i-300):i+600]))[:950])
           PY
