@@ -160,3 +160,137 @@ document.addEventListener('click',e=>{
 
 addHeaderShare();
 addArticleShare();
+
+
+/* Keep pretty, indexable article URLs in sync with the CMS.
+   Static HTML remains as an SEO/offline fallback; published CMS data wins in the browser. */
+const PUBLIC_CMS_URL="https://bkyappgttwjxakkwycub.supabase.co";
+const PUBLIC_CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
+
+function setArticleMeta(selector,value){
+  const el=document.querySelector(selector);
+  if(el&&value)el.setAttribute("content",value);
+}
+
+function renderCmsParagraphs(container,value){
+  if(!container)return;
+  container.innerHTML="";
+  String(value||"").split(/\n\s*\n/).filter(Boolean).forEach(text=>{
+    const p=document.createElement("p");
+    p.textContent=text.trim();
+    container.appendChild(p);
+  });
+}
+
+async function syncStaticArticleFromCms(){
+  const page=document.body.matches(".article-page[data-slug]")?document.body:null;
+  if(!page)return;
+  const slug=String(page.dataset.slug||"").trim();
+  if(!slug)return;
+
+  const select="slug,title,excerpt,content,category,cover_url,gallery,status,published_at,updated_at,content_type";
+  const endpoint=PUBLIC_CMS_URL+"/rest/v1/zahrada_posts?slug=eq."+encodeURIComponent(slug)+"&status=eq.published&select="+encodeURIComponent(select)+"&limit=1";
+
+  try{
+    const response=await fetch(endpoint,{
+      headers:{apikey:PUBLIC_CMS_KEY},
+      cache:"no-store"
+    });
+    if(!response.ok)return;
+    const rows=await response.json();
+    const data=Array.isArray(rows)?rows[0]:null;
+    if(!data)return;
+
+    const title=String(data.title||"").trim();
+    const excerpt=String(data.excerpt||"").trim();
+    const category=String(data.category||"").trim();
+    const cover=String(data.cover_url||"").trim();
+
+    if(title){
+      const titleEl=document.querySelector("#post-title");
+      if(titleEl)titleEl.textContent=title;
+      document.title=title+" | Záhrada s nápadom";
+      setArticleMeta('meta[property="og:title"]',title);
+      setArticleMeta('meta[name="twitter:title"]',title);
+      const ogAlt=document.querySelector('meta[property="og:image:alt"]');
+      if(ogAlt)ogAlt.setAttribute("content",title);
+    }
+
+    if(excerpt){
+      const excerptEl=document.querySelector("#post-excerpt");
+      if(excerptEl)excerptEl.textContent=excerpt;
+      setArticleMeta('meta[name="description"]',excerpt);
+      setArticleMeta('meta[property="og:description"]',excerpt);
+      setArticleMeta('meta[name="twitter:description"]',excerpt);
+    }
+
+    if(category){
+      const kicker=document.querySelector(".post-dynamic-head .kicker");
+      if(kicker)kicker.textContent=category;
+    }
+
+    if(cover){
+      const hero=document.querySelector(".post-hero img");
+      if(hero){
+        hero.src=cover;
+        if(title)hero.alt=title;
+      }
+      setArticleMeta('meta[property="og:image"]',cover);
+      setArticleMeta('meta[name="twitter:image"]',cover);
+    }
+
+    renderCmsParagraphs(document.querySelector(".post-intro"),data.content);
+
+    const gallery=document.querySelector(".dynamic-gallery");
+    if(gallery){
+      const images=Array.isArray(data.gallery)?data.gallery:[];
+      gallery.innerHTML="";
+      images.forEach((url,i)=>{
+        const fig=document.createElement("figure");
+        fig.className="dynamic-gallery-item";
+        const img=document.createElement("img");
+        img.src=String(url||"");
+        img.alt=(title||"Príspevok")+" – fotografia "+(i+1);
+        img.loading="lazy";
+        fig.appendChild(img);
+        gallery.appendChild(fig);
+      });
+      gallery.hidden=!images.length;
+    }
+
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(script=>{
+      try{
+        const json=JSON.parse(script.textContent);
+        if(json?.["@type"]==="Article"){
+          if(title)json.headline=title;
+          if(excerpt)json.description=excerpt;
+          if(cover){
+            const images=Array.isArray(json.image)?json.image:[];
+            json.image=[cover,...images.filter(x=>x!==cover)];
+          }
+          if(data.updated_at)json.dateModified=String(data.updated_at).slice(0,10);
+          script.textContent=JSON.stringify(json);
+        }
+        if(json?.["@type"]==="BreadcrumbList"&&title&&Array.isArray(json.itemListElement)){
+          const last=json.itemListElement[json.itemListElement.length-1];
+          if(last)last.name=title;
+          script.textContent=JSON.stringify(json);
+        }
+      }catch(e){}
+    });
+
+    window.dispatchEvent(new CustomEvent("zahrada:article-loaded",{detail:{
+      slug:data.slug,
+      title:title,
+      category:category||"Nápad",
+      excerpt:excerpt,
+      cover_url:cover,
+      content_type:data.content_type==="blog"?"blog":"project",
+      url:location.pathname
+    }}));
+  }catch(e){
+    // Keep the static fallback if the CMS is temporarily unavailable.
+  }
+}
+
+syncStaticArticleFromCms();
