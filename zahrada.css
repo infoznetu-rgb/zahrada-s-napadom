@@ -331,3 +331,12 @@ a{color:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}
 /* Keep blog cover images consistent across web and installed PWA */
 .blog-article .post-hero{aspect-ratio:16/10;max-height:737px}
 .blog-article .post-hero img{width:100%;height:100%;object-fit:cover}
+
+
+/* CMS video content */
+.cms-video-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;background:#0e1510}
+.cms-video-card .cms-video-no{display:block;margin:14px 4px 0;font-size:.68rem;letter-spacing:.09em;font-weight:850;color:rgba(255,255,255,.58)}
+.post-videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0 0 64px}
+.post-video-item{margin:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#111;box-shadow:0 14px 34px rgba(64,82,64,.06)}
+.post-video-item video{display:block;width:100%;max-height:720px;background:#111}
+@media(max-width:720px){.post-videos{grid-template-columns:1fr}.post-video-item{border-radius:18px}}
