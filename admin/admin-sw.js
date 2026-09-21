@@ -1,4 +1,4 @@
-const CACHE='zahrada-admin-v4';
+const CACHE='zahrada-admin-v5';
 const FILES=[
   './',
   './index.html',
@@ -36,12 +36,9 @@ self.addEventListener('fetch',event=>{
   if(!isAdminAsset)return;
 
   event.respondWith(
-    caches.match(request,{ignoreSearch:true}).then(cached=>{
-      const fresh=fetch(request).then(response=>{
-        if(response&&response.ok)caches.open(CACHE).then(cache=>cache.put(request,response.clone()));
-        return response;
-      }).catch(()=>null);
-      return cached||fresh;
-    })
+    fetch(request).then(response=>{
+      if(response&&response.ok)caches.open(CACHE).then(cache=>cache.put(request,response.clone()));
+      return response;
+    }).catch(()=>caches.match(request).then(cached=>cached||caches.match(url.pathname.split('/').pop()?('./'+url.pathname.split('/').pop()):'./')))
   );
 });
