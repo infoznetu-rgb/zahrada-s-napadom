@@ -8,20 +8,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Záhrada">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="description" content="Komunitný hobby bazár Záhrady s nápadom. Bezplatná inzercia medzi súkromnými osobami — predám, darujem, vymením alebo hľadám veci zo záhrady a dielne.">
+  <meta name="description" content="Bezplatný komunitný bazár Záhrady s nápadom pre súkromné osoby aj firmy. Predaj, daruj, vymeň alebo hľadaj veci zo záhrady, dielne a domáceho tvorenia bez provízie.">
   <meta name="theme-color" content="#f6f3e8">
   <meta name="robots" content="index,follow">
   <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
   <title>Komunitný bazár | Záhrada s nápadom</title>
   <link rel="manifest" href="zahrada.webmanifest?v=5">
   <link rel="stylesheet" href="zahrada.css?v=8">
-  <link rel="stylesheet" href="bazar.css?v=2">
+  <link rel="stylesheet" href="bazar.css?v=3">
   <link rel="stylesheet" href="typography-2026.css?v=11">
-  <link rel="stylesheet" href="app.css?v=4">
+  <link rel="stylesheet" href="app.css?v=7">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="bazar.js?v=1" defer></script>
+  <script src="bazar.js?v=2" defer></script>
   <script src="zahrada.js?v=2" defer></script>
-  <script src="app.js?v=4" defer></script>
+  <script src="app.js?v=15" defer></script>
 </head>
 <body class="bazar-page">
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
@@ -58,20 +58,20 @@
       <div class="bazar-hero-copy">
         <span class="eyebrow">BEZPLATNÝ KOMUNITNÝ BAZÁR</span>
         <h1>Veci nech slúžia ďalej.</h1>
-        <p>Predaj, daruj, vymeň alebo nájdi veci zo záhrady, dielne a domáceho tvorenia. Táto rubrika je iba pre súkromné osoby a je úplne bezplatná.</p>
+        <p>Predaj, daruj, vymeň alebo nájdi veci zo záhrady, dielne a domáceho tvorenia. Inzerovať môžu súkromné osoby aj firmy a podnikatelia — bez poplatku za vloženie a bez provízie.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#inzeraty">Pozrieť inzeráty</a>
           <a class="btn ghost" href="#pridat">Pridať inzerát</a>
         </div>
         <div class="bazar-notice">
-          <strong>Nie sme obchod ani sprostredkovateľ.</strong>
-          <p>Záhrada s nápadom neberie províziu, nespracúva platby a neposkytuje platené zvýraznenie. Dohoda prebieha priamo medzi ľuďmi.</p>
+          <strong>Bazár je inzertný priestor, nie obchod.</strong>
+          <p>Záhrada s nápadom neberie províziu, nespracúva platby a nevstupuje do dohody. Predaj, platba, doprava aj zodpovednosť za ponuku zostávajú medzi inzerentom a záujemcom.</p>
         </div>
       </div>
       <aside class="bazar-principles" aria-label="Zásady bazára">
         <div><strong>0 €</strong><span>za vloženie inzerátu</span></div>
-        <div><strong>Len ľudia</strong><span>žiadne firmy ani profesionálny predaj</span></div>
-        <div><strong>5</strong><span>aktívnych alebo čakajúcich inzerátov na osobu</span></div>
+        <div><strong>Ľudia aj firmy</strong><span>každý inzerent je jasne označený</span></div>
+        <div><strong>5</strong><span>aktívnych alebo čakajúcich inzerátov na jedno konto</span></div>
         <div><strong>60 dní</strong><span>platnosť po schválení</span></div>
       </aside>
     </section>
@@ -86,6 +86,7 @@
         <label>Typ<select id="bazar-type-filter"><option value="">Všetky</option><option value="sell">Predám</option><option value="give">Darujem</option><option value="exchange">Vymením</option><option value="wanted">Hľadám</option></select></label>
         <label>Kategória<select id="bazar-category-filter"><option value="">Všetky kategórie</option></select></label>
         <label>Kraj<select id="bazar-region-filter"><option value="">Celé Slovensko</option></select></label>
+        <label>Inzerent<select id="bazar-seller-filter"><option value="">Všetci</option><option value="private">Súkromná osoba</option><option value="business">Firma / podnikateľ</option></select></label>
         <label>Zoradiť<select id="bazar-sort"><option value="newest">Najnovšie</option><option value="price_asc">Cena od najnižšej</option><option value="price_desc">Cena od najvyššej</option></select></label>
       </div>
       <div id="bazar-status" class="bazar-status">Načítavam inzeráty…</div>
@@ -138,12 +139,27 @@
               </div>
 
               <div class="bazar-form-card">
+                <h3>Kto inzeruje?</h3>
+                <label>Typ inzerenta
+                  <select id="ad-seller-type" required>
+                    <option value="private">Súkromná osoba</option>
+                    <option value="business">Firma / podnikateľ</option>
+                  </select>
+                </label>
+                <div id="ad-business-fields" class="bazar-business-fields" hidden>
+                  <label>Názov firmy / podnikateľa<input id="ad-business-name" type="text" maxlength="160" placeholder="Obchodné meno"></label>
+                  <label>IČO<input id="ad-business-ico" type="text" inputmode="numeric" maxlength="8" pattern="[0-9]{8}" placeholder="8 číslic"></label>
+                </div>
+                <p class="bazar-help">Firemné inzeráty budú verejne označené štítkom FIRMA. Uvedené firemné údaje musia byť pravdivé.</p>
+              </div>
+
+              <div class="bazar-form-card">
                 <h3>Lokalita a kontakt</h3>
                 <div class="bazar-two">
                   <label>Kraj<select id="ad-region" required></select></label>
                   <label>Mesto / obec<input id="ad-location" type="text" minlength="2" maxlength="100" required placeholder="Napr. Dubnica nad Váhom"></label>
                 </div>
-                <label>Meno alebo prezývka<input id="ad-contact-name" type="text" minlength="2" maxlength="80" required placeholder="Ako ťa majú záujemcovia osloviť?"></label>
+                <label>Kontaktná osoba / prezývka<input id="ad-contact-name" type="text" minlength="2" maxlength="80" required placeholder="Koho majú záujemcovia kontaktovať?"></label>
                 <div class="bazar-two">
                   <label>Kontaktný e-mail<input id="ad-contact-email" type="email" placeholder="voliteľné"></label>
                   <label>Telefón<input id="ad-contact-phone" type="tel" placeholder="voliteľné"></label>
@@ -162,8 +178,8 @@
 
               <div class="bazar-form-card rules-check">
                 <h3>Potvrdenie</h3>
-                <label class="bazar-check"><input id="ad-private-confirm" type="checkbox" required><span>Som súkromná osoba. Inzerát nevkladám za firmu, živnosť ani inú podnikateľskú činnosť.</span></label>
-                <label class="bazar-check"><input id="ad-rules-confirm" type="checkbox" required><span>Neponúkam služby, hromadný profesionálny predaj ani zakázaný alebo nebezpečný tovar a súhlasím s pravidlami nižšie.</span></label>
+                <label class="bazar-check"><input id="ad-seller-confirm" type="checkbox" required><span>Typ inzerenta a uvedené osobné alebo firemné údaje sú pravdivé.</span></label>
+                <label class="bazar-check"><input id="ad-rules-confirm" type="checkbox" required><span>Inzerát súvisí so záhradou, dielňou alebo domácim tvorením a neponúkam zakázaný, nebezpečný, zavádzajúci ani spamový obsah.</span></label>
                 <label class="bazar-check"><input id="ad-contact-confirm" type="checkbox" required><span>Súhlasím, aby sa zadané kontaktné údaje zobrazili pri schválenom inzeráte.</span></label>
                 <button id="bazar-submit-btn" class="btn primary full" type="submit">Odoslať na schválenie</button>
                 <button id="bazar-cancel-edit" class="btn ghost full" type="button" hidden>Zrušiť úpravu</button>
@@ -183,27 +199,27 @@
 
     <section id="pravidla" class="section container">
       <div class="section-head">
-        <div><span class="kicker">PRAVIDLÁ</span><h2>Bazár má zostať susedský a nekomerčný.</h2></div>
-        <p>Krátke pravidlá chránia hobby charakter stránky aj ľudí, ktorí si medzi sebou veci odovzdávajú.</p>
+        <div><span class="kicker">PRAVIDLÁ</span><h2>Jasné pravidlá pre ľudí aj firmy.</h2></div>
+        <p>Cieľom je užitočný bazár pre záhradu a dielňu — bez provízie, bez skrytej reklamy a s jasným označením, kto inzeruje.</p>
       </div>
       <div class="rules-grid">
-        <article><span>👤</span><h3>Iba súkromné osoby</h3><p>Nie firmy, e-shopy, živnostníci ani ponuky služieb. Zakázaný je aj opakovaný alebo hromadný predaj, ktorý pôsobí ako podnikanie.</p></article>
+        <article><span>👥</span><h3>Súkromné osoby aj firmy</h3><p>Pri každom inzeráte musí byť pravdivo uvedené, či ho pridáva súkromná osoba alebo firma / podnikateľ. Firemné ponuky sú povolené.</p></article>
         <article><span>🌱</span><h3>Veci k hobby stránke</h3><p>Záhrada, pestovanie, dielňa, materiál, náradie, technika, dekorácie a domáce tvorenie. Nie všeobecný bazár všetkého.</p></article>
         <article><span>🛡️</span><h3>Bezpečný obsah</h3><p>Nevkladaj nelegálny, nebezpečný alebo regulovaný tovar, zbrane, pyrotechniku, lieky či nebezpečné chemikálie.</p></article>
-        <article><span>🤝</span><h3>Dohoda medzi ľuďmi</h3><p>Web nie je stranou obchodu, nesprostredkuje platbu ani dopravu. Over si stav veci a dohodni sa priamo s druhou osobou.</p></article>
+        <article><span>🤝</span><h3>Dohoda priamo s inzerentom</h3><p>Web nie je stranou obchodu a nesprostredkuje platbu ani dopravu. Súkromná osoba aj firma zodpovedajú za pravdivosť svojej ponuky a za dohodu so záujemcom.</p></article>
       </div>
       <div class="privacy-note">
         <strong>Súkromie a moderovanie</strong>
-        <p>Každý nový alebo upravený inzerát sa najprv skontroluje. Na verejnej stránke sa zobrazia údaje, ktoré sám zadáš do inzerátu, vrátane zvoleného kontaktu. Neuvádzaj presnú adresu bydliska ani citlivé údaje. Nevyhovujúci alebo komerčný inzerát môže byť odmietnutý alebo odstránený.</p>
+        <p>Každý nový alebo upravený inzerát sa najprv skontroluje. Na verejnej stránke sa zobrazia údaje, ktoré zadáš do inzerátu, vrátane zvoleného kontaktu a pri firme aj obchodného mena a IČO. Neuvádzaj presnú adresu bydliska ani citlivé údaje. Spam, zavádzajúca ponuka, nesúvisiaci alebo zakázaný obsah môže byť odmietnutý alebo odstránený.</p>
       </div>
     </section>
 
-    <section class="noncommercial"><div class="container"><strong>Záhrada s nápadom zostáva nekomerčný hobby projekt.</strong><span>Bazár je bezplatný, bez provízie, bez plateného zvýraznenia a iba pre súkromné osoby.</span></div></section>
+    <section class="noncommercial"><div class="container"><strong>Bazár je bez poplatku a bez provízie.</strong><span>Inzerovať môžu súkromné osoby aj firmy. Záhrada s nápadom nespracúva platbu a nie je predávajúcim ani kupujúcim.</span></div></section>
   </main>
 
   <footer class="footer container">
     <a class="brand small-brand" href="index.html"><img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a>
-    <p>Komunitný bazár · od ľudí pre ľudí · bez firiem a bez provízie.</p>
+    <p>Komunitný bazár · pre ľudí aj firmy · bez provízie.</p>
     <a class="footer-facebook-link footer-facebook-standalone" href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">f</span> Facebook Záhrada s nápadom</a>
     <small>Nekomerčný hobby projekt · 2026</small>
   </footer>
