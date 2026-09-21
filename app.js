@@ -553,7 +553,7 @@
       <div class="app-promo-logo"><img src="/brand-mark.svg?v=1" alt=""><span>NAŠA APLIKÁCIA</span></div>
       <div class="app-promo-copy">
         <h2>Maj Záhradu vždy po ruke.</h2>
-        <p>Nainštaluj si aplikáciu a zapni upozornenia na nové blogy a komunitný bazár.</p>
+        <p>Nainštaluj si aplikáciu a zapni upozornenia na nové blogy a bazár pre záhradu a dielňu.</p>
         <div class="app-promo-actions">
           <button class="app-promo-primary" type="button" data-promo-install>
             <span aria-hidden="true">↓</span> Stiahnuť aplikáciu
