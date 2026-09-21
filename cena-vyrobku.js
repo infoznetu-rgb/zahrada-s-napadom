@@ -1,11 +1,13 @@
 (()=>{
   const STORAGE_KEY='zahrada-price-calculator-v1';
+  const MARKET_STORAGE_KEY='zahrada-price-market-v1';
   const API='https://bkyappgttwjxakkwycub.supabase.co/functions/v1/product-price-compare';
   const ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJreWFwcGd0dHdqeGFra3d5Y3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk1NjQ5ODUsImV4cCI6MjEwNTE0MDk4NX0._plU19HUWyIipD0fVxBmKxCwnCTMp6bZ0fVvxus7i7w';
 
   const el=(id)=>document.getElementById(id);
   const materialList=el('material-list');
   const marketRoot=el('market-results');
+  const manualPriceList=el('manual-price-list');
   let marketItems=[];
   let lastResult={recommended:0,safe:0,base:0,cash:0,labor:0,material:0,other:0};
 
@@ -42,6 +44,61 @@
       qty:num(row.querySelector('.material-qty').value),
       price:num(row.querySelector('.material-price').value)
     }));
+  }
+
+  function manualPriceRow(item={label:'',price:''}){
+    const row=document.createElement('div');
+    row.className='manual-price-row';
+    row.innerHTML='<input class="manual-price-label" type="text" maxlength="90" placeholder="napr. Heureka – podobný výrobok" aria-label="Popis porovnávanej ceny"><input class="manual-price-value" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="cena €" aria-label="Cena podobného výrobku"><button class="manual-price-remove" type="button" aria-label="Odstrániť cenu">×</button>';
+    row.querySelector('.manual-price-label').value=item.label||'';
+    row.querySelector('.manual-price-value').value=item.price??'';
+    row.querySelectorAll('input').forEach(input=>input.addEventListener('input',()=>{saveManual();renderMarket()}));
+    row.querySelector('.manual-price-remove').addEventListener('click',()=>{
+      if(manualPriceList.children.length>1)row.remove();
+      else{row.querySelector('.manual-price-label').value='';row.querySelector('.manual-price-value').value=''}
+      saveManual();renderMarket();
+    });
+    manualPriceList.appendChild(row);
+  }
+
+  function manualValues(){
+    return [...manualPriceList.querySelectorAll('.manual-price-row')].map(row=>({
+      label:row.querySelector('.manual-price-label').value.trim(),
+      price:num(row.querySelector('.manual-price-value').value)
+    }));
+  }
+
+  function manualMarketItems(){
+    return manualValues().filter(x=>x.price>0).map(x=>({
+      manual:true,
+      title:x.label||'Ručne zadaná podobná cena',
+      url:'',
+      snippet:'Cena zapísaná ručne po otvorení podobnej ponuky.',
+      domain:'ručne zadané',
+      price:x.price,
+      match:100,
+      include:true
+    }));
+  }
+
+  function saveManual(){
+    try{localStorage.setItem(MARKET_STORAGE_KEY,JSON.stringify(manualValues()))}catch(e){}
+  }
+
+  function restoreManual(){
+    let items=[];
+    try{items=JSON.parse(localStorage.getItem(MARKET_STORAGE_KEY)||'[]')}catch(e){}
+    manualPriceList.innerHTML='';
+    if(Array.isArray(items)&&items.length)items.slice(0,10).forEach(manualPriceRow);
+    else{manualPriceRow();manualPriceRow()}
+  }
+
+  function updateMarketLinks(){
+    const q=el('market-query').value.trim()||el('price-product-name').value.trim();
+    const query=q||'ručný výrobok';
+    el('market-link-heureka').href='https://www.heureka.sk/?h%5Bfraze%5D='+encodeURIComponent(query);
+    el('market-link-google').href='https://www.google.com/search?q='+encodeURIComponent(query+' cena');
+    el('market-link-bing').href='https://www.bing.com/search?q='+encodeURIComponent(query+' cena');
   }
 
   function state(){
@@ -99,6 +156,7 @@
       : 'Vyplň materiál a čas. Výsledok sa prepočítava automaticky.';
     el('price-warning').hidden=!(base>0&&s.hours>0&&s.rate===0);
     if(s.product&&!el('market-query').dataset.edited)el('market-query').value=s.product;
+    updateMarketLinks();
     save();
     if(marketItems.length)renderMarket();
   }
@@ -136,8 +194,10 @@
     ['cost-packaging','cost-shipping','cost-overhead','cost-other','sale-fee'].forEach(id=>el(id).value=0);
     el('material-reserve').value=10;el('profit-markup').value=15;
     el('market-query').value='';delete el('market-query').dataset.edited;
-    marketItems=[];marketRoot.innerHTML='<div class="market-empty"><strong>Zatiaľ nič nehľadám.</strong><span>Najprv si spočítaj vlastnú cenu a potom vyhľadaj podobný výrobok.</span></div>';
-    calculate();
+    try{localStorage.removeItem(MARKET_STORAGE_KEY)}catch(e){}
+    manualPriceList.innerHTML='';manualPriceRow();manualPriceRow();
+    marketItems=[];
+    updateMarketLinks();renderMarket();calculate();
   }
 
   async function copySummary(){
@@ -188,17 +248,24 @@
   }
 
   function renderMarket(){
-    if(!marketItems.length){
-      marketRoot.innerHTML='<div class="market-empty"><strong>Nenašiel som použiteľné ceny.</strong><span>Skús presnejší alebo naopak jednoduchší názov výrobku. Internetové výsledky nemusia pri každom výrobku obsahovať cenu.</span></div>';
+    const manual=manualMarketItems();
+    const combined=[...marketItems,...manual];
+    if(!combined.length){
+      marketRoot.innerHTML='<div class="market-empty"><strong>Zatiaľ nemám cenu na porovnanie.</strong><span>Skús automatické hľadanie. Ak vyhľadávač cenu neukáže, otvor si Heureka, Google alebo Bing a zapíš 2–5 cien do polí vľavo.</span></div>';
       return;
     }
-    const st=marketStats(marketItems);
+    const st=marketStats(combined);
+    const automaticHtml=marketItems.map((x,i)=>
+      '<article class="market-item"><input type="checkbox" data-market-index="'+i+'" '+(x.include===false?'':'checked')+' aria-label="Započítať túto ponuku do porovnania"><div><h3><a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.title||x.domain)+'</a></h3><p>'+esc(x.snippet||'')+'</p><div class="market-meta"><span>'+esc(x.domain||'zdroj')+'</span><span>zhoda slov '+Math.round(num(x.match))+' %</span></div></div><strong class="market-price">'+money(num(x.price))+'</strong></article>'
+    ).join('');
+    const manualHtml=manual.map(x=>
+      '<article class="market-item"><span aria-hidden="true">✓</span><div><h3>'+esc(x.title)+'</h3><p>Cena, ktorú si zapísal po otvorení podobnej ponuky.</p><div class="market-meta"><span>ručne zadané</span></div></div><strong class="market-price">'+money(num(x.price))+'</strong></article>'
+    ).join('');
     marketRoot.innerHTML=
       '<div class="market-stats"><div><small>Najnižšia vybraná</small><strong>'+money(st.min)+'</strong></div><div><small>Stredná cena</small><strong>'+money(st.median)+'</strong></div><div><small>Najvyššia vybraná</small><strong>'+money(st.max)+'</strong></div></div>'+
       '<div class="market-compare-note">'+esc(comparisonText(st))+'</div>'+
-      '<div class="market-list">'+marketItems.map((x,i)=>
-        '<article class="market-item"><input type="checkbox" data-market-index="'+i+'" '+(x.include===false?'':'checked')+' aria-label="Započítať túto ponuku do porovnania"><div><h3><a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.title||x.domain)+'</a></h3><p>'+esc(x.snippet||'')+'</p><div class="market-meta"><span>'+esc(x.domain||'zdroj')+'</span><span>zhoda slov '+Math.round(num(x.match))+' %</span></div></div><strong class="market-price">'+money(num(x.price))+'</strong></article>'
-      ).join('')+'</div><p class="market-status">Zaškrtnuté ponuky vstupujú do minima, strednej ceny a maxima. Klikni na názov a vždy si over aktuálnu cenu na zdrojovej stránke.</p>';
+      '<div class="market-list">'+automaticHtml+manualHtml+'</div>'+
+      '<p class="market-status">Automatické výsledky môžeš odškrtnúť, ak sa výrobku nepodobajú. Ručne zadanú cenu odstrániš krížikom pri poli vľavo. Vždy porovnávaj aj rozmery, materiál, spracovanie a dopravu.</p>';
     marketRoot.querySelectorAll('[data-market-index]').forEach(box=>box.addEventListener('change',()=>{
       const i=Number(box.dataset.marketIndex);if(marketItems[i])marketItems[i].include=box.checked;renderMarket();
     }));
@@ -221,7 +288,7 @@
       renderMarket();
     }catch(error){
       console.error(error);
-      marketRoot.innerHTML='<div class="market-empty"><strong>Porovnanie sa teraz nepodarilo načítať.</strong><span>Kalkulačka nákladov funguje ďalej. Internetové porovnanie skús neskôr alebo otvor bežné vyhľadávanie a ceny si porovnaj ručne.</span></div>';
+      marketItems=[];renderMarket();
     }finally{
       button.disabled=false;button.textContent='Nájsť podobné ceny';
     }
@@ -231,9 +298,13 @@
   el('price-reset').addEventListener('click',reset);
   el('price-copy').addEventListener('click',copySummary);
   el('market-search').addEventListener('click',searchMarket);
-  el('market-query').addEventListener('input',()=>{el('market-query').dataset.edited='1'});
+  el('manual-price-add').addEventListener('click',()=>{if(manualPriceList.children.length<10){manualPriceRow();saveManual()}});
+  el('market-query').addEventListener('input',()=>{el('market-query').dataset.edited='1';updateMarketLinks()});
   el('market-query').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();searchMarket()}});
   ['price-product-name','work-hours','hour-rate','cost-packaging','cost-shipping','cost-overhead','cost-other','material-reserve','profit-markup','sale-fee'].forEach(id=>el(id).addEventListener('input',calculate));
 
   restore();
+  restoreManual();
+  updateMarketLinks();
+  renderMarket();
 })();
