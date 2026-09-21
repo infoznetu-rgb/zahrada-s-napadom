@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="sk"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow"><title>Presmerovanie | Záhrada s nápadom</title>
+<style>body{font-family:system-ui,sans-serif;background:#f7f3e8;color:#244333;display:grid;place-items:center;min-height:100vh;margin:0}.box{max-width:680px;padding:40px;text-align:center}.box a{color:#315b3a;font-weight:700}</style>
+<script>
+(function(){
+  var p=location.pathname.replace(/\/+/g,'/');
+  var m=p.match(/^\/(blog|napady)\/([^/]+)\/?$/);
+  if(m){
+    location.replace('/'+m[1]+'/'+m[2]+'/index.html'+location.search+location.hash);
+    return;
+  }
+})();
+</script>
+</head><body><main class="box"><h1>Stránka sa nenašla</h1><p>Skús sa vrátiť na blog alebo na domovskú stránku.</p><p><a href="/blog.html">Prejsť na blog</a> · <a href="/">Domov</a></p></main></body></html>
