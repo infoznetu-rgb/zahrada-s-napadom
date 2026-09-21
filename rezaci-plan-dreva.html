@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Jednoduchý rezací plán na laty, hranoly a dosky: zadaj dĺžku materiálu, šírku rezu a požadované kusy. Kalkulačka odhadne počet kusov materiálu, rezy a odpad.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="theme-color" content="#5f965f">
+<link rel="canonical" href="https://zahradasnapadom.sk/rezaci-plan-dreva.html"><link rel="icon" type="image/svg+xml" href="/brand-mark.svg?v=1">
+<title>Rezací plán dreva a lát | Záhrada s nápadom</title>
+<meta property="og:type" content="website"><meta property="og:locale" content="sk_SK"><meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="Rezací plán dreva a lát"><meta property="og:description" content="Výpočet počtu kusov materiálu, rezov a odpadu pri latách, hranoloch a doskách."><meta property="og:url" content="https://zahradasnapadom.sk/rezaci-plan-dreva.html"><meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Rezací plán dreva a lát","url":"https://zahradasnapadom.sk/rezaci-plan-dreva.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"sk-SK"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domov","item":"https://zahradasnapadom.sk/"},{"@type":"ListItem","position":2,"name":"Pomôcky","item":"https://zahradasnapadom.sk/pomocky.html"},{"@type":"ListItem","position":3,"name":"Rezací plán dreva","item":"https://zahradasnapadom.sk/rezaci-plan-dreva.html"}]}]}</script>
+<link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1"><link rel="stylesheet" href="/spring-2026.css?v=1"><link rel="stylesheet" href="/growth-2026.css?v=3"><link rel="stylesheet" href="/typography-2026.css?v=11"><link rel="stylesheet" href="/app.css?v=4">
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=13" defer></script><script src="/majster-tools.js?v=2" defer></script>
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="site-header"><div class="top container"><a class="brand" href="/" aria-label="Záhrada s nápadom domov"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/temy/dielna.html">Dielňa</a><a class="active-nav" href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/dielna.html">Dielňa</a><a href="/bazar.html">Bazár</a></nav></header>
+<main id="obsah">
+<section class="container utility-hero"><a class="utility-back" href="/pomocky.html">← Všetky pomôcky</a><span class="kicker">DIELŇA · DREVO · REZANIE</span><h1>Koľko lát alebo hranolov potrebuješ?</h1><p>Zadaj skladovú dĺžku materiálu, šírku rezu píly a požadované kusy. Kalkulačka ich zoradí od najdlhších a rozdelí do jednotlivých lát tak, aby sa odpad zvyčajne držal čo najnižšie.</p></section>
+
+<section class="container tool-shell">
+<div class="tool-copy">
+<span class="kicker">AKO PLÁN FUNGUJE</span><h2>Jednorozmerný rezací plán pre rovnaký profil.</h2>
+<p>Pomôcka je určená na laty, hranoly, rúry alebo úzke dosky, kde riešiš hlavne dĺžku. Všetky vstupné kusy musia mať rovnaký prierez ako skladový materiál.</p>
+<p>Algoritmus používa praktické zoradenie od najdlhších kusov a postupne ich ukladá do prvého materiálu, kam sa ešte zmestia. Je to rýchly plán pre dielňu, nie výrobný optimalizátor so zárukou absolútne minimálneho odpadu.</p>
+<div class="tool-note"><strong>Nezabudni na šírku rezu.</strong> Pílový kotúč odoberie materiál. Zadaj približný kerf v milimetroch podľa kotúča a stroja, ktorý naozaj používaš.</div>
+</div>
+
+<form id="cut-plan-calculator" class="calculator-card">
+<span class="kicker">VSTUP</span><h2>Materiál a požadované kusy</h2>
+<div class="calculator-grid">
+<label>Dĺžka jednej laty / hranola (mm)<input id="cut-stock" type="number" min="1" step="1" value="2500" inputmode="numeric"></label>
+<label>Šírka jedného rezu – kerf (mm)<input id="cut-kerf" type="number" min="0" step="0.1" value="3" inputmode="decimal"></label>
+</div>
+<label style="display:grid;gap:7px;margin-top:14px;font-weight:800;font-size:.8rem">Požadované kusy
+<textarea id="cut-list" rows="8" placeholder="Napr.&#10;900 x 2&#10;600 x 4&#10;350 x 3">900 x 2
+600 x 4
+350 x 3</textarea></label>
+<p class="calculator-foot">Každý riadok: <strong>dĺžka × počet</strong>. Môžeš použiť „900 x 2“, „900×2“ alebo iba „900“ pre jeden kus.</p>
+<div class="calculator-actions"><button class="btn primary" type="submit">Vytvoriť rezací plán</button></div>
+<div class="calculator-result" aria-live="polite">
+<div class="result-box"><small>Potrebný počet lát</small><strong id="cut-stock-count">2 ks</strong></div>
+<div class="result-box"><small>Celkový požadovaný materiál</small><strong id="cut-required">4 050 mm</strong></div>
+<div class="result-box"><small>Odhad odpadu vrátane rezov</small><strong id="cut-waste">950 mm</strong></div>
+<div class="result-box"><small>Využitie materiálu</small><strong id="cut-utilization">81 %</strong></div>
+</div>
+<div id="cut-plan-output" class="cut-plan-output"></div>
+<div id="cut-plan-error" class="guide-warning" hidden></div>
+</form>
+</section>
+
+<section class="container tool-section"><div class="section-head"><div><span class="kicker">DOBRÁ PRAX</span><h2>Pred prvým rezom si plán ešte raz prejdi.</h2></div></div>
+<div class="faq-stack">
+<details open><summary>Počíta kalkulačka s každým rezom?</summary><p>Áno, medzi jednotlivými odrezanými kusmi počíta so zadanou šírkou rezu. Pri poslednom kuse z konkrétnej laty nevynucuje ďalší kerf za koncom materiálu.</p></details>
+<details><summary>Môžem takto plánovať veľké plošné dosky?</summary><p>Nie presne. Pri OSB, preglejke alebo nábytkovej doske treba riešiť dĺžku aj šírku, smer dekoru a často aj formátovacie rezy. Táto verzia je určená na jednorozmerné delenie.</p></details>
+<details><summary>Je výsledok vždy najlepší možný?</summary><p>Nie. Použitý postup je rýchla heuristika vhodná na bežné hobby projekty. Pri drahom materiáli alebo veľkej zákazke má zmysel plán overiť aj profesionálnym optimalizátorom.</p></details>
+</div></section>
+<section class="container"><span class="kicker">ĎALŠIE POMÔCKY</span><div class="utility-links"><a href="/pravy-uhol.html">Pravý uhol 3–4–5 →</a><a href="/kalkulacka-dlazby.html">Kalkulačka dlažby →</a><a href="/pomocky.html">Všetky pomôcky →</a></div></section>
+</main>
+<footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/dielna.html">Dielňa</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
+</body></html>
