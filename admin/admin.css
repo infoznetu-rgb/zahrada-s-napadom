@@ -188,3 +188,12 @@ html.admin-standalone body{background:#edf1ec}
 .post-video-controls{position:absolute;right:7px;top:7px;display:flex;gap:5px}
 .post-video-controls button{width:30px;height:30px;border:0;border-radius:50%;background:rgba(20,28,22,.86);color:#fff;cursor:pointer;font-size:.9rem}
 .admin-video-item>button{display:none}
+
+
+/* Admin ideas gallery */
+.admin-gallery-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.admin-gallery-card{display:grid;gap:11px;padding:11px;border:1px solid var(--line);border-radius:15px;background:#fafcf9}
+.admin-gallery-card>img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:11px;background:#edf1e9}
+.admin-gallery-fields{display:grid;gap:9px}
+.admin-gallery-fields textarea{min-height:72px}
+@media(max-width:700px){.admin-gallery-list{grid-template-columns:1fr}}
