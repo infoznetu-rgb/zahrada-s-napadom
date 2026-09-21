@@ -181,3 +181,10 @@ html.admin-standalone body{background:#edf1ec}
 .media-card small{font-size:.65rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:1050px){.media-library{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.media-library{grid-template-columns:1fr}.admin-home-video video{max-height:200px}}
+
+.gallery-controls{position:absolute;right:4px;top:4px;display:flex;gap:4px}
+.gallery-controls button{position:static!important;width:24px!important;height:24px!important}
+.gallery-controls button:disabled,.post-video-controls button:disabled{opacity:.35;cursor:not-allowed}
+.post-video-controls{position:absolute;right:7px;top:7px;display:flex;gap:5px}
+.post-video-controls button{width:30px;height:30px;border:0;border-radius:50%;background:rgba(20,28,22,.86);color:#fff;cursor:pointer;font-size:.9rem}
+.admin-video-item>button{display:none}
