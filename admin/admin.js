@@ -10,6 +10,7 @@ let homeGallery=[];
 let siteSettings={};
 let currentPost=null;
 let mediaLoaded=false;
+let analyticsLoaded=false;
 
 const $=(s)=>document.querySelector(s);
 const $$=(s)=>[...document.querySelectorAll(s)];
@@ -50,6 +51,7 @@ function activateView(name){
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
   document.querySelector(".sidebar").classList.remove("open");
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
+  if(name==="analytics"&&!analyticsLoaded)loadAnalytics();
 }
 document.addEventListener("click",(e)=>{
   const newBtn=e.target.closest("[data-new-post]");
@@ -430,6 +432,105 @@ $("#home-gallery-files").addEventListener("change",async(e)=>{
   e.target.value="";
 });
 $("#home-gallery-save").addEventListener("click",()=>saveHomeGallery());
+
+function nfmt(value){return new Intl.NumberFormat("sk-SK").format(Number(value)||0)}
+function pct(value){return (Number(value)||0).toLocaleString("sk-SK",{maximumFractionDigits:1})+" %"}
+function analyticsEmpty(text="Zatiaľ bez údajov."){return '<div class="empty">'+esc(text)+'</div>'}
+
+function analyticsTable(headers,rows){
+  if(!rows.length)return analyticsEmpty();
+  return `<table class="analytics-table"><thead><tr>${headers.map(h=>'<th>'+esc(h)+'</th>').join("")}</tr></thead><tbody>${rows.join("")}</tbody></table>`;
+}
+
+function analyticsPostName(slug){
+  return posts.find(p=>p.slug===slug)?.title||slug||"Príspevok";
+}
+
+function renderAnalytics(data){
+  const s=data?.summary||{};
+  const summary=[
+    ["Zobrazenia stránok",s.page_views,"Koľkokrát sa načítala stránka"],
+    ["Návštevníci",s.unique_visitors,"Približný počet zariadení"],
+    ["Otvorené príspevky",s.article_opens,"Články a vlastné projekty"],
+    ["Dočítané do konca",s.reads_100,"Dosiahnutých 100 % textu"],
+    ["Prehratia videí",s.video_plays,"Spustenia videí"],
+    ["Dopozerané videá",s.video_completes,"Videá prehrané do konca"],
+    ["Otvorené fotky",s.photo_opens,"Kliknutia na fotografie"],
+    ["Inštalácie appky",s.app_installs,"Potvrdené PWA inštalácie"]
+  ];
+  $("#analytics-summary").innerHTML=summary.map(([label,value,note])=>`<article class="analytics-stat"><span>${esc(label)}</span><strong>${nfmt(value)}</strong><small>${esc(note)}</small></article>`).join("");
+
+  const daily=Array.isArray(data?.daily)?data.daily:[];
+  if(!daily.length){
+    $("#analytics-chart").innerHTML=analyticsEmpty("Údaje sa začnú zobrazovať po prvých návštevách.");
+  }else{
+    const max=Math.max(1,...daily.map(x=>Number(x.page_views)||0));
+    $("#analytics-chart").innerHTML=`<div class="analytics-bars">${daily.map(x=>{
+      const h=Math.max(3,Math.round((Number(x.page_views)||0)/max*100));
+      const date=new Date(String(x.day)+"T12:00:00");
+      const label=new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit"}).format(date);
+      return `<div class="analytics-day" title="${esc(label)} · ${nfmt(x.page_views)} zobrazení · ${nfmt(x.visitors)} návštevníkov">
+        <div class="analytics-bar-value">${nfmt(x.page_views)}</div>
+        <div class="analytics-bar-track"><i style="height:${h}%"></i></div>
+        <small>${esc(label)}</small>
+      </div>`;
+    }).join("")}</div>`;
+  }
+
+  const ins=data?.installs||{};
+  $("#analytics-installs").innerHTML=`
+    <div class="funnel-step"><span>Zobrazená ponuka</span><strong>${nfmt(ins.offers)}</strong></div>
+    <div class="funnel-arrow">↓ <small>${pct(ins.click_rate)} kliklo</small></div>
+    <div class="funnel-step"><span>Klik na inštaláciu</span><strong>${nfmt(ins.clicks)}</strong></div>
+    <div class="funnel-arrow">↓ <small>${pct(ins.install_rate)} potvrdené</small></div>
+    <div class="funnel-step is-final"><span>Nainštalovaná appka</span><strong>${nfmt(ins.installs)}</strong></div>`;
+
+  const pages=Array.isArray(data?.pages)?data.pages:[];
+  $("#analytics-pages").innerHTML=analyticsTable(
+    ["Stránka","Zobrazenia","Návštevníci"],
+    pages.map(x=>`<tr><td><code>${esc(x.path)}</code></td><td>${nfmt(x.views)}</td><td>${nfmt(x.visitors)}</td></tr>`)
+  );
+
+  const articles=Array.isArray(data?.articles)?data.articles:[];
+  $("#analytics-articles").innerHTML=analyticsTable(
+    ["Príspevok","Otvorenia","25 %","50 %","75 %","100 %","30 s+","Dočítanie"],
+    articles.map(x=>`<tr>
+      <td><strong>${esc(analyticsPostName(x.slug))}</strong><small class="analytics-sub">${esc(x.slug||"")}</small></td>
+      <td>${nfmt(x.opens)}</td><td>${nfmt(x.read25)}</td><td>${nfmt(x.read50)}</td><td>${nfmt(x.read75)}</td>
+      <td>${nfmt(x.read100)}</td><td>${nfmt(x.engaged30)}</td><td><strong>${pct(x.completion_rate)}</strong></td>
+    </tr>`)
+  );
+
+  const videos=Array.isArray(data?.videos)?data.videos:[];
+  $("#analytics-videos").innerHTML=analyticsTable(
+    ["Video","Prehratia","25 %","50 %","75 %","Dokončené","Dopozeranie"],
+    videos.map(x=>`<tr><td><strong>${esc(x.label)}</strong></td><td>${nfmt(x.plays)}</td><td>${nfmt(x.watched25)}</td><td>${nfmt(x.watched50)}</td><td>${nfmt(x.watched75)}</td><td>${nfmt(x.completes)}</td><td><strong>${pct(x.completion_rate)}</strong></td></tr>`)
+  );
+
+  const photos=Array.isArray(data?.photos)?data.photos:[];
+  $("#analytics-photos").innerHTML=analyticsTable(
+    ["Fotografia","Otvorenia"],
+    photos.map(x=>`<tr><td><strong>${esc(x.label)}</strong></td><td>${nfmt(x.opens)}</td></tr>`)
+  );
+}
+
+async function loadAnalytics(){
+  const days=Number($("#analytics-days")?.value||30);
+  setSave("Načítavam štatistiky…");
+  $("#analytics-chart").innerHTML=analyticsEmpty("Načítavam…");
+  const {data,error}=await db.rpc("zahrada_analytics",{p_days:days});
+  if(error){
+    console.error(error);
+    setSave("Chyba štatistík");
+    $("#analytics-summary").innerHTML=analyticsEmpty("Štatistiky sa nepodarilo načítať.");
+    return;
+  }
+  renderAnalytics(typeof data==="string"?JSON.parse(data):data);
+  analyticsLoaded=true;
+  setSave("Štatistiky načítané");
+}
+$("#analytics-days").addEventListener("change",()=>{analyticsLoaded=false;loadAnalytics()});
+$("#analytics-refresh").addEventListener("click",()=>{analyticsLoaded=false;loadAnalytics()});
 
 async function listMediaFolder(prefix,depth=0){
   const {data,error}=await db.storage.from("zahrada-media").list(prefix,{limit:100,sortBy:{column:"created_at",order:"desc"}});
