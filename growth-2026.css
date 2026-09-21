@@ -57,3 +57,9 @@
 .cut-bar div{display:grid;gap:5px;min-width:0}.cut-bar small{font-weight:850;color:rgba(35,68,53,.55);text-transform:uppercase;letter-spacing:.06em}.cut-bar strong{color:var(--spring-ink);line-height:1.45;word-break:break-word}.cut-bar>span{flex:0 0 auto;color:#477b4e;font-size:.82rem;font-weight:850}
 .calculator-card textarea{width:100%;padding:12px 13px;border:1px solid rgba(82,129,83,.22);border-radius:13px;background:#fff;color:var(--spring-ink);font:inherit;line-height:1.5;resize:vertical}
 @media(max-width:720px){.cut-bar{align-items:flex-start;flex-direction:column}.cut-bar>span{flex:auto}}
+
+.maker-more{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.maker-more a{display:grid;gap:4px;padding:15px 17px;border:1px solid rgba(82,129,83,.13);border-radius:17px;background:#f7f9f2;text-decoration:none;color:var(--spring-ink)}
+.maker-more strong{font-size:.88rem}.maker-more span{font-size:.72rem;color:rgba(35,68,53,.58)}
+@media(max-width:900px){.maker-more{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.maker-more{grid-template-columns:1fr}}
