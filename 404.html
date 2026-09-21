@@ -6,9 +6,18 @@
 <script>
 (function(){
   var p=location.pathname.replace(/\/+/g,'/');
-  var m=p.match(/^\/(blog|napady)\/([^/]+)\/?$/);
-  if(m){
-    location.replace('/'+m[1]+'/'+m[2]+'/index.html'+location.search+location.hash);
+  var blog=p.match(/^\/blog\/([^/]+)(?:\/.*)?$/);
+  if(blog){
+    location.replace('/prispevok.html?slug='+encodeURIComponent(blog[1]));
+    return;
+  }
+  if(/^\/assets\/blog\//.test(p)){
+    location.replace('/assets/blog/fallback-cover.svg');
+    return;
+  }
+  var idea=p.match(/^\/napady\/([^/]+)(?:\/.*)?$/);
+  if(idea){
+    location.replace('/napady/'+idea[1]+'/index.html');
     return;
   }
 })();
