@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kalkulačka betónu pre dosku, pás, hranaté pätky a okrúhle otvory: vypočítaj objem v m³ a litroch, rezervu a počet balení podľa výťažnosti.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="theme-color" content="#5f965f">
+<link rel="canonical" href="https://zahradasnapadom.sk/kalkulacka-betonu.html"><link rel="icon" type="image/svg+xml" href="/brand-mark.svg?v=1">
+<title>Kalkulačka betónu: objem v m³ a litroch | Záhrada s nápadom</title>
+<meta property="og:type" content="website"><meta property="og:locale" content="sk_SK"><meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="Kalkulačka betónu"><meta property="og:description" content="Výpočet betónu pre dosku, pás, pätky aj okrúhle otvory."><meta property="og:url" content="https://zahradasnapadom.sk/kalkulacka-betonu.html"><meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Kalkulačka betónu","url":"https://zahradasnapadom.sk/kalkulacka-betonu.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"sk-SK"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domov","item":"https://zahradasnapadom.sk/"},{"@type":"ListItem","position":2,"name":"Pomôcky","item":"https://zahradasnapadom.sk/pomocky.html"},{"@type":"ListItem","position":3,"name":"Kalkulačka betónu","item":"https://zahradasnapadom.sk/kalkulacka-betonu.html"}]}]}</script>
+<link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1"><link rel="stylesheet" href="/spring-2026.css?v=1"><link rel="stylesheet" href="/growth-2026.css?v=2"><link rel="stylesheet" href="/typography-2026.css?v=11"><link rel="stylesheet" href="/app.css?v=4">
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=13" defer></script><script src="/majster-tools.js?v=1" defer></script>
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="site-header"><div class="top container"><a class="brand" href="/" aria-label="Záhrada s nápadom domov"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/temy/dielna.html">Dielňa</a><a class="active-nav" href="/pomocky.html">Pomôcky</a><a href="/kalendar.html">Kalendár</a><a href="/bazar.html">Bazár</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/dielna.html">Dielňa</a><a href="/bazar.html">Bazár</a></nav></header>
+<main id="obsah">
+<section class="container utility-hero"><a class="utility-back" href="/pomocky.html">← Všetky pomôcky</a><span class="kicker">STAVBA · BETÓN</span><h1>Koľko betónu potrebuješ?</h1><p>Vypočítaj objem pre malú dosku, pás, hranaté pätky alebo okrúhle otvory pre stĺpiky. Zadaj rozmery, počet kusov a rezervu. Ak poznáš výťažnosť jedného balenia suchej zmesi, kalkulačka vie odhadnúť aj počet balení.</p></section>
+
+<section class="container tool-shell">
+<div class="tool-copy">
+<span class="kicker">AKO TO POČÍTA</span><h2>Objem podľa tvaru, nie podľa pocitu.</h2>
+<p>Pri hranatom prvku sa násobí dĺžka × šírka × hĺbka. Pri okrúhlom otvore sa používa objem valca. Počet rovnakých prvkov sa násobí a nakoniec sa pridá zvolená rezerva.</p>
+<p>Pri výkope bývajú steny nerovné a časť betónu zostane v miešačke alebo nádobe. Preto je praktické neobjednávať presne na matematický objem.</p>
+<div class="tool-note"><strong>Dôležité:</strong> kalkulačka rieši iba množstvo. Neurčuje hrúbku dosky, výstuž, triedu betónu, únosnosť ani rozmery základu. Tie závisia od konkrétnej konštrukcie a podložia.</div>
+</div>
+
+<form id="concrete-calculator" class="calculator-card">
+<span class="kicker">VÝPOČET</span><h2>Rozmery betónu</h2>
+<div class="calculator-grid">
+<label>Typ tvaru<select id="concrete-shape"><option value="rect">Doska / pás / hranatá pätka</option><option value="round">Okrúhly otvor / valcová pätka</option></select></label>
+<label>Počet rovnakých kusov<input id="concrete-count" type="number" min="1" step="1" value="1" inputmode="numeric"></label>
+
+<div id="concrete-rect-fields" class="field-group">
+<label>Dĺžka jedného kusu (m)<input id="concrete-length" type="number" min="0.01" step="0.01" value="2" inputmode="decimal"></label>
+<label>Šírka jedného kusu (m)<input id="concrete-width" type="number" min="0.01" step="0.01" value="1" inputmode="decimal"></label>
+<label>Hĺbka / hrúbka (cm)<input id="concrete-depth" type="number" min="1" step="1" value="10" inputmode="numeric"></label>
+</div>
+
+<div id="concrete-round-fields" class="field-group" hidden>
+<label>Priemer otvoru (cm)<input id="concrete-diameter" type="number" min="1" step="1" value="30" inputmode="numeric"></label>
+<label>Hĺbka otvoru (cm)<input id="concrete-depth-round" type="number" min="1" step="1" value="80" inputmode="numeric"></label>
+</div>
+
+<label>Rezerva (%)<input id="concrete-reserve" type="number" min="0" max="50" step="1" value="10" inputmode="numeric"></label>
+<label>Výťažnosť 1 balenia podľa obalu (l)<input id="concrete-yield" type="number" min="0" step="0.1" placeholder="nepovinné" inputmode="decimal"></label>
+</div>
+<div class="calculator-actions"><button class="btn primary" type="submit">Prepočítať</button></div>
+<div class="calculator-result" aria-live="polite">
+<div class="result-box"><small>Čistý geometrický objem</small><strong id="concrete-raw">0,2 m³</strong></div>
+<div class="result-box"><small>Objem s rezervou</small><strong id="concrete-total">0,22 m³</strong></div>
+<div class="result-box"><small>Betón s rezervou v litroch</small><strong id="concrete-liters">220 l</strong></div>
+<div class="result-box"><small>Počet balení</small><strong id="concrete-bags">zadaj výťažnosť</strong></div>
+</div>
+<p class="calculator-foot">Ak chceš odhad balení suchej zmesi, zadaj výťažnosť jedného balenia v litroch presne podľa výrobcu. Hmotnosť balenia sama osebe nestačí na spoľahlivý prepočet.</p>
+</form>
+</section>
+
+<section class="container tool-section">
+<div class="section-head"><div><span class="kicker">ČASTÉ OTÁZKY</span><h2>Kedy pridať rezervu a kedy nie?</h2></div></div>
+<div class="faq-stack">
+<details open><summary>Prečo je predvolená rezerva 10 %?</summary><p>Je to iba praktický východiskový bod pre malé hobby práce. Reálny výkop môže byť väčší než výpočet, podklad nemusí byť rovný a časť materiálu sa stratí pri manipulácii. Rezervu si nastav podľa vlastnej situácie.</p></details>
+<details><summary>Môžem podľa tejto kalkulačky navrhnúť základ?</summary><p>Nie. Kalkulačka počíta objem už navrhnutého tvaru. Rozmery základov, výstuž, betónová trieda a únosnosť podložia patria do návrhu konštrukcie.</p></details>
+<details><summary>Ako vypočítam viac rovnakých pätiek?</summary><p>Zadaj rozmery jednej pätky a počet kusov. Pri okrúhlych dierach prepni typ tvaru na valec a zadaj priemer a hĺbku.</p></details>
+<details><summary>Prečo počet vriec nevychádza z kilogramov?</summary><p>Rôzne suché zmesi majú rôznu výťažnosť po zamiešaní. Preto kalkulačka používa údaj v litroch hotovej zmesi z obalu konkrétneho výrobku.</p></details>
+</div>
+</section>
+<section class="container"><span class="kicker">ĎALŠIE POMÔCKY</span><div class="utility-links"><a href="/kalkulacka-farby.html">Kalkulačka farby →</a><a href="/hmozdinky-vrtaky.html">Radca hmoždiniek a vrtákov →</a><a href="/pomocky.html">Všetky pomôcky →</a></div></section>
+</main>
+<footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/dielna.html">Dielňa</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
+</body></html>
