@@ -14,13 +14,13 @@
   <title>Inzerát | Bazár | Záhrada s nápadom</title>
   <link rel="manifest" href="zahrada.webmanifest?v=5">
   <link rel="stylesheet" href="zahrada.css?v=8">
-  <link rel="stylesheet" href="bazar.css?v=2">
+  <link rel="stylesheet" href="bazar.css?v=3">
   <link rel="stylesheet" href="typography-2026.css?v=11">
-  <link rel="stylesheet" href="app.css?v=4">
+  <link rel="stylesheet" href="app.css?v=7">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="inzerat.js?v=1" defer></script>
+  <script src="inzerat.js?v=2" defer></script>
   <script src="zahrada.js?v=2" defer></script>
-  <script src="app.js?v=4" defer></script>
+  <script src="app.js?v=15" defer></script>
 </head>
 <body class="bazar-page">
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
@@ -60,17 +60,21 @@
         <div id="ad-thumbs" class="thumbs"></div>
       </div>
       <div class="bazar-detail">
-        <div class="bazar-card-top"><span id="ad-type" class="tag"></span><span id="ad-category" class="soft-tag"></span></div>
+        <div class="bazar-card-top"><span id="ad-type" class="tag"></span><span id="ad-category" class="soft-tag"></span><span id="ad-seller-badge" class="seller-tag private"></span></div>
         <h1 id="ad-title"></h1>
         <div id="ad-price" class="detail-price"></div>
         <p id="ad-meta" class="detail-meta"></p>
         <p id="ad-description" class="detail-description"></p>
 
         <div class="contact-box">
-          <span class="kicker">KONTAKT NA INZERENTA</span>
+          <span class="kicker">INZERENT A KONTAKT</span>
+          <div id="ad-business-info" class="business-info" hidden>
+            <strong id="ad-business-name"></strong>
+            <span>IČO: <b id="ad-business-ico"></b></span>
+          </div>
           <h3 id="ad-contact-name">Inzerent</h3>
           <div id="ad-contact-links" class="contact-links"></div>
-          <p class="bazar-help">Dohoda, platba aj odovzdanie prebiehajú priamo medzi vami. Záhrada s nápadom nie je stranou obchodu.</p>
+          <p class="bazar-help">Dohoda, platba aj odovzdanie prebiehajú priamo medzi tebou a inzerentom. Záhrada s nápadom neberie províziu a nie je stranou obchodu.</p>
         </div>
 
         <div class="detail-actions">
@@ -83,14 +87,13 @@
     <section id="report-box" class="report-box" hidden>
       <span class="kicker">NAHLÁSENIE</span>
       <h2>Je s inzerátom problém?</h2>
-      <p class="bazar-help">Nahlásenie dostane správca webu. Použi ho najmä pri firemnej ponuke, spame, nebezpečnom obsahu alebo neaktuálnom inzeráte.</p>
+      <p class="bazar-help">Nahlásenie dostane správca webu. Použi ho najmä pri spame, zavádzajúcej ponuke, nebezpečnom obsahu, nesprávnom označení inzerenta alebo neaktuálnom inzeráte.</p>
       <form id="report-form">
         <label>Dôvod
           <select id="report-reason" required>
-            <option value="commercial">Komerčná / firemná ponuka</option>
-            <option value="spam">Spam alebo opakovaný predaj</option>
+            <option value="spam">Spam alebo nevhodná reklama</option>
             <option value="prohibited">Zakázaný alebo nebezpečný obsah</option>
-            <option value="misleading">Zavádzajúci obsah</option>
+            <option value="misleading">Zavádzajúci obsah alebo nesprávne údaje inzerenta</option>
             <option value="sold">Inzerát je zrejme neaktuálny</option>
             <option value="other">Iné</option>
           </select>
@@ -105,11 +108,11 @@
     </section>
   </main>
 
-  <section class="noncommercial"><div class="container"><strong>Bezplatný hobby bazár pre súkromné osoby.</strong><span>Web nesprostredkuje platbu, neberie províziu a neponúka platené zvýraznenie.</span></div></section>
+  <section class="noncommercial"><div class="container"><strong>Bezplatný bazár pre súkromné osoby aj firmy.</strong><span>Web nesprostredkuje platbu, neberie províziu a nevstupuje do dohody medzi inzerentom a záujemcom.</span></div></section>
 
   <footer class="footer container">
     <a class="brand small-brand" href="index.html"><img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a>
-    <p>Komunitný bazár · od ľudí pre ľudí.</p>
+    <p>Komunitný bazár · pre ľudí aj firmy · bez provízie.</p>
     <a class="footer-facebook-link footer-facebook-standalone" href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">f</span> Facebook Záhrada s nápadom</a>
     <small>Nekomerčný hobby projekt · 2026</small>
   </footer>
