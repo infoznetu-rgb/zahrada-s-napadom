@@ -314,7 +314,7 @@ function calcFence(){
  const slatW=Math.max(1,num('fence-slat-width')),gap=num('fence-gap');
  const height=num('fence-slat-height'),rails=Math.max(0,Math.round(num('fence-rails')));
  const reserve=num('fence-reserve');
- let count=Math.max(1,Math.floor((lengthMm+gap)/(slatW+gap)));
+ let count=Math.max(1,Math.round((lengthMm+gap)/(slatW+gap)));
  while(count>1 && count*slatW>lengthMm)count--;
  const actualGap=count>1?Math.max(0,(lengthMm-count*slatW)/(count-1)):0;
  const buy=Math.ceil(count*(1+reserve/100));
@@ -330,7 +330,7 @@ function calcDeck(){
  const length=num('deck-length'),widthM=num('deck-width'),widthMm=widthM*1000;
  const boardW=Math.max(1,num('deck-board-width')),gap=num('deck-gap');
  const stock=Math.max(.001,num('deck-stock-length')),reserve=num('deck-reserve');
- let rows=Math.max(1,Math.floor((widthMm+gap)/(boardW+gap)));
+ let rows=Math.max(1,Math.round((widthMm+gap)/(boardW+gap)));
  while(rows>1 && rows*boardW>widthMm)rows--;
  const actualGap=rows>1?Math.max(0,(widthMm-rows*boardW)/(rows-1)):0;
  const linear=rows*length,total=linear*(1+reserve/100);
