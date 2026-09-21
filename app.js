@@ -10,12 +10,179 @@
   const PROMO_DISMISS_KEY='zahrada-app-promo-dismissed-v1';
   const ANALYTICS_URL='https://bkyappgttwjxakkwycub.supabase.co/rest/v1/site_events';
   const ANALYTICS_KEY='sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4';
+  const POSTS_API='https://bkyappgttwjxakkwycub.supabase.co/rest/v1/zahrada_posts';
+  let searchPostsCache=null;
+  let searchTimer=null;
   const VISITOR_KEY='zahrada-visitor-v1';
   const ANALYTICS_SESSION_PREFIX='zahrada-analytics:';
   let currentArticleSlug='';
 
 
   const BOOKMARK_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg>';
+  const SEARCH_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg>';
+
+  function escHtml(value){
+    return String(value??'').replace(/[&<>"']/g,ch=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+    }[ch]));
+  }
+
+  function normalizeSearch(value){
+    return String(value||'')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .toLowerCase().trim();
+  }
+
+  async function loadSearchPosts(){
+    if(Array.isArray(searchPostsCache))return searchPostsCache;
+    const query='?select=slug,title,excerpt,category,cover_url,content_type,tags,content,published_at&status=eq.published&order=published_at.desc&limit=150';
+    const response=await fetch(POSTS_API+query,{headers:{apikey:ANALYTICS_KEY}});
+    if(!response.ok)throw new Error('search_posts_'+response.status);
+    searchPostsCache=await response.json();
+    return searchPostsCache;
+  }
+
+  function rankSearchPost(post,query){
+    const q=normalizeSearch(query);
+    if(!q)return 0;
+    const title=normalizeSearch(post.title);
+    const category=normalizeSearch(post.category);
+    const excerpt=normalizeSearch(post.excerpt);
+    const content=normalizeSearch(post.content);
+    const tags=normalizeSearch(Array.isArray(post.tags)?post.tags.join(' '):post.tags);
+    let score=0;
+    if(title===q)score+=80;
+    if(title.startsWith(q))score+=45;
+    if(title.includes(q))score+=30;
+    if(tags.includes(q))score+=20;
+    if(category.includes(q))score+=15;
+    if(excerpt.includes(q))score+=10;
+    if(content.includes(q))score+=4;
+    q.split(/\s+/).filter(Boolean).forEach(word=>{
+      if(title.includes(word))score+=8;
+      if(tags.includes(word))score+=5;
+      if(excerpt.includes(word))score+=3;
+      if(content.includes(word))score+=1;
+    });
+    return score;
+  }
+
+  function ensureSearchModal(){
+    let modal=document.querySelector('#global-search-modal');
+    if(modal)return modal;
+    modal=document.createElement('div');
+    modal.id='global-search-modal';
+    modal.className='global-search-modal';
+    modal.hidden=true;
+    modal.innerHTML=`
+      <button class="global-search-backdrop" type="button" data-search-close aria-label="Zavrieť vyhľadávanie"></button>
+      <section class="global-search-panel" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
+        <div class="global-search-head">
+          <div><span class="kicker">VYHĽADÁVANIE</span><h2 id="global-search-title">Nájdi článok alebo nápad</h2></div>
+          <button class="global-search-close" type="button" data-search-close aria-label="Zavrieť">×</button>
+        </div>
+        <label class="global-search-field">
+          <span class="sr-only">Hľadať</span>
+          ${SEARCH_ICON}
+          <input id="global-search-input" type="search" autocomplete="off" placeholder="Napr. trávnik, kompost, kov, terasa…">
+          <button id="global-search-clear" type="button" aria-label="Vymazať" hidden>×</button>
+        </label>
+        <p id="global-search-status" class="global-search-status" aria-live="polite">Začni písať názov alebo tému.</p>
+        <div id="global-search-results" class="global-search-results"></div>
+      </section>`;
+    document.body.appendChild(modal);
+    modal.querySelectorAll('[data-search-close]').forEach(btn=>btn.addEventListener('click',closeSearch));
+    modal.addEventListener('keydown',event=>{if(event.key==='Escape')closeSearch()});
+    const input=modal.querySelector('#global-search-input');
+    const clear=modal.querySelector('#global-search-clear');
+    input.addEventListener('input',()=>{
+      clear.hidden=!input.value;
+      clearTimeout(searchTimer);
+      searchTimer=setTimeout(()=>renderSearch(input.value),120);
+    });
+    clear.addEventListener('click',()=>{input.value='';clear.hidden=true;renderSearch('');input.focus()});
+    return modal;
+  }
+
+  async function renderSearch(query){
+    const modal=ensureSearchModal();
+    const status=modal.querySelector('#global-search-status');
+    const results=modal.querySelector('#global-search-results');
+    const q=String(query||'').trim();
+    if(q.length<2){
+      status.textContent=q?'Napíš aspoň 2 znaky.':'Začni písať názov alebo tému.';
+      results.innerHTML='';
+      return;
+    }
+    status.textContent='Hľadám…';
+    try{
+      const posts=await loadSearchPosts();
+      const found=posts
+        .map(post=>({post,score:rankSearchPost(post,q)}))
+        .filter(x=>x.score>0)
+        .sort((a,b)=>b.score-a.score)
+        .slice(0,14)
+        .map(x=>x.post);
+      trackEvent('search_used',{label:q});
+      if(!found.length){
+        status.textContent='Nenašiel som žiadny článok pre „'+q+'“.';
+        results.innerHTML='<div class="global-search-empty">Skús kratšie slovo alebo inú tému.</div>';
+        return;
+      }
+      status.textContent=found.length===1?'Našiel sa 1 výsledok.':'Nájdených '+found.length+' výsledkov.';
+      results.innerHTML=found.map(post=>{
+        const p=normalizePost(post);
+        const cover=String(post.cover_url||'');
+        const type=post.content_type==='blog'?'BLOG':'NÁPAD';
+        return `<a class="global-search-result" href="${escHtml(p.url)}">
+          <span class="global-search-thumb">${cover?`<img src="${escHtml(cover)}" alt="" loading="lazy">`:'<b>✦</b>'}</span>
+          <span class="global-search-copy">
+            <small>${type} · ${escHtml(post.category||'')}</small>
+            <strong>${escHtml(post.title||'Príspevok')}</strong>
+            <span>${escHtml(post.excerpt||'')}</span>
+          </span>
+          <i aria-hidden="true">›</i>
+        </a>`;
+      }).join('');
+    }catch(error){
+      console.error(error);
+      status.textContent='Vyhľadávanie sa momentálne nepodarilo načítať.';
+      results.innerHTML='';
+    }
+  }
+
+  function openSearch(initialQuery=''){
+    const modal=ensureSearchModal();
+    const input=modal.querySelector('#global-search-input');
+    modal.hidden=false;
+    document.body.classList.add('global-search-open');
+    input.value=String(initialQuery||'');
+    modal.querySelector('#global-search-clear').hidden=!input.value;
+    renderSearch(input.value);
+    setTimeout(()=>input.focus(),0);
+  }
+
+  function closeSearch(){
+    const modal=document.querySelector('#global-search-modal');
+    if(!modal)return;
+    modal.hidden=true;
+    document.body.classList.remove('global-search-open');
+  }
+
+  function addGlobalSearchButton(){
+    const top=document.querySelector('.site-header .top');
+    if(!top||top.querySelector('.site-search-trigger'))return;
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='site-search-trigger';
+    button.setAttribute('aria-label','Vyhľadať článok');
+    button.title='Vyhľadať článok';
+    button.innerHTML=SEARCH_ICON+'<span>Hľadať</span>';
+    button.addEventListener('click',()=>openSearch());
+    const menu=top.querySelector('.menu');
+    top.insertBefore(button,menu||null);
+  }
+
   function visitorId(){
     try{
       let id=localStorage.getItem(VISITOR_KEY);
@@ -578,6 +745,7 @@
   repairBrokenImages();
   enhanceCards();
   wireAnalyticsMedia();
+  addGlobalSearchButton();
 
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;updatePromoBanner()});
   window.addEventListener('appinstalled',()=>{trackEvent('app_installed',{label:'pwa'});deferredPrompt=null;document.querySelector('.app-install-prompt')?.setAttribute('hidden','');toast('Aplikácia je nainštalovaná.');updatePromoBanner()});
@@ -595,7 +763,7 @@
 
   window.ZahradaApp={
     getSaved,getHistory,isSaved,savePost,removeSaved,toggleSaved,addHistory,clearHistory,clearSaved,
-    toast,normalizePost,requestInstall,requestNotifications,getPushSubscription
+    toast,normalizePost,requestInstall,requestNotifications,getPushSubscription,openSearch,closeSearch,trackEvent
   };
 
   document.documentElement.classList.toggle('pwa-standalone',isStandalone());
