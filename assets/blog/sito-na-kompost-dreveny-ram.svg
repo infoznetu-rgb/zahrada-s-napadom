@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Jednoduché sito na kompost z dreveného rámu</title>
+<desc id="d">Praktická schéma dreveného sita položeného na fúriku s kovovou sieťou, úchopmi, spevnenými rohmi a rozdelením na jemné a hrubšie preosievanie.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f3f6e9"/><stop offset="1" stop-color="#eadfc6"/></linearGradient>
+<pattern id="mesh" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 0H22V22H0Z" fill="none" stroke="#6d7669" stroke-width="2"/></pattern>
+<style>text{font-family:Arial,sans-serif;fill:#29452f}.h{font-size:62px;font-weight:700}.s{font-size:30px}.lab{font-size:33px;font-weight:700}.line{stroke:#315b3a;stroke-width:5;fill:none}.wood{fill:#a9774f;stroke:#68472f;stroke-width:8}</style>
+</defs>
+<rect width="1600" height="1000" fill="url(#bg)"/>
+<text x="85" y="105" class="h">Sito na kompost z dreveného rámu</text>
+<text x="85" y="160" class="s">Rám prispôsob fúriku alebo nádobe. Veľkosť oka vyber podľa požadovanej jemnosti.</text>
+
+<!-- wheelbarrow -->
+<path d="M360 720 H1080 L985 850 H460 Z" fill="#6f765f" stroke="#43513e" stroke-width="10"/>
+<circle cx="1080" cy="850" r="72" fill="#40443e"/>
+<circle cx="1080" cy="850" r="30" fill="#8a8f80"/>
+<path d="M475 850 L320 935 M870 850 L900 940" stroke="#535c4f" stroke-width="24" stroke-linecap="round"/>
+
+<!-- sieve frame -->
+<rect x="300" y="360" width="860" height="390" rx="12" class="wood"/>
+<rect x="350" y="410" width="760" height="290" fill="url(#mesh)" stroke="#5f665d" stroke-width="6"/>
+<!-- corner braces -->
+<path d="M315 405 L390 375 M1070 375 L1145 405 M315 705 L390 735 M1070 735 L1145 705" stroke="#d3b08a" stroke-width="22" stroke-linecap="round"/>
+<!-- handles -->
+<rect x="205" y="485" width="110" height="95" rx="18" class="wood"/>
+<rect x="1145" y="485" width="110" height="95" rx="18" class="wood"/>
+
+<!-- compost -->
+<g fill="#6c5237"><circle cx="650" cy="500" r="38"/><circle cx="720" cy="520" r="42"/><circle cx="790" cy="485" r="35"/><circle cx="845" cy="535" r="40"/><circle cx="590" cy="555" r="35"/></g>
+<g fill="#92734f"><rect x="685" y="450" width="100" height="20" rx="10" transform="rotate(25 735 460)"/><rect x="790" y="565" width="115" height="18" rx="9" transform="rotate(-15 850 574)"/></g>
+
+<!-- labels -->
+<path d="M220 270 H420 L500 365" class="line"/>
+<text x="85" y="245" class="lab">Spevnené rohy</text>
+<text x="85" y="285" class="s">pri väčšom ráme pomôže aj priečka</text>
+
+<path d="M1220 300 H1100 L995 420" class="line"/>
+<text x="1200" y="270" class="lab">Kovová sieť</text>
+<text x="1170" y="310" class="s">jemné oko = jemnejší výsledok</text>
+
+<path d="M1300 545 H1250" class="line"/>
+<text x="1305" y="530" class="lab">Úchopy</text>
+<text x="1290" y="570" class="s">bez ostrých hrán</text>
+
+<path d="M170 820 H375 L500 720" class="line"/>
+<text x="85" y="800" class="lab">Rám sedí na fúriku</text>
+<text x="85" y="840" class="s">nemusíš držať celú váhu v rukách</text>
+
+<text x="85" y="950" class="s">Praktická voľba oka: jemné preosievanie približne 5–8 mm · bežný kompost často pohodlnejšie 10–15 mm</text>
+<text x="85" y="985" class="s">Záhrada s nápadom · dielenská ilustračná schéma</text>
+</svg>
