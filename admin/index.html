@@ -14,10 +14,10 @@
   <link rel="alternate icon" href="admin-icon.svg?v=2">
   <link rel="manifest" href="admin.webmanifest?v=2">
   <title>ZÁHRADA ADMIN | Správa webu</title>
-  <link rel="stylesheet" href="admin.css?v=4">
+  <link rel="stylesheet" href="admin.css?v=5">
   <link rel="stylesheet" href="bazar.css?v=1">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="admin.js?v=5" defer></script>
+  <script src="admin.js?v=6" defer></script>
   <script src="bazar.js?v=3" defer></script>
   <script src="admin-pwa.js?v=2" defer></script>
 </head>
@@ -51,8 +51,10 @@
           <button class="nav-btn active" data-view="dashboard">Prehľad</button>
           <button class="nav-btn" data-view="posts">Príspevky</button>
           <button class="nav-btn" data-view="editor" data-new-post="1">+ Nový príspevok</button>
+          <button class="nav-btn" data-view="videos">Videá</button>
+          <button class="nav-btn" data-view="settings">Upraviť stránku</button>
+          <button class="nav-btn" data-view="media">Médiá</button>
           <button class="nav-btn" data-view="bazar">Komunitný bazár</button>
-          <button class="nav-btn" data-view="settings">Texty stránky</button>
         </nav>
         <div class="sidebar-bottom">
           <a href="../index.html" target="_blank" rel="noopener">Otvoriť web ↗</a>
@@ -129,6 +131,13 @@
                 <label class="upload-btn">Pridať fotografie<input id="post-gallery-files" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif"></label>
               </div>
 
+              <div class="panel">
+                <h3>Videá v príspevku</h3>
+                <div id="post-videos-preview" class="video-preview-grid"></div>
+                <label class="upload-btn">Pridať video<input id="post-video-files" type="file" multiple accept="video/mp4,video/webm,video/quicktime"></label>
+                <small>MP4/WebM/MOV, maximálne 100 MB na súbor.</small>
+              </div>
+
               <div class="panel publish-box">
                 <div class="status-line"><span>Stav</span><strong id="current-status">Koncept</strong></div>
                 <button id="save-draft-btn" class="btn ghost full" type="button">Uložiť koncept</button>
@@ -184,8 +193,32 @@
           </div>
         </section>
 
+        <section id="view-videos" class="view">
+          <div class="view-head">
+            <div><p class="eyebrow">VIDEÁ</p><h2>Videá na titulnej stránke</h2></div>
+            <a class="btn ghost" href="../index.html#videa" target="_blank" rel="noopener">Pozrieť sekciu ↗</a>
+          </div>
+          <div class="editor-grid">
+            <div class="panel editor-main">
+              <h3>Pridať nové video</h3>
+              <label>Názov<input id="home-video-title" type="text" placeholder="Napr. Výroba kovovej hojdačky"></label>
+              <label>Krátky popis<textarea id="home-video-description" rows="3" placeholder="Jedna alebo dve vety k videu."></textarea></label>
+              <label class="upload-btn">Vybrať video<input id="home-video-file" type="file" accept="video/mp4,video/webm,video/quicktime"></label>
+              <small>Video sa uloží do médií webu. Maximálna veľkosť jedného súboru je 100 MB.</small>
+              <button id="home-video-add" class="btn primary" type="button">Pridať video</button>
+            </div>
+            <aside class="panel">
+              <h3>Publikované videá</h3>
+              <div id="home-videos-list" class="admin-video-list"></div>
+            </aside>
+          </div>
+        </section>
+
         <section id="view-settings" class="view">
-          <div class="view-head"><div><p class="eyebrow">STRÁNKA</p><h2>Texty a kontakt</h2></div></div>
+          <div class="view-head">
+            <div><p class="eyebrow">STRÁNKA</p><h2>Upraviť stránku</h2></div>
+            <a class="btn ghost" href="../index.html" target="_blank" rel="noopener">Náhľad webu ↗</a>
+          </div>
           <form id="settings-form" class="settings-grid">
             <div class="panel">
               <h3>Úvod stránky</h3>
@@ -193,14 +226,89 @@
               <label>Hlavný nadpis<textarea id="hero-title-input" rows="3"></textarea></label>
               <label>Úvodný text<textarea id="hero-text-input" rows="5"></textarea></label>
             </div>
+
+            <div class="panel">
+              <h3>Vlastné projekty</h3>
+              <label>Malý nadpis<input id="projects-kicker-input" type="text"></label>
+              <label>Nadpis<textarea id="projects-title-input" rows="3"></textarea></label>
+              <label>Popis<textarea id="projects-text-input" rows="4"></textarea></label>
+            </div>
+
+            <div class="panel">
+              <h3>Blog</h3>
+              <label>Malý nadpis<input id="blog-kicker-input" type="text"></label>
+              <label>Nadpis<textarea id="blog-title-input" rows="3"></textarea></label>
+              <label>Popis<textarea id="blog-text-input" rows="4"></textarea></label>
+            </div>
+
+            <div class="panel">
+              <h3>Videá</h3>
+              <label>Malý nadpis<input id="videos-kicker-input" type="text"></label>
+              <label>Nadpis<textarea id="videos-title-input" rows="3"></textarea></label>
+              <label>Popis<textarea id="videos-text-input" rows="4"></textarea></label>
+            </div>
+
+            <div class="panel">
+              <h3>Komunita</h3>
+              <label>Malý nadpis<input id="community-kicker-input" type="text"></label>
+              <label>Nadpis<textarea id="community-title-input" rows="3"></textarea></label>
+              <label>Popis<textarea id="community-text-input" rows="4"></textarea></label>
+            </div>
+
             <div class="panel">
               <h3>Kontakt</h3>
               <label>Nadpis<input id="contact-title-input" type="text"></label>
               <label>Text<textarea id="contact-text-input" rows="5"></textarea></label>
               <label>Facebook odkaz<input id="contact-facebook-input" type="url"></label>
             </div>
-            <div class="settings-actions"><button class="btn primary" type="submit">Uložiť texty stránky</button></div>
+
+            <div class="panel">
+              <h3>Sociálne siete</h3>
+              <label>Facebook<input id="social-facebook-input" type="url" placeholder="https://facebook.com/..."></label>
+              <label>Instagram<input id="social-instagram-input" type="url" placeholder="https://instagram.com/..."></label>
+              <label>YouTube<input id="social-youtube-input" type="url" placeholder="https://youtube.com/..."></label>
+            </div>
+
+            <div class="panel">
+              <h3>Pätička</h3>
+              <label>Text pod logom<textarea id="footer-text-input" rows="3"></textarea></label>
+              <label>Copyright<input id="footer-copyright-input" type="text"></label>
+            </div>
+
+            <div class="panel">
+              <h3>SEO titulnej stránky</h3>
+              <label>Názov stránky<input id="seo-title-input" type="text" maxlength="70"></label>
+              <label>Meta popis<textarea id="seo-description-input" rows="4" maxlength="180"></textarea></label>
+              <small>Tieto údaje používa Google a sociálne siete pri zdieľaní titulnej stránky.</small>
+            </div>
+
+            <div class="panel">
+              <h3>Zobrazenie sekcií</h3>
+              <div class="toggle-list">
+                <label class="toggle-row"><input id="visible-season" type="checkbox"><span>Teraz v záhrade</span></label>
+                <label class="toggle-row"><input id="visible-maker" type="checkbox"><span>Pomôcky pre majstrov</span></label>
+                <label class="toggle-row"><input id="visible-projects" type="checkbox"><span>Vlastné projekty</span></label>
+                <label class="toggle-row"><input id="visible-blog" type="checkbox"><span>Blog</span></label>
+                <label class="toggle-row"><input id="visible-videos" type="checkbox"><span>Videá</span></label>
+                <label class="toggle-row"><input id="visible-community" type="checkbox"><span>Komunita</span></label>
+                <label class="toggle-row"><input id="visible-facebook" type="checkbox"><span>Facebook panel</span></label>
+                <label class="toggle-row"><input id="visible-contact" type="checkbox"><span>Kontakt</span></label>
+              </div>
+            </div>
+
+            <div class="settings-actions"><button class="btn primary" type="submit">Uložiť nastavenia stránky</button></div>
           </form>
+        </section>
+
+        <section id="view-media" class="view">
+          <div class="view-head">
+            <div><p class="eyebrow">MÉDIÁ</p><h2>Knižnica fotografií a videí</h2></div>
+            <button id="media-refresh" class="btn ghost" type="button">Obnoviť</button>
+          </div>
+          <div class="panel">
+            <p class="muted">Tu nájdeš médiá nahrané cez administráciu. Odkaz môžeš skopírovať a znovu použiť.</p>
+            <div id="media-library" class="media-library"><div class="empty">Médiá sa načítajú po otvorení tejto sekcie.</div></div>
+          </div>
         </section>
       </div>
     </section>
