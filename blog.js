@@ -23,7 +23,7 @@ function blogEsc(value){
   }[c]));
 }
 
-function blogHref(p){return window.ZahradaSEO?.postHref?.(p)||("prispevok.html?slug="+encodeURIComponent(p.slug))}
+function blogHref(p){const s=String(p?.slug||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");return "/clanok-"+s+".html"}
 
 function blogCountLabel(count){
   if(count===1)return "1 článok";
