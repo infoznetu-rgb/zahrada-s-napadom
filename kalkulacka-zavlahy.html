@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kalkulačka závlahy: vypočítaj litre vody na jedno polievanie a za týždeň podľa plochy, dávky v l/m², frekvencie, prietoku a objemu nádrže.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="theme-color" content="#5f965f">
+<link rel="canonical" href="https://zahradasnapadom.sk/kalkulacka-zavlahy.html"><link rel="icon" type="image/svg+xml" href="/brand-mark.svg?v=1">
+<title>Kalkulačka závlahy a spotreby vody | Záhrada s nápadom</title>
+<meta property="og:type" content="website"><meta property="og:locale" content="sk_SK"><meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="Kalkulačka závlahy a spotreby vody"><meta property="og:description" content="Koľko litrov vody potrebuje záhon alebo trávnik pri zvolenej dávke?"><meta property="og:url" content="https://zahradasnapadom.sk/kalkulacka-zavlahy.html"><meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Kalkulačka závlahy a spotreby vody","url":"https://zahradasnapadom.sk/kalkulacka-zavlahy.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"sk-SK"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domov","item":"https://zahradasnapadom.sk/"},{"@type":"ListItem","position":2,"name":"Pomôcky","item":"https://zahradasnapadom.sk/pomocky.html"},{"@type":"ListItem","position":3,"name":"Závlaha","item":"https://zahradasnapadom.sk/kalkulacka-zavlahy.html"}]}]}</script>
+<link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1"><link rel="stylesheet" href="/spring-2026.css?v=1"><link rel="stylesheet" href="/growth-2026.css?v=5"><link rel="stylesheet" href="/typography-2026.css?v=11"><link rel="stylesheet" href="/app.css?v=4">
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=13" defer></script><script src="/majster-tools.js?v=5" defer></script>
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="site-header"><div class="top container"><a class="brand" href="/" aria-label="Záhrada s nápadom domov"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/temy/zahrada.html">Záhrada</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/temy/zahrada.html">Záhrada</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav></header>
+<main id="obsah">
+<section class="container utility-hero"><a class="utility-back" href="/pomocky.html">← Všetky pomôcky</a><span class="kicker">ZÁHRADA · VODA · POLIEVANIE</span><h1>Koľko vody potrebuješ na jedno polievanie?</h1><p>Zadaj plochu, plánovanú dávku vody na meter štvorcový a počet polievaní. Kalkulačka ukáže litre na jednu zálievku, týždennú spotrebu, čas pri zadanom prietoku aj to, koľko zálievok pokryje nádrž.</p></section>
+<section class="container tool-shell">
+<div class="tool-copy"><span class="kicker">LITRE NA METER ŠTVORCOVÝ</span><h2>1 l/m² zodpovedá 1 mm vody.</h2><p>Ak zadáš dávku 10 l/m² na plochu 20 m², matematický objem jednej zálievky je 200 litrov. Skutočná potreba rastlín však závisí od pôdy, počasia, koreňovej zóny, mulču a konkrétnej plodiny.</p><p>Prietok hadice alebo kvapkovej vetvy slúži iba na orientačný prepočet času. Ak ho nepoznáš, zmeraj za koľko sekúnd natečie nádoba známeho objemu.</p><div class="tool-note">Kalkulačka neurčuje správnu dávku vody. Dávku zadávaš ty podľa podmienok v záhrade; výsledok je plán spotreby.</div></div>
+<form id="irrigation-calculator" class="calculator-card">
+<span class="kicker">VÝPOČET</span><h2>Plocha, dávka a zásoba vody</h2>
+<div class="calculator-grid">
+<label>Plocha (m²)<input id="irrigation-area" type="number" min="0.1" step="0.1" value="20" inputmode="decimal"></label>
+<label>Dávka na jedno polievanie (l/m²)<input id="irrigation-dose" type="number" min="0" step="0.5" value="10" inputmode="decimal"></label>
+<label>Polievania za týždeň<input id="irrigation-frequency" type="number" min="0" step="1" value="2" inputmode="numeric"></label>
+<label>Prietok (l/min)<input id="irrigation-flow" type="number" min="0" step="0.1" value="10" inputmode="decimal"></label>
+<label>Objem nádrže (l)<input id="irrigation-tank" type="number" min="1" step="10" value="500" inputmode="numeric"></label>
+</div>
+<div class="calculator-actions"><button class="btn primary" type="submit">Prepočítať</button></div>
+<div class="calculator-result" aria-live="polite">
+<div class="result-box"><small>Jedno polievanie</small><strong id="irrigation-once">200 l</strong></div>
+<div class="result-box"><small>Za týždeň</small><strong id="irrigation-week">400 l</strong></div>
+<div class="result-box"><small>Vodný stĺpec</small><strong id="irrigation-mm">10 mm</strong></div>
+<div class="result-box"><small>Čas pri zadanom prietoku</small><strong id="irrigation-time">20 min</strong></div>
+<div class="result-box"><small>Nádrž pokryje</small><strong id="irrigation-tank-runs">2,5 zálievky</strong></div>
+</div>
+</form></section>
+<section class="container tool-section"><div class="section-head"><div><span class="kicker">ČASTÉ OTÁZKY</span><h2>Ako čítať výsledok?</h2></div></div><div class="faq-stack">
+<details open><summary>Prečo sa l/m² rovná mm vody?</summary><p>Liter vody má objem 0,001 m³. Rozliaty rovnomerne na 1 m² vytvorí vrstvu vysokú 1 mm, preto sú tieto dve hodnoty pri plošnej zálievke priamo porovnateľné.</p></details>
+<details><summary>Je 10 l/m² správna dávka?</summary><p>Nie je to univerzálne odporúčanie, iba predvolený príklad. Potreba sa mení podľa rastlín, pôdy, teploty, vetra, zrážok a spôsobu zavlažovania.</p></details>
+<details><summary>Ako zmerať prietok hadice?</summary><p>Naplň nádobu so známym objemom a zmeraj čas. Napríklad 10-litrové vedro naplnené za 60 sekúnd znamená približne 10 l/min.</p></details>
+<details><summary>Môžem použiť objem nádrže s dažďovou vodou?</summary><p>Áno. Výsledok ukáže, koľko zvolených zálievok by plná nádrž teoreticky pokryla. Skutočne dostupný objem závisí od aktuálneho naplnenia.</p></details>
+</div></section>
+<section class="container"><span class="kicker">SÚVISIACE</span><div class="utility-links"><a href="/blog/letne-polievanie-s-mensou-spotrebou/">Letné polievanie →</a><a href="/kalkulacka-dazdovej-vody.html">Dažďová voda zo strechy →</a><a href="/pomocky.html">Všetky pomôcky →</a></div></section>
+</main>
+<footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/zahrada.html">Záhrada</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
+</body></html>
