@@ -122,7 +122,22 @@
       <p>Napíš čo najpresnejší názov. Pomôžu rozmery, materiál alebo použitie — napríklad „kovová hojdacia lavička 150 cm“ namiesto iba „lavička“.</p>
       <label class="price-field"><span>Čo mám hľadať?</span><input id="market-query" type="text" maxlength="120" placeholder="Názov podobného výrobku"></label>
       <div class="price-actions"><button id="market-search" class="btn primary" type="button">Nájsť podobné ceny</button></div>
-      <p class="market-help">Vyhľadávanie je orientačné. Výrobky sa môžu líšiť rozmerom, materiálom, kvalitou aj dopravou. Vždy otvor zdroj a cenu si over.</p>
+      <p class="market-help">Automatické vyhľadanie funguje iba vtedy, keď vyhľadávač zverejní cenu priamo vo výsledku. Výrobky sa môžu líšiť rozmerom, materiálom, kvalitou aj dopravou.</p>
+
+      <div class="market-open">
+        <strong>Ak automatika cenu nenájde, otvor si ponuky:</strong>
+        <div class="market-open-links">
+          <a id="market-link-heureka" href="https://www.heureka.sk/" target="_blank" rel="noopener noreferrer">Heureka ↗</a>
+          <a id="market-link-google" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google ↗</a>
+          <a id="market-link-bing" href="https://www.bing.com/" target="_blank" rel="noopener noreferrer">Bing ↗</a>
+        </div>
+      </div>
+
+      <div class="manual-market">
+        <div class="manual-market-head"><strong>Zapíš ceny, ktoré si našiel</strong><small>Napr. „Heureka – podobná lavička“ a 249 €. Tieto ceny sa zarátajú do porovnania.</small></div>
+        <div id="manual-price-list" class="manual-price-list"></div>
+        <button id="manual-price-add" class="manual-price-add" type="button">+ Pridať ďalšiu cenu</button>
+      </div>
     </div>
     <div id="market-results" class="market-results">
       <div class="market-empty"><strong>Zatiaľ nič nehľadám.</strong><span>Najprv si spočítaj vlastnú cenu a potom vyhľadaj podobný výrobok.</span></div>
