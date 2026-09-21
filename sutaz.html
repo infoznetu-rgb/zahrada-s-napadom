@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="application-name" content="Záhrada s nápadom">
+  <meta name="theme-color" content="#f6f3e8">
+  <meta name="description" content="Súťaž Záhrady s nápadom o 3 ručne vyrobené kovové opory pre rastliny. Zapojenie je bezplatné, výhercovia budú zverejnení na stránke.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://zahradasnapadom.sk/sutaz.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Záhrada s nápadom">
+  <meta property="og:title" content="Súťaž o 3 ručne vyrobené opory pre rastliny">
+  <meta property="og:description" content="Traja výhercovia získajú po jednej 60 cm kovovej opore pre hortenzie, pivónie alebo inú rastlinu. Zapojenie je zdarma.">
+  <meta property="og:url" content="https://zahradasnapadom.sk/sutaz.html">
+  <meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Súťaž o 3 opory pre rastliny | Záhrada s nápadom</title>
+  <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
+  <link rel="manifest" href="zahrada.webmanifest?v=6">
+  <link rel="stylesheet" href="zahrada.css?v=10">
+  <link rel="stylesheet" href="typography-2026.css?v=11">
+  <link rel="stylesheet" href="app.css?v=8">
+  <link rel="stylesheet" href="sutaz.css?v=1">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="zahrada.js?v=2" defer></script>
+  <script src="app.js?v=17" defer></script>
+  <script src="sutaz.js?v=1" defer></script>
+</head>
+<body class="contest-page">
+  <a class="skip" href="#obsah">Preskočiť na obsah</a>
+  <header class="site-header">
+    <div class="top container">
+      <a class="brand" href="index.html" aria-label="Záhrada s nápadom domov">
+        <img class="brand-mark" src="brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hlavná navigácia">
+        <a href="index.html#projekty">Nápady</a>
+        <a href="blog.html">Blog</a>
+        <a href="/pomocky.html">Pomôcky</a>
+        <a href="index.html#videa">Videá</a>
+        <a href="bazar.html">Bazár</a>
+        <a class="active-nav contest-nav-static" href="sutaz.html">🎁 Súťaž</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia">
+      <a href="index.html#projekty">Nápady</a>
+      <a href="blog.html">Blog</a>
+      <a href="/pomocky.html">Pomôcky</a>
+      <a href="index.html#videa">Videá</a>
+      <a href="bazar.html">Bazár</a>
+      <a class="active-nav contest-nav-static" href="sutaz.html">🎁 Súťaž</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="obsah">
+    <section class="contest-hero container">
+      <div class="contest-hero-copy">
+        <span class="contest-live-pill"><i></i> SÚŤAŽ PREBIEHA</span>
+        <p class="eyebrow">ZÁHRADA S NÁPADOM · 3 VÝHERCOVIA</p>
+        <h1>Vyhraj ručne vyrobenú <em>oporu pre rastliny.</em></h1>
+        <p class="contest-lead">Vyrobil som tri kovové opory vysoké <strong>60 cm</strong>. Sú ideálne najmä pre hortenzie a pivónie, ale použiť ich môžeš pri akejkoľvek rastline, ktorá potrebuje oporu.</p>
+
+        <div class="contest-prize-chips">
+          <span><b>3×</b> výherca</span>
+          <span><b>60 cm</b> výška</span>
+          <span><b>0 €</b> zapojenie</span>
+          <span><b>Ručná výroba</b></span>
+        </div>
+
+        <a class="btn primary contest-main-cta" href="#zapoj-sa">Chcem sa zapojiť <span aria-hidden="true">↓</span></a>
+      </div>
+
+      <aside class="contest-countdown-card" aria-labelledby="countdown-title">
+        <span class="kicker">DO KONCA SÚŤAŽE</span>
+        <h2 id="countdown-title">Zostáva</h2>
+        <div class="contest-countdown" id="contest-countdown" aria-live="polite">
+          <div><strong id="cd-days">--</strong><span>dní</span></div>
+          <div><strong id="cd-hours">--</strong><span>hod.</span></div>
+          <div><strong id="cd-minutes">--</strong><span>min.</span></div>
+          <div><strong id="cd-seconds">--</strong><span>sek.</span></div>
+        </div>
+        <p>Končí <strong>5. 10. 2026 o 20:00</strong>.</p>
+        <div class="contest-entry-count"><strong id="contest-entry-count">0</strong><span>ľudí sa už zapojilo</span></div>
+      </aside>
+    </section>
+
+    <section class="contest-prize container">
+      <div class="section-head">
+        <div><span class="kicker">VÝHRA</span><h2>Tri opory, traja výhercovia.</h2></div>
+        <p>Každý výherca dostane jednu ručne vyrobenú kovovú oporu.</p>
+      </div>
+      <div class="contest-prize-grid">
+        <div class="contest-prize-visual" aria-label="Kovová opora pre rastliny vysoká 60 centimetrov">
+          <div class="support-illustration" aria-hidden="true">
+            <span class="ring ring-one"></span><span class="ring ring-two"></span><span class="ring ring-three"></span>
+            <i class="leg leg-one"></i><i class="leg leg-two"></i><i class="leg leg-three"></i>
+          </div>
+          <span class="contest-photo-note">Fotografia výhry bude doplnená z originálnej opory.</span>
+        </div>
+        <div class="contest-prize-info">
+          <article><span>01</span><div><strong>60 cm vysoká</strong><p>Pevná kovová opora, ktorú zapichneš priamo do pôdy.</p></div></article>
+          <article><span>02</span><div><strong>Pre hortenzie a pivónie</strong><p>Pomáha podoprieť ťažšie kvety a udržať rastlinu upravenú.</p></div></article>
+          <article><span>03</span><div><strong>Aj pre iné rastliny</strong><p>Použiť ju môžeš všade tam, kde rastlina potrebuje praktickú oporu.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="zapoj-sa" class="contest-entry-section">
+      <div class="container contest-entry-layout">
+        <div>
+          <span class="kicker">ZAPOJ SA</span>
+          <h2>Stačí jedna krátka odpoveď.</h2>
+          <p>Napíš, ku ktorej rastline by si oporu použil. Like, komentár, zdieľanie ani sledovanie Facebooku <strong>nie sú podmienkou účasti</strong> a nezvyšujú šancu na výhru. Každú reakciu však veľmi rád privítam.</p>
+
+          <div class="contest-social-card">
+            <span aria-hidden="true">f</span>
+            <div><strong>Chceš podporiť Záhradu s nápadom?</strong><p>Sleduj stránku na Facebooku, reaguj alebo súťaž pošli niekomu, komu by sa opora hodila.</p></div>
+            <a href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+          </div>
+        </div>
+
+        <form id="contest-form" class="contest-form">
+          <label>Meno alebo prezývka
+            <input id="contest-name" name="display_name" maxlength="80" required autocomplete="name" placeholder="Ako ťa uvedieme, ak vyhráš?">
+          </label>
+          <label>E-mail
+            <input id="contest-email" name="email" type="email" maxlength="254" required autocomplete="email" placeholder="Na kontaktovanie výhercu">
+          </label>
+          <label>Ku ktorej rastline by si oporu použil?
+            <textarea id="contest-answer" name="answer" rows="4" minlength="2" maxlength="500" required placeholder="Napr. k pivónii pri terase…"></textarea>
+          </label>
+          <label class="contest-hp" aria-hidden="true">Web<input id="contest-website" name="website" tabindex="-1" autocomplete="off"></label>
+          <label class="contest-check"><input id="contest-rules" type="checkbox" required><span>Súhlasím s <a href="#pravidla">pravidlami súťaže</a> a s použitím e-mailu na evidenciu účasti a kontaktovanie výhercu.</span></label>
+          <button class="btn primary full" type="submit">Odoslať súťažnú odpoveď</button>
+          <p id="contest-message" class="contest-message" role="status"></p>
+          <small>E-mail sa verejne nezobrazuje. Do súťaže sa dá zapojiť raz na jednu e-mailovú adresu.</small>
+        </form>
+      </div>
+    </section>
+
+    <section id="vyhercovia" class="section container contest-winners">
+      <div class="section-head">
+        <div><span class="kicker">VÝHERCOVIA</span><h2>Tu zverejníme troch výhercov.</h2></div>
+        <p>Po vyžrebovaní sa výsledok zobrazí priamo na tejto stránke.</p>
+      </div>
+      <div id="contest-winners-box" class="contest-winners-box">
+        <div class="contest-waiting"><span>🎁</span><strong>Súťaž ešte prebieha.</strong><p>Výhercovia budú zverejnení po skončení súťaže a kontaktovaní e-mailom.</p></div>
+      </div>
+    </section>
+
+    <section id="pravidla" class="section contest-rules-section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="kicker">PODMIENKY</span><h2>Jednoduché a férové pravidlá.</h2></div>
+          <p>Súťaž je bezplatná a kúpa žiadneho produktu nie je potrebná.</p>
+        </div>
+        <div class="contest-rules-grid">
+          <article><b>1</b><h3>Kedy?</h3><p>Od 21. 9. 2026 do 5. 10. 2026 do 20:00 slovenského času.</p></article>
+          <article><b>2</b><h3>Kto?</h3><p>Osoby vo veku 18+ s možnosťou prevziať výhru na území Slovenska.</p></article>
+          <article><b>3</b><h3>Ako sa zapojiť?</h3><p>Vyplň formulár vyššie. Jedna osoba / e-mail môže byť v žrebovaní iba raz.</p></article>
+          <article><b>4</b><h3>Čo sa vyhráva?</h3><p>Traja výhercovia získajú po jednej 60 cm ručne vyrobenej kovovej opore pre rastliny.</p></article>
+          <article><b>5</b><h3>Ako vyberieme výhercov?</h3><p>Po skončení súťaže budú z platných účastí náhodne vyžrebovaní traja výhercovia.</p></article>
+          <article><b>6</b><h3>Ako sa dozvieš výsledok?</h3><p>Mená alebo prezývky výhercov zverejníme tu a výhercov kontaktujeme na zadaný e-mail.</p></article>
+        </div>
+        <div class="contest-legal">
+          <p><strong>Organizátor:</strong> prevádzkovateľ hobby projektu Záhrada s nápadom · kontakt: <a href="mailto:kamgardensk@gmail.com">kamgardensk@gmail.com</a>.</p>
+          <p>Like, komentár, zdieľanie, označenie priateľa ani sledovanie stránky na Facebooku nie sú podmienkou účasti a nemajú vplyv na žrebovanie. Ak výherca na kontakt nereaguje do 5 dní, organizátor môže vyžrebovať náhradníka.</p>
+          <p>Táto súťaž nie je sponzorovaná, podporovaná, spravovaná ani inak spojená so spoločnosťou Meta alebo Facebookom.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>Záhrada s nápadom · vlastné projekty, záhrada, dielňa a praktické nápady pre radosť.</p>
+    <small>© 2026 · Nekomerčný hobby projekt</small>
+  </footer>
+</body>
+</html>
