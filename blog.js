@@ -14,7 +14,8 @@ const BLOG_CATEGORY_ORDER=[
 
 const blogState={
   posts:[],
-  activeCategory:"Všetko"
+  activeCategory:"Všetko",
+  query:""
 };
 
 function blogEsc(value){
@@ -29,6 +30,23 @@ function blogCountLabel(count){
   if(count===1)return "1 článok";
   if(count>=2&&count<=4)return `${count} články`;
   return `${count} článkov`;
+}
+
+function blogNormalize(value){
+  return String(value||"")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase().trim();
+}
+
+function blogMatchesQuery(post,query){
+  const q=blogNormalize(query);
+  if(!q)return true;
+  const hay=blogNormalize([
+    post.title,post.excerpt,post.category,
+    Array.isArray(post.tags)?post.tags.join(" "):post.tags,
+    post.content
+  ].filter(Boolean).join(" "));
+  return q.split(/\s+/).filter(Boolean).every(word=>hay.includes(word));
 }
 
 function renderBlogCard(p){
@@ -117,17 +135,25 @@ function renderVisiblePosts(){
   const summary=document.querySelector("#blog-filter-summary");
   if(!root)return;
 
-  const filtered=blogState.activeCategory==="Všetko"
+  let filtered=blogState.activeCategory==="Všetko"
     ? blogState.posts
     : blogState.posts.filter(p=>(p.category||"Ostatné")===blogState.activeCategory);
 
+  filtered=filtered.filter(p=>blogMatchesQuery(p,blogState.query));
+
   root.innerHTML=filtered.map(renderBlogCard).join("");
-  if(empty)empty.hidden=filtered.length>0;
+  if(empty){
+    empty.hidden=filtered.length>0;
+    if(!filtered.length)empty.textContent=blogState.query
+      ? "Pre toto hľadanie som nenašiel žiadny článok."
+      : "V tejto kategórii zatiaľ nie sú články.";
+  }
 
   if(summary){
-    summary.textContent=blogState.activeCategory==="Všetko"
-      ? `Zobrazených ${blogCountLabel(filtered.length)}`
-      : `${blogState.activeCategory} · ${blogCountLabel(filtered.length)}`;
+    const prefix=blogState.activeCategory==="Všetko"?"":blogState.activeCategory+" · ";
+    summary.textContent=prefix+(blogState.query
+      ? blogCountLabel(filtered.length)+" pre „"+blogState.query+"“"
+      : "Zobrazených "+blogCountLabel(filtered.length));
   }
 }
 
@@ -136,7 +162,7 @@ async function loadBlog(){
   const summary=document.querySelector("#blog-filter-summary");
 
   const {data,error}=await blogDb.from("zahrada_posts")
-    .select("slug,title,excerpt,category,cover_url,published_at,tags")
+    .select("slug,title,excerpt,category,cover_url,published_at,tags,content")
     .eq("status","published")
     .eq("content_type","blog")
     .order("published_at",{ascending:false})
@@ -151,8 +177,42 @@ async function loadBlog(){
   blogState.posts=data;
   renderFilters();
 
-  const requested=new URLSearchParams(window.location.search).get("kategoria");
+  const params=new URLSearchParams(window.location.search);
+  const requested=params.get("kategoria");
+  blogState.query=(params.get("q")||"").trim();
+  const search=document.querySelector("#blog-search");
+  const clear=document.querySelector("#blog-search-clear");
+  if(search)search.value=blogState.query;
+  if(clear)clear.hidden=!blogState.query;
   setCategory(requested||"Všetko",{updateUrl:false});
 }
+
+const blogSearch=document.querySelector("#blog-search");
+const blogSearchClear=document.querySelector("#blog-search-clear");
+let blogSearchTrackTimer=null;
+
+function setBlogQuery(value,{updateUrl=true}={}){
+  blogState.query=String(value||"").trim();
+  if(blogSearchClear)blogSearchClear.hidden=!blogState.query;
+  renderVisiblePosts();
+  if(updateUrl){
+    const url=new URL(window.location.href);
+    if(blogState.query)url.searchParams.set("q",blogState.query);
+    else url.searchParams.delete("q");
+    history.replaceState(null,"",url.pathname+url.search+url.hash);
+  }
+}
+
+blogSearch?.addEventListener("input",()=>{
+  setBlogQuery(blogSearch.value);
+  clearTimeout(blogSearchTrackTimer);
+  const q=blogSearch.value.trim();
+  if(q.length>=2)blogSearchTrackTimer=setTimeout(()=>window.ZahradaApp?.trackEvent?.("search_used",{label:q}),500);
+});
+blogSearchClear?.addEventListener("click",()=>{
+  if(blogSearch)blogSearch.value="";
+  setBlogQuery("");
+  blogSearch?.focus();
+});
 
 loadBlog();
