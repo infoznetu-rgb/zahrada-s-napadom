@@ -9,20 +9,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect Heureka search HTML
+      - name: Inspect public reader output
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --silent --show-error -A 'Mozilla/5.0'             'https://www.heureka.sk/?h%5Bfraze%5D=dreveny%20kvetinac' -o heureka.html
+          curl --fail --silent --show-error             'https://r.jina.ai/https://www.heureka.sk/?h%5Bfraze%5D=dreveny%20kvetinac'             -o reader.txt
           python - <<'PY'
-          import re
-          s=open('heureka.html',encoding='utf-8',errors='ignore').read()
+          s=open('reader.txt',encoding='utf-8',errors='ignore').read()
           print('bytes=',len(s))
-          print('ldjson=',len(re.findall(r'application/ld\+json',s,re.I)))
-          print('product_types=',len(re.findall(r'"@type"\s*:\s*"Product"',s,re.I)))
-          print('price_fields=',len(re.findall(r'"price"\s*:',s,re.I)))
-          for pat in ['ROJAPLAST Drevený kvetináč','46,90','79,90','price']:
+          for pat in ['ROJAPLAST','46,90','79,90','€','Drevený kvetináč']:
               i=s.find(pat)
               print('PATTERN',pat,'INDEX',i)
-              if i>=0: print(re.sub(r'\s+',' ',s[max(0,i-500):i+800])[:1400])
+              if i>=0: print(s[max(0,i-250):i+700].replace('\n',' ')[:950])
           PY
