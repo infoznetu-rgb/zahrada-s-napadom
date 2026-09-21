@@ -9,30 +9,20 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Call price comparison function
+      - name: Inspect Heureka search HTML
         shell: bash
         run: |
           set -euo pipefail
-          KEY=$(python - <<'PY'
-          import re
-          s=open('cms-public.js',encoding='utf-8').read()
-          m=re.search(r'CMS_KEY="([^"]+)"',s)
-          assert m
-          print(m.group(1))
-          PY
-          )
-          URL='https://bkyappgttwjxakkwycub.supabase.co/functions/v1/product-price-compare'
-          curl --fail --silent --show-error --get "$URL"             -H "apikey: $KEY"             -H "Authorization: Bearer $KEY"             --data-urlencode 'q=dreveny kvetinac'             -o response.json
+          curl --fail --silent --show-error -A 'Mozilla/5.0'             'https://www.heureka.sk/?h%5Bfraze%5D=dreveny%20kvetinac' -o heureka.html
           python - <<'PY'
-          import json
-          d=json.load(open('response.json'))
-          assert d.get('query') == 'dreveny kvetinac', d
-          assert isinstance(d.get('results'), list), d
-          assert isinstance(d.get('stats'), dict), d
-          print('provider=', d.get('provider'))
-          print('results=', len(d.get('results', [])))
-          print('stats=', d.get('stats'))
-          for x in d.get('results', [])[:3]:
-              print(x.get('price'), x.get('domain'), x.get('title'))
+          import re
+          s=open('heureka.html',encoding='utf-8',errors='ignore').read()
+          print('bytes=',len(s))
+          print('ldjson=',len(re.findall(r'application/ld\+json',s,re.I)))
+          print('product_types=',len(re.findall(r'"@type"\s*:\s*"Product"',s,re.I)))
+          print('price_fields=',len(re.findall(r'"price"\s*:',s,re.I)))
+          for pat in ['ROJAPLAST Drevený kvetináč','46,90','79,90','price']:
+              i=s.find(pat)
+              print('PATTERN',pat,'INDEX',i)
+              if i>=0: print(re.sub(r'\s+',' ',s[max(0,i-500):i+800])[:1400])
           PY
