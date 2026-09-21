@@ -502,8 +502,8 @@ button,
 .post-intro p,
 .post-rich-text p{
   color:#425f4e;
-  font-size:1rem;
-  line-height:1.78;
+  font-size:1.18rem;
+  line-height:1.82;
 }
 .post-intro h2{
   font-size:clamp(2rem,3.2vw,3.2rem);
@@ -511,6 +511,14 @@ button,
 }
 
 /* Mobil: žiadne mikropísmo vo formulároch ani pomocných textoch */
+@media(max-width:620px){
+  .post-intro p,
+  .post-rich-text p{
+    font-size:1.12rem;
+    line-height:1.8;
+  }
+}
+
 @media(max-width:620px){
   .idea-form label,
   .bazar-filters label,
