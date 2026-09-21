@@ -132,7 +132,8 @@
       status.textContent=found.length===1?'Našiel sa 1 výsledok.':'Nájdených '+found.length+' výsledkov.';
       results.innerHTML=found.map(post=>{
         const p=normalizePost(post);
-        const cover=String(post.cover_url||'');
+        const rawCover=String(post.cover_url||'');
+        const cover=rawCover?(rawCover.startsWith('http')?rawCover:(rawCover.startsWith('/')?rawCover:'/'+rawCover)):'';
         const type=post.content_type==='blog'?'BLOG':'NÁPAD';
         return `<a class="global-search-result" href="${escHtml(p.url)}">
           <span class="global-search-thumb">${cover?`<img src="${escHtml(cover)}" alt="" loading="lazy">`:'<b>✦</b>'}</span>
