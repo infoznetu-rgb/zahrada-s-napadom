@@ -11,6 +11,8 @@ let siteSettings={};
 let currentPost=null;
 let mediaLoaded=false;
 let analyticsLoaded=false;
+let commentsLoaded=false;
+let comments=[];
 
 const $=(s)=>document.querySelector(s);
 const $$=(s)=>[...document.querySelectorAll(s)];
@@ -52,6 +54,7 @@ function activateView(name){
   document.querySelector(".sidebar").classList.remove("open");
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
   if(name==="analytics"&&!analyticsLoaded)loadAnalytics();
+  if(name==="comments"&&!commentsLoaded)loadComments();
 }
 document.addEventListener("click",(e)=>{
   const newBtn=e.target.closest("[data-new-post]");
@@ -531,6 +534,88 @@ async function loadAnalytics(){
 }
 $("#analytics-days").addEventListener("change",()=>{analyticsLoaded=false;loadAnalytics()});
 $("#analytics-refresh").addEventListener("click",()=>{analyticsLoaded=false;loadAnalytics()});
+
+async function loadComments(){
+  const box=$("#comments-admin-list");
+  if(box)box.innerHTML='<div class="empty">Načítavam komentáre…</div>';
+  setSave("Načítavam komentáre…");
+  const {data,error}=await db.from("zahrada_comments")
+    .select("*")
+    .order("created_at",{ascending:false})
+    .limit(500);
+  if(error){
+    console.error(error);
+    if(box)box.innerHTML='<div class="empty">Komentáre sa nepodarilo načítať.</div>';
+    setSave("Chyba komentárov");
+    return;
+  }
+  comments=data||[];
+  commentsLoaded=true;
+  renderComments();
+  setSave("Komentáre načítané");
+}
+
+function renderComments(){
+  const box=$("#comments-admin-list");
+  if(!box)return;
+  const q=($("#comments-search")?.value||"").trim().toLowerCase();
+  const type=$("#comments-type")?.value||"";
+
+  $("#comments-stat-all").textContent=String(comments.length);
+  $("#comments-stat-posts").textContent=String(comments.filter(x=>x.target_type==="post").length);
+  $("#comments-stat-photos").textContent=String(comments.filter(x=>x.target_type==="photo").length);
+
+  const filtered=comments.filter(item=>{
+    if(type&&item.target_type!==type)return false;
+    if(!q)return true;
+    return [item.author_name,item.body,item.target_label,item.page_path].some(v=>String(v||"").toLowerCase().includes(q));
+  });
+
+  if(!filtered.length){
+    box.innerHTML='<div class="empty">Žiadne komentáre pre tento filter.</div>';
+    return;
+  }
+
+  box.innerHTML=filtered.map(item=>`<article class="admin-comment-card" data-comment-id="${esc(item.id)}">
+    <div class="admin-comment-top">
+      <div>
+        <span class="badge ${item.target_type==="photo"?"draft":"published"}">${item.target_type==="photo"?"Fotografia":"Článok / projekt"}</span>
+        <strong>${esc(item.target_label||item.target_id||"Komentár")}</strong>
+      </div>
+      <time>${esc(formatDate(item.created_at))}</time>
+    </div>
+    <p class="admin-comment-body">${esc(item.body)}</p>
+    <div class="admin-comment-foot">
+      <span>Od: <strong>${esc(item.author_name||"Návštevník")}</strong></span>
+      <div>
+        ${item.page_path?`<a class="mini-btn" href="${esc(item.page_path)}" target="_blank" rel="noopener">Otvoriť ↗</a>`:""}
+        <button class="mini-btn danger-mini" type="button" data-delete-comment="${esc(item.id)}">Vymazať</button>
+      </div>
+    </div>
+  </article>`).join("");
+
+  box.querySelectorAll("[data-delete-comment]").forEach(btn=>btn.addEventListener("click",()=>deleteComment(btn.dataset.deleteComment)));
+}
+
+async function deleteComment(id){
+  const item=comments.find(x=>x.id===id);
+  if(!item)return;
+  if(!confirm("Naozaj chceš tento komentár vymazať?"))return;
+  setSave("Vymazávam komentár…");
+  const {error}=await db.from("zahrada_comments").delete().eq("id",id);
+  if(error){
+    alert("Komentár sa nepodarilo vymazať: "+error.message);
+    setSave("Chyba");
+    return;
+  }
+  comments=comments.filter(x=>x.id!==id);
+  renderComments();
+  setSave("Komentár vymazaný");
+}
+
+$("#comments-search")?.addEventListener("input",renderComments);
+$("#comments-type")?.addEventListener("change",renderComments);
+$("#comments-refresh")?.addEventListener("click",()=>{commentsLoaded=false;loadComments()});
 
 async function listMediaFolder(prefix,depth=0){
   const {data,error}=await db.storage.from("zahrada-media").list(prefix,{limit:100,sortBy:{column:"created_at",order:"desc"}});
