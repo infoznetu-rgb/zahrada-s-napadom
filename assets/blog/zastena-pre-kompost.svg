@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Vzdušná zástena pre kompost</title>
+<desc id="d">Praktická schéma latkovej zásteny pri kompostéri s medzerami medzi latami, otvoreným prístupom pre fúrik a odtokom vody pri zemi.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f2f6e9"/><stop offset="1" stop-color="#eadfc8"/></linearGradient>
+<style>text{font-family:Arial,sans-serif;fill:#29452f}.h{font-size:62px;font-weight:700}.s{font-size:30px}.lab{font-size:33px;font-weight:700}.line{stroke:#315b3a;stroke-width:5;fill:none}.wood{fill:#a97a50;stroke:#6c4a31;stroke-width:7}.comp{fill:#5e4d39}.green{fill:#7e9c60}</style>
+</defs>
+<rect width="1600" height="1000" fill="url(#bg)"/>
+<text x="85" y="105" class="h">Zástena pre kompost</text>
+<text x="85" y="160" class="s">Zakry pohľad, nie prúdenie vzduchu ani prístup pri práci.</text>
+<path d="M0 770 C350 710 700 800 1020 740 S1320 720 1600 755 V1000 H0Z" class="green"/>
+
+<!-- compost bin -->
+<rect x="780" y="360" width="420" height="390" rx="20" fill="#65745d" stroke="#3f5040" stroke-width="10"/>
+<rect x="830" y="420" width="320" height="260" rx="12" class="comp"/>
+<path d="M830 470 H1150 M830 535 H1150 M830 600 H1150" stroke="#806b4f" stroke-width="12"/>
+
+<!-- screen posts/slats -->
+<rect x="310" y="300" width="34" height="510" class="wood"/>
+<rect x="655" y="300" width="34" height="510" class="wood"/>
+<g class="wood">
+<rect x="330" y="340" width="310" height="42" rx="8"/>
+<rect x="330" y="405" width="310" height="42" rx="8"/>
+<rect x="330" y="470" width="310" height="42" rx="8"/>
+<rect x="330" y="535" width="310" height="42" rx="8"/>
+<rect x="330" y="600" width="310" height="42" rx="8"/>
+<rect x="330" y="665" width="310" height="42" rx="8"/>
+</g>
+
+<!-- wheelbarrow path -->
+<path d="M100 820 H700" stroke="#cfbc94" stroke-width="120" stroke-linecap="round" opacity=".8"/>
+<path d="M100 820 H700" stroke="#a08c6e" stroke-width="4" stroke-dasharray="18 18"/>
+
+<!-- arrows airflow -->
+<path d="M690 430 C735 420 750 420 780 430" class="line"/>
+<path d="M690 560 C735 550 750 550 780 560" class="line"/>
+<path d="M690 685 C735 675 750 675 780 685" class="line"/>
+<polygon points="780,430 760,418 762,442" fill="#315b3a"/>
+<polygon points="780,560 760,548 762,572" fill="#315b3a"/>
+<polygon points="780,685 760,673 762,697" fill="#315b3a"/>
+
+<!-- rain roof indication -->
+<path d="M760 320 H1220" stroke="#5d6c57" stroke-width="18"/>
+<path d="M800 285 L1180 285" stroke="#7c8b72" stroke-width="22" stroke-linecap="round"/>
+
+<!-- labels -->
+<path d="M160 265 H335" class="line"/>
+<text x="85" y="245" class="lab">Medzery medzi latami</text>
+<text x="85" y="285" class="s">pomáhajú vzduchu a znižujú tlak vetra</text>
+
+<path d="M1320 360 H1210 L1120 330" class="line"/>
+<text x="1235" y="335" class="lab">Kryt proti dažďu</text>
+<text x="1200" y="375" class="s">ak je kompost príliš mokrý</text>
+
+<path d="M260 875 H540" class="line"/>
+<text x="85" y="855" class="lab">Prístup pre fúrik</text>
+<text x="85" y="895" class="s">nechaj otvorenú pracovnú stranu</text>
+
+<path d="M1300 760 H1180 L1110 730" class="line"/>
+<text x="1240" y="735" class="lab">Odtok pri zemi</text>
+<text x="1215" y="775" class="s">neuzatváraj vodu pri konštrukcii</text>
+
+<text x="85" y="965" class="s">Záhrada s nápadom · praktická ilustračná schéma</text>
+</svg>
