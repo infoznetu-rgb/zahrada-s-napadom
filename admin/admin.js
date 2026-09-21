@@ -4,7 +4,11 @@ const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
 let posts=[];
 let gallery=[];
+let postVideos=[];
+let homeVideos=[];
+let siteSettings={};
 let currentPost=null;
+let mediaLoaded=false;
 
 const $=(s)=>document.querySelector(s);
 const $$=(s)=>[...document.querySelectorAll(s)];
@@ -41,9 +45,10 @@ $("#logout-btn").addEventListener("click",async()=>{await db.auth.signOut();loca
 db.auth.onAuthStateChange((event)=>{if(event==="SIGNED_OUT")showAuth()});
 
 function activateView(name){
-  $$(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+name));
-  $$(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
+  $(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+name));
+  $(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
   document.querySelector(".sidebar").classList.remove("open");
+  if(name==="media"&&!mediaLoaded)loadMediaLibrary();
 }
 document.addEventListener("click",(e)=>{
   const newBtn=e.target.closest("[data-new-post]");
@@ -97,6 +102,7 @@ function renderPostRows(container,list){
 function openEditor(id=null){
   currentPost=id?posts.find(p=>p.id===id):null;
   gallery=Array.isArray(currentPost?.gallery)?[...currentPost.gallery]:[];
+  postVideos=Array.isArray(currentPost?.videos)?[...currentPost.videos]:[];
   $("#post-id").value=currentPost?.id||"";
   $("#post-title").value=currentPost?.title||"";
   $("#post-slug").value=currentPost?.slug||"";
@@ -111,6 +117,7 @@ function openEditor(id=null){
   $("#delete-post-btn").hidden=!currentPost;
   renderCover();
   renderGallery();
+  renderPostVideos();
   activateView("editor");
 }
 
@@ -129,12 +136,25 @@ function renderGallery(){
   box.querySelectorAll("[data-remove-gallery]").forEach(b=>b.addEventListener("click",()=>{gallery.splice(Number(b.dataset.removeGallery),1);renderGallery()}));
 }
 
-async function uploadImage(file,slug){
-  const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");
-  const path=`posts/${slug||"obrazky"}/${Date.now()}-${crypto.randomUUID()}.${ext}`;
-  const {error}=await db.storage.from("zahrada-media").upload(path,file,{cacheControl:"3600",upsert:false});
+function renderPostVideos(){
+  const box=$("#post-videos-preview");
+  if(!box)return;
+  if(!postVideos.length){box.innerHTML='<div class="empty compact">Zatiaľ bez videa.</div>';return}
+  box.innerHTML=postVideos.map((url,i)=>`<div class="admin-video-item"><video src="${esc(url)}" controls preload="metadata"></video><button type="button" data-remove-post-video="${i}" aria-label="Odstrániť video">×</button></div>`).join("");
+  box.querySelectorAll("[data-remove-post-video]").forEach(b=>b.addEventListener("click",()=>{postVideos.splice(Number(b.dataset.removePostVideo),1);renderPostVideos()}));
+}
+
+async function uploadMedia(file,prefix){
+  if(file.size>100*1024*1024)throw new Error("Súbor je väčší ako 100 MB.");
+  const ext=(file.name.split(".").pop()||"bin").toLowerCase().replace(/[^a-z0-9]/g,"");
+  const path=`${prefix}/${Date.now()}-${crypto.randomUUID()}.${ext}`;
+  const {error}=await db.storage.from("zahrada-media").upload(path,file,{cacheControl:"3600",upsert:false,contentType:file.type||undefined});
   if(error)throw error;
   return db.storage.from("zahrada-media").getPublicUrl(path).data.publicUrl;
+}
+
+async function uploadImage(file,slug){
+  return uploadMedia(file,`posts/${slug||"obrazky"}`);
 }
 
 $("#post-cover-file").addEventListener("change",async(e)=>{
@@ -146,6 +166,17 @@ $("#post-cover-file").addEventListener("change",async(e)=>{
 $("#post-gallery-files").addEventListener("change",async(e)=>{
   const files=[...(e.target.files||[])];if(!files.length)return;
   try{setSave("Nahrávam galériu…");for(const file of files){gallery.push(await uploadImage(file,slugify($("#post-slug").value||$("#post-title").value)))}renderGallery();setSave("Galéria nahraná")}catch(err){alert("Niektorú fotografiu sa nepodarilo nahrať: "+err.message);setSave("Chyba")}
+  e.target.value="";
+});
+
+$("#post-video-files").addEventListener("change",async(e)=>{
+  const files=[...(e.target.files||[])];if(!files.length)return;
+  try{
+    setSave("Nahrávam video…");
+    const slug=slugify($("#post-slug").value||$("#post-title").value)||"prispevok";
+    for(const file of files)postVideos.push(await uploadMedia(file,`posts/${slug}/video`));
+    renderPostVideos();setSave("Video nahrané");
+  }catch(err){alert("Video sa nepodarilo nahrať: "+err.message);setSave("Chyba")}
   e.target.value="";
 });
 
@@ -163,6 +194,7 @@ async function savePost(status){
     content:$("#post-content").value.trim(),
     cover_url:$("#post-cover-url").value||null,
     gallery,
+    videos:postVideos,
     status,
     published_at:status==="published"?(currentPost?.published_at||new Date().toISOString()):null
   };
@@ -189,24 +221,166 @@ $("#delete-post-btn").addEventListener("click",async()=>{
 
 async function loadSettings(){
   const {data,error}=await db.from("zahrada_site_settings").select("key,value");
-  if(error)return;
-  const map=Object.fromEntries((data||[]).map(x=>[x.key,x.value]));
-  const hero=map.hero||{},contact=map.contact||{};
+  if(error){setSave("Chyba nastavení");return}
+  siteSettings=Object.fromEntries((data||[]).map(x=>[x.key,x.value]));
+  const hero=siteSettings.hero||{};
+  const contact=siteSettings.contact||{};
+  const sections=siteSettings.home_sections||{};
+  const social=siteSettings.social||{};
+  const footer=siteSettings.footer||{};
+  const seo=siteSettings.seo||{};
+  const visible=siteSettings.visibility||{};
+  homeVideos=Array.isArray(siteSettings.home_videos?.items)?siteSettings.home_videos.items:[];
+
   $("#hero-eyebrow-input").value=hero.eyebrow||"";
   $("#hero-title-input").value=hero.title||"";
   $("#hero-text-input").value=hero.text||"";
+
+  const fillSection=(name)=>{
+    const section=sections[name]||{};
+    const k=$("#"+name+"-kicker-input"),t=$("#"+name+"-title-input"),x=$("#"+name+"-text-input");
+    if(k)k.value=section.kicker||"";
+    if(t)t.value=section.title||"";
+    if(x)x.value=section.text||"";
+  };
+  ["projects","blog","videos","community"].forEach(fillSection);
+
   $("#contact-title-input").value=contact.title||"";
   $("#contact-text-input").value=contact.text||"";
-  $("#contact-facebook-input").value=contact.facebook||"";
+  $("#contact-facebook-input").value=contact.facebook||social.facebook||"";
+
+  $("#social-facebook-input").value=social.facebook||contact.facebook||"";
+  $("#social-instagram-input").value=social.instagram||"";
+  $("#social-youtube-input").value=social.youtube||"";
+  $("#footer-text-input").value=footer.text||"";
+  $("#footer-copyright-input").value=footer.copyright||"";
+  $("#seo-title-input").value=seo.title||"";
+  $("#seo-description-input").value=seo.description||"";
+
+  const defaults={season:true,maker:true,projects:true,blog:true,videos:true,community:true,facebook:true,contact:true};
+  Object.keys(defaults).forEach(key=>{
+    const el=$("#visible-"+key);
+    if(el)el.checked=visible[key]!==false;
+  });
+  renderHomeVideos();
 }
 
 $("#settings-form").addEventListener("submit",async(e)=>{
-  e.preventDefault();setSave("Ukladám texty…");
+  e.preventDefault();setSave("Ukladám stránku…");
   const hero={eyebrow:$("#hero-eyebrow-input").value.trim(),title:$("#hero-title-input").value.trim(),text:$("#hero-text-input").value.trim()};
-  const contact={title:$("#contact-title-input").value.trim(),text:$("#contact-text-input").value.trim(),facebook:$("#contact-facebook-input").value.trim()};
-  const {error}=await db.from("zahrada_site_settings").upsert([{key:"hero",value:hero},{key:"contact",value:contact}],{onConflict:"key"});
-  if(error){alert("Texty sa nepodarilo uložiť: "+error.message);setSave("Chyba");return}
-  setSave("Texty uložené");
+  const sectionValue=(name)=>({kicker:$("#"+name+"-kicker-input").value.trim(),title:$("#"+name+"-title-input").value.trim(),text:$("#"+name+"-text-input").value.trim()});
+  const home_sections={projects:sectionValue("projects"),blog:sectionValue("blog"),videos:sectionValue("videos"),community:sectionValue("community")};
+  const social={facebook:$("#social-facebook-input").value.trim(),instagram:$("#social-instagram-input").value.trim(),youtube:$("#social-youtube-input").value.trim()};
+  const contact={title:$("#contact-title-input").value.trim(),text:$("#contact-text-input").value.trim(),facebook:$("#contact-facebook-input").value.trim()||social.facebook};
+  const footer={text:$("#footer-text-input").value.trim(),copyright:$("#footer-copyright-input").value.trim()};
+  const seo={title:$("#seo-title-input").value.trim(),description:$("#seo-description-input").value.trim()};
+  const visibility={};
+  ["season","maker","projects","blog","videos","community","facebook","contact"].forEach(key=>visibility[key]=$("#visible-"+key).checked);
+  const rows=[
+    {key:"hero",value:hero},
+    {key:"contact",value:contact},
+    {key:"home_sections",value:home_sections},
+    {key:"social",value:social},
+    {key:"footer",value:footer},
+    {key:"seo",value:seo},
+    {key:"visibility",value:visibility}
+  ];
+  const {error}=await db.from("zahrada_site_settings").upsert(rows,{onConflict:"key"});
+  if(error){alert("Nastavenia sa nepodarilo uložiť: "+error.message);setSave("Chyba");return}
+  siteSettings={...siteSettings,hero,contact,home_sections,social,footer,seo,visibility};
+  setSave("Stránka uložená");
 });
+
+function renderHomeVideos(){
+  const box=$("#home-videos-list");
+  if(!box)return;
+  if(!homeVideos.length){box.innerHTML='<div class="empty">Zatiaľ tu nie sú žiadne videá.</div>';return}
+  box.innerHTML=homeVideos.map((v,i)=>`<article class="admin-home-video">
+    <video src="${esc(v.url)}" controls preload="metadata"></video>
+    <div><strong>${esc(v.title||"Video")}</strong><p>${esc(v.description||"")}</p></div>
+    <div class="admin-video-actions">
+      <button type="button" class="mini-btn" data-video-up="${i}" ${i===0?"disabled":""}>↑</button>
+      <button type="button" class="mini-btn" data-video-down="${i}" ${i===homeVideos.length-1?"disabled":""}>↓</button>
+      <button type="button" class="mini-btn danger-mini" data-video-remove="${i}">Odstrániť</button>
+    </div>
+  </article>`).join("");
+  box.querySelectorAll("[data-video-up]").forEach(b=>b.addEventListener("click",()=>moveHomeVideo(Number(b.dataset.videoUp),-1)));
+  box.querySelectorAll("[data-video-down]").forEach(b=>b.addEventListener("click",()=>moveHomeVideo(Number(b.dataset.videoDown),1)));
+  box.querySelectorAll("[data-video-remove]").forEach(b=>b.addEventListener("click",()=>removeHomeVideo(Number(b.dataset.videoRemove))));
+}
+
+async function saveHomeVideos(message="Videá uložené"){
+  const {error}=await db.from("zahrada_site_settings").upsert([{key:"home_videos",value:{items:homeVideos}}],{onConflict:"key"});
+  if(error){alert("Videá sa nepodarilo uložiť: "+error.message);setSave("Chyba");return false}
+  siteSettings.home_videos={items:homeVideos};
+  renderHomeVideos();setSave(message);return true;
+}
+
+async function moveHomeVideo(index,delta){
+  const next=index+delta;if(next<0||next>=homeVideos.length)return;
+  [homeVideos[index],homeVideos[next]]=[homeVideos[next],homeVideos[index]];
+  await saveHomeVideos();
+}
+
+async function removeHomeVideo(index){
+  if(!confirm("Odstrániť toto video zo stránky? Súbor zostane v knižnici médií."))return;
+  homeVideos.splice(index,1);await saveHomeVideos("Video odstránené zo stránky");
+}
+
+$("#home-video-add").addEventListener("click",async()=>{
+  const file=$("#home-video-file").files?.[0];
+  const title=$("#home-video-title").value.trim();
+  if(!file){alert("Najprv vyber video.");return}
+  try{
+    setSave("Nahrávam video…");
+    const url=await uploadMedia(file,"videos/home");
+    homeVideos.push({id:crypto.randomUUID(),title:title||file.name,description:$("#home-video-description").value.trim(),url});
+    if(await saveHomeVideos("Video pridané")){
+      $("#home-video-title").value="";$("#home-video-description").value="";$("#home-video-file").value="";
+      mediaLoaded=false;
+    }
+  }catch(err){alert("Video sa nepodarilo nahrať: "+err.message);setSave("Chyba")}
+});
+
+async function listMediaFolder(prefix,depth=0){
+  const {data,error}=await db.storage.from("zahrada-media").list(prefix,{limit:100,sortBy:{column:"created_at",order:"desc"}});
+  if(error)throw error;
+  let out=[];
+  for(const item of data||[]){
+    const path=prefix?prefix+"/"+item.name:item.name;
+    if(item.metadata||item.id){
+      out.push({path,name:item.name,metadata:item.metadata||{},created_at:item.created_at||item.updated_at||""});
+    }else if(depth<2){
+      out=out.concat(await listMediaFolder(path,depth+1));
+    }
+  }
+  return out;
+}
+
+async function loadMediaLibrary(){
+  const box=$("#media-library");if(!box)return;
+  box.innerHTML='<div class="empty">Načítavam médiá…</div>';
+  try{
+    const [postsMedia,videosMedia]=await Promise.all([listMediaFolder("posts"),listMediaFolder("videos")]);
+    const files=[...postsMedia,...videosMedia].sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)));
+    if(!files.length){box.innerHTML='<div class="empty">Zatiaľ tu nie sú žiadne médiá.</div>';mediaLoaded=true;return}
+    box.innerHTML=files.map(file=>{
+      const url=db.storage.from("zahrada-media").getPublicUrl(file.path).data.publicUrl;
+      const type=String(file.metadata?.mimetype||"");
+      const isVideo=type.startsWith("video/")||/\.(mp4|webm|mov)$/i.test(file.name);
+      return `<article class="media-card">
+        <div class="media-preview">${isVideo?`<video src="${esc(url)}" muted controls preload="metadata"></video>`:`<img src="${esc(url)}" alt="">`}</div>
+        <strong>${esc(file.name)}</strong>
+        <small>${esc(file.path)}</small>
+        <button class="mini-btn" type="button" data-copy-media="${esc(url)}">Kopírovať odkaz</button>
+      </article>`;
+    }).join("");
+    box.querySelectorAll("[data-copy-media]").forEach(btn=>btn.addEventListener("click",async()=>{
+      try{await navigator.clipboard.writeText(btn.dataset.copyMedia);btn.textContent="Skopírované"}catch(e){prompt("Skopíruj odkaz:",btn.dataset.copyMedia)}
+    }));
+    mediaLoaded=true;
+  }catch(err){box.innerHTML='<div class="empty">Médiá sa nepodarilo načítať.</div>';setSave("Chyba médií")}
+}
+$("#media-refresh").addEventListener("click",()=>{mediaLoaded=false;loadMediaLibrary()});
 
 checkAdmin();
