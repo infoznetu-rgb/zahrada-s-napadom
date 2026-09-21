@@ -1,0 +1,81 @@
+name: One-time full website backup
+on:
+  push:
+    paths:
+      - '.github/workflows/one-time-backup.yml'
+permissions:
+  contents: read
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Build portable backup
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="zahrada-s-napadom-backup-2026-09-21"
+          mkdir -p "$ROOT/repository" "$ROOT/supabase/public-data" "$ROOT/supabase/storage/zahrada-media"
+
+          rsync -a             --exclude '.git/'             --exclude '.github/workflows/one-time-backup.yml'             ./ "$ROOT/repository/"
+
+          CMS_URL="https://bkyappgttwjxakkwycub.supabase.co"
+          CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4"
+
+          curl --fail --silent --show-error             -H "apikey: $CMS_KEY"             -H "Authorization: Bearer $CMS_KEY"             "$CMS_URL/rest/v1/zahrada_posts?select=*"             -o "$ROOT/supabase/public-data/zahrada_posts_published.json"
+
+          curl --fail --silent --show-error             -H "apikey: $CMS_KEY"             -H "Authorization: Bearer $CMS_KEY"             "$CMS_URL/rest/v1/zahrada_site_settings?select=*"             -o "$ROOT/supabase/public-data/zahrada_site_settings.json"
+
+          curl --fail --silent --show-error             -H "apikey: $CMS_KEY"             -H "Authorization: Bearer $CMS_KEY"             "$CMS_URL/rest/v1/zahrada_bazar_ads?select=*"             -o "$ROOT/supabase/public-data/zahrada_bazar_ads_public.json"
+
+          media_paths=(
+            "posts/terasova-hojdacia-lavicka/1789898658588-29d41328-0af6-4d85-94f6-3c3458bba132.jpeg"
+            "posts/terasova-hojdacia-lavicka/1789898659103-e52af903-1a54-4e41-b854-f2195007c83c.jpeg"
+            "posts/terasova-hojdacia-lavicka/1789898659586-77b03b0e-86de-4108-8aa5-356ac7e5cd1b.jpeg"
+            "posts/terasova-hojdacia-lavicka/1789898672075-23aa1002-7fd5-4e6d-b4d3-bbe8634a611b.jpeg"
+            "posts/terasova-hojdacia-lavicka/1789898682860-34caea2f-257f-45c9-b6b4-444f51242b11.jpeg"
+            "posts/terasova-hojdacia-lavicka/1789898818796-174ef065-740c-4d66-9d3e-73f412c85e38.jpeg"
+          )
+          for p in "${media_paths[@]}"; do
+            mkdir -p "$ROOT/supabase/storage/zahrada-media/$(dirname "$p")"
+            curl --fail --silent --show-error               "$CMS_URL/storage/v1/object/public/zahrada-media/$p"               -o "$ROOT/supabase/storage/zahrada-media/$p"
+          done
+
+          cat > "$ROOT/BACKUP_INFO.txt" <<'EOF'
+          ZÁHRADA S NÁPADOM — PORTABLE BACKUP
+          Dátum: 21. 9. 2026
+          Zdroj: GitHub main + verejne čitateľná časť Supabase CMS + verejné Storage médiá.
+
+          OBSAHUJE:
+          - celý aktuálny obsah GitHub repozitára (bez .git histórie)
+          - statické HTML/CSS/JS, PWA, admin frontend, blogy a obrázky
+          - publikované CMS príspevky zo Supabase vo formáte JSON
+          - site settings zo Supabase vo formáte JSON
+          - verejne dostupné bazárové záznamy vo formáte JSON
+          - všetky aktuálne objekty vo verejnom buckete zahrada-media
+
+          ZÁMERNE NEOBSAHUJE:
+          - heslá a password hashe
+          - service-role/secret API kľúče
+          - privátne auth sessions
+          - push subscription endpoint/p256dh/auth tajomstvá
+          - interné secrets
+          - .git históriu repozitára
+
+          Pre úplnú obnovu autentifikácie je potrebné samostatne obnoviť Supabase Auth.
+          EOF
+
+          printf '%s\n' "${{ github.sha }}" > "$ROOT/GITHUB_COMMIT.txt"
+          zip -qr "zahrada-s-napadom-backup-2026-09-21.zip" "$ROOT"
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zahrada-s-napadom-full-backup
+          path: zahrada-s-napadom-backup-2026-09-21.zip
+          if-no-files-found: error
+          retention-days: 7
