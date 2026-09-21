@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Praktický kútik na presádzanie rastlín</title><desc id="d">Schéma pracovného stolíka na presádzanie s nádobami, substrátom, náradím, odtokom a priestorom na čistenie.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f2f6e9"/><stop offset="1" stop-color="#eadfc8"/></linearGradient><style>text{font-family:Arial,sans-serif;fill:#29452f}.h{font-size:62px;font-weight:700}.s{font-size:30px}.lab{font-size:33px;font-weight:700}.line{stroke:#315b3a;stroke-width:5;fill:none}.wood{fill:#a97a50;stroke:#6c4a31;stroke-width:7}.green{fill:#759b64}</style></defs>
+<rect width="1600" height="1000" fill="url(#bg)"/><text x="85" y="105" class="h">Kútik na presádzanie rastlín</text><text x="85" y="160" class="s">Pracovná plocha, substrát, čisté náradie a miesto na odtok vody.</text>
+<rect x="360" y="420" width="850" height="55" rx="10" class="wood"/><rect x="420" y="475" width="42" height="360" class="wood"/><rect x="1100" y="475" width="42" height="360" class="wood"/>
+<rect x="470" y="640" width="560" height="40" rx="8" class="wood"/>
+<path d="M640 410 q40-140 80 0" fill="none" stroke="#5a7a52" stroke-width="18"/><ellipse cx="680" cy="385" rx="70" ry="38" class="green"/>
+<path d="M660 420 H820 L800 560 H680 Z" fill="#b98255" stroke="#755138" stroke-width="7"/>
+<rect x="900" y="330" width="200" height="90" rx="15" fill="#d4c49f" stroke="#7d6d52" stroke-width="7"/><text x="920" y="385" class="s">SUBSTRÁT</text>
+<path d="M500 365 l40 -90 l40 90" fill="#777d72"/><rect x="520" y="340" width="40" height="90" rx="12" fill="#606a62"/>
+<path d="M1250 370 H1120" class="line"/><text x="1240" y="345" class="lab">Substrát po ruke</text><text x="1225" y="385" class="s">ale chránený pred dažďom</text>
+<path d="M250 450 H360" class="line"/><text x="85" y="430" class="lab">Pohodlná výška</text><text x="85" y="470" class="s">pracuj bez zbytočného ohýbania</text>
+<path d="M250 670 H470" class="line"/><text x="85" y="650" class="lab">Spodná polica</text><text x="85" y="690" class="s">na nádoby a ťažšie veci</text>
+<path d="M1240 750 H1130" class="line"/><text x="1210" y="730" class="lab">Voda musí odtekať</text><text x="1190" y="770" class="s">nestavaj stôl do trvalo mokrého kúta</text>
+<text x="85" y="960" class="s">Záhrada s nápadom · praktická ilustračná schéma</text></svg>
