@@ -393,6 +393,21 @@
     card.dataset.appSaveReady='1';
   }
 
+
+  function repairBrokenImages(root=document){
+    root.querySelectorAll?.('img').forEach(img=>{
+      if(img.dataset.zahradaImageGuard==='1')return;
+      img.dataset.zahradaImageGuard='1';
+      const fallback=()=>{
+        if(img.dataset.zahradaFallbackUsed==='1')return;
+        img.dataset.zahradaFallbackUsed='1';
+        img.src='/assets/blog/fallback-cover.svg';
+      };
+      img.addEventListener('error',fallback,{once:true});
+      if(img.complete&&img.naturalWidth===0)fallback();
+    });
+  }
+
   function enhanceCards(root=document){
     root.querySelectorAll?.('.cms-post-card').forEach(enhanceCard);
   }
@@ -426,10 +441,12 @@
     for(const m of mutations)for(const node of m.addedNodes){
       if(node.nodeType!==1)continue;
       if(node.matches?.('.cms-post-card'))enhanceCard(node);
+      repairBrokenImages(node);
       enhanceCards(node);
     }
   });
   if(document.body)observer.observe(document.body,{childList:true,subtree:true});
+  repairBrokenImages();
   enhanceCards();
 
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;updatePromoBanner()});
