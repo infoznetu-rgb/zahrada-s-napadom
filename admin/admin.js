@@ -132,16 +132,33 @@ function renderCover(){
 }
 function renderGallery(){
   const box=$("#gallery-preview");
-  box.innerHTML=gallery.map((url,i)=>`<div class="gallery-item"><img src="${esc(url)}" alt=""><button type="button" data-remove-gallery="${i}" aria-label="Odstrániť">×</button></div>`).join("");
+  box.innerHTML=gallery.map((url,i)=>`<div class="gallery-item"><img src="${esc(url)}" alt=""><div class="gallery-controls">
+    <button type="button" data-gallery-left="${i}" aria-label="Posunúť doľava" ${i===0?"disabled":""}>←</button>
+    <button type="button" data-gallery-right="${i}" aria-label="Posunúť doprava" ${i===gallery.length-1?"disabled":""}>→</button>
+    <button type="button" data-remove-gallery="${i}" aria-label="Odstrániť">×</button>
+  </div></div>`).join("");
   box.querySelectorAll("[data-remove-gallery]").forEach(b=>b.addEventListener("click",()=>{gallery.splice(Number(b.dataset.removeGallery),1);renderGallery()}));
+  box.querySelectorAll("[data-gallery-left]").forEach(b=>b.addEventListener("click",()=>moveItem(gallery,Number(b.dataset.galleryLeft),-1,renderGallery)));
+  box.querySelectorAll("[data-gallery-right]").forEach(b=>b.addEventListener("click",()=>moveItem(gallery,Number(b.dataset.galleryRight),1,renderGallery)));
+}
+
+function moveItem(list,index,delta,render){
+  const next=index+delta;if(next<0||next>=list.length)return;
+  [list[index],list[next]]=[list[next],list[index]];render();
 }
 
 function renderPostVideos(){
   const box=$("#post-videos-preview");
   if(!box)return;
   if(!postVideos.length){box.innerHTML='<div class="empty compact">Zatiaľ bez videa.</div>';return}
-  box.innerHTML=postVideos.map((url,i)=>`<div class="admin-video-item"><video src="${esc(url)}" controls preload="metadata"></video><button type="button" data-remove-post-video="${i}" aria-label="Odstrániť video">×</button></div>`).join("");
+  box.innerHTML=postVideos.map((url,i)=>`<div class="admin-video-item"><video src="${esc(url)}" controls preload="metadata"></video><div class="post-video-controls">
+    <button type="button" data-post-video-up="${i}" aria-label="Posunúť hore" ${i===0?"disabled":""}>↑</button>
+    <button type="button" data-post-video-down="${i}" aria-label="Posunúť dole" ${i===postVideos.length-1?"disabled":""}>↓</button>
+    <button type="button" data-remove-post-video="${i}" aria-label="Odstrániť video">×</button>
+  </div></div>`).join("");
   box.querySelectorAll("[data-remove-post-video]").forEach(b=>b.addEventListener("click",()=>{postVideos.splice(Number(b.dataset.removePostVideo),1);renderPostVideos()}));
+  box.querySelectorAll("[data-post-video-up]").forEach(b=>b.addEventListener("click",()=>moveItem(postVideos,Number(b.dataset.postVideoUp),-1,renderPostVideos)));
+  box.querySelectorAll("[data-post-video-down]").forEach(b=>b.addEventListener("click",()=>moveItem(postVideos,Number(b.dataset.postVideoDown),1,renderPostVideos)));
 }
 
 async function uploadMedia(file,prefix){
