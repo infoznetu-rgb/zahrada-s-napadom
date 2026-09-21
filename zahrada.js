@@ -175,7 +175,8 @@ function setArticleMeta(selector,value){
 function renderCmsParagraphs(container,value){
   if(!container)return;
   container.innerHTML="";
-  String(value||"").split(/\n\s*\n/).filter(Boolean).forEach(text=>{
+  const normalized=String(value||"").replace(/\\n/g,"\n");
+  normalized.split(/\n\s*\n/).filter(Boolean).forEach(text=>{
     const p=document.createElement("p");
     p.textContent=text.trim();
     container.appendChild(p);
