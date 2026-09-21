@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kalkulačka lazúry a náteru na drevo: vypočítaj plochu dosiek, počet vrstiev a orientačnú spotrebu podľa výdatnosti konkrétneho výrobku a zvolenej rezervy.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="theme-color" content="#5f965f">
+<link rel="canonical" href="https://zahradasnapadom.sk/kalkulacka-lazury.html"><link rel="icon" type="image/svg+xml" href="/brand-mark.svg?v=1">
+<title>Kalkulačka lazúry na drevo | Záhrada s nápadom</title>
+<meta property="og:type" content="website"><meta property="og:locale" content="sk_SK"><meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="Kalkulačka lazúry na drevo"><meta property="og:description" content="Plocha dreva, počet vrstiev a orientačné litre náteru podľa výdatnosti výrobku."><meta property="og:url" content="https://zahradasnapadom.sk/kalkulacka-lazury.html"><meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Kalkulačka lazúry na drevo","url":"https://zahradasnapadom.sk/kalkulacka-lazury.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"sk-SK"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domov","item":"https://zahradasnapadom.sk/"},{"@type":"ListItem","position":2,"name":"Pomôcky","item":"https://zahradasnapadom.sk/pomocky.html"},{"@type":"ListItem","position":3,"name":"Kalkulačka lazúry","item":"https://zahradasnapadom.sk/kalkulacka-lazury.html"}]}]}</script>
+<link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1"><link rel="stylesheet" href="/spring-2026.css?v=1"><link rel="stylesheet" href="/growth-2026.css?v=4"><link rel="stylesheet" href="/typography-2026.css?v=11"><link rel="stylesheet" href="/app.css?v=4">
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=13" defer></script><script src="/majster-tools.js?v=3" defer></script>
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+<header class="site-header"><div class="top container"><a class="brand" href="/" aria-label="Záhrada s nápadom domov"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/temy/dielna.html">Dielňa</a><a href="/pomocky.html">Pomôcky</a><a href="/bazar.html">Bazár</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/dielna.html">Dielňa</a><a href="/bazar.html">Bazár</a></nav></header>
+<main id="obsah">
+<section class="container utility-hero"><a class="utility-back" href="/pomocky.html">← Všetky pomôcky</a><span class="kicker">DIELŇA · DREVO · NÁTER</span><h1>Koľko lazúry alebo oleja potrebuješ na drevo?</h1><p>Zadaj rozmery dosiek, počet kusov, počet natieraných strán, počet vrstiev a výdatnosť konkrétneho výrobku. Kalkulačka prepočíta plochu a orientačné litre.</p></section>
+<section class="container tool-shell">
+<div class="tool-copy"><span class="kicker">PRED NÁKUPOM</span><h2>Výdatnosť výrobku je dôležitejšia než názov náteru.</h2><p>Rôzne lazúry, oleje a ochranné nátery majú inú výdatnosť. Savé, brúsené alebo zvetrané drevo môže spotrebovať viac než hladký nový povrch.</p><p>Kalkulačka preto nepoužíva jednu pevnú spotrebu. Zadaj výdatnosť v m²/l presne podľa etikety alebo technického listu konkrétneho výrobku.</p><div class="tool-note">Výpočet zahŕňa hlavné plochy dosiek. Ak natieraš veľa čiel a hrán, môžeš ich približne zohľadniť percentom navyše.</div></div>
+<form id="wood-coating-calculator" class="calculator-card">
+<span class="kicker">VÝPOČET</span><h2>Rozmery dreva</h2>
+<div class="calculator-grid">
+<label>Dĺžka jednej dosky (m)<input id="coat-length" type="number" min="0.01" step="0.01" value="2" inputmode="decimal"></label>
+<label>Šírka jednej dosky (cm)<input id="coat-width" type="number" min="0.1" step="0.1" value="12" inputmode="decimal"></label>
+<label>Počet dosiek<input id="coat-count" type="number" min="1" step="1" value="10" inputmode="numeric"></label>
+<label>Natierané veľké strany<select id="coat-sides"><option value="1">1 strana</option><option value="2" selected>2 strany</option></select></label>
+<label>Hrany a čelá navyše (%)<input id="coat-edges" type="number" min="0" max="50" step="1" value="10" inputmode="numeric"></label>
+<label>Počet vrstiev<input id="coat-coats" type="number" min="1" step="1" value="2" inputmode="numeric"></label>
+<label>Výdatnosť výrobku (m²/l na vrstvu)<input id="coat-coverage" type="number" min="0.1" step="0.5" value="12" inputmode="decimal"></label>
+<label>Rezerva (%)<input id="coat-reserve" type="number" min="0" max="50" step="1" value="10" inputmode="numeric"></label>
+</div>
+<div class="calculator-actions"><button class="btn primary" type="submit">Prepočítať</button></div>
+<div class="calculator-result" aria-live="polite">
+<div class="result-box"><small>Základná plocha</small><strong id="coat-base-area">4,8 m²</strong></div>
+<div class="result-box"><small>Plocha s hranami</small><strong id="coat-area">5,28 m²</strong></div>
+<div class="result-box"><small>Plocha všetkých vrstiev</small><strong id="coat-layer-area">10,56 m²</strong></div>
+<div class="result-box"><small>Potrebný náter s rezervou</small><strong id="coat-liters">0,97 l</strong></div>
+<div class="result-box"><small>Prakticky zaokrúhlené</small><strong id="coat-rounded">1 l</strong></div>
+</div>
+<p class="calculator-foot">Výsledok je orientačný. Reálna spotreba závisí od nasiakavosti dreva, spôsobu aplikácie a konkrétneho výrobku.</p>
+</form></section>
+<section class="container"><span class="kicker">SÚVISIACE</span><div class="utility-links"><a href="/blog/ochrana-dreva-v-exterieri-priprava/">Príprava dreva pred náterom →</a><a href="/rezaci-plan-dreva.html">Rezací plán dreva →</a><a href="/pomocky.html">Všetky pomôcky →</a></div></section>
+</main>
+<footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/pomocky.html">Pomôcky</a><a href="/temy/dielna.html">Dielňa</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
+</body></html>
