@@ -9,19 +9,30 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect Bing indexed Heureka snippets
+      - uses: actions/checkout@v4
+      - name: Call price comparison function
         shell: bash
         run: |
           set -euo pipefail
-          Q='site%3Aheureka.sk%20%22dreveny%20kvetinac%22%20%22%E2%82%AC%22'
-          curl --fail --silent --show-error -A 'Mozilla/5.0'             "https://www.bing.com/search?cc=sk&setlang=sk&count=30&q=$Q"             -o bing.html
+          KEY=$(python - <<'PY'
+          import re
+          s=open('cms-public.js',encoding='utf-8').read()
+          m=re.search(r'CMS_KEY="([^"]+)"',s)
+          assert m
+          print(m.group(1))
+          PY
+          )
+          URL='https://bkyappgttwjxakkwycub.supabase.co/functions/v1/product-price-compare'
+          curl --fail --silent --show-error --get "$URL"             -H "apikey: $KEY"             -H "Authorization: Bearer $KEY"             --data-urlencode 'q=dreveny kvetinac'             -o response.json
           python - <<'PY'
-          import re, html
-          s=open('bing.html',encoding='utf-8',errors='ignore').read()
-          print('bytes=',len(s),'b_algo=',len(re.findall(r'b_algo',s)))
-          for pat in ['€','&euro;','46,90','79,90','heureka.sk','kvetináč','kvetinac']:
-              inds=[m.start() for m in re.finditer(re.escape(pat),s,re.I)]
-              print('PATTERN',pat,'COUNT',len(inds))
-              for i in inds[:5]:
-                  print(html.unescape(re.sub(r'\s+',' ',s[max(0,i-350):i+700]))[:1050])
+          import json
+          d=json.load(open('response.json'))
+          assert d.get('query') == 'dreveny kvetinac', d
+          assert isinstance(d.get('results'), list), d
+          assert isinstance(d.get('stats'), dict), d
+          print('provider=', d.get('provider'))
+          print('results=', len(d.get('results', [])))
+          print('stats=', d.get('stats'))
+          for x in d.get('results', [])[:5]:
+              print(x.get('price'), x.get('match'), x.get('domain'), x.get('title'))
           PY
