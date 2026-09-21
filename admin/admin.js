@@ -6,6 +6,7 @@ let posts=[];
 let gallery=[];
 let postVideos=[];
 let homeVideos=[];
+let homeGallery=[];
 let siteSettings={};
 let currentPost=null;
 let mediaLoaded=false;
@@ -248,6 +249,8 @@ async function loadSettings(){
   const seo=siteSettings.seo||{};
   const visible=siteSettings.visibility||{};
   homeVideos=Array.isArray(siteSettings.home_videos?.items)?siteSettings.home_videos.items:[];
+  const gallerySettings=siteSettings.home_gallery||{};
+  homeGallery=Array.isArray(gallerySettings.items)?gallerySettings.items:[];
 
   $("#hero-eyebrow-input").value=hero.eyebrow||"";
   $("#hero-title-input").value=hero.title||"";
@@ -274,12 +277,17 @@ async function loadSettings(){
   $("#seo-title-input").value=seo.title||"";
   $("#seo-description-input").value=seo.description||"";
 
-  const defaults={season:true,maker:true,projects:true,blog:true,videos:true,community:true,facebook:true,contact:true};
+  $("#home-gallery-title").value=gallerySettings.title||"Galéria nápadov";
+  $("#home-gallery-kicker").value=gallerySettings.kicker||"DETAILY · VÝROBA · VÝSLEDOK";
+  $("#home-gallery-text").value=gallerySettings.text||"Fotografie z výroby, hotových výrobkov a ďalších nápadov.";
+
+  const defaults={season:true,maker:true,projects:true,blog:true,videos:true,gallery:true,community:true,facebook:true,contact:true};
   Object.keys(defaults).forEach(key=>{
     const el=$("#visible-"+key);
     if(el)el.checked=visible[key]!==false;
   });
   renderHomeVideos();
+  renderHomeGallery();
 }
 
 $("#settings-form").addEventListener("submit",async(e)=>{
@@ -292,7 +300,7 @@ $("#settings-form").addEventListener("submit",async(e)=>{
   const footer={text:$("#footer-text-input").value.trim(),copyright:$("#footer-copyright-input").value.trim()};
   const seo={title:$("#seo-title-input").value.trim(),description:$("#seo-description-input").value.trim()};
   const visibility={};
-  ["season","maker","projects","blog","videos","community","facebook","contact"].forEach(key=>visibility[key]=$("#visible-"+key).checked);
+  ["season","maker","projects","blog","videos","gallery","community","facebook","contact"].forEach(key=>visibility[key]=$("#visible-"+key).checked);
   const rows=[
     {key:"hero",value:hero},
     {key:"contact",value:contact},
@@ -359,6 +367,70 @@ $("#home-video-add").addEventListener("click",async()=>{
   }catch(err){alert("Video sa nepodarilo nahrať: "+err.message);setSave("Chyba")}
 });
 
+function renderHomeGallery(){
+  const box=$("#home-gallery-list");
+  if(!box)return;
+  if(!homeGallery.length){box.innerHTML='<div class="empty">Zatiaľ tu nie sú žiadne fotografie.</div>';return}
+  box.innerHTML=homeGallery.map((item,i)=>`<article class="admin-gallery-card">
+    <img src="${esc(item.url||"")}" alt="">
+    <div class="admin-gallery-fields">
+      <label>Názov<input type="text" data-gallery-title="${i}" value="${esc(item.title||"")}"></label>
+      <label>Popis<textarea rows="2" data-gallery-caption="${i}">${esc(item.caption||"")}</textarea></label>
+    </div>
+    <div class="admin-video-actions">
+      <button type="button" class="mini-btn" data-gallery-up="${i}" ${i===0?"disabled":""}>↑</button>
+      <button type="button" class="mini-btn" data-gallery-down="${i}" ${i===homeGallery.length-1?"disabled":""}>↓</button>
+      <button type="button" class="mini-btn danger-mini" data-gallery-remove="${i}">Odstrániť</button>
+    </div>
+  </article>`).join("");
+
+  box.querySelectorAll("[data-gallery-title]").forEach(el=>el.addEventListener("input",()=>{homeGallery[Number(el.dataset.galleryTitle)].title=el.value}));
+  box.querySelectorAll("[data-gallery-caption]").forEach(el=>el.addEventListener("input",()=>{homeGallery[Number(el.dataset.galleryCaption)].caption=el.value}));
+  box.querySelectorAll("[data-gallery-up]").forEach(b=>b.addEventListener("click",()=>moveHomeGallery(Number(b.dataset.galleryUp),-1)));
+  box.querySelectorAll("[data-gallery-down]").forEach(b=>b.addEventListener("click",()=>moveHomeGallery(Number(b.dataset.galleryDown),1)));
+  box.querySelectorAll("[data-gallery-remove]").forEach(b=>b.addEventListener("click",()=>removeHomeGallery(Number(b.dataset.galleryRemove))));
+}
+
+function moveHomeGallery(index,delta){
+  const next=index+delta;if(next<0||next>=homeGallery.length)return;
+  [homeGallery[index],homeGallery[next]]=[homeGallery[next],homeGallery[index]];
+  renderHomeGallery();
+}
+
+function removeHomeGallery(index){
+  if(!confirm("Odstrániť túto fotografiu z galérie? Súbor zostane v knižnici médií."))return;
+  homeGallery.splice(index,1);renderHomeGallery();
+}
+
+async function saveHomeGallery(message="Galéria uložená"){
+  const value={
+    title:$("#home-gallery-title").value.trim()||"Galéria nápadov",
+    kicker:$("#home-gallery-kicker").value.trim(),
+    text:$("#home-gallery-text").value.trim(),
+    items:homeGallery
+  };
+  const {error}=await db.from("zahrada_site_settings").upsert([{key:"home_gallery",value}],{onConflict:"key"});
+  if(error){alert("Galériu sa nepodarilo uložiť: "+error.message);setSave("Chyba");return false}
+  siteSettings.home_gallery=value;setSave(message);return true;
+}
+
+$("#home-gallery-files").addEventListener("change",async(e)=>{
+  const files=[...(e.target.files||[])];if(!files.length)return;
+  try{
+    setSave("Nahrávam fotografie…");
+    for(const file of files){
+      const url=await uploadMedia(file,"gallery/home");
+      const base=file.name.replace(/\.[^.]+$/,"").replace(/[-_]+/g," ").trim();
+      homeGallery.push({id:crypto.randomUUID(),url,title:base,caption:""});
+    }
+    renderHomeGallery();
+    await saveHomeGallery("Fotografie pridané");
+    mediaLoaded=false;
+  }catch(err){alert("Fotografie sa nepodarilo nahrať: "+err.message);setSave("Chyba")}
+  e.target.value="";
+});
+$("#home-gallery-save").addEventListener("click",()=>saveHomeGallery());
+
 async function listMediaFolder(prefix,depth=0){
   const {data,error}=await db.storage.from("zahrada-media").list(prefix,{limit:100,sortBy:{column:"created_at",order:"desc"}});
   if(error)throw error;
@@ -378,8 +450,8 @@ async function loadMediaLibrary(){
   const box=$("#media-library");if(!box)return;
   box.innerHTML='<div class="empty">Načítavam médiá…</div>';
   try{
-    const [postsMedia,videosMedia]=await Promise.all([listMediaFolder("posts"),listMediaFolder("videos")]);
-    const files=[...postsMedia,...videosMedia].sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)));
+    const [postsMedia,videosMedia,galleryMedia]=await Promise.all([listMediaFolder("posts"),listMediaFolder("videos"),listMediaFolder("gallery")]);
+    const files=[...postsMedia,...videosMedia,...galleryMedia].sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)));
     if(!files.length){box.innerHTML='<div class="empty">Zatiaľ tu nie sú žiadne médiá.</div>';mediaLoaded=true;return}
     box.innerHTML=files.map(file=>{
       const url=db.storage.from("zahrada-media").getPublicUrl(file.path).data.publicUrl;
