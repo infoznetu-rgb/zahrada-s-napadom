@@ -22,6 +22,42 @@
   <script src="app.js?v=13" defer></script>
   <script src="push.js?v=1" defer></script>
   <script src="moja-zahrada.js?v=1" defer></script>
+
+  <style>
+    /* App-only quick menu: visual separation is intentionally inline for reliable PWA refresh. */
+    .app-dashboard-page .app-topic-menu{margin:0 0 48px}
+    .app-dashboard-page .app-topic-menu-head{align-items:flex-end}
+    .app-dashboard-page .app-topic-menu-all{color:#315b3e;font-size:.8rem;font-weight:850;text-decoration:none;white-space:nowrap}
+    .app-dashboard-page .app-topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .app-dashboard-page .app-topic-card{overflow:hidden;border:1px solid rgba(43,75,56,.16);border-radius:26px;background:#fffdf7;box-shadow:0 12px 34px rgba(43,75,56,.07)}
+    .app-dashboard-page .app-topic-card-head{display:flex;align-items:center;gap:12px;padding:18px 18px 16px;background:linear-gradient(145deg,#e8f1df,#f7f8ef);border-bottom:1px solid rgba(43,75,56,.12)}
+    .app-dashboard-page .app-topic-number{display:grid;place-items:center;width:42px;height:42px;flex:0 0 auto;border-radius:14px;background:#d7e8cb;color:#315b3e;font-family:Georgia,serif;font-size:.95rem;font-weight:800}
+    .app-dashboard-page .app-topic-card-head>div{display:flex;min-width:0;flex-direction:column;gap:3px}
+    .app-dashboard-page .app-topic-card-head strong{font-family:Georgia,"Times New Roman",serif;font-size:1.28rem;line-height:1.08;color:#294b38}
+    .app-dashboard-page .app-topic-card-head small{color:#667b6d;font-size:.75rem;line-height:1.35}
+    .app-dashboard-page .app-topic-links{display:grid;gap:9px;padding:12px}
+    .app-dashboard-page .app-topic-item{display:grid!important;grid-template-columns:40px minmax(0,1fr) 24px!important;gap:11px!important;align-items:center!important;min-height:64px;padding:10px 11px!important;border:1px solid rgba(43,75,56,.12)!important;border-radius:17px!important;background:#f7f8f1!important;color:#294b38!important;text-decoration:none!important;box-shadow:0 3px 11px rgba(43,75,56,.035)}
+    .app-dashboard-page .app-topic-item:active{background:#e8f1df!important;transform:scale(.99)}
+    .app-dashboard-page .app-topic-item-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:#dfeeda;color:#315b3e;font-size:1.02rem;font-weight:900;text-decoration:none}
+    .app-dashboard-page .app-topic-item-copy{display:flex;min-width:0;flex-direction:column;gap:3px;text-decoration:none}
+    .app-dashboard-page .app-topic-item-copy strong{display:block;font-size:.92rem;line-height:1.2;color:#294b38;text-decoration:none}
+    .app-dashboard-page .app-topic-item-copy small{display:block;font-size:.72rem;line-height:1.35;color:#718176;text-decoration:none}
+    .app-dashboard-page .app-topic-item-arrow{display:grid;place-items:center;width:24px;height:24px;color:#6c826f;font-size:1.35rem;line-height:1;text-decoration:none}
+    @media(max-width:900px){.app-dashboard-page .app-topic-grid{grid-template-columns:1fr 1fr}.app-dashboard-page .app-topic-card:last-child{grid-column:1/-1}}
+    @media(max-width:620px){
+      .app-dashboard-page .app-topic-menu{margin-bottom:40px}
+      .app-dashboard-page .app-topic-menu-head{align-items:flex-start}
+      .app-dashboard-page .app-topic-menu-all{display:none}
+      .app-dashboard-page .app-topic-grid{grid-template-columns:1fr;gap:16px}
+      .app-dashboard-page .app-topic-card:last-child{grid-column:auto}
+      .app-dashboard-page .app-topic-card{border-radius:23px}
+      .app-dashboard-page .app-topic-card-head{padding:17px 16px 15px}
+      .app-dashboard-page .app-topic-links{gap:8px;padding:10px}
+      .app-dashboard-page .app-topic-item{min-height:68px!important;padding:10px!important;border-radius:16px!important}
+      .app-dashboard-page .app-topic-item-copy strong{font-size:.95rem}
+      .app-dashboard-page .app-topic-item-copy small{font-size:.74rem}
+    }
+  </style>
 </head>
 <body class="app-dashboard-page">
   <main class="app-dashboard">
@@ -98,6 +134,61 @@
             <a href="/prevodnik-jednotiek.html"><strong>Prevodník jednotiek</strong><span>mm, palce, litre, kg a ďalšie</span></a>
             <a href="/kalkulacka-farby.html"><strong>Farba a nátery</strong><span>Plocha, vrstvy a litre</span></a>
           </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="app-topic-menu" aria-labelledby="app-topic-menu-title">
+      <div class="app-library-head app-topic-menu-head">
+        <div>
+          <span class="kicker">RÝCHLE MENU</span>
+          <h2 id="app-topic-menu-title">Vyber si, čo práve riešiš.</h2>
+        </div>
+        <a class="app-topic-menu-all" href="pomocky.html">Všetky pomôcky →</a>
+      </div>
+
+      <div class="app-topic-grid">
+        <article class="app-topic-card">
+          <div class="app-topic-card-head">
+            <span class="app-topic-number">01</span>
+            <div><strong>Záhrada</strong><small>Pestovanie a sezóna</small></div>
+          </div>
+          <nav class="app-topic-links" aria-label="Podkategórie záhrady">
+            <a class="app-topic-item" href="blog.html?kategoria=Z%C3%A1hrada"><span class="app-topic-item-icon">☘</span><span class="app-topic-item-copy"><strong>Záhrada</strong><small>Pestovanie, záhony a praktické tipy</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="kalendar.html"><span class="app-topic-item-icon">31</span><span class="app-topic-item-copy"><strong>Kalendár</strong><small>Čo robiť tento mesiac</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="kalkulacka-zavlahy.html"><span class="app-topic-item-icon">≈</span><span class="app-topic-item-copy"><strong>Voda a závlaha</strong><small>Spotreba vody a čas polievania</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="kalkulacka-zeminy-kompostu.html"><span class="app-topic-item-icon">✿</span><span class="app-topic-item-copy"><strong>Pôda a kompost</strong><small>Objem, pomer a vrecia</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="kalkulacka-travnikoveho-osiva.html"><span class="app-topic-item-icon">≋</span><span class="app-topic-item-copy"><strong>Trávnik</strong><small>Osivo, plocha a rezerva</small></span><span class="app-topic-item-arrow">›</span></a>
+          </nav>
+        </article>
+
+        <article class="app-topic-card">
+          <div class="app-topic-card-head">
+            <span class="app-topic-number">02</span>
+            <div><strong>Dielňa</strong><small>Výroba a montáž</small></div>
+          </div>
+          <nav class="app-topic-links" aria-label="Podkategórie dielne">
+            <a class="app-topic-item" href="blog.html?kategoria=Diel%C5%88a"><span class="app-topic-item-icon">✦</span><span class="app-topic-item-copy"><strong>Dielňa</strong><small>Drevo, kov a vlastné projekty</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="rezaci-plan-dreva.html"><span class="app-topic-item-icon">↔</span><span class="app-topic-item-copy"><strong>Rezací plán dreva</strong><small>Laty, hranoly, rezy a odpad</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="kalkulacka-terasovych-dosiek.html"><span class="app-topic-item-icon">▤</span><span class="app-topic-item-copy"><strong>Drevo a terasa</strong><small>Dosky, rady a bežné metre</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="kalkulacka-plotovych-lat.html"><span class="app-topic-item-icon">Ⅱ</span><span class="app-topic-item-copy"><strong>Ploty</strong><small>Laty, rozstupy a rezerva</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="hmozdinky-vrtaky.html"><span class="app-topic-item-icon">⌁</span><span class="app-topic-item-copy"><strong>Montáž a vŕtanie</strong><small>Hmoždinky, vrtáky a podklad</small></span><span class="app-topic-item-arrow">›</span></a>
+          </nav>
+        </article>
+
+        <article class="app-topic-card">
+          <div class="app-topic-card-head">
+            <span class="app-topic-number">03</span>
+            <div><strong>Dom a pomôcky</strong><small>Výpočty a plánovanie</small></div>
+          </div>
+          <nav class="app-topic-links" aria-label="Podkategórie domu a pomôcok">
+            <a class="app-topic-item" href="temy/dom-a-zahrada.html"><span class="app-topic-item-icon">⌂</span><span class="app-topic-item-copy"><strong>Dom a záhrada</strong><small>Praktické riešenia okolo domu</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="pomocky.html"><span class="app-topic-item-icon">+</span><span class="app-topic-item-copy"><strong>Všetky pomôcky</strong><small>Kompletné centrum kalkulačiek</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="projektovy-planovac.html"><span class="app-topic-item-icon">✓</span><span class="app-topic-item-copy"><strong>Projektový plánovač</strong><small>Materiálový zoznam projektu</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="prevodnik-jednotiek.html"><span class="app-topic-item-icon">↔</span><span class="app-topic-item-copy"><strong>Prevodník jednotiek</strong><small>mm, palce, litre, kg a ďalšie</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="kalkulacka-farby.html"><span class="app-topic-item-icon">▣</span><span class="app-topic-item-copy"><strong>Maľovanie</strong><small>Plocha, vrstvy a litre farby</small></span><span class="app-topic-item-arrow">›</span></a>
+          </nav>
         </article>
       </div>
     </section>
