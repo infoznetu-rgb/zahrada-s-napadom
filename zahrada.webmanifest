@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Záhrada s nápadom",
   "short_name": "Záhrada",
-  "description": "Záhrada, dielňa, praktické hobby nápady, blog a komunitný bazár v jednej aplikácii.",
+  "description": "Záhrada, dielňa, praktické hobby nápady, blog a bazár pre záhradu a dielňu v jednej aplikácii.",
   "lang": "sk",
   "dir": "ltr",
   "start_url": "./moja-zahrada.html?source=pwa",
@@ -77,9 +77,9 @@
       ]
     },
     {
-      "name": "Komunitný bazár",
+      "name": "Bazár pre záhradu a dielňu",
       "short_name": "Bazár",
-      "description": "Bezplatná komunitná inzercia",
+      "description": "Bezplatná inzercia pre záhradu a dielňu",
       "url": "./bazar.html?source=pwa",
       "icons": [
         {
