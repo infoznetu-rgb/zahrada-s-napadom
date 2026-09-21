@@ -88,6 +88,19 @@
           "type": "image/svg+xml"
         }
       ]
+    },
+    {
+      "name": "Súťaž o 3 opory",
+      "short_name": "Súťaž",
+      "description": "Zapoj sa do súťaže Záhrady s nápadom",
+      "url": "./sutaz.html?source=pwa",
+      "icons": [
+        {
+          "src": "app-icon.svg?v=4",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ],
   "launch_handler": {
