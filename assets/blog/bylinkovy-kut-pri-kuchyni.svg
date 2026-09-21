@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+<title id="t">Bylinkový kút pri kuchyni</title>
+<desc id="d">Praktická schéma bylinkového kúta: slnečná nádoba s tymianom, oreganom a šalviou, samostatný vlhkejší črepník s mätou a bazalka v teplom chránenom mieste.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f4f7e9"/><stop offset="1" stop-color="#efe4c9"/></linearGradient>
+<style>
+text{font-family:Arial,sans-serif;fill:#29452f}.h{font-size:62px;font-weight:700}.s{font-size:31px}.lab{font-size:34px;font-weight:700}.pot{fill:#a96f45;stroke:#6e482f;stroke-width:8}.soil{fill:#5b4636}.stem{stroke:#557a4f;stroke-width:12;stroke-linecap:round}.leaf{fill:#6f985b}.leaf2{fill:#8fb36f}.line{stroke:#315b3a;stroke-width:5;fill:none}
+</style></defs>
+<rect width="1600" height="1000" fill="url(#bg)"/>
+<circle cx="1360" cy="160" r="100" fill="#e8c96d" opacity=".55"/>
+<text x="90" y="110" class="h">Bylinkový kút pri kuchyni</text>
+<text x="90" y="165" class="s">Druhy spájaj podľa nárokov na svetlo a vodu, nie iba podľa vzhľadu.</text>
+
+<!-- mediterranean trough -->
+<rect x="130" y="590" width="720" height="210" rx="28" class="pot"/>
+<rect x="165" y="615" width="650" height="55" rx="18" class="soil"/>
+<!-- thyme -->
+<path d="M280 620 L280 420" class="stem"/><path d="M280 520 L215 470 M280 500 L345 450 M280 455 L230 405 M280 445 L330 395" class="stem"/>
+<g class="leaf"><circle cx="215" cy="470" r="28"/><circle cx="345" cy="450" r="28"/><circle cx="230" cy="405" r="25"/><circle cx="330" cy="395" r="25"/></g>
+<!-- oregano -->
+<path d="M480 620 L480 390" class="stem"/><path d="M480 500 L415 445 M480 470 L550 420 M480 430 L430 365 M480 430 L535 360" class="stem"/>
+<g class="leaf2"><ellipse cx="415" cy="445" rx="34" ry="24"/><ellipse cx="550" cy="420" rx="34" ry="24"/><ellipse cx="430" cy="365" rx="34" ry="24"/><ellipse cx="535" cy="360" rx="34" ry="24"/></g>
+<!-- sage -->
+<path d="M680 620 L680 400" class="stem"/><path d="M680 520 L615 470 M680 485 L745 445 M680 440 L625 385 M680 435 L735 380" class="stem"/>
+<g fill="#87a18a"><ellipse cx="615" cy="470" rx="38" ry="25"/><ellipse cx="745" cy="445" rx="38" ry="25"/><ellipse cx="625" cy="385" rx="38" ry="25"/><ellipse cx="735" cy="380" rx="38" ry="25"/></g>
+
+<!-- mint pot -->
+<path d="M975 600 H1285 L1250 805 H1010 Z" class="pot"/><ellipse cx="1130" cy="610" rx="155" ry="32" class="soil"/>
+<path d="M1130 610 L1130 370" class="stem"/><path d="M1130 520 L1060 455 M1130 495 L1205 435 M1130 450 L1070 390 M1130 430 L1190 365" class="stem"/>
+<g class="leaf2"><ellipse cx="1060" cy="455" rx="48" ry="30"/><ellipse cx="1205" cy="435" rx="48" ry="30"/><ellipse cx="1070" cy="390" rx="48" ry="30"/><ellipse cx="1190" cy="365" rx="48" ry="30"/></g>
+
+<!-- basil pot -->
+<path d="M1285 650 H1510 L1485 815 H1310 Z" fill="#c28455" stroke="#6e482f" stroke-width="8"/>
+<ellipse cx="1398" cy="657" rx="112" ry="25" class="soil"/>
+<path d="M1400 650 L1400 470" class="stem"/><path d="M1400 555 L1340 510 M1400 540 L1460 495 M1400 500 L1360 450 M1400 500 L1445 445" class="stem"/>
+<g fill="#66a05b"><ellipse cx="1340" cy="510" rx="42" ry="28"/><ellipse cx="1460" cy="495" rx="42" ry="28"/><ellipse cx="1360" cy="450" rx="42" ry="28"/><ellipse cx="1445" cy="445" rx="42" ry="28"/></g>
+
+<text x="195" y="865" class="lab">Tymian + oregano + šalvia</text>
+<text x="205" y="905" class="s">slnko · priepustný substrát · menej vody</text>
+<text x="1040" y="865" class="lab">Mäta samostatne</text>
+<text x="1030" y="905" class="s">viac vlahy · silný rast</text>
+<text x="1285" y="345" class="lab">Bazalka</text>
+<text x="1260" y="385" class="s">teplo · bez mrazu</text>
+<path d="M1250 390 L1325 455" class="line"/>
+<text x="90" y="965" class="s">Záhrada s nápadom · praktická ilustračná schéma</text>
+</svg>
