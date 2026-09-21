@@ -35,6 +35,20 @@ function renderAd(){
   document.title=`${ad.title} | Bazár | Záhrada s nápadom`;
   $("#ad-type").textContent=TYPE_LABELS[ad.listing_type]||ad.listing_type;
   $("#ad-category").textContent=ad.category||"";
+  const sellerBadge=$("#ad-seller-badge");
+  if(sellerBadge){
+    sellerBadge.textContent=ad.seller_type==="business"?"Firma":"Súkromná osoba";
+    sellerBadge.className="seller-tag "+(ad.seller_type==="business"?"business":"private");
+  }
+  const businessInfo=$("#ad-business-info");
+  if(businessInfo){
+    const business=ad.seller_type==="business";
+    businessInfo.hidden=!business;
+    if(business){
+      $("#ad-business-name").textContent=ad.business_name||"Firma / podnikateľ";
+      $("#ad-business-ico").textContent=ad.business_ico||"—";
+    }
+  }
   $("#ad-title").textContent=ad.title||"";
   $("#ad-price").textContent=priceText(ad);
   $("#ad-meta").textContent=`📍 ${ad.location}, ${ad.region} · ${CONDITION_LABELS[ad.item_condition]||ad.item_condition} · zverejnené ${dateSk(ad.published_at)}${ad.expires_at?` · platí do ${dateSk(ad.expires_at)}`:""}`;
@@ -49,7 +63,7 @@ function renderAd(){
 async function loadAd(){
   const id=new URLSearchParams(location.search).get("id");
   if(!id){setStatus("Inzerát nebol nájdený.",true);return}
-  const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
+  const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status,seller_type,business_name,business_ico").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
   if(error||!data){setStatus("Tento inzerát už nie je dostupný alebo čaká na schválenie.",true);return}
   currentAd=data;renderAd();
 }
