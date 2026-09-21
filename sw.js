@@ -1,11 +1,11 @@
-const VERSION='50';
+const VERSION='51';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
 const PRECACHE=[
-  './','./index.html','./moja-zahrada.html','./blog.html','./prispevok.html','./bazar.html','./inzerat.html',
-  './zahrada.css','./studio-2026.css','./spring-2026.css','./typography-2026.css','./bazar.css','./app.css','./facebook-widget.css',
-  './zahrada.js','./studio-2026.js','./cms-public.js','./blog.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./moja-zahrada.js','./push.js','./facebook-widget.js',
+  './','./index.html','./moja-zahrada.html','./blog.html','./kalendar.html','./kalkulacka-vyvyseny-zahon.html','./prispevok.html','./bazar.html','./inzerat.html',
+  './zahrada.css','./studio-2026.css','./spring-2026.css','./growth-2026.css','./typography-2026.css','./bazar.css','./app.css','./facebook-widget.css',
+  './zahrada.js','./studio-2026.js','./garden-tools.js','./cms-public.js','./blog.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./moja-zahrada.js','./push.js','./facebook-widget.js',
   './zahrada.webmanifest','./offline.html','./app-icon.svg','./app-icon-maskable.svg','./brand-mark.svg',
   './assets/hero-ziva-zahrada.png','./assets/posts/terasova-hojdacia-lavicka/hlavna.webp'
 ];
