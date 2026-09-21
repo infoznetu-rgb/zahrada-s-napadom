@@ -154,3 +154,30 @@ html.admin-standalone body{background:#edf1ec}
     color:#14221a;
   }
 }
+
+
+/* Extended CMS controls */
+.video-preview-grid{display:grid;gap:9px}
+.admin-video-item{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#111}
+.admin-video-item video{display:block;width:100%;max-height:230px;background:#111}
+.admin-video-item>button{position:absolute;right:7px;top:7px;width:30px;height:30px;border:0;border-radius:50%;background:rgba(20,28,22,.86);color:#fff;cursor:pointer;font-size:1rem}
+.empty.compact{padding:14px;font-size:.75rem}
+.admin-video-list{display:grid;gap:12px}
+.admin-home-video{display:grid;gap:10px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fafcf9}
+.admin-home-video video{width:100%;max-height:240px;border-radius:10px;background:#111}
+.admin-home-video strong{display:block;color:var(--green2)}
+.admin-home-video p{margin:4px 0 0;color:var(--muted);font-size:.78rem;line-height:1.45}
+.admin-video-actions{display:flex;flex-wrap:wrap;gap:7px}
+.danger-mini{color:var(--danger);border-color:#ead0cd}
+.toggle-list{display:grid;gap:9px}
+.toggle-row{display:flex;align-items:center;gap:10px;padding:10px 11px;border:1px solid var(--line);border-radius:11px;background:#f8faf7;cursor:pointer}
+.toggle-row input{width:18px;height:18px;flex:0 0 auto;margin:0;accent-color:var(--green)}
+.toggle-row span{font-size:.82rem;color:var(--text)}
+.media-library{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-top:18px}
+.media-card{min-width:0;border:1px solid var(--line);border-radius:14px;padding:10px;background:#fafcf9;display:grid;gap:8px}
+.media-preview{aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#e9eee7;display:grid;place-items:center}
+.media-preview img,.media-preview video{width:100%;height:100%;object-fit:cover}
+.media-card strong{font-size:.76rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.media-card small{font-size:.65rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:1050px){.media-library{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.media-library{grid-template-columns:1fr}.admin-home-video video{max-height:200px}}
