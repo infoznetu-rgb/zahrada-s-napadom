@@ -37,3 +37,20 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify search engines through IndexNow
+        env:
+          INDEXNOW_KEY: 2bfa5ccde4a6649e558bc73b00b03636
+        run: |
+          URLS=$(grep -oP '(?<=<loc>)[^<]+' sitemap.xml | jq -R . | jq -s .)
+          jq -n \
+            --arg host "zahradasnapadom.sk" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg keyLocation "https://zahradasnapadom.sk/$INDEXNOW_KEY.txt" \
+            --argjson urlList "$URLS" \
+            '{host:$host,key:$key,keyLocation:$keyLocation,urlList:$urlList}' \
+            > indexnow-payload.json
+          curl --fail-with-body --retry 3 \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data-binary @indexnow-payload.json \
+            https://api.indexnow.org/indexnow
