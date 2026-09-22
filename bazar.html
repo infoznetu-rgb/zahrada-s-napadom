@@ -33,11 +33,11 @@
   <title>Bazár pre záhradu a dielňu | Záhrada s nápadom</title>
   <link rel="manifest" href="zahrada.webmanifest?v=7">
   <link rel="stylesheet" href="zahrada.css?v=8">
-  <link rel="stylesheet" href="bazar.css?v=4">
+  <link rel="stylesheet" href="bazar.css?v=5">
   <link rel="stylesheet" href="typography-2026.css?v=11">
   <link rel="stylesheet" href="app.css?v=8">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="bazar.js?v=6" defer></script>
+  <script src="bazar.js?v=7" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=17" defer></script>
 </head>
@@ -108,7 +108,7 @@
       <div class="bazar-hero-copy">
         <span class="eyebrow">BAZÁR PRE ZÁHRADU A DIELŇU</span>
         <h1>Veci nech slúžia ďalej.</h1>
-        <p>Predaj, daruj, vymeň alebo nájdi veci zo záhrady, dielne a domáceho tvorenia. Inzerovať môžu súkromné osoby aj firmy a podnikatelia — bez poplatku za vloženie a bez provízie.</p>
+        <p>Predaj, daruj, vymeň alebo nájdi veci pre bývanie, stavbu a záhradu. Inzerovať môžu súkromné osoby aj firmy a podnikatelia — bez poplatku za vloženie a bez provízie.</p>
         <div class="hero-actions">
           <a class="btn primary" href="#inzeraty">Pozrieť inzeráty</a>
           <a class="btn ghost" href="#pridat">Pridať inzerát</a>
@@ -126,6 +126,33 @@
       </aside>
     </section>
 
+    <section id="kategorie" class="section container bazar-categories-section">
+      <div class="section-head">
+        <div><span class="kicker">KATEGÓRIE</span><h2>Vyber si oblasť.</h2></div>
+        <p>Členenie je pripravené podobne ako na Inzercia.sk, aby sa dali budúce importy zaradiť priamo podľa kategórie zdroja.</p>
+      </div>
+      <div class="bazar-category-grid">
+        <button class="bazar-category-card" type="button" data-main-category="Bývanie">
+          <span class="bazar-category-icon" aria-hidden="true">🏠</span>
+          <strong>Bývanie</strong>
+          <small>Bytové doplnky · Domáce potreby · Domáce spotrebiče · Kuchynské spotrebiče</small>
+          <span class="bazar-category-action">Zobraziť Bývanie →</span>
+        </button>
+        <button class="bazar-category-card" type="button" data-main-category="Stavba">
+          <span class="bazar-category-icon" aria-hidden="true">🧱</span>
+          <strong>Stavba</strong>
+          <small>Drevo · Dvere · Izolácie · Krby a pece · Okná · Podlahy · Sanita · Stavebné materiály · Strecha a ďalšie</small>
+          <span class="bazar-category-action">Zobraziť Stavbu →</span>
+        </button>
+        <button class="bazar-category-card" type="button" data-main-category="Záhrada">
+          <span class="bazar-category-icon" aria-hidden="true">🌿</span>
+          <strong>Záhrada</strong>
+          <small>Semená a rastliny · Stromy a dreviny · Záhradná technika · Zavlažovanie · Grily · Nábytok · Stavby a ďalšie</small>
+          <span class="bazar-category-action">Zobraziť Záhradu →</span>
+        </button>
+      </div>
+    </section>
+
     <section id="inzeraty" class="section container">
       <div class="section-head">
         <div><span class="kicker">INZERÁTY</span><h2>Predám, darujem, vymením alebo hľadám.</h2></div>
@@ -134,7 +161,8 @@
       <div class="bazar-filters" aria-label="Filtrovanie inzerátov">
         <label>Hľadať<input id="bazar-search" type="search" placeholder="Napr. kosačka, sadenice, drevo…"></label>
         <label>Typ<select id="bazar-type-filter"><option value="">Všetky</option><option value="sell">Predám</option><option value="give">Darujem</option><option value="exchange">Vymením</option><option value="wanted">Hľadám</option></select></label>
-        <label>Kategória<select id="bazar-category-filter"><option value="">Všetky kategórie</option></select></label>
+        <label>Hlavná kategória<select id="bazar-main-category-filter"></select></label>
+        <label>Podkategória<select id="bazar-category-filter"></select></label>
         <label>Kraj<select id="bazar-region-filter"><option value="">Celé Slovensko</option></select></label>
         <label>Inzerent<select id="bazar-seller-filter"><option value="">Všetci</option><option value="private">Súkromná osoba</option><option value="business">Firma / podnikateľ</option></select></label>
         <label>Zoradiť<select id="bazar-sort"><option value="newest">Najnovšie</option><option value="price_asc">Cena od najnižšej</option><option value="price_desc">Cena od najvyššej</option></select></label>
@@ -178,8 +206,9 @@
                       <option value="sell">Predám</option><option value="give">Darujem</option><option value="exchange">Vymením</option><option value="wanted">Hľadám</option>
                     </select>
                   </label>
-                  <label>Kategória<select id="ad-category" required></select></label>
+                  <label>Hlavná kategória<select id="ad-main-category" required></select></label>
                 </div>
+                <label>Podkategória<select id="ad-category" required></select></label>
                 <div class="bazar-two">
                   <label>Stav veci<select id="ad-condition"><option value="used">Použité</option><option value="unused">Nové / nepoužité</option><option value="repair">Na opravu / diely</option><option value="not_applicable">Netýka sa</option></select></label>
                   <label>Spôsob ceny<select id="ad-price-mode"><option value="fixed">Pevná cena</option><option value="negotiable">Cena dohodou</option><option value="free">Zadarmo</option><option value="exchange">Výmena</option><option value="not_listed">Cenu neuvediem</option></select></label>
