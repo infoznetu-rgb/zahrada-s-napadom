@@ -76,7 +76,7 @@ async function loadPublicAds(){
   const status=$("#bazar-status");
   if(status){status.className="bazar-status";status.textContent="Načítavam inzeráty…"}
   const {data,error}=await bazarDb.from("zahrada_bazar_ads")
-    .select("id,title,description,category,listing_type,item_condition,price,price_mode,region,location,images,published_at,expires_at,seller_type,business_name,business_ico,imported")
+    .select("id,user_id,title,description,category,listing_type,item_condition,price,price_mode,region,location,images,published_at,expires_at,seller_type,business_name,business_ico")
     .eq("status","published").gt("expires_at",new Date().toISOString()).order("published_at",{ascending:false}).limit(100);
   if(error){if(status){status.className="bazar-status error";status.textContent="Inzeráty sa teraz nepodarilo načítať."}return}
   publicAds=data||[];
