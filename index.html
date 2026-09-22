@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="typography-2026.css?v=11">
   <link rel="stylesheet" href="app.css?v=8">
   <link rel="stylesheet" href="facebook-widget.css?v=4">
+  <link rel="stylesheet" href="engagement.css?v=1">
   <link rel="manifest" href="zahrada.webmanifest?v=7">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="seo.js?v=11" defer></script>
@@ -31,6 +32,7 @@
   <script src="app.js?v=17" defer></script>
   <script src="studio-2026.js?v=1" defer></script>
   <script src="garden-tools.js?v=1" defer></script>
+  <script src="home-engagement.js?v=1" defer></script>
 </head>
 <body class="home-page">
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
@@ -123,18 +125,39 @@
       </aside>
     </section>
 
-    <section class="quick container" aria-label="Témy a pomôcky">
-      <a href="/temy/zahrada.html"><span>01</span><b>Záhrada</b><small>Pestovanie a úpravy</small></a>
-      <a href="/temy/dielna.html"><span>02</span><b>Dielňa</b><small>Drevo, kov a výroba</small></a>
-      <a href="/temy/dom-a-zahrada.html"><span>03</span><b>Dom a záhrada</b><small>Praktické riešenia</small></a>
-      <a href="/kalendar.html"><span>04</span><b>Kalendár</b><small>Čo robiť tento mesiac</small></a>
-      <a href="/pomocky.html"><span>05</span><b>Pomôcky</b><small>Kalkulačky pre dom a dielňu</small></a>
-      <a href="/bazar.html"><span>06</span><b>Bazár</b><small>Bezplatná inzercia pre ľudí aj firmy</small></a>
+    <section class="home-discovery container" aria-labelledby="discovery-title">
+      <div class="home-discovery-shell">
+        <div class="home-discovery-head">
+          <div><span class="kicker">RÝCHLY ŠTART</span><h2 id="discovery-title">Čo dnes riešiš?</h2></div>
+          <p>Vyber si oblasť a dostaneš sa rovno k návodom, pomôckam alebo ponukám, ktoré ti môžu pomôcť.</p>
+        </div>
+        <div class="home-discovery-grid">
+          <a href="/temy/zahrada.html" data-home-focus="garden"><span>01</span><i aria-hidden="true">☘</i><b>Záhrada</b><small>Pestovanie, záhony a sezónne práce</small><strong>Preskúmať →</strong></a>
+          <a href="/temy/dielna.html" data-home-focus="workshop"><span>02</span><i aria-hidden="true">✦</i><b>Dielňa</b><small>Drevo, kov, výroba a montáž</small><strong>Preskúmať →</strong></a>
+          <a href="/temy/dom-a-zahrada.html" data-home-focus="home"><span>03</span><i aria-hidden="true">⌂</i><b>Dom a stavba</b><small>Materiál, úpravy a praktické riešenia</small><strong>Preskúmať →</strong></a>
+          <a href="/bazar.html" data-home-focus="market"><span>04</span><i aria-hidden="true">↔</i><b>Bazár</b><small>Bezplatné ponuky zo záhrady a dielne</small><strong>Otvoriť →</strong></a>
+        </div>
+        <div class="home-discovery-shortcuts"><span>Užitočné skratky:</span><a href="/kalendar.html">Kalendár prác</a><a href="/pomocky.html">Všetky kalkulačky</a><a href="/moja-zahrada.html">Moja záhrada</a></div>
+      </div>
     </section>
+
+    <section id="home-continue" class="home-continue container" aria-labelledby="home-continue-title" hidden>
+      <div class="home-continue-card">
+        <a id="home-continue-thumb" class="home-continue-thumb" href="/blog.html"><img id="home-continue-image" alt="" hidden><span id="home-continue-placeholder" aria-hidden="true">↗</span></a>
+        <div class="home-continue-copy"><span class="kicker">POKRAČOVAŤ V ČÍTANÍ</span><h2 id="home-continue-title">Vráť sa tam, kde si skončil.</h2><p id="home-continue-name"></p><div><a id="home-continue-link" class="btn primary" href="/blog.html">Pokračovať →</a><a class="home-continue-library" href="/moja-zahrada.html">Uložené a história</a></div></div>
+        <button id="home-continue-close" class="home-continue-close" type="button" aria-label="Skryť pokračovanie">×</button>
+      </div>
+    </section>
+
     <section id="teraz-v-zahrade" class="section container season-now" aria-labelledby="season-title">
       <div class="season-now-head">
-        <div><span id="season-kicker" class="kicker">TERAZ V ZÁHRADE · SEPTEMBER</span><h2 id="season-title">Čo sa oplatí spraviť práve teraz.</h2></div>
+        <div><span id="season-kicker" class="kicker">TENTO TÝŽDEŇ · SEPTEMBER</span><h2 id="season-title">Môj záhradný týždeň.</h2></div>
         <div class="season-now-intro"><p id="season-intro">September je stále čas zberu, ale zároveň sa začína príprava pôdy a výsadby na ďalšiu sezónu.</p><small>Termíny sa líšia podľa polohy, nadmorskej výšky a aktuálneho počasia.</small></div>
+      </div>
+      <div class="week-plan-toolbar">
+        <label for="season-climate">Moja oblasť<select id="season-climate"><option value="warm">Teplejšia oblasť</option><option value="middle" selected>Stredná oblasť</option><option value="cool">Chladnejšia oblasť</option></select></label>
+        <p id="season-climate-note">Úlohy ber ako orientačný plán a prispôsob ich miestnemu počasiu.</p>
+        <div class="week-plan-progress" aria-live="polite"><div><strong id="week-progress-label">0 zo 4 hotové</strong><span id="week-progress-percent">0 %</span></div><div class="week-progress-track"><span id="week-progress-bar"></span></div></div>
       </div>
       <div id="season-cards" class="season-grid">
         <article class="season-card"><span>01</span><h3>Zber a priebežné upratovanie</h3><p>Zbieraj dozrievajúcu úrodu a odstraňuj choré či poškodené zvyšky rastlín.</p><a href="/blog/jesenne-prace-v-zahrade-pred-zimou/">Jesenný zoznam prác →</a></article>
