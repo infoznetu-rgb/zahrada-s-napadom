@@ -53,7 +53,7 @@ function publicCard(ad){
   return `<article class="bazar-card">
     <a class="bazar-card-image" href="${href}">${image?`<img src="${esc(image)}" alt="${esc(ad.title)}" loading="lazy">`:'<div class="bazar-card-placeholder">Záhrada s nápadom<br>komunitný bazár</div>'}</a>
     <div class="bazar-card-body">
-      <div class="bazar-card-top"><span class="tag">${esc(TYPE_LABELS[ad.listing_type]||ad.listing_type)}</span><span class="soft-tag">${esc(ad.category)}</span><span class="seller-tag ${ad.seller_type==="business"?"business":"private"}">${esc(SELLER_LABELS[ad.seller_type]||"Súkromná osoba")}</span></div>
+      <div class="bazar-card-top"><span class="tag">${esc(TYPE_LABELS[ad.listing_type]||ad.listing_type)}</span><span class="soft-tag">${esc(ad.category)}</span>${sellerTag}</div>
       <h3><a href="${href}">${esc(ad.title)}</a></h3>
       <p class="bazar-card-text">${esc(desc)}</p>
       <div class="bazar-card-price">${esc(priceText(ad))}</div>
@@ -76,7 +76,7 @@ async function loadPublicAds(){
   const status=$("#bazar-status");
   if(status){status.className="bazar-status";status.textContent="Načítavam inzeráty…"}
   const {data,error}=await bazarDb.from("zahrada_bazar_ads")
-    .select("id,title,description,category,listing_type,item_condition,price,price_mode,region,location,images,published_at,expires_at,seller_type,business_name,business_ico")
+    .select("id,title,description,category,listing_type,item_condition,price,price_mode,region,location,images,published_at,expires_at,seller_type,business_name,business_ico,imported")
     .eq("status","published").gt("expires_at",new Date().toISOString()).order("published_at",{ascending:false}).limit(100);
   if(error){if(status){status.className="bazar-status error";status.textContent="Inzeráty sa teraz nepodarilo načítať."}return}
   publicAds=data||[];
