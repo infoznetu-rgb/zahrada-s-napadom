@@ -72,6 +72,22 @@
   margin:0 auto;
   padding:18px 0 110px;
 }
+.app-system-bar{display:flex;justify-content:space-between;gap:16px;margin:0 4px 10px;color:#64796b;font-size:.72rem;font-weight:850}
+.app-system-bar span{display:inline-flex;align-items:center;gap:7px}.app-system-bar i{width:8px;height:8px;border-radius:50%;background:#60a46a;box-shadow:0 0 0 4px rgba(96,164,106,.12)}
+.app-system-bar .is-offline i{background:#d39a3d}.app-system-bar .has-update{color:#2f6b42}
+.app-my-plan,.app-favorite-tools{margin:42px 0 48px}
+.plan-progress{padding:8px 12px;border-radius:999px;background:#e7f1df;color:#3f7047;font-size:.75rem;font-weight:900}
+.app-plan-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:14px}
+.app-profile-card,.app-task-card{padding:22px;border:1px solid rgba(43,75,56,.12);border-radius:27px;background:rgba(255,253,247,.88);box-shadow:0 12px 34px rgba(43,75,56,.05)}
+.app-profile-card>label,.app-profile-label,.app-task-card form>label{display:block;margin-bottom:8px;color:#365d41;font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.app-profile-card select{width:100%;min-height:46px;margin-bottom:18px;padding:0 13px;border:1px solid rgba(43,75,56,.16);border-radius:14px;background:#fff;color:#294b38;font:inherit;font-weight:750}
+.app-interest-pills{display:flex;flex-wrap:wrap;gap:8px}.app-interest-pills input{position:absolute;opacity:0;pointer-events:none}.app-interest-pills span{display:inline-flex;padding:9px 12px;border:1px solid rgba(43,75,56,.14);border-radius:999px;background:#f7f8f1;color:#5e7465;font-size:.78rem;font-weight:850;cursor:pointer}.app-interest-pills input:checked+span{background:#4f8255;color:#fff;border-color:#4f8255}
+.app-profile-card p{margin:17px 0 0;color:#6c7f72;font-size:.78rem;line-height:1.5}
+.app-task-card form>div{display:flex;gap:8px}.app-task-card input{min-width:0;flex:1;min-height:46px;padding:0 13px;border:1px solid rgba(43,75,56,.16);border-radius:14px;background:#fff;color:#294b38;font:inherit}.app-task-card form button{min-height:46px;padding:0 16px;border:0;border-radius:14px;background:#4f8255;color:#fff;font:inherit;font-size:.8rem;font-weight:900;cursor:pointer}
+.garden-task-list{display:grid;gap:8px;margin:16px 0 0;padding:0;list-style:none}.garden-task-list li{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:11px 12px;border-radius:15px;background:#f5f7ef;color:#3d5944;font-size:.85rem}.garden-task-list li.is-done span{text-decoration:line-through;color:#839086}.garden-task-list button{border:0;background:transparent;color:#758579;cursor:pointer}.garden-task-list input{width:18px;height:18px}.garden-task-empty{margin:20px 0 0;color:#758579;font-size:.82rem}
+.favorite-tools-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.favorite-tool{display:grid;grid-template-columns:1fr auto;gap:8px;padding:16px;border:1px solid rgba(43,75,56,.12);border-radius:19px;background:#fffdf7;color:#294b38;text-decoration:none}.favorite-tool strong{font-family:Georgia,serif;font-size:1rem}.favorite-tool span{color:#d19a2e}
+.tool-favorite-button{position:absolute;right:8px;top:8px;z-index:2;width:30px;height:30px;border:1px solid rgba(43,75,56,.13);border-radius:50%;background:#fffdf7;color:#99a49d;font-size:1rem;cursor:pointer}.tool-favorite-button.is-favorite{color:#d29b2d;background:#fff6d4}.app-topic-item{position:relative;padding-right:44px!important}
+.app-topic-tool-row{position:relative}.app-topic-tool-row .app-topic-item{padding-right:44px!important}.app-topic-card-head[role="button"]{cursor:pointer}
 .app-dashboard-hero{
   position:relative;overflow:hidden;
   padding:28px;
@@ -178,6 +194,7 @@
   .app-quick-launch{grid-template-columns:1fr 1fr;margin-bottom:38px}
   .app-quick-launch a:last-child{grid-column:1/-1}
   .app-library-list{grid-template-columns:1fr}
+  .app-plan-grid{grid-template-columns:1fr}.favorite-tools-list{grid-template-columns:1fr 1fr}
 }
 @media(max-width:520px){
   .app-dashboard-copy h1{font-size:2.45rem}
@@ -187,7 +204,9 @@
   .app-library-copy h3{font-size:1.12rem}
   .app-library-copy p{font-size:.77rem}
   .app-bottom-nav a{font-size:.62rem}
+  .app-system-bar{font-size:.66rem}.app-my-plan{margin-top:30px}.favorite-tools-list{grid-template-columns:1fr}.app-task-card form>div{align-items:stretch}.app-task-card form button{padding:0 12px}
 }
+@media(max-width:620px){.app-topic-card:not(.is-open) .app-topic-links{display:none}.app-topic-card-head:after{content:'⌄';margin-left:auto;color:#66806c;font-size:1.2rem;transition:transform .2s}.app-topic-card.is-open .app-topic-card-head:after{transform:rotate(180deg)}}
 
 
 /* Push notification preferences */

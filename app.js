@@ -651,9 +651,9 @@
     const pathname=location.pathname;
     const path=pathname.split('/').pop()||'index.html';
     const nav=document.createElement('nav');nav.className='app-bottom-nav';nav.setAttribute('aria-label','Navigácia aplikácie');
-    nav.innerHTML='<a href="/moja-zahrada.html" data-app-route="home"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Domov</span></a><a href="/blog.html" data-app-route="blog"><svg viewBox="0 0 24 24"><path d="M5 4.5h10a4 4 0 0 1 4 4v11H8a3 3 0 0 1-3-3z"/><path d="M8 19.5a3 3 0 0 1 3-3h8M8 8h7M8 11.5h7"/></svg><span>Blog</span></a><a href="/#projekty" data-app-route="ideas"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5C7.3 13.5 6 12 6 9.5a6 6 0 1 1 12 0c0 2.5-1.3 4-2.5 5"/></svg><span>Nápady</span></a><a href="/moja-zahrada.html#ulozene" data-app-route="saved"><svg viewBox="0 0 24 24"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg><span>Uložené</span></a><a href="/bazar.html" data-app-route="market"><svg viewBox="0 0 24 24"><path d="M4 8h16l-1 12H5zM7 8V6a5 5 0 0 1 10 0v2"/></svg><span>Bazár</span></a>';
+    nav.innerHTML='<a href="/moja-zahrada.html" data-app-route="home"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Domov</span></a><a href="/blog.html" data-app-route="blog"><svg viewBox="0 0 24 24"><path d="M5 4.5h10a4 4 0 0 1 4 4v11H8a3 3 0 0 1-3-3z"/><path d="M8 19.5a3 3 0 0 1 3-3h8M8 8h7M8 11.5h7"/></svg><span>Blog</span></a><a href="/pomocky.html" data-app-route="tools"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h3M14 13h2"/></svg><span>Pomôcky</span></a><a href="/moja-zahrada.html#ulozene" data-app-route="saved"><svg viewBox="0 0 24 24"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg><span>Uložené</span></a><a href="/bazar.html" data-app-route="market"><svg viewBox="0 0 24 24"><path d="M4 8h16l-1 12H5zM7 8V6a5 5 0 0 1 10 0v2"/></svg><span>Bazár</span></a>';
     document.body.appendChild(nav);
-    const active=pathname.endsWith('/moja-zahrada.html')?(location.hash==='#ulozene'?'saved':'home'):(pathname==='/blog.html'||pathname.startsWith('/blog/')||pathname==='/prispevok.html')?'blog':(pathname==='/bazar.html'||pathname==='/inzerat.html')?'market':'ideas';
+    const active=pathname.endsWith('/moja-zahrada.html')?(location.hash==='#ulozene'?'saved':'home'):(pathname==='/blog.html'||pathname.startsWith('/blog/')||pathname==='/prispevok.html')?'blog':pathname==='/pomocky.html'||/\/(?:kalkulacka|rezaci-plan|prevodnik|projektovy-planovac|hmozdinky|pravy-uhol)/.test(pathname)?'tools':(pathname==='/bazar.html'||pathname==='/inzerat.html')?'market':'home';
     nav.querySelector('[data-app-route="'+active+'"]')?.classList.add('is-active');
   }
 
@@ -823,17 +823,28 @@
     if(share)trackEvent('share_click',{label:share.getAttribute('data-share-title')||document.title});
   },true);
 
-  // legacy-blog-route-guard
-  document.addEventListener('click',event=>{
-    const link=event.target.closest?.('a[href]');
-    if(!link)return;
-    let url;
-    try{url=new URL(link.getAttribute('href'),location.href)}catch(e){return}
-    if(url.origin!==location.origin)return;
-    const m=url.pathname.match(/^\/blog\/([^/]+)(?:\/index\.html)?\/?$/);
-    if(!m)return;
-    event.preventDefault();
-    location.href='/clanok-'+m[1]+'.html'+url.search+url.hash;
-  },true);
+  function addContextTool(){
+    const article=document.querySelector('.article-page article,.blog-article article');
+    if(!article||article.querySelector('.article-tool-cta'))return;
+    const haystack=(document.title+' '+(document.body.dataset.slug||'')+' '+(document.querySelector('h1')?.textContent||'')).toLowerCase();
+    const tools=[
+      {words:['trávnik','travnik','osiv'],href:'/kalkulacka-travnikoveho-osiva.html',title:'Vypočítaj množstvo trávnikového osiva',text:'Zadaj plochu, výsevok a rezervu. Výsledok dostaneš v kilogramoch aj počte balení.'},
+      {words:['vyvýšen','vyvysen','záhon','zahon','kompost','zemin'],href:'/kalkulacka-vyvyseny-zahon.html',title:'Vypočítaj výplň vyvýšeného záhona',text:'Objem vrstiev, zemina, kompost a orientačný počet vriec na jednom mieste.'},
+      {words:['dažď','dazd','polievan','závlah','zavlah','voda'],href:'/kalkulacka-dazdovej-vody.html',title:'Vypočítaj zber dažďovej vody',text:'Zisti, koľko litrov zachytíš zo strechy a akú nádrž sa oplatí použiť.'},
+      {words:['terasa','terasov','dosk'],href:'/kalkulacka-terasovych-dosiek.html',title:'Vypočítaj terasové dosky',text:'Rady, bežné metre, počet kusov a rezerva pre tvoj rozmer terasy.'},
+      {words:['plot','lat'],href:'/kalkulacka-plotovych-lat.html',title:'Vypočítaj plotové laty',text:'Počet lát, medzery a rezerva podľa skutočnej dĺžky plota.'},
+      {words:['drevo','dielň','dieln','výrob','vyrob'],href:'/projektovy-planovac.html',title:'Naplánuj si materiál projektu',text:'Zapíš rozmery, množstvá a poznámky, aby ti pri práci nič nechýbalo.'}
+    ];
+    const match=tools.find(tool=>tool.words.some(word=>haystack.includes(word)));
+    if(!match)return;
+    if(!document.querySelector('link[data-product-css]')){const link=document.createElement('link');link.rel='stylesheet';link.href='/product-2026.css?v=1';link.dataset.productCss='1';document.head.appendChild(link)}
+    const target=article.querySelector('.post-intro,.post-rich-text,.project-story')||article;
+    const box=document.createElement('aside');
+    box.className='article-tool-cta';
+    box.innerHTML='<div><span>PRAKTICKÁ POMÔCKA</span><h2>'+match.title+'</h2><p>'+match.text+'</p></div><a href="'+match.href+'">Otvoriť kalkulačku →</a>';
+    target.insertAdjacentElement('afterend',box);
+  }
+
+  addContextTool();
 
 })();

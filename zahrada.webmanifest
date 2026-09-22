@@ -64,10 +64,10 @@
       ]
     },
     {
-      "name": "Nápady",
-      "short_name": "Nápady",
-      "description": "Vlastné projekty a vybrané tipy",
-      "url": "./index.html?source=pwa#projekty",
+      "name": "Praktické pomôcky",
+      "short_name": "Pomôcky",
+      "description": "Kalkulačky pre záhradu, dom a dielňu",
+      "url": "./pomocky.html?source=pwa",
       "icons": [
         {
           "src": "app-icon.svg?v=4",

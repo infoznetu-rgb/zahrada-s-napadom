@@ -17,16 +17,21 @@
   <link rel="stylesheet" href="studio-2026.css?v=1">
   <link rel="stylesheet" href="spring-2026.css?v=1">
   <link rel="stylesheet" href="typography-2026.css?v=9">
-  <link rel="stylesheet" href="app.css?v=9">
+  <link rel="stylesheet" href="app.css?v=10">
+  <link rel="stylesheet" href="product-2026.css?v=1">
   <script src="seo.js?v=11" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=17" defer></script>
   <script src="push.js?v=1" defer></script>
-  <script src="moja-zahrada.js?v=2" defer></script>
+  <script src="moja-zahrada.js?v=3" defer></script>
 
 </head>
 <body class="app-dashboard-page">
   <main class="app-dashboard">
+    <div class="app-system-bar" aria-live="polite">
+      <span id="app-connection-state"><i></i> Online</span>
+      <span id="app-update-state">Aplikácia je aktuálna</span>
+    </div>
     <section class="app-dashboard-hero">
       <div class="app-dashboard-brand">
         <img src="app-icon.svg?v=4" alt="">
@@ -40,6 +45,32 @@
       <div class="app-dashboard-stats">
         <div><strong id="app-saved-count">0</strong><span>uložených</span></div>
         <div><strong id="app-history-count">0</strong><span>v histórii</span></div>
+      </div>
+    </section>
+
+    <section class="app-my-plan" aria-labelledby="my-plan-title">
+      <div class="app-library-head">
+        <div><span class="kicker">MÔJ PLÁN</span><h2 id="my-plan-title">Čo chcem riešiť.</h2></div>
+        <span id="plan-progress" class="plan-progress">0 úloh</span>
+      </div>
+      <div class="app-plan-grid">
+        <div class="app-profile-card">
+          <label for="garden-region">Moja oblasť</label>
+          <select id="garden-region"><option value="warm">Teplejšia</option><option value="middle">Stredná</option><option value="cool">Chladnejšia</option></select>
+          <span class="app-profile-label">Zaujíma ma</span>
+          <div class="app-interest-pills">
+            <label><input type="checkbox" value="garden"><span>Záhrada</span></label>
+            <label><input type="checkbox" value="workshop"><span>Dielňa</span></label>
+            <label><input type="checkbox" value="home"><span>Dom</span></label>
+            <label><input type="checkbox" value="market"><span>Bazár</span></label>
+          </div>
+          <p id="profile-recommendation">Nastavenie zostáva iba v tomto zariadení.</p>
+        </div>
+        <div class="app-task-card">
+          <form id="garden-task-form"><label for="garden-task-input">Nová úloha</label><div><input id="garden-task-input" maxlength="100" placeholder="Napr. pripraviť záhon na cesnak"><button type="submit">Pridať</button></div></form>
+          <ul id="garden-task-list" class="garden-task-list"></ul>
+          <p id="garden-task-empty" class="garden-task-empty">Pridaj si prvú úlohu na tento týždeň.</p>
+        </div>
       </div>
     </section>
 
@@ -112,6 +143,12 @@
           </nav>
         </article>
       </div>
+    </section>
+
+    <section class="app-favorite-tools" aria-labelledby="favorite-tools-title">
+      <div class="app-library-head"><div><span class="kicker">RÝCHLO PORUKE</span><h2 id="favorite-tools-title">Obľúbené pomôcky</h2></div><a class="app-topic-menu-all" href="pomocky.html">Všetky pomôcky →</a></div>
+      <div id="favorite-tools-list" class="favorite-tools-list"></div>
+      <div id="favorite-tools-empty" class="app-library-empty"><strong>Vyber si obľúbené pomôcky.</strong><p>Pri kalkulačke v menu stlač hviezdičku a zostane tu poruke.</p></div>
     </section>
 
     <section class="app-notifications-section" aria-labelledby="notifications-title">

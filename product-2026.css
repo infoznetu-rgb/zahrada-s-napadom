@@ -1,0 +1,23 @@
+/* Compact discovery and practical product layer. */
+.projects-more,.gallery-more{display:flex;justify-content:center;margin-top:24px}
+.idea-gallery-grid{align-items:start}
+.home-page .maker-grid .tool-card:nth-child(n+5){display:none}
+.home-page .maker-more{max-height:250px;overflow:auto;padding-right:6px;scrollbar-color:#8eb080 transparent}
+.home-page .cms-post-card,.home-page .tool-card{min-height:0}
+.article-tool-cta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin:28px auto;padding:24px 26px;border:1px solid rgba(82,129,83,.18);border-radius:24px;background:linear-gradient(135deg,#edf6e7,#fff8df);box-shadow:0 16px 42px rgba(46,85,55,.08)}
+.article-tool-cta span{display:block;margin-bottom:6px;color:#5f8d61;font-size:.68rem;font-weight:900;letter-spacing:.11em}
+.article-tool-cta h2{margin:0 0 7px!important;color:#294b38!important;font-size:clamp(1.35rem,2.5vw,2rem)!important}
+.article-tool-cta p{margin:0;color:#607466;line-height:1.6}
+.article-tool-cta>a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;background:#4f8255;color:#fff;text-decoration:none;font-size:.82rem;font-weight:900;white-space:nowrap}
+.gallery-page{background:#f7f5ec}
+.gallery-page-main{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:54px 0 100px}
+.gallery-page-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:32px;align-items:end;margin-bottom:34px}
+.gallery-page-head h1{margin:.45rem 0 0;font-family:Georgia,serif;font-size:clamp(2.8rem,6vw,5.8rem);line-height:.95;letter-spacing:-.05em;color:#294b38}
+.gallery-page-head p{margin:0;color:#607466;font-size:1rem;line-height:1.7}
+.gallery-page .idea-gallery{margin:0;padding:0;border:0}
+.gallery-back{display:inline-flex;margin-bottom:22px;color:#477b4e;font-weight:850;text-decoration:none}
+@media(max-width:720px){
+  .article-tool-cta{grid-template-columns:1fr;padding:20px}.article-tool-cta>a{width:100%;box-sizing:border-box}
+  .gallery-page-main{width:min(100% - 20px,1180px);padding-top:28px}.gallery-page-head{grid-template-columns:1fr;gap:14px}
+  .home-page .maker-more{max-height:310px}
+}

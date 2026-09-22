@@ -92,13 +92,17 @@ async function loadSiteSettings(){
   setText("#cms-gallery-text",gallerySettings.text);
   if(gallerySection&&galleryRoot){
     if(galleryItems.length&&visible.gallery!==false){
-      galleryRoot.innerHTML=galleryItems.map((item,i)=>`<figure class="idea-gallery-card">
+      const showAll=gallerySection.dataset.galleryLimit==="all";
+      const visibleItems=showAll?galleryItems:galleryItems.slice(0,6);
+      galleryRoot.innerHTML=visibleItems.map((item,i)=>`<figure class="idea-gallery-card">
         <a href="${cmsEsc(item.url||"")}" target="_blank" rel="noopener" aria-label="Otvoriť fotografiu ${i+1}">
           <img src="${cmsEsc(item.url||"")}" alt="${cmsEsc(item.title||item.caption||("Fotografia "+(i+1)))}" loading="lazy" decoding="async">
         </a>
         ${(item.title||item.caption)?`<figcaption>${item.title?`<strong>${cmsEsc(item.title)}</strong>`:""}${item.caption?`<span>${cmsEsc(item.caption)}</span>`:""}</figcaption>`:""}
       </figure>`).join("");
       gallerySection.hidden=false;
+      const more=document.querySelector("#idea-gallery-more");
+      if(more)more.hidden=showAll||galleryItems.length<=visibleItems.length;
     }else{
       gallerySection.hidden=true;
     }
@@ -169,7 +173,7 @@ async function loadPublishedPosts(){
       if(projects[i])mixed.push(projects[i]);
       if(selectedBlogs[i])mixed.push(selectedBlogs[i]);
     }
-    projectRoot.innerHTML=mixed.slice(0,8).map(renderCard).join("");
+    projectRoot.innerHTML=mixed.slice(0,4).map(renderCard).join("");
 
     const fallback=document.querySelector("#static-project-fallback");
     if(fallback&&projects.length)fallback.hidden=true;
