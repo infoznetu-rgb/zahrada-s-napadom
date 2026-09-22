@@ -47,12 +47,48 @@ function syncAdCategory(preferred=""){
   el.innerHTML=categoryOptions(main,false);
   if(preferred&&[...el.options].some(o=>o.value===preferred))el.value=preferred;
 }
-function bindCategoryCards(){
-  document.querySelectorAll("[data-main-category]").forEach(btn=>btn.addEventListener("click",()=>{
-    const filter=$("#bazar-main-category-filter");
-    if(filter)filter.value=btn.dataset.mainCategory||"";
-    syncPublicCategoryFilter(true);
+function renderSubcategories(main){
+  const panel=$("#bazar-subcategory-panel");if(!panel)return;
+  const items=(BAZAR_CATEGORY_TREE[main]||[]).filter(x=>x!==main&&x!=="Ostatné");
+  panel.innerHTML=`
+    <div class="bazar-subcategory-head">
+      <div><span>Vybraná kategória</span><strong>${esc(main)}</strong></div>
+      <button type="button" class="bazar-subcategory-all" data-category-all="${esc(main)}">Všetky inzeráty</button>
+    </div>
+    <div class="bazar-subcategory-list">
+      ${items.map(x=>`<button type="button" class="bazar-subcategory-chip" data-subcategory="${esc(x)}">${esc(x)}</button>`).join("")}
+    </div>`;
+  panel.hidden=false;
+
+  panel.querySelector("[data-category-all]")?.addEventListener("click",()=>{
+    const mainFilter=$("#bazar-main-category-filter"), subFilter=$("#bazar-category-filter");
+    if(mainFilter)mainFilter.value=main;
+    syncPublicCategoryFilter(false);
+    if(subFilter)subFilter.value="";
+    renderPublicAds();
     document.querySelector("#inzeraty")?.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+
+  panel.querySelectorAll("[data-subcategory]").forEach(btn=>btn.addEventListener("click",()=>{
+    const mainFilter=$("#bazar-main-category-filter"), subFilter=$("#bazar-category-filter");
+    if(mainFilter)mainFilter.value=main;
+    syncPublicCategoryFilter(false);
+    if(subFilter)subFilter.value=btn.dataset.subcategory||"";
+    renderPublicAds();
+    document.querySelector("#inzeraty")?.scrollIntoView({behavior:"smooth",block:"start"});
+  }));
+}
+function bindCategoryCards(){
+  const cards=[...document.querySelectorAll("[data-main-category]")];
+  cards.forEach(btn=>btn.addEventListener("click",()=>{
+    const main=btn.dataset.mainCategory||"";
+    const isOpen=btn.classList.contains("active");
+    cards.forEach(card=>{card.classList.remove("active");card.setAttribute("aria-expanded","false")});
+    const panel=$("#bazar-subcategory-panel");
+    if(isOpen){if(panel)panel.hidden=true;return}
+    btn.classList.add("active");
+    btn.setAttribute("aria-expanded","true");
+    renderSubcategories(main);
   }));
 }
 
