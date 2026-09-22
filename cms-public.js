@@ -57,11 +57,11 @@ async function loadSiteSettings(){
   setText("#cms-footer-copyright",footer.copyright);
 
   const seo=map.seo||{};
-  if(seo.title){
+  if(document.body.classList.contains("home-page")&&seo.title){
     document.title=seo.title;
     setMeta('meta[property="og:title"]',seo.title);
   }
-  if(seo.description){
+  if(document.body.classList.contains("home-page")&&seo.description){
     setMeta('meta[name="description"]',seo.description);
     setMeta('meta[property="og:description"]',seo.description);
   }
