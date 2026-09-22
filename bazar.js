@@ -3,9 +3,9 @@ const BAZAR_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
 const bazarDb=window.supabase.createClient(BAZAR_URL,BAZAR_KEY);
 
 const BAZAR_CATEGORY_TREE={
-  "Bývanie":["Bytové doplnky","Domáce potreby","Domáce spotrebiče","Kuchynské spotrebiče"],
-  "Stavba":["Drevo","Dvere","Izolácie","Kotle, bojlery","Krby, pece","Kúrenie, palivá","Lešenia","Obklady, dlažby","Okná","Podlahy","Radiátory","Sanita","Stavebné materiály","Strecha","Tehly, kvádre","Zabezpečenie domu","Žumpy, septiky"],
-  "Záhrada":["Bazény","Malotraktory","Semená, rastliny","Snežná technika","Stromy, dreviny","Zavlažovanie","Záhradná chémia","Záhradná technika","Záhradné doplnky","Záhradné grily","Záhradné služby","Záhradné stavby","Záhradný nábytok","Čerpadlá, pumpy"],
+  "Bývanie":["Bývanie","Bytové doplnky","Domáce potreby","Domáce spotrebiče","Kuchynské spotrebiče"],
+  "Stavba":["Stavba","Drevo","Dvere","Izolácie","Kotle, bojlery","Krby, pece","Kúrenie, palivá","Lešenia","Obklady, dlažby","Okná","Podlahy","Radiátory","Sanita","Stavebné materiály","Strecha","Tehly, kvádre","Zabezpečenie domu","Žumpy, septiky"],
+  "Záhrada":["Záhrada","Bazény","Malotraktory","Semená, rastliny","Snežná technika","Stromy, dreviny","Zavlažovanie","Záhradná chémia","Záhradná technika","Záhradné doplnky","Záhradné grily","Záhradné služby","Záhradné stavby","Záhradný nábytok","Čerpadlá, pumpy"],
   "Ostatné":["Ostatné"]
 };
 const BAZAR_MAIN_CATEGORIES=Object.keys(BAZAR_CATEGORY_TREE);
