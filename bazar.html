@@ -33,11 +33,11 @@
   <title>Bazár pre záhradu a dielňu | Záhrada s nápadom</title>
   <link rel="manifest" href="zahrada.webmanifest?v=7">
   <link rel="stylesheet" href="zahrada.css?v=8">
-  <link rel="stylesheet" href="bazar.css?v=5">
+  <link rel="stylesheet" href="bazar.css?v=6">
   <link rel="stylesheet" href="typography-2026.css?v=11">
   <link rel="stylesheet" href="app.css?v=8">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="bazar.js?v=8" defer></script>
+  <script src="bazar.js?v=9" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=17" defer></script>
 </head>
@@ -131,26 +131,24 @@
         <div><span class="kicker">KATEGÓRIE</span><h2>Vyber si oblasť.</h2></div>
         <p>Členenie je pripravené podobne ako na Inzercia.sk, aby sa dali budúce importy zaradiť priamo podľa kategórie zdroja.</p>
       </div>
-      <div class="bazar-category-grid">
-        <button class="bazar-category-card" type="button" data-main-category="Bývanie">
+      <div class="bazar-category-grid" aria-label="Hlavné kategórie bazára">
+        <button class="bazar-category-card" type="button" data-main-category="Bývanie" aria-expanded="false">
           <span class="bazar-category-icon" aria-hidden="true">🏠</span>
           <strong>Bývanie</strong>
-          <small>Bytové doplnky · Domáce potreby · Domáce spotrebiče · Kuchynské spotrebiče</small>
-          <span class="bazar-category-action">Zobraziť Bývanie →</span>
+          <span class="bazar-category-chevron" aria-hidden="true">⌄</span>
         </button>
-        <button class="bazar-category-card" type="button" data-main-category="Stavba">
+        <button class="bazar-category-card" type="button" data-main-category="Stavba" aria-expanded="false">
           <span class="bazar-category-icon" aria-hidden="true">🧱</span>
           <strong>Stavba</strong>
-          <small>Drevo · Dvere · Izolácie · Krby a pece · Okná · Podlahy · Sanita · Stavebné materiály · Strecha a ďalšie</small>
-          <span class="bazar-category-action">Zobraziť Stavbu →</span>
+          <span class="bazar-category-chevron" aria-hidden="true">⌄</span>
         </button>
-        <button class="bazar-category-card" type="button" data-main-category="Záhrada">
+        <button class="bazar-category-card" type="button" data-main-category="Záhrada" aria-expanded="false">
           <span class="bazar-category-icon" aria-hidden="true">🌿</span>
           <strong>Záhrada</strong>
-          <small>Semená a rastliny · Stromy a dreviny · Záhradná technika · Zavlažovanie · Grily · Nábytok · Stavby a ďalšie</small>
-          <span class="bazar-category-action">Zobraziť Záhradu →</span>
+          <span class="bazar-category-chevron" aria-hidden="true">⌄</span>
         </button>
       </div>
+      <div id="bazar-subcategory-panel" class="bazar-subcategory-panel" hidden aria-live="polite"></div>
     </section>
 
     <section id="inzeraty" class="section container">
