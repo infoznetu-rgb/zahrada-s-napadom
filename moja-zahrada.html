@@ -17,48 +17,13 @@
   <link rel="stylesheet" href="studio-2026.css?v=1">
   <link rel="stylesheet" href="spring-2026.css?v=1">
   <link rel="stylesheet" href="typography-2026.css?v=9">
-  <link rel="stylesheet" href="app.css?v=8">
+  <link rel="stylesheet" href="app.css?v=9">
   <script src="seo.js?v=11" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=17" defer></script>
   <script src="push.js?v=1" defer></script>
   <script src="moja-zahrada.js?v=2" defer></script>
 
-  <style>
-    /* App-only quick menu: visual separation is intentionally inline for reliable PWA refresh. */
-    .app-dashboard-page .app-topic-menu{margin:0 0 48px}
-    .app-dashboard-page .app-topic-menu-head{align-items:flex-end}
-    .app-dashboard-page .app-topic-menu-all{color:#315b3e;font-size:.8rem;font-weight:850;text-decoration:none;white-space:nowrap}
-    .app-dashboard-page .app-topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-    .app-dashboard-page .app-topic-card{overflow:hidden;border:1px solid rgba(43,75,56,.16);border-radius:26px;background:#fffdf7;box-shadow:0 12px 34px rgba(43,75,56,.07)}
-    .app-dashboard-page .app-topic-card-head{display:flex;align-items:center;gap:12px;padding:18px 18px 16px;background:linear-gradient(145deg,#e8f1df,#f7f8ef);border-bottom:1px solid rgba(43,75,56,.12)}
-    .app-dashboard-page .app-topic-number{display:grid;place-items:center;width:42px;height:42px;flex:0 0 auto;border-radius:14px;background:#d7e8cb;color:#315b3e;font-family:Georgia,serif;font-size:.95rem;font-weight:800}
-    .app-dashboard-page .app-topic-card-head>div{display:flex;min-width:0;flex-direction:column;gap:3px}
-    .app-dashboard-page .app-topic-card-head strong{font-family:Georgia,"Times New Roman",serif;font-size:1.28rem;line-height:1.08;color:#294b38}
-    .app-dashboard-page .app-topic-card-head small{color:#667b6d;font-size:.75rem;line-height:1.35}
-    .app-dashboard-page .app-topic-links{display:grid;gap:9px;padding:12px}
-    .app-dashboard-page .app-topic-item{display:grid!important;grid-template-columns:40px minmax(0,1fr) 24px!important;gap:11px!important;align-items:center!important;min-height:64px;padding:10px 11px!important;border:1px solid rgba(43,75,56,.12)!important;border-radius:17px!important;background:#f7f8f1!important;color:#294b38!important;text-decoration:none!important;box-shadow:0 3px 11px rgba(43,75,56,.035)}
-    .app-dashboard-page .app-topic-item:active{background:#e8f1df!important;transform:scale(.99)}
-    .app-dashboard-page .app-topic-item-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:#dfeeda;color:#315b3e;font-size:1.02rem;font-weight:900;text-decoration:none}
-    .app-dashboard-page .app-topic-item-copy{display:flex;min-width:0;flex-direction:column;gap:3px;text-decoration:none}
-    .app-dashboard-page .app-topic-item-copy strong{display:block;font-size:.92rem;line-height:1.2;color:#294b38;text-decoration:none}
-    .app-dashboard-page .app-topic-item-copy small{display:block;font-size:.72rem;line-height:1.35;color:#718176;text-decoration:none}
-    .app-dashboard-page .app-topic-item-arrow{display:grid;place-items:center;width:24px;height:24px;color:#6c826f;font-size:1.35rem;line-height:1;text-decoration:none}
-    @media(max-width:900px){.app-dashboard-page .app-topic-grid{grid-template-columns:1fr 1fr}.app-dashboard-page .app-topic-card:last-child{grid-column:1/-1}}
-    @media(max-width:620px){
-      .app-dashboard-page .app-topic-menu{margin-bottom:40px}
-      .app-dashboard-page .app-topic-menu-head{align-items:flex-start}
-      .app-dashboard-page .app-topic-menu-all{display:none}
-      .app-dashboard-page .app-topic-grid{grid-template-columns:1fr;gap:16px}
-      .app-dashboard-page .app-topic-card:last-child{grid-column:auto}
-      .app-dashboard-page .app-topic-card{border-radius:23px}
-      .app-dashboard-page .app-topic-card-head{padding:17px 16px 15px}
-      .app-dashboard-page .app-topic-links{gap:8px;padding:10px}
-      .app-dashboard-page .app-topic-item{min-height:68px!important;padding:10px!important;border-radius:16px!important}
-      .app-dashboard-page .app-topic-item-copy strong{font-size:.95rem}
-      .app-dashboard-page .app-topic-item-copy small{font-size:.74rem}
-    }
-  </style>
 </head>
 <body class="app-dashboard-page">
   <main class="app-dashboard">
@@ -93,61 +58,6 @@
         <button type="submit">Hľadať</button>
       </form>
     </section>
-
-    <section class="app-category-menu app-standalone-only" aria-labelledby="app-category-title">
-      <div class="app-category-head">
-        <div>
-          <span class="kicker">OBJAVUJ PODĽA TÉMY</span>
-          <h2 id="app-category-title">Kam chceš ísť?</h2>
-        </div>
-        <p>Rýchle vstupy do najpoužívanejších častí záhrady, dielne a praktických pomôcok.</p>
-      </div>
-
-      <div class="app-category-groups">
-        <article class="app-category-group">
-          <div class="app-category-group-head">
-            <span class="app-category-symbol" aria-hidden="true">☘</span>
-            <div><small>ZÁHRADA</small><h3>Pestovanie a sezóna</h3></div>
-          </div>
-          <div class="app-category-links">
-            <a href="/temy/zahrada.html"><strong>Záhrada</strong><span>Pestovanie, záhony a tipy</span></a>
-            <a href="/kalendar.html"><strong>Kalendár</strong><span>Čo robiť tento mesiac</span></a>
-            <a href="/kalkulacka-zavlahy.html"><strong>Voda a závlaha</strong><span>Spotreba a čas polievania</span></a>
-            <a href="/kalkulacka-zeminy-kompostu.html"><strong>Pôda a kompost</strong><span>Objem, pomer a vrecia</span></a>
-            <a href="/kalkulacka-travnikoveho-osiva.html"><strong>Trávnik</strong><span>Osivo a dosievanie</span></a>
-          </div>
-        </article>
-
-        <article class="app-category-group">
-          <div class="app-category-group-head">
-            <span class="app-category-symbol" aria-hidden="true">⌁</span>
-            <div><small>DIELŇA · STAVBA</small><h3>Výroba a montáž</h3></div>
-          </div>
-          <div class="app-category-links">
-            <a href="/temy/dielna.html"><strong>Dielňa</strong><span>Drevo, kov a vlastné projekty</span></a>
-            <a href="/kalkulacka-terasovych-dosiek.html"><strong>Drevo a terasa</strong><span>Dosky, rady a bežné metre</span></a>
-            <a href="/kalkulacka-plotovych-lat.html"><strong>Ploty</strong><span>Laty, rozstupy a rezerva</span></a>
-            <a href="/kalkulacka-betonu.html"><strong>Betón a stavba</strong><span>Objem, litre a rezerva</span></a>
-            <a href="/hmozdinky-vrtaky.html"><strong>Montáž a vŕtanie</strong><span>Hmoždinky, vrtáky a podklad</span></a>
-          </div>
-        </article>
-
-        <article class="app-category-group">
-          <div class="app-category-group-head">
-            <span class="app-category-symbol" aria-hidden="true">✦</span>
-            <div><small>DOM · POMÔCKY</small><h3>Výpočty a plánovanie</h3></div>
-          </div>
-          <div class="app-category-links">
-            <a href="/temy/dom-a-zahrada.html"><strong>Dom a záhrada</strong><span>Praktické riešenia okolo domu</span></a>
-            <a href="/pomocky.html"><strong>Všetky pomôcky</strong><span>Kompletné centrum kalkulačiek</span></a>
-            <a href="/projektovy-planovac.html"><strong>Projektový plánovač</strong><span>Materiálový zoznam projektu</span></a>\n            <a href="/kalkulacka-ceny-vyrobku.html"><strong>Cena výrobku</strong><span>Náklady, práca a trhové porovnanie</span></a>
-            <a href="/prevodnik-jednotiek.html"><strong>Prevodník jednotiek</strong><span>mm, palce, litre, kg a ďalšie</span></a>
-            <a href="/kalkulacka-farby.html"><strong>Farba a nátery</strong><span>Plocha, vrstvy a litre</span></a>
-          </div>
-        </article>
-      </div>
-    </section>
-
 
     <section class="app-topic-menu" aria-labelledby="app-topic-menu-title">
       <div class="app-library-head app-topic-menu-head">
@@ -195,7 +105,8 @@
           <nav class="app-topic-links" aria-label="Podkategórie domu a pomôcok">
             <a class="app-topic-item" href="temy/dom-a-zahrada.html"><span class="app-topic-item-icon">⌂</span><span class="app-topic-item-copy"><strong>Dom a záhrada</strong><small>Praktické riešenia okolo domu</small></span><span class="app-topic-item-arrow">›</span></a>
             <a class="app-topic-item" href="pomocky.html"><span class="app-topic-item-icon">+</span><span class="app-topic-item-copy"><strong>Všetky pomôcky</strong><small>Kompletné centrum kalkulačiek</small></span><span class="app-topic-item-arrow">›</span></a>
-            <a class="app-topic-item" href="projektovy-planovac.html"><span class="app-topic-item-icon">✓</span><span class="app-topic-item-copy"><strong>Projektový plánovač</strong><small>Materiálový zoznam projektu</small></span><span class="app-topic-item-arrow">›</span></a>\n            <a class="app-topic-item" href="kalkulacka-ceny-vyrobku.html"><span class="app-topic-item-icon">€</span><span class="app-topic-item-copy"><strong>Cena výrobku</strong><small>Náklady, práca a porovnanie cien</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="projektovy-planovac.html"><span class="app-topic-item-icon">✓</span><span class="app-topic-item-copy"><strong>Projektový plánovač</strong><small>Materiálový zoznam projektu</small></span><span class="app-topic-item-arrow">›</span></a>
+            <a class="app-topic-item" href="kalkulacka-ceny-vyrobku.html"><span class="app-topic-item-icon">€</span><span class="app-topic-item-copy"><strong>Cena výrobku</strong><small>Náklady, práca a porovnanie cien</small></span><span class="app-topic-item-arrow">›</span></a>
             <a class="app-topic-item" href="prevodnik-jednotiek.html"><span class="app-topic-item-icon">↔</span><span class="app-topic-item-copy"><strong>Prevodník jednotiek</strong><small>mm, palce, litre, kg a ďalšie</small></span><span class="app-topic-item-arrow">›</span></a>
             <a class="app-topic-item" href="kalkulacka-farby.html"><span class="app-topic-item-icon">▣</span><span class="app-topic-item-copy"><strong>Maľovanie</strong><small>Plocha, vrstvy a litre farby</small></span><span class="app-topic-item-arrow">›</span></a>
           </nav>
