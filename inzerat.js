@@ -42,7 +42,7 @@ function renderAd(){
   }
   const businessInfo=$("#ad-business-info");
   if(businessInfo){
-    const business=ad.seller_type==="business";
+    const business=!ad.imported&&ad.seller_type==="business";
     businessInfo.hidden=!business;
     if(business){
       $("#ad-business-name").textContent=ad.business_name||"Firma / podnikateľ";
@@ -63,7 +63,7 @@ function renderAd(){
 async function loadAd(){
   const id=new URLSearchParams(location.search).get("id");
   if(!id){setStatus("Inzerát nebol nájdený.",true);return}
-  const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status,seller_type,business_name,business_ico").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
+  const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status,seller_type,business_name,business_ico,imported").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
   if(error||!data){setStatus("Tento inzerát už nie je dostupný alebo čaká na schválenie.",true);return}
   currentAd=data;renderAd();
 }
