@@ -79,6 +79,7 @@
     window.addEventListener('load',()=>{
       setTimeout(()=>{
         if(hash==='new')document.querySelector('[data-new-post]')?.click();
+        else if(hash==='import')document.querySelector('[data-scroll-target="bazar-import-panel"]')?.click();
         else if(['dashboard','posts','bazar','settings'].includes(hash))document.querySelector('[data-view="'+hash+'"]')?.click();
         history.replaceState(null,'',location.pathname+location.search);
       },350);
@@ -94,7 +95,7 @@
     });
     window.addEventListener('load',async()=>{
       try{
-        const reg=await navigator.serviceWorker.register('./admin-sw.js?v=12',{scope:'./',updateViaCache:'none'});
+        const reg=await navigator.serviceWorker.register('./admin-sw.js?v=13',{scope:'./',updateViaCache:'none'});
         reg.update().catch(()=>{});
       }catch(e){}
     });

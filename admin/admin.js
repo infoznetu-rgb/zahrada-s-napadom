@@ -54,7 +54,7 @@ db.auth.onAuthStateChange((event)=>{if(event==="SIGNED_OUT")showAuth()});
 
 function activateView(name){
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+name));
-  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name&&!b.dataset.scrollTarget));
   document.querySelector(".sidebar").classList.remove("open");
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
   if(name==="analytics"&&!analyticsLoaded)loadAnalytics();
@@ -65,7 +65,15 @@ document.addEventListener("click",(e)=>{
   const newBtn=e.target.closest("[data-new-post]");
   if(newBtn){openEditor();return}
   const viewBtn=e.target.closest("[data-view]");
-  if(viewBtn){activateView(viewBtn.dataset.view)}
+  if(viewBtn){
+    activateView(viewBtn.dataset.view);
+    const targetId=viewBtn.dataset.scrollTarget;
+    if(targetId)requestAnimationFrame(()=>{
+      const target=document.getElementById(targetId);
+      target?.scrollIntoView({behavior:"smooth",block:"start"});
+      target?.focus({preventScroll:true});
+    });
+  }
 });
 $("#sidebar-toggle").addEventListener("click",()=>document.querySelector(".sidebar").classList.toggle("open"));
 $("#editor-cancel").addEventListener("click",()=>activateView("posts"));
