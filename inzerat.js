@@ -37,8 +37,8 @@ function renderAd(){
   $("#ad-category").textContent=ad.category||"";
   const sellerBadge=$("#ad-seller-badge");
   if(sellerBadge){
-    sellerBadge.textContent=ad.seller_type==="business"?"Firma":"Súkromná osoba";
-    sellerBadge.className="seller-tag "+(ad.seller_type==="business"?"business":"private");
+    sellerBadge.textContent=ad.imported?"Externý inzerát":(ad.seller_type==="business"?"Firma":"Súkromná osoba");
+    sellerBadge.className="seller-tag "+(ad.imported?"private":(ad.seller_type==="business"?"business":"private"));
   }
   const businessInfo=$("#ad-business-info");
   if(businessInfo){
@@ -55,6 +55,8 @@ function renderAd(){
   $("#ad-description").textContent=ad.description||"";
   $("#ad-contact-name").textContent=ad.contact_name||"Inzerent";
   const links=[];if(ad.contact_email)links.push(contactLink("email",ad.contact_email));if(ad.contact_phone)links.push(contactLink("phone",ad.contact_phone));
+  const sourceUrl=ad.imported?safeHttpUrl(ad.import_source_data?.source_url||(Array.isArray(ad.import_source_data?.source_urls)?ad.import_source_data.source_urls[0]:"")):"";
+  if(sourceUrl)links.push('<a class="contact-link" href="'+escapeText(sourceUrl)+'" target="_blank" rel="noopener noreferrer">↗ Otvoriť pôvodný inzerát</a>');
   $("#ad-contact-links").innerHTML=links.join("");
   const share=$("#ad-share");share.dataset.shareTitle=ad.title;share.dataset.shareUrl=location.href;
   renderImages();
@@ -63,7 +65,7 @@ function renderAd(){
 async function loadAd(){
   const id=new URLSearchParams(location.search).get("id");
   if(!id){setStatus("Inzerát nebol nájdený.",true);return}
-  const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,user_id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status,seller_type,business_name,business_ico").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
+  const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,user_id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status,seller_type,business_name,business_ico,imported,import_source,import_source_data").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
   if(error||!data){setStatus("Tento inzerát už nie je dostupný alebo čaká na schválenie.",true);return}
   currentAd=data;renderAd();
 }
