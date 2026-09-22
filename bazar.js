@@ -2,10 +2,14 @@ const BAZAR_URL="https://bkyappgttwjxakkwycub.supabase.co";
 const BAZAR_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
 const bazarDb=window.supabase.createClient(BAZAR_URL,BAZAR_KEY);
 
-const BAZAR_CATEGORIES=[
-  "Rastliny a sadenice","Semená","Náradie","Materiál","Záhradná technika",
-  "Nábytok a dekorácie","Dielňa a hobby","Iné zo záhrady a dielne"
-];
+const BAZAR_CATEGORY_TREE={
+  "Bývanie":["Bytové doplnky","Domáce potreby","Domáce spotrebiče","Kuchynské spotrebiče"],
+  "Stavba":["Drevo","Dvere","Izolácie","Kotle, bojlery","Krby, pece","Kúrenie, palivá","Lešenia","Obklady, dlažby","Okná","Podlahy","Radiátory","Sanita","Stavebné materiály","Strecha","Tehly, kvádre","Zabezpečenie domu","Žumpy, septiky"],
+  "Záhrada":["Bazény","Malotraktory","Semená, rastliny","Snežná technika","Stromy, dreviny","Zavlažovanie","Záhradná chémia","Záhradná technika","Záhradné doplnky","Záhradné grily","Záhradné služby","Záhradné stavby","Záhradný nábytok","Čerpadlá, pumpy"],
+  "Ostatné":["Ostatné"]
+};
+const BAZAR_MAIN_CATEGORIES=Object.keys(BAZAR_CATEGORY_TREE);
+const BAZAR_CATEGORIES=Object.values(BAZAR_CATEGORY_TREE).flat();
 const BAZAR_REGIONS=[
   "Bratislavský kraj","Trnavský kraj","Trenčiansky kraj","Nitriansky kraj",
   "Žilinský kraj","Banskobystrický kraj","Prešovský kraj","Košický kraj","Celé Slovensko"
@@ -21,6 +25,36 @@ let currentUser=null;
 let currentOwnAds=[];
 let imageState=[];
 let originalRemoteUrls=[];
+
+function mainForCategory(category){
+  return BAZAR_MAIN_CATEGORIES.find(main=>BAZAR_CATEGORY_TREE[main].includes(category))||"Ostatné";
+}
+function categoryOptions(main="",includeAll=false){
+  const list=main?(BAZAR_CATEGORY_TREE[main]||[]):BAZAR_CATEGORIES;
+  return (includeAll?'<option value="">Všetky podkategórie</option>':"")+list.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");
+}
+function syncPublicCategoryFilter(render=true){
+  const main=$("#bazar-main-category-filter")?.value||"";
+  const el=$("#bazar-category-filter");if(!el)return;
+  const old=el.value;
+  el.innerHTML=categoryOptions(main,true);
+  if([...el.options].some(o=>o.value===old))el.value=old;
+  if(render)renderPublicAds();
+}
+function syncAdCategory(preferred=""){
+  const main=$("#ad-main-category")?.value||"Bývanie";
+  const el=$("#ad-category");if(!el)return;
+  el.innerHTML=categoryOptions(main,false);
+  if(preferred&&[...el.options].some(o=>o.value===preferred))el.value=preferred;
+}
+function bindCategoryCards(){
+  document.querySelectorAll("[data-main-category]").forEach(btn=>btn.addEventListener("click",()=>{
+    const filter=$("#bazar-main-category-filter");
+    if(filter)filter.value=btn.dataset.mainCategory||"";
+    syncPublicCategoryFilter(true);
+    document.querySelector("#inzeraty")?.scrollIntoView({behavior:"smooth",block:"start"});
+  }));
+}
 
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 function safeHttpUrl(value){try{const u=new URL(String(value||""),location.href);return u.protocol==="https:"||u.protocol==="http:"?u.href:""}catch{return""}}
@@ -54,7 +88,7 @@ function publicCard(ad){
   return `<article class="bazar-card">
     <a class="bazar-card-image" href="${href}">${image?`<img src="${esc(image)}" alt="${esc(ad.title)}" loading="lazy">`:'<div class="bazar-card-placeholder">Záhrada s nápadom<br>komunitný bazár</div>'}</a>
     <div class="bazar-card-body">
-      <div class="bazar-card-top"><span class="tag">${esc(TYPE_LABELS[ad.listing_type]||ad.listing_type)}</span><span class="soft-tag">${esc(ad.category)}</span>${sellerTag}</div>
+      <div class="bazar-card-top"><span class="tag">${esc(TYPE_LABELS[ad.listing_type]||ad.listing_type)}</span><span class="soft-tag main-category-tag">${esc(ad.main_category||mainForCategory(ad.category))}</span><span class="soft-tag">${esc(ad.category)}</span>${sellerTag}</div>
       <h3><a href="${href}">${esc(ad.title)}</a></h3>
       <p class="bazar-card-text">${esc(desc)}</p>
       <div class="bazar-card-price">${esc(priceText(ad))}</div>
@@ -66,10 +100,12 @@ function publicCard(ad){
 }
 
 function fillSelects(){
-  const catFilter=$("#bazar-category-filter"), regionFilter=$("#bazar-region-filter"), adCat=$("#ad-category"), adRegion=$("#ad-region");
-  if(catFilter)catFilter.insertAdjacentHTML("beforeend",BAZAR_CATEGORIES.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join(""));
+  const mainFilter=$("#bazar-main-category-filter"), regionFilter=$("#bazar-region-filter"), adMain=$("#ad-main-category"), adRegion=$("#ad-region");
+  if(mainFilter)mainFilter.innerHTML='<option value="">Všetky hlavné kategórie</option>'+BAZAR_MAIN_CATEGORIES.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");
+  if(adMain)adMain.innerHTML=BAZAR_MAIN_CATEGORIES.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");
+  syncPublicCategoryFilter(false);
+  syncAdCategory();
   if(regionFilter)regionFilter.insertAdjacentHTML("beforeend",BAZAR_REGIONS.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join(""));
-  if(adCat)adCat.innerHTML=BAZAR_CATEGORIES.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");
   if(adRegion)adRegion.innerHTML=BAZAR_REGIONS.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("");
 }
 
@@ -77,7 +113,7 @@ async function loadPublicAds(){
   const status=$("#bazar-status");
   if(status){status.className="bazar-status";status.textContent="Načítavam inzeráty…"}
   const {data,error}=await bazarDb.from("zahrada_bazar_ads")
-    .select("id,user_id,title,description,category,listing_type,item_condition,price,price_mode,region,location,images,published_at,expires_at,seller_type,business_name,business_ico,imported,import_source,import_source_data")
+    .select("id,user_id,title,description,main_category,category,listing_type,item_condition,price,price_mode,region,location,images,published_at,expires_at,seller_type,business_name,business_ico,imported,import_source,import_source_data")
     .eq("status","published").gt("expires_at",new Date().toISOString()).order("published_at",{ascending:false}).limit(100);
   if(error){if(status){status.className="bazar-status error";status.textContent="Inzeráty sa teraz nepodarilo načítať."}return}
   publicAds=data||[];
@@ -86,10 +122,10 @@ async function loadPublicAds(){
 function renderPublicAds(){
   const root=$("#bazar-list"), status=$("#bazar-status");if(!root)return;
   const q=$("#bazar-search")?.value.trim().toLocaleLowerCase("sk")||"";
-  const type=$("#bazar-type-filter")?.value||"", cat=$("#bazar-category-filter")?.value||"", region=$("#bazar-region-filter")?.value||"", seller=$("#bazar-seller-filter")?.value||"";
+  const type=$("#bazar-type-filter")?.value||"", main=$("#bazar-main-category-filter")?.value||"", cat=$("#bazar-category-filter")?.value||"", region=$("#bazar-region-filter")?.value||"", seller=$("#bazar-seller-filter")?.value||"";
   let list=publicAds.filter(a=>{
-    const hay=`${a.title||""} ${a.description||""} ${a.location||""} ${a.category||""} ${a.business_name||""} ${a.business_ico||""}`.toLocaleLowerCase("sk");
-    return(!q||hay.includes(q))&&(!type||a.listing_type===type)&&(!cat||a.category===cat)&&(!region||a.region===region)&&(!seller||a.seller_type===seller);
+    const hay=`${a.title||""} ${a.description||""} ${a.location||""} ${a.main_category||""} ${a.category||""} ${a.business_name||""} ${a.business_ico||""}`.toLocaleLowerCase("sk");
+    return(!q||hay.includes(q))&&(!type||a.listing_type===type)&&(!main||a.main_category===main)&&(!cat||a.category===cat)&&(!region||a.region===region)&&(!seller||a.seller_type===seller);
   });
   const sort=$("#bazar-sort")?.value||"newest";
   if(sort!=="newest"){
@@ -100,6 +136,8 @@ function renderPublicAds(){
   if(status){status.hidden=!!list.length;status.className="bazar-status";status.textContent=publicAds.length?"Pre zvolené filtre sme nenašli žiadny inzerát.":"Zatiaľ tu nie sú žiadne schválené inzeráty. Môžeš pridať prvý."}
 }
 ["#bazar-search","#bazar-type-filter","#bazar-category-filter","#bazar-region-filter","#bazar-seller-filter","#bazar-sort"].forEach(s=>$(s)?.addEventListener(s==="#bazar-search"?"input":"change",renderPublicAds));
+$("#bazar-main-category-filter")?.addEventListener("change",()=>syncPublicCategoryFilter(true));
+$("#ad-main-category")?.addEventListener("change",()=>syncAdCategory());
 
 async function refreshAuth(){
   const {data:{session}}=await bazarDb.auth.getSession();
@@ -221,7 +259,8 @@ function resetAdForm(){
   if($("#ad-listing-type"))$("#ad-listing-type").value="sell";
   if($("#ad-price-mode"))$("#ad-price-mode").value="fixed";
   if($("#ad-condition"))$("#ad-condition").value="used";
-  if($("#ad-category"))$("#ad-category").value=BAZAR_CATEGORIES[0];
+  if($("#ad-main-category"))$("#ad-main-category").value="Bývanie";
+  syncAdCategory();
   if($("#ad-region"))$("#ad-region").value=BAZAR_REGIONS[0];
   if($("#ad-seller-type"))$("#ad-seller-type").value="private";
   if($("#ad-business-name"))$("#ad-business-name").value="";
@@ -298,7 +337,7 @@ function renderMyAds(){
 function editAd(id){
   const ad=currentOwnAds.find(x=>x.id===id);if(!ad)return;
   resetAdForm();
-  $("#bazar-ad-id").value=ad.id;$("#ad-title").value=ad.title||"";$("#ad-description").value=ad.description||"";$("#ad-category").value=ad.category;$("#ad-listing-type").value=ad.listing_type;$("#ad-condition").value=ad.item_condition;$("#ad-price-mode").value=ad.price_mode;$("#ad-price").value=ad.price??"";$("#ad-region").value=ad.region;$("#ad-location").value=ad.location||"";$("#ad-contact-name").value=ad.contact_name||"";$("#ad-contact-email").value=ad.contact_email||"";$("#ad-contact-phone").value=ad.contact_phone||"";
+  $("#bazar-ad-id").value=ad.id;$("#ad-title").value=ad.title||"";$("#ad-description").value=ad.description||"";$("#ad-main-category").value=ad.main_category||mainForCategory(ad.category);syncAdCategory(ad.category);$("#ad-listing-type").value=ad.listing_type;$("#ad-condition").value=ad.item_condition;$("#ad-price-mode").value=ad.price_mode;$("#ad-price").value=ad.price??"";$("#ad-region").value=ad.region;$("#ad-location").value=ad.location||"";$("#ad-contact-name").value=ad.contact_name||"";$("#ad-contact-email").value=ad.contact_email||"";$("#ad-contact-phone").value=ad.contact_phone||"";
   $("#ad-seller-type").value=ad.seller_type||"private";$("#ad-business-name").value=ad.business_name||"";$("#ad-business-ico").value=ad.business_ico||"";syncSellerUi();
   $("#ad-seller-confirm").checked=true;$("#ad-rules-confirm").checked=true;$("#ad-contact-confirm").checked=true;
   originalRemoteUrls=Array.isArray(ad.images)?ad.images.filter(safeHttpUrl):[];imageState=originalRemoteUrls.map(url=>({kind:"remote",url}));renderImageState();syncPriceUi();
@@ -318,6 +357,7 @@ async function deleteAd(id){
 }
 
 fillSelects();
+bindCategoryCards();
 resetAdForm();
 loadPublicAds();
 refreshAuth();
