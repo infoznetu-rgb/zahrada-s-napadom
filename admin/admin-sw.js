@@ -1,4 +1,4 @@
-const CACHE='zahrada-admin-v15';
+const CACHE='zahrada-admin-v16';
 const FILES=[
   './',
   './index.html',
@@ -6,6 +6,8 @@ const FILES=[
   './admin.js',
   './bazar.css',
   './bazar.js',
+  './bazar-import.css',
+  './bazar-import.js',
   './admin-pwa.js',
   './admin.webmanifest',
   './admin-icon.svg',

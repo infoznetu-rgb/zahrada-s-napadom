@@ -16,10 +16,13 @@
   <title>ZÁHRADA ADMIN | Správa webu</title>
   <link rel="stylesheet" href="admin.css?v=11">
   <link rel="stylesheet" href="bazar.css?v=2">
+  <link rel="stylesheet" href="bazar-import.css?v=1">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js" integrity="sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz" crossorigin="anonymous" defer></script>
   <script src="admin.js?v=15" defer></script>
   <script src="bazar.js?v=4" defer></script>
-  <script src="admin-pwa.js?v=3" defer></script>
+  <script src="bazar-import.js?v=1" defer></script>
+  <script src="admin-pwa.js?v=4" defer></script>
 </head>
 <body>
   <main>
@@ -281,6 +284,44 @@
             <article><span>Aktívne</span><strong id="bazar-stat-live">0</strong></article>
             <article><span>Po platnosti</span><strong id="bazar-stat-expired">0</strong></article>
             <article><span>Nové nahlásenia</span><strong id="bazar-stat-reports">0</strong></article>
+          </div>
+
+          <div class="panel bazar-import-panel">
+            <div class="panel-head">
+              <div><h3>Import inzerátov z Excelu</h3><p class="muted bazar-import-lead">Vlož nový súbor a skontroluj náhľad pred zverejnením.</p></div>
+              <span class="bazar-import-format">.xlsx</span>
+            </div>
+
+            <div class="bazar-import-start">
+              <label class="bazar-import-drop" for="bazar-import-file">
+                <span class="bazar-import-drop-icon" aria-hidden="true">⇧</span>
+                <strong>Vybrať alebo sem presunúť Excel</strong>
+                <small>Rovnaký formát ako skúšobný súbor. Maximálne 5 MB.</small>
+                <input id="bazar-import-file" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+              </label>
+              <div class="bazar-import-help">
+                <p><strong>Čo sa stane po importe</strong></p>
+                <ul>
+                  <li>duplicitné inzeráty sa preskočia,</li>
+                  <li>zverejnia sa na 60 dní bez hromadného upozornenia,</li>
+                  <li>na webe sa nezobrazí „Externý inzerát“ ani odkaz na zdroj,</li>
+                  <li>celú importovanú dávku môžeš neskôr vymazať jedným tlačidlom.</li>
+                </ul>
+              </div>
+            </div>
+
+            <p id="bazar-import-message" class="message" aria-live="polite"></p>
+            <div id="bazar-import-summary" class="bazar-import-summary" hidden></div>
+            <div id="bazar-import-preview" class="bazar-import-preview" hidden></div>
+            <div class="bazar-import-actions">
+              <button id="bazar-import-reset" class="btn ghost" type="button" hidden>Zrušiť náhľad</button>
+              <button id="bazar-import-submit" class="btn primary" type="button" disabled>Importovať a zverejniť</button>
+            </div>
+
+            <div class="bazar-import-batches">
+              <div class="panel-head"><h3>Importované dávky</h3><button id="bazar-import-refresh" class="text-btn" type="button">Obnoviť</button></div>
+              <div id="bazar-import-batch-list"><div class="bazar-admin-empty">Dávky sa načítajú po prihlásení správcu.</div></div>
+            </div>
           </div>
 
           <div class="panel">
