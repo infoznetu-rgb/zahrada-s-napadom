@@ -50,6 +50,7 @@ function publicCard(ad){
   const image=firstImage(ad);
   const href=`inzerat.html?id=${encodeURIComponent(ad.id)}`;
   const desc=String(ad.description||"").replace(/\s+/g," ").trim();
+  const sellerTag=!ad.user_id?"":`<span class="seller-tag ${ad.seller_type==="business"?"business":"private"}">${esc(SELLER_LABELS[ad.seller_type]||"Súkromná osoba")}</span>`;
   return `<article class="bazar-card">
     <a class="bazar-card-image" href="${href}">${image?`<img src="${esc(image)}" alt="${esc(ad.title)}" loading="lazy">`:'<div class="bazar-card-placeholder">Záhrada s nápadom<br>komunitný bazár</div>'}</a>
     <div class="bazar-card-body">
