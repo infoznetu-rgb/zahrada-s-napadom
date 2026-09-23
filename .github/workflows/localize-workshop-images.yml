@@ -1,0 +1,53 @@
+name: Localize workshop blog images
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/localize-workshop-images.yml'
+permissions:
+  contents: write
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download optimized workshop photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/blog/workshop
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/20296972/pexels-photo-20296972.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/workshop/vysokotlakovy-cistic.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/5163423/pexels-photo-5163423.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/workshop/kosacka-pred-zimou.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/34147842/pexels-photo-34147842.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/workshop/motorova-pila.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/34471533/pexels-photo-34471533.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/workshop/pracovny-ponk.jpg
+      - name: Replace external image URLs
+        shell: python
+        run: |
+          from pathlib import Path
+          repl={
+            "https://images.pexels.com/photos/20296972/pexels-photo-20296972.jpeg?auto=compress&cs=tinysrgb&w=1600":"/assets/blog/workshop/vysokotlakovy-cistic.jpg",
+            "https://images.pexels.com/photos/5163423/pexels-photo-5163423.jpeg?auto=compress&cs=tinysrgb&w=1600":"/assets/blog/workshop/kosacka-pred-zimou.jpg",
+            "https://images.pexels.com/photos/34147842/pexels-photo-34147842.jpeg?auto=compress&cs=tinysrgb&w=1600":"/assets/blog/workshop/motorova-pila.jpg",
+            "https://images.pexels.com/photos/34471533/pexels-photo-34471533.jpeg?auto=compress&cs=tinysrgb&w=1600":"/assets/blog/workshop/pracovny-ponk.jpg",
+          }
+          files=[
+            Path("blog/vysokotlakovy-cistic-bezpecne-pouzitie/index.html"),
+            Path("blog/kosacka-pred-zimou-udrzba/index.html"),
+            Path("blog/motorova-pila-ulozenie-po-sezone/index.html"),
+            Path("blog/pracovny-ponk-v-dielni/index.html"),
+            Path("data/seo-blog-100-list.json"),
+          ]
+          for p in files:
+            s=p.read_text()
+            for old,new in repl.items():
+              s=s.replace(old,new).replace("https://zahradasnapadom.sk"+old,new)
+            p.write_text(s)
+      - name: Commit local images
+        shell: bash
+        run: |
+          rm -f .github/workflows/localize-workshop-images.yml
+          git config user.name "ChatGPT Site Editor"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Store workshop blog photos locally"
+          git push
