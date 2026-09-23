@@ -1,0 +1,65 @@
+name: Localize SEO photos batch 13
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/localize-seo-photos-batch13.yml'
+permissions:
+  contents: write
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download construction and metal photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/blog/seo-specific
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/10772470/pexels-photo-10772470.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/naslapne-kamene.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/19665533/pexels-photo-19665533.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/beton-miesanie.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/11489323/pexels-photo-11489323.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/betonovanie-stlpika.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/30766143/pexels-photo-30766143.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/podklad-dlazba.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/7985830/pexels-photo-7985830.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/hrdza-ocel.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/13779227/pexels-photo-13779227.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/nater-kovu.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/38847630/pexels-photo-38847630.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/uhlova-bruska.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/15209789/pexels-photo-15209789.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/zvaranie.jpg
+      - name: Update article image references
+        shell: python
+        run: |
+          import json,re
+          from pathlib import Path
+          items={
+            "naslapne-kamene-v-travniku":"/assets/blog/seo-specific/naslapne-kamene.jpg",
+            "beton-maly-projekt-vypocet":"/assets/blog/seo-specific/beton-miesanie.jpg",
+            "betonovanie-stlpika-postup":"/assets/blog/seo-specific/betonovanie-stlpika.jpg",
+            "podklad-pod-dlazbu-vrstvy":"/assets/blog/seo-specific/podklad-dlazba.jpg",
+            "hrdza-na-oceli-priprava-povrchu":"/assets/blog/seo-specific/hrdza-ocel.jpg",
+            "nater-kovu-v-exterieri":"/assets/blog/seo-specific/nater-kovu.jpg",
+            "uhlova-bruska-bezpecne-pouzitie":"/assets/blog/seo-specific/uhlova-bruska.jpg",
+            "zvaranie-domaca-dielna-priprava":"/assets/blog/seo-specific/zvaranie.jpg",
+          }
+          for slug,new in items.items():
+            p=Path("blog")/slug/"index.html"
+            s=p.read_text()
+            s=re.sub(r'(<meta property="og:image" content=")[^"]+(")',lambda m:m.group(1)+"https://zahradasnapadom.sk"+new+m.group(2),s)
+            s=re.sub(r'(<meta name="twitter:image" content=")[^"]+(")',lambda m:m.group(1)+"https://zahradasnapadom.sk"+new+m.group(2),s)
+            s=re.sub(r'("image":\["https://zahradasnapadom\.sk)[^"]+("\])',lambda m:m.group(1)+new+m.group(2),s)
+            s=re.sub(r'(<figure class="post-hero"><img src=")[^"]+(")',lambda m:m.group(1)+new+m.group(2),s)
+            s=re.sub(r'("cover_url":\s*")[^"]+(")',lambda m:m.group(1)+new+m.group(2),s)
+            p.write_text(s)
+          j=Path("data/seo-blog-100-list.json")
+          data=json.loads(j.read_text())
+          for row in data:
+            if row.get("slug") in items:
+              row["cover_url"]=items[row["slug"]]
+          j.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
+      - name: Commit local construction and metal photos
+        shell: bash
+        run: |
+          rm -f .github/workflows/localize-seo-photos-batch13.yml
+          git config user.name "ChatGPT Site Editor"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Add specific photos for construction and metalwork articles"
+          git push
