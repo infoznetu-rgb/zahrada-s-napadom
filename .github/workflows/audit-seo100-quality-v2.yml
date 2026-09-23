@@ -1,0 +1,55 @@
+name: Audit SEO100 quality v2
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/audit-seo100-quality-v2.yml'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit all 100 SEO articles correctly
+        shell: python
+        run: |
+          import json,re
+          from pathlib import Path
+          rows=json.loads(Path("data/seo-blog-100-list.json").read_text())
+          report=[]
+          for row in rows:
+            slug=row["slug"]
+            p=Path("blog")/slug/"index.html"
+            s=p.read_text() if p.exists() else ""
+            related=re.search(r'<div class="related-links">([\s\S]*?)</div>',s,re.I)
+            checks={
+              "exists":p.exists(),
+              "title":bool(re.search(r"<title>[^<]{10,}</title>",s,re.I)),
+              "meta_description":bool(re.search(r'<meta name="description" content="[^"]{50,}"',s,re.I)),
+              "canonical":f"https://zahradasnapadom.sk/blog/{slug}/" in s,
+              "h1":bool(re.search(r"<h1[^>]*>[^<]+</h1>",s,re.I)),
+              "hero":'class="post-hero"' in s,
+              "no_seo_svg":"/assets/blog/seo100/" not in s,
+              "faq_visible":'class="article-faq"' in s or "Najčastejšie otázky" in s,
+              "related_links":'class="related-links"' in s,
+              "cluster_link":"/temy/" in (related.group(1) if related else ""),
+              "article_schema":('"@type":"BlogPosting"' in s or '"@type": "BlogPosting"' in s or '"@type":"Article"' in s or '"@type": "Article"' in s),
+            }
+            missing=[k for k,v in checks.items() if not v]
+            report.append({"slug":slug,"title":row.get("title"),"category":row.get("category"),"checks":checks,"missing":missing})
+          summary={"total":len(report),"passing":sum(not x["missing"] for x in report),"failing":sum(bool(x["missing"]) for x in report),"missing_counts":{}}
+          for x in report:
+            for k in x["missing"]:
+              summary["missing_counts"][k]=summary["missing_counts"].get(k,0)+1
+          Path("data/seo-blog-100-quality-report.json").write_text(json.dumps({"summary":summary,"articles":report},ensure_ascii=False,indent=2)+"\n")
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+      - name: Commit corrected report
+        shell: bash
+        run: |
+          rm -f .github/workflows/audit-seo100-quality-v2.yml
+          git config user.name "ChatGPT SEO Auditor"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Correct SEO100 quality audit"
+          git push
