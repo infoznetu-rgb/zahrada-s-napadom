@@ -24,7 +24,7 @@ function blogEsc(value){
   }[c]));
 }
 
-function blogHref(p){const s=String(p?.slug||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");return "/clanok-"+s+".html"}
+function blogHref(p){const s=String(p?.slug||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");return "/blog/"+s+"/"}
 
 function blogCountLabel(count){
   if(count===1)return "1 článok";
@@ -166,15 +166,29 @@ async function loadBlog(){
     .eq("status","published")
     .eq("content_type","blog")
     .order("published_at",{ascending:false})
-    .limit(100);
+    .limit(300);
 
-  if(error||!data||!data.length){
+  let localPosts=[];
+  try{
+    const response=await fetch("/data/seo-blog-100-list.json",{cache:"no-cache"});
+    if(response.ok)localPosts=await response.json();
+  }catch(_){}
+
+  const remotePosts=(!error&&Array.isArray(data))?data:[];
+  const merged=new Map();
+  [...remotePosts,...(Array.isArray(localPosts)?localPosts:[])].forEach(post=>{
+    if(post?.slug&&!merged.has(post.slug))merged.set(post.slug,post);
+  });
+  blogState.posts=[...merged.values()].sort((a,b)=>
+    String(b.published_at||"").localeCompare(String(a.published_at||""))
+  );
+
+  if(!blogState.posts.length){
     if(empty)empty.hidden=false;
     if(summary)summary.textContent="Blog sa momentálne nepodarilo načítať.";
     return;
   }
 
-  blogState.posts=data;
   renderFilters();
 
   const params=new URLSearchParams(window.location.search);
