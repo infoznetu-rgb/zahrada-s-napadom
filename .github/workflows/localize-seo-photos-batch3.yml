@@ -1,0 +1,57 @@
+name: Localize SEO photos batch 3
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/localize-seo-photos-batch3.yml'
+permissions:
+  contents: write
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download topic photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/blog/seo-specific
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/12956081/pexels-photo-12956081.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/jablon-rez.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/5561298/pexels-photo-5561298.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/paradajky.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/32845569/pexels-photo-32845569.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/jahody.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/6728926/pexels-photo-6728926.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/kosenie-travnika.jpg
+      - name: Update article image references
+        shell: python
+        run: |
+          import json,re
+          from pathlib import Path
+          items={
+            "jablon-zakladny-rez":"/assets/blog/seo-specific/jablon-rez.jpg",
+            "paradajky-praskanie-plodov-zalievka":"/assets/blog/seo-specific/paradajky.jpg",
+            "jahody-po-zbere-starostlivost":"/assets/blog/seo-specific/jahody.jpg",
+            "vyska-kosenia-travnika":"/assets/blog/seo-specific/kosenie-travnika.jpg",
+          }
+          for slug,new in items.items():
+            p=Path("blog")/slug/"index.html"
+            s=p.read_text()
+            s=re.sub(r'(<meta property="og:image" content=")[^"]+(")',lambda m:m.group(1)+"https://zahradasnapadom.sk"+new+m.group(2),s)
+            s=re.sub(r'(<meta name="twitter:image" content=")[^"]+(")',lambda m:m.group(1)+"https://zahradasnapadom.sk"+new+m.group(2),s)
+            s=re.sub(r'("image":\["https://zahradasnapadom\.sk)[^"]+("\])',lambda m:m.group(1)+new+m.group(2),s)
+            s=re.sub(r'(<figure class="post-hero"><img src=")[^"]+(")',lambda m:m.group(1)+new+m.group(2),s)
+            s=re.sub(r'("cover_url":\s*")[^"]+(")',lambda m:m.group(1)+new+m.group(2),s)
+            p.write_text(s)
+          j=Path("data/seo-blog-100-list.json")
+          data=json.loads(j.read_text())
+          for row in data:
+            if row.get("slug") in items:
+              row["cover_url"]=items[row["slug"]]
+          j.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
+      - name: Commit local topic photos
+        shell: bash
+        run: |
+          rm -f .github/workflows/localize-seo-photos-batch3.yml
+          git config user.name "ChatGPT Site Editor"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Add specific photos for apple tomato strawberry lawn"
+          git push
