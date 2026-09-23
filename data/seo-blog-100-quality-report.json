@@ -1,0 +1,2114 @@
+{
+  "summary": {
+    "total": 100,
+    "passing": 0,
+    "failing": 100,
+    "missing_counts": {
+      "article_schema": 100,
+      "cluster_link": 1
+    }
+  },
+  "articles": [
+    {
+      "slug": "strihanie-hortenzii-podla-druhu",
+      "title": "Ako strihať hortenzie podľa druhu",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "hortenzie-pred-zimou-ochrana",
+      "title": "Hortenzie pred zimou: čo chrániť a čo nechať tak",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "pivonie-spravna-vysadba",
+      "title": "Pivónie: správna výsadba bez rokov čakania na kvety",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "levandula-rez-po-odkvitnuti",
+      "title": "Levanduľa po odkvitnutí: kedy a ako ju strihať",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "ruze-pred-zimou",
+      "title": "Ruže pred zimou: rez, mulč a ochrana koreňov",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "rododendron-zlte-listy-poda-voda",
+      "title": "Rododendron bez žltých listov: pôda, voda a stanovište",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "hosty-v-tieni-pestovanie",
+      "title": "Hosty v tieni: ako získať veľké zdravé listy",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "okrasne-travy-kedy-strihat",
+      "title": "Okrasné trávy: kedy ich strihať a prečo nie na jeseň",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "tulipany-po-odkvitnuti",
+      "title": "Tulipány na jar: čo s nimi po odkvitnutí",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "narcisy-po-odkvitnuti",
+      "title": "Narcisy po odkvitnutí: listy nestrihajte priskoro",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "georginy-uskladnenie-hluz",
+      "title": "Georgíny po prvom mraze: ako uskladniť hľuzy",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "muskaty-prezimovanie",
+      "title": "Muškáty cez zimu: tri spôsoby prezimovania",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "balkonove-rastliny-zalievka-horucavy",
+      "title": "Balkónové rastliny v horúčave: zálievka bez utopenia koreňov",
+      "category": "Okrasná záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "slimaky-v-zahrade-co-funguje",
+      "title": "Ako bojovať so slimákmi bez chaosu v záhrade",
+      "category": "Záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vosky-na-rastlinach-co-robit",
+      "title": "Vošky na rastlinách: čo skúsiť skôr než postrek",
+      "category": "Záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "mucnatka-na-listoch",
+      "title": "Múčnatka na listoch: ako ju spoznať a obmedziť",
+      "category": "Záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "paradajky-praskanie-plodov-zalievka",
+      "title": "Paradajky bez praskania: rovnomerná zálievka v praxi",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vyvazovanie-paradajok-opora",
+      "title": "Vyväzovanie paradajok: opora, ktorá sa nezrúti",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vylamovanie-zalistkov-paradajok",
+      "title": "Vylamovanie zálistkov paradajok: kedy áno a kedy nie",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "paprika-pestovanie-v-zahone",
+      "title": "Paprika v záhone: teplo, voda a výživa bez preháňania",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "uhorky-v-skleniku-vetranie-zalievka",
+      "title": "Uhorky v skleníku: ako vetrať a polievať",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "cuketa-malo-plodov-priciny",
+      "title": "Cuketa dáva listy, ale málo plodov: najčastejšie príčiny",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "cibula-zo-sadzacky",
+      "title": "Cibuľa zo sadzačky: ako hlboko sadiť a kedy zberať",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "mrkva-rovne-korene-priprava-pody",
+      "title": "Mrkva bez krivých koreňov: pripravte pôdu skôr než sejete",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "redkovka-pestovanie-bez-vybiehania",
+      "title": "Reďkovka, ktorá nejde do kvetu: termín a voda",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "spenat-jesenna-sejba",
+      "title": "Špenát na jeseň: jednoduchá úroda z voľného záhona",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "salat-bez-horkosti",
+      "title": "Šalát bez horkosti: svetlo, voda a správny termín",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "zemiaky-v-malej-zahrade",
+      "title": "Zemiaky v malej záhrade: spon, prihrnutie a zber",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "fazula-tyckova-opora-vysev",
+      "title": "Fazuľa: opora pre tyčkové odrody a jednoduchý výsev",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "hrach-opora-vysev",
+      "title": "Hrach na záhone: prečo potrebuje oporu už od začiatku",
+      "category": "Zelenina",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "jahody-po-zbere-starostlivost",
+      "title": "Jahody po zbere: čo odstrániť a čo ponechať",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "maliny-rez-po-zbere",
+      "title": "Maliny po zbere: rez podľa typu odrody",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "ribezle-rez-presvetlenie",
+      "title": "Ríbezle: ako presvetliť ker bez zbytočného skracovania",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "egrese-rez-kra",
+      "title": "Egreše: rez pre lepší prístup k plodom",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "cucoriedky-kysla-poda-pestovanie",
+      "title": "Čučoriedky v záhrade: kyslá pôda je základ",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "jablon-zakladny-rez",
+      "title": "Jabloň: základný rez bez vytvorenia metly výhonkov",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "hruska-rez-koruny",
+      "title": "Hruška: ako korunu presvetliť a neprehnať rez",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "slivka-kedy-strihat",
+      "title": "Slivka: prečo s veľkým rezom nečakať na mrazivú zimu",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "ceresna-rez-po-zbere",
+      "title": "Čerešňa po zbere: bezpečný čas na ľahký rez",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "mlade-ovocne-stromy-pred-zimou",
+      "title": "Mladé ovocné stromčeky pred zimou: ochrana kmeňa a koreňov",
+      "category": "Ovocie",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "ph-pody-domaci-test",
+      "title": "Ako zistiť pH pôdy doma a čo z výsledku vyčítať",
+      "category": "Záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "listovy-kompost-z-listia",
+      "title": "Listový kompost: ako premeniť jesenné lístie na zeminu",
+      "category": "Záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "striedanie-plodin-vyvyseny-zahon",
+      "title": "Striedanie plodín vo vyvýšenom záhone: jednoduchý systém",
+      "category": "Záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "zahon-po-zime-priprava-pody",
+      "title": "Záhon po zime: kedy do pôdy vstúpiť a kedy ešte počkať",
+      "category": "Záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": false,
+        "article_schema": false
+      },
+      "missing": [
+        "cluster_link",
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "zber-dazdovej-vody-zo-strechy",
+      "title": "Dažďová voda zo strechy: ako navrhnúť jednoduchý zber",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "kvapkova-zavlaha-pre-zahon",
+      "title": "Kvapková závlaha pre záhon: čo naplánovať pred nákupom",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "novy-travnik-zo-semena",
+      "title": "Nový trávnik zo semena: príprava pôdy rozhoduje",
+      "category": "Trávnik",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "obnova-stareho-travnika",
+      "title": "Starý trávnik bez výmeny: plán obnovy krok za krokom",
+      "category": "Trávnik",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "mach-v-travniku-priciny",
+      "title": "Mach v trávniku: neriešte iba mach, ale jeho príčinu",
+      "category": "Trávnik",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "hole-miesta-v-travniku-dosievanie",
+      "title": "Holé miesta v trávniku: dosievanie bez viditeľných fľakov",
+      "category": "Trávnik",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "polievanie-travnika",
+      "title": "Polievanie trávnika: menej často, ale dôkladnejšie",
+      "category": "Trávnik",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vyska-kosenia-travnika",
+      "title": "Výška kosenia trávnika: prečo ho nebrať príliš nakrátko",
+      "category": "Trávnik",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "hnojenie-travnika-pocas-roka",
+      "title": "Hnojenie trávnika počas roka: čo sa mení podľa sezóny",
+      "category": "Trávnik",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vertikutacia-travnika-kedy",
+      "title": "Vertikutácia trávnika: kedy pomôže a kedy môže uškodiť",
+      "category": "Trávnik",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "strkovy-chodnik-vrstvy",
+      "title": "Štrkový chodník v záhrade: vrstvy, okraje a údržba",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "naslapne-kamene-v-travniku",
+      "title": "Nášľapné kamene v trávniku: ako určiť rozostupy",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "dreveny-vyvyseny-zahon-zivotnost",
+      "title": "Drevený vyvýšený záhon: čo spraviť, aby vydržal dlhšie",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "kovovy-vyvyseny-zahon-stavba",
+      "title": "Kovový vyvýšený záhon: na čo myslieť pri stavbe",
+      "category": "Dielňa · Kov",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "dreveny-plot-oprava-po-zime",
+      "title": "Drevený plot po zime: opraviť, brúsiť alebo meniť?",
+      "category": "Dielňa · Drevo",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "terasove-dosky-jarne-cistenie",
+      "title": "Terasové dosky: jarné čistenie bez poškodenia dreva",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "zahradna-lavicka-navrh",
+      "title": "Jednoduchá záhradná lavička: čo rozhoduje o pohodlí",
+      "category": "Dielňa · Drevo",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "stol-na-presadzanie-navrh",
+      "title": "Stôl na presádzanie: praktické rozmery a usporiadanie",
+      "category": "Dielňa · Drevo",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "stena-na-naradie-system",
+      "title": "Stena na náradie: systém, v ktorom sa dá naozaj orientovať",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "navijak-na-hadicu-umiestnenie",
+      "title": "Navijak na hadicu: kde ho umiestniť, aby nezavadzal",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "dreveny-komposter-stavba",
+      "title": "Drevený kompostér: vzduch, prístup a jednoduché vyberanie",
+      "category": "Dielňa · Drevo",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "stojan-na-palivove-drevo",
+      "title": "Stojan na palivové drevo: ako držať drevo nad zemou",
+      "category": "Dielňa · Kov",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "pergola-pri-dome-planovanie",
+      "title": "Pergola pri dome: čo si zmerať ešte pred stavbou",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "maly-sklenik-zaklady-kotvenie",
+      "title": "Malý skleník: základy, kotvenie a miesto v záhrade",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "polykarbonatovy-sklenik-cistenie",
+      "title": "Polykarbonátový skleník: ako ho čistiť bez poškriabania",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "drziak-na-kanvy-a-vedra",
+      "title": "Držiak na kanvy a vedrá: malý projekt, veľký poriadok",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "dreveny-kvetinac-odtok-vody",
+      "title": "Drevený kvetináč: odtok vody je dôležitejší než fólia",
+      "category": "Dielňa · Drevo",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "budka-pre-vtaky-zasady",
+      "title": "Búdka pre vtáky: základné rozmery riešte podľa druhu",
+      "category": "Dielňa · Drevo",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "zahradne-osvetlenie-bezpecnost",
+      "title": "Záhradné osvetlenie: bezpečné plánovanie nízkeho napätia",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "predlzovacka-v-zahrade-bezpecnost",
+      "title": "Predlžovačka v záhrade: čo musí zvládnuť vonkajšie použitie",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "aku-vrtacka-nastavenie",
+      "title": "Aku vŕtačka: ako nastaviť spojku, otáčky a smer",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vrtaky-drevo-kov-murivo",
+      "title": "Vrták do dreva, kovu alebo muriva: ako ich rozoznať",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "skrutky-do-dreva-vyber",
+      "title": "Skrutky do dreva: dĺžka, priemer a predvŕtanie",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "hmozdinka-podla-steny",
+      "title": "Hmoždinka do steny: najprv zistite, do čoho vŕtate",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "hrdza-na-oceli-priprava-povrchu",
+      "title": "Hrdza na oceli: ako pripraviť povrch pred náterom",
+      "category": "Dielňa · Kov",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "nater-kovu-v-exterieri",
+      "title": "Náter kovu v exteriéri: základ a vrchná farba musia spolupracovať",
+      "category": "Dielňa · Kov",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "uhlova-bruska-bezpecne-pouzitie",
+      "title": "Uhlová brúska: päť návykov, ktoré znižujú riziko",
+      "category": "Dielňa · Kov",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "zvaranie-domaca-dielna-priprava",
+      "title": "Zváranie v domácej dielni: čo pripraviť pred prvým zvarom",
+      "category": "Dielňa · Kov",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "pravy-uhol-metoda-3-4-5",
+      "title": "Pravý uhol 3–4–5: jednoduché vymeranie v záhrade",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "plotove-stlpiky-v-jednej-linii",
+      "title": "Plotové stĺpiky v jednej línii: šnúra, výška a kontrola",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "beton-maly-projekt-vypocet",
+      "title": "Betón do malého projektu: objem počítajte ešte pred miešaním",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "betonovanie-stlpika-postup",
+      "title": "Betónovanie stĺpika: ako udržať polohu, kým betón stuhne",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "podklad-pod-dlazbu-vrstvy",
+      "title": "Podklad pod dlažbu: prečo nestačí nasypať piesok",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "silikon-v-kupelni-postup",
+      "title": "Silikón v kúpeľni: čistý spoj bez plesnivých okrajov",
+      "category": "Domáci majster",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "kvapkajuca-bateria-kontrola",
+      "title": "Kvapkajúca batéria: čo skontrolovať skôr než kúpite novú",
+      "category": "Domáci majster",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "tesnenie-okolo-okna",
+      "title": "Tesnenie okolo okna: kde uniká vzduch a čo sa dá opraviť",
+      "category": "Domáci majster",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "plesen-v-zahradnom-domceku",
+      "title": "Pleseň v záhradnom domčeku: ako znížiť vlhkosť",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vlhkost-v-garazi",
+      "title": "Vlhkosť v garáži: jednoduché kroky bez drahej techniky",
+      "category": "Domáci majster",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "zahradne-noznice-udrzba-brusenie",
+      "title": "Záhradné nožnice: čistenie, brúsenie a mazanie",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vymena-rucky-na-ryli",
+      "title": "Zlomená rúčka na rýli: ako ju vymeniť",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "motorova-pila-ulozenie-po-sezone",
+      "title": "Motorová píla po sezóne: bezpečné čistenie a uloženie",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "kosacka-pred-zimou-udrzba",
+      "title": "Kosačka pred zimou: čo vyčistiť a čo nenechať v nádrži",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "vysokotlakovy-cistic-bezpecne-pouzitie",
+      "title": "Vysokotlakový čistič: kedy tlak znižuje, nie zlepšuje výsledok",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "komposter-umiestnenie-v-zahrade",
+      "title": "Kompostér pri dome: kam ho umiestniť, aby nezapáchal a nezavadzal",
+      "category": "Záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "sud-na-dazdovu-vodu-prepad-komare",
+      "title": "Záhradný sud na vodu: bezpečný prepad a ochrana pred komármi",
+      "category": "Dom a záhrada",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    },
+    {
+      "slug": "pracovny-ponk-v-dielni",
+      "title": "Pracovný ponk v dielni: stabilita skôr než množstvo zásuviek",
+      "category": "Dielňa",
+      "checks": {
+        "exists": true,
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": true,
+        "hero": true,
+        "no_seo_svg": true,
+        "faq_visible": true,
+        "related_links": true,
+        "cluster_link": true,
+        "article_schema": false
+      },
+      "missing": [
+        "article_schema"
+      ]
+    }
+  ]
+}
