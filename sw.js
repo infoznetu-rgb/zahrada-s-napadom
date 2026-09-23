@@ -1,4 +1,4 @@
-const VERSION='88';
+const VERSION='89';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
@@ -42,7 +42,7 @@ async function navigationResponse(request){
 }
 
 async function staleWhileRevalidate(request){
-  const cached=await caches.match(request,{ignoreSearch:true});
+  const cached=await caches.match(request);
   const network=fetch(request).then(async response=>{
     if(response&&response.ok){
       const cache=await caches.open(RUNTIME_CACHE);
