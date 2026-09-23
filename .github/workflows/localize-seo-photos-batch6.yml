@@ -16,7 +16,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p assets/blog/seo-specific
-          curl -L --fail --retry 3 'https://images.pexels.com/photos/46541/pexels-photo-46541.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/egrese.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/46541/currant-immature-mature-bush-46541.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/egrese.jpg
           curl -L --fail --retry 3 'https://images.pexels.com/photos/33835690/pexels-photo-33835690.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/slivka.jpg
           curl -L --fail --retry 3 'https://images.pexels.com/photos/8893446/pexels-photo-8893446.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/ceresna.jpg
           curl -L --fail --retry 3 'https://images.pexels.com/photos/37066325/pexels-photo-37066325.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/mlady-strom-zima.jpg
