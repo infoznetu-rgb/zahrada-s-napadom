@@ -1,5 +1,95 @@
 [
   {
+    "slug": "skladovanie-korenovej-zeleniny",
+    "route_slug": "skladovanie-korenovej-zeleniny",
+    "title": "Skladovanie koreňovej zeleniny cez zimu",
+    "category": "Zeleninová záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-skladovanie-korenovej-zeleniny.webp"
+  },
+  {
+    "slug": "zazimovanie-zavlahoveho-systemu",
+    "route_slug": "zazimovanie-zavlahoveho-systemu",
+    "title": "Zazimovanie zavlažovacieho systému bezpečne",
+    "category": "Voda a závlaha",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-zazimovanie-zavlahy.webp"
+  },
+  {
+    "slug": "jesenne-cistenie-sklenika",
+    "route_slug": "jesenne-cistenie-sklenika",
+    "title": "Jesenné čistenie skleníka po zbere",
+    "category": "Sezónne tipy",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-jesenne-cistenie-sklenika.webp"
+  },
+  {
+    "slug": "ochrana-zeleniny-pred-prvym-mrazom",
+    "route_slug": "ochrana-zeleniny-pred-prvym-mrazom",
+    "title": "Ochrana zeleniny pred prvým mrazom",
+    "category": "Zeleninová záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/07-ochrana-zeleniny-pred-mrazom.webp"
+  },
+  {
+    "slug": "vysadba-ribezli-a-egresov-na-jesen",
+    "route_slug": "vysadba-ribezli-a-egresov-na-jesen",
+    "title": "Výsadba ríbezlí a egrešov na jeseň",
+    "category": "Ovocná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/06-vysadba-ribezli-egresov.webp"
+  },
+  {
+    "slug": "delenie-trvaliek-na-jesen",
+    "route_slug": "delenie-trvaliek-na-jesen",
+    "title": "Delenie trvaliek na jeseň: postup bez strát",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/05-delenie-trvaliek.webp"
+  },
+  {
+    "slug": "zazimovanie-zahradneho-jazierka",
+    "route_slug": "zazimovanie-zahradneho-jazierka",
+    "title": "Zazimovanie záhradného jazierka krok za krokom",
+    "category": "Sezónne tipy",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-zazimovanie-jazierka.webp"
+  },
+  {
+    "slug": "zber-a-skladovanie-tekvic",
+    "route_slug": "zber-a-skladovanie-tekvic",
+    "title": "Zber a skladovanie tekvíc: kedy sú zrelé",
+    "category": "Zeleninová záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-zber-skladovanie-tekvic.webp"
+  },
+  {
+    "slug": "uskladnenie-jablk-na-zimu",
+    "route_slug": "uskladnenie-jablk-na-zimu",
+    "title": "Uskladnenie jabĺk na zimu bez hniloby",
+    "category": "Ovocná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/02-uskladnenie-jablk.webp"
+  },
+  {
+    "slug": "vysadba-tulipanov-na-jesen",
+    "route_slug": "vysadba-tulipanov-na-jesen",
+    "title": "Výsadba tulipánov na jeseň: hĺbka a termín",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-23",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-vysadba-tulipanov.webp"
+  },
+  {
     "slug": "terasova-hojdacia-lavicka",
     "route_slug": "terasova-hojdacia-lavicka",
     "title": "Terasová hojdacia lavička – od zvárania po hotové sedenie",
