@@ -1,0 +1,67 @@
+name: Ensure SEO100 cluster backlinks
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/seo100-cluster-backlinks.yml'
+permissions:
+  contents: write
+jobs:
+  link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure every SEO article links to its topic hub
+        shell: python
+        run: |
+          import json,re
+          from pathlib import Path
+
+          category_hub={
+            "Okrasná záhrada":("/temy/hortenzie-okrasna-zahrada.html","Hortenzie a okrasná záhrada – tematický sprievodca"),
+            "Záhrada":("/temy/zahrada.html","Záhrada – tematický sprievodca"),
+            "Zelenina":("/temy/zeleninova-zahrada.html","Zeleninová záhrada – tematický sprievodca"),
+            "Ovocie":("/temy/ovocna-zahrada.html","Ovocná záhrada – tematický sprievodca"),
+            "Dom a záhrada":("/temy/dom-a-zahrada.html","Dom a záhrada – tematický sprievodca"),
+            "Trávnik":("/temy/travnik.html","Trávnik počas roka – tematický sprievodca"),
+            "Dielňa":("/temy/dielna-naradie.html","Dielňa a náradie – tematický sprievodca"),
+            "Dielňa · Kov":("/temy/dielna-kov.html","Dielňa · Kov – tematický sprievodca"),
+            "Dielňa · Drevo":("/temy/dielna-drevo.html","Dielňa · Drevo – tematický sprievodca"),
+            "Domáci majster":("/temy/domaci-majster.html","Domáci majster – tematický sprievodca"),
+          }
+
+          data=json.loads(Path("data/seo-blog-100-list.json").read_text())
+          changed=0
+          for row in data:
+            slug=row.get("slug")
+            cat=row.get("category")
+            if not slug or cat not in category_hub:
+              continue
+            p=Path("blog")/slug/"index.html"
+            if not p.exists():
+              continue
+            s=p.read_text()
+            href,label=category_hub[cat]
+            if href in s:
+              continue
+            anchor=f'<a href="{href}">{label} →</a>'
+            pattern=r'(<h2>Súvisiace články(?: a pomôcky| a sprievodcovia)?</h2><div class="related-links">)'
+            ns,n=re.subn(pattern,lambda m:m.group(1)+anchor,s,count=1)
+            if n:
+              p.write_text(ns)
+              changed+=1
+          print("changed",changed)
+
+      - name: Commit cluster backlinks
+        shell: bash
+        run: |
+          rm -f .github/workflows/seo100-cluster-backlinks.yml
+          git config user.name "ChatGPT SEO Editor"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No article changes needed"
+          else
+            git commit -m "Ensure all SEO100 articles link to topic hubs"
+            git push
+          fi
