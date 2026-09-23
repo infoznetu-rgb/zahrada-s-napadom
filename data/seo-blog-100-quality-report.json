@@ -1,12 +1,9 @@
 {
   "summary": {
     "total": 100,
-    "passing": 0,
-    "failing": 100,
-    "missing_counts": {
-      "article_schema": 100,
-      "cluster_link": 1
-    }
+    "passing": 100,
+    "failing": 0,
+    "missing_counts": {}
   },
   "articles": [
     {
@@ -24,11 +21,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "hortenzie-pred-zimou-ochrana",
@@ -45,11 +40,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "pivonie-spravna-vysadba",
@@ -66,11 +59,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "levandula-rez-po-odkvitnuti",
@@ -87,11 +78,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "ruze-pred-zimou",
@@ -108,11 +97,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "rododendron-zlte-listy-poda-voda",
@@ -129,11 +116,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "hosty-v-tieni-pestovanie",
@@ -150,11 +135,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "okrasne-travy-kedy-strihat",
@@ -171,11 +154,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "tulipany-po-odkvitnuti",
@@ -192,11 +173,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "narcisy-po-odkvitnuti",
@@ -213,11 +192,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "georginy-uskladnenie-hluz",
@@ -234,11 +211,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "muskaty-prezimovanie",
@@ -255,11 +230,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "balkonove-rastliny-zalievka-horucavy",
@@ -276,11 +249,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "slimaky-v-zahrade-co-funguje",
@@ -297,11 +268,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vosky-na-rastlinach-co-robit",
@@ -318,11 +287,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "mucnatka-na-listoch",
@@ -339,11 +306,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "paradajky-praskanie-plodov-zalievka",
@@ -360,11 +325,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vyvazovanie-paradajok-opora",
@@ -381,11 +344,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vylamovanie-zalistkov-paradajok",
@@ -402,11 +363,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "paprika-pestovanie-v-zahone",
@@ -423,11 +382,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "uhorky-v-skleniku-vetranie-zalievka",
@@ -444,11 +401,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "cuketa-malo-plodov-priciny",
@@ -465,11 +420,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "cibula-zo-sadzacky",
@@ -486,11 +439,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "mrkva-rovne-korene-priprava-pody",
@@ -507,11 +458,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "redkovka-pestovanie-bez-vybiehania",
@@ -528,11 +477,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "spenat-jesenna-sejba",
@@ -549,11 +496,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "salat-bez-horkosti",
@@ -570,11 +515,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "zemiaky-v-malej-zahrade",
@@ -591,11 +534,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "fazula-tyckova-opora-vysev",
@@ -612,11 +553,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "hrach-opora-vysev",
@@ -633,11 +572,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "jahody-po-zbere-starostlivost",
@@ -654,11 +591,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "maliny-rez-po-zbere",
@@ -675,11 +610,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "ribezle-rez-presvetlenie",
@@ -696,11 +629,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "egrese-rez-kra",
@@ -717,11 +648,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "cucoriedky-kysla-poda-pestovanie",
@@ -738,11 +667,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "jablon-zakladny-rez",
@@ -759,11 +686,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "hruska-rez-koruny",
@@ -780,11 +705,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "slivka-kedy-strihat",
@@ -801,11 +724,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "ceresna-rez-po-zbere",
@@ -822,11 +743,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "mlade-ovocne-stromy-pred-zimou",
@@ -843,11 +762,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "ph-pody-domaci-test",
@@ -864,11 +781,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "listovy-kompost-z-listia",
@@ -885,11 +800,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "striedanie-plodin-vyvyseny-zahon",
@@ -906,11 +819,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "zahon-po-zime-priprava-pody",
@@ -926,13 +837,10 @@
         "no_seo_svg": true,
         "faq_visible": true,
         "related_links": true,
-        "cluster_link": false,
-        "article_schema": false
+        "cluster_link": true,
+        "article_schema": true
       },
-      "missing": [
-        "cluster_link",
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "zber-dazdovej-vody-zo-strechy",
@@ -949,11 +857,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "kvapkova-zavlaha-pre-zahon",
@@ -970,11 +876,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "novy-travnik-zo-semena",
@@ -991,11 +895,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "obnova-stareho-travnika",
@@ -1012,11 +914,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "mach-v-travniku-priciny",
@@ -1033,11 +933,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "hole-miesta-v-travniku-dosievanie",
@@ -1054,11 +952,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "polievanie-travnika",
@@ -1075,11 +971,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vyska-kosenia-travnika",
@@ -1096,11 +990,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "hnojenie-travnika-pocas-roka",
@@ -1117,11 +1009,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vertikutacia-travnika-kedy",
@@ -1138,11 +1028,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "strkovy-chodnik-vrstvy",
@@ -1159,11 +1047,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "naslapne-kamene-v-travniku",
@@ -1180,11 +1066,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "dreveny-vyvyseny-zahon-zivotnost",
@@ -1201,11 +1085,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "kovovy-vyvyseny-zahon-stavba",
@@ -1222,11 +1104,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "dreveny-plot-oprava-po-zime",
@@ -1243,11 +1123,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "terasove-dosky-jarne-cistenie",
@@ -1264,11 +1142,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "zahradna-lavicka-navrh",
@@ -1285,11 +1161,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "stol-na-presadzanie-navrh",
@@ -1306,11 +1180,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "stena-na-naradie-system",
@@ -1327,11 +1199,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "navijak-na-hadicu-umiestnenie",
@@ -1348,11 +1218,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "dreveny-komposter-stavba",
@@ -1369,11 +1237,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "stojan-na-palivove-drevo",
@@ -1390,11 +1256,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "pergola-pri-dome-planovanie",
@@ -1411,11 +1275,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "maly-sklenik-zaklady-kotvenie",
@@ -1432,11 +1294,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "polykarbonatovy-sklenik-cistenie",
@@ -1453,11 +1313,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "drziak-na-kanvy-a-vedra",
@@ -1474,11 +1332,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "dreveny-kvetinac-odtok-vody",
@@ -1495,11 +1351,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "budka-pre-vtaky-zasady",
@@ -1516,11 +1370,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "zahradne-osvetlenie-bezpecnost",
@@ -1537,11 +1389,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "predlzovacka-v-zahrade-bezpecnost",
@@ -1558,11 +1408,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "aku-vrtacka-nastavenie",
@@ -1579,11 +1427,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vrtaky-drevo-kov-murivo",
@@ -1600,11 +1446,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "skrutky-do-dreva-vyber",
@@ -1621,11 +1465,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "hmozdinka-podla-steny",
@@ -1642,11 +1484,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "hrdza-na-oceli-priprava-povrchu",
@@ -1663,11 +1503,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "nater-kovu-v-exterieri",
@@ -1684,11 +1522,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "uhlova-bruska-bezpecne-pouzitie",
@@ -1705,11 +1541,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "zvaranie-domaca-dielna-priprava",
@@ -1726,11 +1560,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "pravy-uhol-metoda-3-4-5",
@@ -1747,11 +1579,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "plotove-stlpiky-v-jednej-linii",
@@ -1768,11 +1598,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "beton-maly-projekt-vypocet",
@@ -1789,11 +1617,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "betonovanie-stlpika-postup",
@@ -1810,11 +1636,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "podklad-pod-dlazbu-vrstvy",
@@ -1831,11 +1655,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "silikon-v-kupelni-postup",
@@ -1852,11 +1674,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "kvapkajuca-bateria-kontrola",
@@ -1873,11 +1693,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "tesnenie-okolo-okna",
@@ -1894,11 +1712,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "plesen-v-zahradnom-domceku",
@@ -1915,11 +1731,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vlhkost-v-garazi",
@@ -1936,11 +1750,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "zahradne-noznice-udrzba-brusenie",
@@ -1957,11 +1769,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vymena-rucky-na-ryli",
@@ -1978,11 +1788,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "motorova-pila-ulozenie-po-sezone",
@@ -1999,11 +1807,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "kosacka-pred-zimou-udrzba",
@@ -2020,11 +1826,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "vysokotlakovy-cistic-bezpecne-pouzitie",
@@ -2041,11 +1845,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "komposter-umiestnenie-v-zahrade",
@@ -2062,11 +1864,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "sud-na-dazdovu-vodu-prepad-komare",
@@ -2083,11 +1883,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     },
     {
       "slug": "pracovny-ponk-v-dielni",
@@ -2104,11 +1902,9 @@
         "faq_visible": true,
         "related_links": true,
         "cluster_link": true,
-        "article_schema": false
+        "article_schema": true
       },
-      "missing": [
-        "article_schema"
-      ]
+      "missing": []
     }
   ]
 }
