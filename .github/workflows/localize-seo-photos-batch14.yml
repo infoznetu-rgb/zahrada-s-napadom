@@ -1,0 +1,65 @@
+name: Localize SEO photos batch 14
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/localize-seo-photos-batch14.yml'
+permissions:
+  contents: write
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download garden problem and vegetable photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/blog/seo-specific
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/5949116/pexels-photo-5949116.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/hortenzie-zima.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/32700469/pexels-photo-32700469.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/vosky.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/7718268/pexels-photo-7718268.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/mucnatka.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/9510451/pexels-photo-9510451.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/paprika.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/31737283/pexels-photo-31737283.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/uhorky.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/37521727/pexels-photo-37521727.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/cuketa.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/7728884/pexels-photo-7728884.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/ph-pody.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/5503336/pexels-photo-5503336.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/dreveny-komposter.jpg
+      - name: Update article image references
+        shell: python
+        run: |
+          import json,re
+          from pathlib import Path
+          items={
+            "hortenzie-pred-zimou-ochrana":"/assets/blog/seo-specific/hortenzie-zima.jpg",
+            "vosky-na-rastlinach-co-robit":"/assets/blog/seo-specific/vosky.jpg",
+            "mucnatka-na-listoch":"/assets/blog/seo-specific/mucnatka.jpg",
+            "paprika-pestovanie-v-zahone":"/assets/blog/seo-specific/paprika.jpg",
+            "uhorky-v-skleniku-vetranie-zalievka":"/assets/blog/seo-specific/uhorky.jpg",
+            "cuketa-malo-plodov-priciny":"/assets/blog/seo-specific/cuketa.jpg",
+            "ph-pody-domaci-test":"/assets/blog/seo-specific/ph-pody.jpg",
+            "dreveny-komposter-stavba":"/assets/blog/seo-specific/dreveny-komposter.jpg",
+          }
+          for slug,new in items.items():
+            p=Path("blog")/slug/"index.html"
+            s=p.read_text()
+            s=re.sub(r'(<meta property="og:image" content=")[^"]+(")',lambda m:m.group(1)+"https://zahradasnapadom.sk"+new+m.group(2),s)
+            s=re.sub(r'(<meta name="twitter:image" content=")[^"]+(")',lambda m:m.group(1)+"https://zahradasnapadom.sk"+new+m.group(2),s)
+            s=re.sub(r'("image":\["https://zahradasnapadom\.sk)[^"]+("\])',lambda m:m.group(1)+new+m.group(2),s)
+            s=re.sub(r'(<figure class="post-hero"><img src=")[^"]+(")',lambda m:m.group(1)+new+m.group(2),s)
+            s=re.sub(r'("cover_url":\s*")[^"]+(")',lambda m:m.group(1)+new+m.group(2),s)
+            p.write_text(s)
+          j=Path("data/seo-blog-100-list.json")
+          data=json.loads(j.read_text())
+          for row in data:
+            if row.get("slug") in items:
+              row["cover_url"]=items[row["slug"]]
+          j.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
+      - name: Commit local garden photos
+        shell: bash
+        run: |
+          rm -f .github/workflows/localize-seo-photos-batch14.yml
+          git config user.name "ChatGPT Site Editor"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Add specific photos for plant problems vegetables compost"
+          git push
