@@ -87,7 +87,34 @@ async function loadAll(){
 async function loadPosts(){
   const {data,error}=await db.from("zahrada_posts").select("*").order("created_at",{ascending:false});
   if(error){setSave("Chyba načítania");return}
-  posts=data||[];
+
+  let seoPosts=[];
+  try{
+    const response=await fetch("../data/seo-blog-100-list.json",{cache:"no-store"});
+    if(response.ok)seoPosts=await response.json();
+  }catch(_){}
+
+  const merged=new Map();
+  (data||[]).forEach(p=>merged.set(p.slug,p));
+  (Array.isArray(seoPosts)?seoPosts:[]).forEach(p=>{
+    if(!p?.slug||merged.has(p.slug))return;
+    merged.set(p.slug,{
+      ...p,
+      id:"seo:"+p.slug,
+      status:"published",
+      content_type:"blog",
+      created_at:p.published_at||null,
+      updated_at:p.published_at||null,
+      gallery:[],
+      videos:[],
+      generated_by_ai:true,
+      _staticSeo:true
+    });
+  });
+
+  posts=[...merged.values()].sort((a,b)=>
+    String(b.published_at||b.created_at||"").localeCompare(String(a.published_at||a.created_at||""))
+  );
   renderStats();
   renderPosts();
 }
@@ -110,11 +137,16 @@ $("#post-filter").addEventListener("change",renderPosts);
 
 function renderPostRows(container,list){
   if(!list.length){container.innerHTML='<div class="empty">Zatiaľ tu nie sú žiadne príspevky.</div>';return}
-  container.innerHTML=list.map(p=>`<article class="post-row">
-    ${p.cover_url?`<img class="post-thumb" src="${esc(p.cover_url)}" alt="">`:'<div class="post-thumb"></div>'}
-    <div class="post-meta"><h4>${esc(p.title)}</h4><p>${p.content_type==="blog"?"Blog":"Projekt"} · ${esc(p.category)} · ${formatDate(p.published_at||p.created_at)} · <span class="badge ${p.status}">${p.status==="published"?"Publikované":"Koncept"}</span></p></div>
-    <div class="post-actions"><button class="mini-btn" data-edit-id="${p.id}">Upraviť</button>${p.status==="published"?`<a class="mini-btn" href="../prispevok.html?slug=${encodeURIComponent(p.slug)}" target="_blank" rel="noopener">Pozrieť</a>`:""}</div>
-  </article>`).join("");
+  container.innerHTML=list.map(p=>{
+    const isStatic=Boolean(p._staticSeo);
+    const viewHref=isStatic?"../blog/"+encodeURIComponent(p.slug)+"/":"../prispevok.html?slug="+encodeURIComponent(p.slug);
+    const typeLabel=p.content_type==="blog"?(isStatic?"Blog · SEO statický":"Blog"):"Projekt";
+    return `<article class="post-row">
+      ${p.cover_url?`<img class="post-thumb" src="${esc(p.cover_url)}" alt="" onerror="this.onerror=null;this.src='../assets/blog/fallback-cover.svg'">`:'<div class="post-thumb"></div>'}
+      <div class="post-meta"><h4>${esc(p.title)}</h4><p>${typeLabel} · ${esc(p.category)} · ${formatDate(p.published_at||p.created_at)} · <span class="badge ${p.status}">${p.status==="published"?"Publikované":"Koncept"}</span></p></div>
+      <div class="post-actions">${isStatic?"":`<button class="mini-btn" data-edit-id="${p.id}">Upraviť</button>`}${p.status==="published"?`<a class="mini-btn" href="${esc(viewHref)}" target="_blank" rel="noopener">Pozrieť</a>`:""}</div>
+    </article>`;
+  }).join("");
   container.querySelectorAll("[data-edit-id]").forEach(b=>b.addEventListener("click",()=>openEditor(b.dataset.editId)));
 }
 
