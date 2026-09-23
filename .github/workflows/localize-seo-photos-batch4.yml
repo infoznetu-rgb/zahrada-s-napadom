@@ -1,0 +1,57 @@
+name: Localize SEO photos batch 4
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/localize-seo-photos-batch4.yml'
+permissions:
+  contents: write
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download ornamental photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/blog/seo-specific
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/8279819/pexels-photo-8279819.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/levandula-rez.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/35663787/pexels-photo-35663787.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/ruze-priprava.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/16511747/pexels-photo-16511747.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/rododendron.jpg
+          curl -L --fail --retry 3 'https://images.pexels.com/photos/29538690/pexels-photo-29538690.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop' -o assets/blog/seo-specific/okrasne-travy.jpg
+      - name: Update article image references
+        shell: python
+        run: |
+          import json,re
+          from pathlib import Path
+          items={
+            "levandula-rez-po-odkvitnuti":"/assets/blog/seo-specific/levandula-rez.jpg",
+            "ruze-pred-zimou":"/assets/blog/seo-specific/ruze-priprava.jpg",
+            "rododendron-zlte-listy-poda-voda":"/assets/blog/seo-specific/rododendron.jpg",
+            "okrasne-travy-kedy-strihat":"/assets/blog/seo-specific/okrasne-travy.jpg",
+          }
+          for slug,new in items.items():
+            p=Path("blog")/slug/"index.html"
+            s=p.read_text()
+            s=re.sub(r'(<meta property="og:image" content=")[^"]+(")',lambda m:m.group(1)+"https://zahradasnapadom.sk"+new+m.group(2),s)
+            s=re.sub(r'(<meta name="twitter:image" content=")[^"]+(")',lambda m:m.group(1)+"https://zahradasnapadom.sk"+new+m.group(2),s)
+            s=re.sub(r'("image":\["https://zahradasnapadom\.sk)[^"]+("\])',lambda m:m.group(1)+new+m.group(2),s)
+            s=re.sub(r'(<figure class="post-hero"><img src=")[^"]+(")',lambda m:m.group(1)+new+m.group(2),s)
+            s=re.sub(r'("cover_url":\s*")[^"]+(")',lambda m:m.group(1)+new+m.group(2),s)
+            p.write_text(s)
+          j=Path("data/seo-blog-100-list.json")
+          data=json.loads(j.read_text())
+          for row in data:
+            if row.get("slug") in items:
+              row["cover_url"]=items[row["slug"]]
+          j.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
+      - name: Commit local ornamental photos
+        shell: bash
+        run: |
+          rm -f .github/workflows/localize-seo-photos-batch4.yml
+          git config user.name "ChatGPT Site Editor"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Add specific ornamental garden photos"
+          git push
