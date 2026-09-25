@@ -28,6 +28,7 @@ function blogHref(p){const s=String(p?.slug||"").normalize("NFD").replace(/[\u03
 
 function blogCoverUrl(value,post){
   const url=String(value||"");
+  if(/^https?:\/\//i.test(url))return url;
   if(!/\/assets\/blog\/seo100\/.*\.svg$/i.test(url))return url;
 
   const slug=String(post?.slug||"").toLowerCase();
