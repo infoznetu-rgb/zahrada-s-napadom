@@ -27,50 +27,6 @@
 <style>
 .project-hero{padding:52px 0 26px;display:block;max-width:1180px;margin-left:auto;margin-right:auto}.project-hero h1{max-width:1050px;font-size:clamp(2.35rem,6vw,5rem);line-height:1;margin:12px 0 20px}.project-hero .lead{max-width:980px;font-size:1.16rem;line-height:1.75}.facts{display:flex;flex-wrap:wrap;gap:9px;margin:24px 0}.facts span{padding:9px 13px;border:1px solid rgba(35,54,38,.18);border-radius:999px;background:rgba(255,255,255,.65)}.article{max-width:980px;margin-left:auto;margin-right:auto;padding-bottom:80px}.article h2{margin-top:42px;font-size:clamp(1.55rem,3vw,2.25rem)}.article p,.article li{font-size:1.04rem;line-height:1.8}.note{margin:32px 0;padding:24px;border-left:4px solid #5f965f;background:rgba(95,150,95,.08);border-radius:0 16px 16px 0}.spec{width:100%;border-collapse:collapse;margin:22px 0}.spec th,.spec td{text-align:left;padding:12px;border-bottom:1px solid rgba(35,54,38,.13)}.spec th{width:42%}.back-link{display:inline-block;margin-bottom:8px}.photo-note{margin:34px 0;padding:22px;border:1px dashed rgba(35,54,38,.25);border-radius:18px}.project-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 42px}.project-gallery a{display:block;overflow:hidden;border-radius:16px;background:#eef2ec;aspect-ratio:4/3}.project-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s ease}.project-gallery a:hover img{transform:scale(1.025)}.hero-photo{display:block;position:static;clear:both;margin:32px auto 18px;max-width:900px}.hero-photo img{display:block;width:100%;height:300px;object-fit:cover;object-position:center 52%;border-radius:20px}.hero-photo figcaption,.step-photo figcaption{font-size:.9rem;opacity:.78;margin-top:8px}.step-photo{margin:24px 0 34px}.step-photo img{width:100%;max-height:520px;object-fit:cover;border-radius:18px;display:block}.step-photo.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.step-photo.two figcaption{grid-column:1/-1}@media(max-width:760px){.project-hero{padding-top:26px}.project-hero h1{font-size:clamp(2.05rem,11vw,3.25rem)}.hero-photo{display:block;position:static;clear:both;max-width:100%;margin:22px 0 18px}.hero-photo img{display:block;width:100%;height:190px;max-height:190px;object-fit:cover;object-position:center 52%;border-radius:16px}.hero-photo figcaption{padding:0 4px}.step-photo.two{grid-template-columns:1fr}.project-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-document.addEventListener("DOMContentLoaded",async()=>{
-  try{
-    const db=window.supabase.createClient("https://bkyappgttwjxakkwycub.supabase.co","sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4");
-    const {data}=await db.from("zahrada_posts").select("*").eq("slug","opory-pre-hortenzie-a-pivonie").eq("status","published").maybeSingle();
-    if(!data)return;
-    const h=document.querySelector(".project-hero h1"); if(h)h.textContent=data.title;
-    const lead=document.querySelector(".project-hero .lead"); if(lead&&data.excerpt)lead.textContent=data.excerpt;
-    const hero=document.querySelector(".hero-photo img"); if(hero&&data.cover_url){hero.src=data.cover_url;hero.alt=data.title}
-    const article=document.querySelector("article.article");
-    if(article&&data.content){
-      article.innerHTML="";
-      const imgs=Array.isArray(data.gallery)?data.gallery.filter(Boolean):[];
-      const blocks=String(data.content).split(/\n\s*\n/).filter(Boolean);
-      let paragraphCount=0, inlinePhoto=0;
-      blocks.forEach(block=>{
-        const t=block.trim();
-        if(t.startsWith("## ")){
-          const e=document.createElement("h2");e.textContent=t.slice(3);article.appendChild(e);
-        }else{
-          const e=document.createElement("p");e.textContent=t;article.appendChild(e);
-          paragraphCount++;
-          if(imgs.length && paragraphCount%2===0 && inlinePhoto<Math.min(8,imgs.length)){
-            const photoIndex=inlinePhoto++;
-            const wrap=document.createElement("div");wrap.className="inline-project-photo";
-            const btn=document.createElement("button");btn.type="button";btn.className="gallery-open";btn.dataset.galleryIndex=photoIndex;
-            const im=document.createElement("img");im.src=imgs[photoIndex];im.alt=data.title+" – fotografia z výroby "+(photoIndex+1);im.loading="eager";
-            btn.appendChild(im);wrap.appendChild(btn);article.appendChild(wrap);
-          }
-        }
-      });
-      const faq=document.createElement("section");faq.className="faq-section";faq.innerHTML='<h2>Časté otázky o oporách pre hortenzie a pivónie</h2><h3>Aká vysoká má byť opora pro hortenzie?</h3><p>Výšku treba prispôsobiť veľkosti kra. Najčastejšie používam <strong>60 alebo 100 cm</strong>, pri mohutných rastlinách aj viac.</p><h3>Aký priemer opory zvoliť?</h3><p>Najčastejšie používam horný priemer približne <strong>50 cm</strong> a spodný približne 45 cm. Pri veľkých rastlinách aj 80 až 100 cm.</p><h3>Kedy dať oporu k hortenzii alebo pivónii?</h3><p>Ideálne ešte pred plným rozrastom rastliny a vytvorením ťažkých kvetov, aby sa výhonky prirodzene viedli vnútrom konštrukcie.</p><h3>Z akého materiálu vyrábam opory?</h3><p>Používam <strong>8 mm valcovanú oceľovú guľatinu</strong>.</p>';article.appendChild(faq);
-      const related=document.createElement("section");related.className="related-links";related.innerHTML='<h2>Ďalšie nápady z dielne a záhrady</h2><p>Pozrite si <a href="/dielna-s-napadom/"><strong>Dielňu s nápadom</strong></a>, projekt <a href="/napady/terasova-hojdacia-lavicka/"><strong>terasovej hojdacej lavičky</strong></a> alebo ďalšie témy v <a href="/blog.html"><strong>záhradnom blogu</strong></a>.</p>';article.appendChild(related);
-      if(imgs.length){
-        const h2=document.createElement("h2");h2.textContent="Fotografie z výroby a hotových opôr";article.appendChild(h2);
-        const g=document.createElement("div");g.className="project-gallery";
-        imgs.forEach((url,i)=>{const a=document.createElement("button");a.type="button";a.className="gallery-open";a.dataset.galleryIndex=i;const im=document.createElement("img");im.src=url;im.alt=data.title+" – fotografia "+(i+1);im.loading="lazy";a.appendChild(im);g.appendChild(a)});
-        article.appendChild(g);
-      }
-    }
-  }catch(e){}
-});
-</script>
 <style>
 .gallery-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
 .gallery-open img{display:block;width:100%;height:100%;object-fit:cover}
