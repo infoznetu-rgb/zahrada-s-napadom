@@ -521,3 +521,21 @@ h1,h2,h3,h4{
 @media (max-width:620px){
   .hero-photo{object-position:68% 50%}
 }
+
+
+/* Výraznejšia odozva klikateľných ikoniek pri prejdení myšou */
+@media (hover:hover) and (pointer:fine){
+  :is(a,button,[role="button"]) :is(svg,.icon,[class*="icon"],img){
+    transition:transform .18s ease,filter .18s ease,opacity .18s ease;
+    transform-origin:center;
+  }
+  :is(a,button,[role="button"]):hover :is(svg,.icon,[class*="icon"],img){
+    transform:scale(1.16);
+    filter:brightness(.82) contrast(1.28) saturate(1.18) drop-shadow(0 3px 5px rgba(35,68,53,.22));
+    opacity:1;
+  }
+  :is(a,button,[role="button"]):focus-visible :is(svg,.icon,[class*="icon"],img){
+    transform:scale(1.12);
+    filter:brightness(.82) contrast(1.25) drop-shadow(0 3px 5px rgba(35,68,53,.20));
+  }
+}
