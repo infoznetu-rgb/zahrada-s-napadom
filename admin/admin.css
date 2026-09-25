@@ -324,3 +324,5 @@ html.admin-standalone body{background:#edf1ec}
 @media(max-width:900px){
   .sidebar{height:100dvh;max-height:100dvh;padding-bottom:18px}
 }
+
+@media(max-width:900px){body.admin-menu-open .admin-bottom-nav{display:none!important}}
