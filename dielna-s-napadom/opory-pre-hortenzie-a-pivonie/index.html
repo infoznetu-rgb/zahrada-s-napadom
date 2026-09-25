@@ -35,12 +35,25 @@ document.addEventListener("DOMContentLoaded",async()=>{
     const article=document.querySelector("article.article");
     if(article&&data.content){
       article.innerHTML="";
-      String(data.content).split(/\n\s*\n/).filter(Boolean).forEach(block=>{
-        const t=block.trim();
-        if(t.startsWith("## ")){const e=document.createElement("h2");e.textContent=t.slice(3);article.appendChild(e)}
-        else {const e=document.createElement("p");e.textContent=t;article.appendChild(e)}
-      });
       const imgs=Array.isArray(data.gallery)?data.gallery:[];
+      const blocks=String(data.content).split(/\n\s*\n/).filter(Boolean);
+      let sectionIndex=0;
+      blocks.forEach(block=>{
+        const t=block.trim();
+        if(t.startsWith("## ")){
+          const e=document.createElement("h2");e.textContent=t.slice(3);article.appendChild(e);
+          if(sectionIndex>0 && imgs.length){
+            const photoIndex=(sectionIndex-1)%imgs.length;
+            const fig=document.createElement("figure");fig.className="inline-project-photo";
+            const btn=document.createElement("button");btn.type="button";btn.className="gallery-open";btn.dataset.galleryIndex=photoIndex;
+            const im=document.createElement("img");im.src=imgs[photoIndex];im.alt=data.title+" – fotografia z výroby "+(photoIndex+1);im.loading="lazy";
+            btn.appendChild(im);fig.appendChild(btn);article.appendChild(fig);
+          }
+          sectionIndex++;
+        } else {
+          const e=document.createElement("p");e.textContent=t;article.appendChild(e);
+        }
+      });
       if(imgs.length){
         const h2=document.createElement("h2");h2.textContent="Fotografie z výroby a hotových opôr";article.appendChild(h2);
         const g=document.createElement("div");g.className="project-gallery";
@@ -56,6 +69,9 @@ document.addEventListener("DOMContentLoaded",async()=>{
 .gallery-open img{display:block;width:100%;height:100%;object-fit:cover}
 .photo-lightbox[hidden]{display:none!important}.photo-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(8,15,10,.94);display:grid;grid-template-columns:72px minmax(0,1fr) 72px;align-items:center;padding:24px}.photo-lightbox figure{margin:0;min-width:0;text-align:center}.photo-lightbox img{display:block;max-width:100%;max-height:86vh;margin:auto;object-fit:contain;border-radius:12px}.photo-lightbox figcaption{margin-top:10px;color:#fff;font-weight:800}.photo-close,.photo-prev,.photo-next{border:0;color:#fff;background:rgba(255,255,255,.12);cursor:pointer}.photo-close{position:absolute;right:18px;top:18px;width:48px;height:48px;border-radius:50%;font-size:32px;z-index:2}.photo-prev,.photo-next{width:56px;height:72px;border-radius:18px;font-size:48px}.photo-prev{justify-self:start}.photo-next{justify-self:end}body.lightbox-open{overflow:hidden}
 @media(max-width:700px){.photo-lightbox{grid-template-columns:46px minmax(0,1fr) 46px;padding:12px 6px}.photo-lightbox img{max-height:80vh}.photo-prev,.photo-next{width:42px;height:58px;font-size:38px}.photo-close{right:10px;top:10px;width:44px;height:44px}}
+</style>
+<style>
+.inline-project-photo{margin:24px auto 30px;max-width:760px}.inline-project-photo img{display:block;width:100%;max-height:460px;object-fit:cover;border-radius:20px;box-shadow:0 12px 30px rgba(31,61,40,.10)}@media(max-width:700px){.inline-project-photo{margin:18px 0 24px}.inline-project-photo img{max-height:320px;border-radius:15px}}
 </style>
 </head>
 <body class="article-page">
