@@ -35,23 +35,23 @@ document.addEventListener("DOMContentLoaded",async()=>{
     const article=document.querySelector("article.article");
     if(article&&data.content){
       article.innerHTML="";
-      const imgs=Array.isArray(data.gallery)?data.gallery:[];
+      const imgs=Array.isArray(data.gallery)?data.gallery.filter(Boolean):[];
       const blocks=String(data.content).split(/\n\s*\n/).filter(Boolean);
-      let sectionIndex=0;
+      let paragraphCount=0, inlinePhoto=0;
       blocks.forEach(block=>{
         const t=block.trim();
         if(t.startsWith("## ")){
           const e=document.createElement("h2");e.textContent=t.slice(3);article.appendChild(e);
-          if(sectionIndex>0 && imgs.length){
-            const photoIndex=(sectionIndex-1)%imgs.length;
-            const fig=document.createElement("figure");fig.className="inline-project-photo";
-            const btn=document.createElement("button");btn.type="button";btn.className="gallery-open";btn.dataset.galleryIndex=photoIndex;
-            const im=document.createElement("img");im.src=imgs[photoIndex];im.alt=data.title+" – fotografia z výroby "+(photoIndex+1);im.loading="lazy";
-            btn.appendChild(im);fig.appendChild(btn);article.appendChild(fig);
-          }
-          sectionIndex++;
-        } else {
+        }else{
           const e=document.createElement("p");e.textContent=t;article.appendChild(e);
+          paragraphCount++;
+          if(imgs.length && paragraphCount%2===0 && inlinePhoto<Math.min(8,imgs.length)){
+            const photoIndex=inlinePhoto++;
+            const wrap=document.createElement("div");wrap.className="inline-project-photo";
+            const btn=document.createElement("button");btn.type="button";btn.className="gallery-open";btn.dataset.galleryIndex=photoIndex;
+            const im=document.createElement("img");im.src=imgs[photoIndex];im.alt=data.title+" – fotografia z výroby "+(photoIndex+1);im.loading="eager";
+            btn.appendChild(im);wrap.appendChild(btn);article.appendChild(wrap);
+          }
         }
       });
       if(imgs.length){
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
 @media(max-width:700px){.photo-lightbox{grid-template-columns:46px minmax(0,1fr) 46px;padding:12px 6px}.photo-lightbox img{max-height:80vh}.photo-prev,.photo-next{width:42px;height:58px;font-size:38px}.photo-close{right:10px;top:10px;width:44px;height:44px}}
 </style>
 <style>
-.inline-project-photo{margin:24px auto 30px;max-width:760px}.inline-project-photo img{display:block;width:100%;max-height:460px;object-fit:cover;border-radius:20px;box-shadow:0 12px 30px rgba(31,61,40,.10)}@media(max-width:700px){.inline-project-photo{margin:18px 0 24px}.inline-project-photo img{max-height:320px;border-radius:15px}}
+.inline-project-photo{display:block!important;visibility:visible!important;margin:28px auto 34px;max-width:760px;min-height:180px}.inline-project-photo img{display:block;width:100%;max-height:460px;object-fit:cover;border-radius:20px;box-shadow:0 12px 30px rgba(31,61,40,.10)}@media(max-width:700px){.inline-project-photo{margin:18px 0 24px}.inline-project-photo img{max-height:320px;border-radius:15px}}
 </style>
 </head>
 <body class="article-page">
