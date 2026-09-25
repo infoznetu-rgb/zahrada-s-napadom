@@ -305,3 +305,22 @@ html.admin-standalone body{background:#edf1ec}
 @media(max-width:800px){.contest-admin-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.contest-admin-stats{grid-template-columns:1fr 1fr 1fr}.contest-admin-entry{grid-template-columns:1fr}.contest-admin-entry>button{justify-self:start}}
 @media(max-width:460px){.contest-admin-stats{grid-template-columns:1fr}}
+
+/* Scrollable admin sidebar — desktop + installed app */
+.sidebar{
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.32) transparent;
+}
+.sidebar::-webkit-scrollbar{width:6px}
+.sidebar::-webkit-scrollbar-track{background:transparent}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.28);border-radius:999px}
+.sidebar .admin-brand{flex:0 0 auto}
+.sidebar nav{flex:0 0 auto;padding-bottom:12px}
+.sidebar-bottom{flex:0 0 auto;margin-top:18px;padding-bottom:max(10px,env(safe-area-inset-bottom))}
+@media(max-width:900px){
+  .sidebar{height:100dvh;max-height:100dvh;padding-bottom:18px}
+}
