@@ -64,6 +64,19 @@
       ]
     },
     {
+      "name": "Dielňa s nápadom",
+      "short_name": "Dielňa",
+      "description": "Vlastné projekty, výroba a postupy z dielne",
+      "url": "./dielna-s-napadom/?source=pwa",
+      "icons": [
+        {
+          "src": "app-icon.svg?v=4",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
       "name": "Praktické pomôcky",
       "short_name": "Pomôcky",
       "description": "Kalkulačky pre záhradu, dom a dielňu",
