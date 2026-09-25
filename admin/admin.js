@@ -52,10 +52,14 @@ $("#login-form").addEventListener("submit",async(e)=>{
 $("#logout-btn").addEventListener("click",async()=>{await db.auth.signOut();location.reload()});
 db.auth.onAuthStateChange((event)=>{if(event==="SIGNED_OUT")showAuth()});
 
+function setSidebarOpen(open){
+  document.querySelector(".sidebar")?.classList.toggle("open",open);
+  document.body.classList.toggle("admin-menu-open",open);
+}
 function activateView(name){
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+name));
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name&&!b.dataset.scrollTarget));
-  document.querySelector(".sidebar").classList.remove("open");
+  setSidebarOpen(false);
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
   if(name==="analytics"&&!analyticsLoaded)loadAnalytics();
   if(name==="comments"&&!commentsLoaded)loadComments();
@@ -75,7 +79,7 @@ document.addEventListener("click",(e)=>{
     });
   }
 });
-$("#sidebar-toggle").addEventListener("click",()=>document.querySelector(".sidebar").classList.toggle("open"));
+$("#sidebar-toggle").addEventListener("click",()=>setSidebarOpen(!document.querySelector(".sidebar").classList.contains("open")));
 $("#editor-cancel").addEventListener("click",()=>activateView("posts"));
 
 async function loadAll(){
