@@ -27,9 +27,31 @@
 <section class="container workshop-hero"><span class="kicker">VLASTNÁ VÝROBA · SKUTOČNÉ PROJEKTY</span><h1>Dielňa s nápadom</h1><p><strong>Skutočné projekty. Vlastná výroba. Postupy krok za krokom.</strong> Tu nájdeš veci, ktoré vznikli vlastnými rukami v dielni – s reálnymi fotografiami, rozmermi, použitým materiálom, postupom výroby aj skúsenosťami z praxe. Inšpirácia pre každého, kto si chce niečo pekné a užitočné do záhrady alebo domácnosti vyrobiť sám.</p><div class="workshop-rule"></div></section>
 <section class="container workshop-grid" aria-label="Vlastné projekty">
 <a class="workshop-card" href="/napady/terasova-hojdacia-lavicka/"><img src="/assets/posts/terasova-hojdacia-lavicka/hlavna.webp" alt="Ručne vyrobená kovová záhradná hojdačka s hojdacou lavičkou" width="1000" height="667"><div class="workshop-copy"><span class="workshop-label">NÁŠ PROJEKT · DIELŇA · KOV</span><h2>Kovová záhradná hojdačka – ručne vyrobená hojdacia lavička</h2><p>Originálny vlastný projekt od prvého rezania ocele až po hotové sedenie. Pozri si rozmery, materiál, výrobu konštrukcie, povrchovú úpravu a fotografie z dielne.</p><div class="workshop-facts"><span>oceľový profil 50 × 50 mm</span><span>lavica 170 × 50 cm</span><span>cca 100 hodín práce</span></div><strong>Celý projekt a postup →</strong></div></a>
-</section>
-<section class="container workshop-next"><span class="kicker">POSTUPNE PRIBUDNÚ</span><h2>Ďalšie projekty z dielne</h2><p>Opory pre hortenzie a pivónie, opory pre popínavé rastliny, pergoly, lavičky, grily, kovové dekorácie a ďalšie vlastné výrobky. Každý projekt dostane vlastnú stránku s fotografiami, rozmermi, materiálom a postupom.</p></section>
+<div id="dynamic-workshop-projects" style="display:contents"></div></section>
+<section class="container workshop-next" id="workshop-next"><span class="kicker">POSTUPNE PRIBUDNÚ</span><h2>Ďalšie projekty z dielne</h2><p>Opory pre hortenzie a pivónie, opory pre popínavé rastliny, pergoly, lavičky, grily, kovové dekorácie a ďalšie vlastné výrobky. Každý projekt dostane vlastnú stránku s fotografiami, rozmermi, materiálom a postupom.</p></section>
 </main>
 <footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/blog.html">Blog</a><a href="/dielna-s-napadom/">Dielňa s nápadom</a><a href="/bazar.html">Bazár</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
-<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=8" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(async()=>{
+  const target=document.getElementById('dynamic-workshop-projects');
+  const next=document.getElementById('workshop-next');
+  if(!target||!window.supabase)return;
+  const db=window.supabase.createClient('https://bkyappgttwjxakkwycub.supabase.co','sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4');
+  const {data,error}=await db.from('zahrada_posts').select('slug,title,excerpt,cover_url,category,tags,published_at').eq('status','published').eq('content_type','project').eq('category','Dielňa s nápadom').order('published_at',{ascending:false});
+  if(error||!Array.isArray(data))return;
+  const esc=s=>String(s||'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+  target.innerHTML=data.map(p=>{
+    const tags=Array.isArray(p.tags)?p.tags.slice(0,3):[];
+    return '<a class="workshop-card" href="/prispevok.html?slug='+encodeURIComponent(p.slug)+'">'+
+      (p.cover_url?'<img src="'+esc(p.cover_url)+'" alt="'+esc(p.title)+'" loading="lazy">':'')+
+      '<div class="workshop-copy"><span class="workshop-label">NÁŠ PROJEKT · DIELŇA S NÁPADOM</span><h2>'+esc(p.title)+'</h2>'+
+      '<p>'+esc(p.excerpt||'Vlastný projekt z dielne s fotografiami a postupom výroby.')+'</p>'+
+      (tags.length?'<div class="workshop-facts">'+tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>':'')+
+      '<strong>Celý projekt a postup →</strong></div></a>';
+  }).join('');
+  if(data.length&&next)next.querySelector('p').textContent='Ďalšie vlastné projekty budú pribúdať priamo z administrácie.';
+})();
+</script>
+<script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=19" defer></script>
 </body></html>
