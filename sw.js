@@ -1,4 +1,4 @@
-const VERSION='90';
+const VERSION='91';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
@@ -65,7 +65,12 @@ self.addEventListener('fetch',event=>{
     return;
   }
 
-  if(['style','script','image','font'].includes(request.destination)){
+  if(['style','script'].includes(request.destination)){
+    event.respondWith(fetch(request).then(async response=>{if(response&&response.ok){const cache=await caches.open(RUNTIME_CACHE);cache.put(request,response.clone());}return response;}).catch(()=>caches.match(request)));
+    return;
+  }
+
+  if(['image','font'].includes(request.destination)){
     event.respondWith(staleWhileRevalidate(request));
     return;
   }
