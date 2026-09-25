@@ -44,13 +44,19 @@ document.addEventListener("DOMContentLoaded",async()=>{
       if(imgs.length){
         const h2=document.createElement("h2");h2.textContent="Fotografie z výroby a hotových opôr";article.appendChild(h2);
         const g=document.createElement("div");g.className="project-gallery";
-        imgs.forEach((url,i)=>{const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";const im=document.createElement("img");im.src=url;im.alt=data.title+" – fotografia "+(i+1);im.loading="lazy";a.appendChild(im);g.appendChild(a)});
+        imgs.forEach((url,i)=>{const a=document.createElement("button");a.type="button";a.className="gallery-open";a.dataset.galleryIndex=i;const im=document.createElement("img");im.src=url;im.alt=data.title+" – fotografia "+(i+1);im.loading="lazy";a.appendChild(im);g.appendChild(a)});
         article.appendChild(g);
       }
     }
   }catch(e){}
 });
 </script>
+<style>
+.gallery-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.gallery-open img{display:block;width:100%;height:100%;object-fit:cover}
+.photo-lightbox[hidden]{display:none!important}.photo-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(8,15,10,.94);display:grid;grid-template-columns:72px minmax(0,1fr) 72px;align-items:center;padding:24px}.photo-lightbox figure{margin:0;min-width:0;text-align:center}.photo-lightbox img{display:block;max-width:100%;max-height:86vh;margin:auto;object-fit:contain;border-radius:12px}.photo-lightbox figcaption{margin-top:10px;color:#fff;font-weight:800}.photo-close,.photo-prev,.photo-next{border:0;color:#fff;background:rgba(255,255,255,.12);cursor:pointer}.photo-close{position:absolute;right:18px;top:18px;width:48px;height:48px;border-radius:50%;font-size:32px;z-index:2}.photo-prev,.photo-next{width:56px;height:72px;border-radius:18px;font-size:48px}.photo-prev{justify-self:start}.photo-next{justify-self:end}body.lightbox-open{overflow:hidden}
+@media(max-width:700px){.photo-lightbox{grid-template-columns:46px minmax(0,1fr) 46px;padding:12px 6px}.photo-lightbox img{max-height:80vh}.photo-prev,.photo-next{width:42px;height:58px;font-size:38px}.photo-close{right:10px;top:10px;width:44px;height:44px}}
+</style>
 </head>
 <body class="article-page">
 <a class="skip" href="#obsah">Preskočiť na obsah</a>
@@ -142,4 +148,27 @@ document.addEventListener("DOMContentLoaded",async()=>{
 </article></main>
 <footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><small>© 2026 · Nekomerčný hobby projekt</small></footer>
 <script src="/zahrada.js?v=2" defer></script><script src="/app.js?v=19" defer></script>
+<div class="photo-lightbox" id="photo-lightbox" hidden aria-modal="true" role="dialog" aria-label="Náhľad fotografií">
+  <button class="photo-close" type="button" aria-label="Zavrieť">×</button>
+  <button class="photo-prev" type="button" aria-label="Predchádzajúca fotografia">‹</button>
+  <figure><img src="" alt=""><figcaption></figcaption></figure>
+  <button class="photo-next" type="button" aria-label="Nasledujúca fotografia">›</button>
+</div>
+<script>
+document.addEventListener("click",e=>{
+  const btn=e.target.closest(".gallery-open"); if(!btn)return;
+  const all=[...document.querySelectorAll(".gallery-open img")];
+  let i=Number(btn.dataset.galleryIndex)||0;
+  const box=document.getElementById("photo-lightbox"), img=box.querySelector("img"), cap=box.querySelector("figcaption");
+  const show=()=>{img.src=all[i].src;img.alt=all[i].alt;cap.textContent=(i+1)+" / "+all.length;};
+  const close=()=>{box.hidden=true;document.body.classList.remove("lightbox-open")};
+  show();box.hidden=false;document.body.classList.add("lightbox-open");
+  box.querySelector(".photo-close").onclick=close;
+  box.querySelector(".photo-prev").onclick=()=>{i=(i-1+all.length)%all.length;show()};
+  box.querySelector(".photo-next").onclick=()=>{i=(i+1)%all.length;show()};
+  box.onclick=ev=>{if(ev.target===box)close()};
+  document.onkeydown=ev=>{if(box.hidden)return;if(ev.key==="Escape")close();if(ev.key==="ArrowLeft"){i=(i-1+all.length)%all.length;show()}if(ev.key==="ArrowRight"){i=(i+1)%all.length;show()}};
+  let x=0;box.ontouchstart=ev=>x=ev.changedTouches[0].clientX;box.ontouchend=ev=>{const d=ev.changedTouches[0].clientX-x;if(Math.abs(d)>45){i=d<0?(i+1)%all.length:(i-1+all.length)%all.length;show()}};
+});
+</script>
 </body></html>
