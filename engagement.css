@@ -33,3 +33,10 @@
 @media(max-width:980px){.home-discovery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.week-plan-toolbar{grid-template-columns:1fr 1fr}.week-plan-progress{grid-column:1/-1}}
 @media(max-width:720px){.home-discovery{padding-top:18px}.home-discovery-shell{padding:22px 16px;border-radius:26px}.home-discovery-head,.home-discovery-grid,.week-plan-toolbar{grid-template-columns:1fr}.home-discovery-grid>a{min-height:176px}.home-continue-card{grid-template-columns:92px 1fr;gap:15px;padding:15px 45px 15px 15px}.home-continue-copy h2{font-size:1.45rem}.home-continue-copy p{font-size:.8rem}.home-continue-copy .btn{padding:10px 12px}.home-continue-library{display:none}.week-plan-progress{grid-column:auto}}
 @media(max-width:460px){.home-continue-card{grid-template-columns:1fr}.home-continue-thumb{display:none}.home-discovery-shortcuts span{width:100%}}
+
+/* Farebné podklady ikoniek v rýchlom štarte. */
+.home-discovery-grid a>i{width:48px;height:48px;border:1px solid rgba(37,83,48,.12);box-shadow:0 5px 14px rgba(43,76,46,.10);font-size:1.35rem;line-height:1}
+.home-discovery-grid a[data-home-focus="garden"]>i{background:linear-gradient(145deg,#d7f0c8,#a9d997);color:#245f37}
+.home-discovery-grid a[data-home-focus="workshop"]>i{background:linear-gradient(145deg,#f6e6ba,#e8c87f);color:#765223}
+.home-discovery-grid a[data-home-focus="home"]>i{background:linear-gradient(145deg,#dceaf5,#abcde8);color:#315f7c}
+.home-discovery-grid a[data-home-focus="market"]>i{background:linear-gradient(145deg,#f7dfe7,#eab7cb);color:#854262}
