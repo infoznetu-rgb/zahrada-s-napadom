@@ -630,7 +630,8 @@
 
   function maybeShowPromoBanner(){
     const path=location.pathname.split('/').pop()||'index.html';
-    if(path==='moja-zahrada.html')return;
+    // Let the home page make its first impression without a large overlay.
+    if(path==='moja-zahrada.html'||path==='index.html')return;
     const dismissed=Number(localStorage.getItem(PROMO_DISMISS_KEY)||0);
     if(dismissed&&Date.now()-dismissed<3*24*60*60*1000)return;
 

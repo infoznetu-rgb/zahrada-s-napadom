@@ -3,21 +3,21 @@
    Goal: lively garden atmosphere, softer contrast and safe typography. */
 
 :root{
-  --spring-ink:#234435;
-  --spring-ink-soft:#355b47;
-  --spring-leaf:#5f965f;
-  --spring-leaf-2:#79b86f;
-  --spring-lime:#a9d889;
-  --spring-sage:#cfe2c4;
-  --spring-mint:#e7f3df;
-  --spring-cream:#fbf8ed;
-  --spring-paper:#fffdf7;
-  --spring-butter:#f4e8ad;
-  --spring-blossom:#f1d6df;
-  --spring-sky:#dcefe7;
-  --spring-clay:#c9855a;
-  --spring-line:rgba(35,68,53,.12);
-  --spring-shadow:0 24px 70px rgba(63,104,70,.11);
+  --spring-ink:#123d35;
+  --spring-ink-soft:#315c50;
+  --spring-leaf:#16805e;
+  --spring-leaf-2:#32aa75;
+  --spring-lime:#c8ef69;
+  --spring-sage:#d4efbd;
+  --spring-mint:#edfae6;
+  --spring-cream:#f7fbf3;
+  --spring-paper:#ffffff;
+  --spring-butter:#ffe5a5;
+  --spring-blossom:#ffded7;
+  --spring-sky:#d9f2f4;
+  --spring-clay:#dc7858;
+  --spring-line:rgba(18,61,53,.13);
+  --spring-shadow:0 24px 70px rgba(20,88,66,.12);
 }
 
 /* Overall atmosphere */
@@ -544,3 +544,115 @@ h1,h2,h3,h4{
 .community-card:focus-visible{outline:3px solid #5f965f;outline-offset:4px}
 .community-photo{width:88px;height:88px;border-radius:18px;object-fit:cover;display:block;background:#e9efe6}
 @media(max-width:600px){.community-photo{width:68px;height:68px}}
+
+/* 2026 vibrant garden refresh: rich foliage, sunlight and flower accents. */
+body{
+  background:
+    radial-gradient(circle at 5% 4%,rgba(200,239,105,.35),transparent 29rem),
+    radial-gradient(circle at 96% 20%,rgba(255,190,172,.25),transparent 30rem),
+    radial-gradient(circle at 8% 65%,rgba(164,225,223,.24),transparent 36rem),
+    #f7fbf3;
+}
+body:before{opacity:.06}
+.site-header{background:linear-gradient(#f7fbf3 0,rgba(247,251,243,.9) 70%,transparent)}
+.site-header .top,.site-header.is-scrolled .top{
+  background:rgba(255,255,255,.91);
+  border-color:rgba(18,61,53,.1);
+  box-shadow:0 16px 45px rgba(18,76,57,.1);
+}
+.brand-text strong{color:#0e3c31}
+.brand-text small{color:#16805e}
+.desktop-nav .nav-cta,.menu{background:#0d7255;color:#fff}
+.desktop-nav .nav-cta:hover,.menu:hover{background:#09563f;color:#fff}
+.desktop-nav a:hover{background:#dcf5bc;color:#123d35}
+@media(min-width:981px){
+  .home-page .desktop-nav a[href="#videa"],
+  .home-page .desktop-nav a[href="#komunita"],
+  .home-page .desktop-nav a[href="#kontakt"],
+  .home-page .desktop-nav a[href="#posli"]{display:none}
+}
+.hero-main{
+  background:#105640;
+  box-shadow:0 32px 90px rgba(15,78,56,.23);
+}
+.hero-photo{filter:saturate(1.18) brightness(1.03)}
+.hero-main:hover .hero-photo{filter:saturate(1.23) brightness(1.04)}
+.hero-art:after{
+  background:
+    radial-gradient(circle at 80% 18%,rgba(255,226,149,.17),transparent 28%),
+    linear-gradient(100deg,rgba(6,52,42,.88) 0%,rgba(8,65,48,.68) 40%,rgba(6,55,43,.09) 76%);
+}
+.hero-shade{background:linear-gradient(0deg,rgba(5,48,39,.36),transparent 45%)}
+.hero h1{
+  max-width:11.5ch;
+  font-family:var(--studio-sans);
+  font-weight:900;
+  font-size:clamp(3.15rem,5.3vw,6rem);
+  line-height:.99;
+  letter-spacing:-.068em;
+  text-wrap:balance;
+}
+.hero .btn.primary{
+  background:#c8ef69;
+  color:#113c2e;
+  box-shadow:0 12px 30px rgba(10,51,37,.2);
+}
+.hero .btn.primary:hover{background:#e0ff9c;transform:translateY(-3px)}
+.hero .btn.ghost{background:rgba(255,255,255,.12);color:#fff}
+.hero-proof{border-color:rgba(255,255,255,.22)}
+.side-card{border-color:rgba(17,92,64,.11);background:#fff;box-shadow:0 20px 52px rgba(17,91,65,.09)}
+.side-card h2{font-family:var(--studio-sans);font-weight:850;letter-spacing:-.055em}
+.accent-card{
+  background:radial-gradient(circle at 100% 0%,rgba(205,245,117,.28),transparent 45%),linear-gradient(145deg,#086c57,#168f65);
+  border-color:transparent;
+}
+.accent-card h2,.accent-card p,.accent-card a{color:#fff}
+.compact{background:linear-gradient(135deg,#e3f5c7,#c9eddf)}
+.kicker,.side-card .label{color:#0e8058}
+.section-head h2,.home-discovery-head h2,.season-now h2,.maker-head h2,
+.post-dynamic-head h1,.project-page-head h1,.project-story h3,
+.cms-post-body h3,.tool-card h3{
+  font-family:var(--studio-sans);
+  font-weight:850;
+  letter-spacing:-.055em;
+}
+.home-page .home-discovery-shell{
+  background:linear-gradient(125deg,#e8facf 0%,#eff9e6 52%,#ddf3f3 100%);
+  border-color:rgba(25,113,77,.13);
+  box-shadow:0 24px 65px rgba(17,92,64,.1);
+}
+.home-page .home-discovery-grid>a{
+  border:1px solid rgba(18,96,65,.11);
+  background:#fff;
+  box-shadow:0 13px 34px rgba(19,90,63,.07);
+}
+.home-page .home-discovery-grid>a:nth-child(1){background:#f6ffe9}
+.home-page .home-discovery-grid>a:nth-child(2){background:#fff2e9}
+.home-page .home-discovery-grid>a:nth-child(3){background:#ebfafb}
+.home-page .home-discovery-grid a>b{font-family:var(--studio-sans);font-weight:850;letter-spacing:-.05em}
+.home-page .home-discovery-grid a>i{width:54px;height:54px;border:0;box-shadow:none}
+.home-page .home-discovery-grid a[data-home-focus="garden"]>i{background:#c8ef69;color:#14573d}
+.home-page .home-discovery-grid a[data-home-focus="workshop"]>i{background:#ffd2ba;color:#874229}
+.home-page .home-discovery-grid a[data-home-focus="home"]>i{background:#b7e6eb;color:#185f68}
+.home-page .home-discovery-grid a>strong{color:#087756}
+.home-page .home-discovery-grid>a:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(16,91,63,.17)}
+.home-search button,.btn.primary{background:#0d7255;color:#fff}
+.home-search button:hover,.btn.primary:hover{background:#09553f;color:#fff}
+.week-plan-toolbar{background:#ebf8e8;border-color:rgba(18,96,65,.13)}
+.season-card,.tool-card,.cms-post-card{
+  border-color:rgba(17,92,64,.11);
+  box-shadow:0 16px 40px rgba(17,91,65,.07);
+}
+.season-card:nth-child(4n+1){background:#f0fbe5}
+.season-card:nth-child(4n+2){background:#fff4e9}
+.season-card:nth-child(4n+3){background:#eaf8f8}
+.season-card:nth-child(4n+4){background:#fff0ee}
+.cms-post-card:hover,.tool-card:hover{box-shadow:0 24px 55px rgba(17,91,65,.15)}
+@media(max-width:720px){
+  .hero h1{font-size:clamp(2.75rem,11vw,4.5rem);max-width:12ch}
+  .hero-art:after{background:linear-gradient(0deg,rgba(5,48,39,.92),rgba(5,48,39,.18) 88%)}
+  .home-page .home-discovery-grid>a{min-height:150px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .btn.primary:hover,.home-page .home-discovery-grid>a:hover{transform:none}
+}
