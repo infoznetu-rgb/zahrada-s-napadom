@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="app.css?v=8">
   <link rel="stylesheet" href="facebook-widget.css?v=4">
   <link rel="stylesheet" href="engagement.css?v=2">
+  <link rel="stylesheet" href="home-clarity.css?v=1">
   <link rel="stylesheet" href="product-2026.css?v=1">
   <link rel="manifest" href="zahrada.webmanifest?v=7">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -68,15 +69,19 @@
       </button>
     </div>
     <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia">
-      <a href="#projekty">Nápady</a>
-      <a href="blog.html">Blog</a>
+      <a href="/temy/zahrada.html">Záhrada</a>
+      <a href="/dielna-s-napadom/">Dielňa s nápadom</a>
+      <a href="blog.html">Blog a návody</a>
       <a href="/pomocky.html">Pomôcky</a>
+      <a href="/kalendar.html">Záhradný kalendár</a>
+      <a href="bazar.html">Bazár</a>
+      <a href="#projekty">Projekty</a>
       <a href="#videa">Videá</a>
       <a href="#komunita">Komunita</a>
-      <a href="bazar.html">Bazár</a>
       <a href="#posli">Pošli svoj nápad</a>
       <a href="#kontakt">Kontakt</a>
       <a href="/cs/" lang="cs">🇨🇿 Česká verzia</a>
+      <a href="/pl/" lang="pl">🇵🇱 Poľská verzia</a>
           <a class="mobile-facebook" href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">f</span> Facebook</a>
     </nav>
   </header>
@@ -98,9 +103,8 @@
           <h1 id="cms-hero-title">Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</h1>
           <p id="cms-hero-text">Ukazujem, čo si doma a v záhrade vyrábam, prerábam a skúšam. Bez vlastného predaja a bez platenej inzercie. Vlastné nápady, skúsenosti, inšpirácia a bezplatný bazár pre záhradu a dielňu, kde môžu inzerovať ľudia aj firmy.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#projekty">Objaviť nápady <span aria-hidden="true">↘</span></a>
-            <a class="btn ghost" href="#posli">Pochváľ sa aj ty</a>
-            <a class="btn ghost" href="bazar.html">Bazár <span aria-hidden="true">↗</span></a>
+            <a class="btn primary" href="#rychly-start">Vybrať si tému <span aria-hidden="true">↘</span></a>
+            <a class="btn ghost" href="blog.html">Čítať návody</a>
           </div>
           <div class="hero-proof" aria-label="Charakter projektu">
             <span><b>01</b> vlastné projekty</span>
@@ -135,19 +139,22 @@
       </aside>
     </section>
 
-    <section class="home-discovery container" aria-labelledby="discovery-title">
+    <section id="rychly-start" class="home-discovery container" aria-labelledby="discovery-title">
       <div class="home-discovery-shell">
         <div class="home-discovery-head">
           <div><span class="kicker">RÝCHLY ŠTART</span><h2 id="discovery-title">Čo dnes riešiš?</h2></div>
-          <p>Vyber si oblasť a dostaneš sa rovno k návodom, pomôckam alebo ponukám, ktoré ti môžu pomôcť.</p>
+          <p>Vyber si oblasť alebo vyhľadaj konkrétny návod.</p>
         </div>
+        <form class="home-search" action="/blog.html" method="get" role="search">
+          <label for="home-search-query">Hľadať v článkoch a návodoch</label>
+          <div><input id="home-search-query" name="q" type="search" placeholder="Napríklad hortenzie, trávnik, pergola…" autocomplete="off" required><button type="submit">Hľadať →</button></div>
+        </form>
         <div class="home-discovery-grid">
           <a href="/temy/zahrada.html" data-home-focus="garden"><span>01</span><i aria-hidden="true">☘</i><b>Záhrada</b><small>Pestovanie, záhony a sezónne práce</small><strong>Preskúmať →</strong></a>
-          <a href="/temy/dielna.html" data-home-focus="workshop"><span>02</span><i aria-hidden="true">✦</i><b>Dielňa</b><small>Drevo, kov, výroba a montáž</small><strong>Preskúmať →</strong></a>
-          <a href="/temy/dom-a-zahrada.html" data-home-focus="home"><span>03</span><i aria-hidden="true">⌂</i><b>Dom a stavba</b><small>Materiál, úpravy a praktické riešenia</small><strong>Preskúmať →</strong></a>
-          <a href="/bazar.html" data-home-focus="market"><span>04</span><i aria-hidden="true">↔</i><b>Bazár</b><small>Bezplatné ponuky zo záhrady a dielne</small><strong>Otvoriť →</strong></a>
+          <a href="/dielna-s-napadom/" data-home-focus="workshop"><span>02</span><i aria-hidden="true">✦</i><b>Dielňa</b><small>Vlastné výrobky, drevo, kov a postupy</small><strong>Preskúmať →</strong></a>
+          <a href="/pomocky.html" data-home-focus="home"><span>03</span><i aria-hidden="true">⌂</i><b>Pomôcky</b><small>Kalkulačky a praktické nástroje</small><strong>Preskúmať →</strong></a>
         </div>
-        <div class="home-discovery-shortcuts"><span>Užitočné skratky:</span><a href="/kalendar.html">Kalendár prác</a><a href="/pomocky.html">Všetky kalkulačky</a><a href="/moja-zahrada.html">Moja záhrada</a></div>
+        <div class="home-discovery-shortcuts"><span>Ďalšie možnosti:</span><a href="/kalendar.html">Kalendár prác</a><a href="/temy/dom-a-zahrada.html">Dom a stavba</a><a href="/bazar.html">Bezplatný bazár</a><a href="/moja-zahrada.html">Moja záhrada</a></div>
       </div>
     </section>
 

@@ -1,0 +1,15 @@
+/* Clear first steps on the Slovak home page. */
+.home-page .hero{min-height:auto}
+.home-page .hero-main{min-height:clamp(520px,67vh,760px)}
+.home-page .home-discovery{scroll-margin-top:96px}
+.home-page .home-discovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.home-search{margin:0 0 22px}
+.home-search label{display:block;margin-bottom:8px;color:#285638;font-size:.82rem;font-weight:800}
+.home-search>div{display:flex;gap:10px}
+.home-search input{min-width:0;flex:1;padding:15px 18px;border:1px solid rgba(56,103,63,.27);border-radius:15px;background:#fff;color:#173a27;font:inherit}
+.home-search input:focus-visible{outline:3px solid #93c887;outline-offset:2px}
+.home-search button{padding:13px 23px;border:0;border-radius:15px;background:#356c42;color:#fff;font:inherit;font-weight:800;cursor:pointer}
+.home-search button:hover{background:#285537}
+.home-page .mobile-nav{max-height:min(75vh,640px);overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:980px){.home-page .home-discovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){.home-page .hero-main{min-height:0}.home-page .home-discovery-grid{grid-template-columns:1fr}.home-page .home-discovery-grid>a{min-height:145px}.home-search>div{flex-direction:column}.home-search button{min-height:48px}.home-page .mobile-nav{max-height:calc(100dvh - 95px)}}
