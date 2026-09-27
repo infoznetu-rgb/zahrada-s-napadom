@@ -33,7 +33,7 @@ Deno.serve(async (req) => {
     if (!/^[\p{L}0-9 .–-]{2,60}$/u.test(district) ||
       !['rastliny', 'pocasie', 'skodcovia', 'uroda', 'prace'].includes(topic) ||
       title.length < 5 || title.length > 100 || details.length < 15 || details.length > 800 ||
-      form.get('consent') !== 'yes' || !(file instanceof File)) {
+      !['yes', 'on'].includes(String(form.get('consent') || '')) || !(file instanceof File)) {
       return reply({ error: 'Skontroluj vyplnené údaje a súhlas s uverejnením.' }, 400, origin);
     }
     if (file.size < 1000 || file.size > 3_145_728 || !['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
