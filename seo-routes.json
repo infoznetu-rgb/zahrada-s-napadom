@@ -1,5 +1,95 @@
 [
   {
+    "slug": "uskladnenie-zahradneho-nabytku",
+    "route_slug": "uskladnenie-zahradneho-nabytku",
+    "title": "Uskladnenie záhradného nábytku: drevo, kov aj textil",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-uskladnenie-zahradneho-nabytku.webp"
+  },
+  {
+    "slug": "zazimovanie-suda-na-dazdovu-vodu",
+    "route_slug": "zazimovanie-suda-na-dazdovu-vodu",
+    "title": "Zazimovanie suda na dažďovú vodu bez prasknutia",
+    "category": "Voda a závlaha",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-zazimovanie-suda-na-dazdovu-vodu.webp"
+  },
+  {
+    "slug": "zazimovanie-vonkajsieho-kohutika",
+    "route_slug": "zazimovanie-vonkajsieho-kohutika",
+    "title": "Zazimovanie vonkajšieho kohútika: vypustiť nestačí vždy",
+    "category": "Voda a závlaha",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-zazimovanie-vonkajsieho-kohutika.webp"
+  },
+  {
+    "slug": "cistenie-vtacej-budky-na-jesen",
+    "route_slug": "cistenie-vtacej-budky-na-jesen",
+    "title": "Čistenie vtáčej búdky na jeseň: bezpečný postup",
+    "category": "Praktické nápady",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-cistenie-vtacej-budky-na-jesen.webp"
+  },
+  {
+    "slug": "zazimovanie-jahodoveho-zahona",
+    "route_slug": "zazimovanie-jahodoveho-zahona",
+    "title": "Zazimovanie jahôd: čo odstrániť a čo nechať na pokoji",
+    "category": "Ovocná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-zazimovanie-jahodoveho-zahona.webp"
+  },
+  {
+    "slug": "jesenna-vysadba-ziveho-plota",
+    "route_slug": "jesenna-vysadba-ziveho-plota",
+    "title": "Jesenná výsadba živého plota: rovný rad bez slabých miest",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-jesenna-vysadba-ziveho-plota.webp"
+  },
+  {
+    "slug": "zazimovanie-rozmarinu-v-crepniku",
+    "route_slug": "zazimovanie-rozmarinu-v-crepniku",
+    "title": "Zazimovanie rozmarínu v črepníku: chlad áno, mokro nie",
+    "category": "Bylinky",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-zazimovanie-rozmarinu-v-crepniku.webp"
+  },
+  {
+    "slug": "zber-a-susenie-vlasskych-orechov",
+    "route_slug": "zber-a-susenie-vlasskych-orechov",
+    "title": "Zber a sušenie vlašských orechov bez plesne",
+    "category": "Ovocná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-zber-a-susenie-vlasskych-orechov.webp"
+  },
+  {
+    "slug": "jesenna-vysadba-ruzi",
+    "route_slug": "jesenna-vysadba-ruzi",
+    "title": "Jesenná výsadba ruží: postup pre zdravý štart",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-jesenna-vysadba-ruzi.webp"
+  },
+  {
+    "slug": "sadenie-narcisov-na-jesen",
+    "route_slug": "sadenie-narcisov-na-jesen",
+    "title": "Sadenie narcisov na jeseň: ako trafiť hĺbku aj termín",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-09-27",
+    "cover": "https://zahradasnapadom.sk/assets/blog/27-sadenie-narcisov-na-jesen.webp"
+  },
+  {
     "slug": "skladovanie-korenovej-zeleniny",
     "route_slug": "skladovanie-korenovej-zeleniny",
     "title": "Skladovanie koreňovej zeleniny cez zimu",
