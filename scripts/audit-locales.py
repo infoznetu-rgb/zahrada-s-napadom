@@ -44,6 +44,16 @@ for file in pages:
         value = element.get('href', '')
         if not value.startswith(host + '/') or not local_target(value).is_file():
             problems.append(f'{file.relative_to(root)}: invalid hreflang {value}')
+        code = element.get('hreflang')
+        path = urlparse(value).path
+        if code in ('cs', 'pl') and not path.startswith('/' + code + '/'):
+            problems.append(f'{file.relative_to(root)}: hreflang {code} points to {value}')
+        if code == 'sk' and path.startswith(('/cs/', '/pl/')):
+            problems.append(f'{file.relative_to(root)}: Slovak hreflang points to {value}')
+        if code in ('cs', 'pl') and code != lang and local_target(value).is_file():
+            other = html.fromstring(local_target(value).read_text(encoding='utf-8'))
+            reciprocal = other.xpath('//link[@rel="alternate" and @hreflang=$lang and @href=$route]',lang=lang,route=route)
+            if not reciprocal: problems.append(f'{file.relative_to(root)}: nonreciprocal hreflang {value}')
 
 tree = etree.parse(str(root / 'sitemap.xml'))
 locations = tree.xpath('//*[local-name()="loc"]/text()')

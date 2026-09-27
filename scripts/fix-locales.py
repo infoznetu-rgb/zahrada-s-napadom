@@ -49,7 +49,9 @@ def normalized(file):
     for el in head.xpath('./link[@rel="alternate"]'):
         code = el.get('hreflang')
         url = el.get('href', '')
-        if code in ('sk', 'cs', 'pl') and exists(url): links[code] = url
+        destination = urlparse(url).path
+        correct_locale = (code == 'sk' and not destination.startswith(('/cs/', '/pl/'))) or (code in ('cs', 'pl') and destination.startswith('/' + code + '/'))
+        if code in ('sk', 'cs', 'pl') and correct_locale and exists(url): links[code] = url
         head.remove(el)
     links[lang] = canonical
     for el in head.xpath('./link[@rel="canonical"]'): head.remove(el)
