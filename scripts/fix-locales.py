@@ -93,7 +93,7 @@ def normalized(file):
     for code in ('sk', 'cs', 'pl'):
         if code == lang: switch.append(f'<strong aria-current="page">{code.upper()}</strong>')
         else: switch.append(f'<a hreflang="{code}" href="{links.get(code, "/" if code == "sk" else "/" + code + "/")}">{code.upper()}</a>')
-    nav = f'<header class="ml-header"><div class="ml-wrap ml-top"><a class="ml-brand" href="{home}">{labels[0]}</a><button class="ml-menu" type="button" aria-label="Menu" aria-controls="locale-nav" aria-expanded="false">☰ Menu</button><nav id="locale-nav" class="ml-nav" aria-label="Hlavní navigace" ><a href="{home}">{labels[1]}</a><a href="{blog}">{labels[2]}</a><a href="{workshop}">{labels[3]}</a><a href="/pomocky.html" hreflang="sk">{labels[4]}</a><div class="ml-langs">{"".join(switch)}</div></nav></div></header>'
+    nav = f'<header class="ml-header"><div class="ml-wrap ml-top"><a class="ml-brand" href="{home}">{labels[0]}</a><button class="ml-menu" type="button" aria-label="Menu" aria-controls="locale-nav" aria-expanded="false">☰ Menu</button><nav id="locale-nav" class="ml-nav" aria-label="{"Hlavní navigace" if lang == "cs" else "Nawigacja główna"}" ><a href="{home}">{labels[1]}</a><a href="{blog}">{labels[2]}</a><a href="{workshop}">{labels[3]}</a><a href="/pomocky.html" hreflang="sk">{labels[4]}</a><div class="ml-langs">{"".join(switch)}</div></nav></div></header>'
     footer = f'<footer class="ml-footer"><div class="ml-wrap"><strong>{html.fromstring("<span>"+labels[0]+"</span>").text_content()}</strong><span><a href="{home}">{labels[1]}</a> · <a href="{blog}">{labels[2]}</a> · <a href="{workshop}">{labels[3]}</a></span></div></footer>'
     body.insert(0, fragment(nav))
     body.append(fragment(footer))
