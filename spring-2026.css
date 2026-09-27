@@ -539,3 +539,8 @@ h1,h2,h3,h4{
     filter:brightness(.82) contrast(1.25) drop-shadow(0 3px 5px rgba(35,68,53,.20));
   }
 }
+
+.community-card{text-decoration:none;color:inherit}
+.community-card:focus-visible{outline:3px solid #5f965f;outline-offset:4px}
+.community-photo{width:88px;height:88px;border-radius:18px;object-fit:cover;display:block;background:#e9efe6}
+@media(max-width:600px){.community-photo{width:68px;height:68px}}
