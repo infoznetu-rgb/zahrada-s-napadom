@@ -40,7 +40,6 @@
 .business-info span{color:#6e745f;font-size:.74rem}
 @media(max-width:650px){.bazar-business-fields{grid-template-columns:1fr}}
 
-
 /* Dôveryhodný vstupný banner bazára */
 .bazar-trust-banner{
   padding-top:22px;
@@ -394,3 +393,23 @@
 @media(max-width:430px){
   .bazar-subcategory-list{grid-template-columns:1fr}
 }
+
+/* Bring the marketplace into the same vivid garden palette. */
+.bazar-page{background:radial-gradient(circle at 5% 3%,rgba(200,239,105,.27),transparent 29rem),radial-gradient(circle at 98% 28%,rgba(255,209,179,.19),transparent 29rem),#f7fbf3}
+.bazar-page .site-header{background:linear-gradient(#f7fbf3 0,rgba(247,251,243,.9) 74%,transparent)}
+.bazar-page .site-header .top{border:1px solid rgba(17,100,73,.1);border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 15px 44px rgba(17,86,62,.1)}
+.bazar-page .active-nav{background:#dcf5bc;color:#103f34!important}
+.bazar-page .bazar-hero-copy{background:linear-gradient(125deg,#e6f8cd,#f8fdf1 60%,#e4f6f1);border-color:rgba(17,100,73,.12)}
+.bazar-page .bazar-hero h1,.bazar-page .bazar-detail h1{color:#103f34}
+.bazar-page .bazar-box,.bazar-page .bazar-form-card,.bazar-page .bazar-card,.bazar-page .bazar-detail{border-color:rgba(17,100,73,.12);box-shadow:0 16px 42px rgba(17,86,62,.08)}
+.bazar-page .btn.primary,.bazar-page .bazar-trust-primary{background:#c8ef69;color:#103f34;box-shadow:0 12px 28px rgba(5,49,37,.2)}
+.bazar-page .btn.primary:hover,.bazar-page .bazar-trust-primary:hover{background:#e0ff9c;color:#103f34}
+.bazar-page .bazar-trust-card{border-color:rgba(255,255,255,.15);background:radial-gradient(circle at 88% 12%,rgba(180,239,136,.23),transparent 32%),linear-gradient(125deg,#075e4d,#0c8060 68%,#1aa074);box-shadow:0 27px 65px rgba(10,87,62,.2)}
+.bazar-page .bazar-trust-copy h2{color:#fff;font-weight:900}
+.bazar-page .bazar-trust-copy>p{color:rgba(255,255,255,.85)}
+.bazar-page .bazar-trust-facebook{background:rgba(255,255,255,.94);color:#174934}
+.bazar-page .bazar-trust-benefits span{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:#fff}
+.bazar-page .bazar-trust-benefits b{color:#d8ff99}
+.bazar-page .bazar-trust-stat{background:radial-gradient(circle at 34% 22%,#ffd6ad,#f29468 58%,#d85e50);border-color:rgba(255,255,255,.3);box-shadow:0 18px 40px rgba(5,48,36,.25),inset 0 0 0 9px rgba(255,255,255,.13)}
+@media(max-width:650px){.bazar-page .site-header .top{border-radius:23px}.bazar-page .bazar-trust-card{padding:26px 20px}}
+@media(prefers-reduced-motion:reduce){.bazar-page .bazar-trust-banner,.bazar-page .bazar-trust-stat{animation:none;opacity:1;transform:none}}

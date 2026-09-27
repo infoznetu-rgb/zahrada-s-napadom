@@ -1262,3 +1262,80 @@ button,
 @media(max-width:900px){
   .desktop-nav .nav-facebook{display:none}
 }
+
+/* Sitewide visual language for the blog, tools, projects and article pages. */
+body .blog-hero,body .utility-hero,body .workshop-hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  width:min(var(--studio-max,1480px),calc(100% - 48px));
+  margin:22px auto 30px;
+  padding:clamp(30px,5vw,70px);
+  border:1px solid rgba(17,100,73,.1);
+  border-radius:clamp(25px,3vw,42px);
+  background:
+    radial-gradient(circle at 90% 17%,rgba(255,209,179,.76),transparent 28%),
+    radial-gradient(circle at 74% 82%,rgba(150,222,220,.6),transparent 36%),
+    linear-gradient(125deg,#e5f8c7,#f7fdeb 58%,#e6f8f1);
+  box-shadow:0 25px 65px rgba(17,86,62,.1);
+}
+body .blog-hero:after,body .utility-hero:after,body .workshop-hero:after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:clamp(220px,26vw,430px);
+  aspect-ratio:1;
+  right:-8%;top:-28%;
+  border:1px solid rgba(14,114,82,.16);
+  border-radius:50%;
+  box-shadow:0 0 0 54px rgba(255,255,255,.16),0 0 0 108px rgba(16,133,92,.045);
+  pointer-events:none;
+}
+body .blog-hero h1,body .utility-hero h1,body .workshop-hero h1{
+  max-width:14ch;
+  margin:.2em 0;
+  color:#103f34;
+  font-family:var(--studio-sans,system-ui);
+  font-size:clamp(2.8rem,5.2vw,5.4rem);
+  font-weight:900;
+  line-height:1.01;
+  letter-spacing:-.064em;
+}
+body .blog-hero p,body .utility-hero p,body .workshop-hero p{color:#315d4f;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.65}
+body .blog-utility-links{margin-top:6px}
+body .blog-utility-links a,body .tool-card,body .workshop-card{
+  border-color:rgba(17,100,73,.12);
+  background:#fff;
+  box-shadow:0 16px 42px rgba(17,86,62,.09);
+  transition:transform .24s ease,box-shadow .24s ease;
+}
+body .blog-utility-links a:nth-child(1),body .tools-hub-grid .tool-card:nth-child(4n+1){background:#f2fce4}
+body .blog-utility-links a:nth-child(2),body .tools-hub-grid .tool-card:nth-child(4n+2){background:#fff2e9}
+body .blog-utility-links a:nth-child(3),body .tools-hub-grid .tool-card:nth-child(4n+3){background:#eaf8f8}
+body .tools-hub-grid .tool-card:nth-child(4n+4){background:#fff1ef}
+body .blog-utility-links a:hover,body .tool-card:hover,body .workshop-card:hover{transform:translateY(-4px);box-shadow:0 25px 52px rgba(17,86,62,.16)}
+body .tool-card h3,body .blog-filter-head h2,body .workshop-copy h2,body .workshop-next h2{
+  font-family:var(--studio-sans,system-ui);
+  font-weight:850;
+  letter-spacing:-.052em;
+}
+body .blog-search-box{border-color:rgba(17,100,73,.2);box-shadow:0 12px 32px rgba(17,86,62,.08)}
+body .blog-filter-chip[aria-pressed="true"]{background:#0d7255;color:#fff}
+body .project-page-head{
+  padding:clamp(26px,4vw,55px);
+  border:1px solid rgba(17,100,73,.12);
+  border-radius:clamp(24px,3vw,38px);
+  background:linear-gradient(125deg,#eaf9d9,#f8fdf4 62%,#e7f7f5);
+  box-shadow:0 18px 48px rgba(17,86,62,.07);
+}
+body .project-page-head h1{color:#103f34;font-family:var(--studio-sans,system-ui);font-weight:900;letter-spacing:-.058em}
+body .post-hero{border-radius:28px;overflow:hidden;box-shadow:0 25px 65px rgba(17,86,62,.14)}
+body .workshop-hero .workshop-rule{display:none}
+body .workshop-card{border-radius:28px}
+body .workshop-copy strong{color:#087756}
+@media(max-width:720px){
+  body .blog-hero,body .utility-hero,body .workshop-hero{width:calc(100% - 28px);margin:12px auto 24px;padding:30px 22px}
+  body .blog-hero h1,body .utility-hero h1,body .workshop-hero h1{font-size:clamp(2.45rem,9vw,4rem)}
+  body .project-page-head{padding:25px 19px}
+}
+@media(prefers-reduced-motion:reduce){body .blog-utility-links a:hover,body .tool-card:hover,body .workshop-card:hover{transform:none}}
