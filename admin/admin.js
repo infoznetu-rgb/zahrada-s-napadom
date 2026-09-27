@@ -12,6 +12,7 @@ let currentPost=null;
 let mediaLoaded=false;
 let analyticsLoaded=false;
 let radarLoaded=false;
+let oporyLoaded=false;
 let commentsLoaded=false;
 let comments=[];
 let commentContacts={};
@@ -65,6 +66,7 @@ function activateView(name){
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
   if(name==="analytics"&&!analyticsLoaded)loadAnalytics();
   if(name==="radar"&&!radarLoaded)loadRadarAdmin();
+  if(name==="opory-interest"&&!oporyLoaded)loadOporyAdmin();
   if(name==="comments"&&!commentsLoaded)loadComments();
   if(name==="contest"&&!contestLoaded)loadContestAdmin();
 }
@@ -87,7 +89,7 @@ $("#editor-cancel").addEventListener("click",()=>activateView("posts"));
 
 async function loadAll(){
   setSave("Načítavam…");
-  await Promise.all([loadPosts(),loadSettings()]);
+  await Promise.all([loadPosts(),loadSettings(),loadOporyCount()]);
   setSave("Pripravené");
 }
 
@@ -942,6 +944,53 @@ $("#radar-admin-list").addEventListener("click",async event=>{
     if(path)await db.storage.from("zahrada-radar").remove([decodeURIComponent(path)]);
   }
   renderRadarAdmin();setSave("Pozorovanie upravené");
+});
+
+async function loadOporyCount(){
+  const {count,error}=await db.from("zahrada_opory_interest").select("id",{count:"exact",head:true}).eq("status","new");
+  const badge=$("#opory-nav-count");
+  if(error||!badge)return;
+  badge.hidden=!count;badge.textContent=String(count||0);
+}
+let oporyRows=[];
+async function loadOporyAdmin(){
+  const box=$("#opory-admin-list");
+  box.innerHTML='<div class="empty">Načítavam záujemcov…</div>';
+  const {data,error}=await db.from("zahrada_opory_interest").select("id,created_at,name,email,size,plant,note,status").order("created_at",{ascending:false}).limit(500);
+  if(error){console.error(error);box.innerHTML='<div class="empty">Záujemcov sa nepodarilo načítať.</div>';return}
+  oporyRows=data||[];oporyLoaded=true;renderOporyAdmin();loadOporyCount();
+}
+function renderOporyAdmin(){
+  const status=$("#opory-admin-status").value;
+  for(const state of ["new","contacted","closed"])$("#opory-stat-"+state).textContent=String(oporyRows.filter(x=>x.status===state).length);
+  const rows=oporyRows.filter(x=>x.status===status);
+  $("#opory-admin-list").innerHTML=rows.length?rows.map(item=>`<article class="opory-admin-card" data-opory-id="${esc(item.id)}">
+    <small>${esc(formatDate(item.created_at))} · ${esc(item.plant)} · ${esc(item.size)}</small>
+    <h4>${esc(item.name)}</h4><p>${esc(item.note||"Bez poznámky")}</p>
+    <a href="mailto:${encodeURIComponent(item.email)}?subject=${encodeURIComponent("Opora pre rastliny – odpoveď na nezáväzný záujem")}">${esc(item.email)} ↗</a>
+    <div class="opory-admin-actions">
+      ${status!=="contacted"?'<button type="button" data-opory-status="contacted">Označiť ako kontaktovaný</button>':""}
+      ${status!=="closed"?'<button type="button" data-opory-status="closed">Uzavrieť</button>':""}
+      ${status!=="new"?'<button type="button" data-opory-status="new">Vrátiť medzi nové</button>':""}
+      <button type="button" data-opory-delete>Vymazať kontakt</button>
+    </div></article>`).join(""):'<div class="empty">V tomto stave zatiaľ nie sú žiadni záujemcovia.</div>';
+}
+$("#opory-admin-status").addEventListener("change",renderOporyAdmin);
+$("#opory-admin-refresh").addEventListener("click",()=>{oporyLoaded=false;loadOporyAdmin()});
+$("#opory-admin-list").addEventListener("click",async event=>{
+  const button=event.target.closest("[data-opory-status],[data-opory-delete]");
+  if(!button)return;
+  const id=button.closest("[data-opory-id]")?.dataset.oporyId;
+  const item=oporyRows.find(row=>row.id===id);
+  if(!item)return;
+  if(button.hasAttribute("data-opory-delete")&&!confirm("Natrvalo vymazať tento kontakt?"))return;
+  button.disabled=true;setSave("Ukladám záujem…");
+  const next=button.dataset.oporyStatus;
+  const {error}=next?await db.from("zahrada_opory_interest").update({status:next}).eq("id",id):await db.from("zahrada_opory_interest").delete().eq("id",id);
+  if(error){console.error(error);button.disabled=false;setSave("Uloženie zlyhalo");return}
+  if(next)item.status=next;
+  else oporyRows=oporyRows.filter(row=>row.id!==id);
+  renderOporyAdmin();loadOporyCount();setSave("Záujem upravený");
 });
 
 checkAdmin();
