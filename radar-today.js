@@ -14,8 +14,10 @@
   const initial = saved();
   select.value = districts.includes(initial) ? initial : 'Tvrdošín';
   let requestId = 0;
+  let lastLoadAt = 0;
   async function load() {
     const id = ++requestId;
+    lastLoadAt = Date.now();
     const district = select.value;
     try { localStorage.setItem(key, district); } catch (_) {}
     box.textContent = 'Načítavam predpoveď…';
@@ -37,7 +39,8 @@
       const high = Math.round(day.temperature_2m_max[0]);
       const rain = Number(day.precipitation_sum?.[0]);
       const rainText = Number.isFinite(rain) ? `${Math.round(rain * 10) / 10} mm` : 'údaj nie je dostupný';
-      let advice = 'Skontroluj, čo tento mesiac potrebuje tvoja záhrada.';
+      const seasonalTips = ['Skontroluj uskladnenú úrodu a priprav si plán novej sezóny.', 'Naplánuj výsev a pozri, čo môžeš pripraviť pred jarou.', 'Skontroluj pôdu a priprav záhony, keď to počasie dovolí.', 'Sleduj nočné teploty pred výsadbou citlivých rastlín.', 'Kontroluj mladé rastliny a stav pôdy po výsadbe.', 'Priebežne sleduj vláhu v pôde a rast plodín.', 'Zbieraj dozrievajúcu úrodu a kontroluj potrebu zálievky.', 'Sleduj dozrievanie úrody a stav rastlín.', 'Skontroluj neskorú úrodu a priprav záhony na jeseň.', 'Upratuj záhony a priprav citlivé rastliny na ochladenie.', 'Skontroluj ochranu rastlín a zazimovanie záhradnej techniky.', 'Pozri stav uskladnenej úrody a plánuj práce na ďalšiu sezónu.'];
+      let advice = seasonalTips[Number(day.time[0].slice(5, 7)) - 1] || 'Pozri, čo tento mesiac potrebuje tvoja záhrada.';
       if (low <= 2) advice = 'Ráno môže byť chladno. Skontroluj citlivé rastliny a sleduj aktuálnu teplotu vo svojej záhrade.';
       else if (rain >= 5) advice = 'Predpoveď hlási dážď. Skontroluj odtok vody a opory rastlín.';
       else if (high >= 28) { advice = 'Predpoveď hlási teplý deň. Skontroluj pôdu a zalievaj podľa skutočnej potreby rastlín.'; guide.href = 'kalkulacka-zavlahy.html'; guide.textContent = 'Naplánovať závlahu →'; }
@@ -56,6 +59,7 @@
     if (document.visibilityState !== 'visible') return;
     const district = saved();
     if (districts.includes(district) && district !== select.value) { select.value = district; load(); }
+    else if (Date.now() - lastLoadAt > 30 * 60 * 1000) load();
   });
   load();
 })();
