@@ -229,6 +229,7 @@
   }
 
   function trackEvent(eventType,{label='',articleSlug='',onceKey=''}={}){
+    try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
     if(onceKey&&!analyticsOnce(onceKey))return;
     const payload={
       path:(location.pathname+location.search).slice(0,500),

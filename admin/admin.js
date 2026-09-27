@@ -36,6 +36,7 @@ async function checkAdmin(){
   if(!session){showAuth();return}
   const {data,error}=await db.from("zahrada_admins").select("user_id").eq("user_id",session.user.id).maybeSingle();
   if(error||!data){await db.auth.signOut();showAuth();setMessage(authMessage,"Tento účet nemá oprávnenie správcu.","error");return}
+  try{localStorage.setItem("zahrada-analytics-owner-v1","1")}catch(e){}
   showApp(session.user);
   await loadAll();
 }
