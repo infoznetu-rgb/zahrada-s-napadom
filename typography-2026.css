@@ -1301,6 +1301,20 @@ body .blog-hero h1,body .utility-hero h1,body .workshop-hero h1{
   line-height:1.01;
   letter-spacing:-.064em;
 }
+body.blog-page .blog-hero{
+  background:
+    linear-gradient(90deg,#e5f8c7 0%,#f2fbe1 49%,rgba(242,251,225,.86) 59%,rgba(242,251,225,.07) 100%),
+    url('/assets/blog/12-listovka.webp') right center/cover;
+}
+body .utility-hero .utility-back,body .project-page-head .back-link{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  margin-bottom:16px;
+  color:#087756;
+  text-decoration:none;
+}
+body .utility-hero .utility-back:hover,body .project-page-head .back-link:hover{text-decoration:underline}
 body .blog-hero p,body .utility-hero p,body .workshop-hero p{color:#315d4f;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.65}
 body .blog-utility-links{margin-top:6px}
 body .blog-utility-links a,body .tool-card,body .workshop-card{
@@ -1334,6 +1348,7 @@ body .workshop-hero .workshop-rule{display:none}
 body .workshop-card{border-radius:28px}
 body .workshop-copy strong{color:#087756}
 @media(max-width:720px){
+  body.blog-page .blog-hero{background:linear-gradient(125deg,#e5f8c7,#f4fce8 72%,#e2f5ef)}
   body .blog-hero,body .utility-hero,body .workshop-hero{width:calc(100% - 28px);margin:12px auto 24px;padding:30px 22px}
   body .blog-hero h1,body .utility-hero h1,body .workshop-hero h1{font-size:clamp(2.45rem,9vw,4rem)}
   body .project-page-head{padding:25px 19px}
