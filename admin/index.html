@@ -14,12 +14,12 @@
   <link rel="alternate icon" href="admin-icon.svg?v=2">
   <link rel="manifest" href="admin.webmanifest?v=2">
   <title>ZÁHRADA ADMIN | Správa webu</title>
-  <link rel="stylesheet" href="admin.css?v=13">
+  <link rel="stylesheet" href="admin.css?v=13"><link rel="stylesheet" href="radar-admin.css?v=1">
   <link rel="stylesheet" href="bazar.css?v=2">
   <link rel="stylesheet" href="bazar-import.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js" integrity="sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz" crossorigin="anonymous" defer></script>
-  <script src="admin.js?v=19" defer></script>
+  <script src="admin.js?v=20" defer></script>
   <script src="bazar.js?v=4" defer></script>
   <script src="bazar-import.js?v=2" defer></script>
   <script src="admin-pwa.js?v=5" defer></script>
@@ -53,6 +53,7 @@
         <nav>
           <button class="nav-btn active" data-view="dashboard">Prehľad</button>
           <button class="nav-btn" data-view="analytics">Štatistiky</button>
+          <button class="nav-btn" data-view="radar">🌿 Záhradný radar</button>
           <button class="nav-btn" data-view="posts">Príspevky</button>
           <button class="nav-btn" data-view="editor" data-new-post="1">+ Nový príspevok</button>
           <button class="nav-btn" data-view="videos">Videá</button>
@@ -148,6 +149,12 @@
           </div>
 
           <p class="analytics-note">Po prihlásení do administrácie sa návštevy z tohto prehliadača ďalej nezapočítavajú. Na inom zariadení alebo v inom prehliadači sa prihlás do administrácie aj tam. Staršie zaznamenané návštevy zostávajú v štatistike. „Unikátny návštevník“ je približný počet zariadení podľa anonymného identifikátora uloženého v prehliadači. Inštaláciu aplikácie vie prehliadač spoľahlivo potvrdiť najmä pri podporovaných PWA inštaláciách; na iPhone môže byť viditeľný iba klik na inštaláciu.</p>
+        </section>
+
+        <section id="view-radar" class="view">
+          <div class="view-head"><div><p class="eyebrow">ZÁHRADNÝ RADAR</p><h2>Pozorovania na schválenie</h2><p class="muted">Fotky a texty sa na webe zobrazia až po tvojom schválení.</p></div><button id="radar-admin-refresh" class="btn ghost" type="button">Obnoviť</button></div>
+          <div class="stats"><article><span>Čakajúce</span><strong id="radar-stat-pending">0</strong></article><article><span>Schválené</span><strong id="radar-stat-approved">0</strong></article><article><span>Archív</span><strong id="radar-stat-archived">0</strong></article></div>
+          <div class="panel"><div class="panel-head"><h3>Hlásenia</h3><label>Stav <select id="radar-admin-status"><option value="pending">Čakajúce</option><option value="approved">Schválené</option><option value="archived">Archív</option><option value="rejected">Zamietnuté</option></select></label></div><div id="radar-admin-list" class="radar-admin-list"><div class="empty">Načítavam…</div></div></div>
         </section>
 
         <section id="view-posts" class="view">

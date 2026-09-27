@@ -11,6 +11,7 @@ let siteSettings={};
 let currentPost=null;
 let mediaLoaded=false;
 let analyticsLoaded=false;
+let radarLoaded=false;
 let commentsLoaded=false;
 let comments=[];
 let commentContacts={};
@@ -63,6 +64,7 @@ function activateView(name){
   setSidebarOpen(false);
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
   if(name==="analytics"&&!analyticsLoaded)loadAnalytics();
+  if(name==="radar"&&!radarLoaded)loadRadarAdmin();
   if(name==="comments"&&!commentsLoaded)loadComments();
   if(name==="contest"&&!contestLoaded)loadContestAdmin();
 }
@@ -900,5 +902,46 @@ async function loadMediaLibrary(){
   }catch(err){box.innerHTML='<div class="empty">Médiá sa nepodarilo načítať.</div>';setSave("Chyba médií")}
 }
 $("#media-refresh").addEventListener("click",()=>{mediaLoaded=false;loadMediaLibrary()});
+
+let radarRows=[];
+async function loadRadarAdmin(){
+  const box=$("#radar-admin-list");
+  box.innerHTML='<div class="empty">Načítavam pozorovania…</div>';
+  const {data,error}=await db.from("zahrada_radar_observations").select("id,district,topic,title,details,image_url,status,observed_at,created_at").order("created_at",{ascending:false}).limit(500);
+  if(error){console.error(error);box.innerHTML='<div class="empty">Pozorovania sa nepodarilo načítať.</div>';return}
+  radarRows=data||[];radarLoaded=true;renderRadarAdmin();
+}
+function renderRadarAdmin(){
+  const status=$("#radar-admin-status").value;
+  for(const name of ["pending","approved","archived"])$("#radar-stat-"+name).textContent=String(radarRows.filter(x=>x.status===name).length);
+  const rows=radarRows.filter(x=>x.status===status);
+  $("#radar-admin-list").innerHTML=rows.length?rows.map(item=>`<article class="radar-admin-card" data-radar-id="${esc(item.id)}">
+    <img src="${esc(item.image_url||"")}" alt="${esc(item.title)}" loading="lazy">
+    <div><small>${esc(item.district)} · ${esc(item.topic)} · ${esc(formatDate(item.created_at))}</small><h4>${esc(item.title)}</h4><p>${esc(item.details)}</p><div class="radar-admin-actions">
+      ${status!=="approved"?`<button type="button" data-radar-action="approved">Schváliť</button>`:""}
+      ${status!=="archived"?`<button type="button" data-radar-action="archived">Archivovať</button>`:""}
+      ${status!=="rejected"?`<button type="button" data-radar-action="rejected">Zamietnuť</button>`:""}
+    </div></div></article>`).join(""):'<div class="empty">V tomto stave nie sú žiadne pozorovania.</div>';
+}
+$("#radar-admin-status").addEventListener("change",renderRadarAdmin);
+$("#radar-admin-refresh").addEventListener("click",()=>{radarLoaded=false;loadRadarAdmin()});
+$("#radar-admin-list").addEventListener("click",async event=>{
+  const button=event.target.closest("[data-radar-action]");
+  if(!button)return;
+  const id=button.closest("[data-radar-id]")?.dataset.radarId;
+  const item=radarRows.find(x=>x.id===id);
+  if(!item)return;
+  const status=button.dataset.radarAction;
+  button.disabled=true;setSave("Ukladám radar…");
+  const {error}=await db.from("zahrada_radar_observations").update({status,reviewed_at:new Date().toISOString()}).eq("id",id);
+  if(error){console.error(error);setSave("Uloženie zlyhalo");button.disabled=false;return}
+  item.status=status;
+  if(status==="rejected"&&item.image_url){
+    const marker="/storage/v1/object/public/zahrada-radar/";
+    const path=item.image_url.split(marker)[1];
+    if(path)await db.storage.from("zahrada-radar").remove([decodeURIComponent(path)]);
+  }
+  renderRadarAdmin();setSave("Pozorovanie upravené");
+});
 
 checkAdmin();
