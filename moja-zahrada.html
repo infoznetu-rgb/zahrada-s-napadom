@@ -20,11 +20,13 @@
   <link rel="stylesheet" href="app.css?v=10">
   <link rel="stylesheet" href="product-2026.css?v=1">
   <link rel="stylesheet" href="radar-app.css?v=1">
+  <link rel="stylesheet" href="radar-today.css?v=1">
   <script src="seo.js?v=11" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=19" defer></script>
   <script src="push.js?v=1" defer></script>
   <script src="moja-zahrada.js?v=3" defer></script>
+  <script src="radar-today.js?v=1" defer></script>
 
 </head>
 <body class="app-dashboard-page">
@@ -48,6 +50,13 @@
         <div><strong id="app-saved-count">0</strong><span>uložených</span></div>
         <div><strong id="app-history-count">0</strong><span>v histórii</span></div>
       </div>
+    </section>
+
+    <section class="app-today" aria-labelledby="app-today-title">
+      <div class="app-today-head"><div><span class="kicker">TVOJA ZÁHRADA DNES</span><h2 id="app-today-title">Dnes v mojom okrese</h2></div><label for="app-today-district">Okres<select id="app-today-district" aria-label="Vyber okres"></select></label></div>
+      <div id="app-today-weather" class="app-today-weather" aria-live="polite">Načítavam predpoveď…</div>
+      <div class="app-today-links"><a id="app-today-guide" href="kalendar.html">Pozrieť záhradný kalendár →</a><a href="radar.html">Pozrieť celý Radar →</a></div>
+      <p class="app-today-source">Orientačná predpoveď pre sídlo okresu, nie meranie v tvojej záhrade. Zdroj: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>.</p>
     </section>
 
     <section class="app-my-plan" aria-labelledby="my-plan-title">
