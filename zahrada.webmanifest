@@ -51,6 +51,13 @@
       ]
     },
     {
+      "name": "Záhradný radar",
+      "short_name": "Radar",
+      "description": "Predpoveď počasia a pozorovania zo záhrad v okolí",
+      "url": "./radar.html?source=pwa",
+      "icons": [{"src":"app-icon.svg?v=4","sizes":"any","type":"image/svg+xml"}]
+    },
+    {
       "name": "Blog",
       "short_name": "Blog",
       "description": "Najnovšie tipy a hobby nápady",
