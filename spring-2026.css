@@ -137,6 +137,7 @@ body:before{
 .accent-card:before{border-color:rgba(255,255,255,.23)}
 .accent-card .label{color:#f8f4d9}
 .accent-card h2,.accent-card p,.accent-card a{color:#fff}
+.side-card.accent-card .label{color:#d9ffb4}
 .accent-card p{color:rgba(255,255,255,.86)}
 .compact{background:linear-gradient(135deg,#eef4dc,#f8efd0)}
 .status-pulse{background:#71a965;box-shadow:0 0 0 6px rgba(113,169,101,.16)}

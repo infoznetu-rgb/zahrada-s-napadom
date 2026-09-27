@@ -1,6 +1,7 @@
 /* Clear first steps on the Slovak home page. */
 .home-page .hero{min-height:auto}
 .home-page .hero-main{min-height:clamp(520px,67vh,760px)}
+.home-page .home-discovery-head h2,.home-page .season-now h2,.home-page .maker-head h2{font-family:var(--studio-sans);font-weight:850;letter-spacing:-.055em}
 .home-page .home-discovery{scroll-margin-top:96px}
 .home-page .home-discovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .home-search{margin:0 0 22px}
