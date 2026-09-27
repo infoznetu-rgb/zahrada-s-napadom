@@ -17,6 +17,9 @@
   districtSelect.innerHTML = options;
   formDistrict.innerHTML = options;
   districtSelect.value = formDistrict.value = district;
+  const oravaFeature = $('#radar-orava-feature');
+  const updateOravaFeature = () => { if (oravaFeature) oravaFeature.hidden = district !== 'Tvrdošín'; };
+  updateOravaFeature();
 
   const dateText = (s) => new Intl.DateTimeFormat('sk-SK', { day:'numeric', month:'long', year:'numeric' }).format(new Date(s));
   const empty = (message) => `<p class="radar-empty">${esc(message)}</p>`;
@@ -75,6 +78,7 @@
 
   $('#radar-find').addEventListener('click', () => {
     district = districtSelect.value;
+    updateOravaFeature();
     formDistrict.value = district;
     try { localStorage.setItem('zahrada-radar-district', district); } catch (_) {}
     renderObservations(); loadWeather();
