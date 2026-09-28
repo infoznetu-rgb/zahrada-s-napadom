@@ -84,6 +84,23 @@ function blogMatchesQuery(post,query){
   return q.split(/\s+/).filter(Boolean).every(word=>hay.includes(word));
 }
 
+function staticBlogPosts(){
+  return [...document.querySelectorAll("#cms-blog-list .cms-post-card.is-blog")].map((card,index)=>{
+    const slug=String(card.dataset.postSlug||"").trim();
+    const title=card.querySelector("h3")?.textContent?.trim()||"";
+    if(!slug||!title)return null;
+    const tag=card.querySelector(".tag")?.textContent||"";
+    return {
+      slug,title,
+      excerpt:card.querySelector(".cms-post-body > p")?.textContent?.trim()||"",
+      category:tag.replace(/^BLOG\\s*[·•-]\\s*/i,"").trim()||"Ostatné",
+      cover_url:card.querySelector(".cms-post-image img")?.getAttribute("src")||"",
+      published_at:card.dataset.publishedAt||"2000-01-01",
+      tags:[],content:"",staticOrder:index
+    };
+  }).filter(Boolean);
+}
+
 function renderBlogCard(p){
   return `<article class="cms-post-card is-blog" data-blog-category="${blogEsc(p.category||"Tip")}" data-post-slug="${blogEsc(p.slug)}" data-post-type="blog">
     <a class="cms-post-image" href="${blogEsc(blogHref(p))}">
@@ -210,8 +227,9 @@ async function loadBlog(){
   }catch(_){}
 
   const remotePosts=(!error&&Array.isArray(data))?data:[];
+  const staticPosts=staticBlogPosts();
   const merged=new Map();
-  [...remotePosts,...(Array.isArray(localPosts)?localPosts:[])].forEach(post=>{
+  [...remotePosts,...staticPosts,...(Array.isArray(localPosts)?localPosts:[])].forEach(post=>{
     if(post?.slug&&!merged.has(post.slug))merged.set(post.slug,post);
   });
   blogState.posts=[...merged.values()].sort((a,b)=>
