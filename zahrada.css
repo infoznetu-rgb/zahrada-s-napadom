@@ -340,3 +340,8 @@ a{color:inherit}.container{width:min(var(--max),calc(100% - 48px));margin:auto}
 .post-video-item{margin:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#111;box-shadow:0 14px 34px rgba(64,82,64,.06)}
 .post-video-item video{display:block;width:100%;max-height:720px;background:#111}
 @media(max-width:720px){.post-videos{grid-template-columns:1fr}.post-video-item{border-radius:18px}}
+
+
+/* Show the brand mark on statically generated article pages. */
+body.blog-article .site-header .brand:not(:has(> .brand-mark))::before{content:"";display:block;flex:0 0 52px;width:52px;height:52px;background:url("/brand-mark.svg?v=1") center/contain no-repeat;filter:drop-shadow(0 8px 12px rgba(66,79,48,.12))}
+@media(max-width:760px){body.blog-article .site-header .brand:not(:has(> .brand-mark))::before{flex-basis:42px;width:42px;height:42px}}
