@@ -93,7 +93,7 @@ function staticBlogPosts(){
     return {
       slug,title,
       excerpt:card.querySelector(".cms-post-body > p")?.textContent?.trim()||"",
-      category:tag.replace(/^BLOG\\s*[·•-]\\s*/i,"").trim()||"Ostatné",
+      category:tag.replace(/^BLOG\s*[·•-]\s*/i,"").trim()||"Ostatné",
       cover_url:card.querySelector(".cms-post-image img")?.getAttribute("src")||"",
       published_at:card.dataset.publishedAt||"2000-01-01",
       tags:[],content:"",staticOrder:index
