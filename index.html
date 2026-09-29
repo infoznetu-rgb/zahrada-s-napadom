@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="growth-2026.css?v=7">
   <link rel="stylesheet" href="typography-2026.css?v=11">
   <link rel="stylesheet" href="app.css?v=8">
+  <link rel="stylesheet" href="community-submissions.css?v=1">
   <link rel="stylesheet" href="facebook-widget.css?v=4">
   <link rel="stylesheet" href="engagement.css?v=2">
   <link rel="stylesheet" href="home-clarity.css?v=2">
@@ -35,7 +36,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="seo.js?v=11" defer></script>
   <script src="cms-public.js?v=18" defer></script>
-  <script src="zahrada.js?v=2" defer></script>
+  <script src="zahrada.js?v=3" defer></script>
   <script src="app.js?v=19" defer></script>
   <script src="studio-2026.js?v=1" defer></script>
   <script src="garden-tools.js?v=1" defer></script>
@@ -341,6 +342,10 @@
           <span class="community-arrow" aria-hidden="true">↗</span>
         </a>
       </div>
+      <section class="community-submissions" aria-labelledby="community-submissions-title" hidden>
+        <div class="community-submissions-heading"><span class="kicker">OD NÁVŠTEVNÍKOV</span><h3 id="community-submissions-title">Nápady komunity</h3></div>
+        <div id="community-submissions-list" class="community-submissions-list"></div>
+      </section>
     </section>
 
     <section id="posli" class="section submit-band">
@@ -357,14 +362,17 @@
         </div>
         <form class="idea-form" id="idea-form">
           <div class="form-head"><span>YOUR IDEA / 2026</span><strong>Pošli nápad</strong></div>
-          <label>Meno alebo prezývka<input type="text" name="name" placeholder="Ako ťa máme uviesť?"></label>
-          <label>Názov nápadu<input type="text" name="title" placeholder="Napr. vyvýšený záhon zo starých dosiek"></label>
-          <label>Krátky popis<textarea name="text" rows="5" placeholder="Ako si to spravil a čo by si odporučil ostatným?"></textarea></label>
-          <label class="upload">Fotografie alebo video<input type="file" multiple accept="image/*,video/*"><span>Vybrať súbory</span></label>
-          <label class="check"><input type="checkbox" required><span>Som autorom obsahu alebo mám právo ho poslať na zverejnenie.</span></label>
-          <label class="check"><input type="checkbox" required><span>Súhlasím, aby bol po schválení môj príspevok zverejnený na Záhrade s nápadom.</span></label>
+          <label>Meno alebo prezývka<input type="text" name="name" minlength="2" maxlength="60" autocomplete="nickname" placeholder="Ako ťa máme uviesť?" required></label>
+          <label>Názov nápadu<input type="text" name="title" minlength="5" maxlength="100" placeholder="Napr. vyvýšený záhon zo starých dosiek" required></label>
+          <label>Krátky popis<textarea name="text" rows="5" minlength="20" maxlength="1500" placeholder="Ako si to spravil a čo by si odporučil ostatným?" required></textarea></label>
+          <label class="upload">Fotografie alebo video<input type="file" name="media" multiple accept="image/jpeg,image/png,image/webp,video/mp4,video/webm,video/quicktime" required><span>Vybrať súbory</span></label>
+          <small class="form-note">Najviac 3 súbory, každý do 8 MB. Prijímame JPG, PNG, WebP, MP4, WebM a MOV.</small>
+          <label class="check"><input type="checkbox" name="rights" value="yes" required><span>Som autorom obsahu alebo mám právo ho poslať na zverejnenie.</span></label>
+          <label class="check"><input type="checkbox" name="publication_consent" value="yes" required><span>Súhlasím, aby bol po schválení môj príspevok zverejnený na Záhrade s nápadom.</span></label>
           <button type="submit" class="btn primary">Odoslať nápad <span aria-hidden="true">↗</span></button>
-          <small class="form-note">Formulár je zatiaľ vizuálny návrh a ešte nič neposiela.</small>
+          <p id="idea-status" class="idea-status" role="status" aria-live="polite"></p>
+          <small class="form-note">Meno, text a priložené súbory sa zobrazia až po schválení. E-mail ani účet nepotrebuješ.</small>
+          <label class="idea-honeypot" aria-hidden="true">Nechaj toto pole prázdne<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
         </form>
       </div>
     </section>

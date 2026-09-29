@@ -15,6 +15,8 @@ let radarLoaded=false;
 let oporyLoaded=false;
 let commentsLoaded=false;
 let comments=[];
+let communitySubmissionsLoaded=false;
+let communitySubmissions=[];
 let commentContacts={};
 let contestLoaded=false;
 let contestRecord=null;
@@ -68,6 +70,7 @@ function activateView(name){
   if(name==="radar"&&!radarLoaded)loadRadarAdmin();
   if(name==="opory-interest"&&!oporyLoaded)loadOporyAdmin();
   if(name==="comments"&&!commentsLoaded)loadComments();
+  if(name==="community-submissions"&&!communitySubmissionsLoaded)loadCommunitySubmissions();
   if(name==="contest"&&!contestLoaded)loadContestAdmin();
 }
 document.addEventListener("click",(e)=>{
@@ -89,7 +92,7 @@ $("#editor-cancel").addEventListener("click",()=>activateView("posts"));
 
 async function loadAll(){
   setSave("Načítavam…");
-  await Promise.all([loadPosts(),loadSettings(),loadOporyCount()]);
+  await Promise.all([loadPosts(),loadSettings(),loadOporyCount(),loadCommunitySubmissionCount()]);
   setSave("Pripravené");
 }
 
@@ -991,6 +994,48 @@ $("#opory-admin-list").addEventListener("click",async event=>{
   if(next)item.status=next;
   else oporyRows=oporyRows.filter(row=>row.id!==id);
   renderOporyAdmin();loadOporyCount();setSave("Záujem upravený");
+});
+
+
+async function loadCommunitySubmissionCount(){
+  const badge=$("#community-submissions-nav-count");
+  const {count,error}=await db.from("zahrada_community_submissions").select("id",{count:"exact",head:true}).eq("status","pending");
+  if(error){console.error(error);return}if(badge){badge.textContent=String(count||0);badge.hidden=!(count||0)}
+}
+async function loadCommunitySubmissions(){
+  const box=$("#community-submissions-admin-list");if(box)box.innerHTML='<div class="empty">Načítavam návrhy…</div>';
+  const {data,error}=await db.from("zahrada_community_submissions").select("id,display_name,title,body,media_urls,status,created_at,moderated_at").order("created_at",{ascending:false}).limit(300);
+  if(error){console.error(error);if(box)box.innerHTML='<div class="empty">Návrhy sa nepodarilo načítať.</div>';setSave("Chyba návrhov");return}
+  communitySubmissions=data||[];communitySubmissionsLoaded=true;renderCommunitySubmissions();loadCommunitySubmissionCount();
+}
+function renderCommunitySubmissions(){
+  const box=$("#community-submissions-admin-list");if(!box)return;
+  ["pending","approved","rejected"].forEach(s=>$("#community-stat-"+s).textContent=String(communitySubmissions.filter(x=>x.status===s).length));
+  const state=$("#community-submissions-status").value,rows=communitySubmissions.filter(x=>x.status===state);
+  if(!rows.length){box.innerHTML='<div class="empty">V tomto stave zatiaľ nie sú žiadne návrhy.</div>';return}
+  const prefix="https://pmrexbworebprrarhuxn.supabase.co/storage/v1/object/public/zahrada-media/community-submissions/";
+  box.innerHTML=rows.map(item=>{
+    const media=(Array.isArray(item.media_urls)?item.media_urls:[]).slice(0,3).map(file=>{
+      const url=String(file.url||"");if(!url.startsWith(prefix))return "";
+      const video=String(file.type||"").startsWith("video/");
+      return '<a class="community-admin-media" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+(video?'<video src="'+esc(url)+'" controls preload="metadata"></video>':'<img src="'+esc(url)+'" alt="Priložená fotografia" loading="lazy">')+'<span>Otvoriť súbor ↗</span></a>';
+    }).join("");
+    let actions="";if(state!=="approved")actions+='<button type="button" class="btn primary" data-community-status="approved">Schváliť a zverejniť</button>';
+    if(state!=="rejected")actions+='<button type="button" class="mini-btn danger-mini" data-community-status="rejected">Zamietnuť</button>';
+    if(state!=="pending")actions+='<button type="button" class="mini-btn" data-community-status="pending">Vrátiť medzi čakajúce</button>';
+    const label=state==="pending"?"Čaká na kontrolu":state==="approved"?"Schválené":"Zamietnuté",badge=state==="approved"?"published":state==="rejected"?"draft":"pending";
+    return '<article class="community-admin-card" data-community-id="'+esc(item.id)+'"><div class="community-admin-card-head"><div><span class="badge '+badge+'">'+label+'</span><h3>'+esc(item.title)+'</h3></div><time>'+esc(formatDate(item.created_at))+'</time></div><p class="community-admin-body">'+esc(item.body)+'</p><p class="community-admin-author">Od: <strong>'+esc(item.display_name)+'</strong></p>'+(media?'<div class="community-admin-media-grid">'+media+'</div>':"")+'<div class="community-admin-actions">'+actions+'</div></article>';
+  }).join("");
+}
+$("#community-submissions-status").addEventListener("change",renderCommunitySubmissions);
+$("#community-submissions-refresh").addEventListener("click",()=>{communitySubmissionsLoaded=false;loadCommunitySubmissions()});
+$("#community-submissions-admin-list").addEventListener("click",async event=>{
+  const button=event.target.closest("[data-community-status]");if(!button)return;
+  const id=button.closest("[data-community-id]")?.dataset.communityId,item=communitySubmissions.find(row=>row.id===id);if(!item)return;
+  button.disabled=true;setSave("Ukladám zmenu…");
+  const next=button.dataset.communityStatus,{error}=await db.from("zahrada_community_submissions").update({status:next,moderated_at:next==="pending"?null:new Date().toISOString()}).eq("id",id);
+  if(error){console.error(error);button.disabled=false;setSave("Zmenu sa nepodarilo uložiť");return}
+  item.status=next;item.moderated_at=next==="pending"?null:new Date().toISOString();renderCommunitySubmissions();loadCommunitySubmissionCount();setSave(next==="approved"?"Nápad zverejnený":next==="rejected"?"Nápad zamietnutý":"Nápad vrátený medzi čakajúce");
 });
 
 checkAdmin();

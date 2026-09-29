@@ -15,11 +15,11 @@
   <link rel="manifest" href="admin.webmanifest?v=2">
   <title>ZÁHRADA ADMIN | Správa webu</title>
   <link rel="stylesheet" href="admin.css?v=13"><link rel="stylesheet" href="radar-admin.css?v=1"><link rel="stylesheet" href="opory-interest-admin.css?v=1">
-  <link rel="stylesheet" href="bazar.css?v=2">
+  <link rel="stylesheet" href="bazar.css?v=2"><link rel="stylesheet" href="community-submissions-admin.css?v=1">
   <link rel="stylesheet" href="bazar-import.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js" integrity="sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz" crossorigin="anonymous" defer></script>
-  <script src="admin.js?v=21" defer></script>
+  <script src="admin.js?v=22" defer></script>
   <script src="bazar.js?v=4" defer></script>
   <script src="bazar-import.js?v=2" defer></script>
   <script src="admin-pwa.js?v=5" defer></script>
@@ -60,6 +60,7 @@
           <button class="nav-btn" data-view="videos">Videá</button>
           <button class="nav-btn" data-view="gallery">Galéria</button>
           <button class="nav-btn" data-view="comments">Komentáre</button>
+          <button class="nav-btn" data-view="community-submissions">💡 Nápady komunity <span id="community-submissions-nav-count" hidden></span></button>
           <button class="nav-btn" data-view="contest">🎁 Súťaž</button>
           <button class="nav-btn" data-view="settings">Upraviť stránku</button>
           <button class="nav-btn" data-view="media">Médiá</button>
@@ -263,6 +264,12 @@
               <div class="empty">Komentáre sa načítajú po otvorení tejto sekcie.</div>
             </div>
           </div>
+        </section>
+
+        <section id="view-community-submissions" class="view">
+          <div class="view-head"><div><p class="eyebrow">KOMUNITA · MODERÁCIA</p><h2>Nápady od návštevníkov</h2><p class="muted">Príspevok sa na webe zobrazí až po tvojom schválení.</p></div><button id="community-submissions-refresh" class="btn ghost" type="button">Obnoviť</button></div>
+          <div class="stats"><article><span>Čakajúce</span><strong id="community-stat-pending">0</strong></article><article><span>Schválené</span><strong id="community-stat-approved">0</strong></article><article><span>Zamietnuté</span><strong id="community-stat-rejected">0</strong></article></div>
+          <div class="panel"><div class="panel-head"><h3>Doručené návrhy</h3><label>Stav <select id="community-submissions-status"><option value="pending">Čakajúce</option><option value="approved">Schválené</option><option value="rejected">Zamietnuté</option></select></label></div><div id="community-submissions-admin-list" class="community-submissions-admin-list"><div class="empty">Návrhy sa načítajú po otvorení tejto sekcie.</div></div></div>
         </section>
 
         <section id="view-contest" class="view">

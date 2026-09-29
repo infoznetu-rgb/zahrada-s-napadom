@@ -15,7 +15,7 @@ const form=document.querySelector('#idea-form');
 if(form){
   form.addEventListener('submit',(e)=>{
     e.preventDefault();
-    alert('Toto je zatiaľ iba prvý návrh. Formulár ešte nič neposiela. V ostrej verzii sa každý príspevok uloží ako čakajúci na tvoje schválenie.');
+    submitCommunityIdea(form);
   });
 }
 
@@ -166,6 +166,57 @@ addArticleShare();
    Static HTML remains as an SEO/offline fallback; published CMS data wins in the browser. */
 const PUBLIC_CMS_URL="https://bkyappgttwjxakkwycub.supabase.co";
 const PUBLIC_CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
+const COMMUNITY_SUBMISSIONS_URL=PUBLIC_CMS_URL+"/rest/v1/zahrada_community_submissions";
+const COMMUNITY_FUNCTION_URL=PUBLIC_CMS_URL+"/functions/v1/community-submit";
+async function submitCommunityIdea(form){
+  const status=form.querySelector("#idea-status"),button=form.querySelector('button[type="submit"]'),files=Array.from(form.querySelector('input[name="media"]')?.files||[]);
+  const say=(message,error=false)=>{if(status){status.textContent=message;status.classList.toggle("error",error)}};
+  if(files.length<1||files.length>3){say("Vyber 1 až 3 fotografie alebo videá.",true);return}
+  const allowed=new Set(["image/jpeg","image/png","image/webp","video/mp4","video/webm","video/quicktime"]);
+  if(files.some(f=>!allowed.has(f.type.toLowerCase())||f.size<1000||f.size>8000000)){say("Každý súbor musí byť JPG, PNG, WebP, MP4, WebM alebo MOV do 8 MB.",true);return}
+  if(files.reduce((n,f)=>n+f.size,0)>24000000){say("Súbory môžu mať spolu najviac 24 MB.",true);return}
+  if(!form.reportValidity())return;
+  if(button)button.disabled=true;say("Odosielam návrh…");
+  try{
+    const response=await fetch(COMMUNITY_FUNCTION_URL,{method:"POST",headers:{apikey:PUBLIC_CMS_KEY},body:new FormData(form)});
+    let result={};try{result=await response.json()}catch(e){}
+    if(!response.ok||!result.ok)throw new Error(result.error||"Odoslanie sa nepodarilo. Skús to neskôr.");
+    form.reset();say("Ďakujem! Nápad čaká na kontrolu. Zverejní sa až po schválení.");
+  }catch(error){say(error?.message||"Odoslanie sa nepodarilo. Skús to neskôr.",true)}
+  finally{if(button)button.disabled=false}
+}
+function renderCommunitySubmissions(items){
+  const section=document.querySelector(".community-submissions"),list=document.querySelector("#community-submissions-list");
+  if(!section||!list)return;list.replaceChildren();
+  if(!items.length){section.hidden=true;return}
+  const trustedHost="pmrexbworebprrarhuxn.supabase.co";
+  items.forEach(item=>{
+    const card=document.createElement("article");card.className="community-submission-card";
+    const media=document.createElement("div");media.className="community-submission-media";
+    (Array.isArray(item.media_urls)?item.media_urls:[]).slice(0,3).forEach(file=>{
+      let url;try{url=new URL(String(file.url||""))}catch(e){return}
+      if(url.protocol!=="https:"||url.hostname!==trustedHost||!url.pathname.includes("/storage/v1/object/public/zahrada-media/community-submissions/"))return;
+      const el=String(file.type||"").startsWith("video/")?document.createElement("video"):document.createElement("img");el.src=url.href;
+      if(el.tagName==="VIDEO"){el.controls=true;el.preload="metadata";el.playsInline=true;el.setAttribute("aria-label",item.title+" – video")}
+      else{el.alt=item.title+" – fotografia";el.loading="lazy"}
+      media.appendChild(el);
+    });
+    if(media.childElementCount)card.appendChild(media);
+    const copy=document.createElement("div");copy.className="community-submission-copy";
+    const title=document.createElement("h4");title.textContent=String(item.title||"");copy.appendChild(title);
+    const body=document.createElement("p");body.textContent=String(item.body||"");copy.appendChild(body);
+    const meta=document.createElement("small");meta.textContent="Od "+String(item.display_name||"Návštevník")+" · "+new Intl.DateTimeFormat("sk-SK",{day:"numeric",month:"long",year:"numeric"}).format(new Date(item.created_at));copy.appendChild(meta);
+    card.appendChild(copy);list.appendChild(card);
+  });
+  section.hidden=!list.childElementCount;
+}
+async function loadCommunitySubmissions(){
+  try{
+    const url=COMMUNITY_SUBMISSIONS_URL+"?select=id,display_name,title,body,media_urls,created_at&status=eq.approved&order=created_at.desc&limit=12";
+    const response=await fetch(url,{headers:{apikey:PUBLIC_CMS_KEY},cache:"no-store"});if(!response.ok)return;
+    const rows=await response.json();renderCommunitySubmissions(Array.isArray(rows)?rows:[]);
+  }catch(error){}
+}
 
 async function syncGlobalSiteSettings(){
   try{
@@ -350,3 +401,4 @@ async function syncStaticArticleFromCms(){
 
 syncGlobalSiteSettings();
 syncStaticArticleFromCms();
+loadCommunitySubmissions();
