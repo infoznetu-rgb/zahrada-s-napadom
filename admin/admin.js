@@ -1013,7 +1013,7 @@ function renderCommunitySubmissions(){
   ["pending","approved","rejected"].forEach(s=>$("#community-stat-"+s).textContent=String(communitySubmissions.filter(x=>x.status===s).length));
   const state=$("#community-submissions-status").value,rows=communitySubmissions.filter(x=>x.status===state);
   if(!rows.length){box.innerHTML='<div class="empty">V tomto stave zatiaľ nie sú žiadne návrhy.</div>';return}
-  const prefix="https://pmrexbworebprrarhuxn.supabase.co/storage/v1/object/public/zahrada-media/community-submissions/";
+  const prefix="https://bkyappgttwjxakkwycub.supabase.co/storage/v1/object/public/zahrada-media/community-submissions/";
   box.innerHTML=rows.map(item=>{
     const media=(Array.isArray(item.media_urls)?item.media_urls:[]).slice(0,3).map(file=>{
       const url=String(file.url||"");if(!url.startsWith(prefix))return "";

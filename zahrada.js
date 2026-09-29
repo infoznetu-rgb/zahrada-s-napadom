@@ -189,7 +189,7 @@ function renderCommunitySubmissions(items){
   const section=document.querySelector(".community-submissions"),list=document.querySelector("#community-submissions-list");
   if(!section||!list)return;list.replaceChildren();
   if(!items.length){section.hidden=true;return}
-  const trustedHost="pmrexbworebprrarhuxn.supabase.co";
+  const trustedHost="bkyappgttwjxakkwycub.supabase.co";
   items.forEach(item=>{
     const card=document.createElement("article");card.className="community-submission-card";
     const media=document.createElement("div");media.className="community-submission-media";
