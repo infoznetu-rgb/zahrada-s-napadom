@@ -3,7 +3,7 @@ create table if not exists public.zahrada_community_submissions (
   display_name text not null check (char_length(btrim(display_name)) between 2 and 60),
   title text not null check (char_length(btrim(title)) between 5 and 100),
   body text not null check (char_length(btrim(body)) between 20 and 1500),
-  media_urls jsonb not null default '[]'::jsonb check (jsonb_typeof(media_urls) = 'array' and jsonb_array_length(media_urls) between 1 and 3),
+  media_urls jsonb not null check (jsonb_typeof(media_urls) = 'array' and jsonb_array_length(media_urls) between 1 and 3),
   status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
   rights_confirmed boolean not null default true check (rights_confirmed),
   publication_consent boolean not null default true check (publication_consent),
