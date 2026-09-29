@@ -805,11 +805,30 @@
 
   loadCommentsFeature();
 
+  function addAppInstallMenuLink(){
+    const nav=document.querySelector('.mobile-nav');
+    if(!nav||nav.querySelector('[data-app-install-menu]'))return;
+    const lang=(document.documentElement.lang||'sk').toLowerCase().slice(0,2);
+    const labels={sk:'📲 Inštalovať aplikáciu',cs:'📲 Nainstalovat aplikaci',pl:'📲 Zainstaluj aplikację'};
+    const link=document.createElement('a');
+    link.href='#install-app';
+    link.className='app-install-menu-link';
+    link.dataset.appInstallMenu='';
+    link.textContent=labels[lang]||labels.sk;
+    link.setAttribute('aria-haspopup','dialog');
+    link.addEventListener('click',event=>{
+      event.preventDefault();
+      requestInstall();
+    });
+    nav.prepend(link);
+  }
+
   window.ZahradaApp={
     getSaved,getHistory,isSaved,savePost,removeSaved,toggleSaved,addHistory,clearHistory,clearSaved,
     toast,normalizePost,requestInstall,requestNotifications,getPushSubscription,openSearch,closeSearch,trackEvent
   };
 
+  addAppInstallMenuLink();
   document.documentElement.classList.toggle('pwa-standalone',isStandalone());
   bottomNav();
   maybeShowPromoBanner();
