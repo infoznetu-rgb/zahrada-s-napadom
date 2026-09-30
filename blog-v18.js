@@ -9,7 +9,8 @@ const BLOG_CATEGORY_ORDER=[
   "Vychytávky",
   "Sezónne tipy",
   "Recyklácia",
-  "Hobby"
+  "Hobby",
+  "Recepty zo záhrady"
 ];
 
 const blogState={
@@ -120,7 +121,7 @@ function renderBlogCard(p){
       <h3><a href="${blogEsc(blogHref(p))}">${blogEsc(p.title)}</a></h3>
       <p>${blogEsc(p.excerpt||"")}</p>
       <div class="cms-card-actions">
-        <a class="project-link" href="${blogEsc(blogHref(p))}">Čítať blog →</a>
+        <a class="project-link" href="${blogEsc(blogHref(p))}">${p.category==="Recepty zo záhrady"?"Otvoriť recept →":"Čítať blog →"}</a>
       </div>
     </div>
   </article>`;
@@ -281,7 +282,7 @@ blogSearch?.addEventListener("input",()=>{
   setBlogQuery(blogSearch.value);
   clearTimeout(blogSearchTrackTimer);
   const q=blogSearch.value.trim();
-  if(q.length>=2)blogSearchTrackTimer=setTimeout(()=>window.ZahradaApp?.trackEvent?.("search_used",{label:q}),500);
+  if(q.length>=2)blogSearchTrackTimer=setTimeout(()=>window.ZahradaApp?.trackEvent?.("search_used",{label:"blog_search"}),500);
 });
 blogSearchClear?.addEventListener("click",()=>{
   if(blogSearch)blogSearch.value="";
