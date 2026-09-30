@@ -28,6 +28,7 @@ function blogEsc(value){
 function blogHref(p){const s=String(p?.slug||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");return "/blog/"+s+"/"}
 
 function blogCoverUrl(value,post){
+  const slug=String(post?.slug||"").toLowerCase();
   const url=String(value||"").trim();
   if(/^https?:\/\//i.test(url))return url;
   if(url&&!/\/assets\/blog\/seo100\/.*\.svg$/i.test(url))return url;
