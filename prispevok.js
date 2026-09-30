@@ -45,6 +45,7 @@ function renderRecipeContent(body,data){
   const print=document.createElement("button");print.type="button";print.className="recipe-print";print.textContent="Vytlačiť recept";print.addEventListener("click",()=>window.print());card.appendChild(print);
   body.appendChild(card);
   recipe.tips.forEach(item=>{const p=document.createElement("p");p.textContent="Tip: "+item;body.appendChild(p)});
+  loadRelatedRecipes(data);
   if(data.cover_url&&recipe.ingredients.length&&recipe.steps.length){
     const jsonLd={"@context":"https://schema.org","@type":"Recipe","name":data.title,"image":[data.cover_url],"description":data.excerpt||"","recipeIngredient":recipe.ingredients,"recipeInstructions":recipe.steps.map(text=>({"@type":"HowToStep","text":text}))};
     const prep=recipeMinutes(recipe.prep),cook=recipeMinutes(recipe.cook);
@@ -54,6 +55,64 @@ function renderRecipeContent(body,data){
     if(data.published_at)jsonLd.datePublished=String(data.published_at).slice(0,10);
     const script=document.createElement("script");script.type="application/ld+json";script.textContent=JSON.stringify(jsonLd);script.id="recipe-jsonld";document.head.appendChild(script);
   }
+}
+function detailRecipeNorm(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim()}
+function detailRecipeCategory(post){
+  const tags=(Array.isArray(post.tags)?post.tags:[]).map(detailRecipeNorm);
+  const title=detailRecipeNorm(post.title);
+  const has=(...values)=>values.some(value=>tags.includes(value));
+  if(has("breakfast")||title.includes("ranajk"))return "Raňajky";
+  if(has("soup")||title.includes("polievk"))return "Polievky";
+  if(has("salad")||title.includes("salat"))return "Šaláty";
+  if(has("pickle","chutney")||title.includes("catni")||title.includes("naleve"))return "Zaváranie a čatní";
+  if(has("fritter","quiche")||title.includes("plack")||title.includes("slany kolac"))return "Placky a slané koláče";
+  if(has("cake","muffin","fruit")||title.includes("kolac")||title.includes("muffin")||title.includes("dezert")||title.includes("crumble"))return "Koláče a dezerty";
+  if(has("pesto","sauce")||title.includes("pesto")||title.includes("natierk")||title.includes("omack"))return "Omáčky, pesta a nátierky";
+  if(has("roast","priloha")||title.includes("pecena zelenina")||title.includes("dusen"))return "Prílohy";
+  return "Hlavné jedlá";
+}
+const recipeIngredientStopWords=new Set("a aj alebo ako bez do dva dve jeden jedna jednu je jemne jemná jemné k kusy kusov l lyžica lyžice lyžička lyžičky malé malý na nadol niekoľko nový nové o od olivový olej oleja korenie podľa pohár pol polievková prášok pre s so soľ soľou strúčik strúčiky teplá teplej toho trochu veľká veľké veľký vody voda vňať z za čerstvá čerstvé čerstvý čierne mleté mletá mletý podľa chuti".split(" "));
+const recipeGenericTags=new Set(["recept zo záhrady","breakfast","soup","salad","pickle","chutney","fritter","quiche","cake","muffin","fruit","pesto","sauce","roast","priloha"]);
+function recipeIngredientTokens(post){
+  const ingredients=parseRecipeText(post.content).ingredients;
+  const tokens=new Set();
+  ingredients.forEach(item=>detailRecipeNorm(item).replace(/\d+(?:[.,]\d+)?/g," ").replace(/\b(?:kg|g|ml|cl|dl|l|ks|bal|lyzic|lyzick|hrnce[km]|polievkov|kavov)\w*\b/g," ").split(/[^a-z]+/).filter(word=>word.length>2&&!recipeIngredientStopWords.has(word)).forEach(word=>tokens.add(word)));
+  return tokens;
+}
+async function loadRelatedRecipes(current){
+  const section=document.querySelector("#related-recipes");
+  const grid=document.querySelector("#related-recipes-grid");
+  if(!section||!grid)return;
+  try{
+    const {data,error}=await postDb.from("zahrada_posts").select("slug,title,excerpt,content,cover_url,tags,published_at").eq("status","published").eq("content_type","blog").eq("category","Recepty zo záhrady").order("published_at",{ascending:false}).limit(300);
+    if(error||!Array.isArray(data))return;
+    const currentIngredients=recipeIngredientTokens(current);
+    const currentTags=new Set((Array.isArray(current.tags)?current.tags:[]).map(detailRecipeNorm));
+    const category=detailRecipeCategory(current);
+    const ranked=data.filter(post=>post.slug&&post.slug!==current.slug).map(post=>{
+      const candidateIngredients=recipeIngredientTokens(post);
+      const sharedIngredients=[...currentIngredients].filter(word=>candidateIngredients.has(word));
+      const sharedTags=(Array.isArray(post.tags)?post.tags:[]).map(detailRecipeNorm).filter(tag=>currentTags.has(tag)&&!recipeGenericTags.has(tag));
+      const sameCategory=detailRecipeCategory(post)===category;
+      return {post,score:sharedIngredients.length*4+sharedTags.length*2+(sameCategory?3:0),sameCategory,sharedIngredients:sharedIngredients.length};
+    }).filter(item=>item.score>0);
+    const sameCategory=ranked.filter(item=>item.sameCategory);
+    const matches=(sameCategory.length>=3?sameCategory:ranked).sort((a,b)=>b.score-a.score||Number(b.sameCategory)-Number(a.sameCategory)||b.sharedIngredients-a.sharedIngredients||String(b.post.published_at||"").localeCompare(String(a.post.published_at||""))).slice(0,3);
+    if(!matches.length)return;
+    grid.replaceChildren();
+    matches.forEach(({post})=>{
+      const card=document.createElement("article");card.className="related-recipe-card";
+      const link=document.createElement("a");link.className="related-recipe-image";link.href="/prispevok.html?slug="+encodeURIComponent(post.slug);link.setAttribute("aria-label","Otvoriť recept: "+post.title);
+      if(post.cover_url){const img=document.createElement("img");img.src=post.cover_url;img.alt=post.title;img.loading="lazy";img.decoding="async";link.appendChild(img)}
+      const content=document.createElement("div");content.className="related-recipe-content";
+      const label=document.createElement("span");label.className="related-recipe-label";label.textContent=detailRecipeCategory(post);
+      const title=document.createElement("h3"),titleLink=document.createElement("a");titleLink.href=link.href;titleLink.textContent=post.title;title.appendChild(titleLink);
+      content.append(label,title);
+      if(post.excerpt){const excerpt=document.createElement("p");excerpt.textContent=post.excerpt;content.appendChild(excerpt)}
+      card.append(link,content);grid.appendChild(card);
+    });
+    section.hidden=false;
+  }catch(error){console.warn("Podobné recepty sa nepodarilo načítať.",error)}
 }
 const POST_CMS_URL="https://bkyappgttwjxakkwycub.supabase.co";
 const POST_CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";

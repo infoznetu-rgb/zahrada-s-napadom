@@ -22,8 +22,8 @@
   <link rel="manifest" href="zahrada.webmanifest?v=7">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="seo.js?v=9" defer></script>
-  <link rel="stylesheet" href="/recepty.css?v=1">
-  <script src="prispevok.js?v=7" defer></script>
+  <link rel="stylesheet" href="/recepty.css?v=2">
+  <script src="prispevok.js?v=8" defer></script>
   <script src="zahrada.js?v=3" defer></script>
   <script src="app.js?v=17" defer></script>
   <script src="studio-2026.js?v=1" defer></script>
@@ -84,6 +84,13 @@
       <div id="post-body" class="post-intro post-rich-text"></div>
       <section id="post-gallery" class="dynamic-gallery" aria-label="Galéria príspevku"></section>
       <section id="post-videos" class="post-videos" aria-label="Videá príspevku" hidden></section>
+      <section id="related-recipes" class="related-recipes" aria-labelledby="related-recipes-title" hidden>
+        <div class="related-recipes-heading">
+          <span class="kicker">MOŽNO TI CHUTIA AJ</span>
+          <h2 id="related-recipes-title">Podobné recepty</h2>
+        </div>
+        <div id="related-recipes-grid" class="related-recipes-grid"></div>
+      </section>
       <div class="project-contact-box">
         <div>
           <span class="kicker">MÁŠ OTÁZKU?</span>
