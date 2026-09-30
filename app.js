@@ -251,6 +251,51 @@
     }).catch(()=>{});
   }
 
+  function liveSection(){
+    const path=location.pathname.toLowerCase();
+    if(path==='/')return 'Úvodná stránka';
+    if(path.startsWith('/cs/'))return 'Česká verzia';
+    if(path.startsWith('/pl/'))return 'Poľská verzia';
+    if(path.startsWith('/blog'))return 'Blog';
+    if(path.startsWith('/dielna-s-napadom')||path.startsWith('/napady/'))return 'Dielňa a projekty';
+    if(path.startsWith('/radar'))return 'Záhradný radar';
+    if(path.startsWith('/bazar')||path.startsWith('/inzerat'))return 'Bazár';
+    if(path.startsWith('/pomocky')||path.startsWith('/kalkulacka')||path.startsWith('/prevodnik'))return 'Pomôcky';
+    if(path.startsWith('/temy/zahrada'))return 'Záhrada';
+    if(path.startsWith('/kalendar'))return 'Kalendár';
+    if(path.startsWith('/moja-zahrada'))return 'Moja záhrada';
+    return 'Ďalší obsah';
+  }
+
+  let livePresenceTimer=null;
+  function livePresenceRequest(functionName,payload){
+    const rpcUrl=ANALYTICS_URL.replace('/rest/v1/site_events','/rest/v1/rpc/');
+    fetch(rpcUrl+functionName,{
+      method:'POST',
+      headers:{apikey:ANALYTICS_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},
+      body:JSON.stringify(payload),
+      keepalive:true
+    }).catch(()=>{});
+  }
+  function sendLivePresence(){
+    if(document.visibilityState==='hidden')return;
+    try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
+    livePresenceRequest('zahrada_live_touch',{
+      p_visitor_id:visitorId().slice(0,80),
+      p_section:liveSection()
+    });
+  }
+  function startLivePresence(){
+    if(livePresenceTimer)return;
+    sendLivePresence();
+    livePresenceTimer=window.setInterval(sendLivePresence,25000);
+  }
+  function stopLivePresence(){
+    if(livePresenceTimer){clearInterval(livePresenceTimer);livePresenceTimer=null}
+    try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
+    livePresenceRequest('zahrada_live_leave',{p_visitor_id:visitorId().slice(0,80)});
+  }
+
   function setupArticleReading(post){
     const slug=String(post?.slug||currentArticleSlug||'').trim();
     if(!slug)return;
@@ -833,6 +878,10 @@
   bottomNav();
   maybeShowPromoBanner();
   trackEvent('page_view',{label:document.title});
+  startLivePresence();
+  window.addEventListener('pagehide',stopLivePresence);
+  window.addEventListener('pageshow',startLivePresence);
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')sendLivePresence()});
 
   document.addEventListener('click',event=>{
     const photo=event.target.closest?.('.idea-gallery-card img,.dynamic-gallery-item img');

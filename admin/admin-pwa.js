@@ -95,7 +95,7 @@
     });
     window.addEventListener('load',async()=>{
       try{
-        const reg=await navigator.serviceWorker.register('./admin-sw.js?v=13',{scope:'./',updateViaCache:'none'});
+        const reg=await navigator.serviceWorker.register('./admin-sw.js?v=14',{scope:'./',updateViaCache:'none'});
         reg.update().catch(()=>{});
       }catch(e){}
     });

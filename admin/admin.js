@@ -11,6 +11,8 @@ let siteSettings={};
 let currentPost=null;
 let mediaLoaded=false;
 let analyticsLoaded=false;
+let analyticsLiveTimer=null;
+let analyticsLiveLoading=false;
 let radarLoaded=false;
 let oporyLoaded=false;
 let commentsLoaded=false;
@@ -66,7 +68,10 @@ function activateView(name){
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name&&!b.dataset.scrollTarget));
   setSidebarOpen(false);
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
-  if(name==="analytics"&&!analyticsLoaded)loadAnalytics();
+  if(name==="analytics"){
+    if(!analyticsLoaded)loadAnalytics();
+    startAnalyticsLivePolling();
+  }else stopAnalyticsLivePolling();
   if(name==="radar"&&!radarLoaded)loadRadarAdmin();
   if(name==="opory-interest"&&!oporyLoaded)loadOporyAdmin();
   if(name==="comments"&&!commentsLoaded)loadComments();
@@ -575,6 +580,36 @@ function renderAnalytics(data){
   );
 }
 
+async function loadLiveVisitors(){
+  const list=$("#analytics-live-list");
+  const count=$("#analytics-live-count");
+  if(!list||analyticsLiveLoading)return;
+  analyticsLiveLoading=true;
+  try{
+    const {data,error}=await db.rpc("zahrada_live_list");
+    if(error)throw error;
+    const result=typeof data==="string"?JSON.parse(data):data;
+    const visitors=Array.isArray(result?.visitors)?result.visitors:[];
+    count.textContent=nfmt(result?.online_count||0);
+    list.innerHTML=visitors.length
+      ?visitors.map(v=>`<article class="analytics-live-item"><div><strong>${esc(v.label||"Návštevník")}</strong><small>${Number(v.seen_seconds)<=5?"práve teraz":"pred "+nfmt(v.seen_seconds)+" s"}</small></div><span class="analytics-live-section">${esc(v.section||"Ďalší obsah")}</span></article>`).join("")
+      :analyticsEmpty("Momentálne tu nie je nikto aktívny.");
+  }catch(error){
+    console.error(error);
+    count.textContent="—";
+    list.innerHTML=analyticsEmpty("Živú návštevnosť sa nepodarilo načítať.");
+  }finally{analyticsLiveLoading=false}
+}
+function startAnalyticsLivePolling(){
+  stopAnalyticsLivePolling();
+  loadLiveVisitors();
+  analyticsLiveTimer=window.setInterval(loadLiveVisitors,15000);
+}
+function stopAnalyticsLivePolling(){
+  if(analyticsLiveTimer){clearInterval(analyticsLiveTimer);analyticsLiveTimer=null}
+}
+$("#analytics-live-refresh")?.addEventListener("click",loadLiveVisitors);
+
 async function loadAnalytics(){
   const days=Number($("#analytics-days")?.value||30);
   setSave("Načítavam štatistiky…");
@@ -591,7 +626,7 @@ async function loadAnalytics(){
   setSave("Štatistiky načítané");
 }
 $("#analytics-days").addEventListener("change",()=>{analyticsLoaded=false;loadAnalytics()});
-$("#analytics-refresh").addEventListener("click",()=>{analyticsLoaded=false;loadAnalytics()});
+$("#analytics-refresh").addEventListener("click",()=>{analyticsLoaded=false;loadAnalytics();loadLiveVisitors()});
 
 async function loadComments(){
   const box=$("#comments-admin-list");
