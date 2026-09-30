@@ -313,9 +313,12 @@ blogSearchClear?.addEventListener("click",()=>{
   blogSearch?.focus();
 });
 
-document.querySelector("#cms-blog-list")?.addEventListener("click",event=>{
-  const link=event.target.closest('a[href^="/blog/"]');
-  if(!link||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+function rememberBlogReturnState(event){
+  if(event){
+    const link=event.target?.closest?.('a[href^="/blog/"]');
+    if(!link||!document.querySelector("#cms-blog-list")?.contains(link)||
+       event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  }
   try{
     sessionStorage.setItem(BLOG_RETURN_STATE_KEY,JSON.stringify({
       savedAt:Date.now(),
@@ -323,6 +326,9 @@ document.querySelector("#cms-blog-list")?.addEventListener("click",event=>{
       listUrl:window.location.href
     }));
   }catch(_){}
-});
+}
+
+document.addEventListener("click",rememberBlogReturnState,true);
+window.addEventListener("pagehide",()=>rememberBlogReturnState());
 
 loadBlog();
