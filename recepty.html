@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Recepty zo sezónnej úrody: vyber si suroviny zo záhrady a nájdi jednoduchý nápad na varenie.">
+  <meta name="theme-color" content="#5f965f">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://zahradasnapadom.sk/recepty.html">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <title>Recepty zo záhrady | Záhrada s nápadom</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Záhrada s nápadom">
+  <meta property="og:title" content="Zo záhrady na tanier | Záhrada s nápadom">
+  <meta property="og:description" content="Nápady, čo uvariť z úrody, ktorú máš doma.">
+  <meta property="og:url" content="https://zahradasnapadom.sk/recepty.html">
+  <meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Recepty zo záhrady","url":"https://zahradasnapadom.sk/recepty.html","inLanguage":"sk-SK"}</script>
+  <link rel="stylesheet" href="/zahrada.css?v=10">
+  <link rel="stylesheet" href="/studio-2026.css?v=1">
+  <link rel="stylesheet" href="/spring-2026.css?v=3">
+  <link rel="stylesheet" href="/growth-2026.css?v=2">
+  <link rel="stylesheet" href="/typography-2026.css?v=13">
+  <link rel="stylesheet" href="/app.css?v=8">
+  <link rel="stylesheet" href="/recepty.css?v=1">
+  <link rel="manifest" href="/zahrada.webmanifest?v=7">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/recepty.js?v=1" defer></script>
+  <script src="/app.js?v=18" defer></script>
+</head>
+<body class="blog-page">
+  <a class="skip" href="#obsah">Preskočiť na obsah</a>
+  <header class="site-header">
+    <div class="top container">
+      <a class="brand" href="/" aria-label="Záhrada s nápadom domov">
+        <img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hlavná navigácia">
+        <a href="/#projekty">Nápady</a>
+        <a href="/blog.html">Blog</a>
+        <a class="active-nav" href="/recepty.html">Recepty</a>
+        <a href="/pomocky.html">Pomôcky</a>
+        <a href="/#videa">Videá</a>
+        <a href="/#komunita">Komunita</a>
+        <a href="/bazar.html">Komunitný bazár</a>
+        <a href="/#kontakt">Kontakt</a>
+        <a class="nav-facebook" href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">f</span><span class="nav-facebook-text">Facebook</span></a>
+      </nav>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia">
+      <a href="/#projekty">Nápady</a>
+      <a href="/blog.html">Blog</a>
+      <a class="active-nav" href="/recepty.html">Recepty</a>
+      <a href="/pomocky.html">Pomôcky</a>
+      <a href="/#videa">Videá</a>
+      <a href="/#komunita">Komunita</a>
+      <a href="/bazar.html">Komunitný bazár</a>
+      <a href="/#kontakt">Kontakt</a>
+    </nav>
+  </header>
+  <main id="obsah">
+    <section class="recipe-hero container">
+      <span class="kicker">ZO ZÁHRADY NA TANIER</span>
+      <h1>Čo uvariť z toho, čo máš doma?</h1>
+      <p>Vyber alebo napíš surovinu z úrody. Nájdeš tu jednoduché nápady na jedlá, ktoré začínajú v záhrade.</p>
+      <label class="recipe-search" for="recipe-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="recipe-search" type="search" autocomplete="off" placeholder="Napríklad cuketa, paradajky, jablká…">
+        <button id="recipe-search-clear" type="button" aria-label="Vymazať vyhľadávanie" hidden>×</button>
+      </label>
+      <p id="recipe-summary" class="blog-filter-summary" aria-live="polite">Načítavam recepty…</p>
+    </section>
+    <section class="section container blog-list-section">
+      <div id="recipe-list" class="cms-post-grid" aria-live="polite"></div>
+      <div id="recipe-empty" class="recipe-empty" hidden>
+        <strong id="recipe-empty-title">Prvé recepty pripravujeme.</strong>
+        <span id="recipe-empty-text">Čoskoro tu nájdeš nápady, ako spracovať úrodu zo záhrady.</span>
+      </div>
+    </section>
+    <section class="container recipe-note">
+      <strong>Jednoducho a bez zbytočného hľadania.</strong>
+      <span>Každý recept bude mať suroviny, postup, čas prípravy a tipy na využitie úrody.</span>
+    </section>
+  </main>
+  <footer class="footer container">
+    <div class="footer-brand"><a class="brand small-brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt=""><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div>
+    <div class="footer-links"><a href="/#projekty">Nápady</a><a href="/blog.html">Blog</a><a href="/recepty.html">Recepty</a><a href="/#kontakt">Kontakt</a></div>
+    <small>© 2026 · Hobby projekt pre záhradu a dielňu</small>
+  </footer>
+</body>
+</html>
