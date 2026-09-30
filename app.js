@@ -14,6 +14,10 @@
   let searchPostsCache=null;
   let searchTimer=null;
   const VISITOR_KEY='zahrada-visitor-v1';
+  const VISITOR_EXP_KEY='zahrada-visitor-exp-v1';
+  const PRIVACY_CHOICE_KEY='zahrada-privacy-choice-v1';
+  const PRIVACY_CHOICE_MS=183*24*60*60*1000;
+  let privacyBanner=null;
   const ANALYTICS_SESSION_PREFIX='zahrada-analytics:';
   let currentArticleSlug='';
 
@@ -123,7 +127,7 @@
         .sort((a,b)=>b.score-a.score)
         .slice(0,14)
         .map(x=>x.post);
-      trackEvent('search_used',{label:q});
+      trackEvent('search_used',{label:'site_search'});
       if(!found.length){
         status.textContent='Nenašiel som žiadny článok pre „'+q+'“.';
         results.innerHTML='<div class="global-search-empty">Skús kratšie slovo alebo inú tému.</div>';
@@ -208,9 +212,11 @@
   function visitorId(){
     try{
       let id=localStorage.getItem(VISITOR_KEY);
-      if(!id){
+      const expires=Number(localStorage.getItem(VISITOR_EXP_KEY)||0);
+      if(!id||expires<=Date.now()){
         id=(crypto.randomUUID?.()||('v-'+Date.now()+'-'+Math.random().toString(36).slice(2)));
         localStorage.setItem(VISITOR_KEY,id);
+        localStorage.setItem(VISITOR_EXP_KEY,String(Date.now()+PRIVACY_CHOICE_MS));
       }
       return id;
     }catch(e){
@@ -228,13 +234,78 @@
     }catch(e){return true}
   }
 
+
+  function privacyChoice(){
+    try{
+      const saved=JSON.parse(localStorage.getItem(PRIVACY_CHOICE_KEY)||'null');
+      if(saved&&saved.expires>Date.now()&&(saved.choice==='accepted'||saved.choice==='declined'))return saved.choice;
+      if(saved)localStorage.removeItem(PRIVACY_CHOICE_KEY);
+    }catch(e){}
+    return null;
+  }
+  function setPrivacyChoice(choice){
+    if(choice==='accepted'){
+      try{localStorage.setItem(PRIVACY_CHOICE_KEY,JSON.stringify({choice,expires:Date.now()+PRIVACY_CHOICE_MS}))}catch(e){}
+      startLivePresence();
+    }else{
+      stopLivePresence();
+      try{
+        localStorage.setItem(PRIVACY_CHOICE_KEY,JSON.stringify({choice,expires:Date.now()+PRIVACY_CHOICE_MS}));
+        localStorage.removeItem(VISITOR_KEY);localStorage.removeItem(VISITOR_EXP_KEY);
+      }catch(e){}
+    }
+    if(privacyBanner)privacyBanner.remove();
+    privacyBanner=null;
+  }
+  function showPrivacyChoices(){
+    if(privacyBanner){privacyBanner.remove();privacyBanner=null}
+    const box=document.createElement('section');
+    box.className='privacy-choice-banner';
+    box.setAttribute('role','dialog');
+    box.setAttribute('aria-labelledby','privacy-choice-title');
+    const lang=location.pathname.startsWith('/pl/')?'pl':location.pathname.startsWith('/cs/')?'cs':'sk';
+    const href=lang==='pl'?'/pl/polityka-prywatnosci.html':lang==='cs'?'/cs/ochrana-soukromi.html':'/ochrana-sukromia.html';
+    const copy={
+      sk:['Vaše súkromie máte pod kontrolou','Nepovinné štatistiky návštevnosti nám pomáhajú zlepšovať web. Spustia sa iba po vašom súhlase. Voľbu môžete kedykoľvek zmeniť.','Zásady ochrany súkromia','Povoliť štatistiky','Pokračovať bez štatistík'],
+      cs:['Soukromí máte pod kontrolou','Nepovinné statistiky návštěvnosti nám pomáhají zlepšovat web. Spustí se pouze s vaším souhlasem. Volbu můžete kdykoli změnit.','Zásady ochrany soukromí','Povolit statistiky','Pokračovat bez statistik'],
+      pl:['Masz kontrolę nad swoją prywatnością','Opcjonalne statystyki pomagają nam ulepszać stronę. Uruchomimy je tylko za Twoją zgodą. Wybór możesz zmienić w dowolnym momencie.','Polityka prywatności','Zezwól na statystyki','Kontynuuj bez statystyk']
+    }[lang];
+    box.innerHTML='<div class="privacy-choice-copy"><strong id="privacy-choice-title">'+copy[0]+'</strong><p>'+copy[1]+'</p><a href="'+href+'">'+copy[2]+'</a></div><div class="privacy-choice-actions"><button type="button" data-privacy-accept>'+copy[3]+'</button><button type="button" data-privacy-decline>'+copy[4]+'</button></div>';
+    document.body.appendChild(box);
+    box.querySelector('[data-privacy-accept]').addEventListener('click',()=>setPrivacyChoice('accepted'));
+    box.querySelector('[data-privacy-decline]').addEventListener('click',()=>setPrivacyChoice('declined'));
+    privacyBanner=box;
+  }
+  function setupPrivacyControls(){
+    const isPl=location.pathname.startsWith('/pl/');
+    const isCs=location.pathname.startsWith('/cs/');
+    const href=isPl?'/pl/polityka-prywatnosci.html':isCs?'/cs/ochrana-soukromi.html':'/ochrana-sukromia.html';
+    const label=isPl?'Prywatność':isCs?'Soukromí':'Súkromie';
+    document.querySelectorAll('footer .footer-links,footer .ml-footer-links').forEach(links=>{
+      if(!links.querySelector('[data-privacy-link]')){
+        const policy=document.createElement('a');policy.href=href;policy.dataset.privacyLink='1';policy.textContent=label;links.appendChild(policy);
+      }
+      if(!links.querySelector('[data-privacy-settings]')){
+        const settings=document.createElement('a');settings.href='#privacy-settings';settings.dataset.privacySettings='1';settings.textContent=isPl?'Ustawienia prywatności':isCs?'Nastavení soukromí':'Nastavenia súkromia';settings.addEventListener('click',event=>{event.preventDefault();showPrivacyChoices()});links.appendChild(settings);
+      }
+    });
+  }
+  function addPrivacyStyles(){
+    if(document.querySelector('#privacy-choice-styles'))return;
+    const style=document.createElement('style');style.id='privacy-choice-styles';
+    style.textContent='.privacy-choice-banner{position:fixed;z-index:99999;left:16px;right:16px;bottom:16px;max-width:980px;margin:auto;padding:18px 20px;display:flex;gap:20px;align-items:center;justify-content:space-between;background:#fff;border:1px solid #d9e3d7;border-radius:16px;box-shadow:0 12px 45px #17351f30;color:#243126;font:inherit}.privacy-choice-copy{max-width:620px}.privacy-choice-copy strong{font-size:1.04rem}.privacy-choice-copy p{margin:6px 0;font-size:.92rem;line-height:1.45}.privacy-choice-copy a{font-size:.85rem;color:#416b42}.privacy-choice-actions{display:flex;flex-wrap:wrap;gap:8px}.privacy-choice-actions button{border:1px solid #416b42;border-radius:999px;padding:10px 14px;background:#fff;color:#29432c;font:inherit;cursor:pointer}.privacy-choice-actions [data-privacy-accept]{background:#416b42;color:#fff}@media(max-width:680px){.privacy-choice-banner{left:10px;right:10px;bottom:10px;display:block;padding:16px}.privacy-choice-actions{margin-top:12px}.privacy-choice-actions button{flex:1}}';
+    document.head.appendChild(style);
+  }
+
+
   function trackEvent(eventType,{label='',articleSlug='',onceKey=''}={}){
+    if(privacyChoice()!=='accepted')return;
     try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
     if(onceKey&&!analyticsOnce(onceKey))return;
     const payload={
-      path:(location.pathname+location.search).slice(0,500),
+      path:location.pathname.slice(0,300),
       article_slug:(articleSlug||currentArticleSlug||'').slice(0,160)||null,
-      referrer:(document.referrer||'').slice(0,1000)||null,
+      referrer:(()=>{try{return document.referrer?new URL(document.referrer).origin:null}catch(e){return null}})(),
       visitor_id:visitorId().slice(0,80),
       event_type:eventType,
       event_label:String(label||'').slice(0,500)||null
@@ -278,7 +349,7 @@
     }).catch(()=>{});
   }
   function sendLivePresence(){
-    if(document.visibilityState==='hidden')return;
+    if(document.visibilityState==='hidden'||privacyChoice()!=='accepted')return;
     try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
     livePresenceRequest('zahrada_live_touch',{
       p_visitor_id:visitorId().slice(0,80),
@@ -286,12 +357,13 @@
     });
   }
   function startLivePresence(){
-    if(livePresenceTimer)return;
+    if(privacyChoice()!=='accepted'||livePresenceTimer)return;
     sendLivePresence();
     livePresenceTimer=window.setInterval(sendLivePresence,25000);
   }
   function stopLivePresence(){
     if(livePresenceTimer){clearInterval(livePresenceTimer);livePresenceTimer=null}
+    if(privacyChoice()!=='accepted')return;
     try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
     livePresenceRequest('zahrada_live_leave',{p_visitor_id:visitorId().slice(0,80)});
   }
@@ -877,6 +949,20 @@
   document.documentElement.classList.toggle('pwa-standalone',isStandalone());
   bottomNav();
   maybeShowPromoBanner();
+  document.addEventListener('click',event=>{
+    const button=event.target.closest('[data-load-facebook]');
+    if(!button)return;
+    const frame=document.createElement('iframe');
+    frame.className='facebook-page-iframe';
+    frame.title='Facebook stránka Záhrada s nápadom';
+    frame.width='500';frame.height='280';frame.loading='lazy';
+    frame.referrerPolicy='strict-origin-when-cross-origin';
+    frame.src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fzahradasnapadom&width=500&height=280&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true';
+    button.closest('.facebook-window-live').replaceChildren(frame);
+  });
+  addPrivacyStyles();
+  setupPrivacyControls();
+  if(!privacyChoice())showPrivacyChoices();
   trackEvent('page_view',{label:document.title});
   startLivePresence();
   window.addEventListener('pagehide',stopLivePresence);
