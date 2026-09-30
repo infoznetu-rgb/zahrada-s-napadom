@@ -209,6 +209,34 @@
     top.insertBefore(button,menu||null);
   }
 
+  function addBackToTopButton(){
+    if(document.querySelector('#back-to-top'))return;
+    if(!document.querySelector('#back-to-top-styles')){
+      const style=document.createElement('style');
+      style.id='back-to-top-styles';
+      style.textContent='.back-to-top{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(24px,calc(16px + env(safe-area-inset-bottom)));z-index:1050;width:52px;height:52px;border:1px solid rgba(255,255,255,.76);border-radius:50%;background:#315b3e;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(24,52,35,.25);font:900 1.65rem/1 system-ui,sans-serif;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease}.back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}.back-to-top:hover{background:#234c30;transform:translateY(-2px)}.back-to-top:focus-visible{outline:3px solid #f0ce62;outline-offset:3px}@media(max-width:620px){.back-to-top{bottom:max(92px,calc(18px + env(safe-area-inset-bottom)))}}@media(display-mode:standalone){.back-to-top{bottom:calc(84px + env(safe-area-inset-bottom))}}@media(prefers-reduced-motion:reduce){.back-to-top{transition:none}}';
+      document.head.appendChild(style);
+    }
+    const lang=(document.documentElement.lang||'sk').toLowerCase().slice(0,2);
+    const labels={sk:'Späť hore',cs:'Zpět nahoru',pl:'Wróć na górę'};
+    const button=document.createElement('button');
+    button.type='button';
+    button.id='back-to-top';
+    button.className='back-to-top';
+    button.textContent='↑';
+    button.setAttribute('aria-label',labels[lang]||labels.sk);
+    button.title=labels[lang]||labels.sk;
+    button.addEventListener('click',()=>window.scrollTo({
+      top:0,
+      behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'
+    }));
+    const updateVisibility=()=>button.classList.toggle('is-visible',window.scrollY>360);
+    window.addEventListener('scroll',updateVisibility,{passive:true});
+    window.addEventListener('pageshow',updateVisibility);
+    updateVisibility();
+    document.body.appendChild(button);
+  }
+
   function visitorId(){
     try{
       let id=localStorage.getItem(VISITOR_KEY);
@@ -887,6 +915,7 @@
   enhanceCards();
   wireAnalyticsMedia();
   addGlobalSearchButton();
+  addBackToTopButton();
   addContestMenuLink();
 
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;updatePromoBanner()});
