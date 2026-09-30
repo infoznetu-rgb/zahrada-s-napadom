@@ -19,6 +19,21 @@ const blogState={
   query:""
 };
 
+const BLOG_RETURN_STATE_KEY="zahrada_blog_return_state_v1";
+const BLOG_RETURN_STATE=(()=> {
+  try {
+    const saved=JSON.parse(sessionStorage.getItem(BLOG_RETURN_STATE_KEY)||"null");
+    if(!saved||Date.now()-saved.savedAt>2*60*60*1000)return null;
+    const savedUrl=new URL(saved.listUrl,window.location.origin);
+    if(savedUrl.pathname!==window.location.pathname)return null;
+    const currentUrl=new URL(window.location.href);
+    if(!currentUrl.searchParams.has("q")&&!currentUrl.searchParams.has("kategoria")){
+      history.replaceState(null,"",savedUrl.pathname+savedUrl.search+savedUrl.hash);
+    }
+    return saved;
+  }catch(_){return null;}
+})();
+
 function blogEsc(value){
   return String(value??"").replace(/[&<>"']/g,c=>({
     "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"
@@ -261,6 +276,13 @@ async function loadBlog(){
   if(search)search.value=blogState.query;
   if(clear)clear.hidden=!blogState.query;
   setCategory(requested||"Všetko",{updateUrl:false});
+
+  if(BLOG_RETURN_STATE){
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      window.scrollTo(0,Math.max(0,Number(BLOG_RETURN_STATE.scrollY)||0));
+      try{sessionStorage.removeItem(BLOG_RETURN_STATE_KEY);}catch(_){}
+    }));
+  }
 }
 
 const blogSearch=document.querySelector("#blog-search");
@@ -289,6 +311,18 @@ blogSearchClear?.addEventListener("click",()=>{
   if(blogSearch)blogSearch.value="";
   setBlogQuery("");
   blogSearch?.focus();
+});
+
+document.querySelector("#cms-blog-list")?.addEventListener("click",event=>{
+  const link=event.target.closest('a[href^="/blog/"]');
+  if(!link||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  try{
+    sessionStorage.setItem(BLOG_RETURN_STATE_KEY,JSON.stringify({
+      savedAt:Date.now(),
+      scrollY:window.scrollY,
+      listUrl:window.location.href
+    }));
+  }catch(_){}
 });
 
 loadBlog();
