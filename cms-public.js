@@ -11,6 +11,14 @@ function cmsCoverUrl(value){
 
 function cmsHref(p){return window.ZahradaSEO?.postHref?.(p)||("prispevok.html?slug="+encodeURIComponent(p.slug))}
 
+function cmsContentNorm(value){return String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim()}
+function cmsIsRecipePost(post){
+  const category=cmsContentNorm(post.category);
+  const type=cmsContentNorm(post.content_type);
+  const tags=Array.isArray(post.tags)?post.tags.map(cmsContentNorm):[];
+  return type==="recipe"||category==="recepty zo zahrady"||tags.includes("recept zo zahrady")||tags.includes("recipe");
+}
+
 function cmsEsc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 
 async function loadSiteSettings(){
@@ -128,13 +136,16 @@ async function loadPublishedPosts(){
   const {data,error}=await cms.from("zahrada_posts")
     .select("slug,title,excerpt,category,cover_url,published_at,content_type,tags")
     .eq("status","published")
+    .neq("category","Recepty zo záhrady")
+    .neq("category","Recepty zo zahrady")
+    .neq("content_type","recipe")
     .order("published_at",{ascending:false})
     .limit(60);
 
   if(error||!data||!data.length)return;
 
-  const projects=data.filter(p=>p.content_type!=="blog");
-  const blogs=data.filter(p=>p.content_type==="blog");
+  const projects=data.filter(p=>p.content_type!=="blog"&&!cmsIsRecipePost(p));
+  const blogs=data.filter(p=>p.content_type==="blog"&&!cmsIsRecipePost(p));
 
   const renderCard=(p)=>`<article class="cms-post-card ${p.content_type==="blog"?"is-blog":"is-project"}" data-post-slug="${cmsEsc(p.slug)}" data-post-type="${p.content_type==="blog"?"blog":"project"}">
     <a class="cms-post-image" href="${cmsEsc(cmsHref(p))}">
