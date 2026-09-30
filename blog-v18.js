@@ -96,6 +96,10 @@ function blogNormalize(value){
     .toLowerCase().trim();
 }
 
+function isRecipePost(post){
+  return blogNormalize(post?.category)==="recepty zo zahrady";
+}
+
 function blogMatchesQuery(post,query){
   const q=blogNormalize(query);
   if(!q)return true;
@@ -121,7 +125,7 @@ function staticBlogPosts(){
       published_at:card.dataset.publishedAt||"2000-01-01",
       tags:[],content:"",staticOrder:index
     };
-  }).filter(Boolean);
+  }).filter(post=>post&&!isRecipePost(post));
 }
 
 function renderBlogCard(p){
@@ -241,6 +245,7 @@ async function loadBlog(){
     .select("slug,title,excerpt,category,cover_url,published_at,tags,content")
     .eq("status","published")
     .eq("content_type","blog")
+    .neq("category","Recepty zo záhrady")
     .order("published_at",{ascending:false})
     .limit(300);
 
@@ -250,14 +255,14 @@ async function loadBlog(){
     if(response.ok)localPosts=await response.json();
   }catch(_){}
 
-  const remotePosts=(!error&&Array.isArray(data))?data:[];
+  const remotePosts=(!error&&Array.isArray(data))?data.filter(post=>!isRecipePost(post)):[];
   const staticPosts=staticBlogPosts();
   const staticOrder=new Map(staticPosts.map((post,index)=>[post.slug,index]));
   const merged=new Map();
   [...remotePosts,...staticPosts,...(Array.isArray(localPosts)?localPosts:[])].forEach(post=>{
     if(post?.slug&&!merged.has(post.slug))merged.set(post.slug,post);
   });
-  blogState.posts=[...merged.values()].sort((a,b)=>{
+  blogState.posts=[...merged.values()].filter(post=>!isRecipePost(post)).sort((a,b)=>{
     const aOrder=staticOrder.get(a.slug);
     const bOrder=staticOrder.get(b.slug);
     if(aOrder!==undefined||bOrder!==undefined){
