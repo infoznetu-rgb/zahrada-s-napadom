@@ -46,6 +46,7 @@ function blogCoverUrl(value,post){
     return "/assets/hero-ziva-zahrada.png";
   if(/jahod|malin|ribez|egres|cucoried|jablon|hrusk|slivk|ceres|ovoc/.test(topic))
     return "/assets/blog/32-zber-ovocia.webp";
+  if(slug==="hnojenie-travnika-pocas-roka")return "/assets/blog/hnojenie-travnika-pocas-roka.webp";
   if(/travnik|kosen|vertikut|mach-v-travniku/.test(topic))
     return "/assets/blog/jesenna-starostlivost-o-travnik.webp";
   if(/dazd|zavlah|hadic|voda/.test(topic))
