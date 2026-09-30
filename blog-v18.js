@@ -198,14 +198,11 @@ function renderFilters(){
 
   filters.innerHTML=allButton+categoryButtons;
 
-  if(!filters.dataset.blogFiltersBound){
-    filters.dataset.blogFiltersBound="true";
-    filters.addEventListener("click",event=>{
-      const button=event.target.closest("[data-blog-filter]");
-      if(!button)return;
-      setCategory(button.dataset.blogFilter);
-    });
-  }
+  filters.addEventListener("click",event=>{
+    const button=event.target.closest("[data-blog-filter]");
+    if(!button)return;
+    setCategory(button.dataset.blogFilter);
+  });
 }
 
 function renderVisiblePosts(){
@@ -239,43 +236,22 @@ function renderVisiblePosts(){
 async function loadBlog(){
   const empty=document.querySelector("#blog-empty");
   const summary=document.querySelector("#blog-filter-summary");
-  const params=new URLSearchParams(window.location.search);
-  const requested=params.get("kategoria");
-  blogState.query=(params.get("q")||"").trim();
-  const search=document.querySelector("#blog-search");
-  const clear=document.querySelector("#blog-search-clear");
-  if(search)search.value=blogState.query;
-  if(clear)clear.hidden=!blogState.query;
 
-  const staticPosts=staticBlogPosts();
-  blogState.posts=staticPosts;
-  renderFilters();
-  setCategory(requested||"Všetko",{updateUrl:false});
+  const {data,error}=await blogDb.from("zahrada_posts")
+    .select("slug,title,excerpt,category,cover_url,published_at,tags,content")
+    .eq("status","published")
+    .eq("content_type","blog")
+    .order("published_at",{ascending:false})
+    .limit(300);
 
-  const localPostsPromise=(async()=>{
-    try{
-      const response=await fetch("/data/seo-blog-100-list.json",{cache:"no-cache"});
-      return response.ok?await response.json():[];
-    }catch(_){return [];}
-  })();
-
-  let result;
+  let localPosts=[];
   try{
-    result=await Promise.race([
-      blogDb.from("zahrada_posts")
-        .select("slug,title,excerpt,category,cover_url,published_at,tags")
-        .eq("status","published")
-        .eq("content_type","blog")
-        .order("published_at",{ascending:false})
-        .limit(300),
-      new Promise(resolve=>setTimeout(()=>resolve({data:null,error:new Error("timeout")}),8000))
-    ]);
-  }catch(error){
-    result={data:null,error};
-  }
+    const response=await fetch("/data/seo-blog-100-list.json",{cache:"no-cache"});
+    if(response.ok)localPosts=await response.json();
+  }catch(_){}
 
-  const localPosts=await localPostsPromise;
-  const remotePosts=(!result.error&&Array.isArray(result.data))?result.data:[];
+  const remotePosts=(!error&&Array.isArray(data))?data:[];
+  const staticPosts=staticBlogPosts();
   const merged=new Map();
   [...remotePosts,...staticPosts,...(Array.isArray(localPosts)?localPosts:[])].forEach(post=>{
     if(post?.slug&&!merged.has(post.slug))merged.set(post.slug,post);
@@ -291,6 +267,14 @@ async function loadBlog(){
   }
 
   renderFilters();
+
+  const params=new URLSearchParams(window.location.search);
+  const requested=params.get("kategoria");
+  blogState.query=(params.get("q")||"").trim();
+  const search=document.querySelector("#blog-search");
+  const clear=document.querySelector("#blog-search-clear");
+  if(search)search.value=blogState.query;
+  if(clear)clear.hidden=!blogState.query;
   setCategory(requested||"Všetko",{updateUrl:false});
 
   if(BLOG_RETURN_STATE){
