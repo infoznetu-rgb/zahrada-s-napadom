@@ -252,13 +252,21 @@ async function loadBlog(){
 
   const remotePosts=(!error&&Array.isArray(data))?data:[];
   const staticPosts=staticBlogPosts();
+  const staticOrder=new Map(staticPosts.map((post,index)=>[post.slug,index]));
   const merged=new Map();
   [...remotePosts,...staticPosts,...(Array.isArray(localPosts)?localPosts:[])].forEach(post=>{
     if(post?.slug&&!merged.has(post.slug))merged.set(post.slug,post);
   });
-  blogState.posts=[...merged.values()].sort((a,b)=>
-    String(b.published_at||"").localeCompare(String(a.published_at||""))
-  );
+  blogState.posts=[...merged.values()].sort((a,b)=>{
+    const aOrder=staticOrder.get(a.slug);
+    const bOrder=staticOrder.get(b.slug);
+    if(aOrder!==undefined||bOrder!==undefined){
+      if(aOrder===undefined)return 1;
+      if(bOrder===undefined)return -1;
+      return aOrder-bOrder;
+    }
+    return String(b.published_at||"").localeCompare(String(a.published_at||""));
+  });
 
   if(!blogState.posts.length){
     if(empty)empty.hidden=false;
