@@ -12,4 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keydown', function (event) { if (event.key === 'Escape') close(); });
     document.addEventListener('click', function (event) { if (!header.contains(event.target)) close(); });
   });
+  document.querySelectorAll('.ml-footer .ml-wrap span').forEach(function (footer) {
+    var isPolish = location.pathname.indexOf('/pl/') === 0;
+    var link = document.createElement('a');
+    link.href = isPolish ? '/pl/polityka-prywatnosci.html' : '/cs/ochrana-soukromi.html';
+    link.textContent = isPolish ? 'Prywatność' : 'Soukromí';
+    footer.append(document.createTextNode(' · '), link);
+  });
 });
