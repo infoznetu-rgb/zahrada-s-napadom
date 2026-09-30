@@ -60,19 +60,19 @@ function detailRecipeNorm(value){return String(value||"").normalize("NFD").repla
 function detailRecipeCategory(post){
   const tags=(Array.isArray(post.tags)?post.tags:[]).map(detailRecipeNorm);
   const title=detailRecipeNorm(post.title);
-  const has=(...values)=>values.some(value=>tags.includes(value));
-  if(has("breakfast")||title.includes("ranajk"))return "Raňajky";
-  if(has("soup")||title.includes("polievk"))return "Polievky";
-  if(has("salad")||title.includes("salat"))return "Šaláty";
-  if(has("pickle","chutney")||title.includes("catni")||title.includes("naleve"))return "Zaváranie a čatní";
-  if(has("fritter","quiche")||title.includes("plack")||title.includes("slany kolac"))return "Placky a slané koláče";
-  if(has("cake","muffin","fruit")||title.includes("kolac")||title.includes("muffin")||title.includes("dezert")||title.includes("crumble"))return "Koláče a dezerty";
-  if(has("pesto","sauce")||title.includes("pesto")||title.includes("natierk")||title.includes("omack"))return "Omáčky, pesta a nátierky";
-  if(has("roast","priloha")||title.includes("pecena zelenina")||title.includes("dusen"))return "Prílohy";
+  const has=(...values)=>values.some(value=>tags.includes(detailRecipeNorm(value)));
+  if(has("breakfast","raňajky")||title.includes("ranajk"))return "Raňajky";
+  if(has("soup","polievka","polievky")||title.includes("polievk"))return "Polievky";
+  if(has("salad","šalát","šaláty")||title.includes("salat"))return "Šaláty";
+  if(has("pickle","chutney","zaváranie","čatní")||title.includes("catni")||title.includes("naleve"))return "Zaváranie a čatní";
+  if(has("fritter","quiche","placky","slaný koláč")||title.includes("plack")||title.includes("slany kolac"))return "Placky a slané koláče";
+  if(has("cake","muffin","fruit","dezert","dezerty","koláč")||title.includes("kolac")||title.includes("muffin")||title.includes("dezert")||title.includes("crumble")||title.includes("panna cotta")||title.includes("fool"))return "Koláče a dezerty";
+  if(has("pesto","sauce","omáčka","nátierka")||title.includes("pesto")||title.includes("natierk")||title.includes("omack"))return "Omáčky, pesta a nátierky";
+  if(has("roast","príloha","prílohy")||title.includes("pecena zelenina")||title.includes("dusen"))return "Prílohy";
   return "Hlavné jedlá";
 }
 const recipeIngredientStopWords=new Set("a aj alebo ako bez do dva dve jeden jedna jednu je jemne jemná jemné k kusy kusov l lyžica lyžice lyžička lyžičky malé malý na nadol niekoľko nový nové o od olivový olej oleja korenie podľa pohár pol polievková prášok pre s so soľ soľou strúčik strúčiky teplá teplej toho trochu veľká veľké veľký vody voda vňať z za čerstvá čerstvé čerstvý čierne mleté mletá mletý podľa chuti".split(" "));
-const recipeGenericTags=new Set(["recept zo záhrady","breakfast","soup","salad","pickle","chutney","fritter","quiche","cake","muffin","fruit","pesto","sauce","roast","priloha"]);
+const recipeGenericTags=new Set(["recept zo záhrady","breakfast","soup","salad","pickle","chutney","fritter","quiche","cake","muffin","fruit","pesto","sauce","roast","priloha","raňajky","polievka","polievky","šalát","šaláty","zaváranie","čatní","placky","slaný koláč","dezert","dezerty","koláč","omáčka","nátierka","príloha","prílohy","hlavné jedlo"]);
 function recipeIngredientTokens(post){
   const ingredients=parseRecipeText(post.content).ingredients;
   const tokens=new Set();
