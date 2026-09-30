@@ -9,7 +9,7 @@ let recipes=[];
 
 function recipeEsc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 function recipeNorm(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim()}
-function recipeHref(slug){return "/blog/"+encodeURIComponent(String(slug||"").trim())+"/"}
+function recipeHref(slug){return "/prispevok.html?slug="+encodeURIComponent(String(slug||"").trim())}
 function recipeCard(post){
   const tags=Array.isArray(post.tags)?post.tags:[];
   const hay=recipeEsc(tags.slice(0,4).join(" · "));
