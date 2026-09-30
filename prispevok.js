@@ -67,6 +67,20 @@ async function loadPost(){
   const isBlog=data.content_type==="blog";
   document.body.classList.toggle("blog-article",isBlog);
   document.title=data.title+" | Záhrada s nápadom";
+  const description=data.excerpt||String(data.content||"").split(/\r?\n/)[0]||"Praktický recept zo záhrady.";
+  const descriptionMeta=document.querySelector('meta[name="description"]');
+  if(descriptionMeta)descriptionMeta.content=description;
+  const robotsMeta=document.querySelector('meta[name="robots"]');
+  if(robotsMeta)robotsMeta.content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
+  const canonicalUrl=location.origin+location.pathname+"?slug="+encodeURIComponent(data.slug);
+  let canonical=document.querySelector('link[rel="canonical"]');
+  if(!canonical){canonical=document.createElement("link");canonical.rel="canonical";document.head.appendChild(canonical)}
+  canonical.href=canonicalUrl;
+  [["og:type","article"],["og:title",data.title],["og:description",description],["og:url",canonicalUrl],["og:image",data.cover_url||""]].forEach(([property,content])=>{
+    let meta=document.querySelector('meta[property="'+property+'"]');
+    if(!meta){meta=document.createElement("meta");meta.setAttribute("property",property);document.head.appendChild(meta)}
+    meta.content=content;
+  });
   document.querySelector("#post-category").textContent=(isBlog?"BLOG · ":"")+(data.category||"Nápad");
   document.querySelectorAll(".back-link").forEach(link=>{
     const isRecipe=isBlog&&data.category==="Recepty zo záhrady";
