@@ -28,9 +28,23 @@ function renderRecipes(){
 recipeSearch?.addEventListener("input",()=>{if(recipeClear)recipeClear.hidden=!recipeSearch.value;renderRecipes()});
 recipeClear?.addEventListener("click",()=>{recipeSearch.value="";recipeClear.hidden=true;renderRecipes();recipeSearch.focus()});
 async function loadRecipes(){
-  const {data,error}=await recipeDb.from("zahrada_posts").select("slug,title,excerpt,content,category,cover_url,published_at,tags").eq("status","published").eq("content_type","blog").eq("category","Recepty zo záhrady").order("published_at",{ascending:false}).limit(100);
-  if(error){if(recipeEmpty)recipeEmpty.hidden=false;const title=document.querySelector("#recipe-empty-title"),copy=document.querySelector("#recipe-empty-text");if(title)title.textContent="Recepty sa nepodarilo načítať.";if(copy)copy.textContent="Skús stránku obnoviť o chvíľu.";return}
-  recipes=Array.isArray(data)?data:[];
+  const pageSize=100;
+  const allRecipes=[];
+  for(let from=0;;from+=pageSize){
+    const {data,error}=await recipeDb.from("zahrada_posts")
+      .select("slug,title,excerpt,content,category,cover_url,published_at,tags")
+      .eq("status","published")
+      .eq("content_type","blog")
+      .eq("category","Recepty zo záhrady")
+      .order("published_at",{ascending:false})
+      .order("slug",{ascending:true})
+      .range(from,from+pageSize-1);
+    if(error){if(recipeEmpty)recipeEmpty.hidden=false;const title=document.querySelector("#recipe-empty-title"),copy=document.querySelector("#recipe-empty-text");if(title)title.textContent="Recepty sa nepodarilo načítať.";if(copy)copy.textContent="Skús stránku obnoviť o chvíľu.";return}
+    const batch=Array.isArray(data)?data:[];
+    allRecipes.push(...batch);
+    if(batch.length<pageSize)break;
+  }
+  recipes=allRecipes;
   renderRecipes();
 }
 loadRecipes();
