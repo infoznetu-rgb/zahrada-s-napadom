@@ -27,36 +27,42 @@ function blogEsc(value){
 function blogHref(p){const s=String(p?.slug||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");return "/blog/"+s+"/"}
 
 function blogCoverUrl(value,post){
-  const url=String(value||"");
+  const url=String(value||"").trim();
   if(/^https?:\/\//i.test(url))return url;
-  if(!/\/assets\/blog\/seo100\/.*\.svg$/i.test(url))return url;
+  if(url&&!/\/assets\/blog\/seo100\/.*\.svg$/i.test(url))return url;
 
   const slug=String(post?.slug||"").toLowerCase();
   const category=String(post?.category||"");
+  const tags=Array.isArray(post?.tags)?post.tags.join(" "):String(post?.tags||"");
+  const topic=[slug,post?.title||"",post?.excerpt||"",tags]
+    .join(" ").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 
-  if(/paradaj|paprika|uhork|cuketa|mrkva|redkov|salat|spenat|zemiak|fazul|hrach|cibul/.test(slug))
+  if(/ph-pod|kysla-pod|test-pod|poda-ph/.test(topic))
+    return "/assets/blog/seo-specific/ph-pody.jpg";
+  if(/paradaj|paprika|uhork|cuketa|mrkva|redkov|salat|spenat|zemiak|fazul|hrach|cibul/.test(topic))
     return "/assets/blog/03-vyvyseny-zahon.webp";
-  if(/hortenz|pivon|levand|ruze|rododendron|host|tulipan|narcis|georgin|muskat/.test(slug))
+  if(/hortenz|pivon|levand|ruze|rododendron|host|tulipan|narcis|georgin|muskat/.test(topic))
     return "/assets/hero-ziva-zahrada.png";
-  if(/jahod|malin|ribez|egres|cucoried|jablon|hrusk|slivk|ceres|ovoc/.test(slug))
+  if(/jahod|malin|ribez|egres|cucoried|jablon|hrusk|slivk|ceres|ovoc/.test(topic))
     return "/assets/blog/32-zber-ovocia.webp";
-  if(/travnik|kosen|vertikut|mach-v-travniku/.test(slug))
+  if(/travnik|kosen|vertikut|mach-v-travniku/.test(topic))
     return "/assets/blog/jesenna-starostlivost-o-travnik.webp";
-  if(/dazd|zavlah|hadic|voda/.test(slug))
+  if(/dazd|zavlah|hadic|voda/.test(topic))
     return "/assets/blog/02-dazdova-voda.webp";
-  if(/kompost/.test(slug))return "/assets/blog/04-kompost.webp";
-  if(/vyvysen/.test(slug))return "/assets/blog/03-vyvyseny-zahon.webp";
-  if(/drevo|plot|lavick|pergol|teras/.test(slug))return "/assets/blog/27-ochrana-dreva.webp";
-  if(/brus|kov|zvar|hrdza/.test(slug))return "/assets/blog/28-kut-na-brusenie.webp";
+  if(/kompost/.test(topic))return "/assets/blog/04-kompost.webp";
+  if(/vyvysen|zahon/.test(topic))return "/assets/blog/03-vyvyseny-zahon.webp";
+  if(/drevo|plot|lavick|pergol|teras/.test(topic))return "/assets/blog/27-ochrana-dreva.webp";
+  if(/brus|kov|zvar|hrdza|naradie/.test(topic))return "/assets/blog/28-kut-na-brusenie.webp";
 
   if(category==="Trávnik")return "/assets/blog/jesenna-starostlivost-o-travnik.webp";
-  if(category==="Ovocie")return "/assets/blog/32-zber-ovocia.webp";
-  if(category==="Zelenina")return "/assets/blog/03-vyvyseny-zahon.webp";
-  if(category==="Okrasná záhrada")return "/assets/hero-ziva-zahrada.png";
+  if(category==="Ovocie"||category==="Ovocná záhrada")return "/assets/blog/32-zber-ovocia.webp";
+  if(category==="Zelenina"||category==="Zeleninová záhrada")return "/assets/blog/03-vyvyseny-zahon.webp";
+  if(category==="Okrasná záhrada"||category==="Hortenzie a pivónie")return "/assets/hero-ziva-zahrada.png";
   if(category==="Dom a záhrada")return "/assets/blog/35-sedenie-zahrada.webp";
   if(category==="Dielňa · Kov")return "/assets/blog/28-kut-na-brusenie.webp";
   if(category==="Dielňa · Drevo")return "/assets/blog/27-ochrana-dreva.webp";
   if(category==="Dielňa"||category==="Domáci majster")return "/assets/blog/20-pracovny-stol.webp";
+  if(category==="Voda a závlaha")return "/assets/blog/02-dazdova-voda.webp";
   return "/assets/blog/30-male-vylepsenia.webp";
 }
 
@@ -102,10 +108,11 @@ function staticBlogPosts(){
 }
 
 function renderBlogCard(p){
+  const resolvedCover=blogCoverUrl(p.cover_url,p);
   return `<article class="cms-post-card is-blog" data-blog-category="${blogEsc(p.category||"Tip")}" data-post-slug="${blogEsc(p.slug)}" data-post-type="blog">
     <a class="cms-post-image" href="${blogEsc(blogHref(p))}">
-      ${p.cover_url
-        ? `<img src="${blogEsc(blogCoverUrl(p.cover_url,p))}" alt="${blogEsc(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/blog/fallback-cover.svg'">`
+      ${resolvedCover
+        ? `<img src="${blogEsc(resolvedCover)}" alt="${blogEsc(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/blog/fallback-cover.svg'">`
         : `<div class="cms-post-placeholder">BLOG · ${blogEsc(p.category||"Tip")}</div>`}
     </a>
     <div class="cms-post-body">
