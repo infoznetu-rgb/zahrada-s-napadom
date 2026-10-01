@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="product-2026.css?v=1">
   <link rel="stylesheet" href="radar-app.css?v=2">
   <link rel="stylesheet" href="radar-today.css?v=1">
+  <style>@media(max-width:1050px){.app-dashboard-header .brand{margin-right:auto}}</style>
   <script src="seo.js?v=11" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=19" defer></script>
@@ -30,16 +31,47 @@
 
 </head>
 <body class="app-dashboard-page">
+  <header class="site-header app-dashboard-header">
+    <div class="top container">
+      <a class="brand" href="/moja-zahrada.html" aria-label="Záhrada s nápadom – domov aplikácie">
+        <img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true">
+        <span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hlavná navigácia">
+        <a href="/blog.html">Blog</a>
+        <a href="/recepty.html">Recepty zo záhrady</a>
+        <a href="/radar.html">Záhradný radar</a>
+        <a href="/dielna-s-napadom/">Dielňa s nápadom</a>
+        <a href="/pomocky.html">Pomôcky</a>
+        <a href="/bazar.html">Bazár</a>
+      </nav>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvoriť menu">
+        <span>Menu</span><span aria-hidden="true">☰</span>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav container" aria-label="Menu stránky">
+      <a href="/moja-zahrada.html">Domov aplikácie</a>
+      <a href="/blog.html">Blog a návody</a>
+      <a href="/recepty.html">Recepty zo záhrady</a>
+      <a href="/radar.html">Záhradný radar</a>
+      <a href="/dielna-s-napadom/">Dielňa s nápadom</a>
+      <a href="/pomocky.html">Pomôcky a kalkulačky</a>
+      <a href="/kalendar.html">Záhradný kalendár</a>
+      <a href="/bazar.html">Bazár</a>
+      <a href="/temy/zahrada.html">Témy záhrady</a>
+      <a href="/sutaz.html">Súťaž</a>
+      <a href="/index.html#videa">Videá</a>
+      <a href="/index.html#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
   <main class="app-dashboard">
     <div class="app-system-bar" aria-live="polite">
       <span id="app-connection-state"><i></i> Online</span>
       <span id="app-update-state">Aplikácia je aktuálna</span>
     </div>
     <section class="app-dashboard-hero">
-      <div class="app-dashboard-brand">
-        <img src="app-icon.svg?v=4" alt="">
-        <div><span>APLIKÁCIA</span><strong>Záhrada s nápadom</strong></div>
-      </div>
+        </div>
       <div class="app-dashboard-copy">
         <span class="kicker">MOJA ZÁHRADA</span>
         <h1>Všetko, čo si chceš nechať poruke.</h1>
