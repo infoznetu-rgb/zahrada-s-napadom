@@ -31,12 +31,16 @@
   .app-home-reading-group{min-width:0;padding:20px;border:1px solid rgba(46,80,55,.12);border-radius:24px;background:rgba(255,255,255,.78)}
   .app-home-reading-group h3{margin:0 0 12px;color:#547b59;font-size:.78rem;letter-spacing:.1em;line-height:1.4}
   .app-home-reading-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .app-home-reading-card{display:flex;min-height:118px;flex-direction:column;justify-content:space-between;gap:10px;padding:16px;border-radius:17px;background:#f3f7ed;color:#284a37;text-decoration:none}
+  .app-home-reading-card{display:flex;min-width:0;overflow:hidden;flex-direction:column;border-radius:17px;background:#f3f7ed;color:#284a37;text-decoration:none}
+  .app-home-reading-image{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#e5eddb}
+  .app-home-reading-copy{display:flex;min-height:118px;flex:1;flex-direction:column;align-items:flex-start;gap:8px;padding:14px}
+  .app-home-reading-tag{color:#547b59;font-size:.69rem;font-weight:800;letter-spacing:.09em}
   .app-home-reading-card strong{font-size:1.02rem;line-height:1.2}
   .app-home-reading-card small{color:#657b6d;line-height:1.4}
-  .app-home-reading-arrow{align-self:flex-end;font-size:1.1rem}
+  .app-home-reading-arrow{align-self:flex-end;margin-top:auto;font-size:1.1rem}
   .app-home-reading-recipe{background:#f8edb8}
-  @media(max-width:640px){.app-home-reading{margin:18px auto 24px;padding:0 14px}.app-home-reading-head{display:block}.app-home-reading-head p{margin-top:8px}.app-home-reading-grid{grid-template-columns:1fr}.app-home-reading-group{padding:17px}.app-home-reading-links{grid-template-columns:1fr}.app-home-reading-card{min-height:100px}}
+  .app-home-reading-recipe .app-home-reading-tag{color:#705b18}
+  @media(max-width:640px){.app-home-reading{margin:18px auto 24px;padding:0 14px}.app-home-reading-head{display:block}.app-home-reading-head p{margin-top:8px}.app-home-reading-grid{grid-template-columns:1fr}.app-home-reading-group{padding:17px}.app-home-reading-links{grid-template-columns:1fr}.app-home-reading-copy{min-height:104px}}
 </style>
   <script src="seo.js?v=11" defer></script>
   <script src="zahrada.js?v=2" defer></script>
@@ -131,23 +135,20 @@
           <h3>NAJČÍTANEJŠIE BLOGY · UKÁŽKA</h3>
           <div class="app-home-reading-links">
             <a class="app-home-reading-card" href="/blog/strihanie-hortenzii-na-jesen/">
-              <strong>Strihanie hortenzií na jeseň</strong>
-              <small>Kedy a ako ich pripraviť na ďalšiu sezónu.</small>
-              <span class="app-home-reading-arrow" aria-hidden="true">↗</span>
+              <img class="app-home-reading-image" src="https://pmrexbworebprrarhuxn.supabase.co/storage/v1/object/public/zahrada-media/opory-pre-hortenzie-a-pivonie/strihanie-hortenzii-na-jesen.png" alt="Hortenzie v záhrade" loading="lazy" decoding="async">
+              <span class="app-home-reading-copy"><span class="app-home-reading-tag">BLOG · ZÁHRADA</span><strong>Strihanie hortenzií na jeseň</strong><small>Kedy a ako ich pripraviť na ďalšiu sezónu.</small><span class="app-home-reading-arrow" aria-hidden="true">Otvoriť článok ↗</span></span>
             </a>
-            <a class="app-home-reading-card" href="/blog/jesenna-starostlivost-o-travnik/">
-              <strong>Jesenná starostlivosť o trávnik</strong>
-              <small>Praktické kroky pred príchodom zimy.</small>
-              <span class="app-home-reading-arrow" aria-hidden="true">↗</span>
+            <a class="app-home-reading-card" href="/blog/travnik-na-jesen/">
+              <img class="app-home-reading-image" src="/assets/blog/16-letne-polievanie.webp" alt="Zelený trávnik v záhrade" loading="lazy" decoding="async">
+              <span class="app-home-reading-copy"><span class="app-home-reading-tag">BLOG · ZÁHRADA</span><strong>Trávnik na jeseň: 7 krokov pred zimou</strong><small>Praktické kroky, ktoré mu pomôžu zvládnuť chladné mesiace.</small><span class="app-home-reading-arrow" aria-hidden="true">Otvoriť článok ↗</span></span>
             </a>
           </div>
         </div>
         <div class="app-home-reading-group">
           <h3>RECEPTY ZO ZÁHRADY · UKÁŽKA</h3>
           <a class="app-home-reading-card app-home-reading-recipe" href="/prispevok.html?slug=cuketovy-tart-s-ricottou-a-bazalkou">
-            <strong>Cuketový tart s ricottou a bazalkou</strong>
-            <small>Sezónny recept z cukety a čerstvých byliniek.</small>
-            <span class="app-home-reading-arrow" aria-hidden="true">↗</span>
+            <img class="app-home-reading-image" src="/assets/recipes/2026-09/cuketa-ricotta-tart.webp" alt="Cuketový tart s ricottou a bazalkou" loading="lazy" decoding="async">
+            <span class="app-home-reading-copy"><span class="app-home-reading-tag">RECEPT · ZO ZÁHRADY</span><strong>Cuketový tart s ricottou a bazalkou</strong><small>Sezónny recept z cukety a čerstvých byliniek.</small><span class="app-home-reading-arrow" aria-hidden="true">Pozrieť recept ↗</span></span>
           </a>
         </div>
       </div>
