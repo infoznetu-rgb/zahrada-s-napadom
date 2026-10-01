@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="studio-2026.css?v=1">
   <link rel="stylesheet" href="spring-2026.css?v=1">
   <link rel="stylesheet" href="typography-2026.css?v=9">
-  <link rel="stylesheet" href="app.css?v=10">
+  <link rel="stylesheet" href="app.css?v=11">
   <link rel="stylesheet" href="product-2026.css?v=1">
   <link rel="stylesheet" href="radar-app.css?v=2">
   <link rel="stylesheet" href="radar-today.css?v=1">
@@ -62,37 +62,64 @@
       <a href="/sutaz.html">Súťaž</a>
       <a href="/index.html#videa">Videá</a>
       <a href="/index.html#kontakt">Kontakt</a>
-    </nav>
+    
+
+      <span class="app-menu-group-label">MOJA ZÁHRADA</span>
+      <a href="#app-extra-functions">Ďalšie funkcie aplikácie</a>
+      <a href="#app-today">Dnes v mojom okrese</a>
+      <a href="#my-plan">Môj plán a úlohy</a>
+      <a href="#favorite-tools">Obľúbené pomôcky</a>
+      <a href="#notifications">Upozornenia</a>
+      <a href="#ulozene">Uložené články</a>
+      <a href="#app-history">Nedávno čítané</a>
+      <span class="app-menu-group-label">ĎALŠIE ODKAZY</span>
+      <a href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer">Facebook Záhrada s nápadom</a>
+</nav>
   </header>
 
   <main class="app-dashboard">
-    <div class="app-system-bar" aria-live="polite">
+
+    <section class="app-home-hero" aria-labelledby="app-home-title">
+      <img class="app-home-hero-photo" src="/assets/hero-ziva-zahrada.png" alt="Živá zelená záhrada plná nápadov" width="1491" height="1055" fetchpriority="high">
+      <div class="app-home-hero-shade"></div>
+      <div class="app-home-hero-copy">
+        <span class="app-home-eyebrow">ZÁHRADA S NÁPADOM</span>
+        <h1 id="app-home-title">Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</h1>
+        <p>Praktické pestovanie, vlastné projekty a inšpirácia pre každý deň.</p>
+        <a class="app-home-hero-link" href="/blog.html">Pozrieť návody <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+    <section class="app-home-highlights" aria-label="Odporúčané pre teba">
+      <a class="app-home-highlight-card app-home-highlight-radar" href="/radar.html">
+        <span class="app-home-highlight-kicker">PRE TVOJU ZÁHRADU</span>
+        <strong>Záhradný radar</strong>
+        <small>Predpoveď a tipy pre tvoj okres</small>
+        <span class="app-home-highlight-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="app-home-highlight-card app-home-highlight-recipes" href="/recepty.html">
+        <span class="app-home-highlight-kicker">PRE TVOJU ÚRODU</span>
+        <strong>Recepty zo záhrady</strong>
+        <small>Nápady z ovocia, zeleniny a byliniek</small>
+        <span class="app-home-highlight-arrow" aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+
+    <details class="app-extra-functions" id="app-extra-functions">
+      <summary><span class="app-home-eyebrow">VIAC FUNKCIÍ</span><strong>Plán, úlohy a uložené články</strong><span class="app-extra-chevron" aria-hidden="true">⌄</span></summary>
+      <div class="app-extra-functions-content">
+    <div id="app-status" class="app-system-bar" aria-live="polite">
       <span id="app-connection-state"><i></i> Online</span>
       <span id="app-update-state">Aplikácia je aktuálna</span>
     </div>
-    <section class="app-dashboard-hero">
-        </div>
-      <div class="app-dashboard-copy">
-        <span class="kicker">MOJA ZÁHRADA</span>
-        <h1>Všetko, čo si chceš nechať poruke.</h1>
-        <p>Uložené články a posledné čítanie zostávajú iba v tomto zariadení. Bez účtu a bez prihlasovania.</p>
-        <a class="app-radar-feature" href="radar.html"><span>✦ NOVINKA</span><strong>Záhradný radar</strong><small>Predpoveď pre tvoj okres a záhrady v okolí →</small></a>
-        <a class="app-recipes-feature" href="recepty.html"><span>PRE TVOJU ÚRODU</span><strong>Recepty zo záhrady</strong><small>Sezónne nápady, ako využiť ovocie, zeleninu a bylinky →</small></a>
-      </div>
-      <div class="app-dashboard-stats">
-        <div><strong id="app-saved-count">0</strong><span>uložených</span></div>
-        <div><strong id="app-history-count">0</strong><span>v histórii</span></div>
-      </div>
-    </section>
-
-    <section class="app-today" aria-labelledby="app-today-title">
+        <section id="app-today" class="app-today" aria-labelledby="app-today-title">
       <div class="app-today-head"><div><span class="kicker">TVOJA ZÁHRADA DNES</span><h2 id="app-today-title">Dnes v mojom okrese</h2></div><label for="app-today-district">Okres<select id="app-today-district" aria-label="Vyber okres"></select></label></div>
       <div id="app-today-weather" class="app-today-weather" aria-live="polite">Načítavam predpoveď…</div>
       <div class="app-today-links"><a id="app-today-guide" href="kalendar.html">Pozrieť záhradný kalendár →</a><a href="radar.html">Pozrieť celý Radar →</a></div>
       <p class="app-today-source">Orientačná predpoveď pre sídlo okresu, nie meranie v tvojej záhrade. Zdroj: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>.</p>
     </section>
 
-    <section class="app-my-plan" aria-labelledby="my-plan-title">
+    <section id="my-plan" class="app-my-plan" aria-labelledby="my-plan-title">
       <div class="app-library-head">
         <div><span class="kicker">MÔJ PLÁN</span><h2 id="my-plan-title">Čo mám v pláne.</h2></div>
         <span id="plan-progress" class="plan-progress">0 úloh</span>
@@ -118,24 +145,9 @@
       </div>
     </section>
 
-    <section class="app-quick-launch" aria-label="Rýchly prístup">
-      <a class="app-quick-radar" href="radar.html"><span class="app-quick-icon">✿</span><strong>Záhradný radar</strong><small>Čo sa deje v tvojom okolí</small></a>
-      <a href="blog.html"><span class="app-quick-icon">☘</span><strong>Blog</strong><small>Tipy a návody</small></a>
-      <a href="/dielna-s-napadom/"><span class="app-quick-icon">🔨</span><strong>Dielňa s nápadom</strong><small>Vlastné projekty a výroba</small></a>
-      <a href="bazar.html"><span class="app-quick-icon">↔</span><strong>Bazár</strong><small>Záhrada a dielňa</small></a>
-      <a class="app-quick-contest" href="sutaz.html"><span class="app-quick-icon">🎁</span><strong>Súťaž</strong><small>3 opory · do 5. 10.</small></a>
-      <a class="app-quick-facebook" href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer"><span class="app-quick-icon">f</span><strong>Facebook</strong><small>Profil a novinky</small></a>
-    </section>
 
-    <section class="app-search-launch" aria-label="Vyhľadávanie článkov">
-      <form id="app-search-form">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg>
-        <input id="app-search-input" type="search" autocomplete="off" placeholder="Hľadať článok, tému alebo nápad…">
-        <button type="submit">Hľadať</button>
-      </form>
-    </section>
 
-    <section class="app-topic-menu" aria-labelledby="app-topic-menu-title">
+    <section id="topics" class="app-topic-menu" aria-labelledby="app-topic-menu-title">
       <div class="app-library-head app-topic-menu-head">
         <div>
           <span class="kicker">RÝCHLE MENU</span>
@@ -190,13 +202,13 @@
       </div>
     </section>
 
-    <section class="app-favorite-tools" aria-labelledby="favorite-tools-title">
+    <section id="favorite-tools" class="app-favorite-tools" aria-labelledby="favorite-tools-title">
       <div class="app-library-head"><div><span class="kicker">RÝCHLO PORUKE</span><h2 id="favorite-tools-title">Obľúbené pomôcky</h2></div><a class="app-topic-menu-all" href="pomocky.html">Všetky pomôcky →</a></div>
       <div id="favorite-tools-list" class="favorite-tools-list"></div>
       <div id="favorite-tools-empty" class="app-library-empty"><strong>Vyber si obľúbené pomôcky.</strong><p>Pri kalkulačke v menu stlač hviezdičku a zostane tu poruke.</p></div>
     </section>
 
-    <section class="app-notifications-section" aria-labelledby="notifications-title">
+    <section id="notifications" class="app-notifications-section" aria-labelledby="notifications-title">
       <div class="app-library-head">
         <div>
           <span class="kicker">UPOZORNENIA</span>
@@ -251,7 +263,7 @@
       </div>
     </section>
 
-    <section class="app-library-section app-history-section">
+    <section id="app-history" class="app-library-section app-history-section">
       <div class="app-library-head">
         <div><span class="kicker">POSLEDNÉ ČÍTANIE</span><h2>Nedávno čítané</h2></div>
         <button id="clear-history" type="button" class="app-text-button" hidden>Vymazať históriu</button>
@@ -267,6 +279,8 @@
       <strong>Lokálne a súkromne.</strong>
       <p>Uložené články ani história sa neposielajú do účtu alebo na server. Ak vymažeš dáta prehliadača alebo aplikácie, tento zoznam sa vymaže.</p>
     </section>
+      </div>
+    </details>
   </main>
 </body>
 </html>
