@@ -168,5 +168,10 @@
   wireTasks();
   wireFavoriteTools();
   wireMobileTopics();
+  document.querySelectorAll('#mobile-nav a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{
+    const target=document.getElementById((link.getAttribute('href')||'').slice(1));
+    const details=target?.matches('details.app-extra-functions')?target:target?.closest('details.app-extra-functions');
+    if(details)details.open=true;
+  }));
   render();
 })();
