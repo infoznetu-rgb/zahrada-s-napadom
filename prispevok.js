@@ -124,6 +124,10 @@ async function loadPost(){
   const {data,error}=await postDb.from("zahrada_posts").select("*").eq("slug",slug).eq("status","published").maybeSingle();
   if(error||!data){showError("Príspevok sa nenašiel alebo ešte nie je zverejnený.");return}
   const isBlog=data.content_type==="blog";
+  if(isBlog&&data.category==="Recepty zo záhrady"){
+    location.replace("/recepty/"+encodeURIComponent(data.slug)+"/");
+    return;
+  }
   document.body.classList.toggle("blog-article",isBlog);
   document.title=data.title+" | Záhrada s nápadom";
   const description=data.excerpt||String(data.content||"").split(/\r?\n/)[0]||"Praktický recept zo záhrady.";

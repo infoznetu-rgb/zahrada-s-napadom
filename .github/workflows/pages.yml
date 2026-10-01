@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Generate crawlable recipe pages and sitemap entries
+        run: python3 scripts/build-recipe-pages.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:

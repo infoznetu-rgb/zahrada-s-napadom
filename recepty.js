@@ -12,7 +12,7 @@ let activeRecipeCategory="Všetko";
 
 function recipeEsc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 function recipeNorm(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim()}
-function recipeHref(slug){return "/prispevok.html?slug="+encodeURIComponent(String(slug||"").trim())}
+function recipeHref(slug){return "/recepty/"+encodeURIComponent(String(slug||"").trim())+"/"}
 function recipeCategory(post){
   const tags=(Array.isArray(post.tags)?post.tags:[]).map(recipeNorm);
   const title=recipeNorm(post.title);
