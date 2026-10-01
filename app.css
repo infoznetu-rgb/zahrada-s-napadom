@@ -841,3 +841,61 @@
   border-color:rgba(188,145,45,.2)!important;
 }
 .app-quick-contest .app-quick-icon{color:#b28224}
+
+
+/* Clean, website-like home for the installed app */
+.app-dashboard-page .app-dashboard{padding-top:10px}
+.app-dashboard-page .app-system-bar{margin:0 4px 16px;font-size:.68rem;opacity:.78}
+.app-home-hero{
+  position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(390px,62svh,590px);
+  overflow:hidden;margin:0 0 16px;padding:clamp(22px,5vw,48px);border:1px solid rgba(43,75,56,.12);
+  border-radius:32px;background:#294b38;box-shadow:0 20px 55px rgba(43,75,56,.12)
+}
+.app-home-hero-photo,.app-home-hero-shade{position:absolute;inset:0;width:100%;height:100%}
+.app-home-hero-photo{z-index:-2;display:block;object-fit:cover;object-position:center 55%}
+.app-home-hero-shade{z-index:-1;background:linear-gradient(90deg,rgba(17,43,28,.76) 0%,rgba(22,49,31,.45) 53%,rgba(21,43,28,.12) 100%),linear-gradient(0deg,rgba(17,39,26,.6),transparent 68%)}
+.app-home-hero-copy{max-width:780px}
+.app-home-eyebrow{display:block;color:#f2d77f;font-size:.7rem;font-weight:950;letter-spacing:.14em}
+.app-home-hero-copy h1{max-width:17ch;margin:12px 0 13px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.3rem,6.7vw,4.4rem);font-weight:600;line-height:.98;letter-spacing:-.045em}
+.app-home-hero-copy p{max-width:570px;margin:0;color:rgba(255,255,255,.91);font-size:clamp(.9rem,1.4vw,1.04rem);line-height:1.55}
+.app-home-hero-link{display:inline-flex;align-items:center;gap:10px;min-height:46px;margin-top:19px;padding:0 17px;border-radius:999px;background:#fffdf7;color:#315b3e;font-size:.82rem;font-weight:900;text-decoration:none;box-shadow:0 8px 22px rgba(15,38,24,.18)}
+.app-home-hero-link:hover{background:#f5edcf;transform:translateY(-1px)}
+.app-home-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:0 0 20px}
+.app-home-highlight-card{position:relative;display:flex;min-height:132px;flex-direction:column;justify-content:center;gap:5px;overflow:hidden;padding:18px 48px 18px 20px;border:1px solid rgba(43,75,56,.12);border-radius:23px;background:#fffdf7;color:#294b38;text-decoration:none;box-shadow:0 10px 26px rgba(43,75,56,.055);transition:transform .16s ease,box-shadow .16s ease}
+.app-home-highlight-card:hover{transform:translateY(-2px);box-shadow:0 15px 32px rgba(43,75,56,.1)}
+.app-home-highlight-radar{background:linear-gradient(135deg,#fff3c4,#f6f5e9 88%)}
+.app-home-highlight-recipes{background:linear-gradient(135deg,#edf4e5,#fffdf7 88%)}
+.app-home-highlight-kicker{color:#66806b;font-size:.62rem;font-weight:950;letter-spacing:.1em}
+.app-home-highlight-card strong{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.15rem,3vw,1.55rem);line-height:1.08}
+.app-home-highlight-card small{color:#64766a;font-size:.73rem;line-height:1.4}
+.app-home-highlight-arrow{position:absolute;right:17px;top:17px;color:#54765b;font-size:1.1rem}
+.app-extra-functions{margin:22px 0 34px;border:1px solid rgba(43,75,56,.13);border-radius:24px;background:rgba(255,253,247,.78);box-shadow:0 10px 30px rgba(43,75,56,.04)}
+.app-extra-functions>summary{position:relative;display:flex;min-height:76px;flex-direction:column;justify-content:center;gap:4px;padding:14px 54px 14px 20px;list-style:none;cursor:pointer}
+.app-extra-functions>summary::-webkit-details-marker{display:none}
+.app-extra-functions>summary .app-home-eyebrow{color:#66806b;font-size:.6rem}
+.app-extra-functions>summary strong{color:#294b38;font-family:Georgia,"Times New Roman",serif;font-size:1.18rem}
+.app-extra-chevron{position:absolute;right:20px;top:50%;color:#54765b;font-size:1.35rem;transform:translateY(-50%);transition:transform .18s ease}
+.app-extra-functions[open] .app-extra-chevron{transform:translateY(-50%) rotate(180deg)}
+.app-extra-functions-content{padding:0 18px 20px}
+.app-extra-functions-content .app-system-bar{margin:0 4px 20px}
+.app-dashboard-page .mobile-nav.is-open{max-height:calc(100dvh - 100px);overflow-y:auto;overscroll-behavior:contain}
+.app-dashboard-page .mobile-nav .app-menu-group-label{grid-column:1/-1;padding:7px 5px 0;color:#768579;font-size:.62rem;font-weight:950;letter-spacing:.12em}
+.app-dashboard-page [id]{scroll-margin-top:100px}
+@media(max-width:620px){
+  .app-dashboard-page .app-dashboard{padding-top:8px}
+  .app-home-hero{min-height:clamp(365px,58svh,465px);padding:22px;border-radius:27px}
+  .app-home-hero-photo{object-position:54% center}
+  .app-home-hero-shade{background:linear-gradient(0deg,rgba(17,39,26,.82) 0%,rgba(17,39,26,.47) 54%,rgba(17,39,26,.06) 100%)}
+  .app-home-hero-copy h1{max-width:14ch;font-size:clamp(2.25rem,10vw,3rem)}
+  .app-home-hero-copy p{font-size:.88rem}
+  .app-home-highlights{gap:9px;margin-bottom:16px}
+  .app-home-highlight-card{min-height:126px;padding:15px 15px 15px}
+  .app-home-highlight-card strong{font-size:1.06rem}
+  .app-home-highlight-card small{font-size:.66rem}
+  .app-home-highlight-arrow{right:12px;top:12px}
+  .app-extra-functions-content{padding:0 12px 16px}
+}
+@media(max-width:370px){
+  .app-home-highlights{grid-template-columns:1fr}
+  .app-home-highlight-card{min-height:100px;padding:16px 42px 16px 17px}
+}
