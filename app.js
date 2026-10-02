@@ -329,9 +329,9 @@
     const lang=location.pathname.startsWith('/pl/')?'pl':location.pathname.startsWith('/cs/')?'cs':'sk';
     const href=lang==='pl'?'/pl/polityka-prywatnosci.html':lang==='cs'?'/cs/ochrana-soukromi.html':'/ochrana-sukromia.html';
     const copy={
-      sk:['Vaše súkromie máte pod kontrolou','Nepovinné štatistiky návštevnosti nám pomáhajú zlepšovať web. Spustia sa iba po vašom súhlase. Voľbu môžete kedykoľvek zmeniť.','Zásady ochrany súkromia','Povoliť štatistiky','Pokračovať bez štatistík'],
-      cs:['Soukromí máte pod kontrolou','Nepovinné statistiky návštěvnosti nám pomáhají zlepšovat web. Spustí se pouze s vaším souhlasem. Volbu můžete kdykoli změnit.','Zásady ochrany soukromí','Povolit statistiky','Pokračovat bez statistik'],
-      pl:['Masz kontrolę nad swoją prywatnością','Opcjonalne statystyki pomagają nam ulepszać stronę. Uruchomimy je tylko za Twoją zgodą. Wybór możesz zmienić w dowolnym momencie.','Polityka prywatności','Zezwól na statystyki','Kontynuuj bez statystyk']
+      sk:['Nastavenie súkromia','Pomôžte nám zlepšovať Záhradu s nápadom. Ak povolíte anonymné štatistiky, uvidíme návštevnosť a používanie stránok bez vášho mena či kontaktných údajov. Voľbu môžete kedykoľvek zmeniť.','Zásady ochrany súkromia','Povoliť anonymné štatistiky','Odmietnuť'],
+      cs:['Nastavení soukromí','Pomozte nám zlepšovat Zahradu s nápadem. Pokud povolíte anonymní statistiky, uvidíme návštěvnost a používání stránek bez vašeho jména či kontaktních údajů. Volbu můžete kdykoli změnit.','Zásady ochrany soukromí','Povolit anonymní statistiky','Odmítnout'],
+      pl:['Ustawienia prywatności','Pomóż nam ulepszać Záhradu s nápadom. Jeśli zezwolisz na anonimowe statystyki, zobaczymy ruch i sposób korzystania ze stron bez Twojego imienia ani danych kontaktowych. Wybór możesz zmienić w dowolnym momencie.','Polityka prywatności','Zezwól na anonimowe statystyki','Odrzuć']
     }[lang];
     box.innerHTML='<div class="privacy-choice-copy"><strong id="privacy-choice-title">'+copy[0]+'</strong><p>'+copy[1]+'</p><a href="'+href+'">'+copy[2]+'</a></div><div class="privacy-choice-actions"><button type="button" data-privacy-accept>'+copy[3]+'</button><button type="button" data-privacy-decline>'+copy[4]+'</button></div>';
     document.body.appendChild(box);
