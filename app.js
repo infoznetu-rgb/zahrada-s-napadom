@@ -361,6 +361,12 @@
   }
 
 
+  function countAggregatePageView(){
+    try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
+    const rpcUrl=ANALYTICS_URL.replace('/rest/v1/site_events','/rest/v1/rpc/zahrada_count_pageview');
+    fetch(rpcUrl,{method:'POST',headers:{apikey:ANALYTICS_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:'{}',keepalive:true}).catch(()=>{});
+  }
+
   function trackEvent(eventType,{label='',articleSlug='',onceKey=''}={}){
     if(privacyChoice()!=='accepted')return;
     try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
@@ -1027,6 +1033,7 @@
   addPrivacyStyles();
   setupPrivacyControls();
   if(!privacyChoice())showPrivacyChoices();
+  countAggregatePageView();
   trackEvent('page_view',{label:document.title});
   startLivePresence();
   window.addEventListener('pagehide',stopLivePresence);
