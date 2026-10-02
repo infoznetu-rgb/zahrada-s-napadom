@@ -4,6 +4,7 @@ const blogDb=window.supabase.createClient(BLOG_URL,BLOG_KEY);
 
 const BLOG_CATEGORY_ORDER=[
   "Záhrada",
+  "Hortenzie",
   "Dielňa",
   "Dom a záhrada",
   "Vychytávky",
