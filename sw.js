@@ -1,8 +1,9 @@
-const VERSION='112';
+const VERSION='113';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
 const PRECACHE=[
+  './search-index.json','./article-library.js','./home-clarity.css','./seo.js',
   './','./index.html','./moja-zahrada.html','./radar.html','./blog.html','./recepty.html','./dielna-s-napadom/','./galeria.html','./pomocky.html','./kalkulacka-farby.html','./kalkulacka-betonu.html','./hmozdinky-vrtaky.html','./rezaci-plan-dreva.html','./kalkulacka-dlazby.html','./pravy-uhol.html','./kalkulacka-strku.html','./kalkulacka-mulcu.html','./kalkulacka-sklonu.html','./kalkulacka-lazury.html','./kalkulacka-dazdovej-vody.html','./kalkulacka-zeminy-kompostu.html','./prevodnik-jednotiek.html','./projektovy-planovac.html','./kalkulacka-zavlahy.html','./kalkulacka-travnikoveho-osiva.html','./kalkulacka-plotovych-lat.html','./kalkulacka-terasovych-dosiek.html','./kalkulacka-ceny-vyrobku.html','./kalendar.html','./kalkulacka-vyvyseny-zahon.html','./prispevok.html','./bazar.html','./inzerat.html','./sutaz.html',
   './radar-app.css?v=2','./radar-today.css','./radar-feature.css','./radar.css','./radar-home.css','./zahrada.css','./studio-2026.css','./spring-2026.css','./growth-2026.css','./typography-2026.css','./bazar.css','./app.css','./comments.css','./sutaz.css','./facebook-widget.css','./engagement.css','./product-2026.css','./recepty.css',
   './radar-today.js','./radar.js','./zahrada.js','./studio-2026.js','./garden-tools.js','./home-engagement.js','./majster-tools.js','./cena-vyrobku.js','./cms-public.js','./blog.js','./blog-v18.js','./recepty.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./comments.js','./sutaz.js','./moja-zahrada.js','./push.js','./facebook-widget.js',
@@ -65,8 +66,13 @@ self.addEventListener('fetch',event=>{
     return;
   }
 
+  if(url.pathname==='/search-index.json'){
+    event.respondWith(staleWhileRevalidate(request));
+    return;
+  }
+
   if(['style','script'].includes(request.destination)){
-    event.respondWith(fetch(request).then(async response=>{if(response&&response.ok){const cache=await caches.open(RUNTIME_CACHE);cache.put(request,response.clone());}return response;}).catch(()=>caches.match(request)));
+    event.respondWith(fetch(request).then(async response=>{if(response&&response.ok){const cache=await caches.open(RUNTIME_CACHE);cache.put(request,response.clone());}return response;}).catch(()=>caches.match(request,{ignoreSearch:true})));
     return;
   }
 
