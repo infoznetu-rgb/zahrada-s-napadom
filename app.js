@@ -188,7 +188,7 @@
 
   let searchReturnFocus=null;
   function openSearch(initialQuery=''){
-    if(!document.body.classList.contains('global-search-open'))searchReturnFocus=document.activeElement;
+    if(!document.body.classList.contains('global-search-open'))searchReturnFocus=document.activeElement===document.body?document.querySelector('.site-search-trigger'):document.activeElement;
     const modal=ensureSearchModal();
     const input=modal.querySelector('#global-search-input');
     modal.hidden=false;
