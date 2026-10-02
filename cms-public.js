@@ -26,7 +26,7 @@ async function loadSiteSettings(){
   if(error||!data)return;
   const map=Object.fromEntries(data.map(x=>[x.key,x.value]));
 
-  const setText=(selector,value)=>{const el=document.querySelector(selector);if(el&&value)el.textContent=value};
+  const setText=(selector,value)=>{const el=document.querySelector(selector);if(el&&value&&!el.hasAttribute("data-static-content"))el.textContent=value};
   const setMeta=(selector,value)=>{const el=document.querySelector(selector);if(el&&value)el.setAttribute("content",value)};
 
   const hero=map.hero||{};
@@ -65,11 +65,11 @@ async function loadSiteSettings(){
   setText("#cms-footer-copyright",footer.copyright);
 
   const seo=map.seo||{};
-  if(document.body.classList.contains("home-page")&&seo.title){
+  if(document.body.classList.contains("home-page")&&document.body.dataset.seoSource!=="static"&&seo.title){
     document.title=seo.title;
     setMeta('meta[property="og:title"]',seo.title);
   }
-  if(document.body.classList.contains("home-page")&&seo.description){
+  if(document.body.classList.contains("home-page")&&document.body.dataset.seoSource!=="static"&&seo.description){
     setMeta('meta[name="description"]',seo.description);
     setMeta('meta[property="og:description"]',seo.description);
   }
@@ -101,7 +101,11 @@ async function loadSiteSettings(){
   if(gallerySection&&galleryRoot){
     if(galleryItems.length&&visible.gallery!==false){
       const showAll=gallerySection.dataset.galleryLimit==="all";
-      const visibleItems=showAll?galleryItems:galleryItems.slice(0,6);
+      const visibleItems=(showAll?galleryItems:galleryItems.slice(0,6)).map((item,i)=>{
+        const title=String(item.title||'').trim();
+        const placeholder=/^(EFef|fsaf|WhatsApp Image.*|pergola\d+)$/i.test(title);
+        return {...item,title:placeholder?('Fotografia projektu '+(i+1)):title};
+      });
       galleryRoot.innerHTML=visibleItems.map((item,i)=>`<figure class="idea-gallery-card">
         <a href="${cmsEsc(item.url||"")}" target="_blank" rel="noopener" aria-label="Otvoriť fotografiu ${i+1}">
           <img src="${cmsEsc(item.url||"")}" alt="${cmsEsc(item.title||item.caption||("Fotografia "+(i+1)))}" loading="lazy" decoding="async">
@@ -193,3 +197,4 @@ async function loadPublishedPosts(){
 
 loadSiteSettings();
 loadPublishedPosts();
+

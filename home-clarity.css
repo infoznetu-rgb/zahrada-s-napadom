@@ -14,3 +14,19 @@
 .home-page .mobile-nav{max-height:min(75vh,640px);overflow-y:auto;overscroll-behavior:contain}
 @media(max-width:980px){.home-page .home-discovery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){.home-page .hero-main{min-height:0}.home-page .home-discovery-grid{grid-template-columns:1fr}.home-page .home-discovery-grid>a{min-height:145px}.home-search>div{flex-direction:column}.home-search button{min-height:48px}.home-page .mobile-nav{max-height:calc(100dvh - 95px)}}
+
+
+/* Keep the mobile introduction in normal flow and constrain card intrinsic sizes. */
+@media(max-width:720px){
+  .home-page .hero-main{min-height:0;overflow:hidden}
+  .home-page .hero-copy{position:relative;inset:auto;width:100%;max-width:none;padding:36px 22px;box-sizing:border-box}
+  .home-page .hero-art,.home-page .hero-shade{position:absolute;inset:0}
+  .home-page .hero h1{font-size:clamp(2rem,8.6vw,3.2rem);overflow-wrap:break-word}
+  .home-page .hero-orbit{display:none}
+  .home-page .hero-actions .btn{max-width:100%;white-space:normal;box-sizing:border-box}
+  .home-page .cms-post-grid{grid-template-columns:minmax(0,1fr)}
+  .home-page .cms-post-card,.home-page .cms-post-card:only-child{grid-column:1/-1;display:flex;flex-direction:column;min-width:0;max-width:100%}
+  .home-page .cms-post-image,.home-page .cms-post-card:only-child .cms-post-image{width:100%;min-width:0;min-height:0;aspect-ratio:16/10;box-sizing:border-box}
+  .home-page .cms-post-image img{display:block;width:100%;max-width:100%;height:100%;min-width:0;object-fit:cover}
+  .home-page .cms-post-body{min-width:0;overflow-wrap:anywhere}
+}

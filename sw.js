@@ -1,4 +1,4 @@
-const VERSION='108';
+const VERSION='109';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
@@ -114,3 +114,4 @@ self.addEventListener('notificationclick',event=>{
     })
   );
 });
+

@@ -168,10 +168,18 @@
   wireTasks();
   wireFavoriteTools();
   wireMobileTopics();
-  document.querySelectorAll('#mobile-nav a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{
+  document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{
     const target=document.getElementById((link.getAttribute('href')||'').slice(1));
     const details=target?.matches('details.app-extra-functions')?target:target?.closest('details.app-extra-functions');
     if(details)details.open=true;
   }));
+  const openHashTarget=()=>{
+    const target=document.getElementById(location.hash.slice(1));
+    const details=target?.closest('details.app-extra-functions');
+    if(details){details.open=true;requestAnimationFrame(()=>target.scrollIntoView({block:'start'}));}
+  };
+  window.addEventListener('hashchange',openHashTarget);
+  openHashTarget();
   render();
 })();
+

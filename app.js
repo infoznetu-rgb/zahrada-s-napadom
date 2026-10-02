@@ -37,13 +37,34 @@
       .toLowerCase().trim();
   }
 
+  let searchLoadPromise=null;
+  let searchRenderVersion=0;
   async function loadSearchPosts(){
     if(Array.isArray(searchPostsCache))return searchPostsCache;
-    const query='?select=slug,title,excerpt,category,cover_url,content_type,tags,content,published_at&status=eq.published&order=published_at.desc&limit=150';
-    const response=await fetch(POSTS_API+query,{headers:{apikey:ANALYTICS_KEY}});
-    if(!response.ok)throw new Error('search_posts_'+response.status);
-    searchPostsCache=await response.json();
-    return searchPostsCache;
+    if(searchLoadPromise)return searchLoadPromise;
+    searchLoadPromise=(async()=>{
+      const archive=fetch('/search-index.json').then(r=>{if(!r.ok)throw new Error('search_index_'+r.status);return r.json()});
+      const live=(async()=>{
+        const posts=[];const pageSize=250;
+        for(let offset=0;;offset+=pageSize){
+          const query='?select=slug,title,excerpt,category,cover_url,content_type,tags,published_at&status=eq.published&order=published_at.desc,slug.asc&limit='+pageSize+'&offset='+offset;
+          const response=await fetch(POSTS_API+query,{headers:{apikey:ANALYTICS_KEY}});
+          if(!response.ok)throw new Error('search_posts_'+response.status);
+          const page=await response.json();posts.push(...page);
+          if(page.length<pageSize)break;
+        }
+        return posts;
+      })();
+      const loaded=await Promise.allSettled([archive,live]);
+      if(loaded.every(x=>x.status==='rejected'))throw new Error('search_unavailable');
+      const bySlug=new Map();
+      // Prefer static canonical pages over query-string versions of the same article.
+      for(const result of [loaded[1],loaded[0]])if(result.status==='fulfilled'){
+        for(const post of result.value)if(post.slug)bySlug.set(post.slug,post);
+      }
+      searchPostsCache=[...bySlug.values()];return searchPostsCache;
+    })().finally(()=>{searchLoadPromise=null});
+    return searchLoadPromise;
   }
 
   function rankSearchPost(post,query){
@@ -68,6 +89,10 @@
       if(excerpt.includes(word))score+=3;
       if(content.includes(word))score+=1;
     });
+    const stem=word=>word.length>5?word.replace(/(?:ami|ach|ovi|och|ou|ia|ie|ii|iu|ov|om|mi|y|i|e|a|u)$/,''):word;
+    const terms=q.split(/\s+/).filter(Boolean).map(stem);
+    const words=normalizeSearch([post.title,post.tags,post.category,post.excerpt,post.content].join(' ')).split(/[^a-z0-9]+/).filter(Boolean).map(stem);
+    if(terms.every(term=>words.some(word=>word===term||word.startsWith(term))))score+=12;
     return score;
   }
 
@@ -109,6 +134,7 @@
   }
 
   async function renderSearch(query){
+    const renderVersion=++searchRenderVersion;
     const modal=ensureSearchModal();
     const status=modal.querySelector('#global-search-status');
     const results=modal.querySelector('#global-search-results');
@@ -121,6 +147,7 @@
     status.textContent='Hľadám…';
     try{
       const posts=await loadSearchPosts();
+      if(renderVersion!==searchRenderVersion)return;
       const found=posts
         .map(post=>({post,score:rankSearchPost(post,q)}))
         .filter(x=>x.score>0)
@@ -138,7 +165,7 @@
         const p=normalizePost(post);
         const rawCover=String(post.cover_url||'');
         const cover=rawCover?(rawCover.startsWith('http')?rawCover:(rawCover.startsWith('/')?rawCover:'/'+rawCover)):'';
-        const type=post.content_type==='blog'?'BLOG':'NÁPAD';
+        const type=post.content_type==='recipe'?'RECEPT':post.content_type==='blog'?'BLOG':'NÁPAD';
         return `<a class="global-search-result" href="${escHtml(p.url)}">
           <span class="global-search-thumb">${cover?`<img src="${escHtml(cover)}" alt="" loading="lazy">`:'<b>✦</b>'}</span>
           <span class="global-search-copy">
@@ -150,6 +177,7 @@
         </a>`;
       }).join('');
     }catch(error){
+      if(renderVersion!==searchRenderVersion)return;
       console.error(error);
       status.textContent='Vyhľadávanie sa momentálne nepodarilo načítať.';
       results.innerHTML='';
@@ -1033,3 +1061,4 @@
   addContextTool();
 
 })();
+

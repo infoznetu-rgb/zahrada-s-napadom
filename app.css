@@ -899,3 +899,8 @@
   .app-home-highlights{grid-template-columns:1fr}
   .app-home-highlight-card{min-height:100px;padding:16px 42px 16px 17px}
 }
+
+
+.app-quick-access{display:flex;flex-wrap:wrap;gap:10px;max-width:1100px;margin:18px auto;padding:0 18px;box-sizing:border-box}
+.app-quick-access a{flex:1;min-width:120px;min-height:46px;display:flex;align-items:center;justify-content:center;padding:12px 14px;border:1px solid #aac2a6;border-radius:16px;background:#fffdf8;color:#285638;font-weight:800;text-decoration:none;box-sizing:border-box}
+.app-quick-access a:focus-visible{outline:3px solid #93c887;outline-offset:3px}
