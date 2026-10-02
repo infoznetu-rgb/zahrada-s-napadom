@@ -43,7 +43,7 @@
     if(Array.isArray(searchPostsCache))return searchPostsCache;
     if(searchLoadPromise)return searchLoadPromise;
     searchLoadPromise=(async()=>{
-      const archive=fetch('/search-index.json').then(r=>{if(!r.ok)throw new Error('search_index_'+r.status);return r.json()});
+      const archive=fetch('/search-index.json?v=improve20261002d').then(r=>{if(!r.ok)throw new Error('search_index_'+r.status);return r.json()});
       const live=(async()=>{
         const posts=[];const pageSize=250;
         for(let offset=0;;offset+=pageSize){

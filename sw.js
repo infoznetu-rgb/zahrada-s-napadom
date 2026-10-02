@@ -1,4 +1,4 @@
-const VERSION='114';
+const VERSION='115';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
@@ -67,7 +67,12 @@ self.addEventListener('fetch',event=>{
   }
 
   if(url.pathname==='/search-index.json'){
-    event.respondWith(staleWhileRevalidate(request));
+    event.respondWith(fetch(request,{cache:'no-cache'}).then(async response=>{
+      if(!response.ok)throw new Error('search_index_'+response.status);
+      const cache=await caches.open(RUNTIME_CACHE);
+      await cache.put(request,response.clone());
+      return response;
+    }).catch(()=>caches.match(request,{ignoreSearch:true})));
     return;
   }
 
