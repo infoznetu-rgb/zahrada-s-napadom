@@ -12,9 +12,11 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.meta = {}; self.canonical = ''; self.lang = 'sk'
         self.text = []; self.heading = []; self.in_h1 = False
+        self.omit = 0
         self.skip = 0; self.schema = []; self.in_schema = False; self.schema_text = ''
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag in ('head', 'nav', 'footer', 'aside', 'a'): self.omit += 1
         if tag == 'html': self.lang = a.get('lang', 'sk')
         if tag == 'meta': self.meta[a.get('name', a.get('property', ''))] = a.get('content', '')
         if tag == 'link' and a.get('rel') == 'canonical': self.canonical = a.get('href', '')
@@ -24,6 +26,7 @@ class Page(HTMLParser):
             if tag == 'script' and a.get('type') == 'application/ld+json':
                 self.in_schema = True; self.schema_text = ''
     def handle_endtag(self, tag):
+        if tag in ('head', 'nav', 'footer', 'aside', 'a'): self.omit = max(0, self.omit - 1)
         if tag == 'h1': self.in_h1 = False
         if tag in ('script', 'style'):
             self.skip = max(0, self.skip - 1)
@@ -34,7 +37,7 @@ class Page(HTMLParser):
     def handle_data(self, data):
         if self.in_schema: self.schema_text += data
         if not self.skip:
-            self.text.append(data)
+            if not self.omit: self.text.append(data)
             if self.in_h1: self.heading.append(data)
 
 def schema_types(value):
@@ -53,7 +56,7 @@ def build(root=ROOT):
         source = path.read_text(encoding='utf-8-sig')
         original = source
         for asset in ('app.js', 'app.css', 'cms-public.js', 'moja-zahrada.js', 'home-clarity.css'):
-            source = re.sub(r'(?<![\w-])' + re.escape(asset) + r'\?v=[^"\s>]+', asset + '?v=improve20261002', source)
+            source = re.sub(r'(?<![\w-])' + re.escape(asset) + r'\?v=[^"\s>]+', asset + '?v=improve20261002b', source)
         page = Page(); page.feed(source)
         if source != original: path.write_text(source, encoding='utf-8')
         if 'noindex' in page.meta.get('robots', '').lower() or 'http-equiv="refresh"' in source.lower(): continue
