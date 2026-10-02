@@ -203,7 +203,10 @@
     const modal=document.querySelector('#global-search-modal');
     if(!modal)return;
     modal.hidden=true;
+    clearTimeout(searchTimer);
+    ++searchRenderVersion;
     document.body.classList.remove('global-search-open');
+    if(searchReturnFocus?.isConnected)searchReturnFocus.focus();
   }
 
   function addContestMenuLink(){
