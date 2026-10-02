@@ -56,8 +56,8 @@
     const saved=app.getSaved();
     const history=app.getHistory();
 
-    savedCount.textContent=String(saved.length);
-    historyCount.textContent=String(history.length);
+    if(savedCount)savedCount.textContent=String(saved.length);
+    if(historyCount)historyCount.textContent=String(history.length);
 
     savedList.innerHTML=saved.map(x=>card(x,'saved')).join('');
     historyList.innerHTML=history.slice(0,12).map(x=>card(x,'history')).join('');

@@ -53,7 +53,7 @@ def build(root=ROOT):
         source = path.read_text(encoding='utf-8-sig')
         original = source
         for asset in ('app.js', 'app.css', 'cms-public.js', 'moja-zahrada.js', 'home-clarity.css'):
-            source = re.sub(r'(?<![\w-])' + re.escape(asset) + r'\?v=[^"\s>]+', asset + '?v=fix20261002', source)
+            source = re.sub(r'(?<![\w-])' + re.escape(asset) + r'\?v=[^"\s>]+', asset + '?v=fix20261002b', source)
         page = Page(); page.feed(source)
         if source != original: path.write_text(source, encoding='utf-8')
         if 'noindex' in page.meta.get('robots', '').lower() or 'http-equiv="refresh"' in source.lower(): continue
