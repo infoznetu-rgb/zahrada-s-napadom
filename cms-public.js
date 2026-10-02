@@ -104,7 +104,7 @@ async function loadSiteSettings(){
       const visibleItems=(showAll?galleryItems:galleryItems.slice(0,6)).map((item,i)=>{
         const title=String(item.title||'').trim();
         const placeholder=/^(EFef|fsaf|WhatsApp Image.*|pergola\d+)$/i.test(title);
-        return {...item,title:placeholder?('Fotografia projektu '+(i+1)):title};
+        return {...item,title:placeholder?(String(item.caption||'').trim()||(/^pergola\d+$/i.test(title)?'Pergola – detail projektu':('Fotografia projektu '+(i+1)))):title};
       });
       galleryRoot.innerHTML=visibleItems.map((item,i)=>`<figure class="idea-gallery-card">
         <a href="${cmsEsc(item.url||"")}" target="_blank" rel="noopener" aria-label="Otvoriť fotografiu ${i+1}">

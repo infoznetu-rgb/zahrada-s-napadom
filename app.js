@@ -69,30 +69,25 @@
 
   function rankSearchPost(post,query){
     const q=normalizeSearch(query);
-    if(!q)return 0;
-    const title=normalizeSearch(post.title);
-    const category=normalizeSearch(post.category);
-    const excerpt=normalizeSearch(post.excerpt);
-    const content=normalizeSearch(post.content);
-    const tags=normalizeSearch(Array.isArray(post.tags)?post.tags.join(' '):post.tags);
-    let score=0;
-    if(title===q)score+=80;
-    if(title.startsWith(q))score+=45;
-    if(title.includes(q))score+=30;
-    if(tags.includes(q))score+=20;
-    if(category.includes(q))score+=15;
-    if(excerpt.includes(q))score+=10;
-    if(content.includes(q))score+=4;
-    q.split(/\s+/).filter(Boolean).forEach(word=>{
-      if(title.includes(word))score+=8;
-      if(tags.includes(word))score+=5;
-      if(excerpt.includes(word))score+=3;
-      if(content.includes(word))score+=1;
-    });
+    const tokenize=value=>normalizeSearch(value).split(/[^a-z0-9]+/).filter(Boolean);
+    const stop=new Set(['a','aj','ako','co','do','je','na','o','pre','pri','s','sa','si','so','v','vo','z','zo']);
+    const raw=tokenize(q);
+    const terms=raw.filter(word=>!stop.has(word));
+    if(!terms.length)return 0;
     const stem=word=>word.length>5?word.replace(/(?:ami|ach|ovi|och|ou|ia|ie|ii|iu|ov|om|mi|y|i|e|a|u)$/,''):word;
-    const terms=q.split(/\s+/).filter(Boolean).map(stem);
-    const words=normalizeSearch([post.title,post.tags,post.category,post.excerpt,post.content].join(' ')).split(/[^a-z0-9]+/).filter(Boolean).map(stem);
-    if(terms.every(term=>words.some(word=>word===term||word.startsWith(term))))score+=12;
+    const fields=[post.title,Array.isArray(post.tags)?post.tags.join(' '):post.tags,post.category,post.excerpt,post.content];
+    const words=fields.map(value=>tokenize(value).map(stem));
+    const matches=(word,term)=>word===term||(term.length>=3&&word.startsWith(term));
+    // Every meaningful query word must match; matching "tart" alone is insufficient.
+    const roots=terms.map(stem);
+    if(!roots.every(term=>words.some(list=>list.some(word=>matches(word,term)))))return 0;
+    let score=12;
+    const weights=[18,10,5,4,1];
+    words.forEach((list,i)=>roots.forEach(term=>{if(list.some(word=>matches(word,term)))score+=weights[i]}));
+    const title=normalizeSearch(post.title);
+    if(title===q)score+=80;
+    else if(title.startsWith(q))score+=45;
+    else if(title.includes(q))score+=30;
     return score;
   }
 
@@ -121,7 +116,14 @@
       </section>`;
     document.body.appendChild(modal);
     modal.querySelectorAll('[data-search-close]').forEach(btn=>btn.addEventListener('click',closeSearch));
-    modal.addEventListener('keydown',event=>{if(event.key==='Escape')closeSearch()});
+    modal.addEventListener('keydown',event=>{
+      if(event.key==='Escape'){event.preventDefault();closeSearch();return}
+      if(event.key!=='Tab')return;
+      const focusable=[...modal.querySelector('.global-search-panel').querySelectorAll('button:not([hidden]),input,a[href]')].filter(el=>el.getClientRects().length);
+      const first=focusable[0],last=focusable[focusable.length-1];
+      if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus()}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus()}
+    });
     const input=modal.querySelector('#global-search-input');
     const clear=modal.querySelector('#global-search-clear');
     input.addEventListener('input',()=>{
@@ -160,7 +162,7 @@
         results.innerHTML='<div class="global-search-empty">Skús kratšie slovo alebo inú tému.</div>';
         return;
       }
-      status.textContent=found.length===1?'Našiel sa 1 výsledok.':'Nájdených '+found.length+' výsledkov.';
+      status.textContent=found.length===1?'Našiel sa 1 výsledok.':'Zobrazených '+found.length+' výsledkov.';
       results.innerHTML=found.map(post=>{
         const p=normalizePost(post);
         const rawCover=String(post.cover_url||'');
@@ -184,7 +186,9 @@
     }
   }
 
+  let searchReturnFocus=null;
   function openSearch(initialQuery=''){
+    if(!document.body.classList.contains('global-search-open'))searchReturnFocus=document.activeElement;
     const modal=ensureSearchModal();
     const input=modal.querySelector('#global-search-input');
     modal.hidden=false;
