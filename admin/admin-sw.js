@@ -1,4 +1,4 @@
-const CACHE='zahrada-admin-v19';
+const CACHE='zahrada-admin-v20';
 const FILES=[
   './',
   './index.html',
