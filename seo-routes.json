@@ -1,5 +1,95 @@
 [
   {
+    "slug": "prezimovanie-poru-na-zahone",
+    "route_slug": "prezimovanie-poru-na-zahone",
+    "title": "Prezimovanie póru na záhone: ochrana a zimný zber",
+    "category": "Zeleninová záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-prezimovanie-poru.webp"
+  },
+  {
+    "slug": "zimny-zber-kuceraveho-kelu",
+    "route_slug": "zimny-zber-kuceraveho-kelu",
+    "title": "Zimný zber kučeravého kelu bez poškodenia rastliny",
+    "category": "Zeleninová záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-zimny-zber-kelu.webp"
+  },
+  {
+    "slug": "ruzickovy-kel-po-prvych-mrazoch",
+    "route_slug": "ruzickovy-kel-po-prvych-mrazoch",
+    "title": "Ružičkový kel po prvých mrazoch: zber a ochrana",
+    "category": "Zeleninová záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-ruzickovy-kel-po-mraze.webp"
+  },
+  {
+    "slug": "bielenie-kmenov-ovocnych-stromov",
+    "route_slug": "bielenie-kmenov-ovocnych-stromov",
+    "title": "Bielenie kmeňov ovocných stromov pred zimou",
+    "category": "Ovocná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-bielenie-kmenov.webp"
+  },
+  {
+    "slug": "ochrana-ihlicnanov-pred-mokrym-snehom",
+    "route_slug": "ochrana-ihlicnanov-pred-mokrym-snehom",
+    "title": "Ochrana ihličnanov pred mokrým snehom bez škôd",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-ihlicnany-mokry-sneh.webp"
+  },
+  {
+    "slug": "skladovanie-osiva-cez-zimu",
+    "route_slug": "skladovanie-osiva-cez-zimu",
+    "title": "Skladovanie osiva cez zimu: sucho, chlad a poriadok",
+    "category": "Záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-skladovanie-osiva.webp"
+  },
+  {
+    "slug": "cistenie-odkvapov-na-jesen",
+    "route_slug": "cistenie-odkvapov-na-jesen",
+    "title": "Čistenie odkvapov na jeseň: bezpečný postup krokmi",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-cistenie-odkvapov.webp"
+  },
+  {
+    "slug": "jesenna-vysadba-malin",
+    "route_slug": "jesenna-vysadba-malin",
+    "title": "Jesenná výsadba malín: spon, hĺbka a prvý rez",
+    "category": "Ovocná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-vysadba-malin.webp"
+  },
+  {
+    "slug": "jesenna-vysadba-cibule-zo-sadzacky",
+    "route_slug": "jesenna-vysadba-cibule-zo-sadzacky",
+    "title": "Jesenná výsadba cibule zo sadzačky bez hniloby",
+    "category": "Zeleninová záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-jesenna-cibula.webp"
+  },
+  {
+    "slug": "zber-chrenu-na-jesen",
+    "route_slug": "zber-chrenu-na-jesen",
+    "title": "Zber chrenu na jeseň: korene bez zbytočného lámania",
+    "category": "Zeleninová záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-02",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-zber-chrenu.webp"
+  },
+  {
     "slug": "uskladnenie-zahradneho-nabytku",
     "route_slug": "uskladnenie-zahradneho-nabytku",
     "title": "Uskladnenie záhradného nábytku: drevo, kov aj textil",
