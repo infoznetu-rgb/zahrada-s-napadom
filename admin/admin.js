@@ -515,7 +515,8 @@ function analyticsPostName(slug){
 function renderAnalytics(data){
   const s=data?.summary||{};
   const summary=[
-    ["Zobrazenia stránok",s.page_views,"Koľkokrát sa načítala stránka"],
+    ["Všetky načítania",s.aggregate_page_views,"Základné agregované počítadlo bez visitor ID"],
+    ["Zobrazenia so súhlasom",s.page_views,"Detailná analytika po povolení štatistík"],
     ["Návštevníci",s.unique_visitors,"Približný počet zariadení"],
     ["Otvorené príspevky",s.article_opens,"Články a vlastné projekty"],
     ["Dočítané do konca",s.reads_100,"Dosiahnutých 100 % textu"],
@@ -614,14 +615,23 @@ async function loadAnalytics(){
   const days=Number($("#analytics-days")?.value||30);
   setSave("Načítavam štatistiky…");
   $("#analytics-chart").innerHTML=analyticsEmpty("Načítavam…");
-  const {data,error}=await db.rpc("zahrada_analytics",{p_days:days});
+  const [{data,error},{data:aggregateData,error:aggregateError}]=await Promise.all([
+    db.rpc("zahrada_analytics",{p_days:days}),
+    db.rpc("zahrada_pageview_summary",{p_days:days})
+  ]);
   if(error){
     console.error(error);
     setSave("Chyba štatistík");
     $("#analytics-summary").innerHTML=analyticsEmpty("Štatistiky sa nepodarilo načítať.");
     return;
   }
-  renderAnalytics(typeof data==="string"?JSON.parse(data):data);
+  const analytics=typeof data==="string"?JSON.parse(data):data;
+  if(!aggregateError){
+    const aggregate=typeof aggregateData==="string"?JSON.parse(aggregateData):aggregateData;
+    analytics.summary=analytics.summary||{};
+    analytics.summary.aggregate_page_views=aggregate?.page_views||0;
+  }
+  renderAnalytics(analytics);
   analyticsLoaded=true;
   setSave("Štatistiky načítané");
 }
