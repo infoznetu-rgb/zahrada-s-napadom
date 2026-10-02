@@ -32,3 +32,7 @@
 }
 /* Decorative shapes must not extend the document's horizontal scroll area. */
 .home-page { overflow-x: clip; }
+.home-page .side-card,
+.home-page .projects-section,
+.home-page .studio-dark-section,
+.home-page .submit-band { overflow: clip; }
