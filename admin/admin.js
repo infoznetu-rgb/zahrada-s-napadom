@@ -12,6 +12,7 @@ let currentPost=null;
 let mediaLoaded=false;
 let analyticsLoaded=false;
 let analyticsLiveTimer=null;
+let analyticsRefreshTimer=null;
 let analyticsLiveLoading=false;
 let radarLoaded=false;
 let oporyLoaded=false;
@@ -516,8 +517,8 @@ function renderAnalytics(data){
   const s=data?.summary||{};
   const summary=[
     ["Všetky načítania",s.aggregate_page_views,"Základné agregované počítadlo bez visitor ID"],
-    ["Zobrazenia so súhlasom",s.page_views,"Detailná analytika po povolení štatistík"],
-    ["Návštevníci",s.unique_visitors,"Približný počet zariadení"],
+    ["Historické zobrazenia so súhlasom",s.page_views,"Podrobný záznam z obdobia pred anonymným počítadlom"],
+    ["Návštevníci",s.unique_visitors,"Historický približný počet zariadení so súhlasom"],
     ["Otvorené príspevky",s.article_opens,"Články a vlastné projekty"],
     ["Dočítané do konca",s.reads_100,"Dosiahnutých 100 % textu"],
     ["Prehratia videí",s.video_plays,"Spustenia videí"],
@@ -605,9 +606,14 @@ function startAnalyticsLivePolling(){
   stopAnalyticsLivePolling();
   loadLiveVisitors();
   analyticsLiveTimer=window.setInterval(loadLiveVisitors,15000);
+  analyticsRefreshTimer=window.setInterval(()=>{
+    analyticsLoaded=false;
+    loadAnalytics();
+  },60000);
 }
 function stopAnalyticsLivePolling(){
   if(analyticsLiveTimer){clearInterval(analyticsLiveTimer);analyticsLiveTimer=null}
+  if(analyticsRefreshTimer){clearInterval(analyticsRefreshTimer);analyticsRefreshTimer=null}
 }
 $("#analytics-live-refresh")?.addEventListener("click",loadLiveVisitors);
 
@@ -628,8 +634,28 @@ async function loadAnalytics(){
   const analytics=typeof data==="string"?JSON.parse(data):data;
   if(!aggregateError){
     const aggregate=typeof aggregateData==="string"?JSON.parse(aggregateData):aggregateData;
-    analytics.summary=analytics.summary||{};
-    analytics.summary.aggregate_page_views=aggregate?.page_views||0;
+    const historicalSummary=analytics.summary||{};
+    const historicalPageViews=Number(historicalSummary.page_views)||0;
+    analytics.summary={
+      ...historicalSummary,
+      aggregate_page_views:(Number(aggregate?.page_views)||0)+historicalPageViews
+    };
+
+    const dailyByDate=new Map();
+    (Array.isArray(analytics.daily)?analytics.daily:[]).forEach(row=>{
+      dailyByDate.set(String(row.day),{
+        ...row,
+        page_views:Number(row.page_views)||0,
+        visitors:Number(row.visitors)||0
+      });
+    });
+    (Array.isArray(aggregate?.daily)?aggregate.daily:[]).forEach(row=>{
+      const day=String(row.day);
+      const current=dailyByDate.get(day)||{day,page_views:0,visitors:0,article_opens:0,video_plays:0};
+      current.page_views+=(Number(row.page_views)||0);
+      dailyByDate.set(day,current);
+    });
+    analytics.daily=[...dailyByDate.values()].sort((a,b)=>String(a.day).localeCompare(String(b.day)));
   }
   renderAnalytics(analytics);
   analyticsLoaded=true;
