@@ -10,6 +10,9 @@ let homeGallery=[];
 let siteSettings={};
 let currentPost=null;
 let mediaLoaded=false;
+let analyticsLoaded=false;
+let analyticsLiveTimer=null;
+let analyticsLiveLoading=false;
 let radarLoaded=false;
 let oporyLoaded=false;
 let commentsLoaded=false;
@@ -65,6 +68,10 @@ function activateView(name){
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name&&!b.dataset.scrollTarget));
   setSidebarOpen(false);
   if(name==="media"&&!mediaLoaded)loadMediaLibrary();
+  if(name==="analytics"){
+    if(!analyticsLoaded)loadAnalytics();
+    startAnalyticsLivePolling();
+  }else stopAnalyticsLivePolling();
   if(name==="radar"&&!radarLoaded)loadRadarAdmin();
   if(name==="opory-interest"&&!oporyLoaded)loadOporyAdmin();
   if(name==="comments"&&!commentsLoaded)loadComments();
@@ -491,6 +498,145 @@ $("#home-gallery-files").addEventListener("change",async(e)=>{
   e.target.value="";
 });
 $("#home-gallery-save").addEventListener("click",()=>saveHomeGallery());
+
+function nfmt(value){return new Intl.NumberFormat("sk-SK").format(Number(value)||0)}
+function pct(value){return (Number(value)||0).toLocaleString("sk-SK",{maximumFractionDigits:1})+" %"}
+function analyticsEmpty(text="Zatiaľ bez údajov."){return '<div class="empty">'+esc(text)+'</div>'}
+
+function analyticsTable(headers,rows){
+  if(!rows.length)return analyticsEmpty();
+  return `<table class="analytics-table"><thead><tr>${headers.map(h=>'<th>'+esc(h)+'</th>').join("")}</tr></thead><tbody>${rows.join("")}</tbody></table>`;
+}
+
+function analyticsPostName(slug){
+  return posts.find(p=>p.slug===slug)?.title||slug||"Príspevok";
+}
+
+function renderAnalytics(data){
+  const s=data?.summary||{};
+  const summary=[
+    ["Všetky načítania",s.aggregate_page_views,"Základné agregované počítadlo bez visitor ID"],
+    ["Zobrazenia so súhlasom",s.page_views,"Detailná analytika po povolení štatistík"],
+    ["Návštevníci",s.unique_visitors,"Približný počet zariadení"],
+    ["Otvorené príspevky",s.article_opens,"Články a vlastné projekty"],
+    ["Dočítané do konca",s.reads_100,"Dosiahnutých 100 % textu"],
+    ["Prehratia videí",s.video_plays,"Spustenia videí"],
+    ["Dopozerané videá",s.video_completes,"Videá prehrané do konca"],
+    ["Otvorené fotky",s.photo_opens,"Kliknutia na fotografie"],
+    ["Inštalácie appky",s.app_installs,"Potvrdené PWA inštalácie"]
+  ];
+  $("#analytics-summary").innerHTML=summary.map(([label,value,note])=>`<article class="analytics-stat"><span>${esc(label)}</span><strong>${nfmt(value)}</strong><small>${esc(note)}</small></article>`).join("");
+
+  const daily=Array.isArray(data?.daily)?data.daily:[];
+  if(!daily.length){
+    $("#analytics-chart").innerHTML=analyticsEmpty("Údaje sa začnú zobrazovať po prvých návštevách.");
+  }else{
+    const max=Math.max(1,...daily.map(x=>Number(x.page_views)||0));
+    $("#analytics-chart").innerHTML=`<div class="analytics-bars">${daily.map(x=>{
+      const h=Math.max(3,Math.round((Number(x.page_views)||0)/max*100));
+      const date=new Date(String(x.day)+"T12:00:00");
+      const label=new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit"}).format(date);
+      return `<div class="analytics-day" title="${esc(label)} · ${nfmt(x.page_views)} zobrazení · ${nfmt(x.visitors)} návštevníkov">
+        <div class="analytics-bar-value">${nfmt(x.page_views)}</div>
+        <div class="analytics-bar-track"><i style="height:${h}%"></i></div>
+        <small>${esc(label)}</small>
+      </div>`;
+    }).join("")}</div>`;
+  }
+
+  const ins=data?.installs||{};
+  $("#analytics-installs").innerHTML=`
+    <div class="funnel-step"><span>Zobrazená ponuka</span><strong>${nfmt(ins.offers)}</strong></div>
+    <div class="funnel-arrow">↓ <small>${pct(ins.click_rate)} kliklo</small></div>
+    <div class="funnel-step"><span>Klik na inštaláciu</span><strong>${nfmt(ins.clicks)}</strong></div>
+    <div class="funnel-arrow">↓ <small>${pct(ins.install_rate)} potvrdené</small></div>
+    <div class="funnel-step is-final"><span>Nainštalovaná appka</span><strong>${nfmt(ins.installs)}</strong></div>`;
+
+  const pages=Array.isArray(data?.pages)?data.pages:[];
+  $("#analytics-pages").innerHTML=analyticsTable(
+    ["Stránka","Zobrazenia","Návštevníci"],
+    pages.map(x=>`<tr><td><code>${esc(x.path)}</code></td><td>${nfmt(x.views)}</td><td>${nfmt(x.visitors)}</td></tr>`)
+  );
+
+  const articles=Array.isArray(data?.articles)?data.articles:[];
+  $("#analytics-articles").innerHTML=analyticsTable(
+    ["Príspevok","Otvorenia","25 %","50 %","75 %","100 %","30 s+","Dočítanie"],
+    articles.map(x=>`<tr>
+      <td><strong>${esc(analyticsPostName(x.slug))}</strong><small class="analytics-sub">${esc(x.slug||"")}</small></td>
+      <td>${nfmt(x.opens)}</td><td>${nfmt(x.read25)}</td><td>${nfmt(x.read50)}</td><td>${nfmt(x.read75)}</td>
+      <td>${nfmt(x.read100)}</td><td>${nfmt(x.engaged30)}</td><td><strong>${pct(x.completion_rate)}</strong></td>
+    </tr>`)
+  );
+
+  const videos=Array.isArray(data?.videos)?data.videos:[];
+  $("#analytics-videos").innerHTML=analyticsTable(
+    ["Video","Prehratia","25 %","50 %","75 %","Dokončené","Dopozeranie"],
+    videos.map(x=>`<tr><td><strong>${esc(x.label)}</strong></td><td>${nfmt(x.plays)}</td><td>${nfmt(x.watched25)}</td><td>${nfmt(x.watched50)}</td><td>${nfmt(x.watched75)}</td><td>${nfmt(x.completes)}</td><td><strong>${pct(x.completion_rate)}</strong></td></tr>`)
+  );
+
+  const photos=Array.isArray(data?.photos)?data.photos:[];
+  $("#analytics-photos").innerHTML=analyticsTable(
+    ["Fotografia","Otvorenia"],
+    photos.map(x=>`<tr><td><strong>${esc(x.label)}</strong></td><td>${nfmt(x.opens)}</td></tr>`)
+  );
+}
+
+async function loadLiveVisitors(){
+  const list=$("#analytics-live-list");
+  const count=$("#analytics-live-count");
+  if(!list||analyticsLiveLoading)return;
+  analyticsLiveLoading=true;
+  try{
+    const {data,error}=await db.rpc("zahrada_live_list");
+    if(error)throw error;
+    const result=typeof data==="string"?JSON.parse(data):data;
+    const visitors=Array.isArray(result?.visitors)?result.visitors:[];
+    count.textContent=nfmt(result?.online_count||0);
+    list.innerHTML=visitors.length
+      ?visitors.map(v=>`<article class="analytics-live-item"><div><strong>${esc(v.label||"Návštevník")}</strong><small>${Number(v.seen_seconds)<=5?"práve teraz":"pred "+nfmt(v.seen_seconds)+" s"}</small></div><span class="analytics-live-section">${esc(v.section||"Ďalší obsah")}</span></article>`).join("")
+      :analyticsEmpty("Momentálne tu nie je nikto aktívny.");
+  }catch(error){
+    console.error(error);
+    count.textContent="—";
+    list.innerHTML=analyticsEmpty("Živú návštevnosť sa nepodarilo načítať.");
+  }finally{analyticsLiveLoading=false}
+}
+function startAnalyticsLivePolling(){
+  stopAnalyticsLivePolling();
+  loadLiveVisitors();
+  analyticsLiveTimer=window.setInterval(loadLiveVisitors,15000);
+}
+function stopAnalyticsLivePolling(){
+  if(analyticsLiveTimer){clearInterval(analyticsLiveTimer);analyticsLiveTimer=null}
+}
+$("#analytics-live-refresh")?.addEventListener("click",loadLiveVisitors);
+
+async function loadAnalytics(){
+  const days=Number($("#analytics-days")?.value||30);
+  setSave("Načítavam štatistiky…");
+  $("#analytics-chart").innerHTML=analyticsEmpty("Načítavam…");
+  const [{data,error},{data:aggregateData,error:aggregateError}]=await Promise.all([
+    db.rpc("zahrada_analytics",{p_days:days}),
+    db.rpc("zahrada_pageview_summary",{p_days:days})
+  ]);
+  if(error){
+    console.error(error);
+    setSave("Chyba štatistík");
+    $("#analytics-summary").innerHTML=analyticsEmpty("Štatistiky sa nepodarilo načítať.");
+    return;
+  }
+  const analytics=typeof data==="string"?JSON.parse(data):data;
+  if(!aggregateError){
+    const aggregate=typeof aggregateData==="string"?JSON.parse(aggregateData):aggregateData;
+    analytics.summary=analytics.summary||{};
+    analytics.summary.aggregate_page_views=aggregate?.page_views||0;
+  }
+  renderAnalytics(analytics);
+  analyticsLoaded=true;
+  setSave("Štatistiky načítané");
+}
+$("#analytics-days").addEventListener("change",()=>{analyticsLoaded=false;loadAnalytics()});
+$("#analytics-refresh").addEventListener("click",()=>{analyticsLoaded=false;loadAnalytics();loadLiveVisitors()});
 
 async function loadComments(){
   const box=$("#comments-admin-list");
