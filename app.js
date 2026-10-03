@@ -368,6 +368,8 @@
   }
 
   function trackEvent(eventType,{label='',articleSlug='',onceKey=''}={}){
+    // Retired individual analytics.
+    return;
     if(privacyChoice()!=='accepted')return;
     try{if(localStorage.getItem('zahrada-analytics-owner-v1')==='1')return}catch(e){}
     if(onceKey&&!analyticsOnce(onceKey))return;
@@ -1030,15 +1032,13 @@
     frame.src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fzahradasnapadom&width=500&height=280&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true';
     button.closest('.facebook-window-live').replaceChildren(frame);
   });
-  addPrivacyStyles();
-  setupPrivacyControls();
-  if(!privacyChoice())showPrivacyChoices();
+  // Anonymous aggregate count only; no banner, visitor ID, individual events or live presence.
+  try {
+    localStorage.removeItem(PRIVACY_CHOICE_KEY);
+    localStorage.removeItem(VISITOR_KEY);
+    localStorage.removeItem(VISITOR_EXP_KEY);
+  } catch(e) {}
   countAggregatePageView();
-  trackEvent('page_view',{label:document.title});
-  startLivePresence();
-  window.addEventListener('pagehide',stopLivePresence);
-  window.addEventListener('pageshow',startLivePresence);
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')sendLivePresence()});
 
   document.addEventListener('click',event=>{
     const photo=event.target.closest?.('.idea-gallery-card img,.dynamic-gallery-item img');
