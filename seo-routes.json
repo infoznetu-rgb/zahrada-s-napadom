@@ -1,5 +1,95 @@
 [
   {
+    "slug": "predzimny-vysev-petrzlenu",
+    "route_slug": "predzimny-vysev-petrzlenu",
+    "title": "Predzimný výsev petržlenu: správny termín a postup",
+    "category": "Zelenina",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-predzimny-vysev-petrzlenu.webp"
+  },
+  {
+    "slug": "predzimny-vysev-maku",
+    "route_slug": "predzimny-vysev-maku",
+    "title": "Predzimný výsev maku: správny termín a postup sejby",
+    "category": "Zelenina",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-predzimny-vysev-maku.webp"
+  },
+  {
+    "slug": "zimny-zber-pastiernaka",
+    "route_slug": "zimny-zber-pastiernaka",
+    "title": "Zimný zber paštrnáka: ochrana v pôde a presný postup",
+    "category": "Zelenina",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-zimny-zber-pastiernaka.webp"
+  },
+  {
+    "slug": "vysadba-liesky-na-jesen",
+    "route_slug": "vysadba-liesky-na-jesen",
+    "title": "Výsadba liesky na jeseň: miesto, rozostup a postup",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-vysadba-liesky.webp"
+  },
+  {
+    "slug": "vysadba-cernic-na-jesen",
+    "route_slug": "vysadba-cernic-na-jesen",
+    "title": "Výsadba černíc na jeseň: opora, rez a starostlivosť",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-vysadba-cernic.webp"
+  },
+  {
+    "slug": "zazimovanie-levandule-v-crepniku",
+    "route_slug": "zazimovanie-levandule-v-crepniku",
+    "title": "Zazimovanie levandule v črepníku: praktický postup",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-zazimovanie-levandule.webp"
+  },
+  {
+    "slug": "ochrana-magnolie-pred-zimou",
+    "route_slug": "ochrana-magnolie-pred-zimou",
+    "title": "Ochrana magnólie pred zimou: mulč, voda a textília",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-ochrana-magnolie.webp"
+  },
+  {
+    "slug": "ochrana-bambusu-pred-zimou",
+    "route_slug": "ochrana-bambusu-pred-zimou",
+    "title": "Ochrana bambusu pred zimou: zálievka, mulčovanie a sneh",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-ochrana-bambusu.webp"
+  },
+  {
+    "slug": "vyvyseny-zahon-na-zimu",
+    "route_slug": "vyvyseny-zahon-na-zimu",
+    "title": "Vyvýšený záhon na zimu: príprava v piatich krokoch",
+    "category": "Záhradné práce",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-vyvyseny-zahon-na-zimu.webp"
+  },
+  {
+    "slug": "zazimovanie-nadzemneho-bazena",
+    "route_slug": "zazimovanie-nadzemneho-bazena",
+    "title": "Zazimovanie nadzemného bazéna: bezpečný postup bez škôd",
+    "category": "Praktické nápady",
+    "content_type": "blog",
+    "published_at": "2026-10-03",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-zazimovanie-bazena.webp"
+  },
+  {
     "slug": "prezimovanie-poru-na-zahone",
     "route_slug": "prezimovanie-poru-na-zahone",
     "title": "Prezimovanie póru na záhone: ochrana a zimný zber",
