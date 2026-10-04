@@ -1,5 +1,95 @@
 [
   {
+    "slug": "predzimny-vysev-kopru",
+    "route_slug": "predzimny-vysev-kopru",
+    "title": "Predzimný výsev kôpru: termín a správny postup bez chýb",
+    "category": "Zelenina",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-predzimny-vysev-kopru.webp"
+  },
+  {
+    "slug": "zimny-zber-topinamburov",
+    "route_slug": "zimny-zber-topinamburov",
+    "title": "Zimný zber topinamburov: hľuzy čerstvé z pôdy v záhrade",
+    "category": "Zelenina",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-zimny-zber-topinamburov.webp"
+  },
+  {
+    "slug": "vysadba-bazy-ciernej-na-jesen",
+    "route_slug": "vysadba-bazy-ciernej-na-jesen",
+    "title": "Výsadba bazy čiernej na jeseň: miesto a postup krokmi",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-vysadba-bazy.webp"
+  },
+  {
+    "slug": "vysadba-aronie-na-jesen",
+    "route_slug": "vysadba-aronie-na-jesen",
+    "title": "Výsadba arónie na jeseň: pôda, rozostup a rez bez chýb",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-vysadba-aronie.webp"
+  },
+  {
+    "slug": "zazimovanie-olivovnika-v-crepniku",
+    "route_slug": "zazimovanie-olivovnika-v-crepniku",
+    "title": "Zazimovanie olivovníka v črepníku bez poškodenia v zime",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-zazimovanie-olivovnika.webp"
+  },
+  {
+    "slug": "zazimovanie-vavrinu-v-crepniku",
+    "route_slug": "zazimovanie-vavrinu-v-crepniku",
+    "title": "Zazimovanie vavrínu v črepníku: svetlo a voda v zime",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-zazimovanie-vavrinu.webp"
+  },
+  {
+    "slug": "uskladnenie-akumulatorov-zahradnej-techniky",
+    "route_slug": "uskladnenie-akumulatorov-zahradnej-techniky",
+    "title": "Akumulátory záhradnej techniky: zimné skladovanie bez rizika",
+    "category": "Záhradná technika",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-uskladnenie-akumulatorov.webp"
+  },
+  {
+    "slug": "zazimovanie-tlakoveho-cistica",
+    "route_slug": "zazimovanie-tlakoveho-cistica",
+    "title": "Zazimovanie tlakového čističa bez poškodenia mrazom",
+    "category": "Záhradná technika",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-zazimovanie-tlakoveho-cistica.webp"
+  },
+  {
+    "slug": "vtacie-napajadlo-v-zime",
+    "route_slug": "vtacie-napajadlo-v-zime",
+    "title": "Vtáčie napájadlo v zime: voda, hygiena a bezpečnosť",
+    "category": "Praktické nápady",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-vtacie-napajadlo-v-zime.webp"
+  },
+  {
+    "slug": "kontrola-opor-stromov-pred-zimou",
+    "route_slug": "kontrola-opor-stromov-pred-zimou",
+    "title": "Opory mladých stromov pred zimou: kontrola úväzkov",
+    "category": "Záhradné práce",
+    "content_type": "blog",
+    "published_at": "2026-10-04",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-kontrola-opor-stromov.webp"
+  },
+  {
     "slug": "predzimny-vysev-petrzlenu",
     "route_slug": "predzimny-vysev-petrzlenu",
     "title": "Predzimný výsev petržlenu: správny termín a postup",
