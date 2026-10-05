@@ -102,7 +102,7 @@ async function loadRelatedRecipes(current){
     grid.replaceChildren();
     matches.forEach(({post})=>{
       const card=document.createElement("article");card.className="related-recipe-card";
-      const link=document.createElement("a");link.className="related-recipe-image";link.href="/prispevok.html?slug="+encodeURIComponent(post.slug);link.setAttribute("aria-label","Otvoriť recept: "+post.title);
+      const link=document.createElement("a");link.className="related-recipe-image";link.href="/recepty/"+encodeURIComponent(post.slug)+"/";link.setAttribute("aria-label","Otvoriť recept: "+post.title);
       if(post.cover_url){const img=document.createElement("img");img.src=post.cover_url;img.alt=post.title;img.loading="lazy";img.decoding="async";link.appendChild(img)}
       const content=document.createElement("div");content.className="related-recipe-content";
       const label=document.createElement("span");label.className="related-recipe-label";label.textContent=detailRecipeCategory(post);
