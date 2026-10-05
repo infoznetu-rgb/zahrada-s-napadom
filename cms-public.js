@@ -120,8 +120,13 @@ async function loadSiteSettings(){
     }
   }
 
-  const videos=Array.isArray(map.home_videos?.items)?map.home_videos.items:[];
+  const videos=(Array.isArray(map.home_videos?.items)?map.home_videos.items:[]).filter(v=>{
+    try{return Boolean(v.url)&&['https:','http:'].includes(new URL(v.url,location.href).protocol)}catch(e){return false}
+  });
   const videoRoot=document.querySelector("#cms-video-grid");
+  const videoSection=document.querySelector('#videa');
+  if(videoSection)videoSection.hidden=!videos.length;
+  document.querySelectorAll('[data-home-videos-link]').forEach(link=>link.hidden=!videos.length);
   if(videoRoot&&videos.length){
     videoRoot.innerHTML=videos.map((v,i)=>`<article class="video-card cms-video-card">
       <video controls preload="metadata" playsinline src="${cmsEsc(v.url||"")}" aria-label="${cmsEsc(v.title||"Video")}"></video>

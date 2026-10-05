@@ -42,7 +42,7 @@
   <script src="studio-2026.js?v=1" defer></script>
   <script src="garden-tools.js?v=1" defer></script>
   <script src="home-engagement.js?v=1" defer></script>
-</head>
+<style>#videa[hidden],[data-home-videos-link][hidden]{display:none!important}</style></head>
 <body class="home-page" data-seo-source="static">
   <a class="skip" href="#obsah">Preskočiť na obsah</a>
 
@@ -59,7 +59,7 @@
         <a href="/radar.html">Radar</a>
         <a href="/dielna-s-napadom/">Dielňa s nápadom</a>
         <a href="/pomocky.html">Pomôcky</a>
-        <a href="#videa">Videá</a>
+        <a href="#videa" data-home-videos-link hidden>Videá</a>
         <a href="#komunita">Komunita</a>
         <a href="bazar.html">Bazár</a>
         <a href="#kontakt">Kontakt</a>
@@ -82,7 +82,7 @@
       <a href="/kalendar.html">Záhradný kalendár</a>
       <a href="bazar.html">Bazár</a>
       <a href="#projekty">Projekty</a>
-      <a href="#videa">Videá</a>
+      <a href="#videa" data-home-videos-link hidden>Videá</a>
       <a href="#komunita">Komunita</a>
       <a href="#posli">Pošli svoj nápad</a>
       <a href="#kontakt">Kontakt</a>
@@ -302,7 +302,7 @@
       </div>
     </section>
 
-    <section id="videa" class="section band studio-dark-section">
+    <section id="videa" class="section band studio-dark-section" hidden>
       <div class="container">
         <div class="section-head">
           <div>
@@ -314,11 +314,7 @@
             <p id="cms-videos-text">Krátke ukážky výroby, premien a detailov. Bez zbytočnej omáčky — priamo k tomu, čo funguje.</p>
           </div>
         </div>
-        <div id="cms-video-grid" class="video-grid">
-          <article class="video-card"><div class="video-placeholder"><span>▶</span><small>01 · POSTUP</small></div><h3>Krok za krokom</h3><p>Od prvého rezu po hotový výsledok.</p></article>
-          <article class="video-card"><div class="video-placeholder"><span>▶</span><small>02 · PREMENA</small></div><h3>Pred a po</h3><p>Rýchly pohľad na rozdiel, ktorý spraví dobrý nápad.</p></article>
-          <article class="video-card"><div class="video-placeholder"><span>▶</span><small>03 · TIP</small></div><h3>Detail, ktorý pomôže</h3><p>Jedna praktická vec, ktorú sa oplatí vedieť.</p></article>
-        </div>
+        <div id="cms-video-grid" class="video-grid"></div>
       </div>
     </section>
 
@@ -435,7 +431,7 @@
       <a href="#projekty">Nápady</a>
       <a href="blog.html">Blog</a>
       <a href="/recepty.html">Recepty</a>
-      <a href="#videa">Videá</a>
+      <a href="#videa" data-home-videos-link hidden>Videá</a>
       <a href="#komunita">Komunita</a>
       <a href="#kontakt">Kontakt</a>
           <a class="footer-facebook-link" href="https://www.facebook.com/zahradasnapadom" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">f</span> Facebook</a>

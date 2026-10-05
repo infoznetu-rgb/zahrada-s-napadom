@@ -106,7 +106,7 @@
       </div>
       <label class="comment-hp" aria-hidden="true">Web<input name="website" tabindex="-1" autocomplete="off"></label>
       <div class="comment-form-actions">
-        <small>E-mail sa nezverejňuje a nie je povinný. Odpoveď autora sa zobrazí priamo pod komentárom.</small>
+        <small>E-mail sa nezverejňuje a nie je povinný. Meno a zverejnený komentár sú verejné. <a href="/ochrana-sukromia.html#formular">Ako spracúvame údaje</a>.</small>
         <button type="submit">Pridať komentár</button>
       </div>
       <p class="comment-form-status" role="status"></p>

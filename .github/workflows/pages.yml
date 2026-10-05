@@ -30,6 +30,9 @@ jobs:
       - name: Connect static articles and build complete search index
         run: python3 scripts/build-search-index.py
 
+      - name: Add public information and privacy links to all public pages
+        run: node scripts/build-public-information.mjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
