@@ -84,6 +84,34 @@ def build(root=ROOT):
     sitemap_path = root / 'sitemap.xml'
     if sitemap_path.is_file():
         sitemap = sitemap_path.read_text(encoding='utf-8')
+        # Remove sitemap entries for local HTML pages that are explicitly noindex.
+        # This is important when two articles are consolidated to prevent old URLs
+        # from continuing to send mixed indexing signals.
+        noindex_urls = set()
+        for html_path in root.rglob('*.html'):
+            if any(part in ('admin', '.git', 'work', 'node_modules') for part in html_path.relative_to(root).parts):
+                continue
+            html_source = html_path.read_text(encoding='utf-8-sig')
+            html_page = Page(); html_page.feed(html_source)
+            if 'noindex' in html_page.meta.get('robots', '').lower():
+                if html_page.canonical.startswith('https://zahradasnapadom.sk/'):
+                    # A consolidated page usually canonicals to its replacement,
+                    # so derive the old public URL from its repository path instead.
+                    rel = html_path.relative_to(root)
+                    if rel.name == 'index.html':
+                        old_url = 'https://zahradasnapadom.sk/' + '/'.join(rel.parts[:-1]) + '/'
+                    else:
+                        old_url = 'https://zahradasnapadom.sk/' + '/'.join(rel.parts)
+                    noindex_urls.add(old_url)
+
+        for url in noindex_urls:
+            sitemap = re.sub(
+                r'\s*<url>\s*<loc>' + re.escape(url) + r'</loc>.*?</url>',
+                '',
+                sitemap,
+                flags=re.S,
+            )
+
         existing = set(re.findall(r'<loc>\s*(https://zahradasnapadom\.sk/[^<]*)\s*</loc>', sitemap))
         missing = sorted({
             item['url'] for item in output
@@ -97,8 +125,8 @@ def build(root=ROOT):
                 for url in missing
             )
             sitemap = sitemap.replace('</urlset>', '\n' + blocks + '\n</urlset>')
-            sitemap_path.write_text(sitemap, encoding='utf-8')
-        print(f'Sitemap sync: added {len(missing)} missing canonical article URLs')
+        sitemap_path.write_text(sitemap, encoding='utf-8')
+        print(f'Sitemap sync: removed {len(noindex_urls)} noindex URLs; added {len(missing)} missing canonical article URLs')
 
     print(f'Search index: {len(output)} canonical articles; connected {connected} static pages')
     return output
