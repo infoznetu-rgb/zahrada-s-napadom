@@ -2522,5 +2522,113 @@
     "bytes": 311340,
     "alt": "Drevené debničky usporiadané ako úložné police",
     "caption": "Úložný systém zo starých drevených debničiek."
+  },
+  "stena-na-naradie-system": {
+    "slug": "stena-na-naradie-system",
+    "url": "/assets/blog/ai-2026-10/stena-na-naradie-system.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 243740,
+    "alt": "Záhradné náradie prehľadne zavesené na drevenej stene",
+    "caption": "Usporiadanie náradia na stene záhradnej dielne."
+  },
+  "stojan-na-palivove-drevo": {
+    "slug": "stojan-na-palivove-drevo",
+    "url": "/assets/blog/ai-2026-10/stojan-na-palivove-drevo.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 393738,
+    "alt": "Palivové drevo v krytom stojane nad zemou",
+    "caption": "Stojan s palivovým drevom a vzdušným uložením."
+  },
+  "stojan-na-topanky-do-zahrady": {
+    "slug": "stojan-na-topanky-do-zahrady",
+    "url": "/assets/blog/ai-2026-10/stojan-na-topanky-do-zahrady.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 379654,
+    "alt": "Drevený stojan na čižmy pri vstupe do záhrady",
+    "caption": "Jednoduchý stojan na záhradnú obuv."
+  },
+  "stol-na-presadzanie-navrh": {
+    "slug": "stol-na-presadzanie-navrh",
+    "url": "/assets/blog/ai-2026-10/stol-na-presadzanie-navrh.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 328180,
+    "alt": "Pracovný stôl s kvetináčmi a náradím na presádzanie",
+    "caption": "Stôl na presádzanie s priestorom na pomôcky."
+  },
+  "striedanie-plodin-vyvyseny-zahon": {
+    "slug": "striedanie-plodin-vyvyseny-zahon",
+    "url": "/assets/blog/ai-2026-10/striedanie-plodin-vyvyseny-zahon.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 350210,
+    "alt": "Rôzne druhy zeleniny vo vyvýšenom záhone",
+    "caption": "Zelenina vo vyvýšenom záhone ako ilustrácia plánovania plodín."
+  },
+  "strihanie-hortenzii-podla-druhu": {
+    "slug": "strihanie-hortenzii-podla-druhu",
+    "url": "/assets/blog/ai-2026-10/strihanie-hortenzii-podla-druhu.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 327936,
+    "alt": "Odkvitnuté hortenzie s pripravenými záhradnými nožnicami",
+    "caption": "Príprava na rez hortenzií podľa druhu."
+  },
+  "strkova-cesticka-medzi-zahonmi": {
+    "slug": "strkova-cesticka-medzi-zahonmi",
+    "url": "/assets/blog/ai-2026-10/strkova-cesticka-medzi-zahonmi.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 441302,
+    "alt": "Štrková cestička s obrubou medzi záhonmi",
+    "caption": "Cestička medzi záhonmi s pevným ohraničením."
+  },
+  "strkovy-chodnik-vrstvy": {
+    "slug": "strkovy-chodnik-vrstvy",
+    "url": "/assets/blog/ai-2026-10/strkovy-chodnik-vrstvy.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 404790,
+    "alt": "Rozpracovaný štrkový chodník s podkladovou vrstvou",
+    "caption": "Ilustrácia podkladu a okrajov štrkového chodníka."
+  },
+  "substrat-pre-hortenzie-v-kvetinaci": {
+    "slug": "substrat-pre-hortenzie-v-kvetinaci",
+    "url": "/assets/blog/ai-2026-10/substrat-pre-hortenzie-v-kvetinaci.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 234556,
+    "alt": "Zložky substrátu a hortenzia v kvetináči",
+    "caption": "Príprava pestovateľského substrátu pre hortenzie."
+  },
+  "sud-na-dazdovu-vodu-prepad-komare": {
+    "slug": "sud-na-dazdovu-vodu-prepad-komare",
+    "url": "/assets/blog/ai-2026-10/sud-na-dazdovu-vodu-prepad-komare.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 306016,
+    "alt": "Sud na dažďovú vodu so sieťkou a prepadom",
+    "caption": "Sud na zachytávanie dažďovej vody."
+  },
+  "susak-na-bylinky-zo-sietoviny": {
+    "slug": "susak-na-bylinky-zo-sietoviny",
+    "url": "/assets/blog/ai-2026-10/susak-na-bylinky-zo-sietoviny.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 335072,
+    "alt": "Sieťovaný sušiak s bylinkami",
+    "caption": "Vzdušný závesný sušiak na bylinky."
+  },
+  "susenie-kvetov-hortenzie": {
+    "slug": "susenie-kvetov-hortenzie",
+    "url": "/assets/blog/ai-2026-10/susenie-kvetov-hortenzie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 272414,
+    "alt": "Odrezané kvety hortenzií pripravené na sušenie",
+    "caption": "Hortenzie pripravené na sušenie kvetov."
   }
 }
