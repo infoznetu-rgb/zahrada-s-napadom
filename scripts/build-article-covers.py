@@ -35,7 +35,10 @@ def update(source):
                 value=re.sub(r'<figcaption[^>]*>.*?</figcaption>',lambda x:caption,value,flags=re.S)
             else: value=value.replace('</figure>',caption+'</figure>')
             return value
-        source=re.sub(r'<figure\b[^>]*class="post-hero"[^>]*>.*?</figure>',figure,source,count=1,flags=re.S)
+        hero_pattern=r'<figure\b[^>]*class="post-hero"[^>]*>.*?</figure>'
+        if not re.search(hero_pattern,source,re.S):
+            hero_pattern=r'<figure\b[^>]*>.*?</figure>'
+        source=re.sub(hero_pattern,figure,source,count=1,flags=re.S)
         absolute='https://zahradasnapadom.sk'+cover['url']
         source=re.sub(r'<meta[^>]*(?:property="og:image"|name="twitter:image")[^>]*>',lambda m:attr(m[0],'content',absolute),source)
         def schema(m):
@@ -60,6 +63,12 @@ def update(source):
     source=re.sub(r'<article\b[^>]*data-post-slug="[^"]+"[^>]*>.*?</article>',card,source,flags=re.S)
     return source
 def build():
+    cms_path=ROOT/'cms-public.js'
+    if cms_path.is_file():
+        cms=cms_path.read_text(encoding='utf-8')
+        urls={slug:cover['url'] for slug,cover in COVERS.items()}
+        cms=re.sub(r'const cmsArticleCovers=.*?;\n',lambda m:'const cmsArticleCovers='+json.dumps(urls,separators=(',',':'))+';\n',cms,count=1)
+        cms_path.write_text(cms,encoding='utf-8')
     changed=0
     for path in ROOT.rglob('*.html'):
         if any(x in ('.git','admin','work','node_modules') for x in path.relative_to(ROOT).parts):continue
