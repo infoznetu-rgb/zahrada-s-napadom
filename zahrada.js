@@ -288,7 +288,8 @@ async function syncStaticArticleFromCms(){
     const title=String(data.title||"").trim();
     const excerpt=String(data.excerpt||"").trim();
     const category=String(data.category||"").trim();
-    const cover=String(data.cover_url||"").trim();
+    const curatedHero=document.querySelector('.post-hero img[data-curated-cover="1"]');
+    const cover=curatedHero?curatedHero.src:String(data.cover_url||"").trim();
 
     if(title){
       const titleEl=document.querySelector("#post-title");
@@ -317,7 +318,7 @@ async function syncStaticArticleFromCms(){
       const hero=document.querySelector(".post-hero img");
       if(hero){
         hero.src=cover;
-        if(title)hero.alt=title;
+        if(title&&!curatedHero)hero.alt=title;
       }
       setArticleMeta('meta[property="og:image"]',cover);
       setArticleMeta('meta[name="twitter:image"]',cover);
