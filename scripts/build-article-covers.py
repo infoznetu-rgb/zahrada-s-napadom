@@ -65,7 +65,7 @@ def build():
         if any(x in ('.git','admin','work','node_modules') for x in path.relative_to(ROOT).parts):continue
         source=path.read_text(encoding='utf-8-sig')
         result=update(source)
-        result=re.sub(r'zahrada\\.js\\?v=[^"\\s>]+','zahrada.js?v=articlecovers20261006',result)
+        result=re.sub(r'zahrada\.js\?v=[^"\s>]+','zahrada.js?v=articlecovers20261006',result)
         if result!=source:path.write_text(result,encoding='utf-8');changed+=1
     print(f'Article covers: updated {changed} pages')
 if __name__=='__main__':build()
