@@ -1766,5 +1766,113 @@
     "bytes": 237466,
     "alt": "Stĺpovitý ihličnan s oporou pod mokrým snehom",
     "caption": "Ochrana ihličnanov pred ťažkým snehom"
+  },
+  "ochrana-kmena-pred-kosackou": {
+    "slug": "ochrana-kmena-pred-kosackou",
+    "url": "/assets/blog/ai-2026-10/ochrana-kmena-pred-kosackou.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 333322,
+    "alt": "Ochranný návlek na kmeni stromu pri odstavenom vyžínači",
+    "caption": "Ochrana kmeňa pri údržbe trávnika"
+  },
+  "ochrana-kompostu-pred-hlodavcami": {
+    "slug": "ochrana-kompostu-pred-hlodavcami",
+    "url": "/assets/blog/ai-2026-10/ochrana-kompostu-pred-hlodavcami.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 405484,
+    "alt": "Hlodavec pri kompostéri s drôtenou ochranou",
+    "caption": "Ochrana kompostu pred hlodavcami"
+  },
+  "ochrana-magnolie-pred-zimou": {
+    "slug": "ochrana-magnolie-pred-zimou",
+    "url": "/assets/blog/ai-2026-10/ochrana-magnolie-pred-zimou.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 312788,
+    "alt": "Mladá magnólia pod ochrannou textíliou",
+    "caption": "Zimná ochrana mladej magnólie"
+  },
+  "ochrana-mladeho-vinica-pred-mrazom": {
+    "slug": "ochrana-mladeho-vinica-pred-mrazom",
+    "url": "/assets/blog/ai-2026-10/ochrana-mladeho-vinica-pred-mrazom.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 314374,
+    "alt": "Mladý vinič s pôdou pri báze v zimnom období",
+    "caption": "Príprava mladého viniča na zimu"
+  },
+  "ochrana-mladych-stromcekov-pred-ohryzom": {
+    "slug": "ochrana-mladych-stromcekov-pred-ohryzom",
+    "url": "/assets/blog/ai-2026-10/ochrana-mladych-stromcekov-pred-ohryzom.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 330770,
+    "alt": "Drôtená ochrana okolo kmeňa mladého stromu",
+    "caption": "Ochrana stromčekov pred ohryzom"
+  },
+  "ochrana-rododendronov-pred-zimou": {
+    "slug": "ochrana-rododendronov-pred-zimou",
+    "url": "/assets/blog/ai-2026-10/ochrana-rododendronov-pred-zimou.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 387002,
+    "alt": "Rododendron s mulčom počas zimy",
+    "caption": "Starostlivosť o rododendron pred zimou"
+  },
+  "ochrana-spenatu-pred-mrazom": {
+    "slug": "ochrana-spenatu-pred-mrazom",
+    "url": "/assets/blog/ai-2026-10/ochrana-spenatu-pred-mrazom.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 236422,
+    "alt": "Špenát pod nízkym tunelom z netkanej textílie",
+    "caption": "Ochrana špenátu pri mrazoch"
+  },
+  "ochrana-terakotovych-kvetinacov-pred-mrazom": {
+    "slug": "ochrana-terakotovych-kvetinacov-pred-mrazom",
+    "url": "/assets/blog/ai-2026-10/ochrana-terakotovych-kvetinacov-pred-mrazom.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 289340,
+    "alt": "Terakotové nádoby a juta pripravené na zimné uskladnenie",
+    "caption": "Príprava kvetináčov na ochranu pred mrazom"
+  },
+  "ochrana-zeleniny-pred-prvym-mrazom": {
+    "slug": "ochrana-zeleniny-pred-prvym-mrazom",
+    "url": "/assets/blog/ai-2026-10/ochrana-zeleniny-pred-prvym-mrazom.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 279080,
+    "alt": "Zelenina pod ochrannou textíliou pri prvom mraze",
+    "caption": "Ochrana jesennej zeleniny"
+  },
+  "odkvitnute-kvety-hortenzie": {
+    "slug": "odkvitnute-kvety-hortenzie",
+    "url": "/assets/blog/ai-2026-10/odkvitnute-kvety-hortenzie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 388240,
+    "alt": "Suché súkvetia hortenzie na kríku a v košíku",
+    "caption": "Odkvitnuté súkvetia hortenzie"
+  },
+  "odrezky-dreva-v-zahrade": {
+    "slug": "odrezky-dreva-v-zahrade",
+    "url": "/assets/blog/ai-2026-10/odrezky-dreva-v-zahrade.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 355540,
+    "alt": "Odrezky dreva uložené v debnách pri dielni",
+    "caption": "Využitie drevených odrezkov v záhrade"
+  },
+  "okrasne-travy-kedy-strihat": {
+    "slug": "okrasne-travy-kedy-strihat",
+    "url": "/assets/blog/ai-2026-10/okrasne-travy-kedy-strihat.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 473420,
+    "alt": "Suché okrasné trávy ponechané v zimnom záhone",
+    "caption": "Okrasné trávy pred jarným rezom"
   }
 }
