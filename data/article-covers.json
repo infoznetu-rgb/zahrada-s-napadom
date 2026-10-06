@@ -578,5 +578,221 @@
     "bytes": 313242,
     "alt": "Popínavá fazuľa rastúca pri drevenej opore a špagátoch",
     "caption": "Opora pre pestovanie tyčkovej fazule"
+  },
+  "hnojivo-na-hortenzie": {
+    "slug": "hnojivo-na-hortenzie",
+    "url": "/assets/blog/ai-2026-10/hnojivo-na-hortenzie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 305712,
+    "alt": "Granulované hnojivo pripravené vedľa hortenzie",
+    "caption": "Výber hnojiva podľa potrieb hortenzie"
+  },
+  "hnojenie-travnika-pocas-roka": {
+    "slug": "hnojenie-travnika-pocas-roka",
+    "url": "/assets/blog/ai-2026-10/hnojenie-travnika-pocas-roka.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 303146,
+    "alt": "Rozmetadlo granulovaného hnojiva na zelenom trávniku",
+    "caption": "Hnojenie trávnika sa prispôsobuje ročnému obdobiu"
+  },
+  "hole-miesta-v-travniku-dosievanie": {
+    "slug": "hole-miesta-v-travniku-dosievanie",
+    "url": "/assets/blog/ai-2026-10/hole-miesta-v-travniku-dosievanie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 341656,
+    "alt": "Holé miesto v trávniku so semenom a pripravenými hrabľami",
+    "caption": "Príprava pôdy na dosievanie trávnika"
+  },
+  "hortenzia-cierne-listy": {
+    "slug": "hortenzia-cierne-listy",
+    "url": "/assets/blog/ai-2026-10/hortenzia-cierne-listy.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 179694,
+    "alt": "Detail listov hortenzie s tmavými škvrnami",
+    "caption": "Ilustrácia tmavých škvŕn na listoch; príčinu treba overiť"
+  },
+  "hortenzia-dubolista-pestovanie": {
+    "slug": "hortenzia-dubolista-pestovanie",
+    "url": "/assets/blog/ai-2026-10/hortenzia-dubolista-pestovanie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 335830,
+    "alt": "Dubolistá hortenzia s červenými laločnatými listami na jeseň",
+    "caption": "Jesenné sfarbenie hortenzie dubolistej"
+  },
+  "hortenzia-annabelle-pada-po-dazdi-opora": {
+    "slug": "hortenzia-annabelle-pada-po-dazdi-opora",
+    "url": "/assets/blog/ai-2026-10/hortenzia-annabelle-pada-po-dazdi-opora.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 327390,
+    "alt": "Biele súkvetia hortenzie ohnuté po daždi pri kovovej opore",
+    "caption": "Opora pri zaťažení výhonkov dažďom"
+  },
+  "hortenzia-kvety-male": {
+    "slug": "hortenzia-kvety-male",
+    "url": "/assets/blog/ai-2026-10/hortenzia-kvety-male.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 305668,
+    "alt": "Hortenzia s menšími svetloružovými súkvetiami",
+    "caption": "Veľkosť súkvetí ovplyvňujú druh aj pestovateľské podmienky"
+  },
+  "hortenzia-hnede-listy": {
+    "slug": "hortenzia-hnede-listy",
+    "url": "/assets/blog/ai-2026-10/hortenzia-hnede-listy.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 189758,
+    "alt": "Listy hortenzie s hnedými suchými okrajmi",
+    "caption": "Ilustrácia hnednutia listov hortenzie"
+  },
+  "hortenzia-kalinolista-pestovanie": {
+    "slug": "hortenzia-kalinolista-pestovanie",
+    "url": "/assets/blog/ai-2026-10/hortenzia-kalinolista-pestovanie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 378636,
+    "alt": "Kvitnúca hortenzia kalinolistá v záhradnom záhone",
+    "caption": "Pestovanie hortenzie kalinolistej"
+  },
+  "hortenzia-kvitne-zeleno": {
+    "slug": "hortenzia-kvitne-zeleno",
+    "url": "/assets/blog/ai-2026-10/hortenzia-kvitne-zeleno.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 160608,
+    "alt": "Zelenkasté guľovité súkvetia hortenzie",
+    "caption": "Zelené sfarbenie súkvetí hortenzie"
+  },
+  "hortenzia-listy-ovisnute-rano": {
+    "slug": "hortenzia-listy-ovisnute-rano",
+    "url": "/assets/blog/ai-2026-10/hortenzia-listy-ovisnute-rano.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 295894,
+    "alt": "Ovisnuté listy hortenzie v rannom svetle",
+    "caption": "Ranné vädnutie listov si vyžaduje kontrolu podmienok"
+  },
+  "hortenzia-listy-spalene-slnkom": {
+    "slug": "hortenzia-listy-spalene-slnkom",
+    "url": "/assets/blog/ai-2026-10/hortenzia-listy-spalene-slnkom.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 225402,
+    "alt": "Listy hortenzie s vysušenými hnedými plochami",
+    "caption": "Ilustrácia poškodenia listov pri silnom slnku"
+  },
+  "hortenzia-meni-farbu-na-jesen": {
+    "slug": "hortenzia-meni-farbu-na-jesen",
+    "url": "/assets/blog/ai-2026-10/hortenzia-meni-farbu-na-jesen.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 240714,
+    "alt": "Súkvetia hortenzie meniace odtiene počas jesene",
+    "caption": "Jesenné dozrievanie farby súkvetí"
+  },
+  "hortenzia-metlinata-pestovanie": {
+    "slug": "hortenzia-metlinata-pestovanie",
+    "url": "/assets/blog/ai-2026-10/hortenzia-metlinata-pestovanie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 345444,
+    "alt": "Metlinatá hortenzia s kužeľovitými bielo-ružovými súkvetiami",
+    "caption": "Hortenzia metlinatá v záhradnom záhone"
+  },
+  "hortenzia-na-balkone": {
+    "slug": "hortenzia-na-balkone",
+    "url": "/assets/blog/ai-2026-10/hortenzia-na-balkone.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 250844,
+    "alt": "Kvitnúce hortenzie vo veľkých nádobách na balkóne",
+    "caption": "Pestovanie hortenzií na balkóne"
+  },
+  "hortenzia-na-plnom-slnku": {
+    "slug": "hortenzia-na-plnom-slnku",
+    "url": "/assets/blog/ai-2026-10/hortenzia-na-plnom-slnku.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 327896,
+    "alt": "Hortenzie v záhone osvetlenom priamym slnkom",
+    "caption": "Pri slnečnom stanovišti rozhodujú druh, voda a teplota"
+  },
+  "hortenzia-nekvitne-po-reze": {
+    "slug": "hortenzia-nekvitne-po-reze",
+    "url": "/assets/blog/ai-2026-10/hortenzia-nekvitne-po-reze.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 223086,
+    "alt": "Hortenzia s orezanými výhonkami a listami bez kvetov",
+    "caption": "Rez môže ovplyvniť kvitnutie hortenzie"
+  },
+  "hortenzia-nekvitne-po-zime": {
+    "slug": "hortenzia-nekvitne-po-zime",
+    "url": "/assets/blog/ai-2026-10/hortenzia-nekvitne-po-zime.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 245774,
+    "alt": "Zimované výhonky hortenzie s tmavými pukmi",
+    "caption": "Po zime treba skontrolovať stav pukov"
+  },
+  "hortenzia-pada-po-dazdi": {
+    "slug": "hortenzia-pada-po-dazdi",
+    "url": "/assets/blog/ai-2026-10/hortenzia-pada-po-dazdi.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 296260,
+    "alt": "Mokré súkvetia hortenzie na ohnutých výhonkoch pri opore",
+    "caption": "Dažďom zaťažené výhonky hortenzie"
+  },
+  "hortenzia-pilovita-pestovanie": {
+    "slug": "hortenzia-pilovita-pestovanie",
+    "url": "/assets/blog/ai-2026-10/hortenzia-pilovita-pestovanie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 302730,
+    "alt": "Hortenzia pílovitá s plochými modrofialovými súkvetiami v polotieni",
+    "caption": "Hortenzia pílovitá v polotienistom záhone"
+  },
+  "hortenzia-po-kupeni": {
+    "slug": "hortenzia-po-kupeni",
+    "url": "/assets/blog/ai-2026-10/hortenzia-po-kupeni.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 339754,
+    "alt": "Hortenzia v pestovateľskej nádobe pri pripravenom väčšom kvetináči",
+    "caption": "Starostlivosť o hortenziu po kúpe"
+  },
+  "hortenzia-po-zime-nerastie": {
+    "slug": "hortenzia-po-zime-nerastie",
+    "url": "/assets/blog/ai-2026-10/hortenzia-po-zime-nerastie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 291126,
+    "alt": "Hortenzia s drevnatými výhonkami a začínajúcimi pukmi po zime",
+    "caption": "Pred zásahom treba overiť životaschopnosť výhonkov"
+  },
+  "hortenzia-polamane-konare": {
+    "slug": "hortenzia-polamane-konare",
+    "url": "/assets/blog/ai-2026-10/hortenzia-polamane-konare.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 235294,
+    "alt": "Zlomený výhonok hortenzie s ovisnutým súkvetím",
+    "caption": "Poškodený výhonok hortenzie"
+  },
+  "hortenzia-po-mraze": {
+    "slug": "hortenzia-po-mraze",
+    "url": "/assets/blog/ai-2026-10/hortenzia-po-mraze.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 288208,
+    "alt": "Nové listy a výhonky hortenzie poškodené jarným mrazom",
+    "caption": "Kontrola poškodenia hortenzie po jarnom mraze"
   }
 }
