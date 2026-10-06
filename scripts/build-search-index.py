@@ -51,6 +51,9 @@ def schema_types(value):
         for item in value: yield from schema_types(item)
 
 def build(root=ROOT):
+    import hashlib
+    covers_path = root / 'data/article-covers.json'
+    cover_version = 'covers-' + hashlib.sha256(covers_path.read_bytes()).hexdigest()[:12] if covers_path.is_file() else 'adsense20261005'
     index = {}
     connected = 0
     for path in sorted(root.rglob('*.html')):
@@ -58,7 +61,7 @@ def build(root=ROOT):
         source = path.read_text(encoding='utf-8-sig')
         original = source
         for asset in ('app.js', 'app.css', 'cms-public.js', 'moja-zahrada.js', 'home-clarity.css'):
-            source = re.sub(r'(?<![\w-])' + re.escape(asset) + r'\?v=[^"\s>]+', asset + '?v=adsense20261005', source)
+            source = re.sub(r'(?<![\w-])' + re.escape(asset) + r'\?v=[^"\s>]+', asset + '?v=' + (cover_version if asset == 'cms-public.js' else 'adsense20261005'), source)
         page = Page(); page.feed(source)
         if source != original: path.write_text(source, encoding='utf-8')
         if 'noindex' in page.meta.get('robots', '').lower() or 'http-equiv="refresh"' in source.lower(): continue
