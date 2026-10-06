@@ -2,7 +2,9 @@ const CMS_URL="https://bkyappgttwjxakkwycub.supabase.co";
 const CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
 const cms=window.supabase.createClient(CMS_URL,CMS_KEY);
 
-function cmsCoverUrl(value){
+const cmsArticleCovers={"strihanie-hortenzii-na-jesen":"/assets/blog/ai-2026-10/strihanie-hortenzii-na-jesen.webp","zber-a-susenie-vlasskych-orechov":"/assets/blog/ai-2026-10/zber-a-susenie-vlasskych-orechov.webp","zber-a-skladovanie-hrusiek":"/assets/blog/ai-2026-10/zber-a-skladovanie-hrusiek.webp","uskladnenie-jablk-na-zimu":"/assets/blog/ai-2026-10/uskladnenie-jablk-na-zimu.webp","cim-naplnit-vyvyseny-zahon-vrstvy":"/assets/blog/ai-2026-10/cim-naplnit-vyvyseny-zahon-vrstvy.webp"};
+function cmsCoverUrl(value,slug){
+  if(cmsArticleCovers[slug])return cmsArticleCovers[slug];
   const url=String(value||"");
   return /^\/assets\/blog\/(?:0[1-9]|[12][0-9]|3[0-9]|40)-.*\.svg$/i.test(url)
     ? url.replace(/\.svg$/i,".webp")
@@ -158,7 +160,7 @@ async function loadPublishedPosts(){
 
   const renderCard=(p)=>`<article class="cms-post-card ${p.content_type==="blog"?"is-blog":"is-project"}" data-post-slug="${cmsEsc(p.slug)}" data-post-type="${p.content_type==="blog"?"blog":"project"}">
     <a class="cms-post-image" href="${cmsEsc(cmsHref(p))}">
-      ${p.cover_url?`<img src="${cmsEsc(cmsCoverUrl(p.cover_url))}" alt="${cmsEsc(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/blog/fallback-cover.svg'">`:'<div class="cms-post-placeholder">Záhrada s nápadom</div>'}
+      ${p.cover_url?`<img src="${cmsEsc(cmsCoverUrl(p.cover_url,p.slug))}" alt="${cmsEsc(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='/assets/blog/fallback-cover.svg'">`:'<div class="cms-post-placeholder">Záhrada s nápadom</div>'}
     </a>
     <div class="cms-post-body">
       <span class="tag">${p.content_type==="blog"?"BLOG · ":""}${cmsEsc(p.category||"Nápad")}</span>

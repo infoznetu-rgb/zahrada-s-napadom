@@ -27,6 +27,9 @@ jobs:
       - name: Generate crawlable recipe pages and sitemap entries
         run: python3 scripts/build-recipe-pages.py
 
+      - name: Apply curated article illustrations and card covers
+        run: python3 scripts/build-article-covers.py
+
       - name: Connect static articles and build complete search index
         run: python3 scripts/build-search-index.py
 
