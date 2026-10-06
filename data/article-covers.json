@@ -1334,5 +1334,113 @@
     "bytes": 415482,
     "alt": "Zelené zvyšky a suchý materiál v kompostéri",
     "caption": "Vyváženie materiálov v komposte"
+  },
+  "kompost-k-hortenziam": {
+    "slug": "kompost-k-hortenziam",
+    "url": "/assets/blog/ai-2026-10/kompost-k-hortenziam.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 337342,
+    "alt": "Kompost pri koreňovej zóne kvitnúcej hortenzie",
+    "caption": "Kompost ako súčasť starostlivosti o pôdu"
+  },
+  "kompost-na-zimu": {
+    "slug": "kompost-na-zimu",
+    "url": "/assets/blog/ai-2026-10/kompost-na-zimu.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 417762,
+    "alt": "Kompostér prikrytý proti zimnému počasiu",
+    "caption": "Príprava kompostu na zimu"
+  },
+  "komposter-umiestnenie-v-zahrade": {
+    "slug": "komposter-umiestnenie-v-zahrade",
+    "url": "/assets/blog/ai-2026-10/komposter-umiestnenie-v-zahrade.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 406900,
+    "alt": "Drevený kompostér v dostupnej časti záhrady",
+    "caption": "Výber miesta pre kompostér"
+  },
+  "kontrola-opor-stromov-pred-zimou": {
+    "slug": "kontrola-opor-stromov-pred-zimou",
+    "url": "/assets/blog/ai-2026-10/kontrola-opor-stromov-pred-zimou.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 256696,
+    "alt": "Kmeň mladého stromu upevnený k dreveným kolom",
+    "caption": "Kontrola opôr a úväzkov stromov"
+  },
+  "kontrola-predlzovacieho-kabla-pred-zimou": {
+    "slug": "kontrola-predlzovacieho-kabla-pred-zimou",
+    "url": "/assets/blog/ai-2026-10/kontrola-predlzovacieho-kabla-pred-zimou.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 193974,
+    "alt": "Odpojený predlžovací kábel so zástrčkou na pracovnom stole",
+    "caption": "Kontrola a uskladnenie predlžovacieho kábla"
+  },
+  "kora-pod-hortenzie": {
+    "slug": "kora-pod-hortenzie",
+    "url": "/assets/blog/ai-2026-10/kora-pod-hortenzie.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 325454,
+    "alt": "Vrstva kôry na pôde pod hortenziou",
+    "caption": "Kôrový mulč pod hortenziami"
+  },
+  "kosacka-pred-zimou-udrzba": {
+    "slug": "kosacka-pred-zimou-udrzba",
+    "url": "/assets/blog/ai-2026-10/kosacka-pred-zimou-udrzba.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 370044,
+    "alt": "Spodná časť kosačky so zvyškami trávy a pripravenou kefou",
+    "caption": "Čistenie odstavenej kosačky pred zimou"
+  },
+  "kovova-opora-pre-hortenzie-co-sledovat": {
+    "slug": "kovova-opora-pre-hortenzie-co-sledovat",
+    "url": "/assets/blog/ai-2026-10/kovova-opora-pre-hortenzie-co-sledovat.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 316870,
+    "alt": "Kruhová kovová opora okolo kvitnúcej hortenzie",
+    "caption": "Kovová opora pre výhonky hortenzie"
+  },
+  "kovovy-vyvyseny-zahon-stavba": {
+    "slug": "kovovy-vyvyseny-zahon-stavba",
+    "url": "/assets/blog/ai-2026-10/kovovy-vyvyseny-zahon-stavba.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 209254,
+    "alt": "Kovový vyvýšený záhon so zeleninou",
+    "caption": "Vyvýšený záhon z kovu"
+  },
+  "kvapkajuca-bateria-kontrola": {
+    "slug": "kvapkajuca-bateria-kontrola",
+    "url": "/assets/blog/ai-2026-10/kvapkajuca-bateria-kontrola.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 172866,
+    "alt": "Rozobratá vodovodná batéria s kartušou a tesneniami",
+    "caption": "Kontrola súčastí vodovodnej batérie"
+  },
+  "kvapkova-zavlaha-pre-zahon": {
+    "slug": "kvapkova-zavlaha-pre-zahon",
+    "url": "/assets/blog/ai-2026-10/kvapkova-zavlaha-pre-zahon.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 329512,
+    "alt": "Kvapkovacie hadice medzi zeleninou v záhone",
+    "caption": "Kvapková závlaha pri koreňoch rastlín"
+  },
+  "kvetinace-z-vedier-a-nadob": {
+    "slug": "kvetinace-z-vedier-a-nadob",
+    "url": "/assets/blog/ai-2026-10/kvetinace-z-vedier-a-nadob.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 319738,
+    "alt": "Kvitnúce rastliny vo vedre a kovovej nádobe",
+    "caption": "Staré nádoby využité ako kvetináče"
   }
 }
