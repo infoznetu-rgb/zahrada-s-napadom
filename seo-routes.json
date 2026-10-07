@@ -877,5 +877,95 @@
   "/blog/spargla-na-jesen-starostlivost/",
   "/blog/zazimovanie-zahradneho-postrekovaca/",
   "/blog/zazimovanie-zahradneho-cerpadla/",
-  "/blog/zazimovanie-zahradnej-hadice/"
+  "/blog/zazimovanie-zahradnej-hadice/",
+  {
+    "slug": "vysadba-muchovnika-na-jesen",
+    "route_slug": "vysadba-muchovnika-na-jesen",
+    "title": "Výsadba muchovníka na jeseň: praktický postup",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/01-vysadba-muchovnika.webp"
+  },
+  {
+    "slug": "vysadba-driena-na-jesen",
+    "route_slug": "vysadba-driena-na-jesen",
+    "title": "Výsadba drieňa na jeseň: miesto, pôda a postup",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/02-vysadba-driena.webp"
+  },
+  {
+    "slug": "vysadba-kaliny-do-zahrady",
+    "route_slug": "vysadba-kaliny-do-zahrady",
+    "title": "Výsadba kaliny do záhrady: miesto a správny postup",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/03-vysadba-kaliny.webp"
+  },
+  {
+    "slug": "delenie-pazitky-na-jesen",
+    "route_slug": "delenie-pazitky-na-jesen",
+    "title": "Delenie pažítky na jeseň: jednoduchý postup",
+    "category": "Bylinky",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/04-delenie-pazitky.webp"
+  },
+  {
+    "slug": "zazimovanie-zahradneho-drvica",
+    "route_slug": "zazimovanie-zahradneho-drvica",
+    "title": "Zazimovanie záhradného drviča: čistenie a sklad",
+    "category": "Záhradná technika",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/05-zazimovanie-drvica.webp"
+  },
+  {
+    "slug": "udrzba-furika-pred-zimou",
+    "route_slug": "udrzba-furika-pred-zimou",
+    "title": "Údržba fúrika pred zimou: 7 kontrolných bodov",
+    "category": "Záhradné práce",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/06-udrzba-furika.webp"
+  },
+  {
+    "slug": "zazimovanie-fukara-na-listie",
+    "route_slug": "zazimovanie-fukara-na-listie",
+    "title": "Zazimovanie fukára na lístie: bezpečný postup",
+    "category": "Záhradná technika",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/07-zazimovanie-fukara.webp"
+  },
+  {
+    "slug": "brusenie-zahradnych-noznic",
+    "route_slug": "brusenie-zahradnych-noznic",
+    "title": "Brúsenie záhradných nožníc: uhol, postup a chyby",
+    "category": "Záhradné náradie",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-brusenie-noznic.webp"
+  },
+  {
+    "slug": "zimne-vetranie-sklenika",
+    "route_slug": "zimne-vetranie-sklenika",
+    "title": "Zimné vetranie skleníka: kedy a ako vetrať",
+    "category": "Skleník",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-vetranie-sklenika.webp"
+  },
+  {
+    "slug": "cistenie-a-zazimovanie-dazdomera",
+    "route_slug": "cistenie-a-zazimovanie-dazdomera",
+    "title": "Zazimovanie dažďomera: čistenie a správne uloženie",
+    "category": "Záhradné práce",
+    "content_type": "blog",
+    "published_at": "2026-10-07",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-zazimovanie-dazdomera.webp"
+  }
 ]
