@@ -967,5 +967,95 @@
     "content_type": "blog",
     "published_at": "2026-10-07",
     "cover": "https://zahradasnapadom.sk/assets/blog/10-zazimovanie-dazdomera.webp"
+  },
+  {
+    "slug": "vysadba-rebarbory-na-jesen",
+    "route_slug": "vysadba-rebarbory-na-jesen",
+    "title": "Výsadba rebarbory na jeseň: miesto a správny postup",
+    "category": "Zelenina",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-vysadba-rebarbory.webp"
+  },
+  {
+    "slug": "ochrana-figovnika-pred-zimou",
+    "route_slug": "ochrana-figovnika-pred-zimou",
+    "title": "Figovník pred zimou: ochrana koreňov aj výhonkov",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-ochrana-figovnika.webp"
+  },
+  {
+    "slug": "uskladnenie-georginovych-hluz",
+    "route_slug": "uskladnenie-georginovych-hluz",
+    "title": "Uskladnenie georgín: hľuzy bez plesne a vyschnutia",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-uskladnenie-georgin.webp"
+  },
+  {
+    "slug": "jesenny-vysev-spenatu",
+    "route_slug": "jesenny-vysev-spenatu",
+    "title": "Jesenný výsev špenátu: termín, hĺbka a ochrana",
+    "category": "Zelenina",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-jesenny-vysev-spenatu.webp"
+  },
+  {
+    "slug": "pestovanie-valerianky-polnej",
+    "route_slug": "pestovanie-valerianky-polnej",
+    "title": "Valeriánka poľná: jesenný výsev a zimný zber",
+    "category": "Zelenina",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-valerianka-polna.webp"
+  },
+  {
+    "slug": "plesen-snezna-na-travniku",
+    "route_slug": "plesen-snezna-na-travniku",
+    "title": "Pleseň snežná na trávniku: prevencia už na jeseň",
+    "category": "Trávnik",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-prevencia-plesne-sneznej.webp"
+  },
+  {
+    "slug": "izolacia-sklenika-na-zimu",
+    "route_slug": "izolacia-sklenika-na-zimu",
+    "title": "Izolácia skleníka na zimu bez straty vetrania",
+    "category": "Skleník",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-izolacia-sklenika.webp"
+  },
+  {
+    "slug": "zazimovanie-zahradneho-nabytku",
+    "route_slug": "zazimovanie-zahradneho-nabytku",
+    "title": "Zazimovanie záhradného nábytku podľa materiálu",
+    "category": "Dom a záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-zazimovanie-nabytku.webp"
+  },
+  {
+    "slug": "kompost-pred-zimou",
+    "route_slug": "kompost-pred-zimou",
+    "title": "Kompost pred zimou: premiešanie, vlhkosť a prikrytie",
+    "category": "Záhradné práce",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-kompost-pred-zimou.webp"
+  },
+  {
+    "slug": "ochrana-mladeho-vinica-pred-zimou",
+    "route_slug": "ochrana-mladeho-vinica-pred-zimou",
+    "title": "Mladý vinič pred zimou: prihrnutie a ochrana kra",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-08",
+    "cover": "https://zahradasnapadom.sk/assets/blog/08-ochrana-mladeho-vinica.webp"
   }
 ]
