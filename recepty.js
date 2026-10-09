@@ -9,7 +9,16 @@ const recipeClear=document.querySelector("#recipe-search-clear");
 const recipeCategories=["Hlavné jedlá","Polievky","Prílohy","Šaláty","Raňajky","Placky a slané koláče","Koláče a dezerty","Omáčky, pesta a nátierky","Zaváranie a čatní"];
 let recipes=[];
 let uniqueRecipeImages={};
-function recipeCover(post){return uniqueRecipeImages[String(post.slug||"").trim()]||post.cover_url||""}
+let recipeIllustrations={};
+let duplicatedRecipeCovers=new Set();
+function recipeCover(post){
+  const slug=String(post.slug||"").trim();
+  if(uniqueRecipeImages[slug])return uniqueRecipeImages[slug];
+  const original=String(post.cover_url||"").trim();
+  const key=original.split("?")[0];
+  if((!original||duplicatedRecipeCovers.has(key))&&recipeIllustrations[slug])return recipeIllustrations[slug];
+  return original;
+}
 
 let activeRecipeCategory="Všetko";
 
@@ -74,10 +83,17 @@ async function loadRecipes(){
     if(batch.length<pageSize)break;
   }
   recipes=allRecipes;
+  const coverCounts=new Map();
+  for(const post of recipes){const cover=String(post.cover_url||"").trim().split("?")[0];if(cover)coverCounts.set(cover,(coverCounts.get(cover)||0)+1)}
+  duplicatedRecipeCovers=new Set([...coverCounts].filter(([,count])=>count>1).map(([url])=>url));
   try {
     const response=await fetch("/data/recipe-unique-image-map.json",{cache:"no-cache"});
     if(response.ok){const map=await response.json();if(map&&typeof map==="object"&&!Array.isArray(map))uniqueRecipeImages=map}
   } catch(error){console.warn("Recipe image map unavailable; using original covers.",error)}
+  try {
+    const response=await fetch("/data/recipe-illustration-fallback-map.json",{cache:"no-cache"});
+    if(response.ok){const map=await response.json();if(map&&typeof map==="object"&&!Array.isArray(map))recipeIllustrations=map}
+  } catch(error){console.warn("Recipe illustration fallbacks unavailable.",error)}
   renderRecipeFilters();
   renderRecipes();
 }
