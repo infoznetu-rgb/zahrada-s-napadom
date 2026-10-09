@@ -329,11 +329,17 @@ def main() -> None:
     external_covers = 0
     external_domains = {}
     external_examples = {}
+    illustration_slugs = []
+    photo_slugs = []
     for post in posts:
         cover = recipe_cover(post)
         if not cover:
             continue
         parsed = urlparse(cover)
+        if parsed.path.lower().endswith(".svg"):
+            illustration_slugs.append(str(post.get("slug") or ""))
+        elif parsed.path.lower().endswith((".jpg", ".jpeg", ".png", ".webp", ".avif")):
+            photo_slugs.append(str(post.get("slug") or ""))
         if parsed.netloc and parsed.netloc not in {"zahradasnapadom.sk", "www.zahradasnapadom.sk"}:
             external_covers += 1
             domain = parsed.netloc.lower()
@@ -345,6 +351,8 @@ def main() -> None:
             local_missing.append((str(post.get("slug") or ""), cover))
         else:
             local_used[local_path] = local_used.get(local_path, 0) + 1
+    print(f"Recipe visual quality audit: {len(photo_slugs)} raster photo/image covers; {len(illustration_slugs)} SVG illustrations; {len(posts)-len(photo_slugs)-len(illustration_slugs)} other/unknown formats")
+    print("  FIRST ILLUSTRATION REPLACEMENT CANDIDATES: " + ", ".join(illustration_slugs[:20]))
     print(f"Recipe image file audit: {len(local_used)} local image files referenced; {external_covers} external URLs (not file-verified); {len(local_missing)} missing local files")
     for domain, count in sorted(external_domains.items(), key=lambda item: (-item[1], item[0])):
         example_slug, example_url = external_examples[domain]
