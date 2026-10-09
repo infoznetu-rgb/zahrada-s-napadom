@@ -305,7 +305,12 @@ def main() -> None:
     image_counts = Counter(recipe_cover(post).split("?")[0] for post in posts if recipe_cover(post))
     duplicates = {url: count for url, count in image_counts.items() if count > 1}
     exact_matches = sum(bool(RECIPE_IMAGE_MAP.get(str(post.get("slug") or "").strip())) for post in posts)
-    print(f"Recipe image audit: {len(posts)} published recipes; {exact_matches} matched WebP assets; {len(duplicates)} duplicated image URLs covering {sum(duplicates.values())} recipes")
+    illustration_matches = sum(recipe_cover(post).startswith(SITE + "/images/recepty/unikatne/") for post in posts)
+    missing_covers = [str(post.get("slug") or "") for post in posts if not recipe_cover(post)]
+    original_covers = sum(bool(recipe_cover(post)) and not recipe_cover(post).startswith((SITE + "/assets/recipes/", SITE + "/images/recepty/unikatne/")) for post in posts)
+    print(f"Recipe image audit: {len(posts)} published recipes; {exact_matches} matched WebP assets; {illustration_matches} unique illustrations; {original_covers} original covers; {len(missing_covers)} missing covers; {len(duplicates)} duplicated image URLs covering {sum(duplicates.values())} recipes")
+    for slug in missing_covers[:40]:
+        print(f"  MISSING COVER: {slug}")
     for url, count in sorted(duplicates.items(), key=lambda pair: (-pair[1], pair[0]))[:30]:
         print(f"  DUPLICATE x{count}: {url}")
     active_slugs = set()
