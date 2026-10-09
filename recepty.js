@@ -39,10 +39,19 @@ function recipeCategory(post){
   if(has("roast","príloha","prílohy")||title.includes("pecena zelenina")||title.includes("dusen"))return "Prílohy";
   return "Hlavné jedlá";
 }
+function recipeImageError(event){
+  const img=event.target;
+  if(!(img instanceof HTMLImageElement))return;
+  const fallback=recipeIllustrations[img.dataset.recipeSlug||""];
+  if(fallback&&img.getAttribute("src")!==fallback){img.src=fallback;return}
+  img.style.display="none";
+  img.closest(".cms-post-image")?.classList.add("recipe-image-unavailable");
+}
+recipeRoot?.addEventListener("error",recipeImageError,true);
 function recipeCard(post){
   const category=recipeCategory(post);
   const cover=recipeCover(post);
-  return '<article class="cms-post-card is-blog recipe-tile" data-recipe-category="'+recipeEsc(category)+'"><a class="cms-post-image" href="'+recipeHref(post.slug)+'">'+(cover?'<img src="'+recipeEsc(cover)+'" alt="'+recipeEsc(post.title)+'" loading="lazy" decoding="async">':'<div class="recipe-tile-placeholder" aria-hidden="true">🍅</div>')+'</a><div class="cms-post-body"><span class="tag">RECEPT · '+recipeEsc(category)+'</span><h2><a href="'+recipeHref(post.slug)+'">'+recipeEsc(post.title)+'</a></h2><p>'+recipeEsc(post.excerpt||"")+'</p><div class="cms-card-actions"><a class="project-link" href="'+recipeHref(post.slug)+'">Otvoriť recept →</a></div></div></article>';
+  return '<article class="cms-post-card is-blog recipe-tile" data-recipe-category="'+recipeEsc(category)+'"><a class="cms-post-image" href="'+recipeHref(post.slug)+'">'+(cover?'<img src="'+recipeEsc(cover)+'" data-recipe-slug="'+recipeEsc(post.slug)+'" alt="'+recipeEsc(post.title)+'" loading="lazy" decoding="async">':'<div class="recipe-tile-placeholder" aria-hidden="true">🍅</div>')+'</a><div class="cms-post-body"><span class="tag">RECEPT · '+recipeEsc(category)+'</span><h2><a href="'+recipeHref(post.slug)+'">'+recipeEsc(post.title)+'</a></h2><p>'+recipeEsc(post.excerpt||"")+'</p><div class="cms-card-actions"><a class="project-link" href="'+recipeHref(post.slug)+'">Otvoriť recept →</a></div></div></article>';
 }
 function renderRecipeFilters(){
   if(!recipeFilters)return;
