@@ -206,8 +206,10 @@ def render_page(post: dict) -> tuple[str, str]:
     ingredients = "".join(f'<li><label><input type="checkbox"><span>{esc(item)}</span></label></li>' for item in content["ingredients"])
     steps = "".join(f"<li>{esc(item)}</li>" for item in content["steps"])
     tips = "".join(f'<p class="recipe-tip"><b>Tip:</b> {esc(item)}</p>' for item in content["tips"])
+    fallback = RECIPE_ILLUSTRATIONS.get(slug, "")
+    fallback_attr = (f' onerror="this.onerror=null;this.src=\'{esc(fallback)}\'"' if fallback and (ROOT / fallback.lstrip("/")).is_file() and not cover.endswith(fallback) else "")
     image_html = (
-        f'<figure class="recipe-detail-image"><img src="{esc(cover)}" alt="{esc(title)}" loading="eager" fetchpriority="high"><figcaption>{esc(title)}</figcaption></figure>'
+        f'<figure class="recipe-detail-image"><img src="{esc(cover)}"{fallback_attr} alt="{esc(title)}" loading="eager" fetchpriority="high"><figcaption>{esc(title)}</figcaption></figure>'
         if cover else ""
     )
     related = related_recipes(post, content, ALL_POSTS)
