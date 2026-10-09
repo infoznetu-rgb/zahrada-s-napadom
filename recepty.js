@@ -17,6 +17,11 @@ function recipeCover(post){
   const original=String(post.cover_url||"").trim();
   const key=original.split("?")[0];
   if((!original||duplicatedRecipeCovers.has(key))&&recipeIllustrations[slug])return recipeIllustrations[slug];
+  const prefix="https://raw.githubusercontent.com/infoznetu-rgb/zahrada-s-napadom/main/";
+  if(original.startsWith(prefix)){
+    const localPath="/"+original.slice(prefix.length).split("?")[0];
+    if(Object.values(recipeIllustrations).includes(localPath))return localPath;
+  }
   return original;
 }
 
