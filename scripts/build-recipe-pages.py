@@ -313,6 +313,8 @@ def main() -> None:
     local_missing = []
     local_used = {}
     external_covers = 0
+    external_domains = {}
+    external_examples = {}
     for post in posts:
         cover = recipe_cover(post)
         if not cover:
@@ -320,6 +322,9 @@ def main() -> None:
         parsed = urlparse(cover)
         if parsed.netloc and parsed.netloc not in {"zahradasnapadom.sk", "www.zahradasnapadom.sk"}:
             external_covers += 1
+            domain = parsed.netloc.lower()
+            external_domains[domain] = external_domains.get(domain, 0) + 1
+            external_examples.setdefault(domain, (str(post.get("slug") or ""), cover))
             continue
         local_path = unquote(parsed.path).lstrip("/")
         if not local_path or not (ROOT / local_path).is_file():
@@ -327,6 +332,9 @@ def main() -> None:
         else:
             local_used[local_path] = local_used.get(local_path, 0) + 1
     print(f"Recipe image file audit: {len(local_used)} local image files referenced; {external_covers} external URLs (not file-verified); {len(local_missing)} missing local files")
+    for domain, count in sorted(external_domains.items(), key=lambda item: (-item[1], item[0])):
+        example_slug, example_url = external_examples[domain]
+        print(f"  EXTERNAL IMAGE HOST: {domain}: {count} recipes; example recipe: {example_slug}; example URL: {example_url}")
     for slug, cover in local_missing[:60]:
         print(f"  BROKEN LOCAL IMAGE: {slug}: {cover}")
     print(f"Recipe image audit: {len(posts)} published recipes; {exact_matches} matched WebP assets; {illustration_matches} unique illustrations; {original_covers} original covers; {len(missing_covers)} missing covers; {len(duplicates)} duplicated image URLs covering {sum(duplicates.values())} recipes")
