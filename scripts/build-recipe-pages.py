@@ -29,6 +29,20 @@ RECIPE_ILLUSTRATIONS = json.loads((ROOT / "data" / "recipe-illustration-fallback
 DUPLICATED_ORIGINAL_COVERS: set[str] = set()
 
 
+def localize_recipe_image(url: str) -> str:
+    """Use the repository copy of a GitHub-hosted recipe image when available."""
+    parsed = urlparse(url)
+    if parsed.netloc.lower() != "raw.githubusercontent.com":
+        return url
+    prefix = "/infoznetu-rgb/zahrada-s-napadom/main/"
+    if not parsed.path.startswith(prefix):
+        return url
+    relative = unquote(parsed.path[len(prefix):])
+    if not relative.startswith("images/recepty/") or ".." in Path(relative).parts:
+        return url
+    return SITE + "/" + relative if (ROOT / relative).is_file() else url
+
+
 def recipe_cover(post: dict) -> str:
     slug = str(post.get("slug") or "").strip()
     matched = RECIPE_IMAGE_MAP.get(slug)
@@ -38,7 +52,7 @@ def recipe_cover(post: dict) -> str:
     fallback = RECIPE_ILLUSTRATIONS.get(slug)
     if fallback and (not original or original.split("?")[0] in DUPLICATED_ORIGINAL_COVERS) and (ROOT / fallback.lstrip("/")).is_file():
         return SITE + fallback
-    return original
+    return localize_recipe_image(original)
 
 
 
