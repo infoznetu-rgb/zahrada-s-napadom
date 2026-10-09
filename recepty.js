@@ -8,6 +8,9 @@ const recipeSearch=document.querySelector("#recipe-search");
 const recipeClear=document.querySelector("#recipe-search-clear");
 const recipeCategories=["Hlavné jedlá","Polievky","Prílohy","Šaláty","Raňajky","Placky a slané koláče","Koláče a dezerty","Omáčky, pesta a nátierky","Zaváranie a čatní"];
 let recipes=[];
+let uniqueRecipeImages={};
+function recipeCover(post){return uniqueRecipeImages[String(post.slug||"").trim()]||post.cover_url||""}
+
 let activeRecipeCategory="Všetko";
 
 function recipeEsc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
@@ -29,7 +32,8 @@ function recipeCategory(post){
 }
 function recipeCard(post){
   const category=recipeCategory(post);
-  return '<article class="cms-post-card is-blog recipe-tile" data-recipe-category="'+recipeEsc(category)+'"><a class="cms-post-image" href="'+recipeHref(post.slug)+'">'+(post.cover_url?'<img src="'+recipeEsc(post.cover_url)+'" alt="'+recipeEsc(post.title)+'" loading="lazy" decoding="async">':'<div class="recipe-tile-placeholder" aria-hidden="true">🍅</div>')+'</a><div class="cms-post-body"><span class="tag">RECEPT · '+recipeEsc(category)+'</span><h2><a href="'+recipeHref(post.slug)+'">'+recipeEsc(post.title)+'</a></h2><p>'+recipeEsc(post.excerpt||"")+'</p><div class="cms-card-actions"><a class="project-link" href="'+recipeHref(post.slug)+'">Otvoriť recept →</a></div></div></article>';
+  const cover=recipeCover(post);
+  return '<article class="cms-post-card is-blog recipe-tile" data-recipe-category="'+recipeEsc(category)+'"><a class="cms-post-image" href="'+recipeHref(post.slug)+'">'+(cover?'<img src="'+recipeEsc(cover)+'" alt="'+recipeEsc(post.title)+'" loading="lazy" decoding="async">':'<div class="recipe-tile-placeholder" aria-hidden="true">🍅</div>')+'</a><div class="cms-post-body"><span class="tag">RECEPT · '+recipeEsc(category)+'</span><h2><a href="'+recipeHref(post.slug)+'">'+recipeEsc(post.title)+'</a></h2><p>'+recipeEsc(post.excerpt||"")+'</p><div class="cms-card-actions"><a class="project-link" href="'+recipeHref(post.slug)+'">Otvoriť recept →</a></div></div></article>';
 }
 function renderRecipeFilters(){
   if(!recipeFilters)return;
@@ -70,6 +74,10 @@ async function loadRecipes(){
     if(batch.length<pageSize)break;
   }
   recipes=allRecipes;
+  try {
+    const response=await fetch("/data/recipe-unique-image-map.json",{cache:"no-cache"});
+    if(response.ok){const map=await response.json();if(map&&typeof map==="object"&&!Array.isArray(map))uniqueRecipeImages=map}
+  } catch(error){console.warn("Recipe image map unavailable; using original covers.",error)}
   renderRecipeFilters();
   renderRecipes();
 }
