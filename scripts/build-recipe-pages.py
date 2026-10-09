@@ -11,7 +11,7 @@ import unicodedata
 from datetime import date
 from pathlib import Path
 from urllib.error import URLError
-from urllib.parse import quote, urlencode
+from urllib.parse import quote, urlencode, urlparse, unquote
 from urllib.request import Request, urlopen
 
 
@@ -308,6 +308,25 @@ def main() -> None:
     illustration_matches = sum(recipe_cover(post).startswith(SITE + "/images/recepty/unikatne/") for post in posts)
     missing_covers = [str(post.get("slug") or "") for post in posts if not recipe_cover(post)]
     original_covers = sum(bool(recipe_cover(post)) and not recipe_cover(post).startswith((SITE + "/assets/recipes/", SITE + "/images/recepty/unikatne/")) for post in posts)
+    local_missing = []
+    local_used = {}
+    external_covers = 0
+    for post in posts:
+        cover = recipe_cover(post)
+        if not cover:
+            continue
+        parsed = urlparse(cover)
+        if parsed.netloc and parsed.netloc not in {"zahradasnapadom.sk", "www.zahradasnapadom.sk"}:
+            external_covers += 1
+            continue
+        local_path = unquote(parsed.path).lstrip("/")
+        if not local_path or not (ROOT / local_path).is_file():
+            local_missing.append((str(post.get("slug") or ""), cover))
+        else:
+            local_used[local_path] = local_used.get(local_path, 0) + 1
+    print(f"Recipe image file audit: {len(local_used)} local image files referenced; {external_covers} external URLs (not file-verified); {len(local_missing)} missing local files")
+    for slug, cover in local_missing[:60]:
+        print(f"  BROKEN LOCAL IMAGE: {slug}: {cover}")
     print(f"Recipe image audit: {len(posts)} published recipes; {exact_matches} matched WebP assets; {illustration_matches} unique illustrations; {original_covers} original covers; {len(missing_covers)} missing covers; {len(duplicates)} duplicated image URLs covering {sum(duplicates.values())} recipes")
     for slug in missing_covers[:40]:
         print(f"  MISSING COVER: {slug}")
