@@ -1057,5 +1057,95 @@
     "content_type": "blog",
     "published_at": "2026-10-08",
     "cover": "https://zahradasnapadom.sk/assets/blog/08-ochrana-mladeho-vinica.webp"
+  },
+  {
+    "slug": "vysadba-dule-na-jesen",
+    "route_slug": "vysadba-dule-na-jesen",
+    "title": "Výsadba duly na jeseň: miesto, pôda a postup",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-vysadba-dule.webp"
+  },
+  {
+    "slug": "vysadba-moruse-na-jesen",
+    "route_slug": "vysadba-moruse-na-jesen",
+    "title": "Výsadba moruše na jeseň: miesto a správna hĺbka",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-vysadba-moruse.webp"
+  },
+  {
+    "slug": "vysadba-josty-na-jesen",
+    "route_slug": "vysadba-josty-na-jesen",
+    "title": "Výsadba josty na jeseň: rozostup, pôda a rez",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-vysadba-josty.webp"
+  },
+  {
+    "slug": "zber-a-dozrievanie-minikivi",
+    "route_slug": "zber-a-dozrievanie-minikivi",
+    "title": "Zber minikivi pred mrazom: dozrievanie a skladovanie",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-zber-minikivi.webp"
+  },
+  {
+    "slug": "zazimovanie-brugmansie",
+    "route_slug": "zazimovanie-brugmansie",
+    "title": "Zazimovanie brugmansie: teplota, rez a zálievka",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-zazimovanie-brugmansie.webp"
+  },
+  {
+    "slug": "zazimovanie-dipladenie",
+    "route_slug": "zazimovanie-dipladenie",
+    "title": "Zazimovanie dipladénie: svetlo, teplota a voda",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-zazimovanie-dipladenie.webp"
+  },
+  {
+    "slug": "cucoriedky-pred-zimou",
+    "route_slug": "cucoriedky-pred-zimou",
+    "title": "Čučoriedky pred zimou: voda, mulč a ochrana koreňov",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-cucoriedky-pred-zimou.webp"
+  },
+  {
+    "slug": "pivonie-na-jesen",
+    "route_slug": "pivonie-na-jesen",
+    "title": "Pivónie na jeseň: rez, čistenie a zimná ochrana",
+    "category": "Okrasná záhrada",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-pivonie-na-jesen.webp"
+  },
+  {
+    "slug": "salvia-na-jesen",
+    "route_slug": "salvia-na-jesen",
+    "title": "Šalvia na jeseň: rez, drenáž a ochrana pred zimou",
+    "category": "Bylinky",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-salvia-na-jesen.webp"
+  },
+  {
+    "slug": "tymian-pred-zimou",
+    "route_slug": "tymian-pred-zimou",
+    "title": "Tymian pred zimou: drenáž, rez a ochrana v nádobe",
+    "category": "Bylinky",
+    "content_type": "blog",
+    "published_at": "2026-10-09",
+    "cover": "https://zahradasnapadom.sk/assets/blog/09-tymian-pred-zimou.webp"
   }
 ]
