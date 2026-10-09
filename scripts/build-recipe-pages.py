@@ -292,6 +292,13 @@ def main() -> None:
         raise SystemExit("No published recipes returned; refusing to replace recipe pages or sitemap")
     generated = 0
     ALL_POSTS = posts
+    from collections import Counter
+    image_counts = Counter(recipe_cover(post).split("?")[0] for post in posts if recipe_cover(post))
+    duplicates = {url: count for url, count in image_counts.items() if count > 1}
+    exact_matches = sum(bool(RECIPE_IMAGE_MAP.get(str(post.get("slug") or "").strip())) for post in posts)
+    print(f"Recipe image audit: {len(posts)} published recipes; {exact_matches} matched WebP assets; {len(duplicates)} duplicated image URLs covering {sum(duplicates.values())} recipes")
+    for url, count in sorted(duplicates.items(), key=lambda pair: (-pair[1], pair[0]))[:30]:
+        print(f"  DUPLICATE x{count}: {url}")
     active_slugs = set()
     for post in posts:
         slug, page = render_page(post)
