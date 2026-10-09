@@ -25,6 +25,8 @@ if not URL_MATCH or not KEY_MATCH:
 API = URL_MATCH.group(1).rstrip("/") + "/rest/v1/zahrada_posts"
 API_KEY = KEY_MATCH.group(1)
 RECIPE_IMAGE_MAP = json.loads((ROOT / "data" / "recipe-unique-image-map.json").read_text(encoding="utf-8"))
+RECIPE_ILLUSTRATIONS = json.loads((ROOT / "data" / "recipe-illustration-fallback-map.json").read_text(encoding="utf-8"))
+DUPLICATED_ORIGINAL_COVERS: set[str] = set()
 
 
 def recipe_cover(post: dict) -> str:
@@ -32,7 +34,11 @@ def recipe_cover(post: dict) -> str:
     matched = RECIPE_IMAGE_MAP.get(slug)
     if matched and (ROOT / matched.lstrip("/")).is_file():
         return SITE + matched
-    return str(post.get("cover_url") or "").strip()
+    original = str(post.get("cover_url") or "").strip()
+    fallback = RECIPE_ILLUSTRATIONS.get(slug)
+    if fallback and (not original or original.split("?")[0] in DUPLICATED_ORIGINAL_COVERS) and (ROOT / fallback.lstrip("/")).is_file():
+        return SITE + fallback
+    return original
 
 
 
@@ -286,10 +292,13 @@ def related_recipes(current: dict, recipe: dict, posts: list[dict]) -> list[dict
 
 
 def main() -> None:
-    global ALL_POSTS
+    global ALL_POSTS, DUPLICATED_ORIGINAL_COVERS
     posts = fetch_recipes()
     if not posts:
         raise SystemExit("No published recipes returned; refusing to replace recipe pages or sitemap")
+    from collections import Counter
+    original_counts = Counter(str(post.get("cover_url") or "").strip().split("?")[0] for post in posts if post.get("cover_url"))
+    DUPLICATED_ORIGINAL_COVERS = {url for url, count in original_counts.items() if count > 1}
     generated = 0
     ALL_POSTS = posts
     from collections import Counter
