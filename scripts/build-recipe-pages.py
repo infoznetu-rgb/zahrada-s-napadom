@@ -24,6 +24,16 @@ if not URL_MATCH or not KEY_MATCH:
     raise SystemExit("Cannot read the public Supabase URL/key from recepty.js")
 API = URL_MATCH.group(1).rstrip("/") + "/rest/v1/zahrada_posts"
 API_KEY = KEY_MATCH.group(1)
+RECIPE_IMAGE_MAP = json.loads((ROOT / "data" / "recipe-unique-image-map.json").read_text(encoding="utf-8"))
+
+
+def recipe_cover(post: dict) -> str:
+    slug = str(post.get("slug") or "").strip()
+    matched = RECIPE_IMAGE_MAP.get(slug)
+    if matched and (ROOT / matched.lstrip("/")).is_file():
+        return SITE + matched
+    return str(post.get("cover_url") or "").strip()
+
 
 
 def fetch_recipes() -> list[dict]:
@@ -143,7 +153,7 @@ def build_schema(post: dict, recipe: dict, canonical: str) -> dict:
             for n, text in enumerate(recipe["steps"], 1)
         ],
     }
-    cover = post.get("cover_url")
+    cover = recipe_cover(post)
     if cover and str(cover).startswith(("https://", "http://")):
         schema["image"] = [cover]
     if recipe["portions"]:
@@ -172,7 +182,7 @@ def render_page(post: dict) -> tuple[str, str]:
     excerpt = str(post.get("excerpt") or "").strip()
     content = parse_recipe(str(post.get("content") or ""))
     canonical = f"{SITE}/recepty/{quote(slug)}/"
-    cover = str(post.get("cover_url") or "").strip()
+    cover = recipe_cover(post)
     if cover and not cover.startswith(("https://", "http://", "/")):
         cover = ""
     schema = json.dumps(build_schema(post, content, canonical), ensure_ascii=False).replace("</", "<\\/")
