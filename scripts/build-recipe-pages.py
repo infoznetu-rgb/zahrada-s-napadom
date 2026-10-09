@@ -329,6 +329,7 @@ def main() -> None:
     external_covers = 0
     external_domains = {}
     external_examples = {}
+    external_urls = []
     illustration_slugs = []
     photo_slugs = []
     for post in posts:
@@ -342,6 +343,7 @@ def main() -> None:
             photo_slugs.append(str(post.get("slug") or ""))
         if parsed.netloc and parsed.netloc not in {"zahradasnapadom.sk", "www.zahradasnapadom.sk"}:
             external_covers += 1
+            external_urls.append((str(post.get("slug") or ""), cover))
             domain = parsed.netloc.lower()
             external_domains[domain] = external_domains.get(domain, 0) + 1
             external_examples.setdefault(domain, (str(post.get("slug") or ""), cover))
@@ -357,6 +359,18 @@ def main() -> None:
     for domain, count in sorted(external_domains.items(), key=lambda item: (-item[1], item[0])):
         example_slug, example_url = external_examples[domain]
         print(f"  EXTERNAL IMAGE HOST: {domain}: {count} recipes; example recipe: {example_slug}; example URL: {example_url}")
+    # Check the few remaining remote images rather than assuming their URLs work.
+    for slug, url in external_urls[:20]:
+        try:
+            request = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; RecipeImageAudit/1.0)", "Range": "bytes=0-0"})
+            with urlopen(request, timeout=12) as response:
+                content_type = response.headers.get("Content-Type", "")
+                status = response.status
+                print(f"  REMOTE IMAGE CHECK: {slug}: HTTP {status}; content-type={content_type}")
+                if not content_type.lower().startswith("image/"):
+                    print(f"  REMOTE IMAGE WARNING: {slug}: non-image response at {url}")
+        except Exception as exc:
+            print(f"  REMOTE IMAGE FAILED: {slug}: {type(exc).__name__}: {exc}")
     for slug, cover in local_missing[:60]:
         print(f"  BROKEN LOCAL IMAGE: {slug}: {cover}")
     print(f"Recipe image audit: {len(posts)} published recipes; {exact_matches} matched WebP assets; {illustration_matches} unique illustrations; {original_covers} original covers; {len(missing_covers)} missing covers; {len(duplicates)} duplicated image URLs covering {sum(duplicates.values())} recipes")
