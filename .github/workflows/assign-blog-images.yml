@@ -1,9 +1,5 @@
 name: Fix unique blog hero images
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/assign-blog-images.yml'
   workflow_dispatch:
 permissions:
   contents: write
