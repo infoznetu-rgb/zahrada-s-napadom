@@ -12,20 +12,20 @@ Automatická kontrola z 10. 10. 2026: 356 receptov, z toho **220 SVG ilustráci�
 | tvaroh-a-broskyne-tepla-ranajkova-kasa | Nasadené a overené | Kaša s tvarohom a broskyňami |
 | jogurt-a-ribezle-tepla-ranajkova-kasa | Nasadené a overené | Kaša s jogurtom a ríbezľami |
 | ryzova-kasa-a-slivky-tepla-ranajkova-kasa | Nasadené a overené | Ryžová kaša so slivkami |
-| ovsene-vlocky-a-cucoriedky-tepla-ranajkova-kasa | Čaká | Ovsená kaša s čučoriedkami |
-| pseno-a-marhule-tepla-ranajkova-kasa | Čaká | Pšenová kaša s marhuľami |
-| pohanka-a-hruska-tepla-ranajkova-kasa | Čaká | Pohánková kaša s hruškou |
-| ovsene-vlocky-a-jablko-tepla-ranajkova-kasa | Čaká | Ovsená kaša s jablkom |
-| hrasok-a-zemiaky-strukovinovy-hrniec | Čaká | Dusený hrášok so zemiakmi |
-| bob-a-mrkva-strukovinovy-hrniec | Čaká | Dusený bôb s mrkvou |
-| hneda-sosovica-a-zeler-strukovinovy-hrniec | Čaká | Hnedá šošovica so zelerom |
-| cicer-a-cuketa-strukovinovy-hrniec | Čaká | Cícer s cuketou |
-| fazula-a-kel-strukovinovy-hrniec | Čaká | Fazuľa s kelom |
-| cervena-sosovica-a-tekvica-strukovinovy-hrniec | Čaká | Červená šošovica s tekvicou |
-| hrach-a-por-strukovinovy-hrniec | Čaká | Hrach s pórom |
-| biela-fazula-a-paradajky-strukovinovy-hrniec | Čaká | Biela fazuľa s paradajkami |
-| cicer-a-spenat-strukovinovy-hrniec | Čaká | Cícer so špenátom |
-| sosovica-a-mrkva-strukovinovy-hrniec | Čaká | Šošovica s mrkvou |
+| ovsene-vlocky-a-cucoriedky-tepla-ranajkova-kasa | Nasadené a overené | Ovsená kaša s čučoriedkami |
+| pseno-a-marhule-tepla-ranajkova-kasa | Nasadené a overené | Pšenová kaša s marhuľami |
+| pohanka-a-hruska-tepla-ranajkova-kasa | Nasadené a overené | Pohánková kaša s hruškou |
+| ovsene-vlocky-a-jablko-tepla-ranajkova-kasa | Nasadené a overené | Ovsená kaša s jablkom |
+| hrasok-a-zemiaky-strukovinovy-hrniec | Nasadené a overené | Dusený hrášok so zemiakmi |
+| bob-a-mrkva-strukovinovy-hrniec | Nasadené a overené | Dusený bôb s mrkvou |
+| hneda-sosovica-a-zeler-strukovinovy-hrniec | Nasadené a overené | Hnedá šošovica so zelerom |
+| cicer-a-cuketa-strukovinovy-hrniec | Nasadené a overené | Cícer s cuketou |
+| fazula-a-kel-strukovinovy-hrniec | Nasadené a overené | Fazuľa s kelom |
+| cervena-sosovica-a-tekvica-strukovinovy-hrniec | Nasadené a overené | Červená šošovica s tekvicou |
+| hrach-a-por-strukovinovy-hrniec | Nasadené a overené | Hrach s pórom |
+| biela-fazula-a-paradajky-strukovinovy-hrniec | Nasadené a overené | Biela fazuľa s paradajkami |
+| cicer-a-spenat-strukovinovy-hrniec | Nasadené a overené | Cícer so špenátom |
+| sosovica-a-mrkva-strukovinovy-hrniec | Nasadené a overené | Šošovica s mrkvou |
 
 ## Pravidlá výmeny
 
