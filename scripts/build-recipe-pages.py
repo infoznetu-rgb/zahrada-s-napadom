@@ -378,6 +378,9 @@ def main() -> None:
         print(f"  MISSING COVER: {slug}")
     for url, count in sorted(duplicates.items(), key=lambda pair: (-pair[1], pair[0]))[:30]:
         print(f"  DUPLICATE x{count}: {url}")
+    # Prevent publishing recipe pages with broken or unassigned images.
+    if local_missing or missing_covers:
+        raise SystemExit(f"Recipe image validation failed: {len(local_missing)} broken local files and {len(missing_covers)} missing covers. Fix these before publishing.")
     active_slugs = set()
     for post in posts:
         slug, page = render_page(post)
