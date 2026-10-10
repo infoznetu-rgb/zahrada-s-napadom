@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep Czech and Polish locale pages accessible but out of search results."""
+"""Keep Czech, Polish, and reviewed low-value Slovak pages out of search results."""
 from pathlib import Path
 import re
 
@@ -8,6 +8,33 @@ ROBOTS = "noindex,follow,max-image-preview:large,max-snippet:-1,max-video-previe
 META_TAG = re.compile(r"<meta\b[^>]*>", re.IGNORECASE)
 ROBOTS_NAME = re.compile(r"""\bname\s*=\s*(["'])robots\1""", re.IGNORECASE)
 CONTENT_ATTR = re.compile(r"""(\bcontent\s*=\s*)(["'])(.*?)\2""", re.IGNORECASE | re.DOTALL)
+
+LOW_VALUE_SK_ARTICLES = (
+    "chloroza-hortenzie-zelezo",
+    "hortenzia-kvitne-zeleno",
+    "hortenzia-meni-farbu-na-jesen",
+    "hortenzia-na-balkone",
+    "hortenzia-polamane-konare",
+    "hortenzie-a-dazdova-voda",
+    "hortenzie-a-okrasne-travy",
+    "hortenzie-do-vazy",
+    "hortenzie-k-trvalkam",
+    "hortenzie-po-silnom-vetru",
+    "hortenzie-tvrda-voda",
+    "hortenzie-v-zime",
+    "jarna-starostlivost-o-hortenzie",
+    "jesenna-starostlivost-o-hortenzie",
+    "kedy-rozmnozovat-hortenzie",
+    "kedy-strihat-hortenzie-do-vazy",
+    "letna-starostlivost-o-hortenzie",
+    "odkvitnute-kvety-hortenzie",
+    "omladenie-starej-hortenzie",
+    "rez-annabelle",
+    "rozmnozovanie-hortenzie-odrezkami",
+    "susenie-kvetov-hortenzie",
+    "velkost-kvetinaca-pre-hortenziu",
+    "zimovanie-hortenzie-v-kvetinaci",
+)
 
 def update_page(path: Path) -> bool:
     original = path.read_text(encoding="utf-8-sig")
@@ -47,8 +74,13 @@ for locale in ("cs", "pl"):
     if locale_root.is_dir():
         pages.extend(sorted(locale_root.rglob("*.html")))
 
+for slug in LOW_VALUE_SK_ARTICLES:
+    article = ROOT / "blog" / slug / "index.html"
+    if article.is_file():
+        pages.append(article)
+
 if not pages:
-    raise SystemExit("No Czech or Polish locale pages found")
+    raise SystemExit("No Czech, Polish, or reviewed low-value pages found")
 
 changed = sum(update_page(path) for path in pages)
-print(f"Checked {len(pages)} Czech/Polish locale pages; updated {changed}.")
+print(f"Checked {len(pages)} locale and reviewed low-value pages; updated {changed}.")
