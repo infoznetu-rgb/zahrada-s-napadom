@@ -5,9 +5,9 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 ROBOTS = "noindex,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-META_TAG = re.compile(r"<meta\\b[^>]*>", re.IGNORECASE)
-ROBOTS_NAME = re.compile(r"""\\bname\\s*=\\s*(["'])robots\\1""", re.IGNORECASE)
-CONTENT_ATTR = re.compile(r"""(\\bcontent\\s*=\\s*)(["'])(.*?)\\2""", re.IGNORECASE | re.DOTALL)
+META_TAG = re.compile(r"<meta\b[^>]*>", re.IGNORECASE)
+ROBOTS_NAME = re.compile(r"""\bname\s*=\s*(["'])robots\1""", re.IGNORECASE)
+CONTENT_ATTR = re.compile(r"""(\bcontent\s*=\s*)(["'])(.*?)\2""", re.IGNORECASE | re.DOTALL)
 
 def update_page(path: Path) -> bool:
     original = path.read_text(encoding="utf-8-sig")
@@ -30,7 +30,7 @@ def update_page(path: Path) -> bool:
     updated = META_TAG.sub(replace_tag, original)
     if not ROBOTS_NAME.search(updated):
         updated = re.sub(
-            r"</head\\s*>",
+            r"</head\s*>",
             '<meta name="robots" content="' + ROBOTS + '"></head>',
             updated,
             count=1,
