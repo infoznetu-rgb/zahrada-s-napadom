@@ -97,15 +97,14 @@ def build(root=ROOT):
             html_source = html_path.read_text(encoding='utf-8-sig')
             html_page = Page(); html_page.feed(html_source)
             if 'noindex' in html_page.meta.get('robots', '').lower():
-                if html_page.canonical.startswith('https://zahradasnapadom.sk/'):
-                    # A consolidated page usually canonicals to its replacement,
-                    # so derive the old public URL from its repository path instead.
-                    rel = html_path.relative_to(root)
-                    if rel.name == 'index.html':
-                        old_url = 'https://zahradasnapadom.sk/' + '/'.join(rel.parts[:-1]) + '/'
-                    else:
-                        old_url = 'https://zahradasnapadom.sk/' + '/'.join(rel.parts)
-                    noindex_urls.add(old_url)
+                # The repository path identifies the public URL even when a
+                # noindex page intentionally has no canonical link.
+                rel = html_path.relative_to(root)
+                if rel.name == 'index.html':
+                    old_url = 'https://zahradasnapadom.sk/' + '/'.join(rel.parts[:-1]) + '/'
+                else:
+                    old_url = 'https://zahradasnapadom.sk/' + '/'.join(rel.parts)
+                noindex_urls.add(old_url)
 
         for url in noindex_urls:
             sitemap = re.sub(
