@@ -25,6 +25,27 @@ if not URL_MATCH or not KEY_MATCH:
 API = URL_MATCH.group(1).rstrip("/") + "/rest/v1/zahrada_posts"
 API_KEY = KEY_MATCH.group(1)
 RECIPE_IMAGE_MAP = json.loads((ROOT / "data" / "recipe-unique-image-map.json").read_text(encoding="utf-8"))
+RECIPE_REDIRECTS = {
+    "baklazan-a-paradajky-zapecene-zeleninove-jedlo": "/recepty.html",
+    "brokolica-a-mrkva-zapecene-zeleninove-jedlo": "/recepty.html",
+    "chia-a-maliny-tepla-ranajkova-kasa": "/recepty.html",
+    "cuketa-a-paradajky-zapecene-zeleninove-jedlo": "/recepty.html",
+    "fazulove-struky-a-zemiaky-zapecene-zeleninove-jedlo": "/recepty.html",
+    "huby-a-petrzlen-zapecene-zeleninove-jedlo": "/recepty.html",
+    "jogurt-a-ribezle-tepla-ranajkova-kasa": "/recepty.html",
+    "karfiol-a-por-zapecene-zeleninove-jedlo": "/recepty.html",
+    "karfiol-a-zemiaky-zapecene-zeleninove-jedlo": "/recepty.html",
+    "kel-a-zemiaky-zapecene-zeleninove-jedlo": "/recepty.html",
+    "ovsene-vlocky-a-cucoriedky-tepla-ranajkova-kasa": "/recepty.html",
+    "ovsene-vlocky-a-jablko-tepla-ranajkova-kasa": "/recepty.html",
+    "ovsene-vlocky-a-tekvica-tepla-ranajkova-kasa": "/recepty.html",
+    "pohanka-a-hruska-tepla-ranajkova-kasa": "/recepty.html",
+    "por-a-zemiaky-zapecene-zeleninove-jedlo": "/recepty.html",
+    "pseno-a-marhule-tepla-ranajkova-kasa": "/recepty.html",
+    "ryzova-kasa-a-slivky-tepla-ranajkova-kasa": "/recepty.html",
+    "tekvica-a-spenat-zapecene-zeleninove-jedlo": "/recepty.html",
+    "tvaroh-a-broskyne-tepla-ranajkova-kasa": "/recepty.html",
+}
 RECIPE_ILLUSTRATIONS = json.loads((ROOT / "data" / "recipe-illustration-fallback-map.json").read_text(encoding="utf-8"))
 DUPLICATED_ORIGINAL_COVERS: set[str] = set()
 
@@ -400,6 +421,17 @@ def main() -> None:
         target.write_text(page, encoding="utf-8")
         generated += 1
     recipe_root = ROOT / "recepty"
+    for slug, destination in RECIPE_REDIRECTS.items():
+        if slug in active_slugs:
+            raise ValueError(f"Recipe redirect slug is still published: {slug}")
+        target = recipe_root / slug / "index.html"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(
+            f'''<!doctype html><html lang="sk"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url={destination}"><title>Recepty zo záhrady</title></head><body><p>Tento recept už nie je dostupný. <a href="{destination}">Pozri aktuálne recepty zo záhrady</a>.</p><script>window.location.replace("{destination}");</script></body></html>''',
+            encoding="utf-8",
+        )
+        active_slugs.add(slug)
+
     for child in recipe_root.iterdir():
         if child.is_dir() and child.name not in active_slugs:
             generated_index = child / "index.html"
