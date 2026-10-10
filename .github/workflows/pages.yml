@@ -27,6 +27,9 @@ jobs:
       - name: Generate crawlable recipe pages and sitemap entries
         run: python3 scripts/build-recipe-pages.py
 
+      - name: Hide Czech and Polish articles from search
+        run: python3 scripts/noindex-translations.py
+
       - name: Apply curated article illustrations and card covers
         run: python3 scripts/build-article-covers.py
 
