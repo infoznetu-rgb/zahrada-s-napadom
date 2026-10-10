@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep Czech, Polish, and reviewed low-value Slovak pages with heavily repeated text out of search results."""
+"""Hide translations and reviewed low-value pages from the public build, with safe redirects."""
 from pathlib import Path
 import re
 
@@ -77,51 +77,76 @@ LOW_VALUE_SK_ARTICLES = (
     "hortenzie-zivy-plot",
 )
 
-def update_page(path: Path) -> bool:
-    original = path.read_text(encoding="utf-8-sig")
-    changed_tag = False
+def redirect_page(path: Path) -> None:
+    destination = "/blog.html"
+    path.write_text(
+        '<!doctype html><html lang="sk"><head><meta charset="utf-8">'
+        '<meta name="robots" content="noindex,follow">'
+        '<meta http-equiv="refresh" content="0;url=' + destination + '">'
+        '<link rel="canonical" href="https://zahradasnapadom.sk' + destination + '">'
+        '<title>Články o záhrade</title></head><body>'
+        '<p>Tento článok už nie je dostupný. <a href="' + destination + '">Pozri aktuálne články o záhrade</a>.</p>'
+        '<script>window.location.replace("' + destination + '");</script>'
+        '</body></html>',
+        encoding="utf-8",
+    )
 
-    def replace_tag(match):
-        nonlocal changed_tag
-        tag = match.group(0)
-        if not ROBOTS_NAME.search(tag):
-            return tag
-        content = CONTENT_ATTR.search(tag)
-        if content:
-            replacement = content.group(1) + content.group(2) + ROBOTS + content.group(2)
-            updated = CONTENT_ATTR.sub(replacement, tag, count=1)
-        else:
-            updated = tag[:-1] + ' content="' + ROBOTS + '">'
-        changed_tag = updated != tag
-        return updated
 
-    updated = META_TAG.sub(replace_tag, original)
-    if not ROBOTS_NAME.search(updated):
-        updated = re.sub(
-            r"</head\s*>",
-            '<meta name="robots" content="' + ROBOTS + '"></head>',
-            updated,
-            count=1,
-            flags=re.IGNORECASE,
-        )
-        changed_tag = updated != original
-    if changed_tag:
-        path.write_text(updated, encoding="utf-8")
-    return changed_tag
+def page_route(path: Path) -> str:
+    relative = path.relative_to(ROOT).as_posix()
+    if relative.endswith("/index.html"):
+        return "/" + relative[:-len("index.html")]
+    if relative == "index.html":
+        return "/"
+    return "/" + relative
 
-pages = []
+
+translation_pages = []
 for locale in ("cs", "pl"):
     locale_root = ROOT / locale
     if locale_root.is_dir():
-        pages.extend(sorted(locale_root.rglob("*.html")))
+        translation_pages.extend(sorted(locale_root.rglob("*.html")))
 
+low_value_pages = []
+missing_low_value = []
 for slug in LOW_VALUE_SK_ARTICLES:
     article = ROOT / "blog" / slug / "index.html"
     if article.is_file():
-        pages.append(article)
+        low_value_pages.append(article)
+    else:
+        missing_low_value.append(slug)
 
-if not pages:
+pages_to_hide = list(dict.fromkeys(translation_pages + low_value_pages))
+if not pages_to_hide:
     raise SystemExit("No Czech, Polish, or reviewed low-value pages found")
 
-changed = sum(update_page(path) for path in pages)
-print(f"Checked {len(pages)} locale and reviewed low-value pages; updated {changed}.")
+hidden_routes = {page_route(path) for path in pages_to_hide}
+for path in pages_to_hide:
+    redirect_page(path)
+
+sitemap_path = ROOT / "sitemap.xml"
+removed_sitemap_entries = 0
+if sitemap_path.is_file():
+    sitemap = sitemap_path.read_text(encoding="utf-8")
+    url_pattern = re.compile(r"<url\b[^>]*>[\s\S]*?</url\s*>", re.IGNORECASE)
+
+    def keep_sitemap_entry(match):
+        global removed_sitemap_entries
+        entry = match.group(0)
+        loc = re.search(r"<loc>\s*https?://[^/]+([^<]*)</loc>", entry, re.IGNORECASE)
+        if loc and loc.group(1) in hidden_routes:
+            removed_sitemap_entries += 1
+            return ""
+        return entry
+
+    sitemap = url_pattern.sub(keep_sitemap_entry, sitemap)
+    sitemap_path.write_text(sitemap, encoding="utf-8")
+
+if missing_low_value:
+    print("WARNING: audited article files not found: " + ", ".join(missing_low_value))
+
+print(
+    f"Hidden {len(translation_pages)} Czech/Polish pages and "
+    f"{len(low_value_pages)} reviewed low-value Slovak pages; "
+    f"removed {removed_sitemap_entries} matching sitemap entries."
+)
