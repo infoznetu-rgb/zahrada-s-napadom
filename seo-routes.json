@@ -1147,5 +1147,95 @@
     "content_type": "blog",
     "published_at": "2026-10-09",
     "cover": "https://zahradasnapadom.sk/assets/blog/09-tymian-pred-zimou.webp"
+  },
+  {
+    "slug": "odstranenie-mumifikovanych-plodov",
+    "route_slug": "odstranenie-mumifikovanych-plodov",
+    "title": "Mumifikované plody na stromoch: odstráňte ich na jeseň",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-mumifikovane-plody.webp"
+  },
+  {
+    "slug": "zazimovanie-motorovej-kosacky",
+    "route_slug": "zazimovanie-motorovej-kosacky",
+    "title": "Zazimovanie motorovej kosačky: čistenie a palivo",
+    "category": "Záhradná technika",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-motorova-kosacka.webp"
+  },
+  {
+    "slug": "udrzba-ryla-a-motyky-pred-zimou",
+    "route_slug": "udrzba-ryla-a-motyky-pred-zimou",
+    "title": "Rýľ a motyka pred zimou: čistenie, ostrenie a olej",
+    "category": "Záhradné náradie",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-ryle-a-motyka.webp"
+  },
+  {
+    "slug": "ochrana-sklenika-pred-snehom",
+    "route_slug": "ochrana-sklenika-pred-snehom",
+    "title": "Skleník pred snehom: kontrola konštrukcie a strechy",
+    "category": "Skleník",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-sklenik-pred-snehom.webp"
+  },
+  {
+    "slug": "zazimovanie-vermikompostera",
+    "route_slug": "zazimovanie-vermikompostera",
+    "title": "Vermikompostér v zime: ochrana dážďoviek pred mrazom",
+    "category": "Kompostovanie",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-vermikomposter-v-zime.webp"
+  },
+  {
+    "slug": "cistenie-vtacich-budok-na-jesen",
+    "route_slug": "cistenie-vtacich-budok-na-jesen",
+    "title": "Čistenie vtáčích búdok na jeseň: bezpečný postup",
+    "category": "Praktické nápady",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-cistenie-vtacej-budky.webp"
+  },
+  {
+    "slug": "jahody-pred-zimou",
+    "route_slug": "jahody-pred-zimou",
+    "title": "Jahody pred zimou: čistenie, voda a správny mulč",
+    "category": "Ovocie",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-jahody-pred-zimou.webp"
+  },
+  {
+    "slug": "zazimovanie-jazierkoveho-cerpadla",
+    "route_slug": "zazimovanie-jazierkoveho-cerpadla",
+    "title": "Jazierkové čerpadlo v zime: vybrať alebo ponechať?",
+    "category": "Voda a závlaha",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-jazierkove-cerpadlo.webp"
+  },
+  {
+    "slug": "kontrola-uskladnenej-urody",
+    "route_slug": "kontrola-uskladnenej-urody",
+    "title": "Kontrola uskladnenej úrody: ako zastaviť hnilobu",
+    "category": "Zber a skladovanie",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-kontrola-urody.webp"
+  },
+  {
+    "slug": "ochrana-dreveneho-vyvyseneho-zahona-pred-zimou",
+    "route_slug": "ochrana-dreveneho-vyvyseneho-zahona-pred-zimou",
+    "title": "Drevený vyvýšený záhon pred zimou: ochrana bez fólie",
+    "category": "Záhradné práce",
+    "content_type": "blog",
+    "published_at": "2026-10-10",
+    "cover": "https://zahradasnapadom.sk/assets/blog/10-dreveny-vyvyseny-zahon.webp"
   }
 ]
