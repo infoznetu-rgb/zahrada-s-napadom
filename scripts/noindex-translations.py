@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep Czech, Polish, and reviewed low-value Slovak pages out of search results."""
+"""Keep Czech, Polish, and reviewed low-value Slovak pages with heavily repeated text out of search results."""
 from pathlib import Path
 import re
 
@@ -34,6 +34,47 @@ LOW_VALUE_SK_ARTICLES = (
     "susenie-kvetov-hortenzie",
     "velkost-kvetinaca-pre-hortenziu",
     "zimovanie-hortenzie-v-kvetinaci",
+    "hortenzia-z-obchodu-do-zahrady",
+    "hortenzie-a-hosty",
+    "hortenzie-korene",
+    "kontrola-opor-stromov-pred-zimou",
+    "predzimny-vysev-kopru",
+    "vysadba-aronie-na-jesen",
+    "hortenzia-kvety-male",
+    "hortenzia-slabe-vyhonky",
+    "kora-pod-hortenzie",
+    "vtacie-napajadlo-v-zime",
+    "zazimovanie-vavrinu-v-crepniku",
+    "hortenzia-v-tieni",
+    "kompost-k-hortenziam",
+    "najcastejsie-chyby-hortenzie",
+    "raselina-hortenzie",
+    "vanille-fraise-hortenzia",
+    "vysadba-bazy-ciernej-na-jesen",
+    "hortenzia-pada-po-dazdi",
+    "phantom-hortenzia",
+    "uskladnenie-akumulatorov-zahradnej-techniky",
+    "zazimovanie-olivovnika-v-crepniku",
+    "zazimovanie-tlakoveho-cistica",
+    "endless-summer-hortenzia",
+    "hortenzia-listy-ovisnute-rano",
+    "little-lime-hortenzia",
+    "rozmnozovanie-hortenzie-potapanim",
+    "hortenzia-po-kupeni",
+    "hortenzie-do-malej-zahrady",
+    "najkrajsie-metlinate-hortenzie",
+    "zimny-zber-topinamburov",
+    "bobo-hortenzia",
+    "hortenzie-myty",
+    "hortenzie-pre-zaciatocnikov",
+    "hortenzie-pri-dome",
+    "limelight-hortenzia-pestovanie",
+    "annabelle-vs-strong-annabelle",
+    "hortenzia-na-plnom-slnku",
+    "hortenzia-v-interieri",
+    "hortenzia-v-kvetinaci",
+    "hortenzie-a-ruze",
+    "hortenzie-zivy-plot",
 )
 
 def update_page(path: Path) -> bool:
