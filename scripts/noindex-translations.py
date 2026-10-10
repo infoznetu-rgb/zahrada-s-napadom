@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep Czech and Polish translated articles accessible but out of search results."""
+"""Keep Czech and Polish locale pages accessible but out of search results."""
 from pathlib import Path
 import re
 
@@ -43,12 +43,12 @@ def update_page(path: Path) -> bool:
 
 pages = []
 for locale in ("cs", "pl"):
-    blog = ROOT / locale / "blog"
-    if blog.is_dir():
-        pages.extend(sorted(blog.glob("*/index.html")))
+    locale_root = ROOT / locale
+    if locale_root.is_dir():
+        pages.extend(sorted(locale_root.rglob("*.html")))
 
 if not pages:
-    raise SystemExit("No Czech or Polish article pages found")
+    raise SystemExit("No Czech or Polish locale pages found")
 
 changed = sum(update_page(path) for path in pages)
-print(f"Checked {len(pages)} Czech/Polish article pages; updated {changed}.")
+print(f"Checked {len(pages)} Czech/Polish locale pages; updated {changed}.")
