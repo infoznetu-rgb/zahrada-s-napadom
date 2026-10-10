@@ -6,12 +6,12 @@ Automatická kontrola z 10. 10. 2026: 356 receptov, z toho **220 SVG ilustráci�
 
 | Recept (slug) | Stav | Požadovaný motív fotografie |
 | --- | --- | --- |
-| tvaroh-med-a-orechy-syte-ranajky | Čaká | Tvaroh v miske s medom a orechmi |
-| chia-a-maliny-tepla-ranajkova-kasa | Čaká | Teplá kaša s chia a malinami |
-| ovsene-vlocky-a-tekvica-tepla-ranajkova-kasa | Čaká | Ovsená kaša s tekvicou |
-| tvaroh-a-broskyne-tepla-ranajkova-kasa | Čaká | Kaša s tvarohom a broskyňami |
-| jogurt-a-ribezle-tepla-ranajkova-kasa | Čaká | Kaša s jogurtom a ríbezľami |
-| ryzova-kasa-a-slivky-tepla-ranajkova-kasa | Čaká | Ryžová kaša so slivkami |
+| tvaroh-med-a-orechy-syte-ranajky | Nasadené a overené | Tvaroh v miske s medom a orechmi |
+| chia-a-maliny-tepla-ranajkova-kasa | Nasadené a overené | Teplá kaša s chia a malinami |
+| ovsene-vlocky-a-tekvica-tepla-ranajkova-kasa | Nasadené a overené | Ovsená kaša s tekvicou |
+| tvaroh-a-broskyne-tepla-ranajkova-kasa | Nasadené a overené | Kaša s tvarohom a broskyňami |
+| jogurt-a-ribezle-tepla-ranajkova-kasa | Nasadené a overené | Kaša s jogurtom a ríbezľami |
+| ryzova-kasa-a-slivky-tepla-ranajkova-kasa | Nasadené a overené | Ryžová kaša so slivkami |
 | ovsene-vlocky-a-cucoriedky-tepla-ranajkova-kasa | Čaká | Ovsená kaša s čučoriedkami |
 | pseno-a-marhule-tepla-ranajkova-kasa | Čaká | Pšenová kaša s marhuľami |
 | pohanka-a-hruska-tepla-ranajkova-kasa | Čaká | Pohánková kaša s hruškou |
