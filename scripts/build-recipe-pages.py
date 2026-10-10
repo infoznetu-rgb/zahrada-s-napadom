@@ -57,7 +57,7 @@ def recipe_cover(post: dict) -> str:
 
 
 def fetch_recipes() -> list[dict]:
-    fields = "slug,title,excerpt,content,cover_url,published_at,updated_at,tags"
+    fields = "slug,title,excerpt,content,cover_url,published_at,updated_at,tags,generated_by_ai"
     query = urlencode({
         "select": fields,
         "status": "eq.published",
@@ -227,6 +227,16 @@ def render_page(post: dict) -> tuple[str, str]:
         if cover else ""
     )
     related = related_recipes(post, content, ALL_POSTS)
+    recipe_disclosure = (
+        "Text návrhu receptu vznikol s pomocou AI a autor ho zatiaľ osobne nevyskúšal."
+        if post.get("generated_by_ai")
+        else "Autor tento recept zatiaľ osobne nevyskúšal."
+    )
+    transparency_html = (
+        f'<aside class="recipe-disclaimer" role="note"><strong>Transparentne</strong>'
+        f'{esc(recipe_disclosure)} Hlavný obrázok je ilustračný vizuál vytvorený pomocou AI '
+        f'a nemusí presne zodpovedať skutočnému výsledku.</aside>'
+    )
     related_html = "".join(
         f'<li><a href="/recepty/{quote(str(item["slug"]))}/">{esc(item["title"])}</a></li>'
         for item in related
@@ -249,11 +259,11 @@ def render_page(post: dict) -> tuple[str, str]:
   <link rel="stylesheet" href="/zahrada.css?v=10"><link rel="stylesheet" href="/studio-2026.css?v=1">
   <link rel="stylesheet" href="/spring-2026.css?v=3"><link rel="stylesheet" href="/typography-2026.css?v=13">
   <link rel="stylesheet" href="/app.css?v=8"><link rel="stylesheet" href="/recepty.css?v=2">
-  <style>.recipe-detail{{max-width:900px;margin:0 auto;padding:24px 20px 64px}}.recipe-detail .back-link{{display:inline-block;margin:8px 0 28px}}.recipe-detail h1{{font-size:clamp(2rem,5vw,3.4rem);line-height:1.12;margin:.35rem 0 1rem}}.recipe-detail .recipe-lead{{font-size:1.13rem;line-height:1.75;max-width:780px}}.recipe-detail-image{{margin:28px 0}}.recipe-detail-image img{{display:block;width:100%;max-height:600px;object-fit:cover;border-radius:22px}}.recipe-detail-image figcaption{{margin-top:8px;color:#687267;font-size:.9rem}}.recipe-facts{{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}}.recipe-facts span{{padding:9px 13px;background:#f0f5eb;border-radius:999px}}.recipe-detail h2{{margin:2rem 0 .8rem}}.recipe-detail li{{margin:.55rem 0;line-height:1.65}}.recipe-ingredients{{list-style:none;padding-left:0}}.recipe-ingredients label{{display:flex;gap:10px;align-items:flex-start;cursor:pointer}}.recipe-ingredients input{{margin-top:.35rem;accent-color:#527b45}}.recipe-tip{{padding:16px 18px;border-left:4px solid #6f955e;background:#f5f8f1}}.recipe-actions{{margin:22px 0}}.recipe-actions button{{border:0;border-radius:999px;padding:12px 18px;background:#315b3b;color:white;font:inherit;font-weight:700;cursor:pointer}}@media print{{.site-header,.footer,.back-link,.recipe-actions,.recipe-related{{display:none!important}}.recipe-detail{{max-width:none;padding:0}}.recipe-detail-image img{{max-height:320px}}}}</style>
+  <style>.recipe-detail{{max-width:900px;margin:0 auto;padding:24px 20px 64px}}.recipe-detail .back-link{{display:inline-block;margin:8px 0 28px}}.recipe-detail h1{{font-size:clamp(2rem,5vw,3.4rem);line-height:1.12;margin:.35rem 0 1rem}}.recipe-detail .recipe-lead{{font-size:1.13rem;line-height:1.75;max-width:780px}}.recipe-detail-image{{margin:28px 0}}.recipe-detail-image img{{display:block;width:100%;max-height:600px;object-fit:cover;border-radius:22px}}.recipe-detail-image figcaption{{margin-top:8px;color:#687267;font-size:.9rem}}.recipe-facts{{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}}.recipe-facts span{{padding:9px 13px;background:#f0f5eb;border-radius:999px}}.recipe-detail h2{{margin:2rem 0 .8rem}}.recipe-detail li{{margin:.55rem 0;line-height:1.65}}.recipe-ingredients{{list-style:none;padding-left:0}}.recipe-ingredients label{{display:flex;gap:10px;align-items:flex-start;cursor:pointer}}.recipe-ingredients input{{margin-top:.35rem;accent-color:#527b45}}.recipe-tip{{padding:16px 18px;border-left:4px solid #6f955e;background:#f5f8f1}}.recipe-disclaimer{{margin:18px 0;padding:14px 17px;border:1px solid #d4dfcf;border-left:4px solid #6f955e;border-radius:12px;background:#f5f8f1;line-height:1.65}}.recipe-disclaimer strong{{display:block;margin-bottom:4px}}.recipe-actions{{margin:22px 0}}.recipe-actions button{{border:0;border-radius:999px;padding:12px 18px;background:#315b3b;color:white;font:inherit;font-weight:700;cursor:pointer}}@media print{{.site-header,.footer,.back-link,.recipe-actions,.recipe-related{{display:none!important}}.recipe-detail{{max-width:none;padding:0}}.recipe-detail-image img{{max-height:320px}}}}</style>
 </head>
 <body class="article-page recipe-detail-page"><a class="skip" href="#obsah">Preskočiť na obsah</a>
   <header class="site-header"><div class="top container"><a class="brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=1" alt="" aria-hidden="true"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/recepty.html" aria-current="page">Recepty</a><a href="/pomocky.html">Pomôcky</a></nav><button class="menu" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span aria-hidden="true">☰</span></button></div><nav id="mobile-nav" class="mobile-nav container" aria-label="Mobilná navigácia"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/recepty.html">Recepty</a><a href="/pomocky.html">Pomôcky</a></nav></header>
-  <main id="obsah"><article class="recipe-detail"><a class="back-link" href="/recepty.html">← Späť na recepty</a><span class="kicker">RECEPT ZO ZÁHRADY</span><h1>{esc(title)}</h1><p class="recipe-lead">{esc(excerpt or content["intro"])}</p>{image_html}<div class="recipe-facts">{facts_html}</div>{f'<p>{esc(content["intro"])}</p>' if content["intro"] and excerpt else ''}<section><h2>Suroviny</h2><ul class="recipe-ingredients">{ingredients}</ul></section><section><h2>Postup</h2><ol>{steps}</ol></section>{tips}<div class="recipe-actions"><button type="button" onclick="window.print()">Vytlačiť recept</button></div>{f'<section class="recipe-related"><h2>Podobné recepty</h2><ul>{related_html}</ul></section>' if related_html else ''}<p><a href="/recepty.html">Pozri ďalšie recepty zo sezónnej úrody →</a></p></article></main>
+  <main id="obsah"><article class="recipe-detail"><a class="back-link" href="/recepty.html">← Späť na recepty</a><span class="kicker">RECEPT ZO ZÁHRADY</span><h1>{esc(title)}</h1><p class="recipe-lead">{esc(excerpt or content["intro"])}</p>{transparency_html}{image_html}<div class="recipe-facts">{facts_html}</div>{f'<p>{esc(content["intro"])}</p>' if content["intro"] and excerpt else ''}<section><h2>Suroviny</h2><ul class="recipe-ingredients">{ingredients}</ul></section><section><h2>Postup</h2><ol>{steps}</ol></section>{tips}<div class="recipe-actions"><button type="button" onclick="window.print()">Vytlačiť recept</button></div>{f'<section class="recipe-related"><h2>Podobné recepty</h2><ul>{related_html}</ul></section>' if related_html else ''}<p><a href="/recepty.html">Pozri ďalšie recepty zo sezónnej úrody →</a></p></article></main>
   <footer class="footer container"><div class="footer-brand"><a class="brand small-brand" href="/"><span class="brand-text"><strong>Záhrada</strong><small>s nápadom</small></span></a><p>Záhrada, dielňa a nápady, ktoré vznikajú pre radosť.</p></div><div class="footer-links"><a href="/">Domov</a><a href="/blog.html">Blog</a><a href="/recepty.html">Recepty</a><a href="/#kontakt">Kontakt</a></div><small>© 2026 · Hobby projekt pre záhradu a dielňu</small></footer><script src="/app.js?v=19" defer></script>
 </body></html>'''
     return slug, body
