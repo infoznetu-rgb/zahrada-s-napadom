@@ -24,6 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build search-friendly calculator pages
+        run: |
+          node scripts/test-tool-examples.cjs
+          node scripts/build-tool-search.mjs
+
       - name: Generate crawlable recipe pages and sitemap entries
         run: python3 scripts/build-recipe-pages.py
 
@@ -38,6 +43,9 @@ jobs:
 
       - name: Connect static articles and build complete search index
         run: python3 scripts/build-search-index.py
+
+      - name: Verify public search pages and calculator links
+        run: python3 scripts/verify-public-search.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

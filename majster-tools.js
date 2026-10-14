@@ -2,6 +2,8 @@
 const fmt=(v,d=2)=>new Intl.NumberFormat('sk-SK',{maximumFractionDigits:d}).format(v);
 const num=id=>Math.max(0,Number(document.getElementById(id)?.value||0));
 const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
+// Ignore floating-point noise at an exact whole-pack boundary (660 / 12 = 55).
+const wholePacks=value=>Math.ceil(value-Number.EPSILON*Math.max(1,Math.abs(value))*8);
 
 function calcPaint(){
  const f=document.getElementById('paint-calculator'); if(!f)return;
@@ -37,7 +39,7 @@ function calcConcrete(){
  const total=raw*(1+reserve/100);
  const liters=total*1000;
  const yieldL=num('concrete-yield');
- const bags=yieldL>0?Math.ceil(liters/yieldL):null;
+ const bags=yieldL>0?wholePacks(liters/yieldL):null;
  set('concrete-raw',fmt(raw,3)+' m³');
  set('concrete-total',fmt(total,3)+' m³');
  set('concrete-liters',fmt(liters,0)+' l');

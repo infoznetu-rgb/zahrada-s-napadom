@@ -1,0 +1,211 @@
+[
+  {
+    "file": "kalkulacka-betonu.html",
+    "title": "Kalkulačka betónu: objem v m³ a počet vriec",
+    "heading": "Kalkulačka betónu pre dosku, pás a pätky",
+    "example": "Doska 3 × 2 m s hrúbkou 10 cm má objem 3 × 2 × 0,10 = 0,6 m³. S rezervou 10 % je to 0,66 m³, teda 660 litrov. Ak výrobca uvádza výťažnosť 12 litrov z vreca, potrebuješ 55 vriec. Výťažnosť zadaj z obalu; hmotnosť vreca sama o sebe nestačí.",
+    "related": [
+      "kalkulacka-strku.html",
+      "pravy-uhol.html",
+      "projektovy-planovac.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-farby.html",
+    "title": "Kalkulačka farby na steny a strop: spotreba v litroch",
+    "heading": "Kalkulačka spotreby farby na steny a strop",
+    "example": "Izba 4 × 3 m s výškou 2,5 m má steny s plochou 35 m² pred odpočítaním okien a dverí. Bez stropu, pri dvoch vrstvách a výdatnosti 10 m²/l je spotreba 7 litrov. S rezervou 10 % vychádza 7,7 litra. Použi výdatnosť pre jednu vrstvu uvedenú výrobcom.",
+    "related": [
+      "kalkulacka-lazury.html",
+      "kalkulacka-dlazby.html",
+      "prevodnik-jednotiek.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-vyvyseny-zahon.html",
+    "title": "Kalkulačka zeminy do vyvýšeného záhona",
+    "heading": "Kalkulačka zeminy do vyvýšeného záhona",
+    "example": "Záhon s vnútornými rozmermi 2 × 1 m a výškou výplne 50 cm má objem 1 m³, teda 1 000 litrov. Horných 30 cm tvorí 600 litrov. Ak pre túto vrstvu zvolíš 30 % kompostu, vychádza 180 litrov kompostu a 420 litrov zeminy. Zvyšných 400 litrov je spodná výplň; zloženie si zvolíš podľa svojho záhona.",
+    "related": [
+      "kalkulacka-zeminy-kompostu.html",
+      "kalkulacka-mulcu.html",
+      "kalkulacka-zavlahy.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-mulcu.html",
+    "title": "Kalkulačka mulču a kôry: litre a počet vriec",
+    "heading": "Kalkulačka mulčovacej kôry a mulču",
+    "example": "Záhon 5 × 2 m má plochu 10 m². Pri vrstve 5 cm potrebuje 0,5 m³, teda 500 litrov mulču. S rezervou 5 % je to 525 litrov. Pri 70-litrovom vreci treba kúpiť 8 vriec, pretože počet balení zaokrúhľujeme nahor.",
+    "related": [
+      "kalkulacka-zeminy-kompostu.html",
+      "kalkulacka-strku.html",
+      "kalkulacka-vyvyseny-zahon.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-strku.html",
+    "title": "Kalkulačka štrku: objem v m³ a hmotnosť v tonách",
+    "heading": "Kalkulačka množstva štrku a kameniva",
+    "example": "Chodník 10 × 0,8 m s vrstvou 5 cm potrebuje 0,4 m³ kameniva. S rezervou 10 % vychádza 0,44 m³. Pri zadanej objemovej hmotnosti 1 600 kg/m³ je to 704 kg, teda 0,704 t. Hodnotu hustoty si over u dodávateľa konkrétnej frakcie.",
+    "related": [
+      "kalkulacka-betonu.html",
+      "kalkulacka-sklonu.html",
+      "kalkulacka-dlazby.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-dazdovej-vody.html",
+    "title": "Kalkulačka dažďovej vody: koľko zachytí strecha",
+    "heading": "Kalkulačka zberu dažďovej vody zo strechy",
+    "example": "Na strechu s pôdorysnou plochou 80 m² pri daždi 10 mm dopadne 800 litrov vody. Pri účinnosti zberu 80 % možno zachytiť približne 640 litrov. Ide o množstvo z jedného dažďa, nie odporúčanie veľkosti nádrže pre celý rok.",
+    "related": [
+      "kalkulacka-zavlahy.html",
+      "kalkulacka-vyvyseny-zahon.html",
+      "prevodnik-jednotiek.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-zeminy-kompostu.html",
+    "title": "Kalkulačka zeminy a kompostu: objem a počet vriec",
+    "heading": "Kalkulačka množstva zeminy a kompostu",
+    "example": "Pre plochu 4 × 2 m a vrstvu 10 cm potrebuješ 0,8 m³, teda 800 litrov zmesi pred pridaním rezervy. Pri zvolenom podiele 25 % kompostu je to 200 litrov kompostu a 600 litrov zeminy. Tento pomer je príklad výpočtu, nie univerzálny pestovateľský recept.",
+    "related": [
+      "kalkulacka-vyvyseny-zahon.html",
+      "kalkulacka-mulcu.html",
+      "kalkulacka-travnikoveho-osiva.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-lazury.html",
+    "title": "Kalkulačka lazúry a oleja na drevo: spotreba",
+    "heading": "Kalkulačka spotreby lazúry a oleja na drevo",
+    "example": "Pri natieranej ploche 12 m², dvoch vrstvách a výdatnosti 10 m²/l vychádza 2,4 litra náteru. Po pridaní rezervy 10 % je to 2,64 litra. Do plochy zahrň všetky strany, ktoré chceš natrieť; výdatnosť závisí aj od nasiakavosti a prípravy dreva.",
+    "related": [
+      "kalkulacka-plotovych-lat.html",
+      "kalkulacka-terasovych-dosiek.html",
+      "kalkulacka-farby.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-dlazby.html",
+    "title": "Kalkulačka dlažby a obkladu: m² a počet balení",
+    "heading": "Kalkulačka množstva dlažby a obkladu",
+    "example": "Plocha 4 × 3 m má 12 m². Pri rezerve 10 % počítaj s 13,2 m² dlažby. Ak balenie pokryje 1,2 m², potrebuješ 11 balení. Pri členitej ploche a diagonálnom kladení si rezervu zvoľ podľa rozloženia rezov.",
+    "related": [
+      "kalkulacka-betonu.html",
+      "kalkulacka-sklonu.html",
+      "pravy-uhol.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-sklonu.html",
+    "title": "Kalkulačka sklonu a spádu: percentá a stupne",
+    "heading": "Kalkulačka sklonu a spádu v percentách a stupňoch",
+    "example": "Výškový rozdiel 10 cm na vodorovnej vzdialenosti 5 m znamená spád 2 %, teda 2 cm na meter. Uhol je približne 1,15°. Percentá a stupne nie sú rovnaké jednotky. Potrebný spád konkrétnej konštrukcie určuje jej návrh a montážny postup.",
+    "related": [
+      "pravy-uhol.html",
+      "kalkulacka-dlazby.html",
+      "kalkulacka-terasovych-dosiek.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-travnikoveho-osiva.html",
+    "title": "Kalkulačka trávnikového osiva: koľko kg na m²",
+    "heading": "Kalkulačka množstva trávnikového osiva",
+    "example": "Pri ploche 100 m² a výsevku 30 g/m² potrebuješ 3 kg osiva. S rezervou 10 % je to 3,3 kg; pri kilogramových baleniach kúpiš 4 balenia. Výsevok zvoľ podľa obalu konkrétnej zmesi a podľa toho, či zakladáš nový trávnik alebo dosievaš.",
+    "related": [
+      "kalkulacka-zeminy-kompostu.html",
+      "kalkulacka-zavlahy.html",
+      "kalkulacka-dazdovej-vody.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-zavlahy.html",
+    "title": "Kalkulačka závlahy: spotreba vody a čas polievania",
+    "heading": "Kalkulačka závlahy a času polievania",
+    "example": "Pri ploche 20 m² a zadanej dávke 10 l/m² potrebuje jedno polievanie 200 litrov. Ak polievaš trikrát týždenne, je to 600 litrov. Pri prietoku 10 l/min trvá dodanie 200 litrov približne 20 minút. Dávka je iba vstupný príklad; prispôsob ju pôde, rastlinám a dažďu.",
+    "related": [
+      "kalkulacka-dazdovej-vody.html",
+      "kalkulacka-mulcu.html",
+      "kalkulacka-travnikoveho-osiva.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-plotovych-lat.html",
+    "title": "Kalkulačka plotových lát: počet a rovnomerné medzery",
+    "heading": "Kalkulačka počtu plotových lát a medzier",
+    "example": "Do poľa širokého 190 cm sa pri šírke laty 10 cm a medzere 2 cm zmestí 16 lát. Laty zaberú 160 cm a pätnásť vnútorných medzier spolu 30 cm. Okrajové medzery tento príklad neobsahuje; ak ich chceš, odpočítaj ich najprv od šírky poľa.",
+    "related": [
+      "kalkulacka-lazury.html",
+      "rezaci-plan-dreva.html",
+      "projektovy-planovac.html"
+    ]
+  },
+  {
+    "file": "kalkulacka-terasovych-dosiek.html",
+    "title": "Kalkulačka terasových dosiek: počet a bežné metre",
+    "heading": "Kalkulačka počtu terasových dosiek",
+    "example": "Pre terasu 4 × 3 m, dosky široké 140 mm a požadovanú medzeru 6 mm kalkulačka zvolí 21 radov. To je 84 bežných metrov bez rezervy a 92,4 m s rezervou 10 %. Pri štvormetrových kusoch vychádza orientačne 24 kusov. Skutočné medzery a okrajové dorezy skontroluj podľa montážneho systému.",
+    "related": [
+      "kalkulacka-lazury.html",
+      "rezaci-plan-dreva.html",
+      "kalkulacka-sklonu.html"
+    ]
+  },
+  {
+    "file": "rezaci-plan-dreva.html",
+    "title": "Rezací plán dreva online: laty, hranoly a odpad",
+    "heading": "Rezací plán dreva pre laty a hranoly",
+    "example": "Zo skladovej laty dlhej 2 500 mm môžeš pri šírke rezu 3 mm vyrezať dva kusy po 900 mm. Po započítaní dvoch rezov zostane 694 mm. Pri viacerých rozmeroch ich zadaj po riadkoch; plán zohľadní šírku rezu a rozdelenie medzi skladové kusy.",
+    "related": [
+      "kalkulacka-plotovych-lat.html",
+      "kalkulacka-terasovych-dosiek.html",
+      "projektovy-planovac.html"
+    ]
+  },
+  {
+    "file": "prevodnik-jednotiek.html",
+    "title": "Prevodník jednotiek: mm, palce, m², litre a m³",
+    "heading": "Prevodník dĺžky, plochy, objemu a hmotnosti",
+    "example": "Jeden palec je presne 25,4 mm; 3/4 palca je preto 19,05 mm. Jeden kubický meter je 1 000 litrov. Litre nemožno všeobecne premeniť na kilogramy bez znalosti hustoty materiálu. Pri nákupe štrku použi kalkulačku s údajom dodávateľa.",
+    "related": [
+      "kalkulacka-strku.html",
+      "kalkulacka-betonu.html",
+      "rezaci-plan-dreva.html"
+    ]
+  },
+  {
+    "file": "projektovy-planovac.html",
+    "title": "Plánovač materiálu: zoznam pre domáci projekt",
+    "heading": "Plánovač materiálu pre záhradu a dielňu",
+    "example": "Do zoznamu pre jednoduchú policu môžeš zapísať 4 laty, balenie skrutiek a 1 liter náteru. Pri položkách si ulož rozmery a jednotky, aby si pri nákupe nepočítal kusy a bežné metre ako rovnakú vec. Zoznam je uložený iba v tomto prehliadači; pred vymazaním údajov si ho skopíruj.",
+    "related": [
+      "rezaci-plan-dreva.html",
+      "kalkulacka-lazury.html",
+      "kalkulacka-ceny-vyrobku.html"
+    ]
+  },
+  {
+    "file": "pravy-uhol.html",
+    "title": "Pravý uhol 3–4–5: kalkulačka uhlopriečky",
+    "heading": "Kalkulačka pravého uhla 3–4–5 a uhlopriečky",
+    "example": "Pri obdĺžniku 3 × 4 m má uhlopriečka dĺžku 5 m. Rovnaký pomer môžeš zmenšiť na 60, 80 a 100 cm. Pri vytyčovaní obdĺžnika over aj rovnosť protiľahlých strán a oboch uhlopriečok.",
+    "related": [
+      "kalkulacka-betonu.html",
+      "kalkulacka-dlazby.html",
+      "kalkulacka-sklonu.html"
+    ]
+  },
+  {
+    "file": "hmozdinky-vrtaky.html",
+    "title": "Výber hmoždinky a vrtáka podľa materiálu steny",
+    "heading": "Aká hmoždinka a vrták do betónu, tehly či sadrokartónu?",
+    "example": "Pri polici do dutej tehly zvoľ v radcovi dutinové murivo a zodpovedajúci typ zaťaženia. Výsledok pomôže vybrať skupinu kotvenia; konkrétny priemer vrtáka, skrutku, hĺbku a prípustné zaťaženie určuje výrobca kotvy. Rovnaký priemer hmoždinky automaticky neznamená rovnakú nosnosť.",
+    "related": [
+      "projektovy-planovac.html",
+      "pravy-uhol.html",
+      "prevodnik-jednotiek.html"
+    ]
+  }
+]

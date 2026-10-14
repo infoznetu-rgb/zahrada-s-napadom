@@ -819,9 +819,10 @@
 
   function maybeShowPromoBanner(){
     const path=location.pathname.split('/').pop()||'index.html';
-    // Let the home page make its first impression without a large overlay.
-    if(path==='moja-zahrada.html'||path==='index.html')return;
-    const dismissed=Number(localStorage.getItem(PROMO_DISMISS_KEY)||0);
+    // Keep the calculation visible while visitors enter values or read a result.
+    if(path==='moja-zahrada.html'||path==='index.html'||path==='pomocky.html'||document.querySelector('.calculator-card,[data-tool-search-example]'))return;
+    let dismissed=0;
+    try{dismissed=Number(localStorage.getItem(PROMO_DISMISS_KEY)||0)}catch(e){}
     if(dismissed&&Date.now()-dismissed<3*24*60*60*1000)return;
 
     setTimeout(async()=>{

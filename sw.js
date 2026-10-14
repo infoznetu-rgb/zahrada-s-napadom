@@ -1,4 +1,4 @@
-const VERSION='121';
+const VERSION='122';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
@@ -8,7 +8,7 @@ const PRECACHE=[
   './radar-app.css?v=2','./radar-today.css','./radar-feature.css','./radar.css','./radar-home.css','./zahrada.css','./studio-2026.css','./spring-2026.css','./growth-2026.css','./typography-2026.css','./bazar.css','./app.css','./comments.css','./sutaz.css','./facebook-widget.css','./engagement.css','./product-2026.css','./recepty.css',
   './radar-today.js','./radar.js','./zahrada.js','./studio-2026.js','./garden-tools.js','./home-engagement.js','./majster-tools.js','./cena-vyrobku.js','./cms-public.js','./blog.js','./blog-v18.js','./recepty.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./comments.js','./sutaz.js','./moja-zahrada.js','./push.js','./facebook-widget.js',
   './zahrada.webmanifest','./offline.html','./favicon.ico','./favicon-48x48.png','./favicon.svg','./app-icon.svg','./app-icon-maskable.svg','./brand-mark.svg',
-  './assets/radar-horna-orava-jesen.webp','./assets/hero-ziva-zahrada.png','./assets/posts/terasova-hojdacia-lavicka/hlavna.webp'
+  './assets/radar-horna-orava-jesen.webp','./assets/hero-ziva-zahrada.webp','./assets/hero-ziva-zahrada-640.webp','./assets/posts/terasova-hojdacia-lavicka/hlavna.webp'
 ];
 
 self.addEventListener('install',event=>{
