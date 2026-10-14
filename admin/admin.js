@@ -514,31 +514,36 @@ function analyticsPostName(slug){
 function renderAnalytics(data){
   const s=data?.summary||{};
   const summary=[
-    ["Všetky načítania",s.aggregate_page_views,"Základné agregované počítadlo bez visitor ID"],
+    ["Zaznamenané načítania",s.aggregate_page_views,"Anonymné počítadlo od 2. 10. 2026; nejde o počet ľudí"],
     ["Historické zobrazenia so súhlasom",s.page_views,"Podrobný záznam z obdobia pred anonymným počítadlom"],
-    ["Návštevníci",s.unique_visitors,"Historický približný počet zariadení so súhlasom"],
-    ["Otvorené príspevky",s.article_opens,"Články a vlastné projekty"],
-    ["Dočítané do konca",s.reads_100,"Dosiahnutých 100 % textu"],
-    ["Prehratia videí",s.video_plays,"Spustenia videí"],
-    ["Dopozerané videá",s.video_completes,"Videá prehrané do konca"],
-    ["Otvorené fotky",s.photo_opens,"Kliknutia na fotografie"],
-    ["Inštalácie appky",s.app_installs,"Potvrdené PWA inštalácie"]
+    ["Historickí návštevníci",s.unique_visitors,"Približný počet zariadení so súhlasom; meranie vypnuté"],
+    ["Historické otvorenia príspevkov",s.article_opens,"Meranie vypnuté od 3. 10. 2026"],
+    ["Historické dočítania",s.reads_100,"Meranie vypnuté od 3. 10. 2026"],
+    ["Historické prehratia videí",s.video_plays,"Meranie vypnuté od 3. 10. 2026"],
+    ["Historické dopozerania",s.video_completes,"Meranie vypnuté od 3. 10. 2026"],
+    ["Historické otvorenia fotiek",s.photo_opens,"Meranie vypnuté od 3. 10. 2026"],
+    ["Historické inštalácie appky",s.app_installs,"Meranie vypnuté od 3. 10. 2026"]
   ];
-  $("#analytics-summary").innerHTML=summary.map(([label,value,note])=>`<article class="analytics-stat"><span>${esc(label)}</span><strong>${nfmt(value)}</strong><small>${esc(note)}</small></article>`).join("");
+  $("#analytics-summary").innerHTML=summary.map(([label,value,note])=>`<article class="analytics-stat"><span>${esc(label)}</span><strong>${value==null?"—":nfmt(value)}</strong><small>${esc(note)}</small></article>`).join("");
+  $("#analytics-status").textContent=data.aggregate_error
+    ? "Aktuálne počítadlo sa nepodarilo načítať. Chýbajúce údaje nie sú nula. Skús Obnoviť."
+    : "Počítame načítania stránok, nie unikátnych ľudí. Opakované otvorenia sa počítajú znova. Dnešok ešte nie je ukončený. Podrobné meranie bolo vypnuté 3. 10. 2026.";
 
   const daily=Array.isArray(data?.daily)?data.daily:[];
   if(!daily.length){
-    $("#analytics-chart").innerHTML=analyticsEmpty("Údaje sa začnú zobrazovať po prvých návštevách.");
+    $("#analytics-chart").innerHTML=analyticsEmpty(data.aggregate_error?"Načítanie denného počítadla zlyhalo.":"Zatiaľ bez zaznamenaných načítaní.");
   }else{
     const max=Math.max(1,...daily.map(x=>Number(x.page_views)||0));
     $("#analytics-chart").innerHTML=`<div class="analytics-bars">${daily.map(x=>{
-      const h=Math.max(3,Math.round((Number(x.page_views)||0)/max*100));
+      const h=Number(x.page_views)>0?Math.max(1,Math.round(Number(x.page_views)/max*100)):0;
       const date=new Date(String(x.day)+"T12:00:00");
       const label=new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit"}).format(date);
-      return `<div class="analytics-day" title="${esc(label)} · ${nfmt(x.page_views)} zobrazení · ${nfmt(x.visitors)} návštevníkov">
+      const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Bratislava',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+      const partial=String(x.day)===today;
+      return `<div class="analytics-day" title="${esc(label)} · ${nfmt(x.page_views)} zaznamenaných načítaní${partial?' · neukončený deň':''}">
         <div class="analytics-bar-value">${nfmt(x.page_views)}</div>
         <div class="analytics-bar-track"><i style="height:${h}%"></i></div>
-        <small>${esc(label)}</small>
+        <small>${esc(label)}${partial?' *':''}</small>
       </div>`;
     }).join("")}</div>`;
   }
@@ -592,7 +597,10 @@ function stopAnalyticsRefreshPolling(){
 }
 
 async function loadAnalytics(){
+  if(loadAnalytics.loading)return;
+  loadAnalytics.loading=true;
   const days=Number($("#analytics-days")?.value||30);
+  try{
   setSave("Načítavam štatistiky…");
   $("#analytics-chart").innerHTML=analyticsEmpty("Načítavam…");
   const [{data,error},{data:aggregateData,error:aggregateError}]=await Promise.all([
@@ -603,37 +611,37 @@ async function loadAnalytics(){
     console.error(error);
     setSave("Chyba štatistík");
     $("#analytics-summary").innerHTML=analyticsEmpty("Štatistiky sa nepodarilo načítať.");
+    $("#analytics-chart").innerHTML=analyticsEmpty("Načítanie zlyhalo. Skús Obnoviť.");
+    $("#analytics-status").textContent="Štatistiky sú nedostupné; nejde o nulovú návštevnosť.";
     return;
   }
   const analytics=typeof data==="string"?JSON.parse(data):data;
+  analytics.aggregate_error=Boolean(aggregateError);
+  analytics.summary={...(analytics.summary||{}),aggregate_page_views:null};
+  analytics.daily=[];
   if(!aggregateError){
     const aggregate=typeof aggregateData==="string"?JSON.parse(aggregateData):aggregateData;
-    const historicalSummary=analytics.summary||{};
-    const historicalPageViews=Number(historicalSummary.page_views)||0;
-    analytics.summary={
-      ...historicalSummary,
-      aggregate_page_views:(Number(aggregate?.page_views)||0)+historicalPageViews
-    };
-
-    const dailyByDate=new Map();
-    (Array.isArray(analytics.daily)?analytics.daily:[]).forEach(row=>{
-      dailyByDate.set(String(row.day),{
-        ...row,
-        page_views:Number(row.page_views)||0,
-        visitors:Number(row.visitors)||0
-      });
-    });
-    (Array.isArray(aggregate?.daily)?aggregate.daily:[]).forEach(row=>{
-      const day=String(row.day);
-      const current=dailyByDate.get(day)||{day,page_views:0,visitors:0,article_opens:0,video_plays:0};
-      current.page_views+=(Number(row.page_views)||0);
-      dailyByDate.set(day,current);
-    });
-    analytics.daily=[...dailyByDate.values()].sort((a,b)=>String(a.day).localeCompare(String(b.day)));
+    analytics.summary.aggregate_page_views=Number(aggregate?.page_views)||0;
+    // The two counters overlap during the transition. Never add them together.
+    // Aggregate counting did not exist before this date; older days are unknown.
+    analytics.daily=(Array.isArray(aggregate?.daily)?aggregate.daily:[])
+      .filter(row=>String(row.day)>='2026-10-02')
+      .sort((a,b)=>String(a.day).localeCompare(String(b.day)));
   }
   renderAnalytics(analytics);
   analyticsLoaded=true;
-  setSave("Štatistiky načítané");
+  setSave(aggregateError?"Aktuálne počítadlo je nedostupné":"Štatistiky načítané");
+  }catch(error){
+    console.error(error);
+    setSave("Chyba štatistík");
+    $("#analytics-summary").innerHTML=analyticsEmpty("Štatistiky sa nepodarilo načítať.");
+    $("#analytics-chart").innerHTML=analyticsEmpty("Načítanie zlyhalo. Skús Obnoviť.");
+    $("#analytics-status").textContent="Štatistiky sú nedostupné; nejde o nulovú návštevnosť.";
+  }finally{
+    loadAnalytics.loading=false;
+    const selectedDays=Number($("#analytics-days")?.value||30);
+    if(selectedDays!==days)loadAnalytics();
+  }
 }
 $("#analytics-days").addEventListener("change",()=>{analyticsLoaded=false;loadAnalytics()});
 $("#analytics-refresh").addEventListener("click",()=>{analyticsLoaded=false;loadAnalytics()});

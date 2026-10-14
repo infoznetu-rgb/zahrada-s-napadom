@@ -218,7 +218,7 @@ html.admin-standalone body{background:#edf1ec}
 .analytics-table td:not(:first-child){white-space:nowrap}
 .analytics-table code{font-family:inherit;font-size:.72rem;color:var(--green2);word-break:break-all}
 .analytics-sub{display:block;margin-top:3px;color:var(--muted);font-size:.64rem;font-weight:500}
-.analytics-chart{min-height:220px;overflow-x:auto;padding:8px 2px 0}
+.analytics-chart{min-height:240px;overflow-x:auto;padding:8px 2px 12px}
 .analytics-bars{display:flex;align-items:end;gap:8px;min-width:max-content;height:220px;padding:4px 4px 0}
 .analytics-day{display:grid;grid-template-rows:22px 160px 24px;align-items:end;width:38px;text-align:center}
 .analytics-bar-value{font-size:.61rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis}

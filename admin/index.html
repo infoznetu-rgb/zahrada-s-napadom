@@ -14,12 +14,12 @@
   <link rel="alternate icon" href="admin-icon.svg?v=2">
   <link rel="manifest" href="admin.webmanifest?v=2">
   <title>ZÁHRADA ADMIN | Správa webu</title>
-  <link rel="stylesheet" href="admin.css?v=16"><link rel="stylesheet" href="radar-admin.css?v=1"><link rel="stylesheet" href="opory-interest-admin.css?v=1">
+  <link rel="stylesheet" href="admin.css?v=17"><link rel="stylesheet" href="radar-admin.css?v=1"><link rel="stylesheet" href="opory-interest-admin.css?v=1">
   <link rel="stylesheet" href="bazar.css?v=2"><link rel="stylesheet" href="community-submissions-admin.css?v=1">
   <link rel="stylesheet" href="bazar-import.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js" integrity="sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz" crossorigin="anonymous" defer></script>
-  <script src="admin.js?v=20261005-live-off" defer></script>
+  <script src="admin.js?v=20261014-statistics" defer></script>
   <script src="bazar.js?v=4" defer></script>
   <script src="bazar-import.js?v=2" defer></script>
   <script src="admin-pwa.js?v=7" defer></script>
@@ -117,6 +117,7 @@
           </div>
 
           <div id="analytics-summary" class="analytics-summary"></div>
+          <p id="analytics-status" class="analytics-note" role="status"></p>
 
           <div class="analytics-grid">
             <section class="panel analytics-wide analytics-live-panel">
@@ -124,37 +125,37 @@
               <div class="empty">Počítanie aktívnych návštevníkov je vypnuté. Súhrnné načítania stránok sa počítajú ďalej.</div>
             </section>
             <section class="panel analytics-wide">
-              <div class="panel-head"><h3>Návštevnosť po dňoch</h3><span class="muted">Zobrazenia stránok a návštevníci so súhlasom so štatistikami</span></div>
+              <div class="panel-head"><h3>Zaznamenané načítania po dňoch</h3><span class="muted">Anonymné denné súčty od 2. 10. 2026 · * neukončený deň</span></div>
               <div id="analytics-chart" class="analytics-chart"><div class="empty">Načítavam…</div></div>
             </section>
 
             <section class="panel">
-              <div class="panel-head"><h3>Aplikácia</h3><span class="muted">Ponuka → klik → inštalácia</span></div>
+              <div class="panel-head"><h3>Aplikácia – historické údaje</h3><span class="muted">Meranie vypnuté od 3. 10. 2026</span></div>
               <div id="analytics-installs" class="analytics-funnel"></div>
             </section>
 
             <section class="panel analytics-wide">
-              <div class="panel-head"><h3>Najnavštevovanejšie stránky</h3><span class="muted">Zobrazenia a návštevníci</span></div>
+              <div class="panel-head"><h3>Najnavštevovanejšie stránky – história</h3><span class="muted">Meranie vypnuté od 3. 10. 2026</span></div>
               <div id="analytics-pages" class="analytics-table-wrap"></div>
             </section>
 
             <section class="panel analytics-wide">
-              <div class="panel-head"><h3>Čítanie príspevkov</h3><span class="muted">Otvorenie, dočítanie a 30 s záujem</span></div>
+              <div class="panel-head"><h3>Čítanie príspevkov – história</h3><span class="muted">Meranie vypnuté od 3. 10. 2026</span></div>
               <div id="analytics-articles" class="analytics-table-wrap"></div>
             </section>
 
             <section class="panel analytics-wide">
-              <div class="panel-head"><h3>Sledovanosť videí</h3><span class="muted">Prehratie a dopozeranie</span></div>
+              <div class="panel-head"><h3>Sledovanosť videí – história</h3><span class="muted">Meranie vypnuté od 3. 10. 2026</span></div>
               <div id="analytics-videos" class="analytics-table-wrap"></div>
             </section>
 
             <section class="panel analytics-wide">
-              <div class="panel-head"><h3>Fotografie</h3><span class="muted">Koľkokrát návštevníci otvorili fotografie</span></div>
+              <div class="panel-head"><h3>Fotografie – história</h3><span class="muted">Meranie vypnuté od 3. 10. 2026</span></div>
               <div id="analytics-photos" class="analytics-table-wrap"></div>
             </section>
           </div>
 
-          <p class="analytics-note">Po prihlásení do administrácie sa návštevy z tohto prehliadača ďalej nezapočítavajú. Staršie zaznamenané návštevy zostávajú. „Všetky načítania“ spájajú staršie podrobné zobrazenia so súhlasom a anonymné denné súčty od 2. 10. 2026. Nové denné súčty neobsahujú identifikátor návštevníka, referrer ani cestu stránky. Podrobné prehľady stránok, návštevníkov a aktivít sú dostupné iba zo starších udalostí. Živý prehľad používa anonymné označenie iba počas aktívnej návštevy; záznamy sa mažú najneskôr do 2 minút. Inštaláciu aplikácie vie prehliadač spoľahlivo potvrdiť najmä pri podporovaných PWA inštaláciách; na iPhone môže byť viditeľný iba klik na inštaláciu.</p>
+          <p class="analytics-note">Po prihlásení do administrácie sa návštevy z tohto prehliadača nezapočítavajú ani po odhlásení. Zaznamenané načítania nie sú počet ľudí: zahŕňajú opakované otvorenia a môžu obsahovať automatizované návštevy. Prehliadač bez JavaScriptu, offline návšteva či blokovanie spojenia sa nemusia započítať. Anonymné denné súčty od 2. 10. 2026 neobsahujú identifikátor návštevníka, referrer ani cestu stránky. Staršie podrobné udalosti sa zobrazujú oddelene, pretože merania sa pri prechode prekrývali. Historické prehľady rešpektujú zvolené obdobie; ich nula neznamená nulovú aktuálnu aktivitu. Živé a podrobné meranie je vypnuté.</p>
         </section>
 
         <section id="view-radar" class="view">
