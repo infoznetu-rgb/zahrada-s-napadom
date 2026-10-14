@@ -13,6 +13,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.meta={}; self.canonical=[]; self.links=[]; self.h1=0
         self.refresh=False; self.examples=0; self.schemas=[]
+        self.title=''; self.title_count=0; self.in_title=False
         self.schema_text=None
         self.feed(source)
     def handle_starttag(self,tag,attrs):
@@ -23,11 +24,14 @@ class Page(HTMLParser):
         if tag=='link' and a.get('rel')=='canonical': self.canonical.append(a.get('href',''))
         if tag=='a' and a.get('href'): self.links.append(a['href'])
         if tag=='h1': self.h1+=1
+        if tag=='title': self.title_count+=1; self.in_title=True
         if 'data-tool-search-example' in a: self.examples+=1
         if tag=='script' and a.get('type')=='application/ld+json': self.schema_text=''
     def handle_data(self,data):
         if self.schema_text is not None: self.schema_text+=data
+        if self.in_title: self.title+=data
     def handle_endtag(self,tag):
+        if tag=='title': self.in_title=False
         if tag=='script' and self.schema_text is not None:
             self.schemas.append(json.loads(self.schema_text))
             self.schema_text=None
@@ -40,7 +44,7 @@ def local_file(url):
 
 def verify():
     urls=[node.text for node in ET.parse(ROOT/'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-    errors=[]; cache={}
+    errors=[]; cache={}; titles={}
     def page(path):
         if path not in cache: cache[path]=Page(path.read_text(encoding='utf-8-sig'))
         return cache[path]
@@ -52,6 +56,15 @@ def verify():
         p=page(path)
         if 'noindex' in p.meta.get('robots','').lower() or p.refresh: errors.append('Hidden or redirected sitemap page: '+url)
         if p.canonical!=[url]: errors.append('Canonical differs from sitemap URL: '+url)
+        if p.title_count!=1 or not p.title.strip(): errors.append('Missing or duplicate title element: '+url)
+        if p.title in titles: errors.append('Same title on two public pages: '+titles[p.title]+' and '+url)
+        titles[p.title]=url
+    title_pages=json.loads((ROOT/'data/page-search-titles.json').read_text(encoding='utf-8'))
+    for entry in title_pages:
+        p=page(ROOT/entry['file'])
+        expected=entry['title']+' | Záhrada s nápadom'
+        if p.title!=expected: errors.append('Configured public title was overwritten: '+entry['file'])
+        if p.meta.get('og:title')!=entry['title'] or p.meta.get('twitter:title')!=entry['title']: errors.append('Conflicting sharing title: '+entry['file'])
     tools=json.loads((ROOT/'data/tool-search.json').read_text(encoding='utf-8'))
     hub=page(ROOT/'pomocky.html')
     for tool in tools:

@@ -41,6 +41,9 @@ jobs:
       - name: Hide Czech and Polish articles from search
         run: python3 scripts/noindex-translations.py
 
+      - name: Apply descriptive titles to public pages
+        run: node scripts/build-page-titles.mjs
+
       - name: Connect static articles and build complete search index
         run: python3 scripts/build-search-index.py
 
