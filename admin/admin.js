@@ -110,6 +110,12 @@ async function loadPosts(){
     if(response.ok)seoPosts=await response.json();
   }catch(_){}
 
+  let workshopPosts=[];
+  try{
+    const response=await fetch("../data/admin-static-articles.json",{cache:"no-store"});
+    if(response.ok)workshopPosts=await response.json();
+  }catch(error){console.warn("Statické projekty sa nepodarilo načítať",error)}
+
   const merged=new Map();
   (data||[]).forEach(p=>merged.set(p.slug,p));
   (Array.isArray(seoPosts)?seoPosts:[]).forEach(p=>{
@@ -126,6 +132,11 @@ async function loadPosts(){
       generated_by_ai:true,
       _staticSeo:true
     });
+  });
+
+  (Array.isArray(workshopPosts)?workshopPosts:[]).forEach(p=>{
+    if(!p?.slug||merged.has(p.slug))return;
+    merged.set(p.slug,{...p,id:"static:"+p.slug,status:"published",content_type:"project",created_at:p.published_at||null,_staticArticle:true});
   });
 
   posts=[...merged.values()].sort((a,b)=>
@@ -176,13 +187,13 @@ $("#posts-next").addEventListener("click",()=>{postPage++;renderPosts()});
 function renderPostRows(container,list){
   if(!list.length){container.innerHTML='<div class="empty">Zatiaľ tu nie sú žiadne príspevky.</div>';return}
   container.innerHTML=list.map(p=>{
-    const isStatic=Boolean(p._staticSeo);
-    const viewHref=isStatic?"../blog/"+encodeURIComponent(p.slug)+"/":"../prispevok.html?slug="+encodeURIComponent(p.slug);
-    const typeLabel=p.content_type==="blog"?(isStatic?"Blog · SEO statický":"Blog"):"Projekt";
+    const isStatic=Boolean(p._staticSeo||p._staticArticle);
+    const viewHref=p._staticArticle?String(p.url||"../dielna-s-napadom/"):p._staticSeo?"../blog/"+encodeURIComponent(p.slug)+"/":"../prispevok.html?slug="+encodeURIComponent(p.slug);
+    const typeLabel=p._staticArticle?"Projekt · stránka GitHub":p.content_type==="blog"?(isStatic?"Blog · SEO statický":"Blog"):"Projekt";
     return `<article class="post-row">
       ${p.cover_url?`<img class="post-thumb" src="${esc(p.cover_url)}" alt="" onerror="this.onerror=null;this.src='../assets/blog/fallback-cover.svg'">`:'<div class="post-thumb"></div>'}
       <div class="post-meta"><h4>${esc(p.title)}</h4><p>${typeLabel} · ${esc(p.category)} · ${formatDate(p.published_at||p.created_at)} · <span class="badge ${p.status}">${p.status==="published"?"Publikované":"Koncept"}</span></p></div>
-      <div class="post-actions">${isStatic?"":`<button class="mini-btn" data-edit-id="${p.id}">Upraviť</button>`}${p.status==="published"?`<a class="mini-btn" href="${esc(viewHref)}" target="_blank" rel="noopener">Pozrieť</a>`:""}</div>
+      <div class="post-actions">${isStatic?(p._staticArticle?`<span class="mini-btn" title="Tento článok je uložený v GitHube a nedá sa upravovať týmto editorom">GitHub článok</span>`:""):`<button class="mini-btn" data-edit-id="${p.id}">Upraviť</button>`}${p.status==="published"?`<a class="mini-btn" href="${esc(viewHref)}" target="_blank" rel="noopener">Pozrieť</a>`:""}</div>
     </article>`;
   }).join("");
   container.querySelectorAll("[data-edit-id]").forEach(b=>b.addEventListener("click",()=>openEditor(b.dataset.editId)));
