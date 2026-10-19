@@ -142,14 +142,36 @@ function renderStats(){
   renderPostRows($("#recent-posts"),posts.slice(0,5));
 }
 
-function renderPosts(){
-  const q=$("#post-search").value.trim().toLowerCase();
-  const f=$("#post-filter").value;
-  const filtered=posts.filter(p=>(f==="all"||p.status===f)&&(!q||p.title.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));
-  renderPostRows($("#posts-list"),filtered);
+let postPage=1;
+const POST_PAGE_SIZE=30;
+function refreshCategoryFilter(){
+ const select=$("#post-category-filter"),previous=select.value;
+ const categories=[...new Set(posts.map(p=>String(p.category||"Nezaradené").trim()))].sort((a,b)=>a.localeCompare(b,"sk"));
+ select.innerHTML='<option value="all">Všetky kategórie</option>'+categories.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join("");
+ select.value=categories.includes(previous)?previous:"all";
 }
-$("#post-search").addEventListener("input",renderPosts);
-$("#post-filter").addEventListener("change",renderPosts);
+function renderPosts(){
+ refreshCategoryFilter();
+ const q=$("#post-search").value.trim().toLocaleLowerCase("sk"),status=$("#post-filter").value,category=$("#post-category-filter").value,type=$("#post-type-filter").value,sort=$("#post-sort").value;
+ const filtered=posts.filter(p=>{
+  const searchable=[p.title,p.category,p.slug,p.excerpt].map(v=>String(v||"")).join(" ").toLocaleLowerCase("sk");
+  return (status==="all"||p.status===status)&&(category==="all"||String(p.category||"Nezaradené").trim()===category)&&(type==="all"||(type==="static"?Boolean(p._staticSeo):type==="project"?p.content_type==="project":p.content_type==="blog"&&!p._staticSeo))&&(!q||searchable.includes(q));
+ }).sort((a,b)=>{
+  if(sort==="title")return String(a.title||"").localeCompare(String(b.title||""),"sk");
+  const date=p=>String(p.published_at||p.created_at||p.updated_at||"");
+  return sort==="oldest"?date(a).localeCompare(date(b)):date(b).localeCompare(date(a));
+ });
+ const pages=Math.max(1,Math.ceil(filtered.length/POST_PAGE_SIZE));
+ postPage=Math.min(Math.max(1,postPage),pages);
+ $("#posts-count").textContent="Nájdených "+filtered.length+" z "+posts.length+" príspevkov";
+ renderPostRows($("#posts-list"),filtered.slice((postPage-1)*POST_PAGE_SIZE,postPage*POST_PAGE_SIZE));
+ $("#posts-page-label").textContent="Strana "+postPage+" z "+pages;
+ $("#posts-prev").disabled=postPage<=1;
+ $("#posts-next").disabled=postPage>=pages;
+}
+["post-search","post-filter","post-category-filter","post-type-filter","post-sort"].forEach(id=>$("#"+id).addEventListener(id==="post-search"?"input":"change",()=>{postPage=1;renderPosts()}));
+$("#posts-prev").addEventListener("click",()=>{postPage--;renderPosts()});
+$("#posts-next").addEventListener("click",()=>{postPage++;renderPosts()});
 
 function renderPostRows(container,list){
   if(!list.length){container.innerHTML='<div class="empty">Zatiaľ tu nie sú žiadne príspevky.</div>';return}
