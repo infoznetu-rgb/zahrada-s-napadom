@@ -50,6 +50,9 @@ jobs:
       - name: Verify public search pages and calculator links
         run: python3 scripts/verify-public-search.py
 
+      - name: Bundle homepage styles and reserve image space
+        run: python3 scripts/optimize-homepage.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
