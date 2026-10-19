@@ -193,11 +193,48 @@ function renderPostRows(container,list){
     return `<article class="post-row">
       ${p.cover_url?`<img class="post-thumb" src="${esc(p.cover_url)}" alt="" onerror="this.onerror=null;this.src='../assets/blog/fallback-cover.svg'">`:'<div class="post-thumb"></div>'}
       <div class="post-meta"><h4>${esc(p.title)}</h4><p>${typeLabel} · ${esc(p.category)} · ${formatDate(p.published_at||p.created_at)} · <span class="badge ${p.status}">${p.status==="published"?"Publikované":"Koncept"}</span></p></div>
-      <div class="post-actions">${isStatic?(p._staticArticle?`<span class="mini-btn" title="Tento článok je uložený v GitHube a nedá sa upravovať týmto editorom">GitHub článok</span>`:""):`<button class="mini-btn" data-edit-id="${p.id}">Upraviť</button>`}${p.status==="published"?`<a class="mini-btn" href="${esc(viewHref)}" target="_blank" rel="noopener">Pozrieť</a>`:""}</div>
+      <div class="post-actions">${isStatic?(p._staticArticle?`<button class="mini-btn" data-workshop-images="${esc(p.slug)}" type="button">Fotografie</button>`:""):`<button class="mini-btn" data-edit-id="${p.id}">Upraviť</button>`}${p.status==="published"?`<a class="mini-btn" href="${esc(viewHref)}" target="_blank" rel="noopener">Pozrieť</a>`:""}</div>
     </article>`;
   }).join("");
+  container.querySelectorAll("[data-workshop-images]").forEach(b=>b.addEventListener("click",()=>openWorkshopImages(b.dataset.workshopImages)));
   container.querySelectorAll("[data-edit-id]").forEach(b=>b.addEventListener("click",()=>openEditor(b.dataset.editId)));
 }
+
+function openWorkshopImages(slug){
+ if(slug!=="kovove-opory-pre-rastliny"){alert("Pre tento článok ešte nie je pripravené nahrávanie fotografií.");return}
+ $("#workshop-photo-title").textContent="Kovové opory pre rastliny";
+ $("#workshop-photo-status").textContent="Nahraj 1 až 3 fotografie. Po nahratí sa automaticky zobrazia v článku.";
+ $("#workshop-photo-input").value="";
+ activateView("workshop-images");
+}
+$("#workshop-photo-submit").addEventListener("click",async()=>{
+ const files=[...$("#workshop-photo-input").files];
+ if(!files.length){alert("Najskôr vyber fotografie.");return}
+ if(files.length>3){alert("Vyber najviac 3 fotografie.");return}
+ const button=$("#workshop-photo-submit");button.disabled=true;
+ try{
+  for(let i=0;i<files.length;i++){
+   const file=files[i];
+   if(!file.type.startsWith("image/"))throw new Error("Súbor "+file.name+" nie je obrázok.");
+   if(file.size>12*1024*1024)throw new Error("Fotografia "+file.name+" je väčšia ako 12 MB.");
+   $("#workshop-photo-status").textContent="Nahrávam fotografiu "+(i+1)+" z "+files.length+"…";
+   const ext=file.type==="image/webp"?"webp":file.type==="image/png"?"png":file.type==="image/jpeg"?"jpg":null;
+   if(!ext)throw new Error("Použi JPG, PNG alebo WebP.");
+   const canvas=document.createElement("canvas"),img=await createImageBitmap(file);
+   const scale=Math.min(1,1600/img.width);canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);
+   canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);img.close();
+   const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/webp",.83));
+   if(!blob)throw new Error("Nepodarilo sa spracovať obrázok.");
+   const path="workshop/kovove-opory-pre-rastliny/foto-"+(i+1)+".webp";
+   const {error}=await db.storage.from("zahrada-media").upload(path,blob,{contentType:"image/webp",upsert:true,cacheControl:"60"});
+   if(error)throw error;
+  }
+  $("#workshop-photo-status").textContent="Hotovo. Fotografie sú nahrané. Otvor článok a obnov stránku.";
+  $("#workshop-photo-link").hidden=false;
+ }catch(error){$("#workshop-photo-status").textContent="Nahrávanie zlyhalo: "+error.message}
+ finally{button.disabled=false}
+});
+$("#workshop-photo-back").addEventListener("click",()=>activateView("posts"));
 
 function openEditor(id=null){
   currentPost=id?posts.find(p=>p.id===id):null;
