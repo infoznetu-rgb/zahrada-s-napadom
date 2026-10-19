@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="bazar-import.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js" integrity="sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz" crossorigin="anonymous" defer></script>
-  <script src="admin.js?v=20261019-static-projects" defer></script>
+  <script src="admin.js?v=20261019-workshop-photos" defer></script>
   <script src="bazar.js?v=4" defer></script>
   <script src="bazar-import.js?v=2" defer></script>
   <script src="admin-pwa.js?v=7" defer></script>
@@ -185,7 +185,14 @@
           </div>
         </section>
 
-        <section id="view-editor" class="view">
+        <section id="view-workshop-images" class="view">
+ <div class="view-head"><div><p class="eyebrow">DIELŇA S NÁPADOM</p><h2 id="workshop-photo-title">Fotografie projektu</h2></div><button id="workshop-photo-back" class="btn ghost" type="button">← Príspevky</button></div>
+ <div class="panel" style="max-width:720px"><h3>Pridať fotografie do článku</h3><p class="muted">Vyber 1 až 3 fotografie. Poradie výberu určuje poradie v galérii. Nové nahratie nahradí fotografie na rovnakých pozíciách.</p>
+ <label>Fotografie (JPG, PNG, WebP)<input id="workshop-photo-input" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+ <p id="workshop-photo-status" class="muted" role="status">Fotografie sa uložia priamo do galérie článku.</p>
+ <button id="workshop-photo-submit" class="btn primary" type="button">Nahrať fotografie</button>
+ <p><a id="workshop-photo-link" href="/dielna-s-napadom/kovove-opory-pre-rastliny/" target="_blank" rel="noopener" hidden>Otvoriť článok s fotografiami ↗</a></p></div></section>
+<section id="view-editor" class="view">
           <div class="view-head"><div><p class="eyebrow">EDITOR</p><h2 id="editor-title">Nový príspevok</h2></div><button id="editor-cancel" class="btn ghost" type="button">Späť</button></div>
           <form id="post-form" class="editor-grid">
             <div class="panel editor-main">
