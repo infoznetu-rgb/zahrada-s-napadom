@@ -25,10 +25,20 @@ else:
     html = pattern.sub("", html)
     print(f"Bundled {len(matches)} stylesheets")
 
-# These assets render in known cards. Reserve dimensions to reduce layout shifts.
-html = re.sub(r'(<img\s+class="community-photo"\b[^>]*?)(\s*/?>)',
-              lambda m: m.group(1) + (' width="1200" height="900"' if 'width=' not in m.group(1) else '') + m.group(2), html)
-html = html.replace('<img class="brand-mark" src="brand-mark.svg?v=1"', '<img class="brand-mark" width="46" height="46" src="brand-mark.svg?v=1"')
+# Reserve dimensions for the static logo and homepage project cards.
+# The previous expression used a word boundary after a quote and never matched
+# class="community-photo"; this explicitly matches the full class attribute.
+def reserve_image_dimensions(match):
+    tag = match.group(0)
+    if 'width=' in tag or 'height=' in tag:
+        return tag
+    if re.search(r'class="[^"]*\\bbrand-mark\\b[^"]*"', tag):
+        return tag[:-1] + ' width="46" height="46">'
+    if re.search(r'class="[^"]*\\bcommunity-photo\\b[^"]*"', tag):
+        return tag[:-1] + ' width="1200" height="900">'
+    return tag
+
+html = re.sub(r'<img\\b[^>]*>', reserve_image_dimensions, html, flags=re.I)
 homepage.write_text(html, encoding="utf-8")
 
 # Replace the oversized remote title image with an optimized local WebP.
