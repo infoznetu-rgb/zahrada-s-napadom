@@ -132,6 +132,7 @@ async function loadPosts(){
     String(b.published_at||b.created_at||"").localeCompare(String(a.published_at||a.created_at||""))
   );
   renderStats();
+  refreshCategoryFilter();
   renderPosts();
 }
 
@@ -146,12 +147,11 @@ let postPage=1;
 const POST_PAGE_SIZE=30;
 function refreshCategoryFilter(){
  const select=$("#post-category-filter"),previous=select.value;
- const categories=[...new Set(posts.map(p=>String(p.category||"Nezaradené").trim()))].sort((a,b)=>a.localeCompare(b,"sk"));
+ const categories=[...new Set(["Dielňa s nápadom","Záhrada","Recepty zo záhrady",...posts.map(p=>String(p.category||"Nezaradené").trim())])].sort((a,b)=>a.localeCompare(b,"sk"));
  select.innerHTML='<option value="all">Všetky kategórie</option>'+categories.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join("");
  select.value=categories.includes(previous)?previous:"all";
 }
 function renderPosts(){
- refreshCategoryFilter();
  const q=$("#post-search").value.trim().toLocaleLowerCase("sk"),status=$("#post-filter").value,category=$("#post-category-filter").value,type=$("#post-type-filter").value,sort=$("#post-sort").value;
  const filtered=posts.filter(p=>{
   const searchable=[p.title,p.category,p.slug,p.excerpt].map(v=>String(v||"")).join(" ").toLocaleLowerCase("sk");
