@@ -51,7 +51,9 @@ jobs:
         run: python3 scripts/verify-public-search.py
 
       - name: Bundle homepage styles and reserve image space
-        run: python3 scripts/optimize-homepage.py
+        run: |
+          python3 -m pip install --quiet Pillow
+          python3 scripts/optimize-homepage.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
