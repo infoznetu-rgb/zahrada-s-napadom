@@ -20,7 +20,10 @@ else:
         parts.append(f"/* {filename} */\n" + cssfile.read_text(encoding="utf-8"))
     (root / "homepage-bundle.css").write_text("\n\n".join(parts), encoding="utf-8")
     first = matches[0]
-    replacement = '<link rel="stylesheet" href="/homepage-bundle.css?v=20261019">'
+    # Begin fetching the render-blocking bundle as early as possible.
+    # Keep the ordinary stylesheet link to preserve CSS order and rendering.
+    replacement = ('<link rel="preload" href="/homepage-bundle.css?v=20261019" as="style">\n'
+                   '<link rel="stylesheet" href="/homepage-bundle.css?v=20261019">')
     html = html[:first.start()] + replacement + html[first.end():]
     html = pattern.sub("", html)
     print(f"Bundled {len(matches)} stylesheets")
