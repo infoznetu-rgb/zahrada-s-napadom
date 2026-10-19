@@ -173,11 +173,15 @@
         <section id="view-posts" class="view">
           <div class="view-head"><div><p class="eyebrow">OBSAH</p><h2>Príspevky</h2></div><button class="btn primary" data-new-post="1">+ Nový príspevok</button></div>
           <div class="panel">
-            <div class="toolbar">
-              <input id="post-search" type="search" placeholder="Hľadať príspevok…">
-              <select id="post-filter"><option value="all">Všetky</option><option value="published">Publikované</option><option value="draft">Koncepty</option></select>
-            </div>
-            <div id="posts-list" class="post-list"></div>
+            <div class="toolbar" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+<input id="post-search" type="search" placeholder="Hľadať názov, kategóriu alebo adresu…" aria-label="Vyhľadať článok" style="flex:2 1 220px;min-width:170px">
+<select id="post-category-filter" aria-label="Kategória"><option value="all">Všetky kategórie</option></select>
+<select id="post-type-filter" aria-label="Typ obsahu"><option value="all">Všetky typy</option><option value="blog">Blogové články</option><option value="project">Projekty z dielne</option><option value="static">Statické SEO články</option></select>
+<select id="post-filter" aria-label="Stav"><option value="all">Všetky stavy</option><option value="published">Publikované</option><option value="draft">Koncepty</option></select>
+<select id="post-sort" aria-label="Zoradenie"><option value="newest">Najnovšie prvé</option><option value="oldest">Najstaršie prvé</option><option value="title">Podľa názvu A–Z</option></select>
+</div><p id="posts-count" class="muted" aria-live="polite"></p>
+<div id="posts-list" class="post-list"></div>
+<div style="display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin:20px 0"><button id="posts-prev" class="btn ghost" type="button">← Predchádzajúca</button><span id="posts-page-label" aria-live="polite">Strana 1</span><button id="posts-next" class="btn ghost" type="button">Ďalšia →</button></div>
           </div>
         </section>
 
