@@ -19,13 +19,15 @@ else:
             raise FileNotFoundError(f"Missing stylesheet: {filename}")
         parts.append(f"/* {filename} */\n" + cssfile.read_text(encoding="utf-8"))
     (root / "homepage-bundle.css").write_text("\n\n".join(parts), encoding="utf-8")
-    first = matches[0]
-    # Begin fetching the render-blocking bundle as early as possible.
-    # Keep the ordinary stylesheet link to preserve CSS order and rendering.
+    # Remove the original links first, then insert the bundle link once.
+    # Removing stylesheet tags by regex AFTER inserting the bundle would
+    # also remove the new stylesheet, leaving the homepage unstyled.
+    first_position = matches[0].start()
+    for match in reversed(matches):
+        html = html[:match.start()] + html[match.end():]
     replacement = ('<link rel="preload" href="/homepage-bundle.css?v=20261019" as="style">\n'
                    '<link rel="stylesheet" href="/homepage-bundle.css?v=20261019">')
-    html = html[:first.start()] + replacement + html[first.end():]
-    html = pattern.sub("", html)
+    html = html[:first_position] + replacement + html[first_position:]
     print(f"Bundled {len(matches)} stylesheets")
 
 # Reserve dimensions for the static logo and homepage project cards.
