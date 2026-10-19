@@ -32,13 +32,13 @@ def reserve_image_dimensions(match):
     tag = match.group(0)
     if 'width=' in tag or 'height=' in tag:
         return tag
-    if re.search(r'class="[^"]*\\bbrand-mark\\b[^"]*"', tag):
+    if re.search(r'class="[^"]*\bbrand-mark\b[^"]*"', tag):
         return tag[:-1] + ' width="46" height="46">'
-    if re.search(r'class="[^"]*\\bcommunity-photo\\b[^"]*"', tag):
+    if re.search(r'class="[^"]*\bcommunity-photo\b[^"]*"', tag):
         return tag[:-1] + ' width="1200" height="900">'
     return tag
 
-html = re.sub(r'<img\\b[^>]*>', reserve_image_dimensions, html, flags=re.I)
+html = re.sub(r'<img\b[^>]*>', reserve_image_dimensions, html, flags=re.I)
 homepage.write_text(html, encoding="utf-8")
 
 # Replace the oversized remote title image with an optimized local WebP.
