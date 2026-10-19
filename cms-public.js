@@ -131,7 +131,7 @@ async function loadSiteSettings(){
   document.querySelectorAll('[data-home-videos-link]').forEach(link=>link.hidden=!videos.length);
   if(videoRoot&&videos.length){
     videoRoot.innerHTML=videos.map((v,i)=>`<article class="video-card cms-video-card">
-      <video controls preload="metadata" playsinline src="${cmsEsc(v.url||"")}" aria-label="${cmsEsc(v.title||"Video")}"></video>
+      <video controls preload="none" playsinline src="${cmsEsc(v.url||"")}" aria-label="${cmsEsc(v.title||"Video")}"></video>
       <small class="cms-video-no">${String(i+1).padStart(2,"0")} · VIDEO</small>
       <h3>${cmsEsc(v.title||"Video")}</h3>
       <p>${cmsEsc(v.description||"")}</p>
