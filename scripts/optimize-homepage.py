@@ -6,29 +6,10 @@ import re
 root = Path(__file__).resolve().parents[1]
 homepage = root / "index.html"
 html = homepage.read_text(encoding="utf-8")
-pattern = re.compile(r'<link\s+rel="stylesheet"\s+href="([^"]+\.css(?:\?[^"]*)?)"\s*/?>', re.I)
-matches = list(pattern.finditer(html))
-if len(matches) < 2:
-    print("Homepage CSS already bundled or no matching stylesheets")
-else:
-    parts = []
-    for match in matches:
-        filename = match.group(1).split("?")[0]
-        cssfile = root / filename
-        if not cssfile.is_file():
-            raise FileNotFoundError(f"Missing stylesheet: {filename}")
-        parts.append(f"/* {filename} */\n" + cssfile.read_text(encoding="utf-8"))
-    (root / "homepage-bundle.css").write_text("\n\n".join(parts), encoding="utf-8")
-    # Remove the original links first, then insert the bundle link once.
-    # Removing stylesheet tags by regex AFTER inserting the bundle would
-    # also remove the new stylesheet, leaving the homepage unstyled.
-    first_position = matches[0].start()
-    for match in reversed(matches):
-        html = html[:match.start()] + html[match.end():]
-    replacement = ('<link rel="preload" href="/homepage-bundle.css?v=20261019" as="style">\n'
-                   '<link rel="stylesheet" href="/homepage-bundle.css?v=20261019">')
-    html = html[:first_position] + replacement + html[first_position:]
-    print(f"Bundled {len(matches)} stylesheets")
+# Keep the original stylesheets in their tested order. The combined bundle
+# caused a mobile LCP regression (1.9s -> 7.1s) on 2026-10-19.
+# Preserve the image and layout improvements below without bundling CSS.
+print("Homepage CSS bundling disabled after mobile performance regression")
 
 # Reserve dimensions for the static logo and homepage project cards.
 # The previous expression used a word boundary after a quote and never matched
