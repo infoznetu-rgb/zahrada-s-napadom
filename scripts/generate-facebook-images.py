@@ -55,19 +55,23 @@ def main():
     for source in sorted(sources):
         target = jpeg_sidecar(source)
         target.parent.mkdir(parents=True, exist_ok=True)
-        with Image.open(source) as original:
-            image = ImageOps.exif_transpose(original)
-            if image.mode in ("RGBA", "LA") or "transparency" in image.info:
-                rgba = image.convert("RGBA")
-                background = Image.new("RGB", rgba.size, "white")
-                background.paste(rgba, mask=rgba.getchannel("A"))
-                image = background
-            else:
-                image = image.convert("RGB")
-            image.save(target, format="JPEG", quality=88, optimize=True, progressive=True)
-        if not target.is_file() or target.stat().st_size == 0:
-            raise RuntimeError(f"JPEG sidecar was not created: {target.relative_to(ROOT)}")
-        generated += 1
+        try:
+            with Image.open(source) as original:
+                image = ImageOps.exif_transpose(original)
+                if image.mode in ("RGBA", "LA") or "transparency" in image.info:
+                    rgba = image.convert("RGBA")
+                    background = Image.new("RGB", rgba.size, "white")
+                    background.paste(rgba, mask=rgba.getchannel("A"))
+                    image = background
+                else:
+                    image = image.convert("RGB")
+                image.save(target, format="JPEG", quality=88, optimize=True, progressive=True)
+            if not target.is_file() or target.stat().st_size == 0:
+                raise RuntimeError(f"JPEG sidecar was not created: {target.relative_to(ROOT)}")
+            generated += 1
+        except (OSError, ValueError) as error:
+            target.unlink(missing_ok=True)
+            print(f"Skipping invalid article image {source.relative_to(ROOT)}: {error}")
     print(f"Generated {generated} Facebook JPEG sidecars")
 
 
