@@ -50,9 +50,10 @@ jobs:
       - name: Verify public search pages and calculator links
         run: python3 scripts/verify-public-search.py
 
-      - name: Bundle homepage styles and reserve image space
+      - name: Bundle homepage styles and generate Facebook JPEGs
         run: |
           python3 -m pip install --quiet Pillow
+          python3 scripts/generate-facebook-images.py
           python3 scripts/optimize-homepage.py
 
       - name: Setup Pages
@@ -88,4 +89,3 @@ jobs:
             -H "Content-Type: application/json; charset=utf-8" \
             --data-binary @indexnow-payload.json \
             https://api.indexnow.org/indexnow
-

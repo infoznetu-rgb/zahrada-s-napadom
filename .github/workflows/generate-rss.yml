@@ -5,6 +5,8 @@ on:
     paths:
       - 'blog/**'
       - 'generate-rss.py'
+      - 'scripts/generate-facebook-images.py'
+      - '.github/workflows/generate-rss.yml'
   workflow_dispatch:
 permissions:
   contents: write
@@ -15,8 +17,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Generate feed
-        run: python3 generate-rss.py
+      - name: Install Pillow
+        run: python3 -m pip install --quiet Pillow
+      - name: Generate Facebook JPEGs and feed
+        run: |
+          python3 scripts/generate-facebook-images.py
+          python3 generate-rss.py
       - name: Commit updated feed
         run: |
           if [ -n "$(git status --porcelain -- rss.xml)" ]; then
