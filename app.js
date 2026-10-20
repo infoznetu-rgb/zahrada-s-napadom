@@ -993,7 +993,30 @@
     }
   }
 
-  loadCommentsFeature();
+  // On the homepage, comments belong to content below the hero.
+  // Keep an idle-time fallback so hidden/dynamically populated galleries still work.
+  if(document.body.classList.contains('home') || location.pathname==='/' || location.pathname==='/index.html'){
+    let commentsStarted=false;
+    const startComments=()=>{
+      if(commentsStarted)return;
+      commentsStarted=true;
+      loadCommentsFeature();
+    };
+    const gallery=document.getElementById('idea-gallery');
+    if(gallery && 'IntersectionObserver' in window){
+      const watcher=new IntersectionObserver(entries=>{
+        if(entries.some(entry=>entry.isIntersecting)){
+          watcher.disconnect();
+          startComments();
+        }
+      },{rootMargin:'600px'});
+      watcher.observe(gallery);
+    }
+    if('requestIdleCallback' in window)requestIdleCallback(startComments,{timeout:3000});
+    else setTimeout(startComments,1500);
+  }else{
+    loadCommentsFeature();
+  }
 
   function addAppInstallMenuLink(){
     const nav=document.querySelector('.mobile-nav');
