@@ -8,15 +8,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Záhrada">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="description" content="Bezplatný bazár pre záhradu a dielňu na Záhrade s nápadom pre súkromné osoby aj firmy. Predaj, daruj, vymeň alebo hľadaj veci zo záhrady, dielne a domáceho tvorenia bez provízie.">
+  <meta name="description" content="Komunitný bazár je dočasne pozastavený počas kontroly a úpravy ponúk.">
   <meta name="theme-color" content="#f6f3e8">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://zahradasnapadom.sk/bazar.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sk_SK">
   <meta property="og:site_name" content="Záhrada s nápadom">
-  <meta property="og:title" content="Bezplatný bazár pre záhradu a dielňu | Záhrada s nápadom">
-  <meta property="og:description" content="Bezplatný bazár pre záhradu a dielňu. Inzerovať môžu súkromné osoby aj firmy — bez provízie.">
+  <meta property="og:title" content="Bazár dočasne pozastavený | Záhrada s nápadom">
+  <meta property="og:description" content="Komunitný bazár je dočasne pozastavený počas kontroly a úpravy ponúk.">
   <meta property="og:url" content="https://zahradasnapadom.sk/bazar.html">
   <meta property="og:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png?v=2">
   <meta property="og:image:url" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png?v=2">
@@ -26,17 +26,22 @@
   <meta property="og:image:height" content="1055">
   <meta property="og:image:alt" content="Záhrada s nápadom — bazár pre záhradu a dielňu">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bezplatný bazár pre záhradu a dielňu | Záhrada s nápadom">
-  <meta name="twitter:description" content="Bezplatný bazár pre záhradu a dielňu. Inzerovať môžu súkromné osoby aj firmy — bez provízie.">
+  <meta name="twitter:title" content="Bazár dočasne pozastavený | Záhrada s nápadom">
+  <meta name="twitter:description" content="Komunitný bazár je dočasne pozastavený počas kontroly a úpravy ponúk.">
   <meta name="twitter:image" content="https://zahradasnapadom.sk/assets/hero-ziva-zahrada.png?v=2">
   <link rel="icon" type="image/svg+xml" href="brand-mark.svg?v=1">
-  <title>Bezplatný bazár pre záhradu a dielňu | Záhrada s nápadom</title>
+  <title>Bazár dočasne pozastavený | Záhrada s nápadom</title>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Bazár pre záhradu a dielňu","description":"Bezplatný komunitný bazár pre záhradu, dielňu a domáce tvorenie bez provízie.","url":"https://zahradasnapadom.sk/bazar.html","isPartOf":{"@type":"WebSite","name":"Záhrada s nápadom","url":"https://zahradasnapadom.sk/"},"inLanguage":"sk-SK"}</script>
   <link rel="manifest" href="zahrada.webmanifest?v=7">
   <link rel="stylesheet" href="zahrada.css?v=8">
   <link rel="stylesheet" href="bazar.css?v=8">
   <link rel="stylesheet" href="typography-2026.css?v=13">
   <link rel="stylesheet" href="app.css?v=fix20261002">
+  <style>
+    #obsah > .bazar-trust-banner, #obsah > #kategorie, #obsah > #inzeraty, #obsah > #pridat, #obsah > #pravidla, #obsah > .noncommercial { display: none !important; }
+    .bazar-paused-notice { max-width: 760px; margin: 3rem auto; padding: 2rem; border: 1px solid #d9dfcf; border-radius: 1rem; background: #f4f6ef; color: #243226; }
+    .bazar-paused-notice h1 { margin-top: 0; }
+  </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="bazar.js?v=9" defer></script>
   <script src="zahrada.js?v=2" defer></script>
@@ -73,6 +78,7 @@
   </header>
 
   <main id="obsah">
+    <section class="bazar-paused-notice" role="status"><h1>Bazár je dočasne pozastavený</h1><p>Kontrolujeme a upravujeme ponuky, aby boli aktuálne, správne zaradené a súvisiace so záhradou. Počas tejto kontroly sa inzeráty nezobrazujú a nové sa nepridávajú.</p><p><a href="/blog.html">Prejsť na záhradné návody →</a></p></section>
     <section class="bazar-trust-banner container" aria-labelledby="bazar-trust-title">
       <div class="bazar-trust-card">
         <div class="bazar-trust-copy">

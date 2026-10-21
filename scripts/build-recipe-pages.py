@@ -448,7 +448,7 @@ def render_page(post: dict) -> tuple[str, str]:
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>{esc(title)} | Recept zo záhrady | Záhrada s nápadom</title>
   <meta name="description" content="{esc(excerpt or title)}">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="{esc(canonical)}">
   <meta property="og:type" content="article"><meta property="og:locale" content="sk_SK">
   <meta property="og:site_name" content="Záhrada s nápadom"><meta property="og:title" content="{esc(title)}">
@@ -471,21 +471,16 @@ def render_page(post: dict) -> tuple[str, str]:
 
 
 def update_sitemap(posts: list[dict]) -> None:
+    """Keep untested recipe pages out of the XML sitemap."""
     path = ROOT / "sitemap.xml"
     text = path.read_text(encoding="utf-8")
-    text = re.sub(r"\s*<url>\s*<loc>https://zahradasnapadom\.sk/recepty/[^<]+</loc>.*?</url>", "", text)
-    blocks = []
-    for post in posts:
-        slug = str(post["slug"]).strip()
-        loc = f"{SITE}/recepty/{quote(slug)}/"
-        modified = iso_date(post.get("updated_at") or post.get("published_at")) or date.today().isoformat()
-        blocks.append(f"  <url><loc>{html.escape(loc)}</loc><lastmod>{modified}</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>")
-    marker = "</urlset>"
-    if marker not in text:
-        raise ValueError("sitemap.xml has no closing urlset element")
-    text = text.replace(marker, "\n" + "\n".join(blocks) + "\n" + marker)
+    text = re.sub(
+        r"\s*<url>\s*<loc>https://zahradasnapadom\.sk/(?:recepty\.html|recepty/[^<]+)</loc>.*?</url>\s*",
+        "",
+        text,
+        flags=re.S,
+    )
     path.write_text(text, encoding="utf-8")
-
 
 STOP_WORDS = set("a aj alebo ako bez do dva dve jeden jedna jednu je jemne jemná jemné k kusy kusov l lyžica lyžice lyžička lyžičky malé malý na nadol niekoľko nový nové o od olivový olej oleja korenie podľa pohár pol polievková prášok pre s so soľ soľou strúčik strúčiky teplá teplej toho trochu veľká veľké veľký vody voda vňať z za čerstvá čerstvé čerstvý čierne mleté mletá mletý chuti".split())
 
@@ -622,7 +617,7 @@ def main() -> None:
                 except OSError:
                     pass
     update_sitemap(posts)
-    print(f"Generated {generated} public recipe pages and added them to sitemap.xml")
+    print(f"Generated {generated} recipe pages; they remain excluded from the sitemap while they await human testing.")
 
 
 if __name__ == "__main__":
