@@ -142,7 +142,7 @@ for page in ROOT.rglob("*.html"):
     source = page.read_text(encoding="utf-8")
     if relative == "blog.html":
         def keep_card(match):
-            routes = [normalized_href(href) for href in re.findall(r"""<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1""", match.group(0), re.IGNORECASE)]
+            routes = [normalized_href(href) for _, href in re.findall(r"""<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1""", match.group(0), re.IGNORECASE)]
             if any(route.rstrip("/") in hidden_route_keys for route in routes):
                 return ""
             return match.group(0)
