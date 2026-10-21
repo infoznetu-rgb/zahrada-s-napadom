@@ -88,6 +88,30 @@ for path in ROOT.rglob("*.html"):
             '<h2>Komunita</h2><p>Vlastný nápad možno poslať cez formulár na titulnej stránke. Príspevky sa pred zverejnením kontrolujú.</p>',
             source,
         )
+    if rel == "moja-zahrada.html":
+        # Keep the private garden app, but remove its now-paused recipe promotions.
+        source = re.sub(
+            r'<a\b[^>]*class=["\'][^"\']*app-home-highlight-recipes[^"\']*["\'][^>]*>[\s\S]*?</a\s*>',
+            "",
+            source,
+            count=1,
+            flags=re.I,
+        )
+        source = re.sub(
+            r'<div class=["\']app-home-reading-group["\']>\s*<h3>RECEPT ZO ZÁHRADY</h3>[\s\S]*?</div>\s*</div>\s*</section>',
+            '</div>\n    </section>',
+            source,
+            count=1,
+            flags=re.I,
+        )
+        source = source.replace(
+            "Krátka ukážka článkov zo záhrady a receptov z vlastnej úrody.",
+            "Krátka ukážka praktických článkov zo záhrady.",
+        )
+        source = source.replace(
+            ".app-home-reading-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}",
+            ".app-home-reading-grid{display:grid;grid-template-columns:1fr;gap:14px}",
+        )
     if rel == "index.html":
         source = source.replace(
             "Nájdeš tu vlastné nápady, skúsenosti, inšpiráciu a bezplatný bazár pre záhradu a dielňu, kde môžu inzerovať ľudia aj firmy.",
