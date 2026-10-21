@@ -132,8 +132,8 @@ def normalized_href(href: str) -> str:
     return "/" + href.lstrip("./").lstrip("/")
 
 hidden_route_keys = {route.rstrip("/") for route in hidden_routes}
-anchor_pattern = re.compile(r'<a\\b[^>]*\\bhref\\s*=\\s*(["\\'])(.*?)\\1[^>]*>[\\s\\S]*?</a\\s*>', re.IGNORECASE)
-article_pattern = re.compile(r"<article\\b[\\s\\S]*?</article\\s*>", re.IGNORECASE)
+anchor_pattern = re.compile(r"""<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1[^>]*>[\s\S]*?</a\s*>""", re.IGNORECASE)
+article_pattern = re.compile(r"<article\b[\s\S]*?</article\s*>", re.IGNORECASE)
 
 for page in ROOT.rglob("*.html"):
     relative = page.relative_to(ROOT).as_posix()
@@ -142,7 +142,7 @@ for page in ROOT.rglob("*.html"):
     source = page.read_text(encoding="utf-8")
     if relative == "blog.html":
         def keep_card(match):
-            routes = [normalized_href(href) for href in re.findall(r'<a\\b[^>]*\\bhref\\s*=\\s*(["\\'])(.*?)\\1', match.group(0), re.IGNORECASE)]
+            routes = [normalized_href(href) for href in re.findall(r"""<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1""", match.group(0), re.IGNORECASE)]
             if any(route.rstrip("/") in hidden_route_keys for route in routes):
                 return ""
             return match.group(0)
