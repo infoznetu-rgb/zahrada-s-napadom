@@ -20,6 +20,8 @@
   let privacyBanner=null;
   const ANALYTICS_SESSION_PREFIX='zahrada-analytics:';
   let currentArticleSlug='';
+  let hiddenBlogSlugs=new Set();
+  let hiddenBlogSlugsReady=Promise.resolve();
 
 
   const BOOKMARK_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h11v15l-5.5-3.4-5.5 3.4z"/></svg>';
@@ -43,6 +45,7 @@
     if(Array.isArray(searchPostsCache))return searchPostsCache;
     if(searchLoadPromise)return searchLoadPromise;
     searchLoadPromise=(async()=>{
+      await hiddenBlogSlugsReady;
       const archive=fetch('/search-index.json?v=improve20261002d').then(r=>{if(!r.ok)throw new Error('search_index_'+r.status);return r.json()});
       const live=(async()=>{
         const posts=[];const pageSize=250;
@@ -60,7 +63,7 @@
       const bySlug=new Map();
       // Prefer static canonical pages over query-string versions of the same article.
       for(const result of [loaded[1],loaded[0]])if(result.status==='fulfilled'){
-        for(const post of result.value)if(post.slug)bySlug.set(post.slug,post);
+        for(const post of result.value)if(post.slug&&isVisibleAppPost(post))bySlug.set(post.slug,post);
       }
       searchPostsCache=[...bySlug.values()];return searchPostsCache;
     })().finally(()=>{searchLoadPromise=null});
@@ -520,10 +523,26 @@
   function safeWrite(key,value){
     try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){return false}
   }
+  function isVisibleAppPost(post){
+    if(!post)return false;
+    const slug=String(post.slug||'').trim();
+    const type=String(post.content_type||'').toLowerCase();
+    const category=String(post.category||'').trim().toLowerCase();
+    return type!=='recipe'&&!/^recept(?:\b|\s)/.test(category)&&!hiddenBlogSlugs.has(slug);
+  }
+  hiddenBlogSlugsReady=fetch('/data/hidden-blog-slugs.json')
+    .then(response=>{if(!response.ok)throw new Error('hidden_blog_slugs_'+response.status);return response.json()})
+    .then(slugs=>{
+      hiddenBlogSlugs=new Set(Array.isArray(slugs)?slugs.map(String):[]);
+      safeWrite(SAVED_KEY,safeRead(SAVED_KEY).filter(isVisibleAppPost));
+      safeWrite(HISTORY_KEY,safeRead(HISTORY_KEY).filter(isVisibleAppPost));
+      dispatchLibraryChange();
+    })
+    .catch(()=>{});
   function normalizePost(post){
     if(!post)return null;
     const slug=String(post.slug||'').trim();
-    if(!slug)return null;
+    if(!slug||!isVisibleAppPost(post))return null;
     return {
       slug,
       title:String(post.title||'Príspevok').trim(),
@@ -534,8 +553,8 @@
       url:String(post.url||(window.ZahradaSEO?.postHref?.(post)||('/prispevok.html?slug='+encodeURIComponent(slug))))
     };
   }
-  function getSaved(){return safeRead(SAVED_KEY)}
-  function getHistory(){return safeRead(HISTORY_KEY)}
+  function getSaved(){return safeRead(SAVED_KEY).filter(isVisibleAppPost)}
+  function getHistory(){return safeRead(HISTORY_KEY).filter(isVisibleAppPost)}
   function isSaved(slug){return getSaved().some(x=>x.slug===slug)}
   function dispatchLibraryChange(){
     window.dispatchEvent(new CustomEvent('zahrada:library-change',{detail:{saved:getSaved(),history:getHistory()}}));
@@ -1038,7 +1057,7 @@
 
   window.ZahradaApp={
     getSaved,getHistory,isSaved,savePost,removeSaved,toggleSaved,addHistory,clearHistory,clearSaved,
-    toast,normalizePost,requestInstall,requestNotifications,getPushSubscription,openSearch,closeSearch,trackEvent
+    toast,normalizePost,requestInstall,requestNotifications,getPushSubscription,openSearch,closeSearch,trackEvent,hiddenBlogSlugsReady
   };
 
   addAppInstallMenuLink();
