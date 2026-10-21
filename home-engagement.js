@@ -20,10 +20,12 @@
     });
   }
 
-  function renderContinue(){
+  async function renderContinue(){
     const section=$('#home-continue');
     const app=window.ZahradaApp;
     if(!section||!app)return;
+    section.hidden=true;
+    await app.hiddenBlogSlugsReady;
     const item=app.getHistory?.()?.[0];
     if(!item){section.hidden=true;return}
     const hiddenSlug=safeGet(CONTINUE_HIDE_KEY);
