@@ -77,6 +77,52 @@ LOW_VALUE_SK_ARTICLES = (
     "hortenzie-zivy-plot",
 )
 
+# Unreviewed 2 Oct batch: sampled pages repeated a short generic template and
+# near-identical care advice, so keep them out of search and the archive pending editing.
+REVIEW_PENDING_SK_ARTICLES = (
+    "ako-sadit-hortenziu",
+    "hnojenie-hortenzii-na-jar",
+    "hnojenie-hortenzii-v-lete",
+    "hnojivo-na-hortenzie",
+    "hortenzia-cierne-listy",
+    "hortenzia-dubolista-pestovanie",
+    "hortenzia-hnede-listy",
+    "hortenzia-kalinolista-pestovanie",
+    "hortenzia-listy-spalene-slnkom",
+    "hortenzia-metlinata-pestovanie",
+    "hortenzia-nekvitne-po-zime",
+    "hortenzia-pilovita-pestovanie",
+    "hortenzia-po-mraze",
+    "hortenzia-po-zime-nerastie",
+    "hortenzia-popinava-pestovanie",
+    "hortenzia-preliata",
+    "hortenzia-rastie-pomaly",
+    "hortenzia-skvrny-na-listoch",
+    "hortenzia-stromcekovita-annabelle-pestovanie",
+    "hortenzia-sucha",
+    "hortenzia-v-kvetinaci-vadne",
+    "hortenzia-vadnutie-horucava",
+    "hortenzia-zlte-listy",
+    "hortenzie-kalendar-starostlivosti",
+    "hortenzie-po-presadeni-vadnu",
+    "hortenzie-pod-stromami",
+    "hortenzie-v-chladnych-oblastiach",
+    "kam-zasadit-hortenziu",
+    "kedy-sadit-hortenzie",
+    "mucnatka-na-hortenzii",
+    "mulcovanie-hortenzii",
+    "poda-pre-hortenzie",
+    "presadzanie-hortenzie",
+    "rez-hortenzie-kalinolistej",
+    "rez-hortenzie-metlinatej",
+    "roztoce-na-hortenzii",
+    "slimaky-hortenzie",
+    "substrat-pre-hortenzie-v-kvetinaci",
+    "vosky-na-hortenzii",
+    "vzdialenost-hortenzii-pri-vysadbe",
+    "zalievanie-hortenzii",
+)
+
 def redirect_page(path: Path) -> None:
     destination = "/blog.html"
     path.write_text(
@@ -109,7 +155,7 @@ for locale in ("cs", "pl"):
 
 low_value_pages = []
 missing_low_value = []
-for slug in LOW_VALUE_SK_ARTICLES:
+for slug in (*LOW_VALUE_SK_ARTICLES, *REVIEW_PENDING_SK_ARTICLES):
     article = ROOT / "blog" / slug / "index.html"
     if article.is_file():
         low_value_pages.append(article)
