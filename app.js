@@ -528,7 +528,7 @@
     const slug=String(post.slug||'').trim();
     const type=String(post.content_type||'').toLowerCase();
     const category=String(post.category||'').trim().toLowerCase();
-    return type!=='recipe'&&!/^recept(?:\b|\s)/.test(category)&&!hiddenBlogSlugs.has(slug);
+    return type!=='recipe'&&!/^recept/i.test(category)&&!hiddenBlogSlugs.has(slug);
   }
   hiddenBlogSlugsReady=fetch('/data/hidden-blog-slugs.json',{cache:'no-cache'})
     .then(response=>{if(!response.ok)throw new Error('hidden_blog_slugs_'+response.status);return response.json()})
