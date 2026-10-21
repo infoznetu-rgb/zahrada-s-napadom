@@ -61,7 +61,7 @@ def build(root=ROOT):
         source = path.read_text(encoding='utf-8-sig')
         original = source
         for asset in ('app.js', 'app.css', 'cms-public.js', 'moja-zahrada.js', 'home-clarity.css'):
-            version = cover_version if asset == 'cms-public.js' else 'search20261014' if asset == 'app.js' else 'adsense20261005'
+            version = cover_version if asset == 'cms-public.js' else 'search20261021' if asset == 'app.js' else 'adsense20261005'
             source = re.sub(r'(?<![\w-])' + re.escape(asset) + r'\?v=[^"\s>]+', asset + '?v=' + version, source)
         page = Page(); page.feed(source)
         if source != original: path.write_text(source, encoding='utf-8')
