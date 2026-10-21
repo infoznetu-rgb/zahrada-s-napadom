@@ -124,6 +124,35 @@ hidden_routes = {page_route(path) for path in pages_to_hide}
 for path in pages_to_hide:
     redirect_page(path)
 
+# Remove links to redirected translations and reviewed low-value articles.
+# On the blog archive, remove complete cards so they are not left as empty text.
+def normalized_href(href: str) -> str:
+    href = href.strip().split("#", 1)[0].split("?", 1)[0]
+    href = re.sub(r"^https?://[^/]+", "", href, flags=re.IGNORECASE)
+    return "/" + href.lstrip("./").lstrip("/")
+
+hidden_route_keys = {route.rstrip("/") for route in hidden_routes}
+anchor_pattern = re.compile(r'<a\\b[^>]*\\bhref\\s*=\\s*(["\\'])(.*?)\\1[^>]*>[\\s\\S]*?</a\\s*>', re.IGNORECASE)
+article_pattern = re.compile(r"<article\\b[\\s\\S]*?</article\\s*>", re.IGNORECASE)
+
+for page in ROOT.rglob("*.html"):
+    relative = page.relative_to(ROOT).as_posix()
+    if relative.startswith(("admin/", "cs/", "pl/", "work/")) or page in pages_to_hide:
+        continue
+    source = page.read_text(encoding="utf-8")
+    if relative == "blog.html":
+        def keep_card(match):
+            routes = [normalized_href(href) for href in re.findall(r'<a\\b[^>]*\\bhref\\s*=\\s*(["\\'])(.*?)\\1', match.group(0), re.IGNORECASE)]
+            if any(route.rstrip("/") in hidden_route_keys for route in routes):
+                return ""
+            return match.group(0)
+        source = article_pattern.sub(keep_card, source)
+    source = anchor_pattern.sub(
+        lambda match: "" if normalized_href(match.group(2)).rstrip("/") in hidden_route_keys else match.group(0),
+        source,
+    )
+    page.write_text(source, encoding="utf-8")
+
 sitemap_path = ROOT / "sitemap.xml"
 removed_sitemap_entries = 0
 if sitemap_path.is_file():
