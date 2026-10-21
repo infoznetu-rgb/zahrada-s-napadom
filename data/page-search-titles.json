@@ -1,17 +1,58 @@
 [
-  {"file":"index.html","title":"Nápady do záhrady, návody a kalkulačky"},
-  {"file":"blog.html","title":"Návody do záhrady a dielne: pestovanie a výroba"},
-  {"file":"recepty.html","title":"Recepty z ovocia a zeleniny zo záhrady"},
-  {"file":"galeria.html","title":"Fotogaléria záhradných nápadov a vlastných výrobkov"},
-  {"file":"radar.html","title":"Záhradný radar: počasie podľa okresu a pozorovania"},
-  {"file":"dielna-s-napadom/index.html","title":"Výroba do záhrady: vlastné projekty z dreva a kovu"},
-  {"file":"kalkulacka-ceny-vyrobku.html","title":"Kalkulačka ceny výrobku: materiál a práca"},
-  {"file":"sutaz.html","title":"Súťaž o 3 opory pre rastliny: pravidlá a výhercovia"},
-  {"file":"temy/dielna-drevo.html","title":"Práca s drevom: výroba, ochrana a údržba"},
-  {"file":"temy/dielna-kov.html","title":"Práca s kovom: rezanie, nátery a výroba"},
-  {"file":"temy/dielna-naradie.html","title":"Náradie do dielne a záhrady: výber a údržba"},
-  {"file":"temy/hortenzie-okrasna-zahrada.html","title":"Hortenzie: pestovanie, rez a opory pre kvety"},
-  {"file":"temy/poda-kompost-vyvysene-zahony.html","title":"Vyvýšené záhony, pôda a kompost: praktické návody"},
-  {"file":"temy/voda-zavlaha.html","title":"Polievanie záhrady, závlaha a dažďová voda"},
-  {"file":"temy/skodcovia-choroby.html","title":"Škodcovia a choroby rastlín: príznaky a ochrana"}
+  {
+    "file": "index.html",
+    "title": "Nápady do záhrady, návody a kalkulačky"
+  },
+  {
+    "file": "blog.html",
+    "title": "Návody do záhrady a dielne: pestovanie a výroba"
+  },
+  {
+    "file": "galeria.html",
+    "title": "Fotogaléria záhradných nápadov a vlastných výrobkov"
+  },
+  {
+    "file": "radar.html",
+    "title": "Záhradný radar: počasie podľa okresu a pozorovania"
+  },
+  {
+    "file": "dielna-s-napadom/index.html",
+    "title": "Výroba do záhrady: vlastné projekty z dreva a kovu"
+  },
+  {
+    "file": "kalkulacka-ceny-vyrobku.html",
+    "title": "Kalkulačka ceny výrobku: materiál a práca"
+  },
+  {
+    "file": "sutaz.html",
+    "title": "Súťaž o 3 opory pre rastliny: pravidlá a výhercovia"
+  },
+  {
+    "file": "temy/dielna-drevo.html",
+    "title": "Práca s drevom: výroba, ochrana a údržba"
+  },
+  {
+    "file": "temy/dielna-kov.html",
+    "title": "Práca s kovom: rezanie, nátery a výroba"
+  },
+  {
+    "file": "temy/dielna-naradie.html",
+    "title": "Náradie do dielne a záhrady: výber a údržba"
+  },
+  {
+    "file": "temy/hortenzie-okrasna-zahrada.html",
+    "title": "Hortenzie: pestovanie, rez a opory pre kvety"
+  },
+  {
+    "file": "temy/poda-kompost-vyvysene-zahony.html",
+    "title": "Vyvýšené záhony, pôda a kompost: praktické návody"
+  },
+  {
+    "file": "temy/voda-zavlaha.html",
+    "title": "Polievanie záhrady, závlaha a dažďová voda"
+  },
+  {
+    "file": "temy/skodcovia-choroby.html",
+    "title": "Škodcovia a choroby rastlín: príznaky a ochrana"
+  }
 ]
