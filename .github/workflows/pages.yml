@@ -31,8 +31,8 @@ jobs:
           node scripts/test-tool-examples.cjs
           node scripts/build-tool-search.mjs
 
-      - name: Generate crawlable recipe pages and sitemap entries
-        run: python3 scripts/build-recipe-pages.py
+      - name: Temporarily pause recipes and bazaar for AdSense content review
+        run: python3 scripts/pause-adsense-sections.py
 
       - name: Apply curated article illustrations and card covers
         run: python3 scripts/build-article-covers.py
