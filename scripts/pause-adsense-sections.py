@@ -78,6 +78,15 @@ for path in ROOT.rglob("*.html"):
         continue
     before = path.read_text(encoding="utf-8")
     source = hide_links(before)
+    if rel == "o-projekte.html":
+        source = source.replace(
+            'Vlastné realizácie dopĺňa <a href="/blog.html">blog</a>, recepty zo záhrady, sezónne rady a <a href="/pomocky.html">praktické kalkulačky</a>.',
+            'Vlastné realizácie dopĺňa <a href="/blog.html">blog</a>, sezónne rady a <a href="/pomocky.html">praktické kalkulačky</a>.',
+        )
+        source = source.replace(
+            '<h2>Komunita a bazár</h2><p>Vlastný nápad môžeš poslať cez formulár. Zverejnenie podlieha kontrole. <a href="/bazar.html">Bazár</a> umožňuje bezplatnú inzerciu súkromným osobám aj firmám; dohoda o predaji zostáva medzi inzerentom a záujemcom.</p>',
+            '<h2>Komunita</h2><p>Vlastný nápad možno poslať cez formulár na titulnej stránke. Príspevky sa pred zverejnením kontrolujú.</p>',
+        )
     if rel == "index.html":
         source = source.replace(
             "Nájdeš tu vlastné nápady, skúsenosti, inšpiráciu a bezplatný bazár pre záhradu a dielňu, kde môžu inzerovať ľudia aj firmy.",
