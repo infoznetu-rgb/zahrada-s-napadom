@@ -238,6 +238,17 @@ function renderVisiblePosts(){
   }
 }
 
+async function loadHiddenBlogSlugs(){
+  try{
+    const response=await fetch("/data/hidden-blog-slugs.json",{cache:"no-cache"});
+    if(!response.ok)return new Set();
+    const slugs=await response.json();
+    return new Set(Array.isArray(slugs)?slugs.map(String):[]);
+  }catch(_){
+    return new Set();
+  }
+}
+
 async function loadBlog(){
   const empty=document.querySelector("#blog-empty");
   const summary=document.querySelector("#blog-filter-summary");
@@ -256,14 +267,16 @@ async function loadBlog(){
     if(response.ok)localPosts=await response.json();
   }catch(_){}
 
-  const remotePosts=(!error&&Array.isArray(data))?data.filter(post=>!isRecipePost(post)):[];
-  const staticPosts=staticBlogPosts();
+  const hiddenSlugs=await loadHiddenBlogSlugs();
+  const visiblePost=post=>!isRecipePost(post)&&!hiddenSlugs.has(String(post?.slug||""));
+  const remotePosts=(!error&&Array.isArray(data))?data.filter(visiblePost):[];
+  const staticPosts=staticBlogPosts().filter(visiblePost);
   const staticOrder=new Map(staticPosts.map((post,index)=>[post.slug,index]));
   const merged=new Map();
-  [...remotePosts,...staticPosts,...(Array.isArray(localPosts)?localPosts:[])].forEach(post=>{
+  [...remotePosts,...staticPosts,...(Array.isArray(localPosts)?localPosts.filter(visiblePost):[])].forEach(post=>{
     if(post?.slug&&!merged.has(post.slug))merged.set(post.slug,post);
   });
-  blogState.posts=[...merged.values()].filter(post=>!isRecipePost(post)).sort((a,b)=>{
+  blogState.posts=[...merged.values()].filter(visiblePost).sort((a,b)=>{
     const aOrder=staticOrder.get(a.slug);
     const bOrder=staticOrder.get(b.slug);
     if(aOrder!==undefined||bOrder!==undefined){
