@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Hide translations and reviewed low-value pages from the public build, with safe redirects."""
 from pathlib import Path
+import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -167,6 +168,13 @@ if not pages_to_hide:
     raise SystemExit("No Czech, Polish, or reviewed low-value pages found")
 
 hidden_routes = {page_route(path) for path in pages_to_hide}
+
+# The client-side blog archive also reads the CMS feed; share the same reviewed list.
+hidden_blog_slugs = sorted(path.parent.name for path in low_value_pages)
+(ROOT / "data" / "hidden-blog-slugs.json").write_text(
+    json.dumps(hidden_blog_slugs, ensure_ascii=False, indent=2) + "\n",
+    encoding="utf-8",
+)
 for path in pages_to_hide:
     redirect_page(path)
 
