@@ -84,7 +84,7 @@ for path in ROOT.rglob("*.html"):
             'Vlastné realizácie dopĺňa <a href="/blog.html">blog</a>, sezónne rady a <a href="/pomocky.html">praktické kalkulačky</a>.',
         )
         source = re.sub(
-            r'<h2>Komunita a bazár</h2>\\s*<p>[\\s\\S]*?</p>',
+            r'<h2>Komunita a bazár</h2>\s*<p>[\s\S]*?</p>',
             '<h2>Komunita</h2><p>Vlastný nápad možno poslať cez formulár na titulnej stránke. Príspevky sa pred zverejnením kontrolujú.</p>',
             source,
         )
