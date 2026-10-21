@@ -83,9 +83,10 @@ for path in ROOT.rglob("*.html"):
             'Vlastné realizácie dopĺňa <a href="/blog.html">blog</a>, recepty zo záhrady, sezónne rady a <a href="/pomocky.html">praktické kalkulačky</a>.',
             'Vlastné realizácie dopĺňa <a href="/blog.html">blog</a>, sezónne rady a <a href="/pomocky.html">praktické kalkulačky</a>.',
         )
-        source = source.replace(
-            '<h2>Komunita a bazár</h2><p>Vlastný nápad môžeš poslať cez formulár. Zverejnenie podlieha kontrole. <a href="/bazar.html">Bazár</a> umožňuje bezplatnú inzerciu súkromným osobám aj firmám; dohoda o predaji zostáva medzi inzerentom a záujemcom.</p>',
+        source = re.sub(
+            r'<h2>Komunita a bazár</h2>\\s*<p>[\\s\\S]*?</p>',
             '<h2>Komunita</h2><p>Vlastný nápad možno poslať cez formulár na titulnej stránke. Príspevky sa pred zverejnením kontrolujú.</p>',
+            source,
         )
     if rel == "index.html":
         source = source.replace(
