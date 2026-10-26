@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Generate JPEG sidecars for local raster images used by article RSS enclosures."""
 from html.parser import HTMLParser
+import json
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from PIL import Image, ImageOps
@@ -40,6 +41,13 @@ def jpeg_sidecar(path):
 
 def main():
     sources = set()
+    # Deployment can replace hidden article HTML with redirect pages before this
+    # step. Keep their existing social-image URLs working for queued sheet rows.
+    covers = json.loads((ROOT / "data/article-covers.json").read_text(encoding="utf-8"))
+    for cover in covers.values():
+        source = local_image_path(cover["url"])
+        if source and source.suffix.lower() in {".webp", ".png"}:
+            sources.add(source)
     for article in (ROOT / "blog").glob("*/index.html"):
         parser = ArticleImages()
         try:
@@ -77,3 +85,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
