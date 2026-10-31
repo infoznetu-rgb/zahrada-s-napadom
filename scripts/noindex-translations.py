@@ -188,7 +188,7 @@ unreviewed_blog_pages = [
 def has_noindex(page: Path) -> bool:
     source = page.read_text(encoding="utf-8-sig")
     return any(
-        re.search(r"""\\bcontent\\s*=\\s*(["'])[^"']*\\bnoindex\\b""", match.group(0), re.IGNORECASE)
+        re.search(r"""\bcontent\s*=\s*(["'])[^"']*\bnoindex\b""", match.group(0), re.IGNORECASE)
         for match in META_TAG.finditer(source)
         if ROBOTS_NAME.search(match.group(0))
     )
