@@ -1063,7 +1063,7 @@
   addAppInstallMenuLink();
   document.documentElement.classList.toggle('pwa-standalone',isStandalone());
   bottomNav();
-  maybeShowPromoBanner();
+  // Keep the app install option in navigation; never cover article content with an automatic promo.
   document.addEventListener('click',event=>{
     const button=event.target.closest('[data-load-facebook]');
     if(!button)return;
