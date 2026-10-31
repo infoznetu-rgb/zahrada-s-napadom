@@ -204,10 +204,12 @@ for path in pages_to_hide:
 
 # Preserve unreviewed pages for visitors, but keep them out of search results.
 def mark_noindex(source: str) -> str:
-    for match in META_TAG.finditer(source):
+    matches = [
+        match for match in META_TAG.finditer(source)
+        if ROBOTS_NAME.search(match.group(0))
+    ]
+    for match in reversed(matches):
         tag = match.group(0)
-        if not ROBOTS_NAME.search(tag):
-            continue
         if CONTENT_ATTR.search(tag):
             updated_tag = CONTENT_ATTR.sub(
                 lambda attr: attr.group(1) + attr.group(2) + ROBOTS + attr.group(2),
@@ -216,7 +218,9 @@ def mark_noindex(source: str) -> str:
             )
         else:
             updated_tag = tag[:-1].rstrip() + ' content="' + ROBOTS + '">'
-        return source[:match.start()] + updated_tag + source[match.end():]
+        source = source[:match.start()] + updated_tag + source[match.end():]
+    if matches:
+        return source
 
     head = re.search(r"<head\b[^>]*>", source, re.IGNORECASE)
     if not head:
@@ -224,7 +228,30 @@ def mark_noindex(source: str) -> str:
     tag = '\n  <meta name="robots" content="' + ROBOTS + '">'
     return source[:head.end()] + tag + source[head.end():]
 
-for path in unreviewed_blog_pages:
+def canonical_href(source: str) -> str:
+    for tag in re.findall(r"<link\b[^>]*>", source, re.IGNORECASE):
+        rel = re.search(r"\brel\s*=\s*([\"\'])canonical\1", tag, re.IGNORECASE)
+        href = re.search(r"\bhref\s*=\s*([\"\'])(.*?)\1", tag, re.IGNORECASE)
+        if rel and href:
+            return href.group(2)
+    return ""
+
+article_routes = {
+    "https://zahradasnapadom.sk/blog/" + page.parent.name + "/"
+    for page in all_blog_pages
+    if page.parent.name not in curated_slugs
+}
+blog_page_set = set(all_blog_pages)
+unreviewed_alias_pages = []
+for path in ROOT.rglob("*.html"):
+    relative = path.relative_to(ROOT).as_posix()
+    if relative.startswith(("admin/", "cs/", "pl/", "work/")) or path in blog_page_set:
+        continue
+    source = path.read_text(encoding="utf-8")
+    if canonical_href(source) in article_routes:
+        unreviewed_alias_pages.append(path)
+
+for path in (*unreviewed_blog_pages, *unreviewed_alias_pages):
     source = path.read_text(encoding="utf-8")
     path.write_text(mark_noindex(source), encoding="utf-8")
 
@@ -281,6 +308,7 @@ if missing_low_value:
 print(
     f"Hidden {len(translation_pages)} Czech/Polish pages and "
     f"{len(low_value_pages)} redirected low-value Slovak pages and "
-    f"{len(unreviewed_blog_pages)} unreviewed Slovak pages marked noindex; "
+    f"{len(unreviewed_blog_pages)} unreviewed Slovak pages and "
+    f"{len(unreviewed_alias_pages)} legacy aliases marked noindex; "
     f"removed {removed_sitemap_entries} matching sitemap entries."
 )
