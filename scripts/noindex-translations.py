@@ -185,6 +185,22 @@ unreviewed_blog_pages = [
     if page not in reviewed_low_value and page.parent.name not in curated_slugs
 ]
 
+def has_noindex(page: Path) -> bool:
+    source = page.read_text(encoding="utf-8-sig")
+    return any(
+        re.search(r"""\\bcontent\\s*=\\s*(["'])[^"']*\\bnoindex\\b""", match.group(0), re.IGNORECASE)
+        for match in META_TAG.finditer(source)
+        if ROBOTS_NAME.search(match.group(0))
+    )
+
+# Keep merged redirect stubs and other noindex pages out of the visitor archive too.
+curated_noindex_pages = [
+    page for page in all_blog_pages
+    if page not in reviewed_low_value
+    and page.parent.name in curated_slugs
+    and has_noindex(page)
+]
+
 pages_to_hide = list(dict.fromkeys(translation_pages + low_value_pages))
 if not pages_to_hide:
     raise SystemExit("No Czech, Polish, or reviewed low-value pages found")
@@ -193,7 +209,8 @@ hidden_routes = {page_route(path) for path in pages_to_hide}
 
 # Keep the archive, CMS fallback, and search index aligned with the reviewed shortlist.
 hidden_blog_slugs = sorted({
-    path.parent.name for path in (*low_value_pages, *unreviewed_blog_pages)
+    path.parent.name
+    for path in (*low_value_pages, *unreviewed_blog_pages, *curated_noindex_pages)
 })
 (ROOT / "data" / "hidden-blog-slugs.json").write_text(
     json.dumps(hidden_blog_slugs, ensure_ascii=False, indent=2) + "\n",
