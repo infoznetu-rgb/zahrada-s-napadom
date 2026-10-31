@@ -203,25 +203,30 @@ for path in pages_to_hide:
     redirect_page(path)
 
 # Preserve unreviewed pages for visitors, but keep them out of search results.
+def mark_noindex(source: str) -> str:
+    for match in META_TAG.finditer(source):
+        tag = match.group(0)
+        if not ROBOTS_NAME.search(tag):
+            continue
+        if CONTENT_ATTR.search(tag):
+            updated_tag = CONTENT_ATTR.sub(
+                lambda attr: attr.group(1) + attr.group(2) + ROBOTS + attr.group(2),
+                tag,
+                count=1,
+            )
+        else:
+            updated_tag = tag[:-1].rstrip() + ' content="' + ROBOTS + '">'
+        return source[:match.start()] + updated_tag + source[match.end():]
+
+    head = re.search(r"<head\b[^>]*>", source, re.IGNORECASE)
+    if not head:
+        raise ValueError("HTML page has no <head> element")
+    tag = '\n  <meta name="robots" content="' + ROBOTS + '">'
+    return source[:head.end()] + tag + source[head.end():]
+
 for path in unreviewed_blog_pages:
     source = path.read_text(encoding="utf-8")
-    if re.search(r"<meta\b[^>]*name\s*=\s*[\"\']robots[\"\']", source, re.IGNORECASE):
-        source = re.sub(
-            r"(<meta\b[^>]*name\s*=\s*[\"\']robots[\"\'][^>]*content\s*=\s*[\"\'])[^\"\']*",
-            r"\1" + ROBOTS,
-            source,
-            count=1,
-            flags=re.IGNORECASE,
-        )
-    else:
-        source = re.sub(
-            r"(<head\b[^>]*>)",
-            r"\1\n  <meta name=\"robots\" content=\"" + ROBOTS + "\">",
-            source,
-            count=1,
-            flags=re.IGNORECASE,
-        )
-    path.write_text(source, encoding="utf-8")
+    path.write_text(mark_noindex(source), encoding="utf-8")
 
 # Remove links to redirected translations and reviewed low-value articles.
 # On the blog archive, remove complete cards so they are not left as empty text.
