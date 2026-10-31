@@ -3,6 +3,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import json
+import re
 import xml.etree.ElementTree as ET
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -11,7 +12,7 @@ ORIGIN='https://zahradasnapadom.sk'
 class Page(HTMLParser):
     def __init__(self,source):
         super().__init__(convert_charrefs=True)
-        self.meta={}; self.canonical=[]; self.links=[]; self.h1=0
+        self.meta={}; self.canonical=[]; self.links=[]; self.resources=[]; self.h1=0
         self.refresh=False; self.examples=0; self.schemas=[]
         self.title=''; self.title_count=0; self.in_title=False
         self.schema_text=None
@@ -23,6 +24,8 @@ class Page(HTMLParser):
             if a.get('http-equiv','').lower()=='refresh': self.refresh=True
         if tag=='link' and a.get('rel')=='canonical': self.canonical.append(a.get('href',''))
         if tag=='a' and a.get('href'): self.links.append(a['href'])
+        for attribute in ('href','src'):
+            if a.get(attribute): self.resources.append((attribute,a[attribute]))
         if tag=='h1': self.h1+=1
         if tag=='title': self.title_count+=1; self.in_title=True
         if 'data-tool-search-example' in a: self.examples+=1
@@ -42,6 +45,20 @@ def local_file(url):
     if not target.is_relative_to(ROOT): raise ValueError('URL leaves site root: '+url)
     return target
 
+def local_resource(url, source):
+    parts=urlsplit(url)
+    if not parts.path: return None
+    if parts.scheme or parts.netloc:
+        if parts.scheme not in ('http','https') or parts.netloc not in ('zahradasnapadom.sk','www.zahradasnapadom.sk'):
+            return None
+        target=ROOT/unquote(parts.path.lstrip('/'))
+    elif parts.path.startswith('/'):
+        target=ROOT/unquote(parts.path.lstrip('/'))
+    else:
+        target=source.parent/unquote(parts.path)
+    if parts.path.endswith('/') or target.is_dir(): target=target/'index.html'
+    return target.resolve()
+
 def verify():
     urls=[node.text for node in ET.parse(ROOT/'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
     errors=[]; cache={}; titles={}
@@ -59,6 +76,11 @@ def verify():
         if p.title_count!=1 or not p.title.strip(): errors.append('Missing or duplicate title element: '+url)
         if p.title in titles: errors.append('Same title on two public pages: '+titles[p.title]+' and '+url)
         titles[p.title]=url
+        for attribute,value in p.resources:
+            if value.startswith(('mailto:','tel:','javascript:','data:','#')): continue
+            target=local_resource(value,path)
+            if target is not None and (not target.is_relative_to(ROOT) or not target.is_file() or target.stat().st_size == 0):
+                errors.append('Broken local '+attribute+': '+url+' -> '+value)
     title_pages=json.loads((ROOT/'data/page-search-titles.json').read_text(encoding='utf-8'))
     for entry in title_pages:
         p=page(ROOT/entry['file'])
@@ -78,6 +100,46 @@ def verify():
             if href not in p.links: errors.append('Missing related link: '+url+' -> '+href)
             target=local_file(href)
             if not target.is_file() or 'noindex' in page(target).meta.get('robots','').lower(): errors.append('Related tool is unavailable: '+href)
+    hidden=json.loads((ROOT/'data/hidden-blog-slugs.json').read_text(encoding='utf-8'))
+    for slug in hidden:
+        hidden_path=ROOT/'blog'/slug/'index.html'
+        if not hidden_path.is_file(): errors.append('Hidden article path is missing: '+str(slug)); continue
+        hidden_page=page(hidden_path)
+        source=hidden_path.read_text(encoding='utf-8-sig')
+        if 'noindex' not in hidden_page.meta.get('robots','').lower() and not hidden_page.refresh:
+            errors.append('Hidden blog article remains indexable: '+str(slug))
+    curated=json.loads((ROOT/'data/seo-blog-100-list.json').read_text(encoding='utf-8'))
+    curated_slugs=[str(item.get('slug','')).strip() for item in curated if isinstance(item,dict)]
+    if not curated_slugs or len(curated_slugs)!=len(set(curated_slugs)):
+        errors.append('Curated blog list is empty or contains duplicate slugs')
+    sitemap_set=set(urls)
+    def schema_nodes(value):
+        if isinstance(value,dict):
+            yield value
+            for child in value.values(): yield from schema_nodes(child)
+        elif isinstance(value,list):
+            for child in value: yield from schema_nodes(child)
+    for slug in curated_slugs:
+        url=ORIGIN+'/blog/'+slug+'/'
+        path=ROOT/'blog'/slug/'index.html'
+        if not path.is_file(): errors.append('Curated blog article is missing: '+slug); continue
+        p=page(path)
+        if url not in sitemap_set: errors.append('Curated blog article is missing from sitemap: '+url)
+        if p.canonical!=[url]: errors.append('Curated blog canonical mismatch: '+url)
+        if p.title_count!=1 or not p.title.strip(): errors.append('Curated blog title is missing: '+url)
+        if not p.meta.get('description','').strip(): errors.append('Curated blog description is missing: '+url)
+        postings=[node for schema in p.schemas for node in schema_nodes(schema)
+                  if node.get('url')==url and any(t in (node.get('@type') if isinstance(node.get('@type'),list) else [node.get('@type')]) for t in ('BlogPosting','Article'))]
+        if not postings: errors.append('Curated blog article lacks Article/BlogPosting structured data: '+url)
+    for css_path in ROOT.rglob('*.css'):
+        if any(part in ('admin','.git','node_modules','work') for part in css_path.relative_to(ROOT).parts): continue
+        css=css_path.read_text(encoding='utf-8',errors='ignore')
+        for match in re.finditer(r'url\(\s*(["\']?)(.*?)\1\s*\)',css,re.IGNORECASE):
+            value=match.group(2).strip()
+            if not value or value.startswith(('data:','#')): continue
+            target=local_resource(value,css_path)
+            if target is not None and (not target.is_relative_to(ROOT) or not target.is_file() or target.stat().st_size == 0):
+                errors.append('Broken CSS asset: '+css_path.relative_to(ROOT).as_posix()+' -> '+value)
     if errors: raise SystemExit('\n'.join(errors))
     print(f'Public search checks passed: {len(urls)} canonical sitemap URLs; {len(tools)} tool pages and their related links; no hidden pages in sitemap')
 

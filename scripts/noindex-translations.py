@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hide translations and reviewed low-value pages from the public build, with safe redirects."""
+"""Hide translations and unreviewed pages from search, with safe redirects for merged pages."""
 from pathlib import Path
 import json
 import re
@@ -185,21 +185,8 @@ unreviewed_blog_pages = [
     if page not in reviewed_low_value and page.parent.name not in curated_slugs
 ]
 
-def has_noindex(page: Path) -> bool:
-    source = page.read_text(encoding="utf-8-sig")
-    return any(
-        re.search(r"""\bcontent\s*=\s*(["'])[^"']*\bnoindex\b""", match.group(0), re.IGNORECASE)
-        for match in META_TAG.finditer(source)
-        if ROBOTS_NAME.search(match.group(0))
-    )
-
 # Keep merged redirect stubs and other noindex pages out of the visitor archive too.
-curated_noindex_pages = [
-    page for page in all_blog_pages
-    if page not in reviewed_low_value
-    and page.parent.name in curated_slugs
-    and has_noindex(page)
-]
+curated_noindex_pages = []
 
 pages_to_hide = list(dict.fromkeys(translation_pages + low_value_pages))
 if not pages_to_hide:

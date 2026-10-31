@@ -85,23 +85,6 @@
     ]
   },
   {
-    "slug": "opora-60-alebo-100-cm-hortenzie-pivonie",
-    "title": "Opora 60 alebo 100 cm? Ako vybrať výšku pre hortenzie a pivónie",
-    "excerpt": "Porovnanie 60 cm a 100 cm opory pre hortenzie a pivónie podľa výšky rastliny, počtu kruhov, polohy kvetov a veľkosti dospelého kra.",
-    "category": "Hortenzie a pivónie",
-    "cover_url": "/assets/blog/opory-2026/opora-hortenzie-vyska-60-100.webp",
-    "published_at": "2026-09-27T05:06:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "opora pre hortenzie 60 cm",
-      "opora pre hortenzie 100 cm",
-      "opora pre pivónie",
-      "výška opory na rastliny",
-      "hortenzie",
-      "pivónie"
-    ]
-  },
-  {
     "slug": "aky-priemer-opory-pre-hortenzie-50-80-100",
     "title": "Aký priemer opory pre hortenzie? 50, 80 alebo 100 cm",
     "excerpt": "Ako odmerať hortenziu a vybrať priemer opory 50, 80 alebo 100 cm tak, aby ker nebol stlačený a zároveň sa po daždi nerozpadal.",
@@ -316,21 +299,6 @@
       "narcisy po odkvitnutí",
       "Okrasná záhrada",
       "jar",
-      "Záhrada s nápadom"
-    ]
-  },
-  {
-    "slug": "georginy-uskladnenie-hluz",
-    "title": "Georgíny po prvom mraze: ako uskladniť hľuzy",
-    "excerpt": "Vybrať hľuzy po poškodení nadzemnej časti mrazom, osušiť ich a skladovať chladno bez premrznutia.",
-    "category": "Okrasná záhrada",
-    "cover_url": "/assets/blog/05-presadzanie.webp",
-    "published_at": "2026-09-23T00:10:00+00:00",
-    "content_type": "blog",
-    "tags": [
-      "uskladnenie georgín",
-      "Okrasná záhrada",
-      "jeseň",
       "Záhrada s nápadom"
     ]
   },
@@ -781,21 +749,6 @@
       "pH pôdy",
       "Záhrada",
       "celoročne",
-      "Záhrada s nápadom"
-    ]
-  },
-  {
-    "slug": "listovy-kompost-z-listia",
-    "title": "Listový kompost: ako premeniť jesenné lístie na zeminu",
-    "excerpt": "Lístie sa rozkladá najmä hubami a potrebuje čas; výsledkom je výborný materiál na zlepšenie štruktúry pôdy.",
-    "category": "Záhrada",
-    "cover_url": "/assets/blog/12-listovka.webp",
-    "published_at": "2026-09-23T00:41:00+00:00",
-    "content_type": "blog",
-    "tags": [
-      "listový kompost",
-      "Záhrada",
-      "jeseň",
       "Záhrada s nápadom"
     ]
   },
@@ -1667,6 +1620,539 @@
       "Dielňa",
       "celoročne",
       "Záhrada s nápadom"
+    ]
+  },
+  {
+    "slug": "ako-zmenit-farbu-hortenzie-modra-ruzova",
+    "title": "Ako zmeniť farbu hortenzie z ružovej na modrú: pH pôdy bez mýtov",
+    "excerpt": "Chcete modrú alebo ružovú hortenziu? Zistite, ako pH pôdy a dostupnosť hliníka ovplyvňujú farbu Hydrangea macrophylla, čo merať a čomu sa vyhnúť.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/ako-zmenit-farbu-hortenzie-modra-ruzova.webp",
+    "published_at": "2026-10-02",
+    "content_type": "blog",
+    "tags": [
+      "modrá hortenzia",
+      "ružová hortenzia",
+      "zmena farby hortenzie",
+      "pH pôdy hortenzie",
+      "Hydrangea macrophylla",
+      "hliník v pôde",
+      "kyslá pôda",
+      "pestovanie hortenzií"
+    ]
+  },
+  {
+    "slug": "bylinkovy-kut-pri-kuchyni",
+    "title": "Bylinkový kút pri kuchyni: malá vec, ktorú človek naozaj používa",
+    "excerpt": "Ako vytvoriť bylinkový kút pri kuchyni: vhodné miesto, svetlo, nádoby, drenáž, mäta, tymian, rozmarín, bazalka a praktické kombinácie.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/bylinkovy-kut-pri-kuchyni.webp",
+    "published_at": "2026-09-10",
+    "content_type": "blog",
+    "tags": [
+      "bylinkový kút",
+      "bylinky pri kuchyni",
+      "bylinky v nádobách",
+      "pestovanie byliniek",
+      "tymian",
+      "mäta",
+      "rozmarín"
+    ]
+  },
+  {
+    "slug": "cim-naplnit-vyvyseny-zahon-vrstvy",
+    "title": "Čím naplniť vyvýšený záhon: vrstvy krok za krokom",
+    "excerpt": "Ako naplniť vyvýšený záhon bez zbytočného plytvania: čo dať na dno, koľko kompostu použiť a z čoho vytvoriť kvalitnú pestovateľskú vrstvu.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/cim-naplnit-vyvyseny-zahon-vrstvy.webp",
+    "published_at": "2026-09-20",
+    "content_type": "blog",
+    "tags": [
+      "vyvýšený záhon",
+      "výplň záhona",
+      "kompost",
+      "zemina",
+      "pestovanie"
+    ]
+  },
+  {
+    "slug": "cisty-kut-na-brusenie",
+    "title": "Ako si v dielni vytvoriť jednoduchý kút na brúsenie",
+    "excerpt": "Ako zariadiť kút na brúsenie dreva: odsávanie prachu, vhodná pracovná plocha, svetlo, upratovanie a ochrana dýchacích ciest.",
+    "category": "Dielňa",
+    "cover_url": "/assets/blog/ai-2026-10/cisty-kut-na-brusenie.webp",
+    "published_at": "2026-08-23",
+    "content_type": "blog",
+    "tags": [
+      "Dielňa",
+      "Ako si v dielni vytvoriť jednoduchý kút na brúsenie"
+    ]
+  },
+  {
+    "slug": "dazdova-voda-jednoduchy-system-zo-suda",
+    "title": "Dažďová voda v záhrade: jednoduchý systém zo suda",
+    "excerpt": "Ako zachytiť dažďovú vodu zo strechy do suda: výber nádoby, zberač zo zvodu, prepad, kohútik, údržba a praktický výpočet objemu.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/dazdova-voda-jednoduchy-system-zo-suda.webp",
+    "published_at": "2026-09-18",
+    "content_type": "blog",
+    "tags": [
+      "dažďová voda v záhrade",
+      "sud na dažďovú vodu",
+      "zachytávanie dažďovej vody",
+      "polievanie dažďovou vodou",
+      "zberač dažďovej vody"
+    ]
+  },
+  {
+    "slug": "jednoducha-zastena-pre-kompost",
+    "title": "Jednoduchá zástena, ktorá schová kompost bez uzavretia vzduchu",
+    "excerpt": "Ako spraviť zástenu pre kompost: vzdušná konštrukcia, prístup s fúrikom, vhodné drevo, odstup a chyby, ktoré brzdia kompostovanie.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/jednoducha-zastena-pre-kompost.webp",
+    "published_at": "2026-08-17",
+    "content_type": "blog",
+    "tags": [
+      "Dom a záhrada",
+      "Jednoduchá zástena, ktorá schová kompost bez uzavretia vzduchu"
+    ]
+  },
+  {
+    "slug": "jednoduche-sito-na-kompost",
+    "title": "Jednoduché sito na kompost z dreveného rámu",
+    "excerpt": "Ako spraviť sito na kompost z dreveného rámu a kovovej siete: rozmery podľa použitia, spevnenie, úchopy a praktické preosievanie kompostu.",
+    "category": "Dielňa",
+    "cover_url": "/assets/blog/ai-2026-10/jednoduche-sito-na-kompost.webp",
+    "published_at": "2026-09-02",
+    "content_type": "blog",
+    "tags": [
+      "Dielňa",
+      "Jednoduché sito na kompost z dreveného rámu"
+    ]
+  },
+  {
+    "slug": "jednoduchy-plan-vysadby-zahona",
+    "title": "Ako si spraviť jednoduchý plán výsadby bez špeciálneho programu",
+    "excerpt": "Ako si spraviť plán výsadby záhona na papieri: rozmery, rozostupy, postupné výsevy, striedanie plodín a praktický príklad bez programu.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/jednoduchy-plan-vysadby-zahona.webp",
+    "published_at": "2026-08-27",
+    "content_type": "blog",
+    "tags": [
+      "plán výsadby záhona",
+      "plán zeleninovej záhrady",
+      "rozostupy zeleniny",
+      "postupné výsevy",
+      "striedanie plodín"
+    ]
+  },
+  {
+    "slug": "jednoduchy-zberac-na-drobne-ovocie",
+    "title": "Jednoduchý košík na zber drobného ovocia a byliniek",
+    "excerpt": "Ako spraviť jednoduchý košík na zber drobného ovocia a byliniek: vhodný objem, rukoväť, vetranie, čistenie a šetrné ukladanie plodov.",
+    "category": "Hobby",
+    "cover_url": "/assets/blog/ai-2026-10/jednoduchy-zberac-na-drobne-ovocie.webp",
+    "published_at": "2026-08-19",
+    "content_type": "blog",
+    "tags": [
+      "Hobby",
+      "Jednoduchý košík na zber drobného ovocia a byliniek"
+    ]
+  },
+  {
+    "slug": "jesenna-starostlivost-o-travnik",
+    "title": "Jesenná starostlivosť o trávnik: čo urobiť pred zimou",
+    "excerpt": "Jesenná starostlivosť o trávnik krok za krokom: kosenie, vertikutácia, prevzdušnenie, dosievanie, hnojenie a chyby, ktorým sa pred zimou vyhnúť.",
+    "category": "Sezónne tipy",
+    "cover_url": "/assets/blog/jesenna-starostlivost-o-travnik.svg",
+    "published_at": "2026-09-20",
+    "content_type": "blog",
+    "tags": [
+      "jesenná starostlivosť o trávnik",
+      "trávnik pred zimou",
+      "kosenie trávnika na jeseň",
+      "vertikutácia",
+      "prevzdušnenie trávnika",
+      "dosievanie trávnika",
+      "jesenné hnojenie"
+    ]
+  },
+  {
+    "slug": "jesenne-prace-v-zahrade-pred-zimou",
+    "title": "Jesenné práce v záhrade: čo urobiť pred zimou",
+    "excerpt": "Praktický jesenný zoznam pre záhradu: zber úrody, záhony, lístie, kompost, náradie, voda aj ochrana citlivých rastlín pred zimou.",
+    "category": "Sezónne tipy",
+    "cover_url": "/assets/blog/ai-2026-10/jesenne-prace-v-zahrade-pred-zimou.webp",
+    "published_at": "2026-09-20",
+    "content_type": "blog",
+    "tags": [
+      "jesenné práce",
+      "zazimovanie záhrady",
+      "jeseň",
+      "október",
+      "záhrada"
+    ]
+  },
+  {
+    "slug": "kompost-bez-zapachu-rovnovaha-materialov",
+    "title": "Kompost bez zápachu: pomáha rovnováha mokrého a suchého materiálu",
+    "excerpt": "Prečo kompost zapácha a ako ho opraviť: zelený a hnedý materiál, správna vlhkosť, vzduch, prehadzovanie a najčastejšie chyby.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/kompost-bez-zapachu-rovnovaha-materialov.webp",
+    "published_at": "2026-09-16",
+    "content_type": "blog",
+    "tags": [
+      "kompost bez zápachu",
+      "kompostovanie",
+      "zelený a hnedý materiál",
+      "mokrý kompost",
+      "suchý kompost",
+      "záhradný kompost"
+    ]
+  },
+  {
+    "slug": "letne-polievanie-s-mensou-spotrebou",
+    "title": "Letné polievanie s menšou spotrebou vody",
+    "excerpt": "Ako polievať záhradu v lete s menšou spotrebou vody: najlepší čas, hlboká zálievka, kontrola pôdy, mulč, nádoby a dažďová voda.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/letne-polievanie-s-mensou-spotrebou.webp",
+    "published_at": "2026-09-04",
+    "content_type": "blog",
+    "tags": [
+      "letné polievanie",
+      "polievanie záhrady",
+      "šetrenie vody",
+      "kedy polievať",
+      "ranné polievanie",
+      "dažďová voda"
+    ]
+  },
+  {
+    "slug": "listovka-z-jesenneho-listia",
+    "title": "Listovka: jednoduchý spôsob, ako využiť jesenné lístie",
+    "excerpt": "Ako vyrobiť listovku z jesenného lístia: vhodné listy, drvenie, vlhkosť, vrecia alebo klietka, čas rozkladu a využitie v záhrade.",
+    "category": "Sezónne tipy",
+    "cover_url": "/assets/blog/ai-2026-10/listovka-z-jesenneho-listia.webp",
+    "published_at": "2026-09-08",
+    "content_type": "blog",
+    "tags": [
+      "listovka",
+      "jesenné lístie",
+      "kompost z lístia",
+      "leafmould",
+      "využitie lístia"
+    ]
+  },
+  {
+    "slug": "mala-nadoba-s-vodou-pre-vtaky",
+    "title": "Malá nádoba s vodou pre vtáky: jednoduchý detail do záhrady",
+    "excerpt": "Ako pripraviť vodu pre vtáky v záhrade: plytká nádoba, bezpečné umiestnenie, kamene, denná výmena vody a pravidelné čistenie.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/mala-nadoba-s-vodou-pre-vtaky.webp",
+    "published_at": "2026-08-28",
+    "content_type": "blog",
+    "tags": [
+      "voda pre vtáky",
+      "napájadlo pre vtáky",
+      "vtáčí kúpeľ",
+      "nádoba s vodou",
+      "pomoc vtákom"
+    ]
+  },
+  {
+    "slug": "mulcovanie-zahonov-bez-zbytocnych-chyb",
+    "title": "Ako začať s mulčovaním záhonov bez zbytočných chýb",
+    "excerpt": "Ako správne mulčovať záhony: vhodné materiály, hrúbka vrstvy, termín, postup krok za krokom a chyby, ktorým sa pri mulčovaní vyhnúť.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/mulcovanie-zahonov-bez-zbytocnych-chyb.webp",
+    "published_at": "2026-09-19",
+    "content_type": "blog",
+    "tags": [
+      "mulčovanie záhonov",
+      "mulč",
+      "mulčovanie zeleninových záhonov",
+      "drevná štiepka",
+      "slama",
+      "pokosená tráva",
+      "ochrana pôdy"
+    ]
+  },
+  {
+    "slug": "poriadok-v-zahradnom-domceku-za-hodinu",
+    "title": "Poriadok v záhradnom domčeku za hodinu: jednoduchý systém troch zón",
+    "excerpt": "Ako spraviť poriadok v záhradnom domčeku za hodinu: tri zóny, voľný priechod, náradie na stene, ťažké veci dole a jednoduché triedenie.",
+    "category": "Vychytávky",
+    "cover_url": "/assets/blog/ai-2026-10/poriadok-v-zahradnom-domceku-za-hodinu.webp",
+    "published_at": "2026-08-18",
+    "content_type": "blog",
+    "tags": [
+      "Vychytávky",
+      "Poriadok v záhradnom domčeku za hodinu"
+    ]
+  },
+  {
+    "slug": "pracovny-pas-na-zahradne-drobnosti",
+    "title": "Jednoduchý pracovný pás alebo kapsa na záhradné drobnosti",
+    "excerpt": "Ako navrhnúť pracovnú kapsu do záhrady: veľkosť, priehradky, čo nosiť, bezpečné uloženie nožníc a prečo nenosiť zbytočne veľa.",
+    "category": "Vychytávky",
+    "cover_url": "/assets/blog/ai-2026-10/pracovny-pas-na-zahradne-drobnosti.webp",
+    "published_at": "2026-08-13",
+    "content_type": "blog",
+    "tags": [
+      "Vychytávky",
+      "Jednoduchý pracovný pás alebo kapsa na záhradné drobnosti"
+    ]
+  },
+  {
+    "slug": "preco-hortenzia-nekvitne",
+    "title": "Prečo hortenzia nekvitne: 9 najčastejších príčin a čo s nimi",
+    "excerpt": "Hortenzia rastie, ale nekvitne? Pozrite si 9 najčastejších príčin: nesprávny rez, mráz, málo svetla, priveľa dusíka, voda, vek rastliny aj druh hortenzie.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/preco-hortenzia-nekvitne.webp",
+    "published_at": "2026-10-02",
+    "content_type": "blog",
+    "tags": [
+      "prečo hortenzia nekvitne",
+      "hortenzia nekvitne",
+      "nekvitnúce hortenzie",
+      "kvitnutie hortenzií",
+      "rez hortenzie",
+      "hnojenie hortenzií",
+      "mráz hortenzie",
+      "pestovanie hortenzií"
+    ]
+  },
+  {
+    "slug": "rucne-naradie-na-jednej-stene",
+    "title": "Ako usporiadať ručné náradie na jednej stene",
+    "excerpt": "Ako usporiadať ručné náradie na stene dielne: pracovné zóny, háky, kotvenie, bezpečnosť ostrých nástrojov a systém, ktorý zostane prehľadný.",
+    "category": "Dielňa",
+    "cover_url": "/assets/blog/ai-2026-10/rucne-naradie-na-jednej-stene.webp",
+    "published_at": "2026-09-14",
+    "content_type": "blog",
+    "tags": [
+      "Dielňa",
+      "Ako usporiadať ručné náradie na jednej stene"
+    ]
+  },
+  {
+    "slug": "sadenie-cesnaku-na-jesen",
+    "title": "Sadenie cesnaku na jeseň: kedy a ako ho správne vysadiť",
+    "excerpt": "Kedy sadiť cesnak na jeseň, ako hlboko dať strúčiky a aké rozostupy zvoliť. Praktický postup pre slovenskú záhradu krok za krokom.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/sadenie-cesnaku-na-jesen.webp",
+    "published_at": "2026-09-20",
+    "content_type": "blog",
+    "tags": [
+      "sadenie cesnaku na jeseň",
+      "kedy sadiť cesnak",
+      "hĺbka výsadby cesnaku",
+      "rozostupy cesnaku",
+      "ozimný cesnak"
+    ]
+  },
+  {
+    "slug": "stare-drevene-debnicky-ako-ulozny-system",
+    "title": "Staré drevené debničky ako jednoduchý úložný systém",
+    "excerpt": "Ako využiť staré drevené debničky ako úložný systém: kontrola dreva, ostré klince, brúsenie, stohovanie, kotvenie a praktické triedenie.",
+    "category": "Recyklácia",
+    "cover_url": "/assets/blog/ai-2026-10/stare-drevene-debnicky-ako-ulozny-system.webp",
+    "published_at": "2026-09-13",
+    "content_type": "blog",
+    "tags": [
+      "Recyklácia",
+      "Staré drevené debničky ako jednoduchý úložný systém"
+    ]
+  },
+  {
+    "slug": "stojan-na-topanky-do-zahrady",
+    "title": "Jednoduchý stojan na topánky a čižmy pri vstupe do záhrady",
+    "excerpt": "Ako spraviť stojan na topánky a čižmy pri vstupe do záhrady: odkvapkanie, vetranie, rozstupy, stabilita a jednoduché čistenie.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/stojan-na-topanky-do-zahrady.webp",
+    "published_at": "2026-08-25",
+    "content_type": "blog",
+    "tags": [
+      "Dom a záhrada",
+      "Jednoduchý stojan na topánky a čižmy pri vstupe do záhrady"
+    ]
+  },
+  {
+    "slug": "strkova-cesticka-medzi-zahonmi",
+    "title": "Štrková cestička medzi záhonmi bez neustáleho rozsýpania",
+    "excerpt": "Ako spraviť štrkovú cestičku medzi záhonmi bez rozsýpania: podklad, okraje, vhodný štrk, geotextília, drenáž a údržba krok za krokom.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/strkova-cesticka-medzi-zahonmi.webp",
+    "published_at": "2026-09-11",
+    "content_type": "blog",
+    "tags": [
+      "štrková cestička",
+      "cesta medzi záhonmi",
+      "štrkový chodník",
+      "podklad pod štrk",
+      "okraje cestičky"
+    ]
+  },
+  {
+    "slug": "ulozny-box-na-zahradne-drobnosti",
+    "title": "Úložný box na rukavice, motúzy a malé záhradné pomôcky",
+    "excerpt": "Ako vytvoriť úložný box na záhradné drobnosti: rukavice, motúzy, štítky, priehradky, vetranie, označenie a jednoduché čistenie.",
+    "category": "Vychytávky",
+    "cover_url": "/assets/blog/ai-2026-10/ulozny-box-na-zahradne-drobnosti.webp",
+    "published_at": "2026-08-26",
+    "content_type": "blog",
+    "tags": [
+      "Vychytávky",
+      "Úložný box na rukavice, motúzy a malé záhradné pomôcky"
+    ]
+  },
+  {
+    "slug": "vysadba-ovocnych-stromov-na-jesen",
+    "title": "Výsadba ovocných stromov na jeseň: postup krok za krokom",
+    "excerpt": "Ako vysadiť ovocný strom na jeseň: správny termín, jama, hĺbka, miesto očkovania, opora, zálievka a mulčovanie krok za krokom.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/vysadba-ovocnych-stromov-na-jesen.webp",
+    "published_at": "2026-09-20",
+    "content_type": "blog",
+    "tags": [
+      "výsadba ovocných stromov na jeseň",
+      "sadenie ovocných stromov",
+      "ako zasadiť ovocný strom",
+      "jesenná výsadba stromov",
+      "hĺbka výsadby ovocného stromu"
+    ]
+  },
+  {
+    "slug": "vyvyseny-zahon-co-premysliet-pred-stavbou",
+    "title": "Vyvýšený záhon: čo si premyslieť pred stavbou",
+    "excerpt": "Ako navrhnúť vyvýšený záhon: vhodná šírka, výška, miesto, materiál, drenáž, prístup a výplň tak, aby sa dobre používal a dlho vydržal.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/03-vyvyseny-zahon.svg",
+    "published_at": "2026-09-17",
+    "content_type": "blog",
+    "tags": [
+      "vyvýšený záhon",
+      "rozmery vyvýšeného záhona",
+      "stavba vyvýšeného záhona",
+      "drevený vyvýšený záhon",
+      "výplň vyvýšeného záhona"
+    ]
+  },
+  {
+    "slug": "zahrada-v-tieni-napady-pre-menej-slnka",
+    "title": "Záhrada v tieni: čo robiť s miestom, kde je menej slnka",
+    "excerpt": "Záhrada v tieni nemusí byť problém. Nauč sa rozlíšiť suchý a vlhký tieň, vybrať vhodné rastliny a upraviť pôdu aj výsadbu.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/11-zahrada-v-tieni.svg",
+    "published_at": "2026-09-09",
+    "content_type": "blog",
+    "tags": [
+      "záhrada v tieni",
+      "rastliny do tieňa",
+      "suchý tieň",
+      "vlhký tieň",
+      "tieňový záhon",
+      "rastliny pod stromami"
+    ]
+  },
+  {
+    "slug": "zber-semien-z-vlastnej-zahrady",
+    "title": "Zber semien z vlastnej záhrady: jednoduchý systém na ďalšiu sezónu",
+    "excerpt": "Ako správne zbierať a skladovať semená zo záhrady: zrelosť, sušenie, označovanie, skladovanie a rozdiel medzi voľne opeľovanými a F1 odrodami.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/17-zber-semien.svg",
+    "published_at": "2026-09-03",
+    "content_type": "blog",
+    "tags": [
+      "zber semien",
+      "skladovanie semien",
+      "vlastné osivo",
+      "F1 hybrid",
+      "voľne opeľované odrody",
+      "semená zo záhrady"
+    ]
+  },
+  {
+    "slug": "zelene-hnojenie-na-jesen",
+    "title": "Zelené hnojenie na jeseň: čo zasiať po zbere",
+    "excerpt": "Zelené hnojenie na jeseň: čo zasiať po zbere zeleniny, ktoré druhy prezimujú a ako porast na jar správne ukončiť. Praktický návod pre záhradu.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/zelene-hnojenie-na-jesen.webp",
+    "published_at": "2026-09-20",
+    "content_type": "blog",
+    "tags": [
+      "zelené hnojenie na jeseň",
+      "zelené hnojenie",
+      "čo siať po zbere",
+      "ozimná raž",
+      "zimná vikva",
+      "ozimný bôb",
+      "ochrana pôdy"
+    ]
+  },
+  {
+    "slug": "ochrana-rastlin-pred-mrazom",
+    "title": "Ochrana rastlín pred mrazom: čo naozaj pomáha",
+    "excerpt": "Ako chrániť citlivé rastliny pred mrazom: kedy použiť netkanú textíliu, čo urobiť s nádobami a prečo neodstraňovať všetko suché lístie.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/01-kvetinace-pred-mrazom.webp",
+    "published_at": "2026-10-31T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "Záhrada",
+      "Ochrana rastlín pred mrazom"
+    ]
+  },
+  {
+    "slug": "rez-ovocnych-stromov-zakladne-principy",
+    "title": "Rez ovocných stromov: základné princípy",
+    "excerpt": "Základné princípy rezu ovocných stromov: rozlíšte jadroviny a kôstkoviny, odstráňte poškodené konáre a vyberte bezpečný termín.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/hruska-rez-koruny.webp",
+    "published_at": "2026-10-31T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "Záhrada",
+      "Rez ovocných stromov"
+    ]
+  },
+  {
+    "slug": "kompostovanie-v-zahrade-kompletny-sprievodca",
+    "title": "Kompostovanie v záhrade: kompletný sprievodca",
+    "excerpt": "Kompletný postup kompostovania: vyberte miesto, striedajte zelený a suchý materiál, udržujte vzduch a vlhkosť a spoznajte hotový kompost.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/kompost-bez-zapachu-rovnovaha-materialov.webp",
+    "published_at": "2026-10-31T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "Záhrada",
+      "Kompostovanie v záhrade"
+    ]
+  },
+  {
+    "slug": "cibuloviny-v-travniku-vysadba-a-kedy-opat-kosit",
+    "title": "Cibuľoviny v trávniku: výsadba a kedy kosiť",
+    "excerpt": "Ako vysadiť cibuľoviny do trávnika bez poškodenia cibúľ a kedy znovu kosiť: výber miesta, skupiny, hĺbka výsadby aj starostlivosť po odkvitnutí.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/01-vysadba-tulipanov.webp",
+    "published_at": "2026-10-31T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "Záhrada",
+      "Cibuľoviny v trávniku"
+    ]
+  },
+  {
+    "slug": "rastliny-na-balkon-podla-svetovych-stran",
+    "title": "Rastliny na balkón podľa svetových strán",
+    "excerpt": "Ako vybrať rastliny na balkón podľa svetových strán: zmerajte priame slnko, zohľadnite vietor a teplo pri stene a zvoľte vhodné nádoby.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/31-balkonove-pestovanie.webp",
+    "published_at": "2026-10-31T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "Záhrada",
+      "Rastliny na balkón podľa svetových strán"
     ]
   }
 ]

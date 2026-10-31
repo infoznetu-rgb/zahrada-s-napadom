@@ -37,6 +37,9 @@ jobs:
       - name: Apply curated article illustrations and card covers
         run: python3 scripts/build-article-covers.py
 
+      - name: Add article structured data to the reviewed blog shortlist
+        run: python3 scripts/build-curated-article-schema.py
+
       - name: Add public information and privacy links to all public pages
         run: node scripts/build-public-information.mjs
 
