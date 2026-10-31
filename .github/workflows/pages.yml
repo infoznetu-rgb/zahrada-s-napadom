@@ -40,7 +40,7 @@ jobs:
       - name: Add public information and privacy links to all public pages
         run: node scripts/build-public-information.mjs
 
-      - name: Hide Czech and Polish articles from search
+      - name: Hide translations and unreviewed articles from search
         run: python3 scripts/noindex-translations.py
 
       - name: Apply descriptive titles to public pages

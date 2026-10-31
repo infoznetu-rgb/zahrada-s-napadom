@@ -253,14 +253,6 @@ async function loadBlog(){
   const empty=document.querySelector("#blog-empty");
   const summary=document.querySelector("#blog-filter-summary");
 
-  const {data,error}=await blogDb.from("zahrada_posts")
-    .select("slug,title,excerpt,category,cover_url,published_at,tags,content")
-    .eq("status","published")
-    .eq("content_type","blog")
-    .neq("category","Recepty zo záhrady")
-    .order("published_at",{ascending:false})
-    .limit(300);
-
   let localPosts=[];
   try{
     const response=await fetch("/data/seo-blog-100-list.json",{cache:"no-cache"});
@@ -269,14 +261,9 @@ async function loadBlog(){
 
   const hiddenSlugs=await loadHiddenBlogSlugs();
   const visiblePost=post=>!isRecipePost(post)&&!hiddenSlugs.has(String(post?.slug||""));
-  const remotePosts=(!error&&Array.isArray(data))?data.filter(visiblePost):[];
   const staticPosts=staticBlogPosts().filter(visiblePost);
   const staticOrder=new Map(staticPosts.map((post,index)=>[post.slug,index]));
-  const merged=new Map();
-  [...remotePosts,...staticPosts,...(Array.isArray(localPosts)?localPosts.filter(visiblePost):[])].forEach(post=>{
-    if(post?.slug&&!merged.has(post.slug))merged.set(post.slug,post);
-  });
-  blogState.posts=[...merged.values()].filter(visiblePost).sort((a,b)=>{
+  const sortPosts=posts=>posts.filter(visiblePost).sort((a,b)=>{
     const aOrder=staticOrder.get(a.slug);
     const bOrder=staticOrder.get(b.slug);
     if(aOrder!==undefined||bOrder!==undefined){
@@ -286,14 +273,13 @@ async function loadBlog(){
     }
     return String(b.published_at||"").localeCompare(String(a.published_at||""));
   });
-
-  if(!blogState.posts.length){
-    if(empty)empty.hidden=false;
-    if(summary)summary.textContent="Blog sa momentálne nepodarilo načítať.";
-    return;
-  }
-
-  renderFilters();
+  const mergePosts=(...groups)=>{
+    const merged=new Map();
+    groups.flat().forEach(post=>{
+      if(post?.slug&&visiblePost(post)&&!merged.has(post.slug))merged.set(post.slug,post);
+    });
+    return sortPosts([...merged.values()]);
+  };
 
   const params=new URLSearchParams(window.location.search);
   const requested=params.get("kategoria");
@@ -302,7 +288,37 @@ async function loadBlog(){
   const clear=document.querySelector("#blog-search-clear");
   if(search)search.value=blogState.query;
   if(clear)clear.hidden=!blogState.query;
-  setCategory(requested||"Všetko",{updateUrl:false});
+
+  // Show static and curated articles before waiting for the CMS.
+  blogState.posts=mergePosts(staticPosts,Array.isArray(localPosts)?localPosts:[]);
+  if(blogState.posts.length){
+    renderFilters();
+    setCategory(requested||"Všetko",{updateUrl:false});
+  }else{
+    if(empty)empty.hidden=false;
+    if(summary)summary.textContent="Momentálne nie sú dostupné články.";
+  }
+
+  try{
+    const result=await Promise.race([
+      blogDb.from("zahrada_posts")
+        .select("slug,title,excerpt,category,cover_url,published_at,tags,content")
+        .eq("status","published")
+        .eq("content_type","blog")
+        .neq("category","Recepty zo záhrady")
+        .order("published_at",{ascending:false})
+        .limit(300),
+      new Promise(resolve=>setTimeout(()=>resolve({data:null,error:new Error("CMS request timeout")}),4500))
+    ]);
+    const remotePosts=(!result?.error&&Array.isArray(result?.data))
+      ?result.data.filter(visiblePost)
+      :[];
+    if(remotePosts.length){
+      blogState.posts=mergePosts(remotePosts,staticPosts,Array.isArray(localPosts)?localPosts:[]);
+      renderFilters();
+      setCategory(requested||"Všetko",{updateUrl:false});
+    }
+  }catch(_){}
 
   if(BLOG_RETURN_STATE){
     requestAnimationFrame(()=>requestAnimationFrame(()=>{

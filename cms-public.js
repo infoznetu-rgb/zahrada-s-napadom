@@ -144,6 +144,54 @@ async function loadPublishedPosts(){
   const blogRoot=document.querySelector("#cms-blog-home");
   if(!projectRoot&&!blogRoot)return;
 
+  if(blogRoot){
+    fetch("/data/seo-blog-100-list.json",{cache:"no-cache"})
+      .then(response=>response.ok?response.json():[])
+      .then(posts=>{
+        if(!Array.isArray(posts)||!posts.length||blogRoot.children.length)return;
+        posts.slice(0,6).forEach(post=>{
+          const href=cmsHref(post);
+          const card=document.createElement("article");
+          card.className="cms-post-card is-blog";
+          card.dataset.postSlug=String(post.slug||"");
+          card.dataset.postType="blog";
+          const imageLink=document.createElement("a");
+          imageLink.className="cms-post-image";
+          imageLink.href=href;
+          const image=document.createElement("img");
+          image.src=cmsCoverUrl(post.cover_url,post.slug);
+          image.alt=String(post.title||"");
+          image.loading="lazy";
+          image.decoding="async";
+          image.addEventListener("error",()=>{image.src="/assets/blog/fallback-cover.svg";},{once:true});
+          imageLink.append(image);
+          const body=document.createElement("div");
+          body.className="cms-post-body";
+          const tag=document.createElement("span");
+          tag.className="tag";
+          tag.textContent="BLOG · "+String(post.category||"Záhrada");
+          const heading=document.createElement("h3");
+          const titleLink=document.createElement("a");
+          titleLink.href=href;
+          titleLink.textContent=String(post.title||"Záhradný návod");
+          heading.append(titleLink);
+          const excerpt=document.createElement("p");
+          excerpt.textContent=String(post.excerpt||"");
+          const actions=document.createElement("div");
+          actions.className="cms-card-actions";
+          const readLink=document.createElement("a");
+          readLink.className="project-link";
+          readLink.href=href;
+          readLink.textContent="Čítať blog →";
+          actions.append(readLink);
+          body.append(tag,heading,excerpt,actions);
+          card.append(imageLink,body);
+          blogRoot.append(card);
+        });
+      })
+      .catch(()=>{});
+  }
+
   const {data,error}=await cms.from("zahrada_posts")
     .select("slug,title,excerpt,category,cover_url,published_at,content_type,tags")
     .eq("status","published")

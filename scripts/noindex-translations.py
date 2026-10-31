@@ -163,20 +163,65 @@ for slug in (*LOW_VALUE_SK_ARTICLES, *REVIEW_PENDING_SK_ARTICLES):
     else:
         missing_low_value.append(slug)
 
+curated_path = ROOT / "data" / "seo-blog-100-list.json"
+if not curated_path.is_file():
+    raise SystemExit("Curated article list is missing; refusing to change article indexing")
+try:
+    curated_items = json.loads(curated_path.read_text(encoding="utf-8"))
+except (OSError, json.JSONDecodeError) as error:
+    raise SystemExit(f"Could not read curated article list: {error}")
+curated_slugs = {
+    str(item.get("slug", "")).strip()
+    for item in curated_items
+    if isinstance(item, dict) and item.get("slug")
+}
+if not curated_slugs:
+    raise SystemExit("Curated article list is empty; refusing to change article indexing")
+
+all_blog_pages = sorted((ROOT / "blog").glob("*/index.html"))
+reviewed_low_value = set(low_value_pages)
+unreviewed_blog_pages = [
+    page for page in all_blog_pages
+    if page not in reviewed_low_value and page.parent.name not in curated_slugs
+]
+
 pages_to_hide = list(dict.fromkeys(translation_pages + low_value_pages))
 if not pages_to_hide:
     raise SystemExit("No Czech, Polish, or reviewed low-value pages found")
 
 hidden_routes = {page_route(path) for path in pages_to_hide}
 
-# The client-side blog archive also reads the CMS feed; share the same reviewed list.
-hidden_blog_slugs = sorted(path.parent.name for path in low_value_pages)
+# Keep the archive, CMS fallback, and search index aligned with the reviewed shortlist.
+hidden_blog_slugs = sorted({
+    path.parent.name for path in (*low_value_pages, *unreviewed_blog_pages)
+})
 (ROOT / "data" / "hidden-blog-slugs.json").write_text(
     json.dumps(hidden_blog_slugs, ensure_ascii=False, indent=2) + "\n",
     encoding="utf-8",
 )
 for path in pages_to_hide:
     redirect_page(path)
+
+# Preserve unreviewed pages for visitors, but keep them out of search results.
+for path in unreviewed_blog_pages:
+    source = path.read_text(encoding="utf-8")
+    if re.search(r"<meta\b[^>]*name\s*=\s*[\"\']robots[\"\']", source, re.IGNORECASE):
+        source = re.sub(
+            r"(<meta\b[^>]*name\s*=\s*[\"\']robots[\"\'][^>]*content\s*=\s*[\"\'])[^\"\']*",
+            r"\1" + ROBOTS,
+            source,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+    else:
+        source = re.sub(
+            r"(<head\b[^>]*>)",
+            r"\1\n  <meta name=\"robots\" content=\"" + ROBOTS + "\">",
+            source,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+    path.write_text(source, encoding="utf-8")
 
 # Remove links to redirected translations and reviewed low-value articles.
 # On the blog archive, remove complete cards so they are not left as empty text.
@@ -230,6 +275,7 @@ if missing_low_value:
 
 print(
     f"Hidden {len(translation_pages)} Czech/Polish pages and "
-    f"{len(low_value_pages)} reviewed low-value Slovak pages; "
+    f"{len(low_value_pages)} redirected low-value Slovak pages and "
+    f"{len(unreviewed_blog_pages)} unreviewed Slovak pages marked noindex; "
     f"removed {removed_sitemap_entries} matching sitemap entries."
 )
