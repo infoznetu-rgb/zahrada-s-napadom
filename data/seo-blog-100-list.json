@@ -2919,5 +2919,155 @@
       "zimná ochrana",
       "priepustná pôda"
     ]
+  },
+  {
+    "slug": "zber-a-susenie-vlasskych-orechov",
+    "title": "Zber vlašských orechov: kedy zbierať a ako ich sušiť",
+    "excerpt": "Kedy zbierať vlašské orechy? Spoznajte zrelosť podľa oplodia, očistite úrodu a vysušte orechy v jednej vrstve. Postup zberu a skladovania bez plesne.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/zber-a-susenie-vlasskych-orechov.webp",
+    "published_at": "2026-09-27",
+    "content_type": "blog",
+    "tags": [
+      "vlašské orechy",
+      "zber orechov",
+      "sušenie úrody",
+      "skladovanie"
+    ]
+  },
+  {
+    "slug": "jesenna-vysadba-ziveho-plota",
+    "title": "Jesenná výsadba živého plota: rovný rad bez slabých miest",
+    "excerpt": "Jesenná výsadba živého plota: termín podľa druhu, príprava pôdy, správna hĺbka a rozostupy podľa konečnej veľkosti sadeníc.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/jesenna-vysadba-ziveho-plota.webp",
+    "published_at": "2026-09-27",
+    "content_type": "blog",
+    "tags": [
+      "živý plot",
+      "jesenná výsadba",
+      "opadavý živý plot",
+      "vždyzelený živý plot"
+    ]
+  },
+  {
+    "slug": "uskladnenie-jablk-na-zimu",
+    "title": "Uskladnenie jabĺk na zimu bez hniloby",
+    "excerpt": "Ako uskladniť jablká na zimu: správny zber, triedenie, debničky, chlad, vlhkosť a pravidelná kontrola, aby úroda zbytočne nehnila.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/uskladnenie-jablk-na-zimu.webp",
+    "published_at": "2026-09-23",
+    "content_type": "blog",
+    "tags": [
+      "jablká",
+      "skladovanie úrody",
+      "zber ovocia",
+      "ovocná záhrada"
+    ]
+  },
+  {
+    "slug": "ochrana-zeleniny-pred-prvym-mrazom",
+    "title": "Ochrana zeleniny pred prvým mrazom",
+    "excerpt": "Ako ochrániť zeleninu pred prvým mrazom: čo prikryť, čo zožať, ako použiť netkanú textíliu a prečo fólia nesmie ležať na listoch.",
+    "category": "Zeleninová záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-zeleniny-pred-prvym-mrazom.webp",
+    "published_at": "2026-09-23",
+    "content_type": "blog",
+    "tags": [
+      "ochrana pred mrazom",
+      "netkaná textília",
+      "jesenná zelenina",
+      "záhon"
+    ]
+  },
+  {
+    "slug": "vysadba-rebarbory-na-jesen",
+    "title": "Ako vysadiť rebarboru na jeseň, aby vytvorila silný trs",
+    "excerpt": "Výsadba rebarbory na jeseň krok za krokom: stanovište, pôda, rozstup, správna hĺbka púčikov a starostlivosť po vysadení bez oslabenia rastliny.",
+    "category": "Zeleninová záhrada",
+    "cover_url": "/assets/blog/08-vysadba-rebarbory.webp",
+    "published_at": "2026-10-07",
+    "content_type": "blog",
+    "tags": [
+      "rebarbora",
+      "jesenná výsadba",
+      "zeleninová záhrada",
+      "zber rebarbory"
+    ]
+  },
+  {
+    "slug": "jesenna-vysadba-ruzi",
+    "title": "Jesenná výsadba ruží: postup pre zdravý štart",
+    "excerpt": "Praktický postup jesennej výsadby ruží: výber miesta, príprava koreňov, správna hĺbka, zálievka a ochrana novej rastliny pred zimou, aj v ťažšej pôde.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/jesenna-vysadba-ruzi.webp",
+    "published_at": "2026-09-27",
+    "content_type": "blog",
+    "tags": [
+      "ruže",
+      "výsadba ruží",
+      "voľnokorenné ruže",
+      "okrasná záhrada"
+    ]
+  },
+  {
+    "slug": "vysadba-brusnic-v-zahrade",
+    "title": "Výsadba brusníc v záhrade: kyslá pôda a správne miesto",
+    "excerpt": "Brusnice potrebujú kyslý, humózny a rovnomerne vlhký záhon bez vápna. Praktický návod na výsadbu, mulčovanie, zálievku a výber správneho miesta.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/05-vysadba-brusnic.webp",
+    "published_at": "2026-10-05",
+    "content_type": "blog",
+    "tags": [
+      "brusnica obyčajná",
+      "kyslá pôda",
+      "kyslomilné rastliny",
+      "ovocné kry"
+    ]
+  },
+  {
+    "slug": "pristresok-pre-jezka-na-zimu",
+    "title": "Prístrešok pre ježka na zimu: bezpečné miesto v záhrade",
+    "excerpt": "Prístrešok pre ježka umiestnite do tichého suchého kúta, s tunelovým vstupom a prirodzeným krytím. Ako pomôcť bez rušenia zimujúceho zvieraťa.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/pristresok-pre-jezka-na-zimu.webp",
+    "published_at": "2026-10-05",
+    "content_type": "blog",
+    "tags": [
+      "ježko",
+      "zimný úkryt",
+      "záhrada pre živočíchy",
+      "bezpečná záhrada"
+    ]
+  },
+  {
+    "slug": "ochrana-figovnika-pred-zimou",
+    "title": "Ako ochrániť figovník pred zimou bez zaparenia",
+    "excerpt": "Ochrana figovníka pred zimou: zálievka, mulč pri koreňoch, priedušný obal a správny čas zakrytia podľa odrody, veku a miestnej polohy.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/08-ochrana-figovnika.webp",
+    "published_at": "2026-10-07",
+    "content_type": "blog",
+    "tags": [
+      "figovník",
+      "zimná ochrana",
+      "mráz",
+      "ovocné dreviny"
+    ]
+  },
+  {
+    "slug": "zazimovanie-brugmansie",
+    "title": "Ako zazimovať brugmansiu bez hniloby a predčasného rastu",
+    "excerpt": "Zazimovanie brugmansie krok za krokom: kedy ju preniesť, kam ju uložiť, ako obmedziť zálievku, či ju rezať a ako kontrolovať škodcov.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/09-zazimovanie-brugmansie.webp",
+    "published_at": "2026-10-07",
+    "content_type": "blog",
+    "tags": [
+      "brugmansia",
+      "anjelská trúba",
+      "prezimovanie rastlín",
+      "jedovaté rastliny"
+    ]
   }
 ]
