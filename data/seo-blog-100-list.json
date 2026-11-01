@@ -2349,5 +2349,155 @@
       "opeľovanie",
       "jesenná výsadba"
     ]
+  },
+  {
+    "slug": "zber-a-skladovanie-tekvic",
+    "title": "Zber a skladovanie tekvíc: kedy sú zrelé | Záhrada s nápadom",
+    "excerpt": "Zistite, kedy zbierať tekvice a ako ich dosušiť a skladovať. Praktické znaky zrelosti, správne rezanie stopky a ochrana pred hnilobou.",
+    "category": "Zelenina",
+    "cover_url": "/assets/blog/ai-2026-10/zber-a-skladovanie-tekvic.webp",
+    "published_at": "2026-09-23",
+    "content_type": "blog",
+    "tags": [
+      "tekvice",
+      "zber úrody",
+      "skladovanie",
+      "zimná zelenina"
+    ]
+  },
+  {
+    "slug": "ochrana-mladych-stromcekov-pred-ohryzom",
+    "title": "Ochrana stromčekov pred ohryzom v zime | Záhrada s nápadom",
+    "excerpt": "Ako ochrániť mladé ovocné stromčeky pred zajacmi, králikmi a hlodavcami. Výber chrániča, správna montáž a zimná kontrola.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-mladych-stromcekov-pred-ohryzom.webp",
+    "published_at": "2026-09-28",
+    "content_type": "blog",
+    "tags": [
+      "mladé stromčeky",
+      "ochrana kmeňa",
+      "zver",
+      "zima"
+    ]
+  },
+  {
+    "slug": "zazimovanie-vonkajsieho-kohutika",
+    "title": "Zazimovanie vonkajšieho kohútika: postup pred mrazom | Záhrada s nápadom",
+    "excerpt": "Odpojte hadicu, uzavrite prívod a vypustite vonkajší kohútik pred mrazom. Praktický postup pre bežný aj nezámrzný ventil zníži riziko škôd. Bezpečne.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/27-zazimovanie-vonkajsieho-kohutika.webp",
+    "published_at": "2026-09-27",
+    "content_type": "blog",
+    "tags": [
+      "vonkajší kohútik",
+      "voda",
+      "mráz",
+      "zazimovanie"
+    ]
+  },
+  {
+    "slug": "ochrana-terakotovych-kvetinacov-pred-mrazom",
+    "title": "Ochrana terakotových kvetináčov pred zimným mrazom | Záhrada s nápadom",
+    "excerpt": "Terakota môže v zime prasknúť nasiaknutou vodou. Naučte sa nádoby vyčistiť, vysušiť, správne uložiť a zachovať voľný odtok pri ťažkých črepníkoch.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-terakotovych-kvetinacov-pred-mrazom.webp",
+    "published_at": "2026-10-01",
+    "content_type": "blog",
+    "tags": [
+      "terakota",
+      "kvetináče",
+      "mráz",
+      "odtok vody"
+    ]
+  },
+  {
+    "slug": "zazimovanie-jazierkoveho-cerpadla",
+    "title": "Jazierkové čerpadlo v zime: vybrať alebo ponechať?",
+    "excerpt": "Zazimovanie jazierkového čerpadla podľa hĺbky, typu a návodu: bezpečné odpojenie, čistenie, skladovanie a ochrana hadíc pred mrazom.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/10-jazierkove-cerpadlo.webp",
+    "published_at": "2026-10-10T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "jazierkové čerpadlo",
+      "zazimovanie",
+      "mráz",
+      "údržba"
+    ]
+  },
+  {
+    "slug": "ochrana-sklenika-pred-snehom",
+    "title": "Skleník pred snehom: kontrola konštrukcie a strechy",
+    "excerpt": "Ochrana skleníka pred snehom začína kontrolou spojov, panelov, dverí a odkvapov. Pozrite si bezpečný postup pred zimným vetrom a mokrým snehom.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/10-sklenik-pred-snehom.webp",
+    "published_at": "2026-10-10T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "skleník",
+      "sneh",
+      "zimná údržba",
+      "bezpečnosť"
+    ]
+  },
+  {
+    "slug": "jesenna-vysadba-cibule-zo-sadzacky",
+    "title": "Jesenná výsadba cibule: sadzačka bez zimnej hniloby | Záhrada s nápadom",
+    "excerpt": "Jesenná výsadba cibule zo sadzačky: vhodná odroda, termín, priepustný záhon, správna hĺbka a ochrana pred vytiahnutím mrazom alebo vtákmi.",
+    "category": "Zelenina",
+    "cover_url": "/assets/blog/ai-2026-10/jesenna-vysadba-cibule-zo-sadzacky.webp",
+    "published_at": "2026-10-02",
+    "content_type": "blog",
+    "tags": [
+      "cibuľa",
+      "sadzačka",
+      "jesenná výsadba",
+      "záhon"
+    ]
+  },
+  {
+    "slug": "zazimovanie-zahradneho-jazierka",
+    "title": "Zazimovanie záhradného jazierka krok za krokom | Záhrada s nápadom",
+    "excerpt": "Zazimovanie záhradného jazierka bez chýb: lístie, rastliny, čerpadlo, ryby a voľná hladina. Postup podľa hĺbky a vybavenia jazierka.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/04-zazimovanie-jazierka.webp",
+    "published_at": "2026-09-23",
+    "content_type": "blog",
+    "tags": [
+      "jazierko",
+      "ryby",
+      "zima",
+      "vodné rastliny"
+    ]
+  },
+  {
+    "slug": "zazimovanie-zahradneho-nabytku",
+    "title": "Zazimovanie záhradného nábytku podľa materiálu",
+    "excerpt": "Zazimovanie dreveného, kovového, plastového aj ratanového nábytku: čistenie, vysušenie, ochranný náter a správne vetrané skladovanie.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/08-zazimovanie-nabytku.webp",
+    "published_at": "2026-10-08T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "záhradný nábytok",
+      "zima",
+      "drevo",
+      "údržba"
+    ]
+  },
+  {
+    "slug": "zazimovanie-zavlahoveho-systemu",
+    "title": "Zazimovanie zavlažovacieho systému bezpečne | Záhrada s nápadom",
+    "excerpt": "Ako zazimovať zavlažovací systém: uzavretie vody, vypustenie potrubia, ventily, filtre, čerpadlo a kvapková závlaha bez poškodenia mrazom.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/09-zazimovanie-zavlahy.webp",
+    "published_at": "2026-09-23",
+    "content_type": "blog",
+    "tags": [
+      "zavlažovanie",
+      "mráz",
+      "vypustenie vody",
+      "údržba"
+    ]
   }
 ]
