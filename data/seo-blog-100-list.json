@@ -3069,5 +3069,155 @@
       "prezimovanie rastlín",
       "jedovaté rastliny"
     ]
+  },
+  {
+    "slug": "zazimovanie-robotickej-kosacky",
+    "title": "Zazimovanie robotickej kosačky: čistenie a skladovanie",
+    "excerpt": "Robotickú kosačku pred zimou vyčistite, skontrolujte nože, batériu a nabíjaciu stanicu. Bezpečný postup vždy prispôsobte návodu výrobcu.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/05-roboticka-kosacka.webp",
+    "published_at": "2026-10-05",
+    "content_type": "blog",
+    "tags": [
+      "robotická kosačka",
+      "zimná údržba",
+      "batéria",
+      "záhradná technika"
+    ]
+  },
+  {
+    "slug": "jesenna-vysadba-malin",
+    "title": "Jesenná výsadba malín: postup od koreňov po prvý rez",
+    "excerpt": "Jesenná výsadba malín krok za krokom: výber miesta, rozloženie koreňov, správna hĺbka, rozstupy, opora, zálievka a prvý rez podľa sadenice.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/jesenna-vysadba-malin.webp",
+    "published_at": "2026-10-02",
+    "content_type": "blog",
+    "tags": [
+      "maliny",
+      "jesenná výsadba",
+      "ovocné kry",
+      "rez malín"
+    ]
+  },
+  {
+    "slug": "zimny-zber-pastiernaka",
+    "title": "Zimný zber paštrnáka: ochrana v pôde a presný postup",
+    "excerpt": "Zimný zber paštrnáka: kedy nechať korene v pôde, ako označiť riadok, chrániť záhon pred premrznutím a zberať bez polámania koreňov.",
+    "category": "Zeleninová záhrada",
+    "cover_url": "/assets/blog/03-zimny-zber-pastiernaka.webp",
+    "published_at": "2026-10-03",
+    "content_type": "blog",
+    "tags": [
+      "paštrnák",
+      "zimný zber",
+      "koreňová zelenina",
+      "mulčovanie"
+    ]
+  },
+  {
+    "slug": "cistenie-vtacej-budky-na-jesen",
+    "title": "Čistenie vtáčej búdky na jeseň: bezpečný postup",
+    "excerpt": "Kedy otvoriť vtáčiu búdku, ako odstrániť staré hniezdo, vyčistiť vnútro bez agresívnej chémie a skontrolovať upevnenie, a pritom neohroziť vtáky.",
+    "category": "Praktické nápady",
+    "cover_url": "/assets/blog/ai-2026-10/cistenie-vtacej-budky-na-jesen.webp",
+    "published_at": "2026-09-27",
+    "content_type": "blog",
+    "tags": [
+      "vtáčia búdka",
+      "čistenie búdky",
+      "vtáky v záhrade",
+      "jesenná údržba"
+    ]
+  },
+  {
+    "slug": "vysadba-cucoriedok-na-jesen",
+    "title": "Výsadba čučoriedok na jeseň: rozhoduje kyslá pôda",
+    "excerpt": "Jesenná výsadba čučoriedok: zmerajte pH, pripravte kyslú pôdu v celej koreňovej zóne, vyberte správne stanovište a naplánujte zálievku.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/28-vysadba-cucoriedok-na-jesen.webp",
+    "published_at": "2026-09-28",
+    "content_type": "blog",
+    "tags": [
+      "čučoriedky",
+      "kyslá pôda",
+      "výsadba čučoriedok",
+      "ovocné kry"
+    ]
+  },
+  {
+    "slug": "opory-pre-paradajky-z-konarov",
+    "title": "Jednoduché opory pre paradajky a fazuľu z rovných konárov",
+    "excerpt": "Jednoduché opory z konárov pre paradajky a fazuľu: výber materiálu, osadenie, viazanie, stabilita a chyby, ktorým sa vyhnúť.",
+    "category": "Zeleninová záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/opory-pre-paradajky-z-konarov.webp",
+    "published_at": "2026-09-12",
+    "content_type": "blog",
+    "tags": [
+      "opory pre paradajky",
+      "konáre",
+      "popínavá fazuľa",
+      "záhradné projekty"
+    ]
+  },
+  {
+    "slug": "male-pestovanie-na-balkone",
+    "title": "Malé pestovanie na balkóne: začni tromi nádobami, nie dvadsiatimi",
+    "excerpt": "Ako začať s pestovaním na balkóne: svetlo, vietor, nosnosť, nádoby, drenáž, zálievka a vhodná zelenina či bylinky pre začiatočníka.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/male-pestovanie-na-balkone.webp",
+    "published_at": "2026-08-20",
+    "content_type": "blog",
+    "tags": [
+      "pestovanie na balkóne",
+      "zelenina v nádobách",
+      "bylinky",
+      "zálievka"
+    ]
+  },
+  {
+    "slug": "skladovanie-osiva-cez-zimu",
+    "title": "Skladovanie osiva cez zimu: sucho, chlad a poriadok",
+    "excerpt": "Správne skladovanie osiva cez zimu chráni klíčivosť pred vlhkosťou a teplom. Postup sušenia, označenia, balenia a jednoduchej skúšky klíčivosti.",
+    "category": "Semená a výsevy",
+    "cover_url": "/assets/blog/ai-2026-10/skladovanie-osiva-cez-zimu.webp",
+    "published_at": "2026-10-02",
+    "content_type": "blog",
+    "tags": [
+      "skladovanie osiva",
+      "semená",
+      "sušenie semien",
+      "výsev"
+    ]
+  },
+  {
+    "slug": "sadenie-narcisov-na-jesen",
+    "title": "Sadenie narcisov na jeseň: ako trafiť hĺbku aj termín",
+    "excerpt": "Ako sadiť narcisy na jeseň: termín, hĺbka podľa veľkosti cibule, priepustná pôda, rozostupy a starostlivosť po odkvitnutí.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/sadenie-narcisov-na-jesen.webp",
+    "published_at": "2026-09-27",
+    "content_type": "blog",
+    "tags": [
+      "narcisy",
+      "cibuľoviny",
+      "jesenná výsadba",
+      "jarné kvety"
+    ]
+  },
+  {
+    "slug": "co-s-opadanym-listim",
+    "title": "Čo s opadaným lístím? 7 spôsobov, ako ho využiť v záhrade",
+    "excerpt": "Čo urobiť s opadaným lístím: listovka, mulč, úkryt pre živočíchy a bezpečné čistenie trávnika, chodníkov a odtokov.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/co-s-opadanym-listim.webp",
+    "published_at": "2026-09-25",
+    "content_type": "blog",
+    "tags": [
+      "opadané lístie",
+      "listovka",
+      "mulčovanie",
+      "živočíchy v záhrade"
+    ]
   }
 ]
