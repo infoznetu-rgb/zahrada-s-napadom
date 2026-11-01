@@ -2499,5 +2499,155 @@
       "vypustenie vody",
       "údržba"
     ]
+  },
+  {
+    "slug": "vysadba-liesky-na-jesen",
+    "title": "Výsadba liesky na jeseň: miesto, rozostup a postup",
+    "excerpt": "Výsadba liesky na jeseň krok za krokom: výber miesta, opeľovanie, správna hĺbka, zálievka a ochrana koreňov počas prvej zimy v záhrade. krok za krokom.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/03-vysadba-liesky.webp",
+    "published_at": "2026-10-03",
+    "content_type": "blog",
+    "tags": [
+      "lieska",
+      "jesenná výsadba",
+      "orechy",
+      "ovocné kry"
+    ]
+  },
+  {
+    "slug": "zazimovanie-agapantu-v-crepniku",
+    "title": "Zazimovanie agapantu v črepníku: svetlo, chlad a voda",
+    "excerpt": "Zazimovanie agapantu závisí od typu rastliny. Zistite, kedy ho preniesť, aké svetlo a teplotu potrebuje a ako obmedziť zálievku bez hniloby.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/05-zazimovanie-agapantu.webp",
+    "published_at": "2026-10-05",
+    "content_type": "blog",
+    "tags": [
+      "agapant",
+      "črepník",
+      "prezimovanie",
+      "zimná ochrana"
+    ]
+  },
+  {
+    "slug": "ochrana-spenatu-pred-mrazom",
+    "title": "Ochrana špenátu pred mrazom: textília a nízky tunel | Záhrada s nápadom",
+    "excerpt": "Špenát chráňte pred silným mrazom ľahkou netkanou textíliou alebo nízkym tunelom. Kryt nesmie porast stláčať a počas miernych dní ho vetrajte. Praktický postup pre slovenské záhrady.",
+    "category": "Zelenina",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-spenatu-pred-mrazom.webp",
+    "published_at": "2026-09-30",
+    "content_type": "blog",
+    "tags": [
+      "špenát",
+      "mráz",
+      "netkaná textília",
+      "zimná zelenina"
+    ]
+  },
+  {
+    "slug": "prikrmovanie-vtakov-v-zime",
+    "title": "Prikrmovanie vtákov v zime: krmivo, hygiena a miesto | Záhrada s nápadom",
+    "excerpt": "Čím bezpečne prikrmovať vtáky v záhrade, kam umiestniť kŕmidlo, ako ho čistiť a prečo vynechať slané jedlá, pečivo a pokazené krmivo. Bez zbytočných chýb.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/prikrmovanie-vtakov-v-zime.webp",
+    "published_at": "2026-10-01",
+    "content_type": "blog",
+    "tags": [
+      "vtáky",
+      "kŕmidlo",
+      "zimné kŕmenie",
+      "hygiena"
+    ]
+  },
+  {
+    "slug": "vysadba-cernic-na-jesen",
+    "title": "Výsadba černíc na jeseň: opora, rez a starostlivosť",
+    "excerpt": "Ako vysadiť černice na jeseň: slnečné miesto, priepustná pôda, pevná opora, správna hĺbka výsadby, zálievka a ochrana pred prvou zimou. krok za krokom.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/03-vysadba-cernic.webp",
+    "published_at": "2026-10-03",
+    "content_type": "blog",
+    "tags": [
+      "černice",
+      "výsadba",
+      "opora",
+      "jesenné práce"
+    ]
+  },
+  {
+    "slug": "zazimovanie-citrusov-v-crepniku",
+    "title": "Zazimovanie citrusov v črepníku: svetlo a zálievka | Záhrada s nápadom",
+    "excerpt": "Ako zazimovať citrónovník a ďalšie citrusy: vhodné svetlo, chladnejšia teplota, zálievka, kontrola škodcov a bezpečný návrat von na jar. Bez zbytočných chýb.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/01-zazimovanie-citrusov.webp",
+    "published_at": "2026-10-01",
+    "content_type": "blog",
+    "tags": [
+      "citrusy",
+      "črepník",
+      "prezimovanie",
+      "zálievka"
+    ]
+  },
+  {
+    "slug": "kontrola-uskladnenej-urody",
+    "title": "Kontrola uskladnenej úrody: ako zastaviť hnilobu",
+    "excerpt": "Kontrola uskladnenej úrody odhalí hnilobu skôr, než sa rozšíri. Zistite, ako triediť jablká, zemiaky a koreňovú zeleninu a vetrať sklad.",
+    "category": "Zelenina",
+    "cover_url": "/assets/blog/10-kontrola-urody.webp",
+    "published_at": "2026-10-10T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "skladovanie úrody",
+      "ovocie",
+      "zelenina",
+      "kontrola"
+    ]
+  },
+  {
+    "slug": "zber-chrenu-na-jesen",
+    "title": "Zber chrenu na jeseň: korene bez zbytočného lámania | Záhrada s nápadom",
+    "excerpt": "Zber chrenu na jeseň a začiatkom zimy: bezpečné vybratie dlhých koreňov, výber sadby, obmedzenie šírenia a krátkodobé uchovanie úrody v chlade.",
+    "category": "Zelenina",
+    "cover_url": "/assets/blog/01-zber-chrenu.webp",
+    "published_at": "2026-10-02",
+    "content_type": "blog",
+    "tags": [
+      "chren",
+      "zber koreňov",
+      "jesenná úroda",
+      "pestovanie"
+    ]
+  },
+  {
+    "slug": "zazimovanie-oleandra",
+    "title": "Zazimovanie oleandra: svetlo, teplota a zálievka | Záhrada s nápadom",
+    "excerpt": "Ako zazimovať oleander bez opadávania a škodcov. Kedy ho preniesť, aké svetlo a teplotu zvoliť a ako obmedziť zálievku.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/28-zazimovanie-oleandra.webp",
+    "published_at": "2026-09-28",
+    "content_type": "blog",
+    "tags": [
+      "oleander",
+      "prezimovanie",
+      "mráz",
+      "črepník"
+    ]
+  },
+  {
+    "slug": "zazimovanie-jahodoveho-zahona",
+    "title": "Zazimovanie jahôd: ochrana záhona pred mrazom a hnilobou | Záhrada s nápadom",
+    "excerpt": "Pripravte jahodový záhon na zimu bez poškodenia srdiečok. Kedy odstrániť choré listy, mulčovať, poliať a zakryť rastliny, podľa polohy a typu výsadby.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/27-zazimovanie-jahodoveho-zahona.webp",
+    "published_at": "2026-09-27",
+    "content_type": "blog",
+    "tags": [
+      "jahody",
+      "zazimovanie",
+      "mulčovanie",
+      "mráz"
+    ]
   }
 ]
