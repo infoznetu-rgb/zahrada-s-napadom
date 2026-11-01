@@ -2799,5 +2799,125 @@
       "akumulátor",
       "zimné skladovanie"
     ]
+  },
+  {
+    "slug": "zimne-vetranie-sklenika",
+    "title": "Ako vetrať skleník v zime bez prudkého ochladenia",
+    "excerpt": "Zimné vetranie skleníka znižuje kondenzáciu a riziko plesní. Zistite, kedy otvoriť strešné okno, čo sledovať a kedy radšej skleník vôbec nevetrať.",
+    "category": "Skleník",
+    "cover_url": "/assets/blog/09-vetranie-sklenika.webp",
+    "published_at": "2026-10-07",
+    "content_type": "blog",
+    "tags": [
+      "vetranie skleníka",
+      "kondenzácia",
+      "zimná údržba",
+      "plesne v skleníku"
+    ]
+  },
+  {
+    "slug": "vysadba-muchovnika-na-jesen",
+    "title": "Ako vysadiť muchovník na jeseň, aby sa dobre zakorenil",
+    "excerpt": "Výsadba muchovníka na jeseň krok za krokom: miesto, pôda, hĺbka, zálievka aj rozstupy, aby sa ker bezpečne zakorenil pred zimou bez zbytočných chýb.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/01-vysadba-muchovnika.webp",
+    "published_at": "2026-10-07",
+    "content_type": "blog",
+    "tags": [
+      "muchovník",
+      "jesenná výsadba",
+      "ovocné kry",
+      "zakorenenie"
+    ]
+  },
+  {
+    "slug": "vysadba-moruse-na-jesen",
+    "title": "Jesenná výsadba moruše bez neskoršieho presádzania",
+    "excerpt": "Ako vysadiť morušu na jeseň: vyberte dostatok priestoru, slnečné miesto, správnu hĺbku a oporu, aby mladý strom bezpečne prešiel prvou zimou.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/09-vysadba-moruse.webp",
+    "published_at": "2026-10-09",
+    "content_type": "blog",
+    "tags": [
+      "moruša",
+      "výsadba stromu",
+      "ovocná záhrada",
+      "jesenná výsadba"
+    ]
+  },
+  {
+    "slug": "vysadba-josty-na-jesen",
+    "title": "Ako vysadiť jostu na jeseň pre silný a vzdušný ker",
+    "excerpt": "Výsadba josty na jeseň: vhodné miesto, priestranný rozostup, správna hĺbka, zálievka a prvý rez pre zdravý ker a pravidelnú úrodu.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/09-vysadba-josty.webp",
+    "published_at": "2026-10-09",
+    "content_type": "blog",
+    "tags": [
+      "josta",
+      "ovocné kry",
+      "jesenná výsadba",
+      "rez josty"
+    ]
+  },
+  {
+    "slug": "ochrana-magnolie-pred-zimou",
+    "title": "Ochrana magnólie pred zimou: mulč, voda a textília",
+    "excerpt": "Ako pripraviť magnóliu na zimu: kedy mulčovať koreňovú zónu, ako zalievať počas suchého jesene a kedy použiť vzdušnú textíliu.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-magnolie-pred-zimou.webp",
+    "published_at": "2026-10-03",
+    "content_type": "blog",
+    "tags": [
+      "magnólia",
+      "zimná ochrana rastlín",
+      "mulčovanie",
+      "mráz"
+    ]
+  },
+  {
+    "slug": "skladovanie-korenovej-zeleniny",
+    "title": "Skladovanie koreňovej zeleniny cez zimu",
+    "excerpt": "Ako skladovať mrkvu, petržlen a cviklu cez zimu: šetrný zber, triedenie, úprava vňate, debničky, vlhkosť a pravidelná kontrola.",
+    "category": "Úroda a skladovanie",
+    "cover_url": "/assets/blog/ai-2026-10/skladovanie-korenovej-zeleniny.webp",
+    "published_at": "2026-09-23",
+    "content_type": "blog",
+    "tags": [
+      "skladovanie koreňovej zeleniny",
+      "mrkva",
+      "petržlen",
+      "cvikla"
+    ]
+  },
+  {
+    "slug": "delenie-trvaliek-na-jesen",
+    "title": "Delenie trvaliek na jeseň: postup bez strát",
+    "excerpt": "Ktoré trvalky deliť na jeseň a ako postupovať: príprava, rozdelenie koreňov, rozostupy, zálievka a chyby, ktoré brzdia ujatie rastlín.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/delenie-trvaliek-na-jesen.webp",
+    "published_at": "2026-09-23",
+    "content_type": "blog",
+    "tags": [
+      "delenie trvaliek",
+      "jesenné práce",
+      "presádzanie",
+      "okrasná záhrada"
+    ]
+  },
+  {
+    "slug": "salvia-na-jesen",
+    "title": "Ako pripraviť šalviu lekársku na mokrú a mrazivú zimu",
+    "excerpt": "Šalvia na jeseň potrebuje najmä priepustnú pôdu a striedmy rez. Zistite, kedy zberať, prečo ju nerezať hlboko a ako chrániť korene pred vlhkom.",
+    "category": "Bylinky",
+    "cover_url": "/assets/blog/09-salvia-na-jesen.webp",
+    "published_at": "2026-10-09",
+    "content_type": "blog",
+    "tags": [
+      "šalvia lekárska",
+      "bylinky",
+      "zimná ochrana",
+      "priepustná pôda"
+    ]
   }
 ]
