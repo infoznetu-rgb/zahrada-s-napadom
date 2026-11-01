@@ -3379,5 +3379,165 @@
       "uloženie záhradnej hadice",
       "záhradná hadica v zime"
     ]
+  },
+  {
+    "slug": "bielenie-kmenov-ovocnych-stromov",
+    "title": "Bielenie kmeňov ovocných stromov pred zimným slnkom",
+    "excerpt": "Kedy môže svetlý náter alebo chránič pomôcť mladým ovocným stromom proti zimnému slnku, ako pripraviť zdravú kôru a ktorým chybám sa vyhnúť.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/bielenie-kmenov-ovocnych-stromov.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "bielenie kmeňov stromov",
+      "zimné poškodenie kôry",
+      "ochrana mladých stromov",
+      "zimné slnko",
+      "ovocné stromy"
+    ]
+  },
+  {
+    "slug": "cistenie-kvetinacov-pred-zimou",
+    "title": "Čistenie kvetináčov pred zimou bez poškodenia nádob",
+    "excerpt": "Ako očistiť terakotové a plastové kvetináče po sezóne, odstrániť starý substrát a uložiť ich tak, aby ich voda a mráz nepoškodili.",
+    "category": "Záhradné práce",
+    "cover_url": "/assets/blog/ai-2026-10/cistenie-kvetinacov-pred-zimou.webp",
+    "published_at": "2026-09-29T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "čistenie kvetináčov",
+      "kvetináče pred zimou",
+      "terakota v zime",
+      "skladovanie nádob",
+      "kvetináč odtok"
+    ]
+  },
+  {
+    "slug": "cistenie-odkvapov-na-jesen",
+    "title": "Čistenie odkvapov na jeseň: bezpečný postup",
+    "excerpt": "Upchaté odkvapy môžu odvádzať vodu k fasáde. Skontrolujte ich po opade lístia, bezpečne vyčistite zo zeme a prácu vo výške prenechajte odborníkovi.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/cistenie-odkvapov-na-jesen.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "čistenie odkvapov",
+      "odkvapy pred zimou",
+      "čistenie zvodov",
+      "údržba domu na jeseň",
+      "bezpečnosť pri práci vo výške"
+    ]
+  },
+  {
+    "slug": "cucoriedky-pred-zimou",
+    "title": "Ako pripraviť čučoriedky na zimu bez poškodenia kra",
+    "excerpt": "Čučoriedkam pred zimou skontrolujte vlahu a kyslý mulč. Odlišujte starostlivosť o krík v záhone a nádobe a nehnojte ho neskoro dusíkom.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/09-cucoriedky-pred-zimou.webp",
+    "published_at": "2026-10-09T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "čučoriedky pred zimou",
+      "zazimovanie čučoriedok",
+      "pestovanie čučoriedok",
+      "kyslý mulč",
+      "čučoriedky v nádobe"
+    ]
+  },
+  {
+    "slug": "kontrola-predlzovacieho-kabla-pred-zimou",
+    "title": "Záhradný predlžovací kábel: kontrola a zimné skladovanie",
+    "excerpt": "Ako po sezóne bezpečne skontrolovať predlžovací kábel, rozpoznať poškodenie, vhodne ho vysušiť a uložiť. Poškodený kábel ďalej nepoužívajte.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/ai-2026-10/kontrola-predlzovacieho-kabla-pred-zimou.webp",
+    "published_at": "2026-10-05T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "záhradný predlžovací kábel",
+      "kontrola kábla",
+      "vonkajší predlžovací kábel",
+      "bezpečnosť elektriny v záhrade",
+      "skladovanie kábla"
+    ]
+  },
+  {
+    "slug": "pestovanie-chrenu-v-zahrade",
+    "title": "Pestovanie chrenu v záhrade bez nekontrolovaného šírenia",
+    "excerpt": "Ako pestovať chren z koreňových odrezkov a obmedziť jeho šírenie samostatným záhonom alebo veľkou nádobou. Zberajte len to, čo viete bezpečne vybrať.",
+    "category": "Zeleninová záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/pestovanie-chrenu-v-zahrade.webp",
+    "published_at": "2026-09-29T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "pestovanie chrenu",
+      "chren v záhrade",
+      "výsadba chrenu",
+      "chren v nádobe",
+      "zber chrenu"
+    ]
+  },
+  {
+    "slug": "zazimovanie-suda-na-dazdovu-vodu",
+    "title": "Zazimovanie suda na dažďovú vodu bez prasknutia",
+    "excerpt": "Pred mrazmi vypustite nádobu aj príslušenstvo podľa návodu výrobcu. Skontrolujte ventil, filter, zberač a hadice; prenosný sud uložte tak, aby sa znovu nenaplnil.",
+    "category": "Voda a závlaha",
+    "cover_url": "/assets/blog/27-zazimovanie-suda-na-dazdovu-vodu.webp",
+    "published_at": "2026-09-27T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "zazimovanie suda na dažďovú vodu",
+      "sud na dažďovú vodu v zime",
+      "vypustenie suda",
+      "ochrana pred mrazom",
+      "odpojenie zberača"
+    ]
+  },
+  {
+    "slug": "uskladnenie-gladiolovych-hluz",
+    "title": "Uskladnenie gladiolových hľúz bez plesní a vyschnutia",
+    "excerpt": "Kedy gladioly pred mrazmi vybrať, ako ich šetrne očistiť a vysušiť, oddeliť poškodené kusy a uskladniť v chladnom bezmrazovom priestore.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/uskladnenie-gladiolovych-hluz.webp",
+    "published_at": "2026-10-01T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "uskladnenie gladiolov",
+      "gladioly pred zimou",
+      "hľuzy gladiolov",
+      "zimovanie cibúľ a hľúz",
+      "gladioly na jar"
+    ]
+  },
+  {
+    "slug": "kompost-na-zimu",
+    "title": "Kompost na zimu: vlhkosť, vzduch a prikrytie",
+    "excerpt": "Ako pripraviť kompost na zimu bez premokrenia a zápachu: vyrovnajte zelený a suchý materiál, skontrolujte vlhkosť a chráňte kopu pred vytrvalým dažďom.",
+    "category": "Pôda a kompost",
+    "cover_url": "/assets/blog/ai-2026-10/kompost-na-zimu.webp",
+    "published_at": "2026-09-28T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "kompost na zimu",
+      "kompostovanie v zime",
+      "vlhkosť kompostu",
+      "prikrytie kompostu",
+      "hnedý a zelený materiál"
+    ]
+  },
+  {
+    "slug": "uskladnenie-zahradneho-nabytku",
+    "title": "Uskladnenie záhradného nábytku: drevo, kov aj textil",
+    "excerpt": "Ako pripraviť drevený, kovový a plastový nábytok aj podušky na zimu: očistite ich podľa materiálu, nechajte vyschnúť a skladujte bez uzavretia zvyšnej vlhkosti.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/uskladnenie-zahradneho-nabytku.webp",
+    "published_at": "2026-09-27T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "uskladnenie záhradného nábytku",
+      "záhradný nábytok na zimu",
+      "ochrana dreveného nábytku",
+      "kovový nábytok pred zimou",
+      "skladovanie podušiek"
+    ]
   }
 ]
