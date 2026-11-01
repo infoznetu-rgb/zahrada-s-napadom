@@ -3219,5 +3219,165 @@
       "mulčovanie",
       "živočíchy v záhrade"
     ]
+  },
+  {
+    "slug": "uskladnenie-georginovych-hluz",
+    "title": "Uskladnenie georgín: hľuzy bez plesne a vyschnutia",
+    "excerpt": "Ako vybrať georgínové hľuzy po prvom mraze, bezpečne ich očistiť a vysušiť, správne uložiť a kontrolovať až do jarnej výsadby.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/08-uskladnenie-georgin.webp",
+    "published_at": "2026-10-08T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "uskladnenie georgín",
+      "georgínové hľuzy",
+      "georgíny pred zimou",
+      "skladovanie hľúz",
+      "jesenná záhrada"
+    ]
+  },
+  {
+    "slug": "ochrana-bambusu-pred-zimou",
+    "title": "Ochrana bambusu pred zimou: zálievka, mulč a sneh",
+    "excerpt": "Pripravte bambus na zimu podľa druhu a stanovišťa: jesenná zálievka, ochrana koreňov, voľné zviazanie stebiel a opatrné striasanie snehu.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-bambusu-pred-zimou.webp",
+    "published_at": "2026-10-03T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "bambus pred zimou",
+      "zazimovanie bambusu",
+      "zálievka bambusu",
+      "mulčovanie bambusu",
+      "ochrana rastlín pred snehom"
+    ]
+  },
+  {
+    "slug": "tymian-pred-zimou",
+    "title": "Tymian pred zimou: drenáž, rez a ochrana v nádobe",
+    "excerpt": "Tymianu v zime najviac škodí premokrenie. Skontrolujte drenáž a stanovište, obmedzte jesenný rez a chráňte črepník bez zadržiavania vody.",
+    "category": "Bylinky",
+    "cover_url": "/assets/blog/09-tymian-pred-zimou.webp",
+    "published_at": "2026-10-09T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "tymian pred zimou",
+      "zazimovanie tymianu",
+      "pestovanie tymianu",
+      "tymian v črepníku",
+      "bylinky v zime"
+    ]
+  },
+  {
+    "slug": "jesenne-cistenie-sklenika",
+    "title": "Jesenné čistenie skleníka po zbere",
+    "excerpt": "Praktický postup čistenia skleníka po sezóne: odstránenie zvyškov, šetrné umytie podľa materiálu, kontrola škodcov, pôdy, vetrania a konštrukcie.",
+    "category": "Sezónne tipy",
+    "cover_url": "/assets/blog/ai-2026-10/jesenne-cistenie-sklenika.webp",
+    "published_at": "2026-09-23T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "jesenné čistenie skleníka",
+      "čistenie skleníka",
+      "skleník po sezóne",
+      "zazimovanie skleníka",
+      "škodcovia v skleníku"
+    ]
+  },
+  {
+    "slug": "plesen-snezna-na-travniku",
+    "title": "Pleseň snežná na trávniku: prevencia už na jeseň",
+    "excerpt": "Ako znížiť riziko plesne snežnej: primeraná výška posledného kosenia, odstránenie lístia, rozumné jesenné hnojenie a obmedzenie dlhodobo mokrých miest.",
+    "category": "Trávnik",
+    "cover_url": "/assets/blog/08-prevencia-plesne-sneznej.webp",
+    "published_at": "2026-10-08T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "pleseň snežná na trávniku",
+      "prevencia plesne snežnej",
+      "jesenná starostlivosť o trávnik",
+      "trávnik pod snehom",
+      "kosenie pred zimou"
+    ]
+  },
+  {
+    "slug": "ochrana-ihlicnanov-pred-mokrym-snehom",
+    "title": "Ochrana ihličnanov pred mokrým snehom bez poškodenia",
+    "excerpt": "Ktoré ihličnany spevniť pred ťažkým snehom, ako použiť voľný mäkký úväz a kedy radšej počkať, kým sa mokrý sneh alebo ľad uvoľní.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-ihlicnanov-pred-mokrym-snehom.webp",
+    "published_at": "2026-10-02T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "ihličnany pred snehom",
+      "ochrana ihličnanov v zime",
+      "mokry sneh v záhrade",
+      "viazanie ihličnanov",
+      "zimná ochrana rastlín"
+    ]
+  },
+  {
+    "slug": "vysadba-okrasneho-cesnaku",
+    "title": "Výsadba okrasného cesnaku: hĺbka, miesto a termín",
+    "excerpt": "Kedy a ako vysadiť cibuľky okrasného cesnaku do slnečnej, priepustnej pôdy; hĺbku prispôsobte veľkosti cibule a listy nechajte prirodzene zatiahnuť.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/05-vysadba-okrasneho-cesnaku.webp",
+    "published_at": "2026-10-05T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "výsadba okrasného cesnaku",
+      "okrasný cesnak cibuľky",
+      "kedy sadiť okrasný cesnak",
+      "hĺbka výsadby cibúľ",
+      "jesenná výsadba"
+    ]
+  },
+  {
+    "slug": "drziak-na-vrece-na-listie",
+    "title": "Držiak na vrece na lístie: jednoduchý rám z dreva",
+    "excerpt": "Návod na samostatne stojaci rám, ktorý drží záhradné vrece otvorené. Rozmery prispôsobte vlastnému vrecu a stabilitu overte ešte pred plnením.",
+    "category": "Návody z dielne",
+    "cover_url": "/assets/blog/ai-2026-10/drziak-na-vrece-na-listie.webp",
+    "published_at": "2026-10-01T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "držiak na vrece na lístie",
+      "stojan na záhradné vrece",
+      "rám na vrece z dreva",
+      "práca s lístím",
+      "jesenné práce v záhrade"
+    ]
+  },
+  {
+    "slug": "prakticky-kutik-na-presadzanie-rastlin",
+    "title": "Praktický kútik na presádzanie rastlín",
+    "excerpt": "Ako zariadiť pohodlné miesto na presádzanie: pracovná výška, suché skladovanie substrátu, triedenie nádob, odtok vody a čistenie náradia.",
+    "category": "Dom a záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/prakticky-kutik-na-presadzanie-rastlin.webp",
+    "published_at": "2026-09-15T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "kútik na presádzanie rastlín",
+      "stôl na presádzanie",
+      "presádzanie rastlín",
+      "záhradný pracovný stôl",
+      "čistenie záhradného náradia"
+    ]
+  },
+  {
+    "slug": "drziak-na-zahradnu-hadicu",
+    "title": "Držiak na záhradnú hadicu: správny oblúk a kotvenie",
+    "excerpt": "Ako umiestniť nástenný držiak na hadicu: vyberte široký oblúk, kotvenie podľa podkladu a výšku, ktorá neprekáža v priechode.",
+    "category": "Dielňa",
+    "cover_url": "/assets/blog/ai-2026-10/drziak-na-zahradnu-hadicu.webp",
+    "published_at": "2026-09-01T05:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "držiak na záhradnú hadicu",
+      "uchytenie záhradnej hadice",
+      "navíjanie hadice",
+      "uloženie záhradnej hadice",
+      "záhradná hadica v zime"
+    ]
   }
 ]
