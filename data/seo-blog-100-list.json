@@ -2154,5 +2154,50 @@
       "Záhrada",
       "Rastliny na balkón podľa svetových strán"
     ]
+  },
+  {
+    "slug": "vysadba-mispule-na-jesen",
+    "title": "Výsadba mišpule na jeseň: miesto a postup bez chýb",
+    "excerpt": "Výsadba mišpule sa vydarí na slnečnom mieste v priepustnej pôde. Pozrite si jesenný postup, správnu hĺbku, zálievku aj starostlivosť po výsadbe.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/06-vysadba-mispule.webp",
+    "published_at": "2026-10-06",
+    "content_type": "blog",
+    "tags": [
+      "mišpuľa",
+      "výsadba ovocného stromu",
+      "jesenná výsadba",
+      "Mespilus germanica"
+    ]
+  },
+  {
+    "slug": "jesenna-vysadba-cemeric",
+    "title": "Jesenná výsadba čemeríc: koruna nesmie byť hlboko",
+    "excerpt": "Výsadba čemeríc na jeseň vyžaduje polotieň, priepustnú humóznu pôdu a správnu hĺbku. Praktický postup bez poškodenia koreňov a obmedzenia kvetov.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/jesenna-vysadba-cemeric.webp",
+    "published_at": "2026-10-06",
+    "content_type": "blog",
+    "tags": [
+      "čemerica",
+      "jesenná výsadba",
+      "polotieň",
+      "Helleborus"
+    ]
+  },
+  {
+    "slug": "vysadba-aktinidie-na-jesen",
+    "title": "Výsadba aktinídie na jeseň: opora a opeľovanie",
+    "excerpt": "Výsadba aktinídie vyžaduje teplé miesto, pevnú oporu a správny výber samčej a samičej rastliny. Praktický jesenný postup aj prvá starostlivosť.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/vysadba-aktinidie-na-jesen.webp",
+    "published_at": "2026-10-06",
+    "content_type": "blog",
+    "tags": [
+      "aktinídia",
+      "kiwi",
+      "opeľovanie",
+      "opora pre lianu"
+    ]
   }
 ]
