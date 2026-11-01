@@ -3539,5 +3539,133 @@
       "kovový nábytok pred zimou",
       "skladovanie podušiek"
     ]
+  },
+  {
+    "slug": "vysadba-ribezli-a-egresov-na-jesen",
+    "title": "Výsadba ríbezlí a egrešov na jeseň",
+    "excerpt": "Ako vysadiť voľnokorenné aj kontajnerované ríbezle a egreše: výber miesta, ochrana koreňov pred vyschnutím, hĺbka, zálievka a prvý rez.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/06-vysadba-ribezli-egresov.webp",
+    "published_at": "2026-09-23T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "výsadba ríbezlí",
+      "výsadba egrešov",
+      "ríbezle na jeseň",
+      "egreše na jeseň",
+      "ovocné kríky"
+    ]
+  },
+  {
+    "slug": "pivonie-na-jesen",
+    "title": "Čo urobiť s pivóniami na jeseň a čo nechať na jar",
+    "excerpt": "Bylinné a drevité pivónie vyžadujú odlišnú jesennú starostlivosť. Zistite, kedy odstrániť odumretú vňať a prečo zdravé listy nechať zatiahnuť.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/09-pivonie-na-jesen.webp",
+    "published_at": "2026-10-09T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "pivónie na jeseň",
+      "rez pivónií",
+      "bylinné pivónie",
+      "drevité pivónie",
+      "starostlivosť o pivónie"
+    ]
+  },
+  {
+    "slug": "ochrana-kompostu-pred-hlodavcami",
+    "title": "Ochrana kompostu pred hlodavcami bez použitia jedov",
+    "excerpt": "Ako obmedziť prístup myší a potkanov ku kompostu: pevná sieť na dne, uzavreté medzery a vhodné suroviny. Pri známkach zamorenia nekopte naslepo.",
+    "category": "Pôda a kompost",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-kompostu-pred-hlodavcami.webp",
+    "published_at": "2026-10-01T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "ochrana kompostu pred hlodavcami",
+      "kompostér proti potkanom",
+      "kompost bez jedov",
+      "kovová sieť do kompostéra",
+      "čo nedávať do kompostu"
+    ]
+  },
+  {
+    "slug": "ochrana-hlubovin-pred-vtakmi",
+    "title": "Ochrana hlúbovín pred vtákmi bezpečnou sieťou",
+    "excerpt": "Ako chrániť kapustu, kel a ďalšie hlúboviny pred vtákmi pomocou pevného rámu, správne napnutej siete a pravidelných kontrol bez voľných slučiek.",
+    "category": "Zeleninová záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-hlubovin-pred-vtakmi.webp",
+    "published_at": "2026-09-29T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "ochrana kapusty pred vtákmi",
+      "sieť na kel",
+      "ochrana hlúbovín",
+      "bezpečná záhradná sieť",
+      "vtáky v záhrade"
+    ]
+  },
+  {
+    "slug": "zazimovanie-bananovnika-v-zahrade",
+    "title": "Zazimovanie banánovníka v záhrade: suchý zimný kryt",
+    "excerpt": "Musa basjoo môže v chránenom mieste prezimovať s ochranou podzemku a pseudokmeňa. Overte druh a udržte zimný kryt suchý a priedušný.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/05-zazimovanie-bananovnika.webp",
+    "published_at": "2026-10-05T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "zazimovanie banánovníka",
+      "Musa basjoo v zime",
+      "ochrana banánovníka pred mrazom",
+      "zimný kryt banánovníka",
+      "tropické rastliny"
+    ]
+  },
+  {
+    "slug": "izolacia-sklenika-na-zimu",
+    "title": "Ako zaizolovať skleník na zimu bezpečne a účinne",
+    "excerpt": "Najprv opravte netesnosti a skontrolujte vetranie; potom upevnite záhradnícku izolačnú fóliu bez zakrytia okien, kúrenia či elektrických zariadení.",
+    "category": "Skleník",
+    "cover_url": "/assets/blog/08-izolacia-sklenika.webp",
+    "published_at": "2026-10-08T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "izolácia skleníka na zimu",
+      "bublinková fólia v skleníku",
+      "zateplenie skleníka",
+      "vetranie skleníka v zime",
+      "zimovanie rastlín v skleníku"
+    ]
+  },
+  {
+    "slug": "cistenie-a-zazimovanie-dazdomera",
+    "title": "Ako vyčistiť a zazimovať záhradný dažďomer",
+    "excerpt": "Odmerný dažďomer pred mrazmi vyprázdnite a vysušte. Elektronické samovyprázdňovacie modely môžu zostať vonku; vždy skontrolujte návod konkrétneho prístroja.",
+    "category": "Záhradné práce",
+    "cover_url": "/assets/blog/10-zazimovanie-dazdomera.webp",
+    "published_at": "2026-10-07T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "zazimovanie dažďomera",
+      "čistenie dažďomera",
+      "zrážkomer pred mrazom",
+      "dažďomer v zime",
+      "starostlivosť o meteostanicu"
+    ]
+  },
+  {
+    "slug": "prezimovanie-poru-na-zahone",
+    "title": "Prezimovanie póru na záhone: ochrana a zimný zber",
+    "excerpt": "Neskoré odrody póru môžu zostať na záhone. Zistite, kedy ich prihrnúť, ako pripraviť kryt na zber a čo robiť s pôdou pri premokrení.",
+    "category": "Zeleninová záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/prezimovanie-poru-na-zahone.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "prezimovanie póru",
+      "pór v zime na záhone",
+      "zimný zber póru",
+      "mrazuvzdorný pór",
+      "ochrana póru pred mrazom"
+    ]
   }
 ]
