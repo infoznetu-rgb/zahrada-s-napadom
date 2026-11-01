@@ -2649,5 +2649,155 @@
       "mulčovanie",
       "mráz"
     ]
+  },
+  {
+    "slug": "vysadba-driena-na-jesen",
+    "title": "Výsadba drieňa na jeseň: miesto, pôda a postup",
+    "excerpt": "Ako vysadiť drieň jedlý na jeseň: správne miesto, hĺbka, opeľovanie, zálievka a prvá zima v podmienkach slovenských záhrad bez zbytočných chýb.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/02-vysadba-driena.webp",
+    "published_at": "2026-10-07T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "drieň jedlý",
+      "výsadba",
+      "jesenné práce",
+      "ovocný ker"
+    ]
+  },
+  {
+    "slug": "zazimovanie-rozmarinu-v-crepniku",
+    "title": "Zazimovanie rozmarínu v črepníku: svetlo a zálievka | Záhrada s nápadom",
+    "excerpt": "Rozmarín v črepníku často nezničí iba mráz, ale aj mokré korene. Zistite, kam ho presunúť, ako zalievať a kedy ho chrániť, bez rizika premokrenia.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/27-zazimovanie-rozmarinu-v-crepniku.webp",
+    "published_at": "2026-09-27",
+    "content_type": "blog",
+    "tags": [
+      "rozmarín",
+      "črepník",
+      "zazimovanie",
+      "zálievka"
+    ]
+  },
+  {
+    "slug": "zazimovanie-dipladenie",
+    "title": "Zazimovanie dipladénie: svetlo, teplota a voda",
+    "excerpt": "Ako zazimovať dipladéniu: prenesenie pred mrazom, kontrola škodcov, svetlé stanovisko, obmedzená zálievka a správny jarný návrat von.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/09-zazimovanie-dipladenie.webp",
+    "published_at": "2026-10-09T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "dipladénia",
+      "mandevila",
+      "prezimovanie",
+      "črepník"
+    ]
+  },
+  {
+    "slug": "delenie-pazitky-na-jesen",
+    "title": "Delenie pažítky na jeseň: jednoduchý postup",
+    "excerpt": "Delenie pažítky na jeseň krok za krokom: kedy trs vybrať, ako ho rozdeliť, znovu vysadiť a zaliať, aby sa bezpečne ujal pred príchodom zimy.",
+    "category": "Zelenina",
+    "cover_url": "/assets/blog/04-delenie-pazitky.webp",
+    "published_at": "2026-10-07T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "pažítka",
+      "delenie trsu",
+      "rozmnožovanie",
+      "jesenná starostlivosť"
+    ]
+  },
+  {
+    "slug": "zber-a-dozrievanie-minikivi",
+    "title": "Zber minikivi pred mrazom: dozrievanie a skladovanie",
+    "excerpt": "Zber minikivi bez hádania: ako spoznať správny termín, ochrániť plody pred silným mrazom, nechať ich dozrieť a bezpečne ich skladovať.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/09-zber-minikivi.webp",
+    "published_at": "2026-10-09T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "minikiwi",
+      "zber",
+      "dozrievanie",
+      "mráz"
+    ]
+  },
+  {
+    "slug": "ochrana-cibulovin-pred-hrabosmi",
+    "title": "Ochrana cibuľovín pred hrabošmi pomocou košíka | Záhrada s nápadom",
+    "excerpt": "Ako chrániť tulipány a ďalšie cibuľoviny pred hrabošmi bez jedov: správny košík, veľkosť oka, výsadba, odtok a bezpečná kontrola. Bez zbytočných chýb.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/ochrana-cibulovin-pred-hrabosmi.webp",
+    "published_at": "2026-10-01",
+    "content_type": "blog",
+    "tags": [
+      "cibuľoviny",
+      "hraboše",
+      "ochrana",
+      "výsadba"
+    ]
+  },
+  {
+    "slug": "vysadba-kaliny-do-zahrady",
+    "title": "Výsadba kaliny do záhrady: miesto a správny postup",
+    "excerpt": "Výsadba kaliny krok za krokom: ako vybrať druh, stanovište, pôdu, hĺbku a zálievku bez rizika zamokrenia či preschnutia koreňov po jesennej výsadbe.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/03-vysadba-kaliny.webp",
+    "published_at": "2026-10-07T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "kalina",
+      "výsadba",
+      "ker",
+      "stanovište"
+    ]
+  },
+  {
+    "slug": "zazimovanie-zahradneho-drvica",
+    "title": "Zazimovanie záhradného drviča: čistenie a sklad",
+    "excerpt": "Zazimovanie záhradného drviča: bezpečné odpojenie, odstránenie zvyškov, kontrola nožov či valca a suché uloženie podľa návodu výrobcu na zimu.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/05-zazimovanie-drvica.webp",
+    "published_at": "2026-10-07T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "záhradný drvič",
+      "údržba",
+      "bezpečnosť",
+      "zima"
+    ]
+  },
+  {
+    "slug": "vysadba-krokusov-na-jesen",
+    "title": "Výsadba krokusov na jeseň: termín, hĺbka a postup | Záhrada s nápadom",
+    "excerpt": "Zistite, kedy a ako vysadiť krokusy na jeseň, akú hĺbku a pôdu zvoliť a ako ochrániť hľuzy pred premokrením a hlodavcami.",
+    "category": "Okrasná záhrada",
+    "cover_url": "/assets/blog/28-vysadba-krokusov-na-jesen.webp",
+    "published_at": "2026-09-28",
+    "content_type": "blog",
+    "tags": [
+      "krokusy",
+      "jesenná výsadba",
+      "cibuľoviny",
+      "jar"
+    ]
+  },
+  {
+    "slug": "zazimovanie-fukara-na-listie",
+    "title": "Zazimovanie fukára na lístie: bezpečný postup",
+    "excerpt": "Ako zazimovať elektrický, akumulátorový či benzínový fukár: čistenie, batéria, palivo, kontrola nasávania a vhodné miesto bezpečného skladovania.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/07-zazimovanie-fukara.webp",
+    "published_at": "2026-10-07T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "fúkač lístia",
+      "údržba",
+      "akumulátor",
+      "zimné skladovanie"
+    ]
   }
 ]
