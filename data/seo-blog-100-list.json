@@ -3877,5 +3877,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "ako-sadit-hortenziu",
+    "title": "Ako zasadiť hortenziu: miesto, jama a prvá zálievka",
+    "excerpt": "Praktický postup výsadby hortenzie od výberu miesta po kontrolu vlhkosti. Správna hĺbka a široká jama pomáhajú koreňom rásť.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/ako-sadit-hortenziu.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "ako sadit hortenziu",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-zlte-listy",
+    "title": "Žlté listy hortenzie: ako odlíšiť príčiny",
+    "excerpt": "Žltnutie listov môže súvisieť s vodou, pH, výživou aj prirodzeným starnutím. Podľa vzoru príznakov určte, čo skontrolovať.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-zlte-listy.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia zlte listy",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzie-po-presadeni-vadnu",
+    "title": "Hortenzia po presadení vädne: čo skontrolovať",
+    "excerpt": "Prečo hortenzia po presadení vädne a ako skontrolovať koreňový bal, zálievku, hĺbku výsadby a stres z tepla.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-po-presadeni-vadnu.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzie po presadeni vadnu",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]

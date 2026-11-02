@@ -77,7 +77,6 @@ LOW_VALUE_SK_ARTICLES = (
 # Unreviewed 2 Oct batch: sampled pages repeated a short generic template and
 # near-identical care advice, so keep them out of search and the archive pending editing.
 REVIEW_PENDING_SK_ARTICLES = (
-    "ako-sadit-hortenziu",
     "hnojenie-hortenzii-v-lete",
     "hnojivo-na-hortenzie",
     "hortenzia-dubolista-pestovanie",
@@ -93,9 +92,7 @@ REVIEW_PENDING_SK_ARTICLES = (
     "hortenzia-stromcekovita-annabelle-pestovanie",
     "hortenzia-sucha",
     "hortenzia-vadnutie-horucava",
-    "hortenzia-zlte-listy",
     "hortenzie-kalendar-starostlivosti",
-    "hortenzie-po-presadeni-vadnu",
     "hortenzie-pod-stromami",
     "hortenzie-v-chladnych-oblastiach",
     "kam-zasadit-hortenziu",
