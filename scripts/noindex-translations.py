@@ -35,7 +35,6 @@ LOW_VALUE_SK_ARTICLES = (
     "zazimovanie-tlakoveho-cistica",
     "endless-summer-hortenzia",
     "little-lime-hortenzia",
-    "hortenzia-po-kupeni",
     "bobo-hortenzia",
     "hortenzie-pre-zaciatocnikov",
     "hortenzie-pri-dome",
@@ -59,6 +58,7 @@ MERGED_ARTICLE_REDIRECTS = {
     "limelight-hortenzia-pestovanie": "/blog/najkrajsie-metlinate-hortenzie/",
     "phantom-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
     "vanille-fraise-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
+    "hortenzia-v-interieri": "/blog/hortenzia-po-kupeni/",
 }
 
 
