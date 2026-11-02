@@ -1,5 +1,53 @@
 [
   {
+    "slug": "hortenzie-tvrda-voda",
+    "title": "Tvrdá voda a hortenzie: ako chrániť pôdu aj kvety",
+    "excerpt": "Tvrdá voda môže časom meniť podmienky v substráte. Zistite, kedy pomôže dažďová voda a prečo merať pH pred zásahom.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-tvrda-voda.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "tvrdá voda a hortenzie",
+      "voda na hortenzie",
+      "pH substrátu",
+      "modré hortenzie",
+      "hortenzie"
+    ]
+  },
+  {
+    "slug": "zimovanie-hortenzie-v-kvetinaci",
+    "title": "Ako prezimovať hortenziu v kvetináči",
+    "excerpt": "Kam premiestniť hortenziu v nádobe na zimu, ako ochrániť koreňový bal a udržať substrát vlhký bez premokrenia.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/custom/zimovanie-hortenzie-v-kvetinaci.svg",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "zimovanie hortenzie v kvetináči",
+      "hortenzie v nádobách",
+      "ochrana rastlín pred mrazom",
+      "hortenzie",
+      "záhrada v zime"
+    ]
+  },
+  {
+    "slug": "rozmnozovanie-hortenzie-odrezkami",
+    "title": "Rozmnožovanie hortenzie odrezkami: postup krok za krokom",
+    "excerpt": "Kedy vybrať výhonok, kde rezať pod uzlom, ako udržať vlhkosť a podľa čoho spoznať zakorenený odrezok hortenzie.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/rozmnozovanie-hortenzie-odrezkami.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "rozmnožovanie hortenzie odrezkami",
+      "odrezky hortenzie",
+      "pestovanie hortenzií",
+      "hortenzie",
+      "rozmnožovanie rastlín"
+    ]
+  },
+  {
     "slug": "hortenzia-annabelle-pada-po-dazdi-opora",
     "title": "Hortenzia Annabelle padá po daždi: pomôže opora alebo rez?",
     "excerpt": "Prečo hortenzia Annabelle po daždi polieha, kedy pomôže pevná opora, čo zmení jarný rez a ako zabrániť zlomeniu výhonkov.",
