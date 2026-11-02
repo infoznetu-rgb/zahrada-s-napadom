@@ -41,7 +41,6 @@ LOW_VALUE_SK_ARTICLES = (
     "hortenzie-pre-zaciatocnikov",
     "hortenzie-pri-dome",
     "limelight-hortenzia-pestovanie",
-    "annabelle-vs-strong-annabelle",
     "hortenzia-na-plnom-slnku",
     "hortenzia-v-interieri",
     "hortenzia-v-kvetinaci",
