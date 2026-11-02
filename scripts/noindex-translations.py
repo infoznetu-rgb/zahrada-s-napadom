@@ -53,6 +53,12 @@ MERGED_ARTICLE_REDIRECTS = {
     "phantom-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
     "vanille-fraise-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
     "hortenzia-v-interieri": "/blog/hortenzia-po-kupeni/",
+    "hortenzia-pada-po-dazdi": "/blog/hortenzie-po-silnom-vetru/",
+    "hortenzie-v-zime": "/blog/hortenzie-kalendar-starostlivosti/",
+    "jarna-starostlivost-o-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
+    "jesenna-starostlivost-o-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
+    "letna-starostlivost-o-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
+    "odkvitnute-kvety-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
 }
 
 
