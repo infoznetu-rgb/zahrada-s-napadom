@@ -23,7 +23,6 @@ LOW_VALUE_SK_ARTICLES = (
     "letna-starostlivost-o-hortenzie",
     "odkvitnute-kvety-hortenzie",
     "hortenzie-a-hosty",
-    "predzimny-vysev-kopru",
     "hortenzia-kvety-male",
     "hortenzia-slabe-vyhonky",
     "kora-pod-hortenzie",
