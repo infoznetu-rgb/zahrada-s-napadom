@@ -11,8 +11,6 @@ ROBOTS_NAME = re.compile(r"""\bname\s*=\s*(["'])robots\1""", re.IGNORECASE)
 CONTENT_ATTR = re.compile(r"""(\bcontent\s*=\s*)(["'])(.*?)\2""", re.IGNORECASE | re.DOTALL)
 
 LOW_VALUE_SK_ARTICLES = (
-    "hortenzia-na-balkone",
-    "hortenzie-a-dazdova-voda",
     "hortenzie-k-trvalkam",
     "hortenzie-v-zime",
     "jarna-starostlivost-o-hortenzie",
