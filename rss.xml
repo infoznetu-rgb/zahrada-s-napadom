@@ -6,6 +6,30 @@
     <description>Praktické rady do záhrady a dielne</description>
     <language>sk-SK</language>
     <item>
+      <title>Ako zasadiť hortenziu: miesto, jama a prvá zálievka | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/ako-sadit-hortenziu/</link>
+      <guid>https://zahradasnapadom.sk/blog/ako-sadit-hortenziu/</guid>
+      <description>Praktický postup výsadby hortenzie od výberu miesta po kontrolu vlhkosti. Správna hĺbka a široká jama pomáhajú koreňom rásť.</description>
+      <pubDate>Mon, 02 Nov 2026 11:57:52 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/ako-sadit-hortenziu-facebook.jpg" type="image/jpeg" length="427782" />
+    </item>
+    <item>
+      <title>Hortenzia po presadení vädne: čo skontrolovať | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzie-po-presadeni-vadnu/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzie-po-presadeni-vadnu/</guid>
+      <description>Prečo hortenzia po presadení vädne a ako skontrolovať koreňový bal, zálievku, hĺbku výsadby a stres z tepla.</description>
+      <pubDate>Mon, 02 Nov 2026 11:57:52 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzie-po-presadeni-vadnu-facebook.jpg" type="image/jpeg" length="358155" />
+    </item>
+    <item>
+      <title>Žlté listy hortenzie: ako odlíšiť príčiny | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzia-zlte-listy/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzia-zlte-listy/</guid>
+      <description>Žltnutie listov môže súvisieť s vodou, pH, výživou aj prirodzeným starnutím. Podľa vzoru príznakov určte, čo skontrolovať.</description>
+      <pubDate>Mon, 02 Nov 2026 11:57:52 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzia-zlte-listy-facebook.jpg" type="image/jpeg" length="345754" />
+    </item>
+    <item>
       <title>Hnedé listy hortenzie: sucho, slnko alebo choroba? | Záhrada s nápadom</title>
       <link>https://zahradasnapadom.sk/blog/hortenzia-hnede-listy/</link>
       <guid>https://zahradasnapadom.sk/blog/hortenzia-hnede-listy/</guid>
@@ -380,30 +404,6 @@
       <description>Čo urobiť s opadaným lístím: listovka, mulč, úkryt pre živočíchy a bezpečné čistenie trávnika, chodníkov a odtokov.</description>
       <pubDate>Sun, 01 Nov 2026 15:42:42 +0100</pubDate>
       <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/co-s-opadanym-listim-facebook.jpg" type="image/jpeg" length="556966" />
-    </item>
-    <item>
-      <title>Skladovanie osiva cez zimu: sucho, chlad a poriadok | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/skladovanie-osiva-cez-zimu/</link>
-      <guid>https://zahradasnapadom.sk/blog/skladovanie-osiva-cez-zimu/</guid>
-      <description>Správne skladovanie osiva cez zimu chráni klíčivosť pred vlhkosťou a teplom. Postup sušenia, označenia, balenia a jednoduchej skúšky klíčivosti.</description>
-      <pubDate>Sun, 01 Nov 2026 15:42:42 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/skladovanie-osiva-cez-zimu-facebook.jpg" type="image/jpeg" length="393584" />
-    </item>
-    <item>
-      <title>Opory pre paradajky a fazuľu z konárov</title>
-      <link>https://zahradasnapadom.sk/blog/opory-pre-paradajky-z-konarov/</link>
-      <guid>https://zahradasnapadom.sk/blog/opory-pre-paradajky-z-konarov/</guid>
-      <description>Jednoduché opory z konárov pre paradajky a fazuľu: výber materiálu, osadenie, viazanie, stabilita a chyby, ktorým sa vyhnúť.</description>
-      <pubDate>Sun, 01 Nov 2026 15:42:42 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/opory-pre-paradajky-z-konarov-facebook.jpg" type="image/jpeg" length="526731" />
-    </item>
-    <item>
-      <title>Jesenná výsadba malín: postup od koreňov po prvý rez | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/jesenna-vysadba-malin/</link>
-      <guid>https://zahradasnapadom.sk/blog/jesenna-vysadba-malin/</guid>
-      <description>Jesenná výsadba malín krok za krokom: výber miesta, rozloženie koreňov, správna hĺbka, rozstupy, opora, zálievka a prvý rez podľa sadenice.</description>
-      <pubDate>Sun, 01 Nov 2026 15:42:42 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/jesenna-vysadba-malin-facebook.jpg" type="image/jpeg" length="459665" />
     </item>
   </channel>
 </rss>
