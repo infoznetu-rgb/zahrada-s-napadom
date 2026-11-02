@@ -6,6 +6,30 @@
     <description>Praktické rady do záhrady a dielne</description>
     <language>sk-SK</language>
     <item>
+      <title>Hortenzie: 9 mýtov, ktorým netreba veriť | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzie-myty/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzie-myty/</guid>
+      <description>Kávová usadenina, farba kvetov, rez aj zálievka: čo pri hortenziách naozaj platí a čo najprv overiť.</description>
+      <pubDate>Mon, 02 Nov 2026 12:14:52 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzie-myty-facebook.jpg" type="image/jpeg" length="379255" />
+    </item>
+    <item>
+      <title>Hortenzie do malej záhrady: ako vybrať kompaktný kultivar | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzie-do-malej-zahrady/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzie-do-malej-zahrady/</guid>
+      <description>Ako vybrať hortenziu do malej záhrady podľa dospelej výšky a šírky, svetla, kvitnutia a nárokov na nádobu.</description>
+      <pubDate>Mon, 02 Nov 2026 12:14:52 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzie-do-malej-zahrady-facebook.jpg" type="image/jpeg" length="399212" />
+    </item>
+    <item>
+      <title>Rozmnožovanie hortenzie potápaním: jednoduchá metóda | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/rozmnozovanie-hortenzie-potapanim/</link>
+      <guid>https://zahradasnapadom.sk/blog/rozmnozovanie-hortenzie-potapanim/</guid>
+      <description>Jednoduchý spôsob rozmnožovania: ohnite pružný výhonok k pôde a nechajte ho zakoreniť ešte pripojený ku kra.</description>
+      <pubDate>Mon, 02 Nov 2026 12:14:52 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/rozmnozovanie-hortenzie-potapanim-facebook.jpg" type="image/jpeg" length="426387" />
+    </item>
+    <item>
       <title>Tvrdá voda a hortenzie: ako chrániť pôdu aj kvety | Záhrada s nápadom</title>
       <link>https://zahradasnapadom.sk/blog/hortenzie-tvrda-voda/</link>
       <guid>https://zahradasnapadom.sk/blog/hortenzie-tvrda-voda/</guid>
@@ -378,30 +402,6 @@
       <description>Ako chrániť kapustu, kel a ružičkový kel pred holubmi bez poranenia vtákov. Správny rám, napnutie siete, kotvenie a pravidelná kontrola.</description>
       <pubDate>Sun, 01 Nov 2026 15:53:05 +0100</pubDate>
       <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/ochrana-hlubovin-pred-vtakmi-facebook.jpg" type="image/jpeg" length="641562" />
-    </item>
-    <item>
-      <title>Čo urobiť s pivóniami na jeseň a čo nechať na jar | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/pivonie-na-jesen/</link>
-      <guid>https://zahradasnapadom.sk/blog/pivonie-na-jesen/</guid>
-      <description>Pivónie na jeseň: správny termín rezu bylinných druhov, odstránenie chorých listov, mulčovanie mladých rastlín a rozdiel oproti drevitým pivóniám.</description>
-      <pubDate>Sun, 01 Nov 2026 15:53:05 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/09-pivonie-na-jesen-facebook.jpg" type="image/jpeg" length="452606" />
-    </item>
-    <item>
-      <title>Ako zaizolovať skleník na zimu bezpečne a účinne | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/izolacia-sklenika-na-zimu/</link>
-      <guid>https://zahradasnapadom.sk/blog/izolacia-sklenika-na-zimu/</guid>
-      <description>Izolácia skleníka na zimu znižuje tepelné straty. Správne upevnite bublinkovú fóliu, utesnite škáry a ponechajte funkčné vetranie aj bezpečný prístup.</description>
-      <pubDate>Sun, 01 Nov 2026 15:53:05 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/08-izolacia-sklenika-facebook.jpg" type="image/jpeg" length="445977" />
-    </item>
-    <item>
-      <title>Ako vyčistiť a zazimovať záhradný dažďomer | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/cistenie-a-zazimovanie-dazdomera/</link>
-      <guid>https://zahradasnapadom.sk/blog/cistenie-a-zazimovanie-dazdomera/</guid>
-      <description>Zazimovanie dažďomera krok za krokom: vyprázdnenie, šetrné čistenie, kontrola prasklín, demontáž pred mrazom a suché a bezpečné uloženie až do jari.</description>
-      <pubDate>Sun, 01 Nov 2026 15:53:05 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/10-zazimovanie-dazdomera-facebook.jpg" type="image/jpeg" length="342544" />
     </item>
   </channel>
 </rss>
