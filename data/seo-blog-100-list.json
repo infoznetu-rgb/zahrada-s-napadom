@@ -1,5 +1,53 @@
 [
   {
+    "slug": "hortenzie-zivy-plot",
+    "title": "Živý plot z hortenzií: kedy sa hodí a ako ho založiť",
+    "excerpt": "Kedy je z hortenzií vhodný kvitnúci pás, ktoré druhy zvoliť a ako určiť rozostupy bez prehustenia záhona.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-zivy-plot.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "živý plot z hortenzií",
+      "kvitnúci pás z hortenzií",
+      "rozostupy hortenzií",
+      "hortenzie do záhrady",
+      "živý plot"
+    ]
+  },
+  {
+    "slug": "omladenie-starej-hortenzie",
+    "title": "Ako omladiť starú hortenziu bez straty všetkých kvetov",
+    "excerpt": "Postupné omladenie starého kra podľa druhu, aby ste obnovili výhonky a zároveň zachovali čo najviac pukov na kvitnutie.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/omladenie-starej-hortenzie.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "omladenie starej hortenzie",
+      "rez starého kra",
+      "ako strihať hortenzie",
+      "hortenzie",
+      "pestovanie"
+    ]
+  },
+  {
+    "slug": "hortenzia-meni-farbu-na-jesen",
+    "title": "Prečo hortenzie na jeseň menia farbu a kedy je to normálne",
+    "excerpt": "Prirodzené starnutie súkvetí, odrody a pH môžu meniť farbu rôznym spôsobom. Zistite, čo je bežné a kedy pátrať po probléme.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-meni-farbu-na-jesen.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie na jeseň menia farbu",
+      "jesenné súkvetia hortenzie",
+      "farba hortenzie a pH",
+      "hortenzie",
+      "jesenná záhrada"
+    ]
+  },
+  {
     "slug": "hortenzia-v-tieni",
     "title": "Hortenzia v tieni: koľko svetla potrebuje na kvitnutie?",
     "excerpt": "Rozdiel medzi ľahkým polotieňom a hlbokým tieňom, vplyv na kvitnutie a výber vhodného stanovišťa.",

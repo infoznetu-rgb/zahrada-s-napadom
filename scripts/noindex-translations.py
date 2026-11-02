@@ -11,7 +11,6 @@ ROBOTS_NAME = re.compile(r"""\bname\s*=\s*(["'])robots\1""", re.IGNORECASE)
 CONTENT_ATTR = re.compile(r"""(\bcontent\s*=\s*)(["'])(.*?)\2""", re.IGNORECASE | re.DOTALL)
 
 LOW_VALUE_SK_ARTICLES = (
-    "hortenzia-meni-farbu-na-jesen",
     "hortenzia-na-balkone",
     "hortenzie-a-dazdova-voda",
     "hortenzie-a-okrasne-travy",
@@ -23,7 +22,6 @@ LOW_VALUE_SK_ARTICLES = (
     "kedy-rozmnozovat-hortenzie",
     "letna-starostlivost-o-hortenzie",
     "odkvitnute-kvety-hortenzie",
-    "omladenie-starej-hortenzie",
     "hortenzie-a-hosty",
     "kontrola-opor-stromov-pred-zimou",
     "predzimny-vysev-kopru",
@@ -56,7 +54,6 @@ LOW_VALUE_SK_ARTICLES = (
     "hortenzia-na-plnom-slnku",
     "hortenzia-v-interieri",
     "hortenzia-v-kvetinaci",
-    "hortenzie-zivy-plot",
 )
 
 # Unreviewed 2 Oct batch: sampled pages repeated a short generic template and
