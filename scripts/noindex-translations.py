@@ -80,9 +80,7 @@ REVIEW_PENDING_SK_ARTICLES = (
     "hnojivo-na-hortenzie",
     "hortenzia-listy-spalene-slnkom",
     "hortenzia-nekvitne-po-zime",
-    "hortenzia-pilovita-pestovanie",
     "hortenzia-po-zime-nerastie",
-    "hortenzia-popinava-pestovanie",
     "hortenzia-preliata",
     "hortenzia-rastie-pomaly",
     "hortenzia-stromcekovita-annabelle-pestovanie",
@@ -92,7 +90,6 @@ REVIEW_PENDING_SK_ARTICLES = (
     "hortenzie-pod-stromami",
     "kam-zasadit-hortenziu",
     "substrat-pre-hortenzie-v-kvetinaci",
-    "vzdialenost-hortenzii-pri-vysadbe",
 )
 
 def redirect_page(path: Path) -> None:
