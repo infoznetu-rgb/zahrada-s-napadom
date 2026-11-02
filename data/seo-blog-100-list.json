@@ -3832,5 +3832,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "hortenzia-hnede-listy",
+    "title": "Hnedé listy hortenzie: sucho, slnko alebo choroba?",
+    "excerpt": "Hnedé okraje a škvrny na hortenzii môžu mať viac príčin. Podľa vzoru poškodenia zistite, čo skontrolovať ako prvé.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-hnede-listy.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia hnede listy",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-skvrny-na-listoch",
+    "title": "Škvrny na listoch hortenzie: ako ich rozpoznať",
+    "excerpt": "Rozlíšte škvrny po daždi, poškodenie škodcami a listové choroby hortenzie. Zistite, čo odstrániť a kedy je vhodná odborná diagnostika.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-skvrny-na-listoch.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia skvrny na listoch",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-po-mraze",
+    "title": "Hortenzia po mraze: čo odstrániť a kedy rezať",
+    "excerpt": "Ako postupovať po neskorom mraze na hortenzii, rozlíšiť poškodené listy a puky a vyhnúť sa predčasnému rezu.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-po-mraze.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia po mraze",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]
