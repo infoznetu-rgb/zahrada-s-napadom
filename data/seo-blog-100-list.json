@@ -4147,5 +4147,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "hortenzia-listy-spalene-slnkom",
+    "title": "Spálené listy hortenzie: slnko, sucho a ďalšie príčiny",
+    "excerpt": "Ako rozoznať poškodenie listov hortenzie slnkom a horúčavou a skontrolovať zálievku skôr, než zmeníte stanovište.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-listy-spalene-slnkom.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia listy spalene slnkom",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-preliata",
+    "title": "Preliata hortenzia: príznaky a náprava premokrenej pôdy",
+    "excerpt": "Ako spoznať preliatu hortenziu, skontrolovať odtok vody a upraviť zálievku bez ďalšieho poškodenia koreňov.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-preliata.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia preliata",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-nekvitne-po-zime",
+    "title": "Hortenzia po zime nekvitne: mráz, rez alebo podmienky?",
+    "excerpt": "Prečo hortenzia po zime vytvára listy bez kvetov a ako rozlíšiť poškodené puky, nesprávny rez a nevhodné stanovište.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-nekvitne-po-zime.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia nekvitne po zime",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]

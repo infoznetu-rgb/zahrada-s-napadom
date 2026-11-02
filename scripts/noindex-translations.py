@@ -78,10 +78,7 @@ LOW_VALUE_SK_ARTICLES = (
 REVIEW_PENDING_SK_ARTICLES = (
     "hnojenie-hortenzii-v-lete",
     "hnojivo-na-hortenzie",
-    "hortenzia-listy-spalene-slnkom",
-    "hortenzia-nekvitne-po-zime",
     "hortenzia-po-zime-nerastie",
-    "hortenzia-preliata",
     "hortenzia-rastie-pomaly",
     "hortenzia-stromcekovita-annabelle-pestovanie",
     "hortenzia-sucha",
