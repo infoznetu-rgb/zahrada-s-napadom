@@ -6,6 +6,29 @@
     <description>Praktické rady do záhrady a dielne</description>
     <language>sk-SK</language>
     <item>
+      <title>Tvrdá voda a hortenzie: ako chrániť pôdu aj kvety | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzie-tvrda-voda/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzie-tvrda-voda/</guid>
+      <description>Ako môže tvrdá voda ovplyvniť substrát v nádobe, kedy použiť dažďovú vodu a prečo merať pH pred úpravou zálievky.</description>
+      <pubDate>Mon, 02 Nov 2026 12:12:00 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzie-tvrda-voda-facebook.jpg" type="image/jpeg" length="346267" />
+    </item>
+    <item>
+      <title>Ako prezimovať hortenziu v kvetináči | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/zimovanie-hortenzie-v-kvetinaci/</link>
+      <guid>https://zahradasnapadom.sk/blog/zimovanie-hortenzie-v-kvetinaci/</guid>
+      <description>Chráňte koreňový bal pred výkyvmi teploty, zabezpečte odtok a kontrolujte vlhkosť počas suchých zimných období.</description>
+      <pubDate>Mon, 02 Nov 2026 12:12:00 +0100</pubDate>
+    </item>
+    <item>
+      <title>Rozmnožovanie hortenzie odrezkami: postup krok za krokom | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/rozmnozovanie-hortenzie-odrezkami/</link>
+      <guid>https://zahradasnapadom.sk/blog/rozmnozovanie-hortenzie-odrezkami/</guid>
+      <description>Mladý nekvitnúci výhonok, čistý rez pod uzlom a rovnomerná vlhkosť. Praktický návod na zakorenenie hortenzie odrezkom.</description>
+      <pubDate>Mon, 02 Nov 2026 12:12:00 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/rozmnozovanie-hortenzie-odrezkami-facebook.jpg" type="image/jpeg" length="399226" />
+    </item>
+    <item>
       <title>Hnojivo na hortenzie: ako vybrať a kedy ho použiť | Záhrada s nápadom</title>
       <link>https://zahradasnapadom.sk/blog/hnojivo-na-hortenzie/</link>
       <guid>https://zahradasnapadom.sk/blog/hnojivo-na-hortenzie/</guid>
@@ -379,30 +402,6 @@
       <description>Zazimovanie dažďomera krok za krokom: vyprázdnenie, šetrné čistenie, kontrola prasklín, demontáž pred mrazom a suché a bezpečné uloženie až do jari.</description>
       <pubDate>Sun, 01 Nov 2026 15:53:05 +0100</pubDate>
       <enclosure url="https://zahradasnapadom.sk/assets/blog/10-zazimovanie-dazdomera-facebook.jpg" type="image/jpeg" length="342544" />
-    </item>
-    <item>
-      <title>Prezimovanie póru na záhone: ochrana a zimný zber | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/prezimovanie-poru-na-zahone/</link>
-      <guid>https://zahradasnapadom.sk/blog/prezimovanie-poru-na-zahone/</guid>
-      <description>Prezimovanie póru na záhone bez zbytočných strát: výber odrody, prihrnutie, ochrana pôdy a bezpečný zber počas mrazivých zimných dní.</description>
-      <pubDate>Sun, 01 Nov 2026 15:53:05 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/prezimovanie-poru-na-zahone-facebook.jpg" type="image/jpeg" length="449092" />
-    </item>
-    <item>
-      <title>Zazimovanie banánovníka v záhrade: suchý zimný kryt | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/zazimovanie-bananovnika-v-zahrade/</link>
-      <guid>https://zahradasnapadom.sk/blog/zazimovanie-bananovnika-v-zahrade/</guid>
-      <description>Musa basjoo potrebuje v slovenskej zime suchý a priedušný kryt koreňov aj pseudokmeňov. Postup sa líši podľa lokality a cieľa prezimovania.</description>
-      <pubDate>Sun, 01 Nov 2026 15:53:05 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/05-zazimovanie-bananovnika-facebook.jpg" type="image/jpeg" length="515961" />
-    </item>
-    <item>
-      <title>Výsadba ríbezlí a egrešov na jeseň</title>
-      <link>https://zahradasnapadom.sk/blog/vysadba-ribezli-a-egresov-na-jesen/</link>
-      <guid>https://zahradasnapadom.sk/blog/vysadba-ribezli-a-egresov-na-jesen/</guid>
-      <description>Jesenná výsadba ríbezlí a egrešov: výber miesta, príprava jamy, správna hĺbka, zálievka, rez a rozostupy podľa typu rastliny.</description>
-      <pubDate>Sun, 01 Nov 2026 15:53:05 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/06-vysadba-ribezli-egresov-facebook.jpg" type="image/jpeg" length="395518" />
     </item>
   </channel>
 </rss>
