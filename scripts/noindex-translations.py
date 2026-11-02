@@ -24,7 +24,6 @@ LOW_VALUE_SK_ARTICLES = (
     "jarna-starostlivost-o-hortenzie",
     "jesenna-starostlivost-o-hortenzie",
     "kedy-rozmnozovat-hortenzie",
-    "kedy-strihat-hortenzie-do-vazy",
     "letna-starostlivost-o-hortenzie",
     "odkvitnute-kvety-hortenzie",
     "omladenie-starej-hortenzie",
@@ -77,13 +76,9 @@ LOW_VALUE_SK_ARTICLES = (
 # Unreviewed 2 Oct batch: sampled pages repeated a short generic template and
 # near-identical care advice, so keep them out of search and the archive pending editing.
 REVIEW_PENDING_SK_ARTICLES = (
-    "ako-sadit-hortenziu",
     "hnojenie-hortenzii-v-lete",
     "hnojivo-na-hortenzie",
-    "hortenzia-dubolista-pestovanie",
-    "hortenzia-kalinolista-pestovanie",
     "hortenzia-listy-spalene-slnkom",
-    "hortenzia-metlinata-pestovanie",
     "hortenzia-nekvitne-po-zime",
     "hortenzia-pilovita-pestovanie",
     "hortenzia-po-zime-nerastie",
@@ -93,17 +88,10 @@ REVIEW_PENDING_SK_ARTICLES = (
     "hortenzia-stromcekovita-annabelle-pestovanie",
     "hortenzia-sucha",
     "hortenzia-vadnutie-horucava",
-    "hortenzia-zlte-listy",
     "hortenzie-kalendar-starostlivosti",
-    "hortenzie-po-presadeni-vadnu",
     "hortenzie-pod-stromami",
-    "hortenzie-v-chladnych-oblastiach",
     "kam-zasadit-hortenziu",
-    "rez-hortenzie-kalinolistej",
-    "rez-hortenzie-metlinatej",
-    "roztoce-na-hortenzii",
     "substrat-pre-hortenzie-v-kvetinaci",
-    "vosky-na-hortenzii",
     "vzdialenost-hortenzii-pri-vysadbe",
 )
 
