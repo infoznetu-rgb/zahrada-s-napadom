@@ -1,5 +1,37 @@
 [
   {
+    "slug": "vysadba-aronie-na-jesen",
+    "title": "Výsadba arónie na jeseň: miesto, rozostup a postup",
+    "excerpt": "Ako vybrať miesto pre aróniu, pripraviť pôdu a zasadiť ker na jeseň tak, aby sa korene stihli uchytiť pred zimou.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/vysadba-aronie-na-jesen.webp",
+    "published_at": "2026-10-04T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "výsadba arónie na jeseň",
+      "arónia čierna",
+      "jesenná výsadba kríkov",
+      "arónia",
+      "záhrada"
+    ]
+  },
+  {
+    "slug": "vysadba-bazy-ciernej-na-jesen",
+    "title": "Výsadba bazy čiernej na jeseň: pôda, priestor a prvý rok",
+    "excerpt": "Kedy a ako vysadiť bazu čiernu na jeseň, kam ju umiestniť a ako ju zavlažovať počas prvého roka.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/04-vysadba-bazy.webp",
+    "published_at": "2026-10-04T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "výsadba bazy čiernej",
+      "baza čierna na jeseň",
+      "Sambucus nigra",
+      "výsadba krov",
+      "záhrada"
+    ]
+  },
+  {
     "slug": "hortenzie-zivy-plot",
     "title": "Živý plot z hortenzií: kedy sa hodí a ako ho založiť",
     "excerpt": "Kedy je z hortenzií vhodný kvitnúci pás, ktoré druhy zvoliť a ako určiť rozostupy bez prehustenia záhona.",
