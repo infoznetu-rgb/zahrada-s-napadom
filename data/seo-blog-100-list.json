@@ -4267,5 +4267,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "hnojivo-na-hortenzie",
+    "title": "Hnojivo na hortenzie: ako vybrať a kedy ho použiť",
+    "excerpt": "Podľa čoho vybrať hnojivo na hortenzie a prečo najprv skontrolovať pôdu, vlhkosť a príčinu slabého rastu.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hnojivo-na-hortenzie.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hnojivo na hortenzie",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-rastie-pomaly",
+    "title": "Hortenzia rastie pomaly: čo skontrolovať pred hnojením",
+    "excerpt": "Pomalý rast hortenzie môže súvisieť s vodou, koreňmi, svetlom aj výživou. Postup kontroly pomôže určiť príčinu bez náhodného hnojenia.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-rastie-pomaly.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia rastie pomaly",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "kam-zasadit-hortenziu",
+    "title": "Kam zasadiť hortenziu: svetlo, pôda a priestor pre ker",
+    "excerpt": "Ako vybrať miesto pre hortenziu podľa druhu, svetla, odtoku vody a dospelej veľkosti rastliny.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/kam-zasadit-hortenziu.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "kam zasadit hortenziu",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]

@@ -77,11 +77,8 @@ LOW_VALUE_SK_ARTICLES = (
 # near-identical care advice, so keep them out of search and the archive pending editing.
 REVIEW_PENDING_SK_ARTICLES = (
     "hnojenie-hortenzii-v-lete",
-    "hnojivo-na-hortenzie",
-    "hortenzia-rastie-pomaly",
     "hortenzia-sucha",
     "hortenzia-vadnutie-horucava",
-    "kam-zasadit-hortenziu",
 )
 
 def redirect_page(path: Path) -> None:
