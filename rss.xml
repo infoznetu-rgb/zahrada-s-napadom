@@ -6,6 +6,30 @@
     <description>Praktické rady do záhrady a dielne</description>
     <language>sk-SK</language>
     <item>
+      <title>Preliata hortenzia: príznaky a náprava premokrenej pôdy | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzia-preliata/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzia-preliata/</guid>
+      <description>Ako spoznať preliatu hortenziu, skontrolovať odtok vody a upraviť zálievku bez ďalšieho poškodenia koreňov.</description>
+      <pubDate>Mon, 02 Nov 2026 12:05:48 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzia-preliata-facebook.jpg" type="image/jpeg" length="453243" />
+    </item>
+    <item>
+      <title>Spálené listy hortenzie: slnko, sucho a ďalšie príčiny | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzia-listy-spalene-slnkom/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzia-listy-spalene-slnkom/</guid>
+      <description>Ako rozoznať poškodenie listov hortenzie slnkom a horúčavou a skontrolovať zálievku skôr, než zmeníte stanovište.</description>
+      <pubDate>Mon, 02 Nov 2026 12:05:48 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzia-listy-spalene-slnkom-facebook.jpg" type="image/jpeg" length="354330" />
+    </item>
+    <item>
+      <title>Hortenzia po zime nekvitne: mráz, rez alebo podmienky? | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzia-nekvitne-po-zime/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzia-nekvitne-po-zime/</guid>
+      <description>Prečo hortenzia po zime vytvára listy bez kvetov a ako rozlíšiť poškodené puky, nesprávny rez a nevhodné stanovište.</description>
+      <pubDate>Mon, 02 Nov 2026 12:05:48 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzia-nekvitne-po-zime-facebook.jpg" type="image/jpeg" length="365885" />
+    </item>
+    <item>
       <title>Popínavá hortenzia: pestovanie pri stene a v tieni | Záhrada s nápadom</title>
       <link>https://zahradasnapadom.sk/blog/hortenzia-popinava-pestovanie/</link>
       <guid>https://zahradasnapadom.sk/blog/hortenzia-popinava-pestovanie/</guid>
@@ -379,30 +403,6 @@
       <description>Ako vysadiť chren z koreňových odrezkov, obmedziť jeho nekontrolované šírenie a správne zbierať korene na jeseň bez zamorenia záhona.</description>
       <pubDate>Sun, 01 Nov 2026 15:50:44 +0100</pubDate>
       <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/pestovanie-chrenu-v-zahrade-facebook.jpg" type="image/jpeg" length="510275" />
-    </item>
-    <item>
-      <title>Zazimovanie suda na dažďovú vodu bez prasknutia | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/zazimovanie-suda-na-dazdovu-vodu/</link>
-      <guid>https://zahradasnapadom.sk/blog/zazimovanie-suda-na-dazdovu-vodu/</guid>
-      <description>Ako pred mrazom vypustiť sud, odpojiť zberač, vyčistiť filter a uložiť hadice. Postup pre plastovú nádobu aj nádrž, ktorá zostáva vonku. Bezpečne.</description>
-      <pubDate>Sun, 01 Nov 2026 15:50:44 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/27-zazimovanie-suda-na-dazdovu-vodu-facebook.jpg" type="image/jpeg" length="379390" />
-    </item>
-    <item>
-      <title>Záhradný predlžovací kábel: kontrola a zimné skladovanie | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/kontrola-predlzovacieho-kabla-pred-zimou/</link>
-      <guid>https://zahradasnapadom.sk/blog/kontrola-predlzovacieho-kabla-pred-zimou/</guid>
-      <description>Predlžovací kábel po sezóne skontrolujte, očistite a skladujte suchý, voľne navinutý. Poškodený kábel nepoužívajte ani neopravujte provizórne páskou.</description>
-      <pubDate>Sun, 01 Nov 2026 15:50:44 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/kontrola-predlzovacieho-kabla-pred-zimou-facebook.jpg" type="image/jpeg" length="308109" />
-    </item>
-    <item>
-      <title>Kompost na zimu: vlhkosť, vzduch a prikrytie | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/kompost-na-zimu/</link>
-      <guid>https://zahradasnapadom.sk/blog/kompost-na-zimu/</guid>
-      <description>Ako pripraviť kompost na zimu, udržať správnu vlhkosť a pomer materiálov. Praktický postup, ktorý obmedzí zápach aj premokrenie.</description>
-      <pubDate>Sun, 01 Nov 2026 15:50:44 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/kompost-na-zimu-facebook.jpg" type="image/jpeg" length="513181" />
     </item>
   </channel>
 </rss>
