@@ -78,15 +78,12 @@ LOW_VALUE_SK_ARTICLES = (
 REVIEW_PENDING_SK_ARTICLES = (
     "hnojenie-hortenzii-v-lete",
     "hnojivo-na-hortenzie",
-    "hortenzia-po-zime-nerastie",
     "hortenzia-rastie-pomaly",
     "hortenzia-stromcekovita-annabelle-pestovanie",
     "hortenzia-sucha",
     "hortenzia-vadnutie-horucava",
     "hortenzie-kalendar-starostlivosti",
-    "hortenzie-pod-stromami",
     "kam-zasadit-hortenziu",
-    "substrat-pre-hortenzie-v-kvetinaci",
 )
 
 def redirect_page(path: Path) -> None:
