@@ -79,10 +79,7 @@ LOW_VALUE_SK_ARTICLES = (
 REVIEW_PENDING_SK_ARTICLES = (
     "hnojenie-hortenzii-v-lete",
     "hnojivo-na-hortenzie",
-    "hortenzia-dubolista-pestovanie",
-    "hortenzia-kalinolista-pestovanie",
     "hortenzia-listy-spalene-slnkom",
-    "hortenzia-metlinata-pestovanie",
     "hortenzia-nekvitne-po-zime",
     "hortenzia-pilovita-pestovanie",
     "hortenzia-po-zime-nerastie",
