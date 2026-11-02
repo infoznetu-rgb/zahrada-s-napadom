@@ -13,7 +13,6 @@ CONTENT_ATTR = re.compile(r"""(\bcontent\s*=\s*)(["'])(.*?)\2""", re.IGNORECASE 
 LOW_VALUE_SK_ARTICLES = (
     "hortenzia-na-balkone",
     "hortenzie-a-dazdova-voda",
-    "hortenzie-a-okrasne-travy",
     "hortenzie-k-trvalkam",
     "hortenzie-po-silnom-vetru",
     "hortenzie-v-zime",
