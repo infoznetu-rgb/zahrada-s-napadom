@@ -6,6 +6,30 @@
     <description>Praktické rady do záhrady a dielne</description>
     <language>sk-SK</language>
     <item>
+      <title>Hnojenie hortenzií na jar: kedy a koľko hnojiva použiť | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hnojenie-hortenzii-na-jar/</link>
+      <guid>https://zahradasnapadom.sk/blog/hnojenie-hortenzii-na-jar/</guid>
+      <description>Kedy prihnojiť hortenzie na jar, ako zvoliť hnojivo a prečo najprv vylúčiť sucho, zlú drenáž či nevhodné pH.</description>
+      <pubDate>Mon, 02 Nov 2026 11:46:07 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hnojenie-hortenzii-na-jar-facebook.jpg" type="image/jpeg" length="455415" />
+    </item>
+    <item>
+      <title>Aká pôda je vhodná pre hortenzie: vlhkosť, drenáž a pH | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/poda-pre-hortenzie/</link>
+      <guid>https://zahradasnapadom.sk/blog/poda-pre-hortenzie/</guid>
+      <description>Akú pôdu potrebujú hortenzie, ako zlepšiť štruktúru a drenáž a prečo sa pH neoplatí meniť bez merania.</description>
+      <pubDate>Mon, 02 Nov 2026 11:46:07 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/poda-pre-hortenzie-facebook.jpg" type="image/jpeg" length="465666" />
+    </item>
+    <item>
+      <title>Ako zalievať hortenzie: kontrola pôdy a správna zálievka | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/zalievanie-hortenzii/</link>
+      <guid>https://zahradasnapadom.sk/blog/zalievanie-hortenzii/</guid>
+      <description>Ako kontrolovať vlhkosť pri koreňoch hortenzie, kedy polievať ker či nádobu a ako odlíšiť sucho od premokrenia.</description>
+      <pubDate>Mon, 02 Nov 2026 11:46:07 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzia-vadnutie-horucava-facebook.jpg" type="image/jpeg" length="394075" />
+    </item>
+    <item>
       <title>Hortenzia v kvetináči vädne: najčastejšie príčiny | Záhrada s nápadom</title>
       <link>https://zahradasnapadom.sk/blog/hortenzia-v-kvetinaci-vadne/</link>
       <guid>https://zahradasnapadom.sk/blog/hortenzia-v-kvetinaci-vadne/</guid>
@@ -380,30 +404,6 @@
       <description>Výsadba rebarbory na jeseň krok za krokom: stanovište, pôda, rozstup, správna hĺbka púčikov a starostlivosť po vysadení bez oslabenia rastliny.</description>
       <pubDate>Sun, 01 Nov 2026 15:36:12 +0100</pubDate>
       <enclosure url="https://zahradasnapadom.sk/assets/blog/08-vysadba-rebarbory-facebook.jpg" type="image/jpeg" length="410117" />
-    </item>
-    <item>
-      <title>Výsadba brusníc v záhrade: kyslá pôda a správne miesto</title>
-      <link>https://zahradasnapadom.sk/blog/vysadba-brusnic-v-zahrade/</link>
-      <guid>https://zahradasnapadom.sk/blog/vysadba-brusnic-v-zahrade/</guid>
-      <description>Brusnice potrebujú kyslý, humózny a rovnomerne vlhký záhon bez vápna. Praktický návod na výsadbu, mulčovanie, zálievku a výber správneho miesta.</description>
-      <pubDate>Sun, 01 Nov 2026 15:36:12 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/05-vysadba-brusnic-facebook.jpg" type="image/jpeg" length="384206" />
-    </item>
-    <item>
-      <title>Uskladnenie jabĺk na zimu bez hniloby</title>
-      <link>https://zahradasnapadom.sk/blog/uskladnenie-jablk-na-zimu/</link>
-      <guid>https://zahradasnapadom.sk/blog/uskladnenie-jablk-na-zimu/</guid>
-      <description>Ako uskladniť jablká na zimu: správny zber, triedenie, debničky, chlad, vlhkosť a pravidelná kontrola, aby úroda zbytočne nehnila.</description>
-      <pubDate>Sun, 01 Nov 2026 15:36:12 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/uskladnenie-jablk-na-zimu-facebook.jpg" type="image/jpeg" length="285762" />
-    </item>
-    <item>
-      <title>Prístrešok pre ježka na zimu: bezpečné miesto v záhrade</title>
-      <link>https://zahradasnapadom.sk/blog/pristresok-pre-jezka-na-zimu/</link>
-      <guid>https://zahradasnapadom.sk/blog/pristresok-pre-jezka-na-zimu/</guid>
-      <description>Prístrešok pre ježka umiestnite do tichého suchého kúta, s tunelovým vstupom a prirodzeným krytím. Ako pomôcť bez rušenia zimujúceho zvieraťa.</description>
-      <pubDate>Sun, 01 Nov 2026 15:36:12 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/pristresok-pre-jezka-na-zimu-facebook.jpg" type="image/jpeg" length="544699" />
     </item>
   </channel>
 </rss>
