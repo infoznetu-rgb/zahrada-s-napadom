@@ -36,11 +36,9 @@ LOW_VALUE_SK_ARTICLES = (
     "endless-summer-hortenzia",
     "little-lime-hortenzia",
     "bobo-hortenzia",
-    "hortenzie-pre-zaciatocnikov",
     "hortenzie-pri-dome",
     "limelight-hortenzia-pestovanie",
     "hortenzia-v-interieri",
-    "hortenzia-v-kvetinaci",
 )
 
 # Unreviewed 2 Oct batch: sampled pages repeated a short generic template and
