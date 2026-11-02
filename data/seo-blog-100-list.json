@@ -3787,5 +3787,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "zalievanie-hortenzii",
+    "title": "Ako zalievať hortenzie: kontrola pôdy a správna zálievka",
+    "excerpt": "Ako kontrolovať vlhkosť pri koreňoch hortenzie, kedy polievať ker či nádobu a ako odlíšiť sucho od premokrenia.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/zalievanie-hortenzii.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "zalievanie hortenzii",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "poda-pre-hortenzie",
+    "title": "Aká pôda je vhodná pre hortenzie: vlhkosť, drenáž a pH",
+    "excerpt": "Akú pôdu potrebujú hortenzie, ako zlepšiť štruktúru a drenáž a prečo sa pH neoplatí meniť bez merania.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/poda-pre-hortenzie.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "poda pre hortenzie",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hnojenie-hortenzii-na-jar",
+    "title": "Hnojenie hortenzií na jar: kedy a koľko hnojiva použiť",
+    "excerpt": "Kedy prihnojiť hortenzie na jar, ako zvoliť hnojivo a prečo najprv vylúčiť sucho, zlú drenáž či nevhodné pH.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hnojenie-hortenzii-na-jar.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hnojenie hortenzii na jar",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]

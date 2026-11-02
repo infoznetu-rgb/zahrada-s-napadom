@@ -78,7 +78,6 @@ LOW_VALUE_SK_ARTICLES = (
 # near-identical care advice, so keep them out of search and the archive pending editing.
 REVIEW_PENDING_SK_ARTICLES = (
     "ako-sadit-hortenziu",
-    "hnojenie-hortenzii-na-jar",
     "hnojenie-hortenzii-v-lete",
     "hnojivo-na-hortenzie",
     "hortenzia-dubolista-pestovanie",
@@ -105,7 +104,6 @@ REVIEW_PENDING_SK_ARTICLES = (
     "kam-zasadit-hortenziu",
     "kedy-sadit-hortenzie",
     "mulcovanie-hortenzii",
-    "poda-pre-hortenzie",
     "presadzanie-hortenzie",
     "rez-hortenzie-kalinolistej",
     "rez-hortenzie-metlinatej",
@@ -113,7 +111,6 @@ REVIEW_PENDING_SK_ARTICLES = (
     "substrat-pre-hortenzie-v-kvetinaci",
     "vosky-na-hortenzii",
     "vzdialenost-hortenzii-pri-vysadbe",
-    "zalievanie-hortenzii",
 )
 
 def redirect_page(path: Path) -> None:
