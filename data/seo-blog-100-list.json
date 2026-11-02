@@ -1,5 +1,53 @@
 [
   {
+    "slug": "hortenzia-v-tieni",
+    "title": "Hortenzia v tieni: koľko svetla potrebuje na kvitnutie?",
+    "excerpt": "Rozdiel medzi ľahkým polotieňom a hlbokým tieňom, vplyv na kvitnutie a výber vhodného stanovišťa.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-v-tieni.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzia v tieni",
+      "svetlo pre hortenzie",
+      "kvitnutie hortenzií",
+      "stanovište hortenzií",
+      "hortenzie"
+    ]
+  },
+  {
+    "slug": "velkost-kvetinaca-pre-hortenziu",
+    "title": "Aký veľký kvetináč potrebuje hortenzia?",
+    "excerpt": "Ako vybrať nádobu pre hortenziu podľa koreňového balu, odtoku a toho, ako často chcete rastlinu presádzať.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/velkost-kvetinaca-pre-hortenziu.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "veľkosť kvetináča pre hortenziu",
+      "hortenzie v nádobe",
+      "črepník pre hortenziu",
+      "substrát pre hortenzie",
+      "hortenzie"
+    ]
+  },
+  {
+    "slug": "hortenzie-korene",
+    "title": "Korene hortenzie: priestor, voda a šetrná práca okolo kra",
+    "excerpt": "Ako ochrániť koreňovú zónu hortenzie pred preschnutím, prekopávaním a konkurenciou o vodu.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-korene.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "korene hortenzie",
+      "koreňová zóna hortenzie",
+      "voda a hortenzie",
+      "pestovanie hortenzií",
+      "hortenzie"
+    ]
+  },
+  {
     "slug": "hortenzia-polamane-konare",
     "title": "Zlomené konáre hortenzie: ako ich správne ošetriť",
     "excerpt": "Po vetre alebo snehu odstráňte rozštiepené výhonky čistým rezom, ale zdravý ker nestrihajte zbytočne hlboko.",
