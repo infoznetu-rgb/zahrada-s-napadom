@@ -60,6 +60,8 @@ MERGED_ARTICLE_REDIRECTS = {
     "jesenna-starostlivost-o-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
     "letna-starostlivost-o-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
     "odkvitnute-kvety-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
+    "uskladnenie-akumulatorov-zahradnej-techniky": "/blog/zahradna-technika-pred-zimou/",
+    "zazimovanie-tlakoveho-cistica": "/blog/zahradna-technika-pred-zimou/",
     "kora-pod-hortenzie": "/blog/poda-pre-hortenzie/",
     "raselina-hortenzie": "/blog/poda-pre-hortenzie/",
     "najcastejsie-chyby-hortenzie": "/blog/hortenzie-pre-zaciatocnikov/",

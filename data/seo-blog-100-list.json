@@ -1,5 +1,33 @@
 [
   {
+    "slug": "zimny-zber-kuceraveho-kelu",
+    "title": "Zimný zber kučeravého kelu bez poškodenia rastliny",
+    "excerpt": "Zistite, ako zbierať kučeravý kel od jesene do zimy, ktoré listy odlamovať, ako chrániť srdiečko a čo robiť pri snehu aj holomraze.",
+    "category": "Zeleninová záhrada",
+    "cover_url": "/assets/blog/01-zimny-zber-kelu.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "kučeravý kel",
+      "zimný zber",
+      "zelenina v zime"
+    ]
+  },
+  {
+    "slug": "zber-a-skladovanie-hrusiek",
+    "title": "Kedy oberať hrušky a ako ich skladovať bez hniloby",
+    "excerpt": "Kedy oberať hrušky na skladovanie? Rozlíšte zberovú a konzumnú zrelosť, skontrolujte stopku a odrodu. Šetrný zber, chladný sklad a dozrievanie doma.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/ai-2026-10/zber-a-skladovanie-hrusiek.webp",
+    "published_at": "2026-09-28T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "hrušky",
+      "zber hrušiek",
+      "skladovanie ovocia"
+    ]
+  },
+  {
     "slug": "vyvyseny-zahon-na-zimu",
     "title": "Vyvýšený záhon na zimu: príprava v piatich krokoch",
     "excerpt": "Pripravte vyvýšený záhon na zimu bez holej pôdy. Päť krokov pre zvyšky rastlín, kompost, zelené hnojenie, mulč a opravu konštrukcie. krok za krokom.",
