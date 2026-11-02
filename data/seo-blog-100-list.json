@@ -3742,5 +3742,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "hortenzia-v-kvetinaci-vadne",
+    "title": "Hortenzia v kvetináči vädne: najčastejšie príčiny",
+    "excerpt": "Hortenzia v nádobe môže vädnúť pre rýchle preschnutie aj premokrené korene. Skontrolujte substrát, odtok a podmisku pred ďalšou zálievkou.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-v-kvetinaci-vadne.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia v kvetinaci vadne",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "mucnatka-na-hortenzii",
+    "title": "Múčnatka na hortenzii: príznaky a čo pomáha",
+    "excerpt": "Biely múčnatý povlak a skrútené listy môžu ukazovať na múčnatku. Ako rozlíšiť príznaky a zlepšiť podmienky bez náhodného postreku.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/mucnatka-na-hortenzii.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "mucnatka na hortenzii",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "slimaky-hortenzie",
+    "title": "Slimáky a hortenzie: ako chrániť mladé výhonky",
+    "excerpt": "Nepravidelné otvory a lesklé slizové stopy často zanechávajú slizniaky. Ako ich nájsť a chrániť mladé hortenzie bez soli a zbytočnej chémie.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/slimaky-hortenzie.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "slimaky hortenzie",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]
