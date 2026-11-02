@@ -1,5 +1,53 @@
 [
   {
+    "slug": "hortenzia-polamane-konare",
+    "title": "Zlomené konáre hortenzie: ako ich správne ošetriť",
+    "excerpt": "Po vetre alebo snehu odstráňte rozštiepené výhonky čistým rezom, ale zdravý ker nestrihajte zbytočne hlboko.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-polamane-konare.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "zlomené konáre hortenzie",
+      "poškodenie hortenzie",
+      "rez hortenzie",
+      "hortenzie",
+      "počasie"
+    ]
+  },
+  {
+    "slug": "hortenzia-z-obchodu-do-zahrady",
+    "title": "Hortenzia z kvetinárstva: čo robiť po odkvitnutí",
+    "excerpt": "Ako sa starať o darčekovú hortenziu po odkvitnutí a čo vedieť, ak ju chcete vysadiť do záhrady.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-z-obchodu-do-zahrady.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzia z kvetinárstva",
+      "darčeková hortenzia",
+      "pestovanie hortenzie",
+      "hortenzie",
+      "záhrada"
+    ]
+  },
+  {
+    "slug": "hortenzie-a-ruze",
+    "title": "Hortenzie a ruže v jednom záhone: ako ich zladiť",
+    "excerpt": "Hortenzie a ruže sa môžu dopĺňať farbou aj tvarom, ak zladíte svetlo, priestor, zálievku a nároky konkrétnych kultivarov.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-a-ruze.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie a ruže",
+      "spoločná výsadba ruží a hortenzií",
+      "výsadba do záhona",
+      "ruže",
+      "hortenzie"
+    ]
+  },
+  {
     "slug": "hortenzie-do-vazy",
     "title": "Hortenzie do vázy: ako predĺžiť životnosť kvetov",
     "excerpt": "Kedy odrezať súkvetia, ako pripraviť stonky, vodu a vázu a čo robiť, keď hortenzia po prenesení vädne.",

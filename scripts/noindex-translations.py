@@ -13,7 +13,6 @@ CONTENT_ATTR = re.compile(r"""(\bcontent\s*=\s*)(["'])(.*?)\2""", re.IGNORECASE 
 LOW_VALUE_SK_ARTICLES = (
     "hortenzia-meni-farbu-na-jesen",
     "hortenzia-na-balkone",
-    "hortenzia-polamane-konare",
     "hortenzie-a-dazdova-voda",
     "hortenzie-a-okrasne-travy",
     "hortenzie-k-trvalkam",
@@ -26,7 +25,6 @@ LOW_VALUE_SK_ARTICLES = (
     "odkvitnute-kvety-hortenzie",
     "omladenie-starej-hortenzie",
     "velkost-kvetinaca-pre-hortenziu",
-    "hortenzia-z-obchodu-do-zahrady",
     "hortenzie-a-hosty",
     "hortenzie-korene",
     "kontrola-opor-stromov-pred-zimou",
@@ -61,7 +59,6 @@ LOW_VALUE_SK_ARTICLES = (
     "hortenzia-na-plnom-slnku",
     "hortenzia-v-interieri",
     "hortenzia-v-kvetinaci",
-    "hortenzie-a-ruze",
     "hortenzie-zivy-plot",
 )
 
