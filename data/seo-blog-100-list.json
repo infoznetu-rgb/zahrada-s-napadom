@@ -1,5 +1,131 @@
 [
   {
+    "slug": "vyvyseny-zahon-na-zimu",
+    "title": "Vyvýšený záhon na zimu: príprava v piatich krokoch",
+    "excerpt": "Pripravte vyvýšený záhon na zimu bez holej pôdy. Päť krokov pre zvyšky rastlín, kompost, zelené hnojenie, mulč a opravu konštrukcie. krok za krokom.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/03-vyvyseny-zahon-na-zimu.webp",
+    "published_at": "2026-10-03T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "vyvýšený záhon",
+      "mulčovanie",
+      "príprava na zimu"
+    ]
+  },
+  {
+    "slug": "zahradna-technika-pred-zimou",
+    "title": "Záhradná technika pred zimou: praktický checklist pred uložením",
+    "excerpt": "Ako pripraviť kosačku, ručné náradie, hadice a ďalšiu záhradnú techniku na zimu. Praktický checklist pred uložením do dielne.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/14-naradie-na-zimu.webp",
+    "published_at": "2026-09-25T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "záhradná technika",
+      "údržba náradia",
+      "zazimovanie"
+    ]
+  },
+  {
+    "slug": "presadzanie-krov-na-jesen",
+    "title": "Presádzanie kríkov na jeseň bez poškodenia koreňov",
+    "excerpt": "Ako presadiť opadavý ker na jeseň bez zbytočného poškodenia koreňov. Príprava jamy, koreňového balu, zálievka aj následná starostlivosť.",
+    "category": "Záhradné práce",
+    "cover_url": "/assets/blog/ai-2026-10/presadzanie-krov-na-jesen.webp",
+    "published_at": "2026-09-29T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "presádzanie kríkov",
+      "jesenné práce",
+      "výsadba"
+    ]
+  },
+  {
+    "slug": "rez-malin-po-zbere",
+    "title": "Rez malín po zbere: letné a jesenné odrody krok za krokom",
+    "excerpt": "Rez malín po zbere sa líši podľa typu odrody. Naučte sa rozoznať staré prúty, správne ich vyrezať a udržať porast zdravý.",
+    "category": "Ovocie",
+    "cover_url": "/assets/blog/ai-2026-10/rez-malin-po-zbere.webp",
+    "published_at": "2026-09-28T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "rez malín",
+      "maliny",
+      "ovocná záhrada"
+    ]
+  },
+  {
+    "slug": "mumifikovane-plody-na-stromoch",
+    "title": "Mumifikované plody na stromoch: jesenná hygiena sadu",
+    "excerpt": "Scvrknuté ovocie ponechané na strome môže niesť infekciu. Naučte sa mumifikované plody bezpečne odstrániť a znížiť riziko hniloby.",
+    "category": "Ovocná záhrada",
+    "cover_url": "/assets/blog/ai-2026-10/mumifikovane-plody-na-stromoch.webp",
+    "published_at": "2026-09-29T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "mumifikované plody",
+      "ovocné stromy",
+      "choroby ovocia"
+    ]
+  },
+  {
+    "slug": "kvetinace-z-vedier-a-nadob",
+    "title": "Kvetináče z vedier a starých nádob: rozhoduje odtok vody",
+    "excerpt": "Ako spraviť kvetináč zo starého vedra alebo nádoby: drenážne otvory, stabilita, vhodný materiál, veľkosť a praktické chyby pri recyklácii.",
+    "category": "Recyklácia",
+    "cover_url": "/assets/blog/ai-2026-10/kvetinace-z-vedier-a-nadob.webp",
+    "published_at": "2026-08-29T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "recyklácia nádob",
+      "kvetináče",
+      "drenáž"
+    ]
+  },
+  {
+    "slug": "kompost-pred-zimou",
+    "title": "Ako pripraviť kompost pred zimou bez hniloby",
+    "excerpt": "Kompost pred zimou správne premiešajte, doplňte suchý materiál a upravte vlhkosť. Zistite, kedy ho prikryť a čo doň na jeseň nepridávať.",
+    "category": "Pôda a kompost",
+    "cover_url": "/assets/blog/08-kompost-pred-zimou.webp",
+    "published_at": "2026-10-08T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "kompost",
+      "kompostovanie",
+      "zima v záhrade"
+    ]
+  },
+  {
+    "slug": "meranie-ph-pody-v-zahrade",
+    "title": "Meranie pH pôdy v záhrade: odber vzorky bez chýb",
+    "excerpt": "Z jedného záhona odoberte viac vzoriek z hĺbky 10 až 15 cm, premiešajte ich a až potom testujte. Netestujte tesne po vápnení. Praktický postup pre slovenské záhrady.",
+    "category": "Pôda a kompost",
+    "cover_url": "/assets/blog/ai-2026-10/meranie-ph-pody-v-zahrade.webp",
+    "published_at": "2026-09-30T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "meranie pH pôdy",
+      "pôda v záhrade",
+      "odber vzorky"
+    ]
+  },
+  {
+    "slug": "brusenie-zahradnych-noznic",
+    "title": "Ako nabrúsiť záhradné nožnice bez poškodenia čepele",
+    "excerpt": "Brúsenie záhradných nožníc krok za krokom: rozlíšenie typov, správna strana čepele, jemný pilník, odstránenie ostrapu a bezpečný test ostria.",
+    "category": "Záhradná technika",
+    "cover_url": "/assets/blog/08-brusenie-noznic.webp",
+    "published_at": "2026-10-07T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "záhradné nožnice",
+      "brúsenie náradia",
+      "údržba záhrady"
+    ]
+  },
+  {
     "slug": "hortenzia-na-balkone",
     "title": "Hortenzia na balkóne: ochrana pred vetrom, úpalom a preschnutím",
     "excerpt": "Ako pestovať hortenziu na balkóne: zvoľte vhodné svetlo, stabilnú nádobu s odtokom a zálievku prispôsobte teplu, vetru aj veľkosti koreňového balu.",
