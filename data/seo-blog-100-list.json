@@ -4192,5 +4192,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "hortenzia-po-zime-nerastie",
+    "title": "Hortenzia po zime nerastie: počkať alebo zasiahnuť?",
+    "excerpt": "Ako zistiť, či hortenzia po zime ešte spí, alebo sú výhonky poškodené mrazom, a kedy má zmysel rezať.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-po-zime-nerastie.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia po zime nerastie",
+      "mráz",
+      "rez"
+    ]
+  },
+  {
+    "slug": "hortenzie-pod-stromami",
+    "title": "Hortenzie pod stromami: tieň, korene a konkurencia o vodu",
+    "excerpt": "Čo zvážiť pri výsadbe hortenzií pod stromami a ako obmedziť tieň, sucho a poškodzovanie koreňov pri príprave záhona.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-pod-stromami.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie pod stromami",
+      "výsadba hortenzie",
+      "tieň",
+      "konkurencia koreňov"
+    ]
+  },
+  {
+    "slug": "substrat-pre-hortenzie-v-kvetinaci",
+    "title": "Substrát pre hortenziu v kvetináči: vzdušný a priepustný",
+    "excerpt": "Ako vybrať substrát pre hortenziu v nádobe, zabezpečiť odtok a predísť zhutneniu či premokreniu koreňov.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/substrat-pre-hortenzie-v-kvetinaci.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "substrát pre hortenzie",
+      "hortenzia v kvetináči",
+      "drenáž",
+      "pestovanie v nádobe"
+    ]
   }
 ]
