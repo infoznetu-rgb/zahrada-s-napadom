@@ -36,7 +36,6 @@ LOW_VALUE_SK_ARTICLES = (
     "endless-summer-hortenzia",
     "little-lime-hortenzia",
     "hortenzia-po-kupeni",
-    "najkrajsie-metlinate-hortenzie",
     "bobo-hortenzia",
     "hortenzie-pre-zaciatocnikov",
     "hortenzie-pri-dome",
@@ -53,8 +52,19 @@ REVIEW_PENDING_SK_ARTICLES = (
     "hortenzia-vadnutie-horucava",
 )
 
+MERGED_ARTICLE_REDIRECTS = {
+    "hortenzia-sucha": "/blog/zalievanie-hortenzii/",
+    "hortenzia-vadnutie-horucava": "/blog/hortenzia-listy-ovisnute-rano/",
+    "bobo-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
+    "little-lime-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
+    "limelight-hortenzia-pestovanie": "/blog/najkrajsie-metlinate-hortenzie/",
+    "phantom-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
+    "vanille-fraise-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
+}
+
+
 def redirect_page(path: Path) -> None:
-    destination = "/blog.html"
+    destination = MERGED_ARTICLE_REDIRECTS.get(path.parent.name, "/blog.html")
     path.write_text(
         '<!doctype html><html lang="sk"><head><meta charset="utf-8">'
         '<meta name="robots" content="noindex,follow">'
