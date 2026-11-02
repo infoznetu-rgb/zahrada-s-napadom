@@ -6,6 +6,30 @@
     <description>Praktické rady do záhrady a dielne</description>
     <language>sk-SK</language>
     <item>
+      <title>Hnedé listy hortenzie: sucho, slnko alebo choroba? | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzia-hnede-listy/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzia-hnede-listy/</guid>
+      <description>Hnedé okraje a škvrny na hortenzii môžu mať viac príčin. Podľa vzoru poškodenia zistite, čo skontrolovať ako prvé.</description>
+      <pubDate>Mon, 02 Nov 2026 11:55:58 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzia-hnede-listy-facebook.jpg" type="image/jpeg" length="314749" />
+    </item>
+    <item>
+      <title>Škvrny na listoch hortenzie: ako ich rozpoznať | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzia-skvrny-na-listoch/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzia-skvrny-na-listoch/</guid>
+      <description>Rozlíšte škvrny po daždi, poškodenie škodcami a listové choroby hortenzie. Zistite, čo odstrániť a kedy je vhodná odborná diagnostika.</description>
+      <pubDate>Mon, 02 Nov 2026 11:55:58 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzia-skvrny-na-listoch-facebook.jpg" type="image/jpeg" length="356622" />
+    </item>
+    <item>
+      <title>Hortenzia po mraze: čo odstrániť a kedy rezať | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/hortenzia-po-mraze/</link>
+      <guid>https://zahradasnapadom.sk/blog/hortenzia-po-mraze/</guid>
+      <description>Ako postupovať po neskorom mraze na hortenzii, rozlíšiť poškodené listy a puky a vyhnúť sa predčasnému rezu.</description>
+      <pubDate>Mon, 02 Nov 2026 11:55:58 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/hortenzia-po-mraze-facebook.jpg" type="image/jpeg" length="409931" />
+    </item>
+    <item>
       <title>Hnojenie hortenzií na jar: kedy a koľko hnojiva použiť | Záhrada s nápadom</title>
       <link>https://zahradasnapadom.sk/blog/hnojenie-hortenzii-na-jar/</link>
       <guid>https://zahradasnapadom.sk/blog/hnojenie-hortenzii-na-jar/</guid>
@@ -380,30 +404,6 @@
       <description>Jesenná výsadba malín krok za krokom: výber miesta, rozloženie koreňov, správna hĺbka, rozstupy, opora, zálievka a prvý rez podľa sadenice.</description>
       <pubDate>Sun, 01 Nov 2026 15:42:42 +0100</pubDate>
       <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/jesenna-vysadba-malin-facebook.jpg" type="image/jpeg" length="459665" />
-    </item>
-    <item>
-      <title>Zazimovanie robotickej kosačky: čistenie a skladovanie</title>
-      <link>https://zahradasnapadom.sk/blog/zazimovanie-robotickej-kosacky/</link>
-      <guid>https://zahradasnapadom.sk/blog/zazimovanie-robotickej-kosacky/</guid>
-      <description>Robotickú kosačku pred zimou vyčistite, skontrolujte nože, batériu a nabíjaciu stanicu. Bezpečný postup vždy prispôsobte návodu výrobcu.</description>
-      <pubDate>Sun, 01 Nov 2026 15:42:42 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/05-roboticka-kosacka-facebook.jpg" type="image/jpeg" length="275900" />
-    </item>
-    <item>
-      <title>Čistenie vtáčej búdky na jeseň: bezpečný hygienický postup | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/cistenie-vtacej-budky-na-jesen/</link>
-      <guid>https://zahradasnapadom.sk/blog/cistenie-vtacej-budky-na-jesen/</guid>
-      <description>Kedy otvoriť vtáčiu búdku, ako odstrániť staré hniezdo, vyčistiť vnútro bez agresívnej chémie a skontrolovať upevnenie, a pritom neohroziť vtáky.</description>
-      <pubDate>Sun, 01 Nov 2026 15:42:42 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/cistenie-vtacej-budky-na-jesen-facebook.jpg" type="image/jpeg" length="392267" />
-    </item>
-    <item>
-      <title>Výsadba rebarbory na jeseň: miesto a správny postup</title>
-      <link>https://zahradasnapadom.sk/blog/vysadba-rebarbory-na-jesen/</link>
-      <guid>https://zahradasnapadom.sk/blog/vysadba-rebarbory-na-jesen/</guid>
-      <description>Výsadba rebarbory na jeseň krok za krokom: stanovište, pôda, rozstup, správna hĺbka púčikov a starostlivosť po vysadení bez oslabenia rastliny.</description>
-      <pubDate>Sun, 01 Nov 2026 15:36:12 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/08-vysadba-rebarbory-facebook.jpg" type="image/jpeg" length="410117" />
     </item>
   </channel>
 </rss>
