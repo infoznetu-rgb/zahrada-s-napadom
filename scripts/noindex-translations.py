@@ -79,10 +79,8 @@ REVIEW_PENDING_SK_ARTICLES = (
     "hnojenie-hortenzii-v-lete",
     "hnojivo-na-hortenzie",
     "hortenzia-rastie-pomaly",
-    "hortenzia-stromcekovita-annabelle-pestovanie",
     "hortenzia-sucha",
     "hortenzia-vadnutie-horucava",
-    "hortenzie-kalendar-starostlivosti",
     "kam-zasadit-hortenziu",
 )
 

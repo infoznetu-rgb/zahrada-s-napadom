@@ -4237,5 +4237,35 @@
       "drenáž",
       "pestovanie v nádobe"
     ]
+  },
+  {
+    "slug": "hortenzie-kalendar-starostlivosti",
+    "title": "Kalendár starostlivosti o hortenzie počas roka",
+    "excerpt": "Praktický ročný plán pre hortenzie podľa fázy rastu, kvitnutia a počasia. Termíny prispôsobte druhu, kultivaru a miestnej klíme.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-kalendar-starostlivosti.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzie kalendar starostlivosti",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-stromcekovita-annabelle-pestovanie",
+    "title": "Hortenzia Annabelle: pestovanie, kvety a opora",
+    "excerpt": "Ako pestovať stromčekovitú hortenziu Annabelle, predísť poliehaniu ťažkých súkvetí a správne načasovať rez.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-stromcekovita-annabelle-pestovanie.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia stromcekovita annabelle pestovanie",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]
