@@ -3967,5 +3967,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "rez-hortenzie-metlinatej",
+    "title": "Rez metlinatej hortenzie: kedy a ako ju skrátiť",
+    "excerpt": "Kedy strihať metlinatú hortenziu a ako zvoliť mieru rezu podľa jej veľkosti, tvaru a stability výhonkov.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/rez-hortenzie-metlinatej.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "rez hortenzie metlinatej",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "rez-hortenzie-kalinolistej",
+    "title": "Rez hortenzie kalinolistej: zachovajte budúcoročné kvety",
+    "excerpt": "Ako rezať hortenziu kalinolistú bez odstránenia kvetných pukov a ako rozoznať kultivary kvitnúce na novom dreve.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/rez-hortenzie-kalinolistej.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "rez hortenzie kalinolistej",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "kedy-strihat-hortenzie-do-vazy",
+    "title": "Kedy a ako strihať hortenzie do vázy",
+    "excerpt": "Ako vybrať správny čas na rez súkvetí, pripraviť stonky a použiť čistú vázu bez poškodenia tvaru kra.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/kedy-strihat-hortenzie-do-vazy.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "kedy strihat hortenzie do vazy",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]
