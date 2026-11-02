@@ -1,5 +1,80 @@
 [
   {
+    "slug": "kontrola-opor-stromov-pred-zimou",
+    "title": "Opory mladých stromov pred zimou: skontrolujte koly a úväzky",
+    "excerpt": "Jednoduchá kontrola opory mladého stromčeka pred veternou a zimnou sezónou: pevnosť kolu, voľný úväzok a trenie o kôru.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/04-kontrola-opor-stromov.webp",
+    "published_at": "2026-10-04T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "opory mladých stromov pred zimou",
+      "jeseň",
+      "záhrada",
+      "zimná starostlivosť"
+    ]
+  },
+  {
+    "slug": "vtacie-napajadlo-v-zime",
+    "title": "Voda pre vtáky v zime: bezpečné napájadlo bez prísad",
+    "excerpt": "Ako pripraviť plytké zimné napájadlo pre vtáky, meniť vodu a udržať nádobu čistú bez soli či nemrznúcej zmesi.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/04-vtacie-napajadlo-v-zime.webp",
+    "published_at": "2026-10-04T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "voda pre vtáky v zime",
+      "jeseň",
+      "záhrada",
+      "zimná starostlivosť"
+    ]
+  },
+  {
+    "slug": "zazimovanie-vavrinu-v-crepniku",
+    "title": "Zazimovanie vavrínu v črepníku: svetlo, chlad a zálievka",
+    "excerpt": "Ako pripraviť vavrín pravý v nádobe na chladné mesiace a znížiť riziko premrznutia koreňov či premokrenia.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/04-zazimovanie-vavrinu.webp",
+    "published_at": "2026-10-04T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "zazimovanie vavrínu v črepníku",
+      "jeseň",
+      "záhrada",
+      "zimná starostlivosť"
+    ]
+  },
+  {
+    "slug": "zazimovanie-olivovnika-v-crepniku",
+    "title": "Zazimovanie olivovníka v črepníku: ochrana pred mrazom",
+    "excerpt": "Kedy presunúť olivovník v nádobe, aké zimovisko zvoliť a ako upraviť zálievku, aby koreňový bal nezostal premokrený.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/04-zazimovanie-olivovnika.webp",
+    "published_at": "2026-10-04T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "zazimovanie olivovníka v črepníku",
+      "jeseň",
+      "záhrada",
+      "zimná starostlivosť"
+    ]
+  },
+  {
+    "slug": "zimny-zber-topinamburov",
+    "title": "Zimný zber topinamburov: kedy vyberať hľuzy a ako ich skladovať",
+    "excerpt": "Topinambury môžete vyberať postupne, keď je pôda spracovateľná. Pozrite si šetrný postup zberu, skladovanie a kontrolu zvyšných hľúz.",
+    "category": "Záhrada",
+    "cover_url": "/assets/blog/04-zimny-zber-topinamburov.webp",
+    "published_at": "2026-10-04T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "zimný zber topinamburov",
+      "jeseň",
+      "záhrada",
+      "zimná starostlivosť"
+    ]
+  },
+  {
     "slug": "vysadba-aronie-na-jesen",
     "title": "Výsadba arónie na jeseň: miesto, rozostup a postup",
     "excerpt": "Ako vybrať miesto pre aróniu, pripraviť pôdu a zasadiť ker na jeseň tak, aby sa korene stihli uchytiť pred zimou.",
