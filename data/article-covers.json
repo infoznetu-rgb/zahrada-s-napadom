@@ -2846,5 +2846,75 @@
     "bytes": 441300,
     "alt": "Mladé sadenice arónie pri pripravených jamách",
     "caption": "Jesenná výsadba arónie."
+  },
+  "plesen-snezna-na-travniku": {
+    "url": "/assets/blog/ai-2026-10/obnova-stareho-travnika.webp",
+    "alt": "Ilustračný záber oslabeného trávnika s holými miestami",
+    "caption": "Oslabený trávnik môže mať viac príčin. Tento ilustračný záber nenahrádza určenie choroby.",
+    "width": 1536,
+    "height": 1024
+  },
+  "vysokotlakovy-cistic-bezpecne-pouzitie": {
+    "url": "/assets/blog/04-zazimovanie-tlakoveho-cistica.webp",
+    "alt": "Tlakový čistič s hadicou a príslušenstvom pri záhradnej dielni",
+    "caption": "Tlakový čistič a jeho príslušenstvo pred kontrolou a čistením.",
+    "width": 1536,
+    "height": 1024
+  },
+  "zimovanie-hortenzie-v-kvetinaci": {
+    "url": "/assets/blog/ai-2026-10/hortenzie-v-chladnych-oblastiach.webp",
+    "alt": "Nádoba s hortenziou v zimnej záhrade, obalená pri koreňovej časti",
+    "caption": "Nádoba s hortenziou v zimnej záhrade, obalená pri koreňovej časti.",
+    "width": 1536,
+    "height": 1024
+  },
+  "vyvyseny-zahon-co-premysliet-pred-stavbou": {
+    "url": "/assets/blog/03-vyvyseny-zahon.webp",
+    "alt": "Drevený vyvýšený záhon v záhrade",
+    "caption": "Drevený vyvýšený záhon v záhrade.",
+    "width": 900,
+    "height": 675
+  },
+  "zahrada-v-tieni-napady-pre-menej-slnka": {
+    "url": "/assets/blog/11-zahrada-v-tieni.webp",
+    "alt": "Záhradný kút v tieni s rastlinami",
+    "caption": "Záhradný kút v tieni s rastlinami.",
+    "width": 900,
+    "height": 675
+  },
+  "zber-semien-z-vlastnej-zahrady": {
+    "url": "/assets/blog/17-zber-semien.webp",
+    "alt": "Semená a papierové obaly pripravené na uskladnenie",
+    "caption": "Semená a papierové obaly pripravené na uskladnenie.",
+    "width": 900,
+    "height": 675
+  },
+  "zalievanie-hortenzii": {
+    "url": "/assets/blog/ai-2026-10/hortenzie-a-dazdova-voda.webp",
+    "alt": "Hortenzia pri nádobe na dažďovú vodu",
+    "caption": "Hortenzia pri nádobe na dažďovú vodu.",
+    "width": 1536,
+    "height": 1024
+  },
+  "vzdialenost-hortenzii-pri-vysadbe": {
+    "url": "/assets/blog/ai-2026-10/hortenzie-zivy-plot.webp",
+    "alt": "Hortenzie vysadené v rade s priestorom na rast",
+    "caption": "Hortenzie vysadené v rade s priestorom na rast.",
+    "width": 1536,
+    "height": 1024
+  },
+  "zahradny-kut-na-odkladanie-dreva": {
+    "url": "/assets/blog/40-kut-na-drevo.webp",
+    "alt": "Drevo uložené pod strechou s priestorom na vetranie",
+    "caption": "Drevo uložené pod strechou s priestorom na vetranie.",
+    "width": 900,
+    "height": 675
+  },
+  "zazimovanie-vermikompostera": {
+    "url": "/assets/blog/vermikomposter-zima-20261102.webp",
+    "alt": "Nádobový vermikompostér s podstielkou uložený v bezmrazovej technickej miestnosti",
+    "caption": "Nádobový vermikompostér v chránenom zimovisku.",
+    "width": 1672,
+    "height": 941
   }
 }

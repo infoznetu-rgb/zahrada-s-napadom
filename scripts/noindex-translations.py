@@ -11,6 +11,10 @@ ROBOTS_NAME = re.compile(r"""\bname\s*=\s*(["'])robots\1""", re.IGNORECASE)
 CONTENT_ATTR = re.compile(r"""(\bcontent\s*=\s*)(["'])(.*?)\2""", re.IGNORECASE | re.DOTALL)
 
 LOW_VALUE_SK_ARTICLES = (
+    "kompost-k-hortenziam",
+    "odstranenie-mumifikovanych-plodov",
+    "pestovanie-valerianky-polnej",
+
     "hortenzie-k-trvalkam",
     "hortenzie-v-zime",
     "jarna-starostlivost-o-hortenzie",
@@ -18,8 +22,6 @@ LOW_VALUE_SK_ARTICLES = (
     "letna-starostlivost-o-hortenzie",
     "odkvitnute-kvety-hortenzie",
     "hortenzie-a-hosty",
-    "hortenzia-kvety-male",
-    "hortenzia-slabe-vyhonky",
     "kora-pod-hortenzie",
     "najcastejsie-chyby-hortenzie",
     "raselina-hortenzie",
@@ -44,6 +46,10 @@ REVIEW_PENDING_SK_ARTICLES = (
 )
 
 MERGED_ARTICLE_REDIRECTS = {
+    "kompost-k-hortenziam": "/blog/poda-pre-hortenzie/",
+    "odstranenie-mumifikovanych-plodov": "/blog/mumifikovane-plody-na-stromoch/",
+    "pestovanie-valerianky-polnej": "/blog/pestovanie-polnicka-na-jesen/",
+
     "hortenzia-sucha": "/blog/zalievanie-hortenzii/",
     "hortenzia-vadnutie-horucava": "/blog/hortenzia-listy-ovisnute-rano/",
     "bobo-hortenzia": "/blog/najkrajsie-metlinate-hortenzie/",
@@ -228,10 +234,16 @@ for page in ROOT.rglob("*.html"):
                 return ""
             return match.group(0)
         source = article_pattern.sub(keep_card, source)
-    source = anchor_pattern.sub(
-        lambda match: "" if normalized_href(match.group(2)).rstrip("/") in hidden_route_keys else match.group(0),
-        source,
-    )
+    def update_hidden_link(match):
+        route = normalized_href(match.group(2)).rstrip("/")
+        if route not in hidden_route_keys:
+            return match.group(0)
+        slug = route.split("/")[-1]
+        destination = MERGED_ARTICLE_REDIRECTS.get(slug)
+        if destination:
+            return match.group(0).replace(match.group(2), destination, 1)
+        return ""
+    source = anchor_pattern.sub(update_hidden_link, source)
     page.write_text(source, encoding="utf-8")
 
 sitemap_path = ROOT / "sitemap.xml"

@@ -1,0 +1,2759 @@
+{
+  "checked_at": "2026-11-02T18:40:20.537399+00:00",
+  "scope": "Final build: public HTML/resources, blog content integrity, archive, local images and redirect destinations. This is not an AdSense approval prediction or a claim of exhaustive factual verification.",
+  "summary": {
+    "html_files": 870,
+    "blog_routes": 428,
+    "reviewed_articles": 387,
+    "merged_or_redirected_blog_routes": 41,
+    "internal_links": 8774,
+    "decoded_images": 379,
+    "errors": 0,
+    "fragment_warnings": 0
+  },
+  "errors": [],
+  "fragment_warnings": [],
+  "articles": [
+    {
+      "slug": "zazimovanie-rozmarinu-v-crepniku",
+      "words": 425,
+      "image": "/assets/blog/27-zazimovanie-rozmarinu-v-crepniku.webp",
+      "image_bytes": 293738,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pivonie-na-jesen",
+      "words": 414,
+      "image": "/assets/blog/09-pivonie-na-jesen.webp",
+      "image_bytes": 270370,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "fazula-tyckova-opora-vysev",
+      "words": 336,
+      "image": "/assets/blog/ai-2026-10/fazula-tyckova-opora-vysev.webp",
+      "image_bytes": 313242,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "paradajky-praskanie-plodov-zalievka",
+      "words": 311,
+      "image": "/assets/blog/ai-2026-10/paradajky-praskanie-plodov-zalievka.webp",
+      "image_bytes": 161184,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zber-semien-z-vlastnej-zahrady",
+      "words": 813,
+      "image": "/assets/blog/17-zber-semien.webp",
+      "image_bytes": 82266,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vozik-na-prepravky-do-zahrady",
+      "words": 364,
+      "image": "/assets/blog/ai-2026-10/vozik-na-prepravky-do-zahrady.webp",
+      "image_bytes": 346396,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-ihlicnanov-pred-mokrym-snehom",
+      "words": 326,
+      "image": "/assets/blog/ai-2026-10/ochrana-ihlicnanov-pred-mokrym-snehom.webp",
+      "image_bytes": 237466,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-listy-ovisnute-rano",
+      "words": 440,
+      "image": "/assets/blog/ai-2026-10/hortenzia-listy-ovisnute-rano.webp",
+      "image_bytes": 295894,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "skladovanie-zahradnych-hnojiv-v-zime",
+      "words": 403,
+      "image": "/assets/blog/ai-2026-10/skladovanie-zahradnych-hnojiv-v-zime.webp",
+      "image_bytes": 186156,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-jahodoveho-zahona",
+      "words": 426,
+      "image": "/assets/blog/27-zazimovanie-jahodoveho-zahona.webp",
+      "image_bytes": 269428,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenne-sirotky-v-nadobach",
+      "words": 329,
+      "image": "/assets/blog/ai-2026-10/jesenne-sirotky-v-nadobach.webp",
+      "image_bytes": 314758,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cuketa-malo-plodov-priciny",
+      "words": 401,
+      "image": "/assets/blog/ai-2026-10/cuketa-malo-plodov-priciny.webp",
+      "image_bytes": 357032,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "delenie-trvaliek-na-jesen",
+      "words": 467,
+      "image": "/assets/blog/ai-2026-10/delenie-trvaliek-na-jesen.webp",
+      "image_bytes": 404844,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "aky-priemer-opory-pre-hortenzie-50-80-100",
+      "words": 445,
+      "image": "/assets/blog/ai-2026-10/aky-priemer-opory-pre-hortenzie-50-80-100.webp",
+      "image_bytes": 346398,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vapnenie-travnika-na-jesen",
+      "words": 295,
+      "image": "/assets/blog/ai-2026-10/vapnenie-travnika-na-jesen.webp",
+      "image_bytes": 317198,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cistenie-a-skladovanie-netkanej-textilie",
+      "words": 329,
+      "image": "/assets/blog/ai-2026-10/cistenie-a-skladovanie-netkanej-textilie.webp",
+      "image_bytes": 327872,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "predzimny-vysev-petrzlenu",
+      "words": 389,
+      "image": "/assets/blog/ai-2026-10/predzimny-vysev-petrzlenu.webp",
+      "image_bytes": 330574,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "slimaky-v-zahrade-co-funguje",
+      "words": 519,
+      "image": "/assets/blog/ai-2026-10/slimaky-v-zahrade-co-funguje.webp",
+      "image_bytes": 287626,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "predzimny-vysev-mrkvy",
+      "words": 291,
+      "image": "/assets/blog/ai-2026-10/predzimny-vysev-mrkvy.webp",
+      "image_bytes": 302300,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-v-chladnych-oblastiach",
+      "words": 330,
+      "image": "/assets/blog/ai-2026-10/hortenzie-v-chladnych-oblastiach.webp",
+      "image_bytes": 322244,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zemiaky-v-malej-zahrade",
+      "words": 359,
+      "image": "/assets/blog/seo-specific/zemiaky.jpg",
+      "image_bytes": 265159,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "listovka-z-jesenneho-listia",
+      "words": 1081,
+      "image": "/assets/blog/ai-2026-10/listovka-z-jesenneho-listia.webp",
+      "image_bytes": 459246,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zber-dazdovej-vody-zo-strechy",
+      "words": 627,
+      "image": "/assets/blog/02-dazdova-voda.webp",
+      "image_bytes": 92246,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jablon-zakladny-rez",
+      "words": 388,
+      "image": "/assets/blog/ai-2026-10/jablon-zakladny-rez.webp",
+      "image_bytes": 285876,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kvetinace-z-vedier-a-nadob",
+      "words": 470,
+      "image": "/assets/blog/ai-2026-10/kvetinace-z-vedier-a-nadob.webp",
+      "image_bytes": 319738,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-kompostu-pred-hlodavcami",
+      "words": 322,
+      "image": "/assets/blog/ai-2026-10/ochrana-kompostu-pred-hlodavcami.webp",
+      "image_bytes": 405484,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zimny-zber-pastiernaka",
+      "words": 403,
+      "image": "/assets/blog/03-zimny-zber-pastiernaka.webp",
+      "image_bytes": 223410,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-pilovita-pestovanie",
+      "words": 329,
+      "image": "/assets/blog/ai-2026-10/hortenzia-pilovita-pestovanie.webp",
+      "image_bytes": 302730,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hrdza-na-oceli-priprava-povrchu",
+      "words": 383,
+      "image": "/assets/blog/ai-2026-10/hrdza-na-oceli-priprava-povrchu.webp",
+      "image_bytes": 354248,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ako-fotit-hobby-projekt-pre-navod",
+      "words": 446,
+      "image": "/assets/blog/ai-2026-10/ako-fotit-hobby-projekt-pre-navod.webp",
+      "image_bytes": 192920,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-japonskeho-javora-v-crepniku",
+      "words": 323,
+      "image": "/assets/blog/30-japonsky-javor-v-crepniku.webp",
+      "image_bytes": 323858,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-brusnic-v-zahrade",
+      "words": 448,
+      "image": "/assets/blog/05-vysadba-brusnic.webp",
+      "image_bytes": 208394,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mulcovanie-hortenzii",
+      "words": 380,
+      "image": "/assets/blog/ai-2026-10/mulcovanie-hortenzii.webp",
+      "image_bytes": 347626,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "muskaty-prezimovanie",
+      "words": 397,
+      "image": "/assets/blog/ai-2026-10/muskaty-prezimovanie.webp",
+      "image_bytes": 282040,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-zahradneho-nabytku",
+      "words": 406,
+      "image": "/assets/blog/08-zazimovanie-nabytku.webp",
+      "image_bytes": 262530,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "chloroza-hortenzie-zelezo",
+      "words": 433,
+      "image": "/assets/blog/ai-2026-10/chloroza-hortenzie-zelezo.webp",
+      "image_bytes": 301690,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "maly-sklenik-zaklady-kotvenie",
+      "words": 543,
+      "image": "/assets/blog/ai-2026-10/maly-sklenik-zaklady-kotvenie.webp",
+      "image_bytes": 329578,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "skladovanie-batatov-po-zbere",
+      "words": 537,
+      "image": "/assets/blog/ai-2026-10/skladovanie-batatov-po-zbere.webp",
+      "image_bytes": 286264,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mach-v-travniku-priciny",
+      "words": 398,
+      "image": "/assets/blog/ai-2026-10/mach-v-travniku-priciny.webp",
+      "image_bytes": 476060,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenna-vysadba-malin",
+      "words": 405,
+      "image": "/assets/blog/ai-2026-10/jesenna-vysadba-malin.webp",
+      "image_bytes": 361680,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-dreveneho-vyvyseneho-zahona-pred-zimou",
+      "words": 334,
+      "image": "/assets/blog/10-dreveny-vyvyseny-zahon.webp",
+      "image_bytes": 216574,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "plesen-v-zahradnom-domceku",
+      "words": 486,
+      "image": "/assets/blog/ai-2026-10/plesen-v-zahradnom-domceku.webp",
+      "image_bytes": 204876,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-bananovnika-v-zahrade",
+      "words": 450,
+      "image": "/assets/blog/05-zazimovanie-bananovnika.webp",
+      "image_bytes": 327456,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-mispule-na-jesen",
+      "words": 571,
+      "image": "/assets/blog/06-vysadba-mispule.webp",
+      "image_bytes": 229426,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zber-a-susenie-vlasskych-orechov",
+      "words": 496,
+      "image": "/assets/blog/ai-2026-10/zber-a-susenie-vlasskych-orechov.webp",
+      "image_bytes": 407692,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kovova-opora-pre-hortenzie-co-sledovat",
+      "words": 503,
+      "image": "/assets/blog/ai-2026-10/kovova-opora-pre-hortenzie-co-sledovat.webp",
+      "image_bytes": 316870,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "striedanie-plodin-vyvyseny-zahon",
+      "words": 570,
+      "image": "/assets/blog/ai-2026-10/striedanie-plodin-vyvyseny-zahon.webp",
+      "image_bytes": 350210,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "polykarbonatovy-sklenik-cistenie",
+      "words": 449,
+      "image": "/assets/blog/ai-2026-10/polykarbonatovy-sklenik-cistenie.webp",
+      "image_bytes": 313184,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-cibulovin-pred-hrabosmi",
+      "words": 343,
+      "image": "/assets/blog/ai-2026-10/ochrana-cibulovin-pred-hrabosmi.webp",
+      "image_bytes": 340432,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cibuloviny-v-travniku-vysadba-a-kedy-opat-kosit",
+      "words": 556,
+      "image": "/assets/blog/01-vysadba-tulipanov.webp",
+      "image_bytes": 172426,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jednoduchy-dennik-zahrady",
+      "words": 451,
+      "image": "/assets/blog/ai-2026-10/jednoduchy-dennik-zahrady.webp",
+      "image_bytes": 221430,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "drziak-na-kanvy-a-vedra",
+      "words": 361,
+      "image": "/assets/blog/ai-2026-10/drziak-na-kanvy-a-vedra.webp",
+      "image_bytes": 336524,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ulozny-box-na-zahradne-drobnosti",
+      "words": 588,
+      "image": "/assets/blog/ai-2026-10/ulozny-box-na-zahradne-drobnosti.webp",
+      "image_bytes": 330968,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mucnatka-na-listoch",
+      "words": 507,
+      "image": "/assets/blog/ai-2026-10/mucnatka-na-listoch.webp",
+      "image_bytes": 311278,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "substrat-pre-hortenzie-v-kvetinaci",
+      "words": 349,
+      "image": "/assets/blog/ai-2026-10/substrat-pre-hortenzie-v-kvetinaci.webp",
+      "image_bytes": 234556,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vyvazovanie-paradajok-opora",
+      "words": 385,
+      "image": "/assets/blog/seo-specific/opora-paradajok.jpg",
+      "image_bytes": 229165,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "prezimovanie-poru-na-zahone",
+      "words": 355,
+      "image": "/assets/blog/ai-2026-10/prezimovanie-poru-na-zahone.webp",
+      "image_bytes": 329310,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ruze-pred-zimou",
+      "words": 491,
+      "image": "/assets/blog/ai-2026-10/ruze-pred-zimou.webp",
+      "image_bytes": 408048,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "strkovy-chodnik-vrstvy",
+      "words": 491,
+      "image": "/assets/blog/ai-2026-10/strkovy-chodnik-vrstvy.webp",
+      "image_bytes": 404790,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "strihanie-hortenzii-podla-druhu",
+      "words": 486,
+      "image": "/assets/blog/ai-2026-10/strihanie-hortenzii-podla-druhu.webp",
+      "image_bytes": 327936,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pivonie-padaju-po-dazdi-co-robit",
+      "words": 417,
+      "image": "/assets/blog/ai-2026-10/pivonie-padaju-po-dazdi-co-robit.webp",
+      "image_bytes": 361584,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "opora-pre-metlinate-a-stromcekovite-hortenzie",
+      "words": 410,
+      "image": "/assets/blog/ai-2026-10/opora-pre-metlinate-a-stromcekovite-hortenzie.webp",
+      "image_bytes": 403722,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "letne-polievanie-s-mensou-spotrebou",
+      "words": 817,
+      "image": "/assets/blog/ai-2026-10/letne-polievanie-s-mensou-spotrebou.webp",
+      "image_bytes": 360896,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-skvrny-na-listoch",
+      "words": 407,
+      "image": "/assets/blog/ai-2026-10/hortenzia-skvrny-na-listoch.webp",
+      "image_bytes": 239698,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vosky-na-hortenzii",
+      "words": 316,
+      "image": "/assets/blog/ai-2026-10/vosky-na-hortenzii.webp",
+      "image_bytes": 207502,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "tesnenie-okolo-okna",
+      "words": 582,
+      "image": "/assets/blog/ai-2026-10/tesnenie-okolo-okna.webp",
+      "image_bytes": 165744,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-nadzemneho-bazena",
+      "words": 383,
+      "image": "/assets/blog/03-zazimovanie-bazena.webp",
+      "image_bytes": 243386,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "drziak-na-vrece-na-listie",
+      "words": 684,
+      "image": "/assets/blog/ai-2026-10/drziak-na-vrece-na-listie.webp",
+      "image_bytes": 314844,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenny-vysev-spenatu",
+      "words": 371,
+      "image": "/assets/blog/08-jesenny-vysev-spenatu.webp",
+      "image_bytes": 299004,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cim-naplnit-vyvyseny-zahon-vrstvy",
+      "words": 1106,
+      "image": "/assets/blog/ai-2026-10/cim-naplnit-vyvyseny-zahon-vrstvy.webp",
+      "image_bytes": 522172,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-citrusov-v-crepniku",
+      "words": 341,
+      "image": "/assets/blog/01-zazimovanie-citrusov.webp",
+      "image_bytes": 207136,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-cierne-listy",
+      "words": 394,
+      "image": "/assets/blog/ai-2026-10/hortenzia-cierne-listy.webp",
+      "image_bytes": 179694,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-rododendronov-pred-zimou",
+      "words": 504,
+      "image": "/assets/blog/ai-2026-10/ochrana-rododendronov-pred-zimou.webp",
+      "image_bytes": 387002,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "okrasne-travy-kedy-strihat",
+      "words": 411,
+      "image": "/assets/blog/ai-2026-10/okrasne-travy-kedy-strihat.webp",
+      "image_bytes": 473420,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-oleandra",
+      "words": 392,
+      "image": "/assets/blog/28-zazimovanie-oleandra.webp",
+      "image_bytes": 202976,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ribezle-rez-presvetlenie",
+      "words": 355,
+      "image": "/assets/blog/ai-2026-10/ribezle-rez-presvetlenie.webp",
+      "image_bytes": 391702,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "omladenie-starej-hortenzie",
+      "words": 448,
+      "image": "/assets/blog/ai-2026-10/omladenie-starej-hortenzie.webp",
+      "image_bytes": 346836,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-annabelle-pada-po-dazdi-opora",
+      "words": 489,
+      "image": "/assets/blog/ai-2026-10/hortenzia-annabelle-pada-po-dazdi-opora.webp",
+      "image_bytes": 327390,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "skladovanie-osiva-cez-zimu",
+      "words": 391,
+      "image": "/assets/blog/ai-2026-10/skladovanie-osiva-cez-zimu.webp",
+      "image_bytes": 278874,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenny-vysev-bobu",
+      "words": 344,
+      "image": "/assets/blog/ai-2026-10/jesenny-vysev-bobu.webp",
+      "image_bytes": 278152,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jednoducha-zastena-pre-kompost",
+      "words": 1289,
+      "image": "/assets/blog/ai-2026-10/jednoducha-zastena-pre-kompost.webp",
+      "image_bytes": 402122,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kam-zasadit-hortenziu",
+      "words": 342,
+      "image": "/assets/blog/ai-2026-10/kam-zasadit-hortenziu.webp",
+      "image_bytes": 311490,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ph-pody-domaci-test",
+      "words": 501,
+      "image": "/assets/blog/ai-2026-10/ph-pody-domaci-test.webp",
+      "image_bytes": 242926,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-zavlahoveho-systemu",
+      "words": 431,
+      "image": "/assets/blog/09-zazimovanie-zavlahy.webp",
+      "image_bytes": 187066,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-zivy-plot",
+      "words": 414,
+      "image": "/assets/blog/ai-2026-10/hortenzie-zivy-plot.webp",
+      "image_bytes": 326882,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-tvrda-voda",
+      "words": 539,
+      "image": "/assets/blog/ai-2026-10/hortenzie-tvrda-voda.webp",
+      "image_bytes": 240712,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenne-cistenie-sklenika",
+      "words": 429,
+      "image": "/assets/blog/ai-2026-10/jesenne-cistenie-sklenika.webp",
+      "image_bytes": 393428,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-vermikompostera",
+      "words": 298,
+      "image": "/assets/blog/vermikomposter-zima-20261102.webp",
+      "image_bytes": 200586,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-kan",
+      "words": 334,
+      "image": "/assets/blog/30-zazimovanie-kan.webp",
+      "image_bytes": 264726,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-chryzantem-v-nadobach",
+      "words": 289,
+      "image": "/assets/blog/01-zazimovanie-chryzantem.webp",
+      "image_bytes": 224950,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-olivovnika-v-crepniku",
+      "words": 311,
+      "image": "/assets/blog/04-zazimovanie-olivovnika.webp",
+      "image_bytes": 291914,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zalievanie-vzdyzelenych-rastlin-pred-zimou",
+      "words": 327,
+      "image": "/assets/blog/29-zalievanie-vzdyzelenych-pred-zimou.webp",
+      "image_bytes": 296868,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-po-zime-nerastie",
+      "words": 371,
+      "image": "/assets/blog/ai-2026-10/hortenzia-po-zime-nerastie.webp",
+      "image_bytes": 291126,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-preliata",
+      "words": 348,
+      "image": "/assets/blog/ai-2026-10/hortenzia-preliata.webp",
+      "image_bytes": 345024,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-vavrinu-v-crepniku",
+      "words": 301,
+      "image": "/assets/blog/04-zazimovanie-vavrinu.webp",
+      "image_bytes": 302668,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenna-vysadba-cemeric",
+      "words": 514,
+      "image": "/assets/blog/ai-2026-10/jesenna-vysadba-cemeric.webp",
+      "image_bytes": 347562,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kompostovanie-v-zahrade-kompletny-sprievodca",
+      "words": 687,
+      "image": "/assets/blog/ai-2026-10/kompost-bez-zapachu-rovnovaha-materialov.webp",
+      "image_bytes": 415482,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-moruse-na-jesen",
+      "words": 466,
+      "image": "/assets/blog/09-vysadba-moruse.webp",
+      "image_bytes": 217760,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zelene-hnojenie-na-jesen",
+      "words": 1232,
+      "image": "/assets/blog/ai-2026-10/zelene-hnojenie-na-jesen.webp",
+      "image_bytes": 449288,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mlade-ovocne-stromy-pred-zimou",
+      "words": 363,
+      "image": "/assets/blog/ai-2026-10/mlade-ovocne-stromy-pred-zimou.webp",
+      "image_bytes": 327688,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenna-starostlivost-o-travnik",
+      "words": 1452,
+      "image": "/assets/blog/ai-2026-10/jesenna-starostlivost-o-travnik.webp",
+      "image_bytes": 277524,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-v-kvetinaci-vadne",
+      "words": 425,
+      "image": "/assets/blog/ai-2026-10/hortenzia-v-kvetinaci-vadne.webp",
+      "image_bytes": 234600,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cibula-zo-sadzacky",
+      "words": 393,
+      "image": "/assets/blog/ai-2026-10/cibula-zo-sadzacky.webp",
+      "image_bytes": 326544,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zahradne-noznice-udrzba-brusenie",
+      "words": 376,
+      "image": "/assets/blog/14-naradie-na-zimu.webp",
+      "image_bytes": 81120,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "male-sedenie-v-rohu-zahrady",
+      "words": 571,
+      "image": "/assets/blog/ai-2026-10/male-sedenie-v-rohu-zahrady.webp",
+      "image_bytes": 440538,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-terakotovych-kvetinacov-pred-mrazom",
+      "words": 336,
+      "image": "/assets/blog/ai-2026-10/ochrana-terakotovych-kvetinacov-pred-mrazom.webp",
+      "image_bytes": 289340,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-v-tieni",
+      "words": 414,
+      "image": "/assets/blog/ai-2026-10/hortenzia-v-tieni.webp",
+      "image_bytes": 311868,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "nater-kovu-v-exterieri",
+      "words": 390,
+      "image": "/assets/blog/ai-2026-10/nater-kovu-v-exterieri.webp",
+      "image_bytes": 279874,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-dubolista-pestovanie",
+      "words": 385,
+      "image": "/assets/blog/ai-2026-10/hortenzia-dubolista-pestovanie.webp",
+      "image_bytes": 335830,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "polievanie-travnika",
+      "words": 378,
+      "image": "/assets/blog/ai-2026-10/polievanie-travnika.webp",
+      "image_bytes": 426322,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "delenie-rebarbory-na-jesen",
+      "words": 344,
+      "image": "/assets/blog/ai-2026-10/delenie-rebarbory-na-jesen.webp",
+      "image_bytes": 438794,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "bielenie-kmenov-ovocnych-stromov",
+      "words": 373,
+      "image": "/assets/blog/ai-2026-10/bielenie-kmenov-ovocnych-stromov.webp",
+      "image_bytes": 373926,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-mladeho-vinica-pred-zimou",
+      "words": 364,
+      "image": "/assets/blog/08-ochrana-mladeho-vinica.webp",
+      "image_bytes": 212404,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vtacie-napajadlo-v-zime",
+      "words": 292,
+      "image": "/assets/blog/ai-2026-10/vtacie-napajadlo-v-zime.webp",
+      "image_bytes": 283398,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cucoriedky-kysla-poda-pestovanie",
+      "words": 357,
+      "image": "/assets/blog/ai-2026-10/cucoriedky-kysla-poda-pestovanie.webp",
+      "image_bytes": 323822,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-zahradneho-postrekovaca",
+      "words": 463,
+      "image": "/assets/blog/06-zazimovanie-postrekovaca.webp",
+      "image_bytes": 164006,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "co-s-opadanym-listim",
+      "words": 453,
+      "image": "/assets/blog/ai-2026-10/co-s-opadanym-listim.webp",
+      "image_bytes": 469606,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rucne-naradie-na-jednej-stene",
+      "words": 505,
+      "image": "/assets/blog/ai-2026-10/rucne-naradie-na-jednej-stene.webp",
+      "image_bytes": 255146,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "plesen-snezna-na-travniku",
+      "words": 416,
+      "image": "/assets/blog/ai-2026-10/obnova-stareho-travnika.webp",
+      "image_bytes": 517974,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jahody-po-zbere-starostlivost",
+      "words": 385,
+      "image": "/assets/blog/ai-2026-10/jahody-po-zbere-starostlivost.webp",
+      "image_bytes": 307082,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-kvitne-zeleno",
+      "words": 428,
+      "image": "/assets/blog/ai-2026-10/hortenzia-kvitne-zeleno.webp",
+      "image_bytes": 160608,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-v-kvetinaci",
+      "words": 446,
+      "image": "/assets/blog/ai-2026-10/hortenzia-v-kvetinaci.webp",
+      "image_bytes": 314904,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-jazierkoveho-cerpadla",
+      "words": 369,
+      "image": "/assets/blog/10-jazierkove-cerpadlo.webp",
+      "image_bytes": 206432,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kvapkajuca-bateria-kontrola",
+      "words": 482,
+      "image": "/assets/blog/ai-2026-10/kvapkajuca-bateria-kontrola.webp",
+      "image_bytes": 172866,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-ovocnych-stromov-na-jesen",
+      "words": 1263,
+      "image": "/assets/blog/ai-2026-10/vysadba-ovocnych-stromov-na-jesen.webp",
+      "image_bytes": 273476,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-brugmansie",
+      "words": 481,
+      "image": "/assets/blog/09-zazimovanie-brugmansie.webp",
+      "image_bytes": 173224,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-mladych-stromcekov-pred-ohryzom",
+      "words": 395,
+      "image": "/assets/blog/ai-2026-10/ochrana-mladych-stromcekov-pred-ohryzom.webp",
+      "image_bytes": 330770,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "najkrajsie-metlinate-hortenzie",
+      "words": 503,
+      "image": "/assets/blog/ai-2026-10/najkrajsie-metlinate-hortenzie.webp",
+      "image_bytes": 378480,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "budka-pre-vtaky-zasady",
+      "words": 373,
+      "image": "/assets/blog/ai-2026-10/budka-pre-vtaky-zasady.webp",
+      "image_bytes": 185670,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ako-podopriet-hortenzie-bez-spagatu",
+      "words": 362,
+      "image": "/assets/blog/ai-2026-10/ako-podopriet-hortenzie-bez-spagatu.webp",
+      "image_bytes": 324080,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vlhkost-v-garazi",
+      "words": 502,
+      "image": "/assets/blog/ai-2026-10/vlhkost-v-garazi.webp",
+      "image_bytes": 224990,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rez-hortenzie-metlinatej",
+      "words": 337,
+      "image": "/assets/blog/ai-2026-10/rez-hortenzie-metlinatej.webp",
+      "image_bytes": 392834,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kontrola-uskladnenej-urody",
+      "words": 353,
+      "image": "/assets/blog/10-kontrola-urody.webp",
+      "image_bytes": 147182,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-rebarbory-na-jesen",
+      "words": 459,
+      "image": "/assets/blog/08-vysadba-rebarbory.webp",
+      "image_bytes": 235552,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-zahradneho-drvica",
+      "words": 436,
+      "image": "/assets/blog/05-zazimovanie-drvica.webp",
+      "image_bytes": 134072,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "lis-na-papierove-kvetinace",
+      "words": 406,
+      "image": "/assets/blog/ai-2026-10/lis-na-papierove-kvetinace.webp",
+      "image_bytes": 258804,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pestovanie-chrenu-v-zahrade",
+      "words": 338,
+      "image": "/assets/blog/ai-2026-10/pestovanie-chrenu-v-zahrade.webp",
+      "image_bytes": 416042,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hnojivo-na-hortenzie",
+      "words": 318,
+      "image": "/assets/blog/ai-2026-10/hnojivo-na-hortenzie.webp",
+      "image_bytes": 305712,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vyvyseny-zahon-na-zimu",
+      "words": 376,
+      "image": "/assets/blog/03-vyvyseny-zahon-na-zimu.webp",
+      "image_bytes": 313362,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cisty-kut-na-brusenie",
+      "words": 498,
+      "image": "/assets/blog/ai-2026-10/cisty-kut-na-brusenie.webp",
+      "image_bytes": 211786,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-po-kupeni",
+      "words": 515,
+      "image": "/assets/blog/ai-2026-10/hortenzia-po-kupeni.webp",
+      "image_bytes": 339754,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "poriadok-v-zahradnom-domceku-za-hodinu",
+      "words": 588,
+      "image": "/assets/blog/ai-2026-10/poriadok-v-zahradnom-domceku-za-hodinu.webp",
+      "image_bytes": 204238,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pristresok-pre-jezka-na-zimu",
+      "words": 429,
+      "image": "/assets/blog/ai-2026-10/pristresok-pre-jezka-na-zimu.webp",
+      "image_bytes": 456482,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-stromcekovita-annabelle-pestovanie",
+      "words": 335,
+      "image": "/assets/blog/ai-2026-10/hortenzia-stromcekovita-annabelle-pestovanie.webp",
+      "image_bytes": 321386,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-muchovnika-na-jesen",
+      "words": 532,
+      "image": "/assets/blog/01-vysadba-muchovnika.webp",
+      "image_bytes": 237110,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "presadzanie-krov-na-jesen",
+      "words": 316,
+      "image": "/assets/blog/ai-2026-10/presadzanie-krov-na-jesen.webp",
+      "image_bytes": 408558,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "naslapne-kamene-v-travniku",
+      "words": 455,
+      "image": "/assets/blog/ai-2026-10/naslapne-kamene-v-travniku.webp",
+      "image_bytes": 450128,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "uskladnenie-jablk-na-zimu",
+      "words": 479,
+      "image": "/assets/blog/ai-2026-10/uskladnenie-jablk-na-zimu.webp",
+      "image_bytes": 195340,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "izolacia-sklenika-na-zimu",
+      "words": 407,
+      "image": "/assets/blog/08-izolacia-sklenika.webp",
+      "image_bytes": 262938,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "salat-bez-horkosti",
+      "words": 316,
+      "image": "/assets/blog/ai-2026-10/salat-bez-horkosti.webp",
+      "image_bytes": 299660,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-kvety-male",
+      "words": 405,
+      "image": "/assets/blog/ai-2026-10/hortenzia-kvety-male.webp",
+      "image_bytes": 305668,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "roztoce-na-hortenzii",
+      "words": 314,
+      "image": "/assets/blog/ai-2026-10/roztoce-na-hortenzii.webp",
+      "image_bytes": 236530,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-sklenika-pred-snehom",
+      "words": 349,
+      "image": "/assets/blog/10-sklenik-pred-snehom.webp",
+      "image_bytes": 205936,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "stojan-na-topanky-do-zahrady",
+      "words": 1179,
+      "image": "/assets/blog/ai-2026-10/stojan-na-topanky-do-zahrady.webp",
+      "image_bytes": 379654,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-po-mraze",
+      "words": 413,
+      "image": "/assets/blog/ai-2026-10/hortenzia-po-mraze.webp",
+      "image_bytes": 288208,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mierka-na-rozostupy-pri-vysadbe",
+      "words": 367,
+      "image": "/assets/blog/ai-2026-10/mierka-na-rozostupy-pri-vysadbe.webp",
+      "image_bytes": 309806,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-robotickej-kosacky",
+      "words": 414,
+      "image": "/assets/blog/05-roboticka-kosacka.webp",
+      "image_bytes": 124558,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hnojenie-hortenzii-na-jar",
+      "words": 417,
+      "image": "/assets/blog/ai-2026-10/hnojenie-hortenzii-na-jar.webp",
+      "image_bytes": 348270,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kedy-sadit-hortenzie",
+      "words": 427,
+      "image": "/assets/blog/ai-2026-10/kedy-sadit-hortenzie.webp",
+      "image_bytes": 332622,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "prakticky-kutik-na-presadzanie-rastlin",
+      "words": 531,
+      "image": "/assets/blog/ai-2026-10/prakticky-kutik-na-presadzanie-rastlin.webp",
+      "image_bytes": 250110,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kosacka-pred-zimou-udrzba",
+      "words": 418,
+      "image": "/assets/blog/ai-2026-10/kosacka-pred-zimou-udrzba.webp",
+      "image_bytes": 370044,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "udrzba-furika-pred-zimou",
+      "words": 354,
+      "image": "/assets/blog/06-udrzba-furika.webp",
+      "image_bytes": 177838,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-po-presadeni-vadnu",
+      "words": 383,
+      "image": "/assets/blog/ai-2026-10/hortenzie-po-presadeni-vadnu.webp",
+      "image_bytes": 239574,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-spenatu-pred-mrazom",
+      "words": 318,
+      "image": "/assets/blog/ai-2026-10/ochrana-spenatu-pred-mrazom.webp",
+      "image_bytes": 236422,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zimne-vetranie-sklenika",
+      "words": 426,
+      "image": "/assets/blog/09-vetranie-sklenika.webp",
+      "image_bytes": 253652,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-dreva-v-exterieri-priprava",
+      "words": 481,
+      "image": "/assets/blog/ai-2026-10/ochrana-dreva-v-exterieri-priprava.webp",
+      "image_bytes": 245946,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenne-prace-v-zahrade-pred-zimou",
+      "words": 1050,
+      "image": "/assets/blog/ai-2026-10/jesenne-prace-v-zahrade-pred-zimou.webp",
+      "image_bytes": 485258,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ruzickovy-kel-po-prvych-mrazoch",
+      "words": 291,
+      "image": "/assets/blog/ai-2026-10/ruzickovy-kel-po-prvych-mrazoch.webp",
+      "image_bytes": 315208,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-kalinolista-pestovanie",
+      "words": 407,
+      "image": "/assets/blog/ai-2026-10/hortenzia-kalinolista-pestovanie.webp",
+      "image_bytes": 378636,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "predlzovacka-v-zahrade-bezpecnost",
+      "words": 388,
+      "image": "/assets/blog/ai-2026-10/predlzovacka-v-zahrade-bezpecnost.webp",
+      "image_bytes": 346196,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "beton-maly-projekt-vypocet",
+      "words": 398,
+      "image": "/assets/blog/ai-2026-10/beton-maly-projekt-vypocet.webp",
+      "image_bytes": 308448,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-aktinidie-na-jesen",
+      "words": 536,
+      "image": "/assets/blog/ai-2026-10/vysadba-aktinidie-na-jesen.webp",
+      "image_bytes": 385934,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pestovanie-polnicka-na-jesen",
+      "words": 358,
+      "image": "/assets/blog/ai-2026-10/pestovanie-polnicka-na-jesen.webp",
+      "image_bytes": 293102,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "uhlova-bruska-bezpecne-pouzitie",
+      "words": 372,
+      "image": "/assets/blog/ai-2026-10/uhlova-bruska-bezpecne-pouzitie.webp",
+      "image_bytes": 226610,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-do-malej-zahrady",
+      "words": 415,
+      "image": "/assets/blog/ai-2026-10/hortenzie-do-malej-zahrady.webp",
+      "image_bytes": 288546,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-a-dazdova-voda",
+      "words": 384,
+      "image": "/assets/blog/ai-2026-10/hortenzie-a-dazdova-voda.webp",
+      "image_bytes": 260572,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ako-zmenit-farbu-hortenzie-modra-ruzova",
+      "words": 812,
+      "image": "/assets/blog/ai-2026-10/ako-zmenit-farbu-hortenzie-modra-ruzova.webp",
+      "image_bytes": 355362,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rastliny-na-balkon-podla-svetovych-stran",
+      "words": 622,
+      "image": "/assets/blog/31-balkonove-pestovanie.webp",
+      "image_bytes": 101378,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vymena-rucky-na-ryli",
+      "words": 366,
+      "image": "/assets/blog/ai-2026-10/vymena-rucky-na-ryli.webp",
+      "image_bytes": 269674,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "strkova-cesticka-medzi-zahonmi",
+      "words": 819,
+      "image": "/assets/blog/ai-2026-10/strkova-cesticka-medzi-zahonmi.webp",
+      "image_bytes": 441302,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-cernic-na-jesen",
+      "words": 390,
+      "image": "/assets/blog/03-vysadba-cernic.webp",
+      "image_bytes": 227844,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-zlte-listy",
+      "words": 368,
+      "image": "/assets/blog/ai-2026-10/hortenzia-zlte-listy.webp",
+      "image_bytes": 223026,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kompost-na-zimu",
+      "words": 389,
+      "image": "/assets/blog/ai-2026-10/kompost-na-zimu.webp",
+      "image_bytes": 417762,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "uskladnenie-gladiolovych-hluz",
+      "words": 318,
+      "image": "/assets/blog/ai-2026-10/uskladnenie-gladiolovych-hluz.webp",
+      "image_bytes": 316572,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "preco-hortenzia-nekvitne",
+      "words": 994,
+      "image": "/assets/blog/ai-2026-10/preco-hortenzia-nekvitne.webp",
+      "image_bytes": 316232,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "dreveny-kvetinac-odtok-vody",
+      "words": 366,
+      "image": "/assets/blog/ai-2026-10/dreveny-kvetinac-odtok-vody.webp",
+      "image_bytes": 276474,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rez-hortenzie-kalinolistej",
+      "words": 384,
+      "image": "/assets/blog/ai-2026-10/rez-hortenzie-kalinolistej.webp",
+      "image_bytes": 317098,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pergola-pri-dome-planovanie",
+      "words": 638,
+      "image": "/assets/blog/ai-2026-10/pergola-pri-dome-planovanie.webp",
+      "image_bytes": 210814,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zber-a-skladovanie-tekvic",
+      "words": 469,
+      "image": "/assets/blog/ai-2026-10/zber-a-skladovanie-tekvic.webp",
+      "image_bytes": 183938,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zimny-zber-topinamburov",
+      "words": 293,
+      "image": "/assets/blog/04-zimny-zber-topinamburov.webp",
+      "image_bytes": 274586,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kompost-pred-zimou",
+      "words": 380,
+      "image": "/assets/blog/08-kompost-pred-zimou.webp",
+      "image_bytes": 257032,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "tulipany-po-odkvitnuti",
+      "words": 409,
+      "image": "/assets/blog/ai-2026-10/tulipany-po-odkvitnuti.webp",
+      "image_bytes": 246474,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "sadenie-narcisov-na-jesen",
+      "words": 423,
+      "image": "/assets/blog/ai-2026-10/sadenie-narcisov-na-jesen.webp",
+      "image_bytes": 300752,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "narcisy-po-odkvitnuti",
+      "words": 345,
+      "image": "/assets/blog/ai-2026-10/narcisy-po-odkvitnuti.webp",
+      "image_bytes": 299716,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jednoduchy-plan-vysadby-zahona",
+      "words": 841,
+      "image": "/assets/blog/ai-2026-10/jednoduchy-plan-vysadby-zahona.webp",
+      "image_bytes": 237674,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hosty-v-tieni-pestovanie",
+      "words": 440,
+      "image": "/assets/blog/ai-2026-10/hosty-v-tieni-pestovanie.webp",
+      "image_bytes": 285488,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "balkonove-rastliny-zalievka-horucavy",
+      "words": 438,
+      "image": "/assets/blog/ai-2026-10/balkonove-rastliny-zalievka-horucavy.webp",
+      "image_bytes": 238626,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "dreveny-plot-oprava-po-zime",
+      "words": 379,
+      "image": "/assets/blog/ai-2026-10/dreveny-plot-oprava-po-zime.webp",
+      "image_bytes": 357674,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "opora-pre-pivonie-kedy-a-ako",
+      "words": 444,
+      "image": "/assets/blog/ai-2026-10/opora-pre-pivonie-kedy-a-ako.webp",
+      "image_bytes": 356902,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mrkva-rovne-korene-priprava-pody",
+      "words": 382,
+      "image": "/assets/blog/ai-2026-10/mrkva-rovne-korene-priprava-pody.webp",
+      "image_bytes": 328602,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "levandula-rez-po-odkvitnuti",
+      "words": 443,
+      "image": "/assets/blog/ai-2026-10/levandula-rez-po-odkvitnuti.webp",
+      "image_bytes": 420312,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "skrutky-do-dreva-vyber",
+      "words": 408,
+      "image": "/assets/blog/ai-2026-10/skrutky-do-dreva-vyber.webp",
+      "image_bytes": 201302,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-hnede-listy",
+      "words": 390,
+      "image": "/assets/blog/ai-2026-10/hortenzia-hnede-listy.webp",
+      "image_bytes": 189758,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-hlubovin-pred-vtakmi",
+      "words": 279,
+      "image": "/assets/blog/ai-2026-10/ochrana-hlubovin-pred-vtakmi.webp",
+      "image_bytes": 556228,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "terasove-dosky-jarne-cistenie",
+      "words": 525,
+      "image": "/assets/blog/ai-2026-10/terasove-dosky-jarne-cistenie.webp",
+      "image_bytes": 334528,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pestovanie-zimneho-portulaku",
+      "words": 493,
+      "image": "/assets/blog/ai-2026-10/pestovanie-zimneho-portulaku.webp",
+      "image_bytes": 188550,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vosky-na-rastlinach-co-robit",
+      "words": 504,
+      "image": "/assets/blog/ai-2026-10/vosky-na-rastlinach-co-robit.webp",
+      "image_bytes": 265026,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "komposter-umiestnenie-v-zahrade",
+      "words": 553,
+      "image": "/assets/blog/ai-2026-10/komposter-umiestnenie-v-zahrade.webp",
+      "image_bytes": 406900,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vylamovanie-zalistkov-paradajok",
+      "words": 375,
+      "image": "/assets/blog/ai-2026-10/vylamovanie-zalistkov-paradajok.webp",
+      "image_bytes": 331982,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jahody-pred-zimou",
+      "words": 323,
+      "image": "/assets/blog/10-jahody-pred-zimou.webp",
+      "image_bytes": 260482,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-korene",
+      "words": 358,
+      "image": "/assets/blog/ai-2026-10/hortenzie-korene.webp",
+      "image_bytes": 395800,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "uhorky-v-skleniku-vetranie-zalievka",
+      "words": 329,
+      "image": "/assets/blog/ai-2026-10/uhorky-v-skleniku-vetranie-zalievka.webp",
+      "image_bytes": 246284,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rozmnozovanie-hortenzie-odrezkami",
+      "words": 512,
+      "image": "/assets/blog/ai-2026-10/rozmnozovanie-hortenzie-odrezkami.webp",
+      "image_bytes": 283384,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "paprika-pestovanie-v-zahone",
+      "words": 318,
+      "image": "/assets/blog/ai-2026-10/paprika-pestovanie-v-zahone.webp",
+      "image_bytes": 361170,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-pod-stromami",
+      "words": 369,
+      "image": "/assets/blog/ai-2026-10/hortenzie-pod-stromami.webp",
+      "image_bytes": 391088,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hmozdinka-podla-steny",
+      "words": 391,
+      "image": "/assets/blog/ai-2026-10/hmozdinka-podla-steny.webp",
+      "image_bytes": 225802,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "motorova-pila-ulozenie-po-sezone",
+      "words": 429,
+      "image": "/assets/blog/ai-2026-10/motorova-pila-ulozenie-po-sezone.webp",
+      "image_bytes": 276504,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vlozka-do-furika-na-sypky-material",
+      "words": 368,
+      "image": "/assets/blog/ai-2026-10/vlozka-do-furika-na-sypky-material.webp",
+      "image_bytes": 358914,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jednoduche-sito-na-kompost",
+      "words": 1181,
+      "image": "/assets/blog/ai-2026-10/jednoduche-sito-na-kompost.webp",
+      "image_bytes": 374120,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zahon-po-zime-priprava-pody",
+      "words": 600,
+      "image": "/assets/blog/15-jarny-start.webp",
+      "image_bytes": 79994,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-bambusu-pred-zimou",
+      "words": 410,
+      "image": "/assets/blog/ai-2026-10/ochrana-bambusu-pred-zimou.webp",
+      "image_bytes": 347970,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pat-malych-vylepseni-pre-pracu-v-zahrade",
+      "words": 464,
+      "image": "/assets/blog/ai-2026-10/pat-malych-vylepseni-pre-pracu-v-zahrade.webp",
+      "image_bytes": 313044,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mulcovanie-zahonov-bez-zbytocnych-chyb",
+      "words": 1417,
+      "image": "/assets/blog/ai-2026-10/mulcovanie-zahonov-bez-zbytocnych-chyb.webp",
+      "image_bytes": 316962,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-rastlin-pred-mrazom",
+      "words": 742,
+      "image": "/assets/blog/01-kvetinace-pred-mrazom.webp",
+      "image_bytes": 206794,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zvaranie-domaca-dielna-priprava",
+      "words": 423,
+      "image": "/assets/blog/seo-specific/zvaranie.jpg",
+      "image_bytes": 104488,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "opora-pre-hortenzie-a-pivonie-ako-vybrat-velkost",
+      "words": 1252,
+      "image": "/assets/blog/ai-2026-10/opora-pre-hortenzie-a-pivonie-ako-vybrat-velkost.webp",
+      "image_bytes": 356704,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "egrese-rez-kra",
+      "words": 323,
+      "image": "/assets/blog/ai-2026-10/egrese-rez-kra.webp",
+      "image_bytes": 297358,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kontrola-predlzovacieho-kabla-pred-zimou",
+      "words": 436,
+      "image": "/assets/blog/ai-2026-10/kontrola-predlzovacieho-kabla-pred-zimou.webp",
+      "image_bytes": 193974,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "oznacovanie-zahonov-na-celu-sezonu",
+      "words": 439,
+      "image": "/assets/blog/ai-2026-10/oznacovanie-zahonov-na-celu-sezonu.webp",
+      "image_bytes": 339502,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ceresna-rez-po-zbere",
+      "words": 298,
+      "image": "/assets/blog/ai-2026-10/ceresna-rez-po-zbere.webp",
+      "image_bytes": 360862,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-figovnika-pred-zimou",
+      "words": 453,
+      "image": "/assets/blog/08-ochrana-figovnika.webp",
+      "image_bytes": 275538,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "predzimny-vysev-kopru",
+      "words": 468,
+      "image": "/assets/blog/ai-2026-10/predzimny-vysev-kopru.webp",
+      "image_bytes": 370822,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pravy-uhol-metoda-3-4-5",
+      "words": 396,
+      "image": "/assets/blog/ai-2026-10/pravy-uhol-metoda-3-4-5.webp",
+      "image_bytes": 426210,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-okrasneho-cesnaku",
+      "words": 394,
+      "image": "/assets/blog/05-vysadba-okrasneho-cesnaku.webp",
+      "image_bytes": 293616,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-metlinata-pestovanie",
+      "words": 393,
+      "image": "/assets/blog/ai-2026-10/hortenzia-metlinata-pestovanie.webp",
+      "image_bytes": 345444,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-na-plnom-slnku",
+      "words": 520,
+      "image": "/assets/blog/ai-2026-10/hortenzia-na-plnom-slnku.webp",
+      "image_bytes": 327896,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-rakytnika-na-jesen",
+      "words": 464,
+      "image": "/assets/blog/05-vysadba-rakytnika.webp",
+      "image_bytes": 289676,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zber-a-dozrievanie-minikivi",
+      "words": 428,
+      "image": "/assets/blog/09-zber-minikivi.webp",
+      "image_bytes": 219822,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "brusenie-zahradnych-noznic",
+      "words": 386,
+      "image": "/assets/blog/08-brusenie-noznic.webp",
+      "image_bytes": 173238,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-z-obchodu-do-zahrady",
+      "words": 450,
+      "image": "/assets/blog/ai-2026-10/hortenzia-z-obchodu-do-zahrady.webp",
+      "image_bytes": 294690,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-magnolie-pred-zimou",
+      "words": 401,
+      "image": "/assets/blog/ai-2026-10/ochrana-magnolie-pred-zimou.webp",
+      "image_bytes": 312788,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vrtaky-drevo-kov-murivo",
+      "words": 428,
+      "image": "/assets/blog/ai-2026-10/vrtaky-drevo-kov-murivo.webp",
+      "image_bytes": 237386,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-a-okrasne-travy",
+      "words": 624,
+      "image": "/assets/blog/ai-2026-10/hortenzie-a-okrasne-travy.webp",
+      "image_bytes": 379588,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-polamane-konare",
+      "words": 463,
+      "image": "/assets/blog/ai-2026-10/hortenzia-polamane-konare.webp",
+      "image_bytes": 235294,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-do-vazy",
+      "words": 418,
+      "image": "/assets/blog/ai-2026-10/hortenzie-do-vazy.webp",
+      "image_bytes": 187262,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hnojenie-hortenzii-v-lete",
+      "words": 536,
+      "image": "/assets/blog/ai-2026-10/hnojenie-hortenzii-v-lete.webp",
+      "image_bytes": 241224,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zahrada-v-tieni-napady-pre-menej-slnka",
+      "words": 933,
+      "image": "/assets/blog/11-zahrada-v-tieni.webp",
+      "image_bytes": 128840,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-liesky-na-jesen",
+      "words": 397,
+      "image": "/assets/blog/03-vysadba-liesky.webp",
+      "image_bytes": 288058,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-kaliny-do-zahrady",
+      "words": 418,
+      "image": "/assets/blog/03-vysadba-kaliny.webp",
+      "image_bytes": 298278,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "susenie-kvetov-hortenzie",
+      "words": 434,
+      "image": "/assets/blog/ai-2026-10/susenie-kvetov-hortenzie.webp",
+      "image_bytes": 272414,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rez-ovocnych-stromov-zakladne-principy",
+      "words": 660,
+      "image": "/assets/blog/ai-2026-10/hruska-rez-koruny.webp",
+      "image_bytes": 389384,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-zeleniny-pred-prvym-mrazom",
+      "words": 465,
+      "image": "/assets/blog/ai-2026-10/ochrana-zeleniny-pred-prvym-mrazom.webp",
+      "image_bytes": 279080,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "dreveny-komposter-stavba",
+      "words": 524,
+      "image": "/assets/blog/ai-2026-10/dreveny-komposter-stavba.webp",
+      "image_bytes": 390262,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "forma-na-betonove-naslapy",
+      "words": 377,
+      "image": "/assets/blog/ai-2026-10/forma-na-betonove-naslapy.webp",
+      "image_bytes": 328584,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ako-vyuzit-priestor-pod-pracovnym-stolom",
+      "words": 468,
+      "image": "/assets/blog/ai-2026-10/ako-vyuzit-priestor-pod-pracovnym-stolom.webp",
+      "image_bytes": 165374,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-pred-zimou-ochrana",
+      "words": 449,
+      "image": "/assets/blog/ai-2026-10/hortenzie-pred-zimou-ochrana.webp",
+      "image_bytes": 405042,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "stena-na-naradie-system",
+      "words": 447,
+      "image": "/assets/blog/ai-2026-10/stena-na-naradie-system.webp",
+      "image_bytes": 243740,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-nekvitne-po-zime",
+      "words": 346,
+      "image": "/assets/blog/ai-2026-10/hortenzia-nekvitne-po-zime.webp",
+      "image_bytes": 245774,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "odrezky-dreva-v-zahrade",
+      "words": 510,
+      "image": "/assets/blog/ai-2026-10/odrezky-dreva-v-zahrade.webp",
+      "image_bytes": 355540,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "opory-pre-paradajky-z-konarov",
+      "words": 555,
+      "image": "/assets/blog/ai-2026-10/opory-pre-paradajky-z-konarov.webp",
+      "image_bytes": 430580,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "skladaci-stojan-na-rezanie-konarov",
+      "words": 393,
+      "image": "/assets/blog/ai-2026-10/skladaci-stojan-na-rezanie-konarov.webp",
+      "image_bytes": 368342,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "stare-drevene-debnicky-ako-ulozny-system",
+      "words": 1374,
+      "image": "/assets/blog/ai-2026-10/stare-drevene-debnicky-ako-ulozny-system.webp",
+      "image_bytes": 311340,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "dazdova-voda-jednoduchy-system-zo-suda",
+      "words": 1184,
+      "image": "/assets/blog/ai-2026-10/dazdova-voda-jednoduchy-system-zo-suda.webp",
+      "image_bytes": 379746,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-a-ruze",
+      "words": 452,
+      "image": "/assets/blog/ai-2026-10/hortenzie-a-ruze.webp",
+      "image_bytes": 357832,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-listy-spalene-slnkom",
+      "words": 343,
+      "image": "/assets/blog/ai-2026-10/hortenzia-listy-spalene-slnkom.webp",
+      "image_bytes": 225402,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "bylinkovy-kut-pri-kuchyni",
+      "words": 1309,
+      "image": "/assets/blog/ai-2026-10/bylinkovy-kut-pri-kuchyni.webp",
+      "image_bytes": 252466,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cistenie-a-zazimovanie-dazdomera",
+      "words": 440,
+      "image": "/assets/blog/10-zazimovanie-dazdomera.webp",
+      "image_bytes": 185952,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "drziak-na-zahradnu-hadicu",
+      "words": 548,
+      "image": "/assets/blog/ai-2026-10/drziak-na-zahradnu-hadicu.webp",
+      "image_bytes": 280044,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-popinava-pestovanie",
+      "words": 359,
+      "image": "/assets/blog/ai-2026-10/hortenzia-popinava-pestovanie.webp",
+      "image_bytes": 329270,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zahradne-osvetlenie-bezpecnost",
+      "words": 533,
+      "image": "/assets/blog/seo-specific/zahradne-osvetlenie.jpg",
+      "image_bytes": 177660,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "novy-travnik-zo-semena",
+      "words": 497,
+      "image": "/assets/blog/ai-2026-10/novy-travnik-zo-semena.webp",
+      "image_bytes": 368982,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mala-nadoba-s-vodou-pre-vtaky",
+      "words": 963,
+      "image": "/assets/blog/ai-2026-10/mala-nadoba-s-vodou-pre-vtaky.webp",
+      "image_bytes": 263590,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "sud-na-dazdovu-vodu-prepad-komare",
+      "words": 552,
+      "image": "/assets/blog/ai-2026-10/sud-na-dazdovu-vodu-prepad-komare.webp",
+      "image_bytes": 306016,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "prikrmovanie-vtakov-v-zime",
+      "words": 348,
+      "image": "/assets/blog/ai-2026-10/prikrmovanie-vtakov-v-zime.webp",
+      "image_bytes": 180566,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zalievanie-hortenzii",
+      "words": 418,
+      "image": "/assets/blog/ai-2026-10/hortenzie-a-dazdova-voda.webp",
+      "image_bytes": 260572,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ako-sadit-hortenziu",
+      "words": 382,
+      "image": "/assets/blog/ai-2026-10/ako-sadit-hortenziu.webp",
+      "image_bytes": 312856,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-aronie-na-jesen",
+      "words": 477,
+      "image": "/assets/blog/ai-2026-10/vysadba-aronie-na-jesen.webp",
+      "image_bytes": 441300,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zimny-zber-kuceraveho-kelu",
+      "words": 313,
+      "image": "/assets/blog/01-zimny-zber-kelu.webp",
+      "image_bytes": 346162,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "uskladnenie-georginovych-hluz",
+      "words": 422,
+      "image": "/assets/blog/08-uskladnenie-georgin.webp",
+      "image_bytes": 207386,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vyska-kosenia-travnika",
+      "words": 409,
+      "image": "/assets/blog/seo-specific/kosenie-travnika.jpg",
+      "image_bytes": 149141,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "plotove-stlpiky-v-jednej-linii",
+      "words": 399,
+      "image": "/assets/blog/ai-2026-10/plotove-stlpiky-v-jednej-linii.webp",
+      "image_bytes": 327104,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "salvia-na-jesen",
+      "words": 434,
+      "image": "/assets/blog/09-salvia-na-jesen.webp",
+      "image_bytes": 288430,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "stol-na-presadzanie-navrh",
+      "words": 359,
+      "image": "/assets/blog/ai-2026-10/stol-na-presadzanie-navrh.webp",
+      "image_bytes": 328180,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-agapantu-v-crepniku",
+      "words": 402,
+      "image": "/assets/blog/05-zazimovanie-agapantu.webp",
+      "image_bytes": 221742,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-bazy-ciernej-na-jesen",
+      "words": 437,
+      "image": "/assets/blog/04-vysadba-bazy.webp",
+      "image_bytes": 244070,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rychlenie-hyacintov-v-crepniku",
+      "words": 309,
+      "image": "/assets/blog/ai-2026-10/rychlenie-hyacintov-v-crepniku.webp",
+      "image_bytes": 234284,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rododendron-zlte-listy-poda-voda",
+      "words": 500,
+      "image": "/assets/blog/ai-2026-10/rododendron-zlte-listy-poda-voda.webp",
+      "image_bytes": 363174,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "navijak-na-hadicu-umiestnenie",
+      "words": 409,
+      "image": "/assets/blog/ai-2026-10/navijak-na-hadicu-umiestnenie.webp",
+      "image_bytes": 329458,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "predzimny-vysev-maku",
+      "words": 353,
+      "image": "/assets/blog/ai-2026-10/predzimny-vysev-maku.webp",
+      "image_bytes": 292458,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cesnak-medvedi-vysev-zo-semien",
+      "words": 270,
+      "image": "/assets/blog/ai-2026-10/cesnak-medvedi-vysev-zo-semien.webp",
+      "image_bytes": 189710,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kedy-strihat-hortenzie-do-vazy",
+      "words": 373,
+      "image": "/assets/blog/ai-2026-10/kedy-strihat-hortenzie-do-vazy.webp",
+      "image_bytes": 278856,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hrach-opora-vysev",
+      "words": 372,
+      "image": "/assets/blog/ai-2026-10/hrach-opora-vysev.webp",
+      "image_bytes": 269040,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "betonovanie-stlpika-postup",
+      "words": 423,
+      "image": "/assets/blog/ai-2026-10/betonovanie-stlpika-postup.webp",
+      "image_bytes": 352302,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cistenie-vtacej-budky-na-jesen",
+      "words": 418,
+      "image": "/assets/blog/ai-2026-10/cistenie-vtacej-budky-na-jesen.webp",
+      "image_bytes": 278906,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-fukara-na-listie",
+      "words": 377,
+      "image": "/assets/blog/07-zazimovanie-fukara.webp?v=bf819ec2",
+      "image_bytes": 162208,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-zahradneho-cerpadla",
+      "words": 466,
+      "image": "/assets/blog/06-zazimovanie-cerpadla.webp",
+      "image_bytes": 196816,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "obnova-stareho-travnika",
+      "words": 476,
+      "image": "/assets/blog/ai-2026-10/obnova-stareho-travnika.webp",
+      "image_bytes": 517974,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "prace-v-zahrade-v-oktobri",
+      "words": 402,
+      "image": "/assets/blog/ai-2026-10/prace-v-zahrade-v-oktobri.webp",
+      "image_bytes": 395442,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "skladaci-stolik-na-presadzanie",
+      "words": 383,
+      "image": "/assets/blog/ai-2026-10/skladaci-stolik-na-presadzanie.webp",
+      "image_bytes": 339626,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kontrola-opor-stromov-pred-zimou",
+      "words": 331,
+      "image": "/assets/blog/ai-2026-10/kontrola-opor-stromov-pred-zimou.webp",
+      "image_bytes": 256696,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-po-silnom-vetru",
+      "words": 483,
+      "image": "/assets/blog/ai-2026-10/hortenzie-po-silnom-vetru.webp",
+      "image_bytes": 294706,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-josty-na-jesen",
+      "words": 458,
+      "image": "/assets/blog/09-vysadba-josty.webp",
+      "image_bytes": 294694,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "delenie-pazitky-na-jesen",
+      "words": 427,
+      "image": "/assets/blog/04-delenie-pazitky.webp",
+      "image_bytes": 268998,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "sadenie-salotky-na-jesen",
+      "words": 276,
+      "image": "/assets/blog/ai-2026-10/sadenie-salotky-na-jesen.webp",
+      "image_bytes": 296124,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-vonkajsieho-kohutika",
+      "words": 404,
+      "image": "/assets/blog/27-zazimovanie-vonkajsieho-kohutika.webp",
+      "image_bytes": 175336,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "tymian-pred-zimou",
+      "words": 410,
+      "image": "/assets/blog/09-tymian-pred-zimou.webp",
+      "image_bytes": 296592,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "meranie-ph-pody-v-zahrade",
+      "words": 336,
+      "image": "/assets/blog/ai-2026-10/meranie-ph-pody-v-zahrade.webp",
+      "image_bytes": 186520,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-zahradnej-hadice",
+      "words": 496,
+      "image": "/assets/blog/06-zazimovanie-hadice.webp",
+      "image_bytes": 161278,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zber-chrenu-na-jesen",
+      "words": 376,
+      "image": "/assets/blog/01-zber-chrenu.webp",
+      "image_bytes": 316456,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mumifikovane-plody-na-stromoch",
+      "words": 336,
+      "image": "/assets/blog/ai-2026-10/mumifikovane-plody-na-stromoch.webp",
+      "image_bytes": 251578,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "susak-na-bylinky-zo-sietoviny",
+      "words": 382,
+      "image": "/assets/blog/ai-2026-10/susak-na-bylinky-zo-sietoviny.webp",
+      "image_bytes": 335072,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "maly-pracovny-stol-do-dielne",
+      "words": 438,
+      "image": "/assets/blog/ai-2026-10/maly-pracovny-stol-do-dielne.webp",
+      "image_bytes": 235194,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "silikon-v-kupelni-postup",
+      "words": 584,
+      "image": "/assets/blog/ai-2026-10/silikon-v-kupelni-postup.webp",
+      "image_bytes": 130538,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-krokusov-na-jesen",
+      "words": 412,
+      "image": "/assets/blog/28-vysadba-krokusov-na-jesen.webp",
+      "image_bytes": 246592,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rozmnozovanie-hortenzie-potapanim",
+      "words": 483,
+      "image": "/assets/blog/ai-2026-10/rozmnozovanie-hortenzie-potapanim.webp",
+      "image_bytes": 315004,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-ribezli-a-egresov-na-jesen",
+      "words": 447,
+      "image": "/assets/blog/06-vysadba-ribezli-egresov.webp",
+      "image_bytes": 215872,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hnojenie-travnika-pocas-roka",
+      "words": 414,
+      "image": "/assets/blog/ai-2026-10/hnojenie-travnika-pocas-roka.webp",
+      "image_bytes": 303146,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-rastie-pomaly",
+      "words": 317,
+      "image": "/assets/blog/ai-2026-10/hortenzia-rastie-pomaly.webp",
+      "image_bytes": 313458,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-dipladenie",
+      "words": 418,
+      "image": "/assets/blog/09-zazimovanie-dipladenie.webp",
+      "image_bytes": 111512,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vyvyseny-zahon-co-premysliet-pred-stavbou",
+      "words": 1223,
+      "image": "/assets/blog/03-vyvyseny-zahon.webp",
+      "image_bytes": 79994,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "stojan-na-palivove-drevo",
+      "words": 377,
+      "image": "/assets/blog/ai-2026-10/stojan-na-palivove-drevo.webp",
+      "image_bytes": 393738,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "sadenie-cesnaku-na-jesen",
+      "words": 1101,
+      "image": "/assets/blog/ai-2026-10/sadenie-cesnaku-na-jesen.webp",
+      "image_bytes": 226624,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kedy-rozmnozovat-hortenzie",
+      "words": 388,
+      "image": "/assets/blog/ai-2026-10/kedy-rozmnozovat-hortenzie.webp",
+      "image_bytes": 232224,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zahradna-lavicka-navrh",
+      "words": 370,
+      "image": "/assets/posts/terasova-hojdacia-lavicka/hlavna.webp",
+      "image_bytes": 11310,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "slimaky-hortenzie",
+      "words": 397,
+      "image": "/assets/blog/ai-2026-10/slimaky-hortenzie.webp",
+      "image_bytes": 288288,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-pre-zaciatocnikov",
+      "words": 338,
+      "image": "/assets/blog/ai-2026-10/hortenzie-pre-zaciatocnikov.webp",
+      "image_bytes": 299462,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zimovanie-hortenzie-v-kvetinaci",
+      "words": 488,
+      "image": "/assets/blog/ai-2026-10/hortenzie-v-chladnych-oblastiach.webp",
+      "image_bytes": 322244,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-dule-na-jesen",
+      "words": 472,
+      "image": "/assets/blog/09-vysadba-dule.webp",
+      "image_bytes": 249652,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenna-vysadba-ziveho-plota",
+      "words": 461,
+      "image": "/assets/blog/ai-2026-10/jesenna-vysadba-ziveho-plota.webp",
+      "image_bytes": 399162,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "maliny-rez-po-zbere",
+      "words": 406,
+      "image": "/assets/blog/ai-2026-10/maliny-rez-po-zbere.webp",
+      "image_bytes": 403312,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "annabelle-vs-strong-annabelle",
+      "words": 499,
+      "image": "/assets/blog/ai-2026-10/annabelle-vs-strong-annabelle.webp",
+      "image_bytes": 372466,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "aku-vrtacka-nastavenie",
+      "words": 423,
+      "image": "/assets/blog/ai-2026-10/aku-vrtacka-nastavenie.webp",
+      "image_bytes": 170784,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rez-malin-po-zbere",
+      "words": 382,
+      "image": "/assets/blog/ai-2026-10/rez-malin-po-zbere.webp",
+      "image_bytes": 391640,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zahradny-kut-na-odkladanie-dreva",
+      "words": 506,
+      "image": "/assets/blog/40-kut-na-drevo.webp",
+      "image_bytes": 74600,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cucoriedky-pred-zimou",
+      "words": 425,
+      "image": "/assets/blog/09-cucoriedky-pred-zimou.webp",
+      "image_bytes": 272542,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "uskladnenie-zahradneho-nabytku",
+      "words": 422,
+      "image": "/assets/blog/ai-2026-10/uskladnenie-zahradneho-nabytku.webp",
+      "image_bytes": 219184,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-zahradneho-jazierka",
+      "words": 454,
+      "image": "/assets/blog/04-zazimovanie-jazierka.webp",
+      "image_bytes": 222650,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "presadzanie-hortenzie",
+      "words": 414,
+      "image": "/assets/blog/ai-2026-10/presadzanie-hortenzie.webp",
+      "image_bytes": 372562,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenna-vysadba-cibule-zo-sadzacky",
+      "words": 368,
+      "image": "/assets/blog/ai-2026-10/jesenna-vysadba-cibule-zo-sadzacky.webp",
+      "image_bytes": 291814,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vertikutacia-travnika-kedy",
+      "words": 417,
+      "image": "/assets/blog/ai-2026-10/vertikutacia-travnika-kedy.webp",
+      "image_bytes": 373102,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rozmnozovanie-ribezli-drevitymi-odrezkami",
+      "words": 420,
+      "image": "/assets/blog/ai-2026-10/rozmnozovanie-ribezli-drevitymi-odrezkami.webp",
+      "image_bytes": 362798,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-suda-na-dazdovu-vodu",
+      "words": 417,
+      "image": "/assets/blog/27-zazimovanie-suda-na-dazdovu-vodu.webp",
+      "image_bytes": 216752,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jednoduchy-zberac-na-drobne-ovocie",
+      "words": 614,
+      "image": "/assets/blog/ai-2026-10/jednoduchy-zberac-na-drobne-ovocie.webp",
+      "image_bytes": 285876,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-tulipanov-na-jesen",
+      "words": 488,
+      "image": "/assets/blog/01-vysadba-tulipanov.webp",
+      "image_bytes": 172426,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-driena-na-jesen",
+      "words": 437,
+      "image": "/assets/blog/02-vysadba-driena.webp",
+      "image_bytes": 249256,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "podklad-pod-dlazbu-vrstvy",
+      "words": 533,
+      "image": "/assets/blog/ai-2026-10/podklad-pod-dlazbu-vrstvy.webp",
+      "image_bytes": 325986,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cistenie-kvetinacov-pred-zimou",
+      "words": 269,
+      "image": "/assets/blog/ai-2026-10/cistenie-kvetinacov-pred-zimou.webp",
+      "image_bytes": 345404,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "redkovka-pestovanie-bez-vybiehania",
+      "words": 332,
+      "image": "/assets/blog/ai-2026-10/redkovka-pestovanie-bez-vybiehania.webp",
+      "image_bytes": 227204,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-motorovej-kosacky",
+      "words": 318,
+      "image": "/assets/blog/10-motorova-kosacka.webp",
+      "image_bytes": 199954,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hruska-rez-koruny",
+      "words": 327,
+      "image": "/assets/blog/ai-2026-10/hruska-rez-koruny.webp",
+      "image_bytes": 389384,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "priprava-zahradneho-naradia-na-zimu",
+      "words": 439,
+      "image": "/assets/blog/ai-2026-10/priprava-zahradneho-naradia-na-zimu.webp",
+      "image_bytes": 222446,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "cistenie-odkvapov-na-jesen",
+      "words": 376,
+      "image": "/assets/blog/ai-2026-10/cistenie-odkvapov-na-jesen.webp",
+      "image_bytes": 370090,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zber-a-skladovanie-hrusiek",
+      "words": 403,
+      "image": "/assets/blog/ai-2026-10/zber-a-skladovanie-hrusiek.webp",
+      "image_bytes": 298370,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "poda-pre-hortenzie",
+      "words": 461,
+      "image": "/assets/blog/ai-2026-10/poda-pre-hortenzie.webp",
+      "image_bytes": 358458,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pracovny-pas-na-zahradne-drobnosti",
+      "words": 617,
+      "image": "/assets/blog/ai-2026-10/pracovny-pas-na-zahradne-drobnosti.webp",
+      "image_bytes": 243684,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-meni-farbu-na-jesen",
+      "words": 427,
+      "image": "/assets/blog/ai-2026-10/hortenzia-meni-farbu-na-jesen.webp",
+      "image_bytes": 240714,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "mucnatka-na-hortenzii",
+      "words": 378,
+      "image": "/assets/blog/ai-2026-10/mucnatka-na-hortenzii.webp",
+      "image_bytes": 246782,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-kalendar-starostlivosti",
+      "words": 398,
+      "image": "/assets/blog/ai-2026-10/hortenzie-kalendar-starostlivosti.webp",
+      "image_bytes": 246870,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-fuksii",
+      "words": 308,
+      "image": "/assets/blog/30-zazimovanie-fuksii.webp",
+      "image_bytes": 209326,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysadba-cucoriedok-na-jesen",
+      "words": 415,
+      "image": "/assets/blog/28-vysadba-cucoriedok-na-jesen.webp",
+      "image_bytes": 272136,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jarny-start-zahrady-bez-chaosu",
+      "words": 421,
+      "image": "/assets/blog/ai-2026-10/jarny-start-zahrady-bez-chaosu.webp",
+      "image_bytes": 404128,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "ochrana-kmena-pred-kosackou",
+      "words": 381,
+      "image": "/assets/blog/ai-2026-10/ochrana-kmena-pred-kosackou.webp",
+      "image_bytes": 333322,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "velkost-kvetinaca-pre-hortenziu",
+      "words": 404,
+      "image": "/assets/blog/ai-2026-10/velkost-kvetinaca-pre-hortenziu.webp",
+      "image_bytes": 298316,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "regal-na-kvetinace-z-latiek",
+      "words": 498,
+      "image": "/assets/blog/ai-2026-10/regal-na-kvetinace-z-latiek.webp",
+      "image_bytes": 294172,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "spenat-jesenna-sejba",
+      "words": 343,
+      "image": "/assets/blog/ai-2026-10/spenat-jesenna-sejba.webp",
+      "image_bytes": 314756,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "rez-annabelle",
+      "words": 444,
+      "image": "/assets/blog/ai-2026-10/rez-annabelle.webp",
+      "image_bytes": 379496,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "jesenna-vysadba-ruzi",
+      "words": 483,
+      "image": "/assets/blog/ai-2026-10/jesenna-vysadba-ruzi.webp",
+      "image_bytes": 363056,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzie-myty",
+      "words": 466,
+      "image": "/assets/blog/ai-2026-10/hortenzie-myty.webp",
+      "image_bytes": 262518,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zazimovanie-levandule-v-crepniku",
+      "words": 373,
+      "image": "/assets/blog/03-zazimovanie-levandule.webp",
+      "image_bytes": 257662,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "slivka-kedy-strihat",
+      "words": 332,
+      "image": "/assets/blog/ai-2026-10/slivka-kedy-strihat.webp",
+      "image_bytes": 375350,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kedy-dat-oporu-k-hortenzii",
+      "words": 439,
+      "image": "/assets/blog/ai-2026-10/kedy-dat-oporu-k-hortenzii.webp",
+      "image_bytes": 304592,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "udrzba-ryla-a-motyky-pred-zimou",
+      "words": 308,
+      "image": "/assets/blog/10-ryle-a-motyka.webp",
+      "image_bytes": 246408,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "spargla-na-jesen-starostlivost",
+      "words": 459,
+      "image": "/assets/blog/ai-2026-10/spargla-na-jesen-starostlivost.webp",
+      "image_bytes": 471360,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kovovy-vyvyseny-zahon-stavba",
+      "words": 403,
+      "image": "/assets/blog/ai-2026-10/kovovy-vyvyseny-zahon-stavba.webp",
+      "image_bytes": 209254,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kompost-bez-zapachu-rovnovaha-materialov",
+      "words": 1145,
+      "image": "/assets/blog/ai-2026-10/kompost-bez-zapachu-rovnovaha-materialov.webp",
+      "image_bytes": 415482,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vzdialenost-hortenzii-pri-vysadbe",
+      "words": 382,
+      "image": "/assets/blog/ai-2026-10/hortenzie-zivy-plot.webp",
+      "image_bytes": 326882,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "zahradna-technika-pred-zimou",
+      "words": 380,
+      "image": "/assets/blog/14-naradie-na-zimu.webp",
+      "image_bytes": 81120,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pivonie-spravna-vysadba",
+      "words": 456,
+      "image": "/assets/blog/ai-2026-10/pivonie-spravna-vysadba.webp",
+      "image_bytes": 330358,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "vysokotlakovy-cistic-bezpecne-pouzitie",
+      "words": 429,
+      "image": "/assets/blog/04-zazimovanie-tlakoveho-cistica.webp",
+      "image_bytes": 179270,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-na-balkone",
+      "words": 375,
+      "image": "/assets/blog/ai-2026-10/hortenzia-na-balkone.webp",
+      "image_bytes": 250844,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "kvapkova-zavlaha-pre-zahon",
+      "words": 680,
+      "image": "/assets/blog/ai-2026-10/kvapkova-zavlaha-pre-zahon.webp",
+      "image_bytes": 329512,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hortenzia-slabe-vyhonky",
+      "words": 314,
+      "image": "/assets/blog/ai-2026-10/hortenzia-slabe-vyhonky.webp",
+      "image_bytes": 293360,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "male-pestovanie-na-balkone",
+      "words": 533,
+      "image": "/assets/blog/ai-2026-10/male-pestovanie-na-balkone.webp",
+      "image_bytes": 285574,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "skladovanie-korenovej-zeleniny",
+      "words": 477,
+      "image": "/assets/blog/ai-2026-10/skladovanie-korenovej-zeleniny.webp",
+      "image_bytes": 271982,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "hole-miesta-v-travniku-dosievanie",
+      "words": 385,
+      "image": "/assets/blog/ai-2026-10/hole-miesta-v-travniku-dosievanie.webp",
+      "image_bytes": 341656,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "dreveny-vyvyseny-zahon-zivotnost",
+      "words": 589,
+      "image": "/assets/blog/ai-2026-10/dreveny-vyvyseny-zahon-zivotnost.webp",
+      "image_bytes": 339240,
+      "technical_checks": "passed"
+    },
+    {
+      "slug": "pracovny-ponk-v-dielni",
+      "words": 440,
+      "image": "/assets/blog/ai-2026-10/pracovny-ponk-v-dielni.webp",
+      "image_bytes": 247870,
+      "technical_checks": "passed"
+    }
+  ],
+  "external_source_snapshot": {
+    "checked_on": "2026-11-02",
+    "successful": 304,
+    "inconclusive": [
+      {
+        "url": "https://support.lacrossetechnology.com/hc/en-us/articles/26543705933851-Should-my-rain-sensor-be-stored-during-the-winter",
+        "status": 503
+      },
+      {
+        "url": "https://www.rhs.org.uk/advice/profile/?PID=377",
+        "error": "TimeoutError"
+      },
+      {
+        "url": "https://www.rhs.org.uk/gardening/autumn-gardening",
+        "error": "TimeoutError"
+      },
+      {
+        "url": "https://www.rhs.org.uk/plants/roses/growing-guide/",
+        "error": "TimeoutError"
+      },
+      {
+        "url": "https://www.rhs.org.uk/plants/trials-awards/plant-trial-results/hydrangea-paniculata",
+        "error": "TimeoutError"
+      },
+      {
+        "url": "https://www.uksup.sk/databaza-autorizovanych-pripravkov-ispor",
+        "status": 466
+      }
+    ],
+    "repaired_broken_source_urls": 7,
+    "note": "External source availability is not a deployment gate; inconclusive requests are explicitly retained."
+  }
+}

@@ -45,7 +45,6 @@ function blogHref(p){const s=String(p?.slug||"").normalize("NFD").replace(/[\u03
 
 function blogCoverUrl(value,post){
   const slug=String(post?.slug||"").toLowerCase();
-  if(slug==="hnojenie-travnika-pocas-roka")return "/assets/blog/hnojenie-travnika-pocas-roka-v2.webp";
   const url=String(value||"").trim();
   if(/^https?:\/\//i.test(url))return url;
   if(url&&!/\/assets\/blog\/seo100\/.*\.svg$/i.test(url))return url;
@@ -260,8 +259,10 @@ async function loadBlog(){
   }catch(_){}
 
   const hiddenSlugs=await loadHiddenBlogSlugs();
-  const visiblePost=post=>!isRecipePost(post)&&!hiddenSlugs.has(String(post?.slug||""));
-  const staticPosts=staticBlogPosts().filter(visiblePost);
+  const staticPostsAll=staticBlogPosts();
+  const reviewedSlugs=new Set([...staticPostsAll,...(Array.isArray(localPosts)?localPosts:[])].map(post=>String(post.slug)));
+  const visiblePost=post=>!isRecipePost(post)&&!hiddenSlugs.has(String(post?.slug||""))&&reviewedSlugs.has(String(post?.slug||""));
+  const staticPosts=staticPostsAll.filter(visiblePost);
   const staticOrder=new Map(staticPosts.map((post,index)=>[post.slug,index]));
   const sortPosts=posts=>posts.filter(visiblePost).sort((a,b)=>{
     const aOrder=staticOrder.get(a.slug);
@@ -290,7 +291,7 @@ async function loadBlog(){
   if(clear)clear.hidden=!blogState.query;
 
   // Show static and curated articles before waiting for the CMS.
-  blogState.posts=mergePosts(staticPosts,Array.isArray(localPosts)?localPosts:[]);
+  blogState.posts=mergePosts(Array.isArray(localPosts)?localPosts:[],staticPosts);
   if(blogState.posts.length){
     renderFilters();
     setCategory(requested||"Všetko",{updateUrl:false});
@@ -314,7 +315,7 @@ async function loadBlog(){
       ?result.data.filter(visiblePost)
       :[];
     if(remotePosts.length){
-      blogState.posts=mergePosts(remotePosts,staticPosts,Array.isArray(localPosts)?localPosts:[]);
+      blogState.posts=mergePosts(Array.isArray(localPosts)?localPosts:[],staticPosts,remotePosts);
       renderFilters();
       setCategory(requested||"Všetko",{updateUrl:false});
     }

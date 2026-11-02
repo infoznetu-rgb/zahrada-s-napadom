@@ -1,0 +1,1560 @@
+{
+  "checked_on": "2026-11-02",
+  "method": "HTTP GET; distinct external editorial source URLs; no authentication",
+  "repaired_broken_source_urls": 7,
+  "checks": [
+    {
+      "url": "https://apps.extension.umn.edu/garden/diagnose/plant/deciduous/hydrangea/leavesdiscolored.html",
+      "status": 200,
+      "final": "https://apps.extension.umn.edu/garden/diagnose/plant/deciduous/hydrangea/leavesdiscolored.html"
+    },
+    {
+      "url": "https://apps.extension.umn.edu/garden/diagnose/plant/deciduous/hydrangea/spotsorblotches.html",
+      "status": 200,
+      "final": "https://apps.extension.umn.edu/garden/diagnose/plant/deciduous/hydrangea/spotsorblotches.html"
+    },
+    {
+      "url": "https://apps.extension.umn.edu/garden/diagnose/plant/fruit/apple/fruitrotted.html",
+      "status": 200,
+      "final": "https://apps.extension.umn.edu/garden/diagnose/plant/fruit/apple/fruitrotted.html"
+    },
+    {
+      "url": "https://blog-fruit-vegetable-ipm.extension.umn.edu/2026/07/kiwiberry-production-in-minnesota-whats.html",
+      "status": 200,
+      "final": "https://blog-fruit-vegetable-ipm.extension.umn.edu/2026/07/kiwiberry-production-in-minnesota-whats.html"
+    },
+    {
+      "url": "https://extension.colostate.edu/resource/currants-gooseberries-and-jostaberries/",
+      "status": 200,
+      "final": "https://extension.colostate.edu/resource/currants-gooseberries-and-jostaberries/"
+    },
+    {
+      "url": "https://extension.illinois.edu/container-gardens/container-material-choices",
+      "status": 200,
+      "final": "https://extension.illinois.edu/container-gardens/container-material-choices"
+    },
+    {
+      "url": "https://extension.illinois.edu/herbs/dill",
+      "status": 200,
+      "final": "https://extension.illinois.edu/herbs/dill"
+    },
+    {
+      "url": "https://extension.oregonstate.edu/catalog/ec-1560-acidifying-soil-blueberries-ornamental-plants-yard-garden-west-cascades-oregon",
+      "status": 200,
+      "final": "https://extension.oregonstate.edu/catalog/ec-1560-acidifying-soil-blueberries-ornamental-plants-yard-garden-west-cascades-oregon"
+    },
+    {
+      "url": "https://extension.psu.edu/hydrangea-diseases",
+      "status": 200,
+      "final": "https://extension.psu.edu/hydrangea-diseases"
+    },
+    {
+      "url": "https://extension.psu.edu/lawn-management-through-the-seasons",
+      "status": 200,
+      "final": "https://extension.psu.edu/lawn-management-through-the-seasons"
+    },
+    {
+      "url": "https://extension.psu.edu/slugs-and-their-control",
+      "status": 200,
+      "final": "https://extension.psu.edu/slugs-and-their-control"
+    },
+    {
+      "url": "https://extension.psu.edu/turfgrass-diseases-pink-snow-mold-causal-fungus-microdochium-nivale",
+      "status": 200,
+      "final": "https://extension.psu.edu/turfgrass-diseases-pink-snow-mold-causal-fungus-microdochium-nivale"
+    },
+    {
+      "url": "https://extension.psu.edu/what-is-causing-those-holes-in-your-plants",
+      "status": 200,
+      "final": "https://extension.psu.edu/what-is-causing-those-holes-in-your-plants"
+    },
+    {
+      "url": "https://extension.psu.edu/when-to-prune-which-hydrangea-species",
+      "status": 200,
+      "final": "https://extension.psu.edu/when-to-prune-which-hydrangea-species"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/aphids-home-gardens",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/aphids-home-gardens"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/black-chokeberry/",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/black-chokeberry"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/broken-branches-and-lower-trunk-damage",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/broken-branches-and-lower-trunk-damage"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/diseases-home-lawns/",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/diseases-home-lawns"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/drought-and-excessive-heat-stress",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/drought-and-excessive-heat-stress"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/fertilizing-trees-and-shrubs-and-nutrient-deficiency-symptoms",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/fertilizing-trees-and-shrubs-and-nutrient-deficiency-symptoms"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/groundcovers",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/groundcovers"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/growing-media-potting-soil-containers",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/growing-media-potting-soil-containers"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/growing-sweet-potatoes-home-garden",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/growing-sweet-potatoes-home-garden"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/growing-vegetables-containers-and-salad-tables",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/growing-vegetables-containers-and-salad-tables"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/hydrangea-identify-and-manage-problems",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/hydrangea-identify-and-manage-problems"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/less-common-fruits-home-garden",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/less-common-fruits-home-garden"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/mineral-and-fertilizer-salt-deposits-indoor-plants/",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/mineral-and-fertilizer-salt-deposits-indoor-plants"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/mulching-trees-and-shrubs",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/mulching-trees-and-shrubs"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/planting-tree-or-shrub",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/planting-tree-or-shrub"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/powdery-mildew-disease-trees-and-shrubs",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/powdery-mildew-disease-trees-and-shrubs"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/pruning-hydrangeas",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/pruning-hydrangeas"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/smooth-hydrangea",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/smooth-hydrangea"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/vines-maryland-gardens",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/vines-maryland-gardens"
+    },
+    {
+      "url": "https://extension.umd.edu/resource/watering-trees-and-shrubs",
+      "status": 200,
+      "final": "https://extension.umd.edu/resource/watering-trees-and-shrubs"
+    },
+    {
+      "url": "https://extension.umn.edu/about/our-stories/news/autumn-is-pumpkin-and-winter-squash-time",
+      "status": 200,
+      "final": "https://extension.umn.edu/about/our-stories/news/autumn-is-pumpkin-and-winter-squash-time"
+    },
+    {
+      "url": "https://extension.umn.edu/about/our-stories/news/step-by-step-lawn-garden-soil-sampling-guide",
+      "status": 200,
+      "final": "https://extension.umn.edu/about/our-stories/news/step-by-step-lawn-garden-soil-sampling-guide"
+    },
+    {
+      "url": "https://extension.umn.edu/about/our-stories/news/yard-and-garden-news/fall-garden-care-that-pays-off",
+      "status": 200,
+      "final": "https://extension.umn.edu/about/our-stories/news/yard-and-garden-news/fall-garden-care-that-pays-off"
+    },
+    {
+      "url": "https://extension.umn.edu/about/our-stories/news/yard-and-garden-news/fresh-flowers-and-blue-ribbons",
+      "status": 200,
+      "final": "https://extension.umn.edu/about/our-stories/news/yard-and-garden-news/fresh-flowers-and-blue-ribbons"
+    },
+    {
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/commercial-kiwiberry",
+      "status": 200,
+      "final": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/commercial-kiwiberry"
+    },
+    {
+      "url": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/harvesting-and-storing-melons-squash-and-pumpkins",
+      "status": 200,
+      "final": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/harvesting-and-storing-melons-squash-and-pumpkins"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/fertilizing-and-watering-container-plants",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/fertilizing-and-watering-container-plants"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-spinach-and-swiss-chard",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-spinach-and-swiss-chard"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/harvesting-and-storing-home-garden-vegetables"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/mulching-for-soil-and-garden-health",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/mulching-for-soil-and-garden-health"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-and-transplanting-trees-and-shrubs",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/planting-and-transplanting-trees-and-shrubs"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/rain-barrels",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/rain-barrels"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/raised-bed-gardens",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/raised-bed-gardens"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/watering-established-trees-and-shrubs",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/watering-established-trees-and-shrubs"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/watering-newly-planted-trees-and-shrubs",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/watering-newly-planted-trees-and-shrubs"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-minnesota/houseplants/spring-houseplant-care",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/houseplants/spring-houseplant-care"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/lawns-and-landscapes-in-minnesota/lawn-care-calendar",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/lawns-and-landscapes-in-minnesota/lawn-care-calendar"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-insects/aphids",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-insects/aphids"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-insects/spider-mites",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/yard-and-garden-insects/spider-mites"
+    },
+    {
+      "url": "https://extension.umn.edu/planting-and-growing-guides/protecting-trees-and-shrubs-winter",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/lawns-and-landscapes-in-minnesota/protecting-trees-and-shrubs-in-winter"
+    },
+    {
+      "url": "https://extension.umn.edu/trees-and-shrubs/pruning-hydrangeas",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/lawns-and-landscapes-in-minnesota/trees-and-shrubs/pruning-hydrangeas"
+    },
+    {
+      "url": "https://gardening.usask.ca/gardening-advice/gardenline-nested-pages/food-plant-pages/vegetables/jerusalem-artichoke.php",
+      "status": 200,
+      "final": "https://gardening.usask.ca/gardening-advice/gardenline-nested-pages/food-plant-pages/vegetables/jerusalem-artichoke.php"
+    },
+    {
+      "url": "https://homegarden.cahnr.uconn.edu/factsheets/hydrangea/",
+      "status": 200,
+      "final": "https://homegarden.cahnr.uconn.edu/factsheets/hydrangea/"
+    },
+    {
+      "url": "https://hort.extension.wisc.edu/articles/dill-anethum-graveolens/",
+      "status": 200,
+      "final": "https://hort.extension.wisc.edu/articles/dill-anethum-graveolens/"
+    },
+    {
+      "url": "https://hortiedu.uniag.sk/en/plant/mispula-nemecka",
+      "status": 200,
+      "final": "https://hortiedu.uniag.sk/en/plant/mispula-nemecka"
+    },
+    {
+      "url": "https://ipm.ucanr.edu/home-and-landscape/whitewashing-trunks/",
+      "status": 200,
+      "final": "https://ipm.ucanr.edu/home-and-landscape/whitewashing-trunks/"
+    },
+    {
+      "url": "https://rhs.org.uk/prevention-protection/preventing-winter-damage",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/preventing-winter-damage"
+    },
+    {
+      "url": "https://support.boshart.com/how-do-i-winterize-my-outdoor-hose-bibb-faucets",
+      "status": 200,
+      "final": "https://support.boshart.com/how-do-i-winterize-my-outdoor-hose-bibb-faucets"
+    },
+    {
+      "url": "https://support.davisinstruments.com/article/sn22q636vo-can-i-leave-the-rain-collector-outside-during-the-winter",
+      "status": 200,
+      "final": "https://www.davisinstruments.com/pages/support"
+    },
+    {
+      "url": "https://support.lacrossetechnology.com/hc/en-us/articles/26543705933851-Should-my-rain-sensor-be-stored-during-the-winter",
+      "status": 503
+    },
+    {
+      "url": "https://www.bosch-diy.com/gb/en/all-about-diy/10-garden-shredder-tips",
+      "status": 200,
+      "final": "https://www.bosch-diy.com/gb/en/all-about-diy/10-garden-shredder-tips"
+    },
+    {
+      "url": "https://www.bosch-diy.com/storage/en-gb/alb-18-li-100039121-original-pdf-345503-en-gb.pdf",
+      "status": 200,
+      "final": "https://www.bosch-diy.com/storage/en-gb/alb-18-li-100039121-original-pdf-345503-en-gb.pdf"
+    },
+    {
+      "url": "https://www.bto.org/learn/helping-birds/feeding/good-hygiene-practice",
+      "status": 200,
+      "final": "https://www.bto.org/learn/helping-birds/feeding/good-hygiene-practice"
+    },
+    {
+      "url": "https://www.bto.org/learn/helping-birds/nest-boxes/putting-nest-box",
+      "status": 200,
+      "final": "https://www.bto.org/learn/helping-birds/nest-boxes/putting-nest-box"
+    },
+    {
+      "url": "https://www.electricalsafetyfirst.org.uk/safety-advice/home-and-people/garden/",
+      "status": 200,
+      "final": "https://www.electricalsafetyfirst.org.uk/safety-advice/home-and-people/garden/"
+    },
+    {
+      "url": "https://www.electricalsafetyfirst.org.uk/safety-advice/home-and-people/house-maintenance/extension-leads-cable-reels-and-block-adaptors/",
+      "status": 200,
+      "final": "https://www.electricalsafetyfirst.org.uk/safety-advice/home-and-people/house-maintenance/extension-leads-cable-reels-and-block-adaptors/"
+    },
+    {
+      "url": "https://www.gardena.com/int/c/support/planning-advice/pumps/information-videos",
+      "status": 200,
+      "final": "https://www.gardena.com/int/c/support/planning-advice/pumps/information-videos"
+    },
+    {
+      "url": "https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-30004/970524801.html",
+      "status": 200,
+      "final": "https://www.gardena.com/int/products/pumps/watering-pumps/garden-pump-30004/970524801.html"
+    },
+    {
+      "url": "https://www.gardena.com/sk/vyrobky/zavlazovanie/pipeline/odvod%C5%88ovaci-ventil---suprava/970545501.html",
+      "status": 200,
+      "final": "https://www.gardena.com/sk/vyrobky/zavlazovanie/pipeline/odvod%C5%88ovaci-ventil---suprava/970545501.html"
+    },
+    {
+      "url": "https://www.gardena.com/za/c/discover/gardening/magazine/garden-tool-care-tips",
+      "status": 200,
+      "final": "https://www.gardena.com/za/c/discover/gardening/magazine/garden-tool-care-tips"
+    },
+    {
+      "url": "https://www.gardena.com/za/c/discover/gardening/magazine/gardena-garden-hoses-superior-quality-for-effortless-watering",
+      "status": 200,
+      "final": "https://www.gardena.com/za/c/discover/gardening/magazine/gardena-garden-hoses-superior-quality-for-effortless-watering"
+    },
+    {
+      "url": "https://www.hedgehogstreet.org/help-hedgehogs/hedgehog-homes/",
+      "status": 200,
+      "final": "https://www.hedgehogstreet.org/help-hedgehogs/hedgehog-homes/"
+    },
+    {
+      "url": "https://www.hedgehogstreet.org/hibernation-information/",
+      "status": 200,
+      "final": "https://www.hedgehogstreet.org/hibernation-information/"
+    },
+    {
+      "url": "https://www.hse.gov.uk/agriculture/topics/falls.htm",
+      "status": 200,
+      "final": "https://www.hse.gov.uk/agriculture/topics/falls.htm"
+    },
+    {
+      "url": "https://www.hse.gov.uk/agriculture/topics/maintenance-3.htm",
+      "status": 200,
+      "final": "https://www.hse.gov.uk/agriculture/topics/maintenance-3.htm"
+    },
+    {
+      "url": "https://www.hse.gov.uk/construction/safetytopics/storage.htm",
+      "status": 200,
+      "final": "https://www.hse.gov.uk/construction/safetytopics/storage.htm"
+    },
+    {
+      "url": "https://www.hse.gov.uk/pubns/ck4.pdf",
+      "status": 200,
+      "final": "https://www.hse.gov.uk/pubns/ck4.pdf"
+    },
+    {
+      "url": "https://www.hse.gov.uk/pubns/priced/l24.pdf",
+      "status": 200,
+      "final": "https://www.hse.gov.uk/pubns/priced/l24.pdf"
+    },
+    {
+      "url": "https://www.hse.gov.uk/slips/employers.htm",
+      "status": 200,
+      "final": "https://www.hse.gov.uk/slips/employers.htm"
+    },
+    {
+      "url": "https://www.hse.gov.uk/work-at-height/ladders/when-how-to-use-ladders-safely.htm",
+      "status": 200,
+      "final": "https://www.hse.gov.uk/work-at-height/ladders/when-how-to-use-ladders-safely.htm"
+    },
+    {
+      "url": "https://www.husqvarna.com/uk/support/articles/complete-winter-storage-guide-for-your-automower-robotic-lawn-mower-ka-70051/",
+      "status": 200,
+      "final": "https://www.husqvarna.com/uk/support/complete-winter-storage-guide-for-your-automower-robotic-lawn-mower-ka-70051/"
+    },
+    {
+      "url": "https://www.ikea.com/sk/sk/rooms/outdoor/how-to/navod-na-udrzbu-zahradneho-nabytku-pubcbfb69e0/",
+      "status": 200,
+      "final": "https://www.ikea.com/sk/sk/rooms/outdoor/how-to/navod-na-udrzbu-zahradneho-nabytku-pubcbfb69e0/"
+    },
+    {
+      "url": "https://www.oase.com/en/pond-and-water-garden/how-to-guides/winterizing-your-water-features",
+      "status": 200,
+      "final": "https://www.oase.com/en/pond-and-water-garden/how-to-guides/winterizing-your-water-features"
+    },
+    {
+      "url": "https://www.provenwinners.com/plants/hydrangea/incrediball-smooth-hydrangea-hydrangea-arborescens",
+      "status": 200,
+      "final": "https://www.provenwinners.com/plants/hydrangea/incrediball-smooth-hydrangea-hydrangea-arborescens"
+    },
+    {
+      "url": "https://www.provenwinners.com/plants/hydrangea/little-lime-panicle-hydrangea-hydrangea-paniculata",
+      "status": 200,
+      "final": "https://www.provenwinners.com/plants/hydrangea/little-lime-panicle-hydrangea-hydrangea-paniculata"
+    },
+    {
+      "url": "https://www.rainbird.com/homeowners/how-do-i-winterize-my-irrigation-system",
+      "status": 200,
+      "final": "https://www.rainbird.com/homeowners/how-do-i-winterize-my-irrigation-system"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/beginners-guide/vegetable-basics/planning-a-vegetable-garden",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/beginners-guide/vegetable-basics/planning-a-vegetable-garden"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/beginners-guide/vegetable-basics/soil-preparation/mulching-vegetable-gardens",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/beginners-guide/vegetable-basics/soil-preparation/mulching-vegetable-gardens"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/allotments/lizs-allotment-end-of-april-2026",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/allotments/lizs-allotment-end-of-april-2026"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/containers/veg-on-walls/june-edible-container-idea",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/containers/veg-on-walls/june-edible-container-idea"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/choosing-and-growing-currants",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/choosing-and-growing-currants"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/companion-planting",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/companion-planting"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/composting-through-the-winter",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/composting-through-the-winter"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/fascinating-facts-cranberries",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/fascinating-facts-cranberries"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/four-steps-to-perfect-compost",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/four-steps-to-perfect-compost"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/making-leafmould",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/making-leafmould"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/raised-beds",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/raised-beds"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/sowing-broad-beans",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/sowing-broad-beans"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/summer-pruning-trained-stone-fruit",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/summer-pruning-trained-stone-fruit"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/using-coffee-grounds-for-plants",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/using-coffee-grounds-for-plants"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/features/vertical-veg",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/features/vertical-veg"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/grow-your-own/in-month/october-jobs",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/grow-your-own/in-month/october-jobs"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/health-and-wellbeing/minimising-health-risks-in-the-garden",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/health-and-wellbeing/minimising-health-risks-in-the-garden"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/in-month/january/ponds",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/in-month/january/ponds"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/in-month/may/trees-shrubs",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/in-month/may/trees-shrubs"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/in-month/october/structures",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/in-month/october/structures"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/in-month/september/structures",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/in-month/september/structures"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/profile/?PID=377",
+      "error": "TimeoutError"
+    },
+    {
+      "url": "https://www.rhs.org.uk/advice/understanding-plants/how-plants-age",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/advice/understanding-plants/how-plants-age"
+    },
+    {
+      "url": "https://www.rhs.org.uk/biodiversity/mice-and-voles",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/biodiversity/mice-and-voles"
+    },
+    {
+      "url": "https://www.rhs.org.uk/biodiversity/rabbits",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/biodiversity/rabbits"
+    },
+    {
+      "url": "https://www.rhs.org.uk/biodiversity/rats",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/biodiversity/rats"
+    },
+    {
+      "url": "https://www.rhs.org.uk/container-gardening/growing-plants-in-containers",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/container-gardening/growing-plants-in-containers"
+    },
+    {
+      "url": "https://www.rhs.org.uk/container-gardening/how-to-plant-up-a-container",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/container-gardening/how-to-plant-up-a-container"
+    },
+    {
+      "url": "https://www.rhs.org.uk/container-gardening/how-to-water-containers",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/container-gardening/how-to-water-containers"
+    },
+    {
+      "url": "https://www.rhs.org.uk/container-gardening/maintenance",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/container-gardening/maintenance"
+    },
+    {
+      "url": "https://www.rhs.org.uk/container-gardening/summer-selection",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/container-gardening/summer-selection"
+    },
+    {
+      "url": "https://www.rhs.org.uk/container-gardening/winter-selection",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/container-gardening/winter-selection"
+    },
+    {
+      "url": "https://www.rhs.org.uk/education-learning/school-gardening/resources/getting-started/creating-raised-beds",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/education-learning/school-gardening/resources/getting-started/creating-raised-beds"
+    },
+    {
+      "url": "https://www.rhs.org.uk/education-learning/school-gardening/resources/planet-friendly/composting-for-schools",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/education-learning/school-gardening/resources/planet-friendly/composting-for-schools"
+    },
+    {
+      "url": "https://www.rhs.org.uk/education-learning/school-gardening/resources/planet-friendly/tips-on-saving-your-own-seeds",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/education-learning/school-gardening/resources/planet-friendly/tips-on-saving-your-own-seeds"
+    },
+    {
+      "url": "https://www.rhs.org.uk/education-learning/school-gardening/resources/planet-friendly/using-green-manures",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/education-learning/school-gardening/resources/planet-friendly/using-green-manures"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/apples/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/apples/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/blackberries-and-hybrid-berries/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/blackberries-and-hybrid-berries/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/blackberries-and-hybrid-berries/pruning-training",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/blackberries-and-hybrid-berries/pruning-training"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/blackcurrants/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/blackcurrants/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/blueberries/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/blueberries/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/citrus/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/citrus/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/figs/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/figs/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/fruit-trees/feeding-and-mulching",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/fruit-trees/feeding-and-mulching"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/fruit-trees/frost-protection",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/fruit-trees/frost-protection"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/fruit-trees/harvesting",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/fruit-trees/harvesting"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/fruit-trees/storing",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/fruit-trees/storing"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/gooseberries/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/gooseberries/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/kiwi/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/kiwi/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/medlars/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/medlars/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/mulberries/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/mulberries/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/quince/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/quince/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own?type=f",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/raspberries/grow-your-own?type=f"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/rhubarb/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/rhubarb/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/fruit/strawberries/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/fruit/strawberries/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-design/roof-gardens-balconies",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-design/roof-gardens-balconies"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-design/shade-gardening",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-design/shade-gardening"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-features/choosing-greenhouses",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-features/choosing-greenhouses"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-features/cleaning-greenhouses",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-features/cleaning-greenhouses"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-features/coldframes-and-mini-greenhouses",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-features/coldframes-and-mini-greenhouses"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-features/heating-greenhouses-efficiently",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-features/heating-greenhouses-efficiently"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-features/how-to-make-a-raised-bed",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-features/how-to-make-a-raised-bed"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-inspiration/conditions/gardening-with-extremes-of-weather",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-inspiration/conditions/gardening-with-extremes-of-weather"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-inspiration/conditions/what-can-i-grow-in-a-dry-shady-spot",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-inspiration/conditions/what-can-i-grow-in-a-dry-shady-spot"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-inspiration/floristry/how-to-dry-flowers-and-foliage",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-inspiration/floristry/how-to-dry-flowers-and-foliage"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-inspiration/seasonal/choosing-and-planting-bulbs-in-autumn",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-inspiration/seasonal/choosing-and-planting-bulbs-in-autumn"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-inspiration/seasonal/using-your-greenhouse-in-winter",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-inspiration/seasonal/using-your-greenhouse-in-winter"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-inspiration/wildlife/help-birds-year-round",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-inspiration/wildlife/help-birds-year-round"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-inspiration/wildlife/support-pollinators-in-september",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-inspiration/wildlife/support-pollinators-in-september"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-jobs/cleaning-tools",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-jobs/cleaning-tools"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-jobs/furniture-maintaining-garden-seats-and-tables",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-jobs/furniture-maintaining-garden-seats-and-tables"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-jobs/garden-watering-methods",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-jobs/garden-watering-methods"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-jobs/nutrition-feeding-plants",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-jobs/nutrition-feeding-plants"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-jobs/sharpening-tools",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-jobs/sharpening-tools"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-jobs/water-collecting-storing-and-using",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-jobs/water-collecting-storing-and-using"
+    },
+    {
+      "url": "https://www.rhs.org.uk/garden-jobs/watering",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/garden-jobs/watering"
+    },
+    {
+      "url": "https://www.rhs.org.uk/gardening/autumn-gardening",
+      "error": "TimeoutError"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/bay/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/bay/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/chives/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/chives/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/containers",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/containers"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/dill/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/dill/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/growing",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/growing"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/horseradish/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/horseradish/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/mint/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/mint/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/rosemary/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/rosemary/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/sage/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/sage/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/herbs/thyme/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/herbs/thyme/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/lawns/autumn-care",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/lawns/autumn-care"
+    },
+    {
+      "url": "https://www.rhs.org.uk/lawns/how-to-mow-a-lawn",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/lawns/how-to-mow-a-lawn"
+    },
+    {
+      "url": "https://www.rhs.org.uk/nuts/walnuts",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/nuts/walnuts"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/101214/helleborus-orientalis-lam/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/101214/helleborus-orientalis-lam/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/154246/hydrangea-paniculata-limelight/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/154246/hydrangea-paniculata-limelight/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/1601/armoracia-rusticana/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/1601/armoracia-rusticana/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/177820/hydrangea-paniculata-phantom/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/177820/hydrangea-paniculata-phantom/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/18734/vaccinium-vitis-idaea/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/18734/vaccinium-vitis-idaea/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/256101/hydrangea-macrophylla-endless-summer/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/256101/hydrangea-macrophylla-endless-summer/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/264574/hydrangea-paniculata-vanille-fraise-renhy-%28pbr%29/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/264574/hydrangea-paniculata-vanille-fraise-renhy/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/322090/hydrangea-paniculata-bobo-ilvobo/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/322090/hydrangea-paniculata-bobo-ilvobo/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/335310/hydrangea-paniculata-little-lime/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/335310/hydrangea-paniculata-little-lime/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/342468/hydrangea-arborescens-strong-annabelle/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/342468/hydrangea-arborescens-strong-annabelle/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/376379/hydrangea-paniculata-little-fraise/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/376379/hydrangea-paniculata-little-fraise/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/3903/claytonia-perfoliata/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/3903/claytonia-perfoliata/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/4399/cornus-mas/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/4399/cornus-mas/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/63034/hydrangea-arborescens-annabelle/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/63034/hydrangea-arborescens-annabelle/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/67250/valerianella-locusta/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/67250/valerianella-locusta/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/8765/hippophae-rhamnoides/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/8765/hippophae-rhamnoides/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/8944/hydrangea-paniculata/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/8944/hydrangea-paniculata/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/98456/nerium-oleander-l/details",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/98456/nerium-oleander-l/details"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/acer/japanese-maples/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/acer/japanese-maples/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/agapanthus/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/agapanthus/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/allium/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/allium/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/amelanchier",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/amelanchier"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/articles/wisley/protecting-bananas-over-winter",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/articles/wisley/protecting-bananas-over-winter"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/banana/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/banana/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/brugmansia/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/brugmansia/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/canna/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/canna/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/crocus/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/crocus/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/daffodils",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/daffodils"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/dahlia/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/dahlia/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/for-places/cut-flowers-conditioning",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/for-places/cut-flowers-conditioning"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/for-places/gravel-gardens",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/for-places/gravel-gardens"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/for-places/shade-planting-annuals-bulbs-perennials",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/for-places/shade-planting-annuals-bulbs-perennials"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/fuchsia/tender/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/fuchsia/tender/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/gladioli/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/gladioli/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/hazel",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/hazel"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/hellebore/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/hellebore/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/hosta/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/hosta/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/hyacinth",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/hyacinth"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/hydrangea/pruning-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/hydrangea/pruning-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/hydrangea/shrubby",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/hydrangea/shrubby"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/hydrangea/shrubby/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/hydrangea/shrubby/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/magnolia/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/magnolia/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/mandevilla/how-to-grow-mandevillas",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/mandevilla/how-to-grow-mandevillas"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/olives/how-to-grow-olives",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/olives/how-to-grow-olives"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/peony/herbaceous/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/peony/herbaceous/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/peony/tree/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/peony/tree/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/rhododendron/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/rhododendron/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/roses/growing-guide/",
+      "error": "TimeoutError"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/roses/planting",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/roses/planting"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/sambucus/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/sambucus/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/trials-awards/plant-trial-results/hydrangea-paniculata",
+      "error": "TimeoutError"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/trials-awards/using-award-winning-plants/10-award-winning-hydrangeas-for-gardens",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/trials-awards/using-award-winning-plants/10-award-winning-hydrangeas-for-gardens"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/tulip/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/tulip/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/bulbs/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/bulbs/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/bulbs/how-to-plant-bulbs-in-grass",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/bulbs/how-to-plant-bulbs-in-grass"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/bulbs/naturalising-in-grass",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/bulbs/naturalising-in-grass"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/bulbs/planting",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/bulbs/planting"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/grasses/bamboo",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/grasses/bamboo"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/grasses/bamboo/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/grasses/bamboo/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/grasses/ornamental/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/grasses/ornamental/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/grasses/ornamental/selection",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/grasses/ornamental/selection"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/hedges/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/hedges/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/perennials/dividing",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/perennials/dividing"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/perennials/planting",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/perennials/planting"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/shrubs/how-to-plant-a-shrub",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/shrubs/how-to-plant-a-shrub"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/trees/buying-planting-specimens",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/trees/buying-planting-specimens"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/trees/container-growing",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/trees/container-growing"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/trees/establishment-trees-shrubs",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/trees/establishment-trees-shrubs"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/trees/how-to-plant-a-tree",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/trees/how-to-plant-a-tree"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/trees/how-to-stake-a-tree",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/trees/how-to-stake-a-tree"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/trees/moving-trees-shrubs",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/trees/moving-trees-shrubs"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/trees/planting-trees-shrubs",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/trees/planting-trees-shrubs"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/types/trees/pruning-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/types/trees/pruning-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/plants/viburnum/growing-guide",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/plants/viburnum/growing-guide"
+    },
+    {
+      "url": "https://www.rhs.org.uk/ponds/care",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/ponds/care"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/fleece-and-crop-covers",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/fleece-and-crop-covers"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/frost-damage",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/frost-damage"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/insect-proof-mesh",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/insect-proof-mesh"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/overwintering-in-conservatories",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/overwintering-in-conservatories"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/overwintering-tender-plants-lifting-or-mulching",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/overwintering-tender-plants-lifting-or-mulching"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/overwintering-tender-plants-wrapping",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/overwintering-tender-plants-wrapping"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/preventing-winter-damage",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/preventing-winter-damage"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/weather-damage",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/weather-damage"
+    },
+    {
+      "url": "https://www.rhs.org.uk/prevention-protection/wind-scorch",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/prevention-protection/wind-scorch"
+    },
+    {
+      "url": "https://www.rhs.org.uk/propagation/hardwood-cuttings",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/propagation/hardwood-cuttings"
+    },
+    {
+      "url": "https://www.rhs.org.uk/propagation/layering",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/propagation/layering"
+    },
+    {
+      "url": "https://www.rhs.org.uk/propagation/propagating-herbs",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/propagation/propagating-herbs"
+    },
+    {
+      "url": "https://www.rhs.org.uk/propagation/seed-collecting-storing",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/propagation/seed-collecting-storing"
+    },
+    {
+      "url": "https://www.rhs.org.uk/propagation/softwood-cuttings",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/propagation/softwood-cuttings"
+    },
+    {
+      "url": "https://www.rhs.org.uk/science/plant-health-in-gardens/protect-your-garden",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/science/plant-health-in-gardens/protect-your-garden"
+    },
+    {
+      "url": "https://www.rhs.org.uk/shows-events/rhs-hampton-court-palace-garden-festival/news/2023/landscaping-trends",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/shows-events/rhs-hampton-court-palace-garden-festival/news/2023/landscaping-trends"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/composting",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/composting"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/green-manures",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/green-manures"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/how-to-make-your-own-potting-mix",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/how-to-make-your-own-potting-mix"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/how-to-mulch-with-organic-matter",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/how-to-mulch-with-organic-matter"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/john-innes-compost",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/john-innes-compost"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/leaf-mould",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/leaf-mould"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/mulch",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/mulch"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/organic-matter-how-to-use-in-garden",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/organic-matter-how-to-use-in-garden"
+    },
+    {
+      "url": "https://www.rhs.org.uk/soil-composts-mulches/woody-waste-using-as-mulch",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/soil-composts-mulches/woody-waste-using-as-mulch"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/asparagus/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/asparagus/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/carrots/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/carrots/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/crop-rotation",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/crop-rotation"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/f1-hybrids",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/f1-hybrids"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/garlic/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/garlic/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/growing-for-winter",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/growing-for-winter"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/kale/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/kale/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/leeks/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/leeks/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/onions/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/onions/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/parsnips/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/parsnips/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/root-vegetables-storing",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/root-vegetables-storing"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/shallots/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/shallots/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/successional-sowing",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/successional-sowing"
+    },
+    {
+      "url": "https://www.rhs.org.uk/vegetables/tomatoes/grow-your-own",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/vegetables/tomatoes/grow-your-own"
+    },
+    {
+      "url": "https://www.rhs.org.uk/wildlife/garden-birds",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/wildlife/garden-birds"
+    },
+    {
+      "url": "https://www.rhs.org.uk/wildlife/pots-and-container-habitats",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/wildlife/pots-and-container-habitats"
+    },
+    {
+      "url": "https://www.rhs.org.uk/wildlife/water-habitats",
+      "status": 200,
+      "final": "https://www.rhs.org.uk/wildlife/water-habitats"
+    },
+    {
+      "url": "https://www.rspb.org.uk/birds-and-wildlife/the-use-of-netting-to-stop-birds-nesting",
+      "status": 200,
+      "final": "https://www.rspb.org.uk/birds-and-wildlife/the-use-of-netting-to-stop-birds-nesting"
+    },
+    {
+      "url": "https://www.rspb.org.uk/helping-nature/what-you-can-do/activities/all-about-nest-boxes",
+      "status": 200,
+      "final": "https://www.rspb.org.uk/helping-nature/what-you-can-do/activities/all-about-nest-boxes"
+    },
+    {
+      "url": "https://www.rspb.org.uk/helping-nature/what-you-can-do/activities/make-the-perfect-bird-bath",
+      "status": 200,
+      "final": "https://www.rspb.org.uk/helping-nature/what-you-can-do/activities/make-the-perfect-bird-bath"
+    },
+    {
+      "url": "https://www.rspb.org.uk/whats-happening/news/three-ways-to-help-birds-in-a-cold-snap",
+      "status": 200,
+      "final": "https://www.rspb.org.uk/whats-happening/news/three-ways-to-help-birds-in-a-cold-snap"
+    },
+    {
+      "url": "https://www.starkl.sk/b-sadenie-cesnaku-vsetko-co-potrebujete-vediet",
+      "status": 200,
+      "final": "https://www.starkl.sk/b-sadenie-cesnaku-vsetko-co-potrebujete-vediet"
+    },
+    {
+      "url": "https://www.zahrada.sk/magazine/cas-sadit-cesnak-toto-by-ste-mali-vediet-pred-vysadbou/",
+      "status": 200,
+      "final": "https://www.zahrada.sk/magazine/cas-sadit-cesnak-toto-by-ste-mali-vediet-pred-vysadbou/"
+    },
+    {
+      "url": "https://yardandgarden.extension.iastate.edu/faq/how-do-i-care-potted-blooming-hydrangea",
+      "status": 200,
+      "final": "https://yardandgarden.extension.iastate.edu/faq/how-do-i-care-potted-blooming-hydrangea"
+    },
+    {
+      "url": "https://yardandgarden.extension.iastate.edu/faq/i-purchased-potted-hydrangea-florist-shop-winter-can-i-plant-it-my-garden",
+      "status": 200,
+      "final": "https://yardandgarden.extension.iastate.edu/faq/i-purchased-potted-hydrangea-florist-shop-winter-can-i-plant-it-my-garden"
+    },
+    {
+      "url": "https://yardandgarden.extension.iastate.edu/faq/my-shrubs-are-flopping-over-due-weight-heavy-wet-snow-what-should-i-do",
+      "status": 200,
+      "final": "https://yardandgarden.extension.iastate.edu/faq/my-shrubs-are-flopping-over-due-weight-heavy-wet-snow-what-should-i-do"
+    },
+    {
+      "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/how-to-clean-and-disinfect-gardening-tools-and-containers",
+      "status": 200,
+      "final": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/how-to-clean-and-disinfect-gardening-tools-and-containers"
+    },
+    {
+      "url": "https://www.hse.gov.uk/woodworking/wooddust.htm",
+      "status": 200,
+      "final": "https://www.hse.gov.uk/woodworking/wooddust.htm"
+    },
+    {
+      "url": "https://www.uksup.sk/databaza-autorizovanych-pripravkov-ispor",
+      "status": 466
+    }
+  ],
+  "replacements": {
+    "https://extension.psu.edu/soil-management-for-flowers-and-ornamentals": "https://www.rhs.org.uk/plants/hydrangea/shrubby/growing-guide",
+    "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-minnesota/how-to-clean-and-disinfect-gardening-tools-and-containers": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/how-to-clean-and-disinfect-gardening-tools-and-containers",
+    "https://extension.umn.edu/trees-and-shrubs/hydrangea-identify-and-manage-problems": "https://extension.umd.edu/resource/hydrangea-identify-and-manage-problems",
+    "https://us-support.husqvarna.com/en/automower/KA-70058": "https://www.husqvarna.com/uk/support/articles/complete-winter-storage-guide-for-your-automower-robotic-lawn-mower-ka-70051/",
+    "https://www.hse.gov.uk/woodworking/dust.htm": "https://www.hse.gov.uk/woodworking/wooddust.htm",
+    "https://www.rhs.org.uk/plants/types/herbs/growing-herbs": "https://www.rhs.org.uk/herbs/growing"
+  },
+  "note": "A timeout or 503 is inconclusive, not proof that a source is broken."
+}
