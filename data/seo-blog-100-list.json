@@ -1,5 +1,37 @@
 [
   {
+    "slug": "hortenzie-do-vazy",
+    "title": "Hortenzie do vázy: ako predĺžiť životnosť kvetov",
+    "excerpt": "Kedy odrezať súkvetia, ako pripraviť stonky, vodu a vázu a čo robiť, keď hortenzia po prenesení vädne.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-do-vazy.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie do vázy",
+      "rezané hortenzie",
+      "starostlivosť o rezané kvety",
+      "hortenzie",
+      "kvety"
+    ]
+  },
+  {
+    "slug": "susenie-kvetov-hortenzie",
+    "title": "Sušenie kvetov hortenzie: kedy strihať a ako ich zachovať",
+    "excerpt": "Ako vybrať správne vyzreté súkvetia hortenzie, vysušiť ich bez plesne a zachovať farbu aj tvar na dekoráciu.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/susenie-kvetov-hortenzie.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "sušenie kvetov hortenzie",
+      "sušené kvety",
+      "hortenzie do dekorácie",
+      "hortenzie",
+      "kvety"
+    ]
+  },
+  {
     "slug": "hortenzie-do-malej-zahrady",
     "title": "Hortenzie do malej záhrady: ako vybrať kompaktný kultivar",
     "excerpt": "Ako vybrať hortenziu do malej záhrady podľa dospelej výšky a šírky, kvitnutia aj nárokov na záhon či nádobu.",
