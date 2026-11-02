@@ -3879,181 +3879,46 @@
     ]
   },
   {
-    "slug": "ako-sadit-hortenziu",
-    "title": "Ako zasadiť hortenziu: miesto, jama a prvá zálievka",
-    "excerpt": "Praktický postup výsadby hortenzie od výberu miesta po kontrolu vlhkosti. Správna hĺbka a široká jama pomáhajú koreňom rásť.",
+    "slug": "mulcovanie-hortenzii",
+    "title": "Mulčovanie hortenzií: koľko mulču a kam ho dať",
+    "excerpt": "Ako mulčovať hortenziu, aby pôda menej vysychala a korene zostali chránené. Správna vrstva nesmie zakrývať bázu výhonkov.",
     "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/ako-sadit-hortenziu.webp",
+    "cover_url": "/assets/blog/ai-2026-10/mulcovanie-hortenzii.webp",
     "published_at": "2026-10-02T08:00:00+02:00",
     "content_type": "blog",
     "tags": [
       "hortenzie",
-      "ako sadit hortenziu",
+      "mulcovanie hortenzii",
       "pestovanie",
       "starostlivosť"
     ]
   },
   {
-    "slug": "hortenzia-zlte-listy",
-    "title": "Žlté listy hortenzie: ako odlíšiť príčiny",
-    "excerpt": "Žltnutie listov môže súvisieť s vodou, pH, výživou aj prirodzeným starnutím. Podľa vzoru príznakov určte, čo skontrolovať.",
+    "slug": "kedy-sadit-hortenzie",
+    "title": "Kedy sadiť hortenzie: jar, jeseň a vhodné podmienky",
+    "excerpt": "Kedy je najlepší čas na výsadbu hortenzií, ako prispôsobiť termín počasiu a čo pripraviť pred vložením rastliny do pôdy.",
     "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/hortenzia-zlte-listy.webp",
+    "cover_url": "/assets/blog/ai-2026-10/kedy-sadit-hortenzie.webp",
     "published_at": "2026-10-02T08:00:00+02:00",
     "content_type": "blog",
     "tags": [
       "hortenzie",
-      "hortenzia zlte listy",
+      "kedy sadit hortenzie",
       "pestovanie",
       "starostlivosť"
     ]
   },
   {
-    "slug": "hortenzie-po-presadeni-vadnu",
-    "title": "Hortenzia po presadení vädne: čo skontrolovať",
-    "excerpt": "Prečo hortenzia po presadení vädne a ako skontrolovať koreňový bal, zálievku, hĺbku výsadby a stres z tepla.",
+    "slug": "presadzanie-hortenzie",
+    "title": "Presádzanie hortenzie: kedy a ako premiestniť ker",
+    "excerpt": "Ako pripraviť hortenziu na presadenie, ochrániť koreňový bal a znížiť stres po premiestnení na nové stanovište.",
     "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/hortenzie-po-presadeni-vadnu.webp",
+    "cover_url": "/assets/blog/ai-2026-10/presadzanie-hortenzie.webp",
     "published_at": "2026-10-02T08:00:00+02:00",
     "content_type": "blog",
     "tags": [
       "hortenzie",
-      "hortenzie po presadeni vadnu",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "hortenzia-metlinata-pestovanie",
-    "title": "Hortenzia metlinatá: pestovanie, rez a kvitnutie",
-    "excerpt": "Ako pestovať hortenziu metlinatú, vybrať miesto a načasovať rez bez zbytočného skracovania kríka.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/hortenzia-metlinata-pestovanie.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "hortenzia metlinata pestovanie",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "hortenzia-kalinolista-pestovanie",
-    "title": "Hortenzia kalinolistá: pestovanie, kvety a správny rez",
-    "excerpt": "Pestovanie veľkolistej hortenzie bez straty pukov: miesto, zimná ochrana, farba kvetov a rez podľa kultivaru.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/hortenzia-kalinolista-pestovanie.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "hortenzia kalinolista pestovanie",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "hortenzia-dubolista-pestovanie",
-    "title": "Hortenzia dubolistá: pestovanie, rez a jesenné sfarbenie",
-    "excerpt": "Ako pestovať hortenziu dubolistú, vybrať stanovište a zachovať kvety na minuloročnom dreve.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/hortenzia-dubolista-pestovanie.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "hortenzia dubolista pestovanie",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "rez-hortenzie-metlinatej",
-    "title": "Rez metlinatej hortenzie: kedy a ako ju skrátiť",
-    "excerpt": "Kedy strihať metlinatú hortenziu a ako zvoliť mieru rezu podľa jej veľkosti, tvaru a stability výhonkov.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/rez-hortenzie-metlinatej.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "rez hortenzie metlinatej",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "rez-hortenzie-kalinolistej",
-    "title": "Rez hortenzie kalinolistej: zachovajte budúcoročné kvety",
-    "excerpt": "Ako rezať hortenziu kalinolistú bez odstránenia kvetných pukov a ako rozoznať kultivary kvitnúce na novom dreve.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/rez-hortenzie-kalinolistej.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "rez hortenzie kalinolistej",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "kedy-strihat-hortenzie-do-vazy",
-    "title": "Kedy a ako strihať hortenzie do vázy",
-    "excerpt": "Ako vybrať správny čas na rez súkvetí, pripraviť stonky a použiť čistú vázu bez poškodenia tvaru kra.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/kedy-strihat-hortenzie-do-vazy.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "kedy strihat hortenzie do vazy",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "vosky-na-hortenzii",
-    "title": "Vošky na hortenzii: ako ich rozpoznať a obmedziť",
-    "excerpt": "Ako rozpoznať vošky na hortenzii, kedy zasiahnuť a ako začať šetrnou kontrolou bez zbytočného postreku.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/vosky-na-hortenzii.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "vosky na hortenzii",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "roztoce-na-hortenzii",
-    "title": "Roztoče na hortenzii: bodkované listy a jemné pavučinky",
-    "excerpt": "Ako odlíšiť roztoče od listovej choroby, kde hľadať príznaky a ktoré šetrné kroky skúsiť ako prvé.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/roztoce-na-hortenzii.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "roztoce na hortenzii",
-      "pestovanie",
-      "starostlivosť"
-    ]
-  },
-  {
-    "slug": "hortenzie-v-chladnych-oblastiach",
-    "title": "Hortenzie v chladných oblastiach: výber a zimná ochrana",
-    "excerpt": "Ako vybrať hortenziu do chladnej polohy, chrániť korene a puky a obmedziť poškodenie neskorým mrazom.",
-    "category": "Hortenzie",
-    "cover_url": "/assets/blog/ai-2026-10/hortenzie-v-chladnych-oblastiach.webp",
-    "published_at": "2026-10-02T08:00:00+02:00",
-    "content_type": "blog",
-    "tags": [
-      "hortenzie",
-      "hortenzie v chladnych oblastiach",
+      "presadzanie hortenzie",
       "pestovanie",
       "starostlivosť"
     ]
