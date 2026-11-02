@@ -3667,5 +3667,80 @@
       "mrazuvzdorný pór",
       "ochrana póru pred mrazom"
     ]
+  },
+  {
+    "slug": "chloroza-hortenzie-zelezo",
+    "title": "Chloróza hortenzie: žlté listy so zelenou žilnatinou",
+    "excerpt": "Žlté mladé listy so zelenými žilami často ukazujú na nedostupnosť železa pri vysokom pH. Ako príznak rozpoznať, zmerať pôdu a postupovať bez náhodného okysľovania.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/chloroza-hortenzie-zelezo.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "chloroza hortenzie zelezo",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-kvitne-zeleno",
+    "title": "Prečo má hortenzia zelené kvety",
+    "excerpt": "Zelený odtieň môže byť prirodzený na začiatku alebo konci kvitnutia. Zistite, ako odlíšiť bežné starnutie kvetu od vážnejšej zmeny rastu.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-kvitne-zeleno.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia kvitne zeleno",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "rez-annabelle",
+    "title": "Ako strihať hortenziu Annabelle",
+    "excerpt": "Annabelle kvitne na nových výhonkoch. Zistite, kedy a ako ju strihať a prečo príliš nízky rez môže viesť k poliehaniu veľkých súkvetí.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/rez-annabelle.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "rez annabelle",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-cierne-listy",
+    "title": "Čierne škvrny na listoch hortenzie: čo ich spôsobuje",
+    "excerpt": "Čierne škvrny môžu vzniknúť po mraze, pri listovej škvrnitosti aj po mechanickom poškodení. Rozlíšte ich podľa času vzniku, tvaru a šírenia.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-cierne-listy.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia cierne listy",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzia-listy-ovisnute-rano",
+    "title": "Ovisnuté listy hortenzie ráno: signál problému",
+    "excerpt": "Hortenzia môže cez horúci deň ovisnúť aj pri vlhkej pôde. Skontrolujte vlhkosť pri koreňoch, odtok vody a ranný stav listov pred ďalšou zálievkou.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzia-listy-ovisnute-rano.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzia listy ovisnute rano",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]

@@ -11,8 +11,6 @@ ROBOTS_NAME = re.compile(r"""\bname\s*=\s*(["'])robots\1""", re.IGNORECASE)
 CONTENT_ATTR = re.compile(r"""(\bcontent\s*=\s*)(["'])(.*?)\2""", re.IGNORECASE | re.DOTALL)
 
 LOW_VALUE_SK_ARTICLES = (
-    "chloroza-hortenzie-zelezo",
-    "hortenzia-kvitne-zeleno",
     "hortenzia-meni-farbu-na-jesen",
     "hortenzia-na-balkone",
     "hortenzia-polamane-konare",
@@ -30,7 +28,6 @@ LOW_VALUE_SK_ARTICLES = (
     "letna-starostlivost-o-hortenzie",
     "odkvitnute-kvety-hortenzie",
     "omladenie-starej-hortenzie",
-    "rez-annabelle",
     "rozmnozovanie-hortenzie-odrezkami",
     "susenie-kvetov-hortenzie",
     "velkost-kvetinaca-pre-hortenziu",
@@ -58,7 +55,6 @@ LOW_VALUE_SK_ARTICLES = (
     "zazimovanie-olivovnika-v-crepniku",
     "zazimovanie-tlakoveho-cistica",
     "endless-summer-hortenzia",
-    "hortenzia-listy-ovisnute-rano",
     "little-lime-hortenzia",
     "rozmnozovanie-hortenzie-potapanim",
     "hortenzia-po-kupeni",
@@ -85,7 +81,6 @@ REVIEW_PENDING_SK_ARTICLES = (
     "hnojenie-hortenzii-na-jar",
     "hnojenie-hortenzii-v-lete",
     "hnojivo-na-hortenzie",
-    "hortenzia-cierne-listy",
     "hortenzia-dubolista-pestovanie",
     "hortenzia-hnede-listy",
     "hortenzia-kalinolista-pestovanie",
