@@ -1,5 +1,53 @@
 [
   {
+    "slug": "hortenzie-do-malej-zahrady",
+    "title": "Hortenzie do malej záhrady: ako vybrať kompaktný kultivar",
+    "excerpt": "Ako vybrať hortenziu do malej záhrady podľa dospelej výšky a šírky, kvitnutia aj nárokov na záhon či nádobu.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-do-malej-zahrady.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie do malej záhrady",
+      "kompaktné hortenzie",
+      "hortenzie do nádob",
+      "hortenzie",
+      "malá záhrada"
+    ]
+  },
+  {
+    "slug": "hortenzie-myty",
+    "title": "Hortenzie: 9 mýtov, ktorým netreba veriť",
+    "excerpt": "Deväť rozšírených mýtov o hortenziách: farba kvetov, kávová usadenina, rez, tieň, zálievka a hnojenie.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-myty.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "mýty o hortenziách",
+      "kávová usadenina hortenzia",
+      "rez hortenzií",
+      "farba hortenzií",
+      "hortenzie"
+    ]
+  },
+  {
+    "slug": "rozmnozovanie-hortenzie-potapanim",
+    "title": "Rozmnožovanie hortenzie potápaním: jednoduchá metóda",
+    "excerpt": "Potápanie hortenzií krok za krokom: ako ohnúť a pripevniť výhonok, udržať pôdu vlhkú a správne načasovať oddelenie.",
+    "category": "Hortenzie a pivónie",
+    "cover_url": "/assets/blog/ai-2026-10/rozmnozovanie-hortenzie-potapanim.webp",
+    "published_at": "2026-10-02T00:00:00+00:00",
+    "content_type": "blog",
+    "tags": [
+      "rozmnožovanie hortenzie potápaním",
+      "potápanie hortenzií",
+      "vrstvenie rastlín",
+      "popínavá hortenzia",
+      "hortenzie"
+    ]
+  },
+  {
     "slug": "hortenzie-tvrda-voda",
     "title": "Tvrdá voda a hortenzie: ako chrániť pôdu aj kvety",
     "excerpt": "Tvrdá voda môže časom meniť podmienky v substráte. Zistite, kedy pomôže dažďová voda a prečo merať pH pred zásahom.",
