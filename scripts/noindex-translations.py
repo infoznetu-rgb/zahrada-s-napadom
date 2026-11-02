@@ -21,7 +21,6 @@ LOW_VALUE_SK_ARTICLES = (
     "hortenzia-kvety-male",
     "hortenzia-slabe-vyhonky",
     "kora-pod-hortenzie",
-    "kompost-k-hortenziam",
     "najcastejsie-chyby-hortenzie",
     "raselina-hortenzie",
     "vanille-fraise-hortenzia",
@@ -61,6 +60,11 @@ MERGED_ARTICLE_REDIRECTS = {
     "jesenna-starostlivost-o-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
     "letna-starostlivost-o-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
     "odkvitnute-kvety-hortenzie": "/blog/hortenzie-kalendar-starostlivosti/",
+    "kora-pod-hortenzie": "/blog/poda-pre-hortenzie/",
+    "raselina-hortenzie": "/blog/poda-pre-hortenzie/",
+    "najcastejsie-chyby-hortenzie": "/blog/hortenzie-pre-zaciatocnikov/",
+    "endless-summer-hortenzia": "/blog/hortenzia-kalinolista-pestovanie/",
+    "hortenzie-pri-dome": "/blog/kam-zasadit-hortenziu/",
 }
 
 
