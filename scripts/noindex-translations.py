@@ -40,7 +40,6 @@ LOW_VALUE_SK_ARTICLES = (
     "hortenzie-pre-zaciatocnikov",
     "hortenzie-pri-dome",
     "limelight-hortenzia-pestovanie",
-    "hortenzia-na-plnom-slnku",
     "hortenzia-v-interieri",
     "hortenzia-v-kvetinaci",
 )
