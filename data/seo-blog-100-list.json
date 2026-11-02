@@ -4012,5 +4012,50 @@
       "pestovanie",
       "starostlivosť"
     ]
+  },
+  {
+    "slug": "vosky-na-hortenzii",
+    "title": "Vošky na hortenzii: ako ich rozpoznať a obmedziť",
+    "excerpt": "Ako rozpoznať vošky na hortenzii, kedy zasiahnuť a ako začať šetrnou kontrolou bez zbytočného postreku.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/vosky-na-hortenzii.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "vosky na hortenzii",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "roztoce-na-hortenzii",
+    "title": "Roztoče na hortenzii: bodkované listy a jemné pavučinky",
+    "excerpt": "Ako odlíšiť roztoče od listovej choroby, kde hľadať príznaky a ktoré šetrné kroky skúsiť ako prvé.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/roztoce-na-hortenzii.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "roztoce na hortenzii",
+      "pestovanie",
+      "starostlivosť"
+    ]
+  },
+  {
+    "slug": "hortenzie-v-chladnych-oblastiach",
+    "title": "Hortenzie v chladných oblastiach: výber a zimná ochrana",
+    "excerpt": "Ako vybrať hortenziu do chladnej polohy, chrániť korene a puky a obmedziť poškodenie neskorým mrazom.",
+    "category": "Hortenzie",
+    "cover_url": "/assets/blog/ai-2026-10/hortenzie-v-chladnych-oblastiach.webp",
+    "published_at": "2026-10-02T08:00:00+02:00",
+    "content_type": "blog",
+    "tags": [
+      "hortenzie",
+      "hortenzie v chladnych oblastiach",
+      "pestovanie",
+      "starostlivosť"
+    ]
   }
 ]

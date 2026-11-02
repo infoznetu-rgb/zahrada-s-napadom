@@ -90,14 +90,11 @@ REVIEW_PENDING_SK_ARTICLES = (
     "hortenzia-vadnutie-horucava",
     "hortenzie-kalendar-starostlivosti",
     "hortenzie-pod-stromami",
-    "hortenzie-v-chladnych-oblastiach",
     "kam-zasadit-hortenziu",
     "kedy-sadit-hortenzie",
     "mulcovanie-hortenzii",
     "presadzanie-hortenzie",
-    "roztoce-na-hortenzii",
     "substrat-pre-hortenzie-v-kvetinaci",
-    "vosky-na-hortenzii",
     "vzdialenost-hortenzii-pri-vysadbe",
 )
 
