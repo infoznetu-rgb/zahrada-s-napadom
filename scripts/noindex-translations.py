@@ -52,7 +52,6 @@ LOW_VALUE_SK_ARTICLES = (
 # Unreviewed 2 Oct batch: sampled pages repeated a short generic template and
 # near-identical care advice, so keep them out of search and the archive pending editing.
 REVIEW_PENDING_SK_ARTICLES = (
-    "hnojenie-hortenzii-v-lete",
     "hortenzia-sucha",
     "hortenzia-vadnutie-horucava",
 )
