@@ -24,6 +24,13 @@ def reserve_image_dimensions(match):
         return tag[:-1] + ' width="1200" height="900">'
     return tag
 
+# Inline the small homepage-only sheet in its original cascade position.
+# Other stylesheets stay separate; no bundle or cascade reorder is introduced.
+clarity = (root / "home-clarity.css").read_text(encoding="utf-8")
+clarity_tag = '<style data-home-clarity-inline>\n' + clarity + '\n</style>'
+html = re.sub(r'<link\b(?=[^>]*href=["\']/?home-clarity\.css(?:\?[^"\']*)?["\'])[^>]*>', lambda _: clarity_tag, html, flags=re.I)
+html = re.sub(r'<style data-home-clarity-inline>[\s\S]*?</style>', lambda _: clarity_tag, html)
+
 html = re.sub(r'<img\b[^>]*>', reserve_image_dimensions, html, flags=re.I)
 homepage.write_text(html, encoding="utf-8")
 

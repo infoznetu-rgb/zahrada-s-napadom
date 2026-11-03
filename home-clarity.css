@@ -36,3 +36,12 @@
 .home-page .projects-section,
 .home-page .studio-dark-section,
 .home-page .submit-band { overflow: clip; }
+
+/* Opaque text colors retain contrast on the light discovery and tool cards. */
+.home-page .home-discovery-grid a > span,
+.home-page .home-discovery-grid a > small,
+.home-page .season-card > span,
+.home-page .season-card p,
+.home-page .tool-card .tool-category,
+.home-page .tool-card .tool-no,
+.home-page .tool-card p { color: #294b38; }
