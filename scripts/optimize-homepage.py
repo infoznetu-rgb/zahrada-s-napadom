@@ -6,10 +6,17 @@ import re
 root = Path(__file__).resolve().parents[1]
 homepage = root / "index.html"
 html = homepage.read_text(encoding="utf-8")
-# Keep the original stylesheets in their tested order. The combined bundle
-# caused a mobile LCP regression (1.9s -> 7.1s) on 2026-10-19.
-# Preserve the image and layout improvements below without bundling CSS.
-print("Homepage CSS bundling disabled after mobile performance regression")
+# Inline render-blocking CSS in its original cascade position on the homepage.
+# Unlike an external bundle this removes stylesheet network round trips.
+# Below-the-fold sheets retain their existing deferred loading behavior.
+critical_sheets = ('zahrada.css', 'studio-2026.css', 'spring-2026.css', 'typography-2026.css', 'app.css')
+for filename in critical_sheets:
+    css = (root / filename).read_text(encoding="utf-8")
+    tag = f'<style data-home-critical="{filename}">\n{css}\n</style>'
+    pattern = r'<link\b(?=[^>]*href=["\']/?' + re.escape(filename) + r'(?:\?[^"\']*)?["\'])[^>]*>'
+    html = re.sub(pattern, lambda _: tag, html, flags=re.I)
+    html = re.sub(r'<style data-home-critical="' + re.escape(filename) + r'">[\s\S]*?</style>', lambda _: tag, html)
+print("Homepage critical CSS inlined in original cascade order")
 
 # Reserve dimensions for the static logo and homepage project cards.
 # The previous expression used a word boundary after a quote and never matched
@@ -25,7 +32,7 @@ def reserve_image_dimensions(match):
     return tag
 
 # Inline the small homepage-only sheet in its original cascade position.
-# Other stylesheets stay separate; no bundle or cascade reorder is introduced.
+# Keep this sheet after the earlier critical rules, matching the source order.
 clarity = (root / "home-clarity.css").read_text(encoding="utf-8")
 clarity_tag = '<style data-home-clarity-inline>\n' + clarity + '\n</style>'
 html = re.sub(r'<link\b(?=[^>]*href=["\']/?home-clarity\.css(?:\?[^"\']*)?["\'])[^>]*>', lambda _: clarity_tag, html, flags=re.I)
