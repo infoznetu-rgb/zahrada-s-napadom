@@ -45,3 +45,7 @@
 .home-page .tool-card .tool-category,
 .home-page .tool-card .tool-no,
 .home-page .tool-card p { color: #294b38; }
+/* Introductory cards must stay readable after their entrance animation. */
+.home-page .side-card-editorial p,
+.home-page .side-card-editorial .side-card-no { color: #294b38; }
+.home-page .accent-card .side-card-no { color: #fff; }
