@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict');
+const rules=require('../bazar-content.js');
+assert(rules.active({status:'published',expires_at:'infinity'}));
+assert(!rules.active({status:'closed',expires_at:'infinity'}));
+assert(!rules.active({status:'published',expires_at:'2020-01-01'}));
+assert(!rules.active({status:'pending',expires_at:'infinity'}));
+assert(rules.imported({imported:false,import_source_data:{import_file:'archive.xlsx'}}));
+assert(rules.reviewNeeded({id:'61cb7d88-91da-441a-81e7-03949f681368'}));
+assert(!rules.reviewNeeded({id:'ordinary',title:'Tavná pištoľ'}));
+assert.equal(rules.category({category:'Ostatné',title:'Benzínová kosačka'}),'Záhradná technika');
+assert.deepEqual(rules.missing({description:'Popis',price_mode:'free',location:'Nitra',contact_phone:'123',images:['photo']}),[]);
+assert(rules.missing({price_mode:'not_listed'}).includes('konkrétna cena'));
+assert(rules.questions({title:'Kosačka',category:'Záhradná technika'})[0].includes('model'));
+console.log('Bazaar: permanent/closed/expired states, import provenance, review exclusions and buying guidance passed.');

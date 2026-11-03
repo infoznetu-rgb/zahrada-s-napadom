@@ -28,10 +28,11 @@ jobs:
 
       - name: Build search-friendly calculator pages
         run: |
+          node scripts/test-bazar-content.cjs
           node scripts/test-tool-examples.cjs
           node scripts/build-tool-search.mjs
 
-      - name: Temporarily pause recipes and bazaar for AdSense content review
+      - name: Keep recipes paused during content review
         run: python3 scripts/pause-adsense-sections.py
 
       - name: Apply curated article illustrations and card covers

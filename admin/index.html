@@ -20,8 +20,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js" integrity="sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz" crossorigin="anonymous" defer></script>
   <script src="admin.js?v=20261019-workshop-photos" defer></script>
-  <script src="bazar.js?v=4" defer></script>
-  <script src="bazar-import.js?v=2" defer></script>
+  <script src="bazar.js?v=20261103" defer></script>
+  <script src="bazar-import.js?v=20261103" defer></script>
   <script src="admin-pwa.js?v=7" defer></script>
 </head>
 <body>
@@ -336,6 +336,8 @@
             <a class="btn ghost" href="../bazar.html" target="_blank" rel="noopener">Otvoriť bazár ↗</a>
           </div>
 
+          <p><button type="button" id="bazar-permanent-all">Nastaviť všetkým zverejneným inzerátom trvalú platnosť</button></p>
+          <p id="bazar-permanent-message" role="status" aria-live="polite"></p>
           <div class="bazar-admin-stats">
             <article><span>Čakajú na kontrolu</span><strong id="bazar-stat-pending">0</strong></article>
             <article><span>Aktívne</span><strong id="bazar-stat-live">0</strong></article>
@@ -360,7 +362,7 @@
                 <p><strong>Čo sa stane po importe</strong></p>
                 <ul>
                   <li>duplicitné inzeráty sa preskočia,</li>
-                  <li>zverejnia sa na 60 dní bez hromadného upozornenia,</li>
+                  <li>zverejnia sa bez časového obmedzenia bez hromadného upozornenia,</li>
                   <li>na webe sa nezobrazí „Externý inzerát“ ani odkaz na zdroj,</li>
                   <li>celú importovanú dávku môžeš neskôr vymazať jedným tlačidlom.</li>
                 </ul>
@@ -382,7 +384,7 @@
           </div>
 
           <div class="panel">
-            <div class="panel-head"><h3>Inzeráty</h3><span class="muted">Schválenie platí 60 dní.</span></div>
+            <div class="panel-head"><h3>Inzeráty</h3><span class="muted">Schválené ponuky nevypršia automaticky.</span></div>
             <div class="bazar-admin-toolbar">
               <input id="bazar-admin-search" type="search" placeholder="Hľadať názov, kontakt alebo lokalitu…">
               <select id="bazar-admin-status">

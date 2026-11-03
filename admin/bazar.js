@@ -7,7 +7,7 @@ const BA_STATUS={pending:"Čaká",published:"Zverejnené",rejected:"Odmietnuté"
 const BA_SELLER={private:"Súkromná osoba",business:"Firma / podnikateľ"};
 const BA_REASON={commercial:"Nevhodná reklama (staré hlásenie)",spam:"Spam / nevhodná reklama",prohibited:"Zakázaný alebo nebezpečný obsah",misleading:"Zavádzajúci obsah",seller:"Nesprávne označený inzerent / firemné údaje",sold:"Zrejme neaktuálny",other:"Iné"};
 function baEsc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
-function baDate(v){return v?new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date(v)):"—"}
+function baDate(v){return v==="infinity"?"bez časového obmedzenia":v?new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date(v)):"—"}
 function baPrice(ad){if(ad.price_mode==="free")return"Zadarmo";if(ad.price_mode==="exchange")return"Výmena";if(ad.price_mode==="not_listed")return"Bez ceny";if(ad.price==null)return"Dohodou";return new Intl.NumberFormat("sk-SK",{style:"currency",currency:"EUR"}).format(Number(ad.price))+(ad.price_mode==="negotiable"?" · dohoda":"")}
 function baImage(ad){try{const u=new URL(Array.isArray(ad.images)?ad.images[0]||"":"");return /^https?:$/.test(u.protocol)?u.href:""}catch{return""}}
 async function isBazarAdmin(){
@@ -16,18 +16,20 @@ async function isBazarAdmin(){
 }
 async function loadBazarAdmin(){
   if(!BA$("#view-bazar")||!await isBazarAdmin())return;
-  const [adsRes,reportsRes]=await Promise.all([
-    bazarAdminDb.from("zahrada_bazar_ads").select("*").order("created_at",{ascending:false}).limit(300),
-    bazarAdminDb.from("zahrada_bazar_reports").select("*").order("created_at",{ascending:false}).limit(300)
-  ]);
-  if(adsRes.error){BA$("#bazar-admin-list").innerHTML='<div class="bazar-admin-empty">Bazár sa nepodarilo načítať.</div>';return}
-  bazarAdminAds=adsRes.data||[];bazarAdminReports=reportsRes.data||[];renderBazarAdmin();renderBazarReports();
+  const rows=[];
+  for(let offset=0;;offset+=500){
+    const result=await bazarAdminDb.from("zahrada_bazar_ads").select("*").order("created_at",{ascending:false}).order("id").range(offset,offset+499);
+    if(result.error){BA$("#bazar-admin-list").textContent="Bazár sa nepodarilo načítať.";return}
+    rows.push(...(result.data||[]));if(!result.data||result.data.length<500)break;
+  }
+  const reportsRes=await bazarAdminDb.from("zahrada_bazar_reports").select("*").order("created_at",{ascending:false}).limit(300);
+  bazarAdminAds=rows;bazarAdminReports=reportsRes.data||[];renderBazarAdmin();renderBazarReports();
 }
 function renderBazarStats(){
   const now=Date.now();
   BA$("#bazar-stat-pending").textContent=bazarAdminAds.filter(a=>a.status==="pending").length;
-  BA$("#bazar-stat-live").textContent=bazarAdminAds.filter(a=>a.status==="published"&&a.expires_at&&new Date(a.expires_at).getTime()>now).length;
-  BA$("#bazar-stat-expired").textContent=bazarAdminAds.filter(a=>a.status==="published"&&(!a.expires_at||new Date(a.expires_at).getTime()<=now)).length;
+  BA$("#bazar-stat-live").textContent=bazarAdminAds.filter(a=>a.status==="published"&&(a.expires_at==="infinity"||new Date(a.expires_at).getTime()>now)).length;
+  BA$("#bazar-stat-expired").textContent=bazarAdminAds.filter(a=>a.status==="published"&&a.expires_at!=="infinity"&&(!a.expires_at||new Date(a.expires_at).getTime()<=now)).length;
   BA$("#bazar-stat-reports").textContent=bazarAdminReports.filter(r=>r.status==="new").length;
 }
 function renderBazarAdmin(){
@@ -40,7 +42,7 @@ function renderBazarAdmin(){
   const root=BA$("#bazar-admin-list");if(!root)return;
   if(!list.length){root.innerHTML='<div class="bazar-admin-empty">Pre tento filter tu nie sú žiadne inzeráty.</div>';return}
   root.innerHTML=list.map(ad=>{
-    const image=baImage(ad), expired=ad.status==="published"&&(!ad.expires_at||new Date(ad.expires_at)<=new Date());
+    const image=baImage(ad), expired=ad.status==="published"&&ad.expires_at!=="infinity"&&(!ad.expires_at||new Date(ad.expires_at)<=new Date());
     return `<article class="bazar-admin-row">
       ${image?`<img class="bazar-admin-thumb" src="${baEsc(image)}" alt="">`:'<div class="bazar-admin-thumb"></div>'}
       <div class="bazar-admin-copy">
@@ -50,7 +52,7 @@ function renderBazarAdmin(){
         ${ad.moderation_note?`<p class="admin-note">Poznámka: ${baEsc(ad.moderation_note)}</p>`:""}
       </div>
       <div class="bazar-admin-actions">
-        ${ad.status==="pending"||expired?`<button class="approve" type="button" data-ba-approve="${ad.id}">${expired?"Obnoviť 60 dní":"Schváliť"}</button>`:""}
+        ${ad.status==="pending"||expired?`<button class="approve" type="button" data-ba-approve="${ad.id}">${expired?"Obnoviť natrvalo":"Schváliť"}</button>`:""}
         ${ad.status==="pending"?`<button class="reject" type="button" data-ba-reject="${ad.id}">Odmietnuť</button>`:""}
         ${ad.status==="published"&&!expired?`<a href="../inzerat.html?id=${encodeURIComponent(ad.id)}" target="_blank" rel="noopener">Pozrieť</a><button class="close" type="button" data-ba-close="${ad.id}">Ukončiť</button>`:""}
         ${ad.status==="rejected"||ad.status==="closed"?`<button class="approve" type="button" data-ba-approve="${ad.id}">Zverejniť</button>`:""}
@@ -73,8 +75,8 @@ function renderBazarReports(){
   root.querySelectorAll("[data-ba-resolve]").forEach(b=>b.addEventListener("click",()=>resolveBazarReport(b.dataset.baResolve)));
 }
 async function approveBazarAd(id){
-  const now=new Date(), expires=new Date(now.getTime()+60*24*60*60*1000);
-  const {error}=await bazarAdminDb.from("zahrada_bazar_ads").update({status:"published",moderation_note:null,moderated_at:now.toISOString(),published_at:now.toISOString(),expires_at:expires.toISOString()}).eq("id",id);
+  const now=new Date();
+  const {error}=await bazarAdminDb.from("zahrada_bazar_ads").update({status:"published",moderation_note:null,moderated_at:now.toISOString(),published_at:now.toISOString(),expires_at:"infinity"}).eq("id",id);
   if(error){alert("Inzerát sa nepodarilo schváliť: "+error.message);return}await loadBazarAdmin();
 }
 async function rejectBazarAd(id){
@@ -113,3 +115,14 @@ bazarAdminDb.auth.onAuthStateChange((event,session)=>{
   }
 });
 startBazarAdminWhenReady();
+BA$("#bazar-permanent-all")?.addEventListener("click",async()=>{
+  if(!await isBazarAdmin())return;
+  const button=BA$("#bazar-permanent-all"),message=BA$("#bazar-permanent-message");
+  button.disabled=true;message.textContent="Nastavujem trvalú platnosť zverejnených ponúk…";
+  const {error}=await bazarAdminDb.from("zahrada_bazar_ads").update({expires_at:"infinity"}).eq("status","published");
+  if(error){message.textContent="Zmenu sa nepodarilo uložiť: "+error.message;button.disabled=false;return}
+  await loadBazarAdmin();
+  const remaining=bazarAdminAds.filter(a=>a.status==="published"&&a.expires_at!=="infinity").length;
+  message.textContent=remaining?"Nie všetky ponuky sa podarilo overiť. Obnovte údaje.":"Trvalá platnosť je overená pri všetkých zverejnených ponukách. Ukončené a čakajúce ponuky ostali nezmenené.";
+  button.disabled=false;
+});

@@ -21,6 +21,7 @@ const SELLER_LABELS={private:"Súkromná osoba",business:"Firma"};
 
 const $=s=>document.querySelector(s);
 let publicAds=[];
+let displayLimit=24;
 let currentUser=null;
 let currentOwnAds=[];
 let imageState=[];
@@ -95,7 +96,7 @@ function bindCategoryCards(){
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 function safeHttpUrl(value){try{const u=new URL(String(value||""),location.href);return u.protocol==="https:"||u.protocol==="http:"?u.href:""}catch{return""}}
 function euro(value){return new Intl.NumberFormat("sk-SK",{style:"currency",currency:"EUR",maximumFractionDigits:2}).format(Number(value)||0)}
-function dateSk(v){if(!v)return"";return new Intl.DateTimeFormat("sk-SK",{day:"numeric",month:"numeric",year:"numeric"}).format(new Date(v))}
+function dateSk(v){if(!v)return"";if(BazarContent.permanent(v))return"bez časového obmedzenia";if(!Number.isFinite(Date.parse(v)))return"";return new Intl.DateTimeFormat("sk-SK",{day:"numeric",month:"numeric",year:"numeric"}).format(new Date(v))}
 function setMessage(el,text,type=""){if(!el)return;el.textContent=text||"";el.className="bazar-form-message"+(type?" "+type:"")}
 function storagePathFromUrl(url){
   try{
@@ -120,9 +121,9 @@ function publicCard(ad){
   const image=firstImage(ad);
   const href=`inzerat.html?id=${encodeURIComponent(ad.id)}`;
   const desc=String(ad.description||"").replace(/\s+/g," ").trim();
-  const sellerTag=ad.imported?`<span class="seller-tag private">Externý inzerát</span>`:(!ad.user_id?"":`<span class="seller-tag ${ad.seller_type==="business"?"business":"private"}">${esc(SELLER_LABELS[ad.seller_type]||"Súkromná osoba")}</span>`);
+  const sellerTag=BazarContent.imported(ad)?`<span class="seller-tag private">Prevzatá ponuka</span>`:(!ad.user_id?"":`<span class="seller-tag ${ad.seller_type==="business"?"business":"private"}">${esc(SELLER_LABELS[ad.seller_type]||"Súkromná osoba")}</span>`);
   return `<article class="bazar-card">
-    <a class="bazar-card-image" href="${href}">${image?`<img src="${esc(image)}" alt="${esc(ad.title)}" loading="lazy">`:'<div class="bazar-card-placeholder">Záhrada s nápadom<br>komunitný bazár</div>'}</a>
+    <a class="bazar-card-image" href="${href}">${image?`<img src="${esc(image)}" alt="${esc(ad.title)}" loading="lazy">`:'<div class="bazar-card-placeholder">Fotografia nie je dostupná</div>'}</a>
     <div class="bazar-card-body">
       <div class="bazar-card-top"><span class="tag">${esc(TYPE_LABELS[ad.listing_type]||ad.listing_type)}</span><span class="soft-tag main-category-tag">${esc(ad.main_category||mainForCategory(ad.category))}</span><span class="soft-tag">${esc(ad.category)}</span>${sellerTag}</div>
       <h3><a href="${href}">${esc(ad.title)}</a></h3>
@@ -147,20 +148,22 @@ function fillSelects(){
 
 async function loadPublicAds(){
   const status=$("#bazar-status");
-  publicAds=[];
-  const list=$("#bazar-list");
-  if(list)list.replaceChildren();
-  if(status){status.className="bazar-status";status.textContent="Bazár je dočasne pozastavený počas kontroly a úpravy ponúk."}
-  return;
-  if(status){status.className="bazar-status";status.textContent="Načítavam inzeráty…"}
-  const {data,error}=await bazarDb.from("zahrada_bazar_ads")
-    .select("id,user_id,title,description,main_category,category,listing_type,item_condition,price,price_mode,region,location,images,published_at,expires_at,seller_type,business_name,business_ico,imported,import_source,import_source_data")
-    .eq("status","published").gt("expires_at",new Date().toISOString()).order("published_at",{ascending:false}).limit(100);
-  if(error){if(status){status.className="bazar-status error";status.textContent="Inzeráty sa teraz nepodarilo načítať."}return}
-  publicAds=data||[];
+  if(status){status.hidden=false;status.className="bazar-status";status.textContent="Načítavam inzeráty…"}
+  const rows=[];
+  for(let offset=0;;offset+=500){
+    const {data,error}=await bazarDb.from("zahrada_bazar_ads")
+      .select("id,user_id,title,description,main_category,category,listing_type,item_condition,price,price_mode,region,location,images,published_at,expires_at,status,seller_type,business_name,business_ico,imported,import_source,import_source_data")
+      .eq("status","published").gt("expires_at",new Date().toISOString()).order("published_at",{ascending:false}).order("id").range(offset,offset+499);
+    if(error){if(status){status.className="bazar-status error";status.textContent="Inzeráty sa teraz nepodarilo načítať. Skúste obnoviť stránku."}return}
+    rows.push(...(data||[]));
+    if(!data||data.length<500)break;
+  }
+  publicAds=rows.filter(a=>!BazarContent.reviewNeeded(a)).map(a=>({...a,category:BazarContent.category(a),main_category:mainForCategory(BazarContent.category(a))}));
+  displayLimit=24;
   renderPublicAds();
 }
-function renderPublicAds(){
+function renderPublicAds(more=false){
+  if(more!==true)displayLimit=24;
   const root=$("#bazar-list"), status=$("#bazar-status");if(!root)return;
   const q=$("#bazar-search")?.value.trim().toLocaleLowerCase("sk")||"";
   const type=$("#bazar-type-filter")?.value||"", main=$("#bazar-main-category-filter")?.value||"", cat=$("#bazar-category-filter")?.value||"", region=$("#bazar-region-filter")?.value||"", seller=$("#bazar-seller-filter")?.value||"";
@@ -173,7 +176,12 @@ function renderPublicAds(){
     const priceSort=a=>a.price_mode==="free"?0:(a.price!=null?Number(a.price):(sort==="price_asc"?Number.POSITIVE_INFINITY:Number.NEGATIVE_INFINITY));
     list=[...list].sort((a,b)=>sort==="price_asc"?priceSort(a)-priceSort(b):priceSort(b)-priceSort(a));
   }
-  root.innerHTML=list.map(publicCard).join("");
+  root.innerHTML=list.slice(0,displayLimit).map(publicCard).join("");
+  root.querySelectorAll("img").forEach(img=>img.addEventListener("error",()=>{const note=document.createElement("div");note.className="bazar-card-placeholder";note.textContent="Fotografia nie je dostupná";img.replaceWith(note)},{once:true}));
+  $("#bazar-result-count").textContent=`Zobrazených ${Math.min(displayLimit,list.length)} z ${list.length} ponúk`;
+  let moreButton=$("#bazar-load-more");
+  if(!moreButton){moreButton=document.createElement("button");moreButton.id="bazar-load-more";moreButton.type="button";moreButton.className="btn secondary";moreButton.textContent="Zobraziť ďalšie ponuky";root.after(moreButton);moreButton.addEventListener("click",()=>{displayLimit+=24;renderPublicAds(true)})}
+  moreButton.hidden=displayLimit>=list.length;
   if(status){status.hidden=!!list.length;status.className="bazar-status";status.textContent=publicAds.length?"Pre zvolené filtre sme nenašli žiadny inzerát.":"Zatiaľ tu nie sú žiadne schválené inzeráty. Môžeš pridať prvý."}
 }
 ["#bazar-search","#bazar-type-filter","#bazar-category-filter","#bazar-region-filter","#bazar-seller-filter","#bazar-sort"].forEach(s=>$(s)?.addEventListener(s==="#bazar-search"?"input":"change",renderPublicAds));
@@ -345,7 +353,7 @@ $("#bazar-ad-form")?.addEventListener("submit",async e=>{
     const removed=originalRemoteUrls.filter(x=>!newImages.includes(x));
     await removeImageUrls(removed);
     resetAdForm();await Promise.all([loadMyAds(),loadPublicAds()]);
-    setMessage(msg,"Inzerát je uložený a čaká na schválenie. Po schválení bude zverejnený na 60 dní.","ok");
+    setMessage(msg,"Inzerát je uložený a čaká na schválenie. Po schválení bude zverejnený bez časového obmedzenia. Po predaji ho ukončite v časti Moje inzeráty.","ok");
     document.querySelector("#pridat")?.scrollIntoView({behavior:"smooth",block:"start"});
   }catch(err){
     const newlyUploaded=newImages.filter(u=>!originalRemoteUrls.includes(u));await removeImageUrls(newlyUploaded);
@@ -364,10 +372,10 @@ function renderMyAds(){
   const root=$("#my-ads-list");if(!root)return;
   if(!currentOwnAds.length){root.innerHTML='<div class="bazar-status">Zatiaľ nemáš žiadny inzerát.</div>';return}
   root.innerHTML=currentOwnAds.map(ad=>{
-    const image=firstImage(ad), canView=ad.status==="published"&&ad.expires_at&&new Date(ad.expires_at)>new Date();
+    const image=firstImage(ad), canView=BazarContent.active(ad);
     return `<article class="my-ad-row">
       ${image?`<img class="my-ad-thumb" src="${esc(image)}" alt="">`:'<div class="my-ad-thumb"></div>'}
-      <div class="my-ad-info"><h3>${esc(ad.title)}</h3><p><span class="status-pill ${esc(ad.status)}">${esc(STATUS_LABELS[ad.status]||ad.status)}</span> · ${esc(SELLER_LABELS[ad.seller_type]||"Súkromná osoba")} · ${esc(priceText(ad))} · ${esc(ad.location)}${ad.status==="rejected"&&ad.moderation_note?`<br>Dôvod: ${esc(ad.moderation_note)}`:""}${ad.status==="published"&&ad.expires_at?`<br>Platí do ${esc(dateSk(ad.expires_at))}`:""}</p></div>
+      <div class="my-ad-info"><h3>${esc(ad.title)}</h3><p><span class="status-pill ${esc(ad.status)}">${esc(STATUS_LABELS[ad.status]||ad.status)}</span> · ${esc(SELLER_LABELS[ad.seller_type]||"Súkromná osoba")} · ${esc(priceText(ad))} · ${esc(ad.location)}${ad.status==="rejected"&&ad.moderation_note?`<br>Dôvod: ${esc(ad.moderation_note)}`:""}${ad.status==="published"&&ad.expires_at?`<br>Platnosť: ${esc(dateSk(ad.expires_at))}`:""}</p></div>
       <div class="my-ad-actions">${canView?`<a class="bazar-mini-btn" href="inzerat.html?id=${encodeURIComponent(ad.id)}" target="_blank" rel="noopener">Pozrieť</a>`:""}<button class="bazar-mini-btn" type="button" data-edit-ad="${ad.id}">Upraviť</button>${ad.status!=="closed"?`<button class="bazar-mini-btn" type="button" data-close-ad="${ad.id}">Ukončiť</button>`:""}<button class="bazar-mini-btn danger" type="button" data-delete-ad="${ad.id}">Vymazať</button></div>
     </article>`;
   }).join("");

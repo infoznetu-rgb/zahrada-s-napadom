@@ -265,15 +265,15 @@
   async function runImport(){
     const selected=rows.filter(row=>row.include&&!row.duplicate&&!row.errors.length);
     if(!selected.length)return;
-    if(!confirm(`Zverejniť ${selected.length} inzerátov na 60 dní? Hromadné upozornenie sa neodošle.`))return;
+    if(!confirm(`Zverejniť ${selected.length} inzerátov bez časového obmedzenia? Hromadné upozornenie sa neodošle.`))return;
     setBusy(true);setMessage("Importujem inzeráty…");
     try{
       if(!await isBazarAdmin())throw new Error("Platnosť prihlásenia vypršala. Prihlás sa znova.");
-      const nowDate=new Date(),expiresDate=new Date(nowDate.getTime()+60*24*60*60*1000);
+      const nowDate=new Date();
       const uuid=crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random().toString(16).slice(2)}`;
       const batchId=`admin-xlsx:${nowDate.toISOString().slice(0,10)}:${uuid}`;
-      const result=await insertRows(selected,batchId,nowDate.toISOString(),expiresDate.toISOString());
-      const message=result.failed?`Import hotový: ${result.inserted} vložených, ${result.failed} sa nepodarilo vložiť.`:`Hotovo. ${result.inserted} inzerátov bolo zverejnených na 60 dní.`;
+      const result=await insertRows(selected,batchId,nowDate.toISOString(),"infinity");
+      const message=result.failed?`Import hotový: ${result.inserted} vložených, ${result.failed} sa nepodarilo vložiť.`:`Hotovo. ${result.inserted} inzerátov bolo zverejnených bez časového obmedzenia.`;
       resetImport();setMessage(message,result.failed?"error":"ok");
       await Promise.all([refreshBatches(),typeof loadBazarAdmin==="function"?loadBazarAdmin():Promise.resolve()]);
     }catch(error){setMessage("Import sa nepodaril: "+(error.message||"neznáma chyba"),"error")}

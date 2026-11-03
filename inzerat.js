@@ -9,7 +9,7 @@ let currentImages=[];
 
 function safeHttpUrl(value){try{const u=new URL(String(value||""),location.href);return u.protocol==="https:"||u.protocol==="http:"?u.href:""}catch{return""}}
 function euro(value){return new Intl.NumberFormat("sk-SK",{style:"currency",currency:"EUR",maximumFractionDigits:2}).format(Number(value)||0)}
-function dateSk(v){return v?new Intl.DateTimeFormat("sk-SK",{day:"numeric",month:"long",year:"numeric"}).format(new Date(v)):""}
+function dateSk(v){if(BazarContent.permanent(v))return"bez časového obmedzenia";return v&&Number.isFinite(Date.parse(v))?new Intl.DateTimeFormat("sk-SK",{day:"numeric",month:"long",year:"numeric"}).format(new Date(v)):""}
 function priceText(ad){if(ad.price_mode==="free")return"Zadarmo";if(ad.price_mode==="exchange")return"Výmena";if(ad.price_mode==="not_listed")return"Cena neuvedená";if(ad.price_mode==="negotiable")return ad.price!=null?`${euro(ad.price)} · dohoda`:"Dohodou";return ad.price!=null?euro(ad.price):"Cena neuvedená"}
 function setStatus(text,error=false){const el=$("#ad-detail-status");el.textContent=text;el.className="bazar-status"+(error?" error":"");el.hidden=false}
 function contactLink(type,value){
@@ -20,7 +20,8 @@ function contactLink(type,value){
 function escapeText(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 function showImage(index){
   const root=$("#ad-main-image"), url=currentImages[index];
-  root.innerHTML=url?`<img src="${escapeText(url)}" alt="${escapeText(currentAd?.title||"Fotografia inzerátu")}">`:'<div class="bazar-card-placeholder">Záhrada s nápadom<br>komunitný bazár</div>';
+  root.innerHTML=url?`<img src="${escapeText(url)}" alt="${escapeText(currentAd?.title||"Fotografia inzerátu")}">`:'<div class="bazar-card-placeholder">Fotografia nie je dostupná</div>';
+  root.querySelector("img")?.addEventListener("error",()=>{root.textContent="Fotografia nie je dostupná"},{once:true});
   document.querySelectorAll(".bazar-thumb").forEach((b,i)=>b.classList.toggle("active",i===index));
 }
 function renderImages(){
@@ -34,11 +35,11 @@ function renderAd(){
   const ad=currentAd;
   document.title=`${ad.title} | Bazár | Záhrada s nápadom`;
   $("#ad-type").textContent=TYPE_LABELS[ad.listing_type]||ad.listing_type;
-  $("#ad-category").textContent=ad.category||"";
+  $("#ad-category").textContent=BazarContent.category(ad);
   const sellerBadge=$("#ad-seller-badge");
   if(sellerBadge){
-    sellerBadge.textContent=ad.imported?"Externý inzerát":(ad.seller_type==="business"?"Firma":"Súkromná osoba");
-    sellerBadge.className="seller-tag "+(ad.imported?"private":(ad.seller_type==="business"?"business":"private"));
+    sellerBadge.textContent=BazarContent.imported(ad)?"Prevzatá ponuka":(ad.seller_type==="business"?"Firma":"Súkromná osoba");
+    sellerBadge.className="seller-tag "+(BazarContent.imported(ad)?"private":(ad.seller_type==="business"?"business":"private"));
   }
   const businessInfo=$("#ad-business-info");
   if(businessInfo){
@@ -51,11 +52,18 @@ function renderAd(){
   }
   $("#ad-title").textContent=ad.title||"";
   $("#ad-price").textContent=priceText(ad);
-  $("#ad-meta").textContent=`📍 ${ad.location}, ${ad.region} · ${CONDITION_LABELS[ad.item_condition]||ad.item_condition} · zverejnené ${dateSk(ad.published_at)}${ad.expires_at?` · platí do ${dateSk(ad.expires_at)}`:""}`;
-  $("#ad-description").textContent=ad.description||"";
+  $("#ad-meta").textContent=`📍 ${ad.location}, ${ad.region} · ${CONDITION_LABELS[ad.item_condition]||ad.item_condition} · zverejnené ${dateSk(ad.published_at)}${ad.expires_at?` · platnosť: ${dateSk(ad.expires_at)}`:""}`;
+  $("#ad-description").textContent=BazarContent.clean(ad.description)||"Inzerent podrobný popis neuviedol.";
+  const missing=BazarContent.missing(ad);
+  $("#ad-buying-guide").innerHTML=`<h2>Čo si overiť pred kúpou</h2><p>Nasledujúce otázky pripravila redakcia ako pomôcku. Odpovede a dostupnosť potvrdzuje inzerent.</p><ul>${BazarContent.questions(ad).map(q=>`<li>${escapeText(q)}</li>`).join("")}</ul>${missing.length?`<p><strong>V ponuke nie je uvedené:</strong> ${escapeText(missing.join(", "))}. Vyžiadajte si tieto údaje pred dohodou.</p>`:""}<p>Pred platbou si overte totožnosť predajcu a stav tovaru. Pri osobnom odbere si predmet prezrite. Pri doprave si vopred dohodnite cenu, balenie a podmienky prevzatia.</p>${BazarContent.imported(ad)?"<p>Prevzatá ponuka. Redakcia osobne neoverila stav tovaru ani aktuálnu dostupnosť. Chybnú alebo neaktuálnu ponuku môžete nahlásiť nižšie.</p>":""}`;
+  const canonical=new URL("inzerat.html",location.href);canonical.searchParams.set("id",ad.id);
+  let link=document.querySelector('link[rel="canonical"]');if(!link){link=document.createElement("link");link.rel="canonical";document.head.append(link)}link.href=canonical.href;
+  const description=BazarContent.clean(ad.description).replace(/\s+/g," ").slice(0,155);
+  for(const [name,content] of [["description",description],["og:title",ad.title],["og:description",description],["og:url",canonical.href],["og:image",safeHttpUrl(ad.images?.[0])]]){let meta=document.querySelector(`meta[${name.startsWith("og:")?"property":"name"}="${name}"]`);if(!meta){meta=document.createElement("meta");meta.setAttribute(name.startsWith("og:")?"property":"name",name);document.head.append(meta)}meta.content=content}
+
   $("#ad-contact-name").textContent=ad.contact_name||"Inzerent";
   const links=[];if(ad.contact_email)links.push(contactLink("email",ad.contact_email));if(ad.contact_phone)links.push(contactLink("phone",ad.contact_phone));
-  const sourceUrl=ad.imported?safeHttpUrl(ad.import_source_data?.source_url||(Array.isArray(ad.import_source_data?.source_urls)?ad.import_source_data.source_urls[0]:"")):"";
+  const sourceUrl=BazarContent.imported(ad)?safeHttpUrl(ad.import_source_data?.source_url||(Array.isArray(ad.import_source_data?.source_urls)?ad.import_source_data.source_urls[0]:"")):"";
   if(sourceUrl)links.push('<a class="contact-link" href="'+escapeText(sourceUrl)+'" target="_blank" rel="noopener noreferrer">↗ Otvoriť pôvodný inzerát</a>');
   $("#ad-contact-links").innerHTML=links.join("");
   const share=$("#ad-share");share.dataset.shareTitle=ad.title;share.dataset.shareUrl=location.href;
@@ -66,7 +74,7 @@ async function loadAd(){
   const id=new URLSearchParams(location.search).get("id");
   if(!id){setStatus("Inzerát nebol nájdený.",true);return}
   const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,user_id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status,seller_type,business_name,business_ico,imported,import_source,import_source_data").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
-  if(error||!data){setStatus("Tento inzerát už nie je dostupný alebo čaká na schválenie.",true);return}
+  if(error||!data||BazarContent.reviewNeeded(data)){setStatus("Tento inzerát už nie je dostupný alebo čaká na schválenie.",true);return}
   currentAd=data;renderAd();
 }
 

@@ -28,6 +28,12 @@ for (const path of pages(root)) {
   if (adContent && !source.includes('data-google-cmp-integration')) {
     source = source.replace(/<\/head\s*>/i, '<script src="/advertising-consent.js?v=20261005" defer data-google-cmp-integration></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8113825405690575" crossorigin="anonymous"></script></head>');
   }
+  if (lang === 'sk') {
+    source = source.replace(/<nav\b[^>]*>[\s\S]*?<\/nav>/gi, nav => {
+      if (/href=["']\/?bazar\.html/.test(nav) || !/(desktop-nav|mobile-nav|data-public-information)/.test(nav)) return nav;
+      return nav.replace(/<\/nav>/i, '<a href="/bazar.html">Bazár</a></nav>');
+    });
+  }
   // Static links remain available to crawlers and visitors without JavaScript.
   if (!source.includes('data-public-information')) {
     const links = `<nav data-public-information aria-label="${c.title}" style="display:flex;flex-wrap:wrap;gap:12px 24px;padding:24px 0"><a href="${c.privacy}">${c.label}</a><a href="/o-projekte.html">${c.about}</a><a href="mailto:kamgardensk@gmail.com">Kontakt</a></nav>`;
@@ -47,7 +53,7 @@ for (const path of pages(root)) {
 }
 const sitemapPath = join(root, 'sitemap.xml');
 let sitemap = readFileSync(sitemapPath, 'utf8');
-for (const path of ['ochrana-sukromia.html', 'o-projekte.html']) {
+for (const path of ['ochrana-sukromia.html', 'o-projekte.html', 'bazar.html']) {
   const url = 'https://zahradasnapadom.sk/' + path;
   if (!sitemap.includes(`<loc>${url}</loc>`)) sitemap = sitemap.replace('</urlset>', `  <url><loc>${url}</loc><lastmod>2026-10-05</lastmod></url>\n</urlset>`);
 }
