@@ -6,20 +6,84 @@
     <description>Praktické rady do záhrady a dielne</description>
     <language>sk-SK</language>
     <item>
+      <title>Zazimovanie nadzemného bazéna: bezpečný postup bez škôd</title>
+      <link>https://zahradasnapadom.sk/blog/zazimovanie-nadzemneho-bazena/</link>
+      <guid>https://zahradasnapadom.sk/blog/zazimovanie-nadzemneho-bazena/</guid>
+      <description>Zazimovanie nadzemného bazéna bez škôd od mrazu: čistenie, úprava vody, odpojenie hadíc, filtrácia, správna hladina a bezpečné prekrytie.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-zazimovanie-bazena-facebook.jpg" type="image/jpeg" length="416916" />
+    </item>
+    <item>
+      <title>Výsadba liesky na jeseň: miesto, rozostup a postup</title>
+      <link>https://zahradasnapadom.sk/blog/vysadba-liesky-na-jesen/</link>
+      <guid>https://zahradasnapadom.sk/blog/vysadba-liesky-na-jesen/</guid>
+      <description>Výsadba liesky na jeseň krok za krokom: výber miesta, opeľovanie, správna hĺbka, zálievka a ochrana koreňov počas prvej zimy v záhrade.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-vysadba-liesky-facebook.jpg" type="image/jpeg" length="469272" />
+    </item>
+    <item>
+      <title>Predzimný výsev maku: správny termín a postup sejby</title>
+      <link>https://zahradasnapadom.sk/blog/predzimny-vysev-maku/</link>
+      <guid>https://zahradasnapadom.sk/blog/predzimny-vysev-maku/</guid>
+      <description>Predzimný výsev maku má presné pravidlá. Naučte sa pripraviť záhon, zvoliť termín, siať dostatočne plytko a chrániť osivo pred vyplavením.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-predzimny-vysev-maku-facebook.jpg" type="image/jpeg" length="376790" />
+    </item>
+    <item>
+      <title>Zimný zber paštrnáka: ochrana v pôde a presný postup</title>
+      <link>https://zahradasnapadom.sk/blog/zimny-zber-pastiernaka/</link>
+      <guid>https://zahradasnapadom.sk/blog/zimny-zber-pastiernaka/</guid>
+      <description>Zimný zber paštrnáka: kedy nechať korene v pôde, ako označiť riadok, chrániť záhon pred premrznutím a zberať bez polámania koreňov.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-zimny-zber-pastiernaka-facebook.jpg" type="image/jpeg" length="405757" />
+    </item>
+    <item>
+      <title>Zazimovanie levandule v črepníku: praktický postup</title>
+      <link>https://zahradasnapadom.sk/blog/zazimovanie-levandule-v-crepniku/</link>
+      <guid>https://zahradasnapadom.sk/blog/zazimovanie-levandule-v-crepniku/</guid>
+      <description>Levanduľa v črepníku trpí najmä mokrom a premŕzaním koreňov. Pozrite si správne miesto, izoláciu nádoby, zimnú zálievku aj jarné odkrytie.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-zazimovanie-levandule-facebook.jpg" type="image/jpeg" length="431453" />
+    </item>
+    <item>
+      <title>Predzimný výsev petržlenu: správny termín a postup</title>
+      <link>https://zahradasnapadom.sk/blog/predzimny-vysev-petrzlenu/</link>
+      <guid>https://zahradasnapadom.sk/blog/predzimny-vysev-petrzlenu/</guid>
+      <description>Predzimný výsev petržlenu urýchli jarné vzchádzanie. Zistite správny termín, hĺbku sejby, prípravu pôdy aj ochranu záhona počas zimy.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-predzimny-vysev-petrzlenu-facebook.jpg" type="image/jpeg" length="376888" />
+    </item>
+    <item>
+      <title>Výsadba černíc na jeseň: opora, rez a starostlivosť</title>
+      <link>https://zahradasnapadom.sk/blog/vysadba-cernic-na-jesen/</link>
+      <guid>https://zahradasnapadom.sk/blog/vysadba-cernic-na-jesen/</guid>
+      <description>Ako vysadiť černice na jeseň: slnečné miesto, priepustná pôda, pevná opora, správna hĺbka výsadby, zálievka a ochrana pred prvou zimou.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-vysadba-cernic-facebook.jpg" type="image/jpeg" length="404681" />
+    </item>
+    <item>
+      <title>Vyvýšený záhon na zimu: príprava v piatich krokoch</title>
+      <link>https://zahradasnapadom.sk/blog/vyvyseny-zahon-na-zimu/</link>
+      <guid>https://zahradasnapadom.sk/blog/vyvyseny-zahon-na-zimu/</guid>
+      <description>Pripravte vyvýšený záhon na zimu bez holej pôdy. Päť krokov pre zvyšky rastlín, kompost, zelené hnojenie, mulč a opravu konštrukcie.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-vyvyseny-zahon-na-zimu-facebook.jpg" type="image/jpeg" length="496570" />
+    </item>
+    <item>
+      <title>Ochrana bambusu pred zimou: zálievka, mulč a sneh | Záhrada s nápadom</title>
+      <link>https://zahradasnapadom.sk/blog/ochrana-bambusu-pred-zimou/</link>
+      <guid>https://zahradasnapadom.sk/blog/ochrana-bambusu-pred-zimou/</guid>
+      <description>Ochrana bambusu pred zimou stojí na jesennej zálievke, mulči a závetrí. Naučte sa, kedy zviazať steblá a bezpečne odstrániť mokrý sneh.</description>
+      <pubDate>Tue, 03 Nov 2026 05:29:43 +0100</pubDate>
+      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/ochrana-bambusu-pred-zimou-facebook.jpg" type="image/jpeg" length="461111" />
+    </item>
+    <item>
       <title>Skladací stolík na presádzanie: návrh a plánovanie výroby</title>
       <link>https://zahradasnapadom.sk/blog/skladaci-stolik-na-presadzanie/</link>
       <guid>https://zahradasnapadom.sk/blog/skladaci-stolik-na-presadzanie/</guid>
       <description>Návrh stolíka s doskou 80 × 50 cm: výber skladacej podnože, rozpis drevených dielov, kontrola rozmerov a postup prípravy montáže.</description>
       <pubDate>Tue, 03 Nov 2026 05:07:33 +0100</pubDate>
       <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/skladaci-stolik-na-presadzanie-facebook.jpg" type="image/jpeg" length="440258" />
-    </item>
-    <item>
-      <title>Zazimovanie nadzemného bazéna: bezpečný postup bez škôd</title>
-      <link>https://zahradasnapadom.sk/blog/zazimovanie-nadzemneho-bazena/</link>
-      <guid>https://zahradasnapadom.sk/blog/zazimovanie-nadzemneho-bazena/</guid>
-      <description>Zazimovanie nadzemného bazéna bez škôd od mrazu: čistenie, úprava vody, odpojenie hadíc, filtrácia, správna hladina a bezpečné prekrytie. krok za krokom.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/03-zazimovanie-bazena-facebook.jpg" type="image/jpeg" length="416916" />
     </item>
     <item>
       <title>Ochrana hlúbovín pred vtákmi bezpečnou sieťou | Záhrada s nápadom</title>
@@ -340,70 +404,6 @@
       <description>Ako vysadiť chren z koreňových odrezkov, obmedziť jeho nekontrolované šírenie a správne zbierať korene na jeseň bez zamorenia záhona.</description>
       <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
       <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/pestovanie-chrenu-v-zahrade-facebook.jpg" type="image/jpeg" length="510275" />
-    </item>
-    <item>
-      <title>Cesnak medvedí zo semien: jesenný výsev a trpezlivosť | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/cesnak-medvedi-vysev-zo-semien/</link>
-      <guid>https://zahradasnapadom.sk/blog/cesnak-medvedi-vysev-zo-semien/</guid>
-      <description>Ako vypestovať cesnak medvedí zo semien: čerstvé osivo, jesenný výsev, tienisté stanovište, prirodzený chlad a starostlivosť o mladé rastliny.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/cesnak-medvedi-vysev-zo-semien-facebook.jpg" type="image/jpeg" length="308864" />
-    </item>
-    <item>
-      <title>Výsadba čučoriedok na jeseň: pôda, pH a postup | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/vysadba-cucoriedok-na-jesen/</link>
-      <guid>https://zahradasnapadom.sk/blog/vysadba-cucoriedok-na-jesen/</guid>
-      <description>Jesenná výsadba čučoriedok: zmerajte pH, pripravte kyslú pôdu v celej koreňovej zóne, vyberte správne stanovište a naplánujte zálievku.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/28-vysadba-cucoriedok-na-jesen-facebook.jpg" type="image/jpeg" length="453522" />
-    </item>
-    <item>
-      <title>Prikrmovanie vtákov v zime: krmivo, hygiena a miesto | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/prikrmovanie-vtakov-v-zime/</link>
-      <guid>https://zahradasnapadom.sk/blog/prikrmovanie-vtakov-v-zime/</guid>
-      <description>Čím bezpečne prikrmovať vtáky v záhrade, kam umiestniť kŕmidlo, ako ho čistiť a prečo vynechať slané jedlá, pečivo a pokazené krmivo. Bez zbytočných chýb.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/prikrmovanie-vtakov-v-zime-facebook.jpg" type="image/jpeg" length="293584" />
-    </item>
-    <item>
-      <title>Vápnenie trávnika na jeseň: najprv zmerajte pH pôdy | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/vapnenie-travnika-na-jesen/</link>
-      <guid>https://zahradasnapadom.sk/blog/vapnenie-travnika-na-jesen/</guid>
-      <description>Vápnenie trávnika nie je každoročná povinnosť. Zistite, kedy má význam, ako zmerať pH a prečo nevápniť naraz s niektorými hnojivami. Bez zbytočných chýb.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/vapnenie-travnika-na-jesen-facebook.jpg" type="image/jpeg" length="418629" />
-    </item>
-    <item>
-      <title>Jesenná výsadba živého plota: postup krok za krokom | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/jesenna-vysadba-ziveho-plota/</link>
-      <guid>https://zahradasnapadom.sk/blog/jesenna-vysadba-ziveho-plota/</guid>
-      <description>Jesenná výsadba živého plota: termín podľa druhu, príprava pôdy, správna hĺbka a rozostupy podľa konečnej veľkosti sadeníc.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/jesenna-vysadba-ziveho-plota-facebook.jpg" type="image/jpeg" length="503297" />
-    </item>
-    <item>
-      <title>Zber vlašských orechov: kedy zbierať a ako ich sušiť | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/zber-a-susenie-vlasskych-orechov/</link>
-      <guid>https://zahradasnapadom.sk/blog/zber-a-susenie-vlasskych-orechov/</guid>
-      <description>Kedy zbierať vlašské orechy? Spoznajte zrelosť podľa oplodia, očistite úrodu a vysušte orechy v jednej vrstve. Postup zberu a skladovania bez plesne.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/zber-a-susenie-vlasskych-orechov-facebook.jpg" type="image/jpeg" length="467004" />
-    </item>
-    <item>
-      <title>Chloróza hortenzie: žlté listy so zelenou žilnatinou | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/chloroza-hortenzie-zelezo/</link>
-      <guid>https://zahradasnapadom.sk/blog/chloroza-hortenzie-zelezo/</guid>
-      <description>Žlté mladé listy so zelenými žilami často ukazujú na nedostupnosť železa pri vysokom pH. Ako príznak rozpoznať, zmerať pôdu a postupovať bez náhodného okysľovania.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/chloroza-hortenzie-zelezo-facebook.jpg" type="image/jpeg" length="416310" />
-    </item>
-    <item>
-      <title>Prezimovanie póru na záhone: ochrana a zimný zber | Záhrada s nápadom</title>
-      <link>https://zahradasnapadom.sk/blog/prezimovanie-poru-na-zahone/</link>
-      <guid>https://zahradasnapadom.sk/blog/prezimovanie-poru-na-zahone/</guid>
-      <description>Prezimovanie póru na záhone bez zbytočných strát: výber odrody, prihrnutie, ochrana pôdy a bezpečný zber počas mrazivých zimných dní.</description>
-      <pubDate>Mon, 02 Nov 2026 19:42:54 +0100</pubDate>
-      <enclosure url="https://zahradasnapadom.sk/assets/blog/ai-2026-10/prezimovanie-poru-na-zahone-facebook.jpg" type="image/jpeg" length="449092" />
     </item>
   </channel>
 </rss>
