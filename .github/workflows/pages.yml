@@ -29,6 +29,7 @@ jobs:
       - name: Build search-friendly calculator pages
         run: |
           node scripts/test-bazar-content.cjs
+          node scripts/test-admin-recovery.cjs
           node scripts/test-tool-examples.cjs
           node scripts/build-tool-search.mjs
 

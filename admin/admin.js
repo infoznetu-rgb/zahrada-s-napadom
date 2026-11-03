@@ -36,7 +36,17 @@ function slugify(value){return String(value||"").normalize("NFD").replace(/[\u03
 function esc(value){return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
 function formatDate(v){if(!v)return"—";return new Intl.DateTimeFormat("sk-SK",{day:"2-digit",month:"2-digit",year:"numeric"}).format(new Date(v))}
 
+let recoveringPassword=new URLSearchParams(location.hash.slice(1)).get("type")==="recovery";
+function showPasswordRecovery(){
+  recoveringPassword=true;
+  showAuth();
+  $("#login-form").hidden=true;
+  $("#password-reset-request").hidden=true;
+  $("#password-recovery-form").hidden=false;
+  setMessage(authMessage,"Po overení odkazu si nastav nové heslo.");
+}
 async function checkAdmin(){
+  if(recoveringPassword){showPasswordRecovery();return}
   const {data:{session}}=await db.auth.getSession();
   if(!session){showAuth();return}
   const {data,error}=await db.from("zahrada_admins").select("user_id").eq("user_id",session.user.id).maybeSingle();
@@ -56,7 +66,45 @@ $("#login-form").addEventListener("submit",async(e)=>{
 });
 
 $("#logout-btn").addEventListener("click",async()=>{await db.auth.signOut();location.reload()});
-db.auth.onAuthStateChange((event)=>{if(event==="SIGNED_OUT")showAuth()});
+db.auth.onAuthStateChange((event)=>{
+  if(event==="PASSWORD_RECOVERY")showPasswordRecovery();
+  if(event==="SIGNED_OUT")showAuth();
+});
+
+$("#password-reset-request").addEventListener("click",async()=>{
+  const email=$("#login-email");
+  if(!email.reportValidity())return;
+  const button=$("#password-reset-request");button.disabled=true;
+  setMessage(authMessage,"Posielam obnovovací odkaz…");
+  try{
+    const {error}=await db.auth.resetPasswordForEmail(email.value.trim(),{redirectTo:new URL("/admin/",location.origin).href});
+    if(error){setMessage(authMessage,error.status===429?"Príliš veľa pokusov. Počkaj niekoľko minút a skús to znova.":"Odkaz sa nepodarilo odoslať. Skús to neskôr.","error");return}
+    setMessage(authMessage,"Ak má tento e-mail vytvorený účet, príde obnovovací odkaz. Skontroluj aj spam. Otvor najnovší odkaz a nastav nové heslo.","success");
+    setTimeout(()=>{button.disabled=false},60000);
+  }catch{setMessage(authMessage,"Nepodarilo sa pripojiť. Skontroluj internet a skús to neskôr.","error")}
+  finally{if(authMessage.classList.contains("error"))button.disabled=false}
+});
+$("#password-recovery-form").addEventListener("submit",async event=>{
+  event.preventDefault();
+  const form=event.currentTarget;
+  const password=$("#recovery-password"),confirm=$("#recovery-password-confirm");
+  if(password.value.length<12){setMessage(authMessage,"Heslo musí mať aspoň 12 znakov.","error");return}
+  if(password.value!==confirm.value){setMessage(authMessage,"Heslá sa nezhodujú.","error");return}
+  const button=form.querySelector('button[type="submit"]');button.disabled=true;
+  try{
+    const {data,error:sessionError}=await db.auth.getSession();
+    if(sessionError||!data.session||!recoveringPassword){setMessage(authMessage,"Obnovovací odkaz vypršal alebo nie je platný. Vyžiadaj si nový odkaz cez prihlasovaciu stránku.","error");return}
+    const {error}=await db.auth.updateUser({password:password.value});
+    if(error){setMessage(authMessage,"Heslo sa nepodarilo uložiť. Skús iné silné heslo; pri neplatnom odkaze si vyžiadaj nový.","error");return}
+    form.reset();
+    await db.auth.signOut({scope:"local"});
+    recoveringPassword=false;
+    history.replaceState(null,"",location.pathname);
+    $("#password-recovery-form").hidden=true;$("#login-form").hidden=false;$("#login-form").reset();$("#password-reset-request").hidden=false;
+    showAuth();setMessage(authMessage,"Nové heslo je uložené. Prihlás sa e-mailom a novým heslom.","success");
+  }catch{setMessage(authMessage,"Heslo sa nepodarilo uložiť. Skontroluj pripojenie a platnosť odkazu.","error")}
+  finally{button.disabled=false}
+});
 
 function setSidebarOpen(open){
   document.querySelector(".sidebar")?.classList.toggle("open",open);

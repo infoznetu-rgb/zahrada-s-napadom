@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#101b14">
   <meta name="application-name" content="ZÁHRADA ADMIN">
@@ -19,7 +20,7 @@
   <link rel="stylesheet" href="bazar-import.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js" integrity="sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz" crossorigin="anonymous" defer></script>
-  <script src="admin.js?v=20261019-workshop-photos" defer></script>
+  <script src="admin.js?v=20261103-recovery" defer></script>
   <script src="bazar.js?v=20261103" defer></script>
   <script src="bazar-import.js?v=20261103" defer></script>
   <script src="admin-pwa.js?v=7" defer></script>
@@ -39,6 +40,15 @@
           <button class="btn primary" type="submit">Prihlásiť sa</button>
         </form>
 
+        <p><button id="password-reset-request" class="btn ghost" type="button">Zabudnuté heslo – poslať obnovovací odkaz</button></p>
+        <form id="password-recovery-form" class="stack" hidden>
+          <h2>Nastaviť nové heslo</h2>
+          <p class="muted">Zadaj nové heslo dvakrát. Heslo si nastavuješ iba vo svojom prehliadači.</p>
+          <label>Nové heslo<input id="recovery-password" type="password" autocomplete="new-password" minlength="12" required></label>
+          <label>Zopakovať nové heslo<input id="recovery-password-confirm" type="password" autocomplete="new-password" minlength="12" required></label>
+          <button class="btn primary" type="submit">Uložiť nové heslo</button>
+          <a href="/admin/">Späť na prihlásenie a nový obnovovací odkaz</a>
+        </form>
         <p id="auth-message" class="message" role="status"></p>
         <button class="admin-install-btn" type="button" data-admin-install hidden>
           <img src="admin-icon.svg?v=2" alt="">
