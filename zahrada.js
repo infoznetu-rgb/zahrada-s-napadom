@@ -1,14 +1,28 @@
 const menu=document.querySelector('.menu');
 const mobile=document.querySelector('#mobile-nav');
 if(menu&&mobile){
+  const labels={sk:'Menu',cs:'Menu',pl:'Menu'};
+  menu.setAttribute('aria-label',labels[(document.documentElement.lang||'sk').slice(0,2)]||'Menu');
+  const closeMenu=()=>{
+    mobile.classList.remove('is-open');
+    menu.setAttribute('aria-expanded','false');
+  };
   menu.addEventListener('click',()=>{
     const open=mobile.classList.toggle('is-open');
     menu.setAttribute('aria-expanded',String(open));
   });
-  mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-    mobile.classList.remove('is-open');
-    menu.setAttribute('aria-expanded','false');
-  }));
+  // Delegation also covers links added later, including app installation.
+  mobile.addEventListener('click',event=>{
+    if(event.target.closest('a'))closeMenu();
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&mobile.classList.contains('is-open')){
+      closeMenu();menu.focus();
+    }
+  });
+  document.addEventListener('click',event=>{
+    if(!menu.contains(event.target)&&!mobile.contains(event.target))closeMenu();
+  });
 }
 
 const form=document.querySelector('#idea-form');

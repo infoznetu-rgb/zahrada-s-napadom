@@ -413,3 +413,10 @@
 .bazar-page .bazar-trust-stat{background:radial-gradient(circle at 34% 22%,#dc7355,#bd503e 58%,#9e352f);border-color:rgba(255,255,255,.3);box-shadow:0 18px 40px rgba(5,48,36,.25),inset 0 0 0 9px rgba(255,255,255,.13)}
 @media(max-width:650px){.bazar-page .site-header .top{border-radius:23px}.bazar-page .bazar-trust-card{padding:26px 20px}}
 @media(prefers-reduced-motion:reduce){.bazar-page .bazar-trust-banner,.bazar-page .bazar-trust-stat{animation:none;opacity:1;transform:none}}
+
+/* Keep long seller text and contact addresses inside narrow screens. */
+.detail-grid > *, .bazar-card-body { min-width: 0; }
+.bazar-detail h1, .detail-description, .detail-meta, .contact-link,
+.bazar-card h3, .bazar-card-text { overflow-wrap: anywhere; }
+.contact-link { max-width: 100%; box-sizing: border-box; }
+.detail-actions { flex-wrap: wrap; gap: 12px; }
