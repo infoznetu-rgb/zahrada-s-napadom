@@ -4,7 +4,8 @@
   const permanent=v=>v==="infinity"||/^9999-/.test(String(v||""));
   const active=ad=>ad.status==="published"&&(permanent(ad.expires_at)||Date.parse(ad.expires_at)>Date.now());
   const imported=ad=>!!(ad.imported||ad.import_source||ad.import_source_data?.import_file);
-  const held=new Set(["06a22ae3-5f5b-4a7f-8bc3-bb44b941fb05","e814b3d0-35d4-4183-9229-5feddfe5a48f","61cb7d88-91da-441a-81e7-03949f681368","cc01652b-c6cb-4eef-a945-d8025f76ccf3","13ac67aa-c2b8-4701-8c33-c6a81c974e51"]);
+  // Withdrawn from public listing and detail views pending correction.
+  const held=new Set(["1b28f669-77ce-4182-b470-53a5ec3c8167","06a22ae3-5f5b-4a7f-8bc3-bb44b941fb05","e814b3d0-35d4-4183-9229-5feddfe5a48f","61cb7d88-91da-441a-81e7-03949f681368","cc01652b-c6cb-4eef-a945-d8025f76ccf3","13ac67aa-c2b8-4701-8c33-c6a81c974e51"]);
   const reviewNeeded=ad=>held.has(ad.id);
   const categories=[
     [/kosack|krovinorez|kultivator|vertikut|motorov.*pil|fukar|rotavator/,"Záhradná technika"],

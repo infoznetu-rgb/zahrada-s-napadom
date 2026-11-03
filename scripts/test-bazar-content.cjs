@@ -6,6 +6,7 @@ assert(!rules.active({status:'published',expires_at:'2020-01-01'}));
 assert(!rules.active({status:'pending',expires_at:'infinity'}));
 assert(rules.imported({imported:false,import_source_data:{import_file:'archive.xlsx'}}));
 assert(rules.reviewNeeded({id:'61cb7d88-91da-441a-81e7-03949f681368'}));
+assert(rules.reviewNeeded({id:'1b28f669-77ce-4182-b470-53a5ec3c8167',title:'Vodomerná šachta',price:1111111}));
 assert(!rules.reviewNeeded({id:'ordinary',title:'Tavná pištoľ'}));
 assert.equal(rules.category({category:'Ostatné',title:'Benzínová kosačka'}),'Záhradná technika');
 assert.deepEqual(rules.missing({description:'Popis',price_mode:'free',location:'Nitra',contact_phone:'123',images:['photo']}),[]);
