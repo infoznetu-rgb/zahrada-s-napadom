@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="app.css?v=8">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="bazar-content.js?v=20261103.3" defer></script>
-  <script src="inzerat.js?v=20261103.2" defer></script>
+  <script src="inzerat.js?v=20261103.4" defer></script>
   <script src="zahrada.js?v=2" defer></script>
   <script src="app.js?v=17" defer></script>
 </head>
@@ -53,7 +53,8 @@
 
   <main id="obsah" class="container bazar-detail-shell">
     <a class="back-link" href="bazar.html">← Späť do bazára</a>
-    <div id="ad-detail-status" class="bazar-status">Načítavam inzerát…</div>
+    <div id="ad-detail-status" class="bazar-status" role="status" aria-live="polite">Načítavam inzerát…</div>
+    <button id="ad-retry" class="btn" type="button" hidden>Skúsiť načítať znova</button>
 
     <article id="ad-detail" class="detail-grid" hidden>
       <div class="detail-media">

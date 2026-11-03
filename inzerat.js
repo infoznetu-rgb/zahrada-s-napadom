@@ -22,13 +22,14 @@ function showImage(index){
   const root=$("#ad-main-image"), url=currentImages[index];
   root.innerHTML=url?`<img src="${escapeText(url)}" alt="${escapeText(currentAd?.title||"Fotografia inzerátu")}">`:'<div class="bazar-card-placeholder">Fotografia nie je dostupná</div>';
   root.querySelector("img")?.addEventListener("error",()=>{root.textContent="Fotografia nie je dostupná"},{once:true});
-  document.querySelectorAll(".bazar-thumb").forEach((b,i)=>b.classList.toggle("active",i===index));
+  document.querySelectorAll(".bazar-thumb").forEach((b,i)=>{b.classList.toggle("active",i===index);b.setAttribute("aria-pressed",String(i===index));});
 }
 function renderImages(){
   currentImages=(Array.isArray(currentAd.images)?currentAd.images:[]).map(safeHttpUrl).filter(Boolean);
   showImage(0);
   const thumbs=$("#ad-thumbs");
-  thumbs.innerHTML=currentImages.length>1?currentImages.map((url,i)=>`<button class="bazar-thumb ${i===0?"active":""}" type="button" data-img-index="${i}" aria-label="Zobraziť fotografiu ${i+1}"><img src="${escapeText(url)}" alt=""></button>`).join(""):"";
+  thumbs.innerHTML=currentImages.length>1?currentImages.map((url,i)=>`<button class="bazar-thumb ${i===0?"active":""}" type="button" data-img-index="${i}" aria-label="Zobraziť fotografiu ${i+1}" aria-pressed="${i===0}"><img loading="lazy" decoding="async" src="${escapeText(url)}" alt=""></button>`).join(""):"";
+  thumbs.querySelectorAll("img").forEach(img=>img.addEventListener("error",()=>{img.replaceWith(document.createTextNode("Foto nedostupné"));},{once:true}));
   thumbs.querySelectorAll("[data-img-index]").forEach(b=>b.addEventListener("click",()=>showImage(Number(b.dataset.imgIndex))));
 }
 function renderAd(){
@@ -52,7 +53,9 @@ function renderAd(){
   }
   $("#ad-title").textContent=ad.title||"";
   $("#ad-price").textContent=priceText(ad);
-  $("#ad-meta").textContent=`📍 ${ad.location}, ${ad.region} · ${CONDITION_LABELS[ad.item_condition]||ad.item_condition} · zverejnené ${dateSk(ad.published_at)}${ad.expires_at?` · platnosť: ${dateSk(ad.expires_at)}`:""}`;
+  const place=[ad.location,ad.region].map(BazarContent.clean).filter(Boolean).join(", ");
+  const published=dateSk(ad.published_at), expires=dateSk(ad.expires_at);
+  $("#ad-meta").textContent=[place?`📍 ${place}`:"Miesto odberu neuvedené",CONDITION_LABELS[ad.item_condition]||"Stav neuvedený",published?`zverejnené ${published}`:"",expires?`platnosť: ${expires}`:""].filter(Boolean).join(" · ");
   $("#ad-description").textContent=BazarContent.clean(ad.description)||"Inzerent podrobný popis neuviedol.";
   const missing=BazarContent.missing(ad);
   $("#ad-buying-guide").innerHTML=`<h2>Čo si overiť pred kúpou</h2><p>Nasledujúce otázky pripravila redakcia ako pomôcku. Odpovede a dostupnosť potvrdzuje inzerent.</p><ul>${BazarContent.questions(ad).map(q=>`<li>${escapeText(q)}</li>`).join("")}</ul>${missing.length?`<p><strong>V ponuke nie je uvedené:</strong> ${escapeText(missing.join(", "))}. Vyžiadajte si tieto údaje pred dohodou.</p>`:""}<p>Pred platbou si overte totožnosť predajcu a stav tovaru. Pri osobnom odbere si predmet prezrite. Pri doprave si vopred dohodnite cenu, balenie a podmienky prevzatia.</p>${BazarContent.imported(ad)?"<p>Prevzatá ponuka. Redakcia osobne neoverila stav tovaru ani aktuálnu dostupnosť. Chybnú alebo neaktuálnu ponuku môžete nahlásiť nižšie.</p>":""}`;
@@ -71,12 +74,22 @@ function renderAd(){
   $("#ad-detail-status").hidden=true;$("#ad-detail").hidden=false;
 }
 async function loadAd(){
+  const retry=$("#ad-retry");
+  retry.hidden=true;
+  setStatus("Načítavam inzerát…");
   const id=new URLSearchParams(location.search).get("id");
   if(!id){setStatus("Inzerát nebol nájdený.",true);return}
-  const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,user_id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status,seller_type,business_name,business_ico,imported,import_source,import_source_data").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
-  if(error||!data||BazarContent.reviewNeeded(data)){setStatus("Tento inzerát už nie je dostupný alebo čaká na schválenie.",true);return}
-  currentAd=data;renderAd();
+  try{
+    const {data,error}=await detailDb.from("zahrada_bazar_ads").select("id,user_id,title,description,category,listing_type,item_condition,price,price_mode,region,location,contact_name,contact_email,contact_phone,images,published_at,expires_at,status,seller_type,business_name,business_ico,imported,import_source,import_source_data").eq("id",id).eq("status","published").gt("expires_at",new Date().toISOString()).maybeSingle();
+    if(error)throw error;
+    if(!data||BazarContent.reviewNeeded(data)){setStatus("Tento inzerát už nie je dostupný alebo čaká na schválenie.",true);return}
+    currentAd=data;renderAd();
+  }catch{
+    setStatus("Inzerát sa nepodarilo načítať. Skontrolujte pripojenie a skúste to znova.",true);
+    retry.hidden=false;
+  }
 }
+$("#ad-retry")?.addEventListener("click",loadAd);
 
 $("#report-open")?.addEventListener("click",()=>{$("#report-box").hidden=false;$("#report-box").scrollIntoView({behavior:"smooth",block:"center"})});
 $("#report-cancel")?.addEventListener("click",()=>{$("#report-box").hidden=true;$("#report-message").textContent=""});

@@ -13,3 +13,26 @@ assert.deepEqual(rules.missing({description:'Popis',price_mode:'free',location:'
 assert(rules.missing({price_mode:'not_listed'}).includes('konkrétna cena'));
 assert(rules.questions({title:'Kosačka',category:'Záhradná technika'})[0].includes('model'));
 console.log('Bazaar: permanent/closed/expired states, import provenance, review exclusions and buying guidance passed.');
+
+// A temporary connection failure must not be presented as a removed listing.
+const vm=require('node:vm');
+const fs=require('node:fs');
+const detailSource=fs.readFileSync(require.resolve('../inzerat.js'),'utf8');
+const loader=detailSource.slice(detailSource.indexOf('async function loadAd(){'),detailSource.indexOf('$("#ad-retry")?.addEventListener'));
+async function detailResult(result,networkFailure=false){
+  const retry={hidden:true};let message='',rendered=false;
+  const query={select(){return this},eq(){return this},gt(){return this},async maybeSingle(){if(networkFailure)throw Error('offline');return result}};
+  const context={$:()=>retry,setStatus:text=>message=text,location:{search:'?id=test'},URLSearchParams,detailDb:{from:()=>query},BazarContent:{reviewNeeded:ad=>ad.id==='held'},renderAd:()=>rendered=true};
+  vm.createContext(context);vm.runInContext(loader,context);await context.loadAd();
+  return {retryVisible:!retry.hidden,message,rendered};
+}
+(async()=>{
+  for(const result of [await detailResult({error:{message:'unavailable'}}),await detailResult(null,true)]){
+    assert(result.retryVisible);assert(result.message.includes('pripojenie'));assert(!result.rendered);
+  }
+  for(const data of [null,{id:'held'}]){
+    const result=await detailResult({data});assert(!result.retryVisible);assert(result.message.includes('nie je dostupný'));assert(!result.rendered);
+  }
+  assert((await detailResult({data:{id:'valid'}})).rendered);
+  console.log('Bazaar detail: retry on connection failure, unavailable and held listings, valid listing passed.');
+})().catch(error=>{console.error(error);process.exitCode=1});
