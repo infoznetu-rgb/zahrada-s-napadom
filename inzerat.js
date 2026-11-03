@@ -7,7 +7,7 @@ const $=s=>document.querySelector(s);
 let currentAd=null;
 let currentImages=[];
 
-function safeHttpUrl(value){try{const u=new URL(String(value||""),location.href);return u.protocol==="https:"||u.protocol==="http:"?u.href:""}catch{return""}}
+function safeHttpUrl(value){if(!String(value||"").trim())return"";try{const u=new URL(String(value||""),location.href);return u.protocol==="https:"||u.protocol==="http:"?u.href:""}catch{return""}}
 function euro(value){return new Intl.NumberFormat("sk-SK",{style:"currency",currency:"EUR",maximumFractionDigits:2}).format(Number(value)||0)}
 function dateSk(v){if(BazarContent.permanent(v))return"bez časového obmedzenia";return v&&Number.isFinite(Date.parse(v))?new Intl.DateTimeFormat("sk-SK",{day:"numeric",month:"long",year:"numeric"}).format(new Date(v)):""}
 function priceText(ad){if(ad.price_mode==="free")return"Zadarmo";if(ad.price_mode==="exchange")return"Výmena";if(ad.price_mode==="not_listed")return"Cena neuvedená";if(ad.price_mode==="negotiable")return ad.price!=null?`${euro(ad.price)} · dohoda`:"Dohodou";return ad.price!=null?euro(ad.price):"Cena neuvedená"}

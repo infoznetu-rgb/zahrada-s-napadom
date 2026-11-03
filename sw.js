@@ -1,4 +1,4 @@
-const VERSION='123';
+const VERSION='124';
 const STATIC_CACHE='zahrada-static-v'+VERSION;
 const RUNTIME_CACHE='zahrada-runtime-v'+VERSION;
 const OFFLINE_URL='./offline.html';
@@ -6,7 +6,7 @@ const PRECACHE=[
   './search-index.json','./article-library.js','./home-clarity.css','./seo.js',
   './','./index.html','./moja-zahrada.html','./radar.html','./blog.html','./recepty.html','./dielna-s-napadom/','./dielna-s-napadom/kovana-zahradna-hojdacka/','./assets/posts/kovana-zahradna-hojdacka/hojdacka-predna.webp','./assets/posts/kovana-zahradna-hojdacka/hojdacka-bok.webp','./assets/posts/kovana-zahradna-hojdacka/hojdacka-zozadu.jpeg','./assets/posts/kovana-zahradna-hojdacka/hojdacka-detail.webp','./galeria.html','./pomocky.html','./kalkulacka-farby.html','./kalkulacka-betonu.html','./hmozdinky-vrtaky.html','./rezaci-plan-dreva.html','./kalkulacka-dlazby.html','./pravy-uhol.html','./kalkulacka-strku.html','./kalkulacka-mulcu.html','./kalkulacka-sklonu.html','./kalkulacka-lazury.html','./kalkulacka-dazdovej-vody.html','./kalkulacka-zeminy-kompostu.html','./prevodnik-jednotiek.html','./projektovy-planovac.html','./kalkulacka-zavlahy.html','./kalkulacka-travnikoveho-osiva.html','./kalkulacka-plotovych-lat.html','./kalkulacka-terasovych-dosiek.html','./kalkulacka-ceny-vyrobku.html','./kalendar.html','./kalkulacka-vyvyseny-zahon.html','./prispevok.html','./bazar.html','./inzerat.html','./sutaz.html',
   './radar-app.css?v=2','./radar-today.css','./radar-feature.css','./radar.css','./radar-home.css','./zahrada.css','./studio-2026.css','./spring-2026.css','./growth-2026.css','./typography-2026.css','./bazar.css','./app.css','./comments.css','./sutaz.css','./facebook-widget.css','./engagement.css','./product-2026.css','./recepty.css',
-  './radar-today.js','./radar.js','./zahrada.js','./studio-2026.js','./garden-tools.js','./home-engagement.js','./majster-tools.js','./cena-vyrobku.js','./cms-public.js','./blog.js','./blog-v18.js','./recepty.js','./prispevok.js','./bazar.js','./inzerat.js','./app.js','./comments.js','./sutaz.js','./moja-zahrada.js','./push.js','./facebook-widget.js',
+  './radar-today.js','./radar.js','./zahrada.js','./studio-2026.js','./garden-tools.js','./home-engagement.js','./majster-tools.js','./cena-vyrobku.js','./cms-public.js','./blog.js','./blog-v18.js','./recepty.js','./prispevok.js','./bazar-content.js','./bazar.js','./inzerat.js','./app.js','./comments.js','./sutaz.js','./moja-zahrada.js','./push.js','./facebook-widget.js',
   './zahrada.webmanifest','./offline.html','./favicon.ico','./favicon-48x48.png','./favicon.svg','./app-icon.svg','./app-icon-maskable.svg','./brand-mark.svg',
   './assets/radar-horna-orava-jesen.webp','./assets/hero-ziva-zahrada.webp','./assets/hero-ziva-zahrada-640.webp','./assets/posts/terasova-hojdacia-lavicka/hlavna.webp'
 ];
@@ -29,7 +29,7 @@ self.addEventListener('message',event=>{
 
 async function navigationResponse(request){
   try{
-    const fresh=await fetch(request);
+    const fresh=await fetch(request,{cache:'no-cache'});
     if(fresh&&fresh.ok){
       const cache=await caches.open(RUNTIME_CACHE);
       cache.put(request,fresh.clone());

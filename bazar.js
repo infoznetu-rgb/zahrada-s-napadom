@@ -94,7 +94,7 @@ function bindCategoryCards(){
 }
 
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
-function safeHttpUrl(value){try{const u=new URL(String(value||""),location.href);return u.protocol==="https:"||u.protocol==="http:"?u.href:""}catch{return""}}
+function safeHttpUrl(value){if(!String(value||"").trim())return"";try{const u=new URL(String(value||""),location.href);return u.protocol==="https:"||u.protocol==="http:"?u.href:""}catch{return""}}
 function euro(value){return new Intl.NumberFormat("sk-SK",{style:"currency",currency:"EUR",maximumFractionDigits:2}).format(Number(value)||0)}
 function dateSk(v){if(!v)return"";if(BazarContent.permanent(v))return"bez časového obmedzenia";if(!Number.isFinite(Date.parse(v)))return"";return new Intl.DateTimeFormat("sk-SK",{day:"numeric",month:"numeric",year:"numeric"}).format(new Date(v))}
 function setMessage(el,text,type=""){if(!el)return;el.textContent=text||"";el.className="bazar-form-message"+(type?" "+type:"")}
