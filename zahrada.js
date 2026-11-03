@@ -27,6 +27,14 @@ if(menu&&mobile){
 
 const form=document.querySelector('#idea-form');
 if(form){
+  const picker=form.querySelector('input[name="media"]');
+  picker?.addEventListener('change',()=>{
+    const status=form.querySelector('#idea-status');
+    if(!status)return;
+    status.classList.remove('error');
+    const files=Array.from(picker.files||[]);
+    status.textContent=files.length?`Vybrané súbory (${files.length}): ${files.map(file=>file.name).join(', ')}`:'Nie je vybraný žiadny súbor.';
+  });
   form.addEventListener('submit',(e)=>{
     e.preventDefault();
     submitCommunityIdea(form);
@@ -183,6 +191,7 @@ const PUBLIC_CMS_KEY="sb_publishable_xgl_GnkeKPFDCtyr1RtnnA_f6aaPdS4";
 const COMMUNITY_SUBMISSIONS_URL=PUBLIC_CMS_URL+"/rest/v1/zahrada_community_submissions";
 const COMMUNITY_FUNCTION_URL=PUBLIC_CMS_URL+"/functions/v1/community-submit";
 async function submitCommunityIdea(form){
+  if(form.dataset.submitting==="true")return;
   const status=form.querySelector("#idea-status"),button=form.querySelector('button[type="submit"]'),files=Array.from(form.querySelector('input[name="media"]')?.files||[]);
   const say=(message,error=false)=>{if(status){status.textContent=message;status.classList.toggle("error",error)}};
   if(files.length<1||files.length>3){say("Vyber 1 až 3 fotografie alebo videá.",true);return}
@@ -190,6 +199,8 @@ async function submitCommunityIdea(form){
   if(files.some(f=>!allowed.has(f.type.toLowerCase())||f.size<1000||f.size>8000000)){say("Každý súbor musí byť JPG, PNG, WebP, MP4, WebM alebo MOV do 8 MB.",true);return}
   if(files.reduce((n,f)=>n+f.size,0)>24000000){say("Súbory môžu mať spolu najviac 24 MB.",true);return}
   if(!form.reportValidity())return;
+  form.dataset.submitting="true";
+  form.setAttribute("aria-busy","true");
   if(button)button.disabled=true;say("Odosielam návrh…");
   try{
     const response=await fetch(COMMUNITY_FUNCTION_URL,{method:"POST",headers:{apikey:PUBLIC_CMS_KEY},body:new FormData(form)});
@@ -197,7 +208,7 @@ async function submitCommunityIdea(form){
     if(!response.ok||!result.ok)throw new Error(result.error||"Odoslanie sa nepodarilo. Skús to neskôr.");
     form.reset();say("Ďakujem! Nápad čaká na kontrolu. Zverejní sa až po schválení.");
   }catch(error){say(error?.message||"Odoslanie sa nepodarilo. Skús to neskôr.",true)}
-  finally{if(button)button.disabled=false}
+  finally{delete form.dataset.submitting;form.removeAttribute("aria-busy");if(button)button.disabled=false}
 }
 function renderCommunitySubmissions(items){
   const section=document.querySelector(".community-submissions"),list=document.querySelector("#community-submissions-list");

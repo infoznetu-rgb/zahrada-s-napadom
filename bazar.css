@@ -420,3 +420,8 @@
 .bazar-card h3, .bazar-card-text { overflow-wrap: anywhere; }
 .contact-link { max-width: 100%; box-sizing: border-box; }
 .detail-actions { flex-wrap: wrap; gap: 12px; }
+
+/* Keep the file picker in the keyboard and accessibility order. */
+.bazar-upload { position: relative; }
+.bazar-upload input[type="file"] { display: block; position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.bazar-upload:focus-within { outline: 3px solid #246d45; outline-offset: 4px; border-radius: 12px; }
