@@ -239,7 +239,7 @@ function renderPostRows(container,list){
     const viewHref=p._staticArticle?String(p.url||"../dielna-s-napadom/"):p._staticSeo?"../blog/"+encodeURIComponent(p.slug)+"/":"../prispevok.html?slug="+encodeURIComponent(p.slug);
     const typeLabel=p._staticArticle?"Projekt · stránka GitHub":p.content_type==="blog"?(isStatic?"Blog · SEO statický":"Blog"):"Projekt";
     return `<article class="post-row">
-      ${p.cover_url?`<img class="post-thumb" src="${esc(p.cover_url)}" alt="" onerror="this.onerror=null;this.src='../assets/blog/fallback-cover.svg'">`:'<div class="post-thumb"></div>'}
+      ${(p._staticArticle&&p.slug==="kovove-opory-pre-rastliny"?"/assets/posts/kovove-opory-pre-rastliny/hlavna.webp":p.cover_url)?`<img class="post-thumb" src="${esc(p._staticArticle&&p.slug==="kovove-opory-pre-rastliny"?"/assets/posts/kovove-opory-pre-rastliny/hlavna.webp":p.cover_url)}" alt="" loading="lazy" onerror="this.onerror=null;this.src='../assets/blog/fallback-cover.svg'">`:'<div class="post-thumb"></div>'}
       <div class="post-meta"><h4>${esc(p.title)}</h4><p>${typeLabel} · ${esc(p.category)} · ${formatDate(p.published_at||p.created_at)} · <span class="badge ${p.status}">${p.status==="published"?"Publikované":"Koncept"}</span></p></div>
       <div class="post-actions">${isStatic?(p._staticArticle?`<button class="mini-btn" data-workshop-images="${esc(p.slug)}" type="button">Fotografie</button>`:""):`<button class="mini-btn" data-edit-id="${p.id}">Upraviť</button>`}${p.status==="published"?`<a class="mini-btn" href="${esc(viewHref)}" target="_blank" rel="noopener">Pozrieť</a>`:""}</div>
     </article>`;
